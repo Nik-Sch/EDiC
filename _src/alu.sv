@@ -3,7 +3,7 @@ module alu(
   input wire[7:0] i_a,
   input wire[7:0] i_b,
   output wire[7:0] o_y,
-  input wire ce,
+  input wire i_oe,
 
   output wire o_negative,
   output wire o_zero,
@@ -18,7 +18,7 @@ logic[7:0] s_y;
 transceiver inst_tx(
   .a(s_y),
   .b(o_y),
-  .ce(ce)
+  .ce(i_oe)
 );
 
 assign o_negative = s_y[7];
