@@ -22,8 +22,8 @@ r0:=[r1]
   01: jump
     00Xr: pc := r
     01Xr: r := pc
-    10rs: jumpEqual: r - s == 0
-    11rs: jumpLess : r - s <  0
+    10rs: jumpEqual: r - s == 0 TODO
+    11rs: jumpLess : r - s <  0 TODO
 
 01: zero padded imm value
   im00mr: r := r +  imm

@@ -21,6 +21,7 @@
 !*.sv
 !*.bd
 !*.edif
+!generateControlStore.py
 #########
 #IP files
 #########

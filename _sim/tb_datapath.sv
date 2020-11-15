@@ -28,6 +28,9 @@ logic i_ctrlRamAddressEn = 0;
 logic i_ctrlRamWriteEn = 0;
 logic i_ctrlRamReadDataSelect = 0;
 logic i_ctrlRamOE = 0;
+logic i_ctrlLoadPC = 0;
+logic i_ctrlIncrPC = 0;
+logic i_ctrlPCOe = 0;
 
 datapath inst_datapath(
   .i_clk(clk),
@@ -48,6 +51,9 @@ datapath inst_datapath(
   .i_ctrlRamWriteEn(i_ctrlRamWriteEn),
   .i_ctrlRamReadDataSelect(i_ctrlRamReadDataSelect),
   .i_ctrlRamOE(i_ctrlRamOE),
+  .i_ctrlLoadPC(i_ctrlLoadPC),
+  .i_ctrlIncrPC(i_ctrlIncrPC),
+  .i_ctrlPCOe(i_ctrlPCOe),
 
   .i_busOverride(i_busOverride)
 );

@@ -1,7 +1,7 @@
 # compile verilog/system verilog design source files
 sv xil_defaultlib  \
 "../../../../../_src/alu.sv" \
-"../../../../../_src/transceiver.sv" \
+"../../../../../_src/transmitter.sv" \
 "../../../../../_sim/tb_alu.sv" \
 
 # compile glbl module

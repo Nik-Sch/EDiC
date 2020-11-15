@@ -19,7 +19,7 @@ logic[7:0] r_1;
 
 assign o_alu = i_aluSel ? r_1 : r_0;
 
-transceiver inst_tx(
+transmitter inst_tx(
   .a(i_busSel ? r_1 : r_0),
   .b(o_bus),
   .ce(i_busEn)

@@ -24,7 +24,7 @@ always @(posedge i_clk) begin
   end
 end
 
-transceiver inst_tx(
+transmitter inst_tx(
   .a(s_readData),
   .b(o_readData),
   .ce(i_outEnable)

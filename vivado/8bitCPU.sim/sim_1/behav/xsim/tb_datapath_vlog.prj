@@ -7,7 +7,7 @@ sv xil_defaultlib  \
 "../../../../../_src/datapath.sv" \
 "../../../../../_src/ram.sv" \
 "../../../../../_src/regset.sv" \
-"../../../../../_src/transceiver.sv" \
+"../../../../../_src/transmitter.sv" \
 "../../../../../_sim/tb_datapath.sv" \
 
 # compile glbl module

@@ -6,9 +6,8 @@ module datapath(
   output wire o_aluFlagZ,
 
   input wire i_ctrlAluOE,
-  input wire i_ctrlAluSub,
+  input wire i_ctrlAluSubShiftDir,
   input wire[1:0] i_ctrlAluOp,
-  input wire i_ctrlAluShiftLeft,
   input wire i_ctrlAluBWr,
 
   input wire i_ctrlRegWr0,
@@ -21,6 +20,10 @@ module datapath(
   input wire i_ctrlRamWriteEn,
   input wire i_ctrlRamReadDataSelect,
   input wire i_ctrlRamOE,
+
+  input wire i_ctrlLoadPC,
+  input wire i_ctrlIncrPC,
+  input wire i_ctrlPCOe,
 
   // only for debugging I guess
   input wire[7:0] i_busOverride = 8'bzzzz_zzzz
@@ -39,16 +42,21 @@ wire[7:0] s_ramAddress;
 wire[7:0] s_ramWriteData;
 wire[7:0] s_ramReadData;
 
+wire[7:0] s_pcAddr;
+wire[7:0] s_pcData;
+
 wire[7:0] s_BUS;
 
 assign s_BUS = i_busOverride;
 assign s_BUS = s_aluY;
 assign s_BUS = s_regBus;
 assign s_BUS = s_ramReadData;
+assign s_BUS = s_pcAddr;
 assign s_aluB = s_BUS;
 assign s_regData = s_BUS;
 assign s_ramAddress = s_BUS;
 assign s_ramWriteData = s_BUS;
+assign s_pcData = s_BUS;
 
 assign s_aluA = s_regAlu;
 
@@ -64,10 +72,9 @@ alu inst_alu(
   .o_zero(o_aluFlagZ),
 
   .i_oe(i_ctrlAluOE),
-  .i_sub(i_ctrlAluSub),
+  .i_sub(i_ctrlAluSubShiftDir),
   .i_aluOp(i_ctrlAluOp),
-  .i_bWr(i_ctrlAluBWr),
-  .i_shiftLeft(i_ctrlAluShiftLeft)
+  .i_bWr(i_ctrlAluBWr)
 );
 
 regset inst_regs(
@@ -99,6 +106,18 @@ ram inst_ram(
   .i_readDataSelect(i_ctrlRamReadDataSelect),
   .o_readData(s_ramReadData),
   .i_outEnable(i_ctrlRamOE)
+);
+
+pc inst_pc(
+  .i_clk(i_clk),
+  .i_reset(i_reset),
+
+  .i_data(s_pcData),
+  .i_loadData(i_ctrlLoadPC),
+  .i_incr(i_ctrlIncrPC),
+  .i_oe(i_ctrlPCOe),
+  .o_addr(s_pcAddr)
+
 );
 
 endmodule
