@@ -1,10 +1,10 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-// Date        : Sun Nov 15 15:05:16 2020
+// Date        : Sun Nov 15 15:05:15 2020
 // Host        : niklasPC running 64-bit Manjaro Linux
-// Command     : write_verilog -force -mode funcsim
-//               /home/niklas/dev/8bitCpu/vivado/8bitCPU.runs/dist_mem_gen_0_synth_1/dist_mem_gen_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
+//               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ dist_mem_gen_0_sim_netlist.v
 // Design      : dist_mem_gen_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -14,7 +14,7 @@
 
 (* CHECK_LICENSE_TYPE = "dist_mem_gen_0,dist_mem_gen_v8_0_13,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "dist_mem_gen_v8_0_13,Vivado 2020.1" *) 
 (* NotValidForBitStream *)
-module dist_mem_gen_0
+module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
    (a,
     d,
     dpra,
@@ -71,7 +71,7 @@ module dist_mem_gen_0
   (* c_reg_a_d_inputs = "0" *) 
   (* c_sync_enable = "1" *) 
   (* c_width = "8" *) 
-  dist_mem_gen_0_dist_mem_gen_v8_0_13 U0
+  decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_dist_mem_gen_v8_0_13 U0
        (.a(a),
         .clk(clk),
         .d(d),
@@ -101,8 +101,8 @@ endmodule
 (* C_MEM_INIT_FILE = "no_coe_file_loaded" *) (* C_MEM_TYPE = "4" *) (* C_PARSER_TYPE = "1" *) 
 (* C_PIPELINE_STAGES = "0" *) (* C_QCE_JOINED = "0" *) (* C_QUALIFY_WE = "0" *) 
 (* C_READ_MIF = "0" *) (* C_REG_A_D_INPUTS = "0" *) (* C_REG_DPRA_INPUT = "0" *) 
-(* C_SYNC_ENABLE = "1" *) (* C_WIDTH = "8" *) (* ORIG_REF_NAME = "dist_mem_gen_v8_0_13" *) 
-module dist_mem_gen_0_dist_mem_gen_v8_0_13
+(* C_SYNC_ENABLE = "1" *) (* C_WIDTH = "8" *) 
+module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_dist_mem_gen_v8_0_13
    (a,
     d,
     dpra,
@@ -172,7 +172,7 @@ module dist_mem_gen_0_dist_mem_gen_v8_0_13
   assign spo[0] = \<const0> ;
   GND GND
        (.G(\<const0> ));
-  dist_mem_gen_0_dist_mem_gen_v8_0_13_synth \synth_options.dist_mem_inst 
+  decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_dist_mem_gen_v8_0_13_synth \synth_options.dist_mem_inst 
        (.a(a),
         .clk(clk),
         .d(d),
@@ -181,8 +181,7 @@ module dist_mem_gen_0_dist_mem_gen_v8_0_13
         .we(we));
 endmodule
 
-(* ORIG_REF_NAME = "dist_mem_gen_v8_0_13_synth" *) 
-module dist_mem_gen_0_dist_mem_gen_v8_0_13_synth
+module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_dist_mem_gen_v8_0_13_synth
    (dpo,
     clk,
     d,
@@ -203,7 +202,7 @@ module dist_mem_gen_0_dist_mem_gen_v8_0_13_synth
   wire [8:0]dpra;
   wire we;
 
-  dist_mem_gen_0_sdpram \gen_sdp_ram.sdpram_inst 
+  decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_sdpram \gen_sdp_ram.sdpram_inst 
        (.a(a),
         .clk(clk),
         .d(d),
@@ -212,8 +211,7 @@ module dist_mem_gen_0_dist_mem_gen_v8_0_13_synth
         .we(we));
 endmodule
 
-(* ORIG_REF_NAME = "sdpram" *) 
-module dist_mem_gen_0_sdpram
+module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_sdpram
    (dpo,
     clk,
     d,

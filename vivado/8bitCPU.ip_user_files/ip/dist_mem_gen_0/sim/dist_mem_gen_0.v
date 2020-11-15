@@ -62,18 +62,18 @@ module dist_mem_gen_0 (
   dpo
 );
 
-input wire [9 : 0] a;
+input wire [8 : 0] a;
 input wire [7 : 0] d;
-input wire [9 : 0] dpra;
+input wire [8 : 0] dpra;
 input wire clk;
 input wire we;
 output wire [7 : 0] dpo;
 
   dist_mem_gen_v8_0_13 #(
     .C_FAMILY("spartan7"),
-    .C_ADDR_WIDTH(10),
+    .C_ADDR_WIDTH(9),
     .C_DEFAULT_DATA("0"),
-    .C_DEPTH(1024),
+    .C_DEPTH(512),
     .C_HAS_CLK(1),
     .C_HAS_D(1),
     .C_HAS_DPO(1),

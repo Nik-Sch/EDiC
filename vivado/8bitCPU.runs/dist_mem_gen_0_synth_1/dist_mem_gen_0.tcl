@@ -156,32 +156,25 @@ create_report "dist_mem_gen_0_synth_1_synth_report_utilization_0" "report_utiliz
 OPTRACE "synth reports" END { }
 
 if { [catch {
-  file copy -force /home/niklas/dev/8bitCpu/vivado/8bitCPU.runs/dist_mem_gen_0_synth_1/dist_mem_gen_0.dcp /home/niklas/dev/8bitCpu/vivado/8bitCPU.srcs/sources_1/ip/dist_mem_gen_0/dist_mem_gen_0.dcp
-} _RESULT ] } { 
-  send_msg_id runtcl-3 error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
-  error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
-}
-
-if { [catch {
-  write_verilog -force -mode synth_stub /home/niklas/dev/8bitCpu/vivado/8bitCPU.srcs/sources_1/ip/dist_mem_gen_0/dist_mem_gen_0_stub.v
+  write_verilog -force -mode synth_stub /home/niklas/dev/8bitCpu/vivado/8bitCPU.runs/dist_mem_gen_0_synth_1/dist_mem_gen_0_stub.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a Verilog synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode synth_stub /home/niklas/dev/8bitCpu/vivado/8bitCPU.srcs/sources_1/ip/dist_mem_gen_0/dist_mem_gen_0_stub.vhdl
+  write_vhdl -force -mode synth_stub /home/niklas/dev/8bitCpu/vivado/8bitCPU.runs/dist_mem_gen_0_synth_1/dist_mem_gen_0_stub.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a VHDL synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_verilog -force -mode funcsim /home/niklas/dev/8bitCpu/vivado/8bitCPU.srcs/sources_1/ip/dist_mem_gen_0/dist_mem_gen_0_sim_netlist.v
+  write_verilog -force -mode funcsim /home/niklas/dev/8bitCpu/vivado/8bitCPU.runs/dist_mem_gen_0_synth_1/dist_mem_gen_0_sim_netlist.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the Verilog functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode funcsim /home/niklas/dev/8bitCpu/vivado/8bitCPU.srcs/sources_1/ip/dist_mem_gen_0/dist_mem_gen_0_sim_netlist.vhdl
+  write_vhdl -force -mode funcsim /home/niklas/dev/8bitCpu/vivado/8bitCPU.runs/dist_mem_gen_0_synth_1/dist_mem_gen_0_sim_netlist.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
@@ -190,48 +183,39 @@ if { [catch {
 } else {
 
 
-if { [catch {
-  file copy -force /home/niklas/dev/8bitCpu/vivado/8bitCPU.runs/dist_mem_gen_0_synth_1/dist_mem_gen_0.dcp /home/niklas/dev/8bitCpu/vivado/8bitCPU.srcs/sources_1/ip/dist_mem_gen_0/dist_mem_gen_0.dcp
-} _RESULT ] } { 
-  send_msg_id runtcl-3 error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
-  error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
-}
-
-if { [catch {
-  file rename -force /home/niklas/dev/8bitCpu/vivado/8bitCPU.runs/dist_mem_gen_0_synth_1/dist_mem_gen_0_stub.v /home/niklas/dev/8bitCpu/vivado/8bitCPU.srcs/sources_1/ip/dist_mem_gen_0/dist_mem_gen_0_stub.v
-} _RESULT ] } { 
-  puts "CRITICAL WARNING: Unable to successfully create a Verilog synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
-}
-
-if { [catch {
-  file rename -force /home/niklas/dev/8bitCpu/vivado/8bitCPU.runs/dist_mem_gen_0_synth_1/dist_mem_gen_0_stub.vhdl /home/niklas/dev/8bitCpu/vivado/8bitCPU.srcs/sources_1/ip/dist_mem_gen_0/dist_mem_gen_0_stub.vhdl
-} _RESULT ] } { 
-  puts "CRITICAL WARNING: Unable to successfully create a VHDL synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
-}
-
-if { [catch {
-  file rename -force /home/niklas/dev/8bitCpu/vivado/8bitCPU.runs/dist_mem_gen_0_synth_1/dist_mem_gen_0_sim_netlist.v /home/niklas/dev/8bitCpu/vivado/8bitCPU.srcs/sources_1/ip/dist_mem_gen_0/dist_mem_gen_0_sim_netlist.v
-} _RESULT ] } { 
-  puts "CRITICAL WARNING: Unable to successfully create the Verilog functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
-}
-
-if { [catch {
-  file rename -force /home/niklas/dev/8bitCpu/vivado/8bitCPU.runs/dist_mem_gen_0_synth_1/dist_mem_gen_0_sim_netlist.vhdl /home/niklas/dev/8bitCpu/vivado/8bitCPU.srcs/sources_1/ip/dist_mem_gen_0/dist_mem_gen_0_sim_netlist.vhdl
-} _RESULT ] } { 
-  puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
-}
-
 }; # end if cached_ip 
+
+add_files /home/niklas/dev/8bitCpu/vivado/8bitCPU.runs/dist_mem_gen_0_synth_1/dist_mem_gen_0_stub.v -of_objects [get_files /home/niklas/dev/8bitCpu/vivado/8bitCPU.srcs/sources_1/ip/dist_mem_gen_0/dist_mem_gen_0.xci]
+
+add_files /home/niklas/dev/8bitCpu/vivado/8bitCPU.runs/dist_mem_gen_0_synth_1/dist_mem_gen_0_stub.vhdl -of_objects [get_files /home/niklas/dev/8bitCpu/vivado/8bitCPU.srcs/sources_1/ip/dist_mem_gen_0/dist_mem_gen_0.xci]
+
+add_files /home/niklas/dev/8bitCpu/vivado/8bitCPU.runs/dist_mem_gen_0_synth_1/dist_mem_gen_0_sim_netlist.v -of_objects [get_files /home/niklas/dev/8bitCpu/vivado/8bitCPU.srcs/sources_1/ip/dist_mem_gen_0/dist_mem_gen_0.xci]
+
+add_files /home/niklas/dev/8bitCpu/vivado/8bitCPU.runs/dist_mem_gen_0_synth_1/dist_mem_gen_0_sim_netlist.vhdl -of_objects [get_files /home/niklas/dev/8bitCpu/vivado/8bitCPU.srcs/sources_1/ip/dist_mem_gen_0/dist_mem_gen_0.xci]
+
+add_files /home/niklas/dev/8bitCpu/vivado/8bitCPU.runs/dist_mem_gen_0_synth_1/dist_mem_gen_0.dcp -of_objects [get_files /home/niklas/dev/8bitCpu/vivado/8bitCPU.srcs/sources_1/ip/dist_mem_gen_0/dist_mem_gen_0.xci]
 
 if {[file isdir /home/niklas/dev/8bitCpu/vivado/8bitCPU.ip_user_files/ip/dist_mem_gen_0]} {
   catch { 
-    file copy -force /home/niklas/dev/8bitCpu/vivado/8bitCPU.srcs/sources_1/ip/dist_mem_gen_0/dist_mem_gen_0_stub.v /home/niklas/dev/8bitCpu/vivado/8bitCPU.ip_user_files/ip/dist_mem_gen_0
+    file copy -force /home/niklas/dev/8bitCpu/vivado/8bitCPU.runs/dist_mem_gen_0_synth_1/dist_mem_gen_0_sim_netlist.v /home/niklas/dev/8bitCpu/vivado/8bitCPU.ip_user_files/ip/dist_mem_gen_0
   }
 }
 
 if {[file isdir /home/niklas/dev/8bitCpu/vivado/8bitCPU.ip_user_files/ip/dist_mem_gen_0]} {
   catch { 
-    file copy -force /home/niklas/dev/8bitCpu/vivado/8bitCPU.srcs/sources_1/ip/dist_mem_gen_0/dist_mem_gen_0_stub.vhdl /home/niklas/dev/8bitCpu/vivado/8bitCPU.ip_user_files/ip/dist_mem_gen_0
+    file copy -force /home/niklas/dev/8bitCpu/vivado/8bitCPU.runs/dist_mem_gen_0_synth_1/dist_mem_gen_0_sim_netlist.vhdl /home/niklas/dev/8bitCpu/vivado/8bitCPU.ip_user_files/ip/dist_mem_gen_0
+  }
+}
+
+if {[file isdir /home/niklas/dev/8bitCpu/vivado/8bitCPU.ip_user_files/ip/dist_mem_gen_0]} {
+  catch { 
+    file copy -force /home/niklas/dev/8bitCpu/vivado/8bitCPU.runs/dist_mem_gen_0_synth_1/dist_mem_gen_0_stub.v /home/niklas/dev/8bitCpu/vivado/8bitCPU.ip_user_files/ip/dist_mem_gen_0
+  }
+}
+
+if {[file isdir /home/niklas/dev/8bitCpu/vivado/8bitCPU.ip_user_files/ip/dist_mem_gen_0]} {
+  catch { 
+    file copy -force /home/niklas/dev/8bitCpu/vivado/8bitCPU.runs/dist_mem_gen_0_synth_1/dist_mem_gen_0_stub.vhdl /home/niklas/dev/8bitCpu/vivado/8bitCPU.ip_user_files/ip/dist_mem_gen_0
   }
 }
 file delete __synthesis_is_running__
