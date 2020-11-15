@@ -20,7 +20,7 @@ module control(
 
   output wire o_ctrlRamAddressEn,
   output wire o_ctrlRamWriteEn,
-  output wire o_ctrlRamReadDataSelect, // not in rom?
+  output wire o_ctrlRamReadDataSelect,
   output wire o_ctrlRamOE,
 
   output wire o_ctrlLoadPC,
@@ -43,17 +43,18 @@ o_ctrlRamOE, o_ctrlLoadPC, o_ctrlIncrPC, o_ctrlPCOe} = s_controlSignals;
 
 assign o_ctrlRamReadDataSelect = r_step <= 1 ? 1 : 0;
 
-always @(posedge clk) begin
+always @(posedge i_clk) begin
   r_step <= r_step + 1;
-  if (r_step === 1) begin
+  if (r_step === 2) begin
     r_instruction <= i_instruction;
   end
-  if (r_step === 3) begin
+  if (r_step === 4) begin
     r_step <= 0;
   end
 
   if (i_reset) begin
-    r_step <= 4;
+    r_step <= 0;
+    r_instruction <= 0;
   end
 end
 

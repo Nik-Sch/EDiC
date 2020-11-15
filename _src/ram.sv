@@ -20,7 +20,7 @@ always @(posedge i_clk) begin
     r_address <= i_address;
   end
   if (i_reset) begin
-    r_address <= 0;
+    r_address <= 'hff;
   end
 end
 

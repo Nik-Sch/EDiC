@@ -79,8 +79,8 @@ with open(sys.argv[1], 'rb') as fin:
     for i in range(fetchLen):
         fetch.insert(i, controlSignalsToHex(data['instructionFetch'][i]))
     for i in range(2**11):
-      if i % 4 < fetchLen:
-        fout.write(f"{fetch[i % 4]:04x}\n")
+      if i % 8 < fetchLen:
+        fout.write(f"{fetch[i % 8]:04x}\n")
       elif i in memory.keys():
         fout.write(f"{memory[i]:04x}\n")
       else:

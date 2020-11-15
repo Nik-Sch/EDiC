@@ -72,7 +72,7 @@ output wire [7 : 0] dpo;
   dist_mem_gen_v8_0_13 #(
     .C_FAMILY("spartan7"),
     .C_ADDR_WIDTH(9),
-    .C_DEFAULT_DATA("0"),
+    .C_DEFAULT_DATA("11111111"),
     .C_DEPTH(512),
     .C_HAS_CLK(1),
     .C_HAS_D(1),

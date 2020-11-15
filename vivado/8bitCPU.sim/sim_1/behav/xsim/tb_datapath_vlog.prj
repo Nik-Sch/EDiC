@@ -1,10 +1,13 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  \
 "../../../../8bitCPU.ip_user_files/ip/dist_mem_gen_0/sim/dist_mem_gen_0.v" \
+"../../../../8bitCPU.ip_user_files/ip/dist_mem_gen_1/sim/dist_mem_gen_1.v" \
 
 sv xil_defaultlib  \
 "../../../../../_src/alu.sv" \
+"../../../../../_src/control.sv" \
 "../../../../../_src/datapath.sv" \
+"../../../../../_src/pc.sv" \
 "../../../../../_src/ram.sv" \
 "../../../../../_src/regset.sv" \
 "../../../../../_src/transmitter.sv" \

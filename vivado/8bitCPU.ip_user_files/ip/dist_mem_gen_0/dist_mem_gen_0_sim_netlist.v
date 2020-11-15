@@ -1,7 +1,7 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-// Date        : Sun Nov 15 15:21:42 2020
+// Date        : Sun Nov 15 23:27:50 2020
 // Host        : niklasPC running 64-bit Manjaro Linux
 // Command     : write_verilog -force -mode funcsim
 //               /home/niklas/dev/8bitCpu/vivado/8bitCPU.runs/dist_mem_gen_0_synth_1/dist_mem_gen_0_sim_netlist.v
@@ -57,7 +57,7 @@ module dist_mem_gen_0
   (* C_REG_DPRA_INPUT = "0" *) 
   (* KEEP_HIERARCHY = "soft" *) 
   (* c_addr_width = "9" *) 
-  (* c_default_data = "0" *) 
+  (* c_default_data = "11111111" *) 
   (* c_depth = "512" *) 
   (* c_elaboration_dir = "./" *) 
   (* c_has_i_ce = "0" *) 
@@ -91,7 +91,7 @@ module dist_mem_gen_0
         .we(we));
 endmodule
 
-(* C_ADDR_WIDTH = "9" *) (* C_DEFAULT_DATA = "0" *) (* C_DEPTH = "512" *) 
+(* C_ADDR_WIDTH = "9" *) (* C_DEFAULT_DATA = "11111111" *) (* C_DEPTH = "512" *) 
 (* C_ELABORATION_DIR = "./" *) (* C_FAMILY = "spartan7" *) (* C_HAS_CLK = "1" *) 
 (* C_HAS_D = "1" *) (* C_HAS_DPO = "1" *) (* C_HAS_DPRA = "1" *) 
 (* C_HAS_I_CE = "0" *) (* C_HAS_QDPO = "0" *) (* C_HAS_QDPO_CE = "0" *) 
@@ -558,7 +558,7 @@ module dist_mem_gen_0_sdpram
   (* KEEP = "yes" *) 
   (* equivalent_register_removal = "no" *) 
   FDRE #(
-    .INIT(1'b0)) 
+    .INIT(1'b1)) 
     \qsdpo_int_reg[0] 
        (.C(clk),
         .CE(1'b1),
@@ -568,7 +568,7 @@ module dist_mem_gen_0_sdpram
   (* KEEP = "yes" *) 
   (* equivalent_register_removal = "no" *) 
   FDRE #(
-    .INIT(1'b0)) 
+    .INIT(1'b1)) 
     \qsdpo_int_reg[1] 
        (.C(clk),
         .CE(1'b1),
@@ -578,7 +578,7 @@ module dist_mem_gen_0_sdpram
   (* KEEP = "yes" *) 
   (* equivalent_register_removal = "no" *) 
   FDRE #(
-    .INIT(1'b0)) 
+    .INIT(1'b1)) 
     \qsdpo_int_reg[2] 
        (.C(clk),
         .CE(1'b1),
@@ -588,7 +588,7 @@ module dist_mem_gen_0_sdpram
   (* KEEP = "yes" *) 
   (* equivalent_register_removal = "no" *) 
   FDRE #(
-    .INIT(1'b0)) 
+    .INIT(1'b1)) 
     \qsdpo_int_reg[3] 
        (.C(clk),
         .CE(1'b1),
@@ -598,7 +598,7 @@ module dist_mem_gen_0_sdpram
   (* KEEP = "yes" *) 
   (* equivalent_register_removal = "no" *) 
   FDRE #(
-    .INIT(1'b0)) 
+    .INIT(1'b1)) 
     \qsdpo_int_reg[4] 
        (.C(clk),
         .CE(1'b1),
@@ -608,7 +608,7 @@ module dist_mem_gen_0_sdpram
   (* KEEP = "yes" *) 
   (* equivalent_register_removal = "no" *) 
   FDRE #(
-    .INIT(1'b0)) 
+    .INIT(1'b1)) 
     \qsdpo_int_reg[5] 
        (.C(clk),
         .CE(1'b1),
@@ -618,7 +618,7 @@ module dist_mem_gen_0_sdpram
   (* KEEP = "yes" *) 
   (* equivalent_register_removal = "no" *) 
   FDRE #(
-    .INIT(1'b0)) 
+    .INIT(1'b1)) 
     \qsdpo_int_reg[6] 
        (.C(clk),
         .CE(1'b1),
@@ -628,7 +628,7 @@ module dist_mem_gen_0_sdpram
   (* KEEP = "yes" *) 
   (* equivalent_register_removal = "no" *) 
   FDRE #(
-    .INIT(1'b0)) 
+    .INIT(1'b1)) 
     \qsdpo_int_reg[7] 
        (.C(clk),
         .CE(1'b1),
@@ -645,9 +645,9 @@ module dist_mem_gen_0_sdpram
   (* ram_slice_begin = "0" *) 
   (* ram_slice_end = "2" *) 
   RAM64M #(
-    .INIT_A(64'h0000000000000000),
-    .INIT_B(64'h0000000000000000),
-    .INIT_C(64'h0000000000000000),
+    .INIT_A(64'hFFFFFFFFFFFFFFFD),
+    .INIT_B(64'hFFFFFFFFFFFFFFFE),
+    .INIT_C(64'hFFFFFFFFFFFFFFFC),
     .INIT_D(64'h0000000000000000)) 
     ram_reg_0_63_0_2
        (.ADDRA(dpra[5:0]),
@@ -682,9 +682,9 @@ module dist_mem_gen_0_sdpram
   (* ram_slice_begin = "3" *) 
   (* ram_slice_end = "5" *) 
   RAM64M #(
-    .INIT_A(64'h0000000000000000),
-    .INIT_B(64'h0000000000000000),
-    .INIT_C(64'h0000000000000000),
+    .INIT_A(64'hFFFFFFFFFFFFFFFC),
+    .INIT_B(64'hFFFFFFFFFFFFFFFC),
+    .INIT_C(64'hFFFFFFFFFFFFFFFC),
     .INIT_D(64'h0000000000000000)) 
     ram_reg_0_63_3_5
        (.ADDRA(dpra[5:0]),
@@ -710,7 +710,7 @@ module dist_mem_gen_0_sdpram
   (* ram_slice_begin = "6" *) 
   (* ram_slice_end = "6" *) 
   RAM64X1D #(
-    .INIT(64'h0000000000000000)) 
+    .INIT(64'hFFFFFFFFFFFFFFFC)) 
     ram_reg_0_63_6_6
        (.A0(a[0]),
         .A1(a[1]),
@@ -738,7 +738,7 @@ module dist_mem_gen_0_sdpram
   (* ram_slice_begin = "7" *) 
   (* ram_slice_end = "7" *) 
   RAM64X1D #(
-    .INIT(64'h0000000000000000)) 
+    .INIT(64'hFFFFFFFFFFFFFFFC)) 
     ram_reg_0_63_7_7
        (.A0(a[0]),
         .A1(a[1]),
@@ -767,9 +767,9 @@ module dist_mem_gen_0_sdpram
   (* ram_slice_begin = "0" *) 
   (* ram_slice_end = "2" *) 
   RAM64M #(
-    .INIT_A(64'h0000000000000000),
-    .INIT_B(64'h0000000000000000),
-    .INIT_C(64'h0000000000000000),
+    .INIT_A(64'hFFFFFFFFFFFFFFFF),
+    .INIT_B(64'hFFFFFFFFFFFFFFFF),
+    .INIT_C(64'hFFFFFFFFFFFFFFFF),
     .INIT_D(64'h0000000000000000)) 
     ram_reg_128_191_0_2
        (.ADDRA(dpra[5:0]),
@@ -804,9 +804,9 @@ module dist_mem_gen_0_sdpram
   (* ram_slice_begin = "3" *) 
   (* ram_slice_end = "5" *) 
   RAM64M #(
-    .INIT_A(64'h0000000000000000),
-    .INIT_B(64'h0000000000000000),
-    .INIT_C(64'h0000000000000000),
+    .INIT_A(64'hFFFFFFFFFFFFFFFF),
+    .INIT_B(64'hFFFFFFFFFFFFFFFF),
+    .INIT_C(64'hFFFFFFFFFFFFFFFF),
     .INIT_D(64'h0000000000000000)) 
     ram_reg_128_191_3_5
        (.ADDRA(dpra[5:0]),
@@ -832,7 +832,7 @@ module dist_mem_gen_0_sdpram
   (* ram_slice_begin = "6" *) 
   (* ram_slice_end = "6" *) 
   RAM64X1D #(
-    .INIT(64'h0000000000000000)) 
+    .INIT(64'hFFFFFFFFFFFFFFFF)) 
     ram_reg_128_191_6_6
        (.A0(a[0]),
         .A1(a[1]),
@@ -860,7 +860,7 @@ module dist_mem_gen_0_sdpram
   (* ram_slice_begin = "7" *) 
   (* ram_slice_end = "7" *) 
   RAM64X1D #(
-    .INIT(64'h0000000000000000)) 
+    .INIT(64'hFFFFFFFFFFFFFFFF)) 
     ram_reg_128_191_7_7
        (.A0(a[0]),
         .A1(a[1]),
@@ -889,9 +889,9 @@ module dist_mem_gen_0_sdpram
   (* ram_slice_begin = "0" *) 
   (* ram_slice_end = "2" *) 
   RAM64M #(
-    .INIT_A(64'h0000000000000000),
-    .INIT_B(64'h0000000000000000),
-    .INIT_C(64'h0000000000000000),
+    .INIT_A(64'hFFFFFFFFFFFFFFFF),
+    .INIT_B(64'hFFFFFFFFFFFFFFFF),
+    .INIT_C(64'hFFFFFFFFFFFFFFFF),
     .INIT_D(64'h0000000000000000)) 
     ram_reg_192_255_0_2
        (.ADDRA(dpra[5:0]),
@@ -926,9 +926,9 @@ module dist_mem_gen_0_sdpram
   (* ram_slice_begin = "3" *) 
   (* ram_slice_end = "5" *) 
   RAM64M #(
-    .INIT_A(64'h0000000000000000),
-    .INIT_B(64'h0000000000000000),
-    .INIT_C(64'h0000000000000000),
+    .INIT_A(64'hFFFFFFFFFFFFFFFF),
+    .INIT_B(64'hFFFFFFFFFFFFFFFF),
+    .INIT_C(64'hFFFFFFFFFFFFFFFF),
     .INIT_D(64'h0000000000000000)) 
     ram_reg_192_255_3_5
        (.ADDRA(dpra[5:0]),
@@ -954,7 +954,7 @@ module dist_mem_gen_0_sdpram
   (* ram_slice_begin = "6" *) 
   (* ram_slice_end = "6" *) 
   RAM64X1D #(
-    .INIT(64'h0000000000000000)) 
+    .INIT(64'hFFFFFFFFFFFFFFFF)) 
     ram_reg_192_255_6_6
        (.A0(a[0]),
         .A1(a[1]),
@@ -982,7 +982,7 @@ module dist_mem_gen_0_sdpram
   (* ram_slice_begin = "7" *) 
   (* ram_slice_end = "7" *) 
   RAM64X1D #(
-    .INIT(64'h0000000000000000)) 
+    .INIT(64'hFFFFFFFFFFFFFFFF)) 
     ram_reg_192_255_7_7
        (.A0(a[0]),
         .A1(a[1]),
@@ -1011,9 +1011,9 @@ module dist_mem_gen_0_sdpram
   (* ram_slice_begin = "0" *) 
   (* ram_slice_end = "2" *) 
   RAM64M #(
-    .INIT_A(64'h0000000000000000),
-    .INIT_B(64'h0000000000000000),
-    .INIT_C(64'h0000000000000000),
+    .INIT_A(64'hFFFFFFFFFFFFFFFF),
+    .INIT_B(64'hFFFFFFFFFFFFFFFF),
+    .INIT_C(64'hFFFFFFFFFFFFFFFF),
     .INIT_D(64'h0000000000000000)) 
     ram_reg_256_319_0_2
        (.ADDRA(dpra[5:0]),
@@ -1048,9 +1048,9 @@ module dist_mem_gen_0_sdpram
   (* ram_slice_begin = "3" *) 
   (* ram_slice_end = "5" *) 
   RAM64M #(
-    .INIT_A(64'h0000000000000000),
-    .INIT_B(64'h0000000000000000),
-    .INIT_C(64'h0000000000000000),
+    .INIT_A(64'hFFFFFFFFFFFFFFFF),
+    .INIT_B(64'hFFFFFFFFFFFFFFFF),
+    .INIT_C(64'hFFFFFFFFFFFFFFFF),
     .INIT_D(64'h0000000000000000)) 
     ram_reg_256_319_3_5
        (.ADDRA(dpra[5:0]),
@@ -1076,7 +1076,7 @@ module dist_mem_gen_0_sdpram
   (* ram_slice_begin = "6" *) 
   (* ram_slice_end = "6" *) 
   RAM64X1D #(
-    .INIT(64'h0000000000000000)) 
+    .INIT(64'hFFFFFFFFFFFFFFFF)) 
     ram_reg_256_319_6_6
        (.A0(a[0]),
         .A1(a[1]),
@@ -1104,7 +1104,7 @@ module dist_mem_gen_0_sdpram
   (* ram_slice_begin = "7" *) 
   (* ram_slice_end = "7" *) 
   RAM64X1D #(
-    .INIT(64'h0000000000000000)) 
+    .INIT(64'hFFFFFFFFFFFFFFFF)) 
     ram_reg_256_319_7_7
        (.A0(a[0]),
         .A1(a[1]),
@@ -1133,9 +1133,9 @@ module dist_mem_gen_0_sdpram
   (* ram_slice_begin = "0" *) 
   (* ram_slice_end = "2" *) 
   RAM64M #(
-    .INIT_A(64'h0000000000000000),
-    .INIT_B(64'h0000000000000000),
-    .INIT_C(64'h0000000000000000),
+    .INIT_A(64'hFFFFFFFFFFFFFFFF),
+    .INIT_B(64'hFFFFFFFFFFFFFFFF),
+    .INIT_C(64'hFFFFFFFFFFFFFFFF),
     .INIT_D(64'h0000000000000000)) 
     ram_reg_320_383_0_2
        (.ADDRA(dpra[5:0]),
@@ -1170,9 +1170,9 @@ module dist_mem_gen_0_sdpram
   (* ram_slice_begin = "3" *) 
   (* ram_slice_end = "5" *) 
   RAM64M #(
-    .INIT_A(64'h0000000000000000),
-    .INIT_B(64'h0000000000000000),
-    .INIT_C(64'h0000000000000000),
+    .INIT_A(64'hFFFFFFFFFFFFFFFF),
+    .INIT_B(64'hFFFFFFFFFFFFFFFF),
+    .INIT_C(64'hFFFFFFFFFFFFFFFF),
     .INIT_D(64'h0000000000000000)) 
     ram_reg_320_383_3_5
        (.ADDRA(dpra[5:0]),
@@ -1198,7 +1198,7 @@ module dist_mem_gen_0_sdpram
   (* ram_slice_begin = "6" *) 
   (* ram_slice_end = "6" *) 
   RAM64X1D #(
-    .INIT(64'h0000000000000000)) 
+    .INIT(64'hFFFFFFFFFFFFFFFF)) 
     ram_reg_320_383_6_6
        (.A0(a[0]),
         .A1(a[1]),
@@ -1226,7 +1226,7 @@ module dist_mem_gen_0_sdpram
   (* ram_slice_begin = "7" *) 
   (* ram_slice_end = "7" *) 
   RAM64X1D #(
-    .INIT(64'h0000000000000000)) 
+    .INIT(64'hFFFFFFFFFFFFFFFF)) 
     ram_reg_320_383_7_7
        (.A0(a[0]),
         .A1(a[1]),
@@ -1255,9 +1255,9 @@ module dist_mem_gen_0_sdpram
   (* ram_slice_begin = "0" *) 
   (* ram_slice_end = "2" *) 
   RAM64M #(
-    .INIT_A(64'h0000000000000000),
-    .INIT_B(64'h0000000000000000),
-    .INIT_C(64'h0000000000000000),
+    .INIT_A(64'hFFFFFFFFFFFFFFFF),
+    .INIT_B(64'hFFFFFFFFFFFFFFFF),
+    .INIT_C(64'hFFFFFFFFFFFFFFFF),
     .INIT_D(64'h0000000000000000)) 
     ram_reg_384_447_0_2
        (.ADDRA(dpra[5:0]),
@@ -1292,9 +1292,9 @@ module dist_mem_gen_0_sdpram
   (* ram_slice_begin = "3" *) 
   (* ram_slice_end = "5" *) 
   RAM64M #(
-    .INIT_A(64'h0000000000000000),
-    .INIT_B(64'h0000000000000000),
-    .INIT_C(64'h0000000000000000),
+    .INIT_A(64'hFFFFFFFFFFFFFFFF),
+    .INIT_B(64'hFFFFFFFFFFFFFFFF),
+    .INIT_C(64'hFFFFFFFFFFFFFFFF),
     .INIT_D(64'h0000000000000000)) 
     ram_reg_384_447_3_5
        (.ADDRA(dpra[5:0]),
@@ -1320,7 +1320,7 @@ module dist_mem_gen_0_sdpram
   (* ram_slice_begin = "6" *) 
   (* ram_slice_end = "6" *) 
   RAM64X1D #(
-    .INIT(64'h0000000000000000)) 
+    .INIT(64'hFFFFFFFFFFFFFFFF)) 
     ram_reg_384_447_6_6
        (.A0(a[0]),
         .A1(a[1]),
@@ -1348,7 +1348,7 @@ module dist_mem_gen_0_sdpram
   (* ram_slice_begin = "7" *) 
   (* ram_slice_end = "7" *) 
   RAM64X1D #(
-    .INIT(64'h0000000000000000)) 
+    .INIT(64'hFFFFFFFFFFFFFFFF)) 
     ram_reg_384_447_7_7
        (.A0(a[0]),
         .A1(a[1]),
@@ -1377,9 +1377,9 @@ module dist_mem_gen_0_sdpram
   (* ram_slice_begin = "0" *) 
   (* ram_slice_end = "2" *) 
   RAM64M #(
-    .INIT_A(64'h0000000000000000),
-    .INIT_B(64'h0000000000000000),
-    .INIT_C(64'h0000000000000000),
+    .INIT_A(64'hFFFFFFFFFFFFFFFF),
+    .INIT_B(64'hFFFFFFFFFFFFFFFF),
+    .INIT_C(64'hFFFFFFFFFFFFFFFF),
     .INIT_D(64'h0000000000000000)) 
     ram_reg_448_511_0_2
        (.ADDRA(dpra[5:0]),
@@ -1414,9 +1414,9 @@ module dist_mem_gen_0_sdpram
   (* ram_slice_begin = "3" *) 
   (* ram_slice_end = "5" *) 
   RAM64M #(
-    .INIT_A(64'h0000000000000000),
-    .INIT_B(64'h0000000000000000),
-    .INIT_C(64'h0000000000000000),
+    .INIT_A(64'hFFFFFFFFFFFFFFFF),
+    .INIT_B(64'hFFFFFFFFFFFFFFFF),
+    .INIT_C(64'hFFFFFFFFFFFFFFFF),
     .INIT_D(64'h0000000000000000)) 
     ram_reg_448_511_3_5
        (.ADDRA(dpra[5:0]),
@@ -1442,7 +1442,7 @@ module dist_mem_gen_0_sdpram
   (* ram_slice_begin = "6" *) 
   (* ram_slice_end = "6" *) 
   RAM64X1D #(
-    .INIT(64'h0000000000000000)) 
+    .INIT(64'hFFFFFFFFFFFFFFFF)) 
     ram_reg_448_511_6_6
        (.A0(a[0]),
         .A1(a[1]),
@@ -1470,7 +1470,7 @@ module dist_mem_gen_0_sdpram
   (* ram_slice_begin = "7" *) 
   (* ram_slice_end = "7" *) 
   RAM64X1D #(
-    .INIT(64'h0000000000000000)) 
+    .INIT(64'hFFFFFFFFFFFFFFFF)) 
     ram_reg_448_511_7_7
        (.A0(a[0]),
         .A1(a[1]),
@@ -1499,9 +1499,9 @@ module dist_mem_gen_0_sdpram
   (* ram_slice_begin = "0" *) 
   (* ram_slice_end = "2" *) 
   RAM64M #(
-    .INIT_A(64'h0000000000000000),
-    .INIT_B(64'h0000000000000000),
-    .INIT_C(64'h0000000000000000),
+    .INIT_A(64'hFFFFFFFFFFFFFFFF),
+    .INIT_B(64'hFFFFFFFFFFFFFFFF),
+    .INIT_C(64'hFFFFFFFFFFFFFFFF),
     .INIT_D(64'h0000000000000000)) 
     ram_reg_64_127_0_2
        (.ADDRA(dpra[5:0]),
@@ -1536,9 +1536,9 @@ module dist_mem_gen_0_sdpram
   (* ram_slice_begin = "3" *) 
   (* ram_slice_end = "5" *) 
   RAM64M #(
-    .INIT_A(64'h0000000000000000),
-    .INIT_B(64'h0000000000000000),
-    .INIT_C(64'h0000000000000000),
+    .INIT_A(64'hFFFFFFFFFFFFFFFF),
+    .INIT_B(64'hFFFFFFFFFFFFFFFF),
+    .INIT_C(64'hFFFFFFFFFFFFFFFF),
     .INIT_D(64'h0000000000000000)) 
     ram_reg_64_127_3_5
        (.ADDRA(dpra[5:0]),
@@ -1564,7 +1564,7 @@ module dist_mem_gen_0_sdpram
   (* ram_slice_begin = "6" *) 
   (* ram_slice_end = "6" *) 
   RAM64X1D #(
-    .INIT(64'h0000000000000000)) 
+    .INIT(64'hFFFFFFFFFFFFFFFF)) 
     ram_reg_64_127_6_6
        (.A0(a[0]),
         .A1(a[1]),
@@ -1592,7 +1592,7 @@ module dist_mem_gen_0_sdpram
   (* ram_slice_begin = "7" *) 
   (* ram_slice_end = "7" *) 
   RAM64X1D #(
-    .INIT(64'h0000000000000000)) 
+    .INIT(64'hFFFFFFFFFFFFFFFF)) 
     ram_reg_64_127_7_7
        (.A0(a[0]),
         .A1(a[1]),
