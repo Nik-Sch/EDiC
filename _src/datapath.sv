@@ -27,6 +27,7 @@ wire s_ctrlIncrPC;
 wire s_ctrlPCOe;
 
 wire[7:0] s_instruction;
+wire[7:0] s_immediate;
 
 wire[7:0] s_aluA;
 wire[7:0] s_aluB;
@@ -49,6 +50,7 @@ assign s_BUS = s_aluY;
 assign s_BUS = s_regBus;
 assign s_BUS = s_ramReadData;
 assign s_BUS = s_pcAddr;
+assign s_BUS = s_immediate;
 assign s_aluB = s_BUS;
 assign s_regData = s_BUS;
 assign s_ramAddress = s_BUS;
@@ -66,6 +68,7 @@ control inst_control(
   .i_aluFlagZ(s_aluFlagZ),
 
   .i_instruction(s_instruction),
+  .o_immediate(s_immediate),
 
   .o_ctrlAluOE(s_ctrlAluOE),
   .o_ctrlAluSubShiftDir(s_ctrlAluSubShiftDir),
@@ -93,8 +96,8 @@ alu inst_alu(
   .i_b(s_aluB),
   .o_y(s_aluY),
   
-  .o_negative(o_aluFlagN),
-  .o_zero(o_aluFlagZ),
+  .o_negative(s_aluFlagN),
+  .o_zero(s_aluFlagZ),
 
   .i_oe(s_ctrlAluOE),
   .i_subShiftDir(s_ctrlAluSubShiftDir),

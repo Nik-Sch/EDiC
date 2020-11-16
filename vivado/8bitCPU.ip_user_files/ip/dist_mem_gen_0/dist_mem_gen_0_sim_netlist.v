@@ -1,7 +1,7 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-// Date        : Sun Nov 15 23:27:50 2020
+// Date        : Mon Nov 16 21:16:05 2020
 // Host        : niklasPC running 64-bit Manjaro Linux
 // Command     : write_verilog -force -mode funcsim
 //               /home/niklas/dev/8bitCpu/vivado/8bitCPU.runs/dist_mem_gen_0_synth_1/dist_mem_gen_0_sim_netlist.v
@@ -645,9 +645,9 @@ module dist_mem_gen_0_sdpram
   (* ram_slice_begin = "0" *) 
   (* ram_slice_end = "2" *) 
   RAM64M #(
-    .INIT_A(64'hFFFFFFFFFFFFFFFD),
-    .INIT_B(64'hFFFFFFFFFFFFFFFE),
-    .INIT_C(64'hFFFFFFFFFFFFFFFC),
+    .INIT_A(64'hFFFFFFFFFFFFFFFF),
+    .INIT_B(64'hFFFFFFFFFFFFFFF8),
+    .INIT_C(64'hFFFFFFFFFFFFFFFA),
     .INIT_D(64'h0000000000000000)) 
     ram_reg_0_63_0_2
        (.ADDRA(dpra[5:0]),
@@ -682,9 +682,9 @@ module dist_mem_gen_0_sdpram
   (* ram_slice_begin = "3" *) 
   (* ram_slice_end = "5" *) 
   RAM64M #(
-    .INIT_A(64'hFFFFFFFFFFFFFFFC),
-    .INIT_B(64'hFFFFFFFFFFFFFFFC),
-    .INIT_C(64'hFFFFFFFFFFFFFFFC),
+    .INIT_A(64'hFFFFFFFFFFFFFFF9),
+    .INIT_B(64'hFFFFFFFFFFFFFFFA),
+    .INIT_C(64'hFFFFFFFFFFFFFFF9),
     .INIT_D(64'h0000000000000000)) 
     ram_reg_0_63_3_5
        (.ADDRA(dpra[5:0]),
@@ -710,7 +710,7 @@ module dist_mem_gen_0_sdpram
   (* ram_slice_begin = "6" *) 
   (* ram_slice_end = "6" *) 
   RAM64X1D #(
-    .INIT(64'hFFFFFFFFFFFFFFFC)) 
+    .INIT(64'hFFFFFFFFFFFFFFFB)) 
     ram_reg_0_63_6_6
        (.A0(a[0]),
         .A1(a[1]),
@@ -738,7 +738,7 @@ module dist_mem_gen_0_sdpram
   (* ram_slice_begin = "7" *) 
   (* ram_slice_end = "7" *) 
   RAM64X1D #(
-    .INIT(64'hFFFFFFFFFFFFFFFC)) 
+    .INIT(64'hFFFFFFFFFFFFFFF8)) 
     ram_reg_0_63_7_7
        (.A0(a[0]),
         .A1(a[1]),

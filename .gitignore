@@ -22,7 +22,9 @@
 !*.bd
 !*.edif
 !generateControlStore.py
+!compile.py
 !control.cson
+!code.s
 #########
 #IP files
 #########

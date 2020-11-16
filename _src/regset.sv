@@ -34,7 +34,7 @@ always @(posedge i_clk) begin
   end
   if (i_reset) begin
     r_0 <= 0;
-    r_1 <= 5;
+    r_1 <= 0;
   end
 end
 

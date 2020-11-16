@@ -58,14 +58,14 @@ module dist_mem_gen_1 (
   spo
 );
 
-input wire [10 : 0] a;
+input wire [12 : 0] a;
 output wire [15 : 0] spo;
 
   dist_mem_gen_v8_0_13 #(
     .C_FAMILY("spartan7"),
-    .C_ADDR_WIDTH(11),
+    .C_ADDR_WIDTH(13),
     .C_DEFAULT_DATA("0"),
-    .C_DEPTH(2048),
+    .C_DEPTH(8192),
     .C_HAS_CLK(0),
     .C_HAS_D(0),
     .C_HAS_DPO(0),
@@ -97,7 +97,7 @@ output wire [15 : 0] spo;
   ) inst (
     .a(a),
     .d(16'B0),
-    .dpra(11'B0),
+    .dpra(13'B0),
     .clk(1'D0),
     .we(1'D0),
     .i_ce(1'D1),

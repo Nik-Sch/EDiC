@@ -6,6 +6,7 @@ module control(
   input wire i_aluFlagZ,
 
   input wire[7:0] i_instruction,
+  output wire[7:0] o_immediate,
 
   output wire o_ctrlAluOE,
   output wire o_ctrlAluSubShiftDir,
@@ -32,16 +33,23 @@ logic[7:0] r_instruction;
 logic[15:0] s_controlSignals;
 
 dist_mem_gen_1 inst_controlStore (
-  .a({1'b0, r_instruction, r_step[2:0]}),
+  .a({i_aluFlagZ, i_aluFlagN, r_instruction, r_step[2:0]}),
   .spo(s_controlSignals)
 );
 
 assign {o_ctrlAluOE, o_ctrlAluSubShiftDir, o_ctrlAluOp,
 o_ctrlAluBWr, o_ctrlRegWr0, o_ctrlRegWr1, o_ctrlRegBusSel,
 o_ctrlRegBusEn, o_ctrlAluSel, o_ctrlRamAddressEn, o_ctrlRamWriteEn,
-o_ctrlRamOE, o_ctrlLoadPC, o_ctrlIncrPC, o_ctrlPCOe} = s_controlSignals;
+o_ctrlRamOE, o_ctrlLoadPC, o_ctrlIncrPC, s_immOut} = s_controlSignals;
 
-assign o_ctrlRamReadDataSelect = r_step <= 1 ? 1 : 0;
+assign o_ctrlRamReadDataSelect = r_step <= 1;
+assign o_ctrlPCOe = r_step == 0;
+
+transmitter inst_tx(
+  .a({5'b0, r_instruction[5-:3]}),
+  .b(o_immediate),
+  .ce(s_immOut)
+);
 
 always @(posedge i_clk) begin
   r_step <= r_step + 1;

@@ -15,7 +15,7 @@ instructionFetch: [
     ramOE: 0
     loadPC: 0
     incrPC: 0
-    pcOe: 1
+    immOut: 0
   }
   { # wait for ram
     aluOE: 0
@@ -33,7 +33,7 @@ instructionFetch: [
     ramOE: 0
     loadPC: 0
     incrPC: 0
-    pcOe: 0
+    immOut: 0
   }
   { # load instruction
     aluOE: 0
@@ -51,7 +51,7 @@ instructionFetch: [
     ramOE: 1
     loadPC: 0
     incrPC: 1
-    pcOe: 0
+    immOut: 0
   }
 ]
 instructions: [
@@ -74,7 +74,7 @@ instructions: [
           ramOE: 0
           loadPC: 0
           incrPC: 0
-          pcOe: 0
+          immOut: 0
         }
         { # alu into r
           aluOE: 1
@@ -86,13 +86,13 @@ instructions: [
           regWr1: 'r'
           regBusSel: 0
           regBusEn: 0
-          aluSel: 0
+          aluSel: 'r'
           ramAddressEn: 0
           ramWriteEn: 0
           ramOE: 0
           loadPC: 0
           incrPC: 0
-          pcOe: 0
+          immOut: 0
         }
       ]
     }
@@ -115,7 +115,7 @@ instructions: [
           ramOE: 0
           loadPC: 0
           incrPC: 0
-          pcOe: 0
+          immOut: 0
         }
         { # alu into r
           aluOE: 1
@@ -127,13 +127,259 @@ instructions: [
           regWr1: 'r'
           regBusSel: 0
           regBusEn: 0
-          aluSel: 0
+          aluSel: 'r'
           ramAddressEn: 0
           ramWriteEn: 0
           ramOE: 0
           loadPC: 0
           incrPC: 0
-          pcOe: 0
+          immOut: 0
+        }
+      ]
+    }
+    {
+      op: '000010rs' # r = r & s
+      signals: [
+        { # r + s into alu
+          aluOE: 0
+          aluSubShiftDir: 0
+          aluOp0: 0
+          aluOp1: 0
+          aluBWr: 1
+          regWr0: 0
+          regWr1: 0
+          regBusSel: 's'
+          regBusEn: 1
+          aluSel: 'r'
+          ramAddressEn: 0
+          ramWriteEn: 0
+          ramOE: 0
+          loadPC: 0
+          incrPC: 0
+          immOut: 0
+        }
+        { # alu into r
+          aluOE: 1
+          aluSubShiftDir: 0
+          aluOp0: 0
+          aluOp1: 1
+          aluBWr: 0
+          regWr0: '!r'
+          regWr1: 'r'
+          regBusSel: 0
+          regBusEn: 0
+          aluSel: 'r'
+          ramAddressEn: 0
+          ramWriteEn: 0
+          ramOE: 0
+          loadPC: 0
+          incrPC: 0
+          immOut: 0
+        }
+      ]
+    }
+    {
+      op: '000011rs' # r = r ^ s
+      signals: [
+        { # r + s into alu
+          aluOE: 0
+          aluSubShiftDir: 0
+          aluOp0: 0
+          aluOp1: 0
+          aluBWr: 1
+          regWr0: 0
+          regWr1: 0
+          regBusSel: 's'
+          regBusEn: 1
+          aluSel: 'r'
+          ramAddressEn: 0
+          ramWriteEn: 0
+          ramOE: 0
+          loadPC: 0
+          incrPC: 0
+          immOut: 0
+        }
+        { # alu into r
+          aluOE: 1
+          aluSubShiftDir: 0
+          aluOp0: 1
+          aluOp1: 1
+          aluBWr: 0
+          regWr0: '!r'
+          regWr1: 'r'
+          regBusSel: 0
+          regBusEn: 0
+          aluSel: 'r'
+          ramAddressEn: 0
+          ramWriteEn: 0
+          ramOE: 0
+          loadPC: 0
+          incrPC: 0
+          immOut: 0
+        }
+      ]
+    }
+    {
+      op: '01imm00r' # r = r + imm
+      signals: [
+        { # r + s into alu
+          aluOE: 0
+          aluSubShiftDir: 0
+          aluOp0: 0
+          aluOp1: 0
+          aluBWr: 1
+          regWr0: 0
+          regWr1: 0
+          regBusSel: 0
+          regBusEn: 0
+          aluSel: 'r'
+          ramAddressEn: 0
+          ramWriteEn: 0
+          ramOE: 0
+          loadPC: 0
+          incrPC: 0
+          immOut: 1
+        }
+        { # alu into r
+          aluOE: 1
+          aluSubShiftDir: 0
+          aluOp0: 0
+          aluOp1: 0
+          aluBWr: 0
+          regWr0: '!r'
+          regWr1: 'r'
+          regBusSel: 0
+          regBusEn: 0
+          aluSel: 'r'
+          ramAddressEn: 0
+          ramWriteEn: 0
+          ramOE: 0
+          loadPC: 0
+          incrPC: 0
+          immOut: 0
+        }
+      ]
+    }
+    {
+      op: '01imm01r' # r = r - imm
+      signals: [
+        { # r + s into alu
+          aluOE: 0
+          aluSubShiftDir: 0
+          aluOp0: 0
+          aluOp1: 0
+          aluBWr: 1
+          regWr0: 0
+          regWr1: 0
+          regBusSel: 0
+          regBusEn: 0
+          aluSel: 'r'
+          ramAddressEn: 0
+          ramWriteEn: 0
+          ramOE: 0
+          loadPC: 0
+          incrPC: 0
+          immOut: 1
+        }
+        { # alu into r
+          aluOE: 1
+          aluSubShiftDir: 1
+          aluOp0: 0
+          aluOp1: 0
+          aluBWr: 0
+          regWr0: '!r'
+          regWr1: 'r'
+          regBusSel: 0
+          regBusEn: 0
+          aluSel: 'r'
+          ramAddressEn: 0
+          ramWriteEn: 0
+          ramOE: 0
+          loadPC: 0
+          incrPC: 0
+          immOut: 0
+        }
+      ]
+    }
+    {
+      op: '01imm10r' # r = r << imm
+      signals: [
+        { # r + s into alu
+          aluOE: 0
+          aluSubShiftDir: 0
+          aluOp0: 0
+          aluOp1: 0
+          aluBWr: 1
+          regWr0: 0
+          regWr1: 0
+          regBusSel: 0
+          regBusEn: 0
+          aluSel: 'r'
+          ramAddressEn: 0
+          ramWriteEn: 0
+          ramOE: 0
+          loadPC: 0
+          incrPC: 0
+          immOut: 1
+        }
+        { # alu into r
+          aluOE: 1
+          aluSubShiftDir: 1
+          aluOp0: 1
+          aluOp1: 1
+          aluBWr: 0
+          regWr0: '!r'
+          regWr1: 'r'
+          regBusSel: 0
+          regBusEn: 0
+          aluSel: 'r'
+          ramAddressEn: 0
+          ramWriteEn: 0
+          ramOE: 0
+          loadPC: 0
+          incrPC: 0
+          immOut: 0
+        }
+      ]
+    }
+    {
+      op: '01imm11r' # r = r >> imm
+      signals: [
+        { # r + s into alu
+          aluOE: 0
+          aluSubShiftDir: 0
+          aluOp0: 0
+          aluOp1: 0
+          aluBWr: 1
+          regWr0: 0
+          regWr1: 0
+          regBusSel: 0
+          regBusEn: 0
+          aluSel: 'r'
+          ramAddressEn: 0
+          ramWriteEn: 0
+          ramOE: 0
+          loadPC: 0
+          incrPC: 0
+          immOut: 1
+        }
+        { # alu into r
+          aluOE: 1
+          aluSubShiftDir: 0
+          aluOp0: 1
+          aluOp1: 1
+          aluBWr: 0
+          regWr0: '!r'
+          regWr1: 'r'
+          regBusSel: 0
+          regBusEn: 0
+          aluSel: 'r'
+          ramAddressEn: 0
+          ramWriteEn: 0
+          ramOE: 0
+          loadPC: 0
+          incrPC: 0
+          immOut: 0
         }
       ]
     }

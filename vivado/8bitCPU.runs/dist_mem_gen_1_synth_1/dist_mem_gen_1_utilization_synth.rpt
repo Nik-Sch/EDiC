@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-| Date         : Sun Nov 15 23:25:16 2020
+| Date         : Mon Nov 16 21:25:48 2020
 | Host         : niklasPC running 64-bit Manjaro Linux
 | Command      : report_utilization -file dist_mem_gen_1_utilization_synth.rpt -pb dist_mem_gen_1_utilization_synth.pb
 | Design       : dist_mem_gen_1
@@ -30,8 +30,8 @@ Table of Contents
 +-------------------------+------+-------+-----------+-------+
 |        Site Type        | Used | Fixed | Available | Util% |
 +-------------------------+------+-------+-----------+-------+
-| Slice LUTs*             |    6 |     0 |      3750 |  0.16 |
-|   LUT as Logic          |    6 |     0 |      3750 |  0.16 |
+| Slice LUTs*             |   11 |     0 |      3750 |  0.29 |
+|   LUT as Logic          |   11 |     0 |      3750 |  0.29 |
 |   LUT as Memory         |    0 |     0 |      2400 |  0.00 |
 | Slice Registers         |    0 |     0 |      7500 |  0.00 |
 |   Register as Flip Flop |    0 |     0 |      7500 |  0.00 |
@@ -143,9 +143,10 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| LUT5     |    6 |                 LUT |
-| LUT4     |    2 |                 LUT |
-| LUT3     |    2 |                 LUT |
+| LUT6     |    5 |                 LUT |
+| LUT4     |    5 |                 LUT |
+| LUT5     |    4 |                 LUT |
+| LUT3     |    3 |                 LUT |
 +----------+------+---------------------+
 
 
