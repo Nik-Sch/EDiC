@@ -38,6 +38,14 @@ instructions = [
         'regex': re.compile("\s*shr\s+r([01])\s*,\s*([0-7])"),
         'result': lambda res: f"01{int(res.group(2)):03b}11{res.group(1)}\n"
     },
+    {
+        'regex': re.compile("\s*mov\s+r([01])\s*,\s*\[\s*r([01])\s*\]"),
+        'result': lambda res: f"000100{res.group(1)}{res.group(2)}\n"
+    },
+    {
+        'regex': re.compile("\s*mov\s+\[\s*r([01])\s*\]\s*,\s*r([01])"),
+        'result': lambda res: f"000101{res.group(2)}{res.group(1)}\n"
+    },
 
 
     {
@@ -62,7 +70,7 @@ with open(sys.argv[2], 'w+') as fout:
         fout.write(instr['result'](result))
         break
     if not success:
-      print(f"Unrecognized command in line {i}:\n'{line.strip()}'")
+      print(f"Unrecognized instruction in line {i}:\n'{line.strip()}'")
       exit(1)
 
   fout.write(";")

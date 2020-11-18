@@ -24,20 +24,20 @@ always @(posedge i_clk) begin
   end
 end
 
+
+// the AS6C1008-55PCN is true singleport with an integrated outEnable
 transmitter inst_tx(
   .a(s_readData),
   .b(o_readData),
   .ce(i_outEnable)
 );
 
-
-dist_mem_gen_0 inst_ram (
+dist_mem_gen_0 your_instance_name (
   .clk(i_clk),
-  .a({1'b1, r_address}), // always write to data section
+  .a({i_readDataSelect, r_address}),
   .d(i_writeData),
   .we(i_writeEn),
-  .dpra({i_readDataSelect, r_address}),
-  .dpo(s_readData)
+  .spo(s_readData)
 );
 
 endmodule

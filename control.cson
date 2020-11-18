@@ -203,7 +203,7 @@ instructions: [
           aluOE: 1
           aluSubShiftDir: 0
           aluOp0: 1
-          aluOp1: 1
+          aluOp1: 0
           aluBWr: 0
           regWr0: '!r'
           regWr1: 'r'
@@ -376,6 +376,106 @@ instructions: [
           aluSel: 'r'
           ramAddressEn: 0
           ramWriteEn: 0
+          ramOE: 0
+          loadPC: 0
+          incrPC: 0
+          immOut: 0
+        }
+      ]
+    }
+    {
+      op: '000100rs' # r = [s]
+      signals: [
+        { # s to ram
+          aluOE: 0
+          aluSubShiftDir: 0
+          aluOp0: 0
+          aluOp1: 0
+          aluBWr: 0
+          regWr0: 0
+          regWr1: 0
+          regBusSel: 's'
+          regBusEn: 1
+          aluSel: 0
+          ramAddressEn: 1
+          ramWriteEn: 0
+          ramOE: 0
+          loadPC: 0
+          incrPC: 0
+          immOut: 0
+        }
+        { # wait for ram
+          aluOE: 0
+          aluSubShiftDir: 0
+          aluOp0: 0
+          aluOp1: 0
+          aluBWr: 0
+          regWr0: 0
+          regWr1: 0
+          regBusSel: 0
+          regBusEn: 0
+          aluSel: 0
+          ramAddressEn: 0
+          ramWriteEn: 0
+          ramOE: 0
+          loadPC: 0
+          incrPC: 0
+          immOut: 0
+        }
+        { # s to ram
+          aluOE: 0
+          aluSubShiftDir: 0
+          aluOp0: 0
+          aluOp1: 0
+          aluBWr: 0
+          regWr0: '!r'
+          regWr1: 'r'
+          regBusSel: 0
+          regBusEn: 0
+          aluSel: 0
+          ramAddressEn: 0
+          ramWriteEn: 0
+          ramOE: 1
+          loadPC: 0
+          incrPC: 0
+          immOut: 0
+        }
+      ]
+    }
+    {
+      op: '000101rs' # [s] = r
+      signals: [
+        { # s to ram
+          aluOE: 0
+          aluSubShiftDir: 0
+          aluOp0: 0
+          aluOp1: 0
+          aluBWr: 0
+          regWr0: 0
+          regWr1: 0
+          regBusSel: 's'
+          regBusEn: 1
+          aluSel: 0
+          ramAddressEn: 1
+          ramWriteEn: 0
+          ramOE: 0
+          loadPC: 0
+          incrPC: 0
+          immOut: 0
+        }
+        { # s to ram
+          aluOE: 0
+          aluSubShiftDir: 0
+          aluOp0: 0
+          aluOp1: 0
+          aluBWr: 0
+          regWr0: 0
+          regWr1: 0
+          regBusSel: 'r'
+          regBusEn: 1
+          aluSel: 0
+          ramAddressEn: 0
+          ramWriteEn: 1
           ramOE: 0
           loadPC: 0
           incrPC: 0

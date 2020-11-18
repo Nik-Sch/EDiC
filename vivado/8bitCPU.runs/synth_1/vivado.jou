@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:35 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Tue Nov 17 09:53:31 2020
+# Process ID: 46610
+# Current directory: /home/niklas/dev/8bitCpu/vivado/8bitCPU.runs/synth_1
+# Command line: vivado -log datapath.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source datapath.tcl
+# Log file: /home/niklas/dev/8bitCpu/vivado/8bitCPU.runs/synth_1/datapath.vds
+# Journal file: /home/niklas/dev/8bitCpu/vivado/8bitCPU.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source datapath.tcl -notrace

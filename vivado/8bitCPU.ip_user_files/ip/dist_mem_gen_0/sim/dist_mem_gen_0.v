@@ -56,18 +56,16 @@
 module dist_mem_gen_0 (
   a,
   d,
-  dpra,
   clk,
   we,
-  dpo
+  spo
 );
 
 input wire [8 : 0] a;
 input wire [7 : 0] d;
-input wire [8 : 0] dpra;
 input wire clk;
 input wire we;
-output wire [7 : 0] dpo;
+output wire [7 : 0] spo;
 
   dist_mem_gen_v8_0_13 #(
     .C_FAMILY("spartan7"),
@@ -76,8 +74,8 @@ output wire [7 : 0] dpo;
     .C_DEPTH(512),
     .C_HAS_CLK(1),
     .C_HAS_D(1),
-    .C_HAS_DPO(1),
-    .C_HAS_DPRA(1),
+    .C_HAS_DPO(0),
+    .C_HAS_DPRA(0),
     .C_HAS_I_CE(0),
     .C_HAS_QDPO(0),
     .C_HAS_QDPO_CE(0),
@@ -88,11 +86,11 @@ output wire [7 : 0] dpo;
     .C_HAS_QSPO_CE(0),
     .C_HAS_QSPO_RST(0),
     .C_HAS_QSPO_SRST(0),
-    .C_HAS_SPO(0),
+    .C_HAS_SPO(1),
     .C_HAS_WE(1),
     .C_MEM_INIT_FILE("dist_mem_gen_0.mif"),
     .C_ELABORATION_DIR("./"),
-    .C_MEM_TYPE(4),
+    .C_MEM_TYPE(1),
     .C_PIPELINE_STAGES(0),
     .C_QCE_JOINED(0),
     .C_QUALIFY_WE(0),
@@ -105,7 +103,7 @@ output wire [7 : 0] dpo;
   ) inst (
     .a(a),
     .d(d),
-    .dpra(dpra),
+    .dpra(9'B0),
     .clk(clk),
     .we(we),
     .i_ce(1'D1),
@@ -116,8 +114,8 @@ output wire [7 : 0] dpo;
     .qdpo_rst(1'D0),
     .qspo_srst(1'D0),
     .qdpo_srst(1'D0),
-    .spo(),
-    .dpo(dpo),
+    .spo(spo),
+    .dpo(),
     .qspo(),
     .qdpo()
   );

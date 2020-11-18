@@ -56,9 +56,9 @@ always @(posedge i_clk) begin
   if (r_step === 2) begin
     r_instruction <= i_instruction;
   end
-  if (r_step === 4) begin
-    r_step <= 0;
-  end
+  // if (r_step === 4) begin
+  //   r_step <= 0;
+  // end
 
   if (i_reset) begin
     r_step <= 0;

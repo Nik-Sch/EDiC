@@ -20,11 +20,8 @@ transmitter inst_tx(
 );
 
 always @(posedge i_clk) begin
-  if (i_incr) begin
-    r_addr = r_addr + 1;
-  end
-  if (i_loadData) begin
-    r_addr = i_data;
+  if (i_incr || i_loadData) begin
+    r_addr = i_incr ? r_addr + 1 : i_data;
   end
   if (i_reset) begin
     r_addr = 0;

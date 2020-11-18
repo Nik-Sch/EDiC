@@ -32,8 +32,6 @@ def insertMemory(memory, address, data, name):
 
 def insertSignals(memory, signals, address, prefixCount, flags, name):
   i = prefixCount
-  if (address == 0x69):
-    print(signals[1])
   for step in signals:
     if (flags == "n"): # don't do stuff if N flag is low (0 and 2)
       insertMemory(memory, (0 << 11) + (address << 3) + i, 0xffff, name)
