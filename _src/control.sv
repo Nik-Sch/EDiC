@@ -45,7 +45,7 @@ o_ctrlRamOE, o_ctrlLoadPC, o_ctrlIncrPC, s_immOut} = s_controlSignals;
 assign o_ctrlRamReadDataSelect = r_step <= 1;
 assign o_ctrlPCOe = r_step == 0;
 
-transmitter inst_tx(
+transmitter inst_tx( // is included in eeprom
   .a({5'b0, r_instruction[5-:3]}),
   .b(o_immediate),
   .ce(s_immOut)

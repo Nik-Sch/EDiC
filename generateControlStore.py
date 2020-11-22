@@ -2,8 +2,8 @@
 from os import write
 import sys
 import cson
-if (len(sys.argv) != 3):
-  print(sys.argv[0] + ' <in>.cson <out>.coe')
+if (len(sys.argv) != 3 and len(sys.argv) != 4):
+  print(sys.argv[0] + ' <in>.cson <out>.coe|h [0|1]')
   exit(1)
 
 def controlSignalsToHex(control):
@@ -88,11 +88,32 @@ def insertInstruction(memory, instr, prefixCount):
     addr = int(instr['op'], base=2)
     insertSignals(memory, instr['signals'], addr, prefixCount, flags, instr['op'])
 
+
+coeFile = sys.argv[2].endswith('.coe')
+only = None
+if len(sys.argv) == 4:
+  only = sys.argv[3]
+elif not coeFile:
+  print('when not writing to coe, you need to specify if upper or lower byte')
+  exit(1)
+
+
 with open(sys.argv[1], 'rb') as fin:
   data = cson.load(fin)
   fetchLen = len(data['instructionFetch'])
   with open(sys.argv[2], 'w+') as fout:
-    fout.write("MEMORY_INITIALIZATION_RADIX=16;\nMEMORY_INITIALIZATION_VECTOR=\n")
+    if coeFile:
+      fout.write("MEMORY_INITIALIZATION_RADIX=16;\nMEMORY_INITIALIZATION_VECTOR=\n")
+    else:
+      fout.write(f"""#ifndef DATA_H
+#define DATA_H
+
+#include <Arduino.h>
+
+const uint16_t length = {2**13};
+const uint8_t data[] PROGMEM = {{
+""")
+
     memory = {}
     for instruction in data['instructions']:
       if 'imm' in instruction['op']:
@@ -106,14 +127,24 @@ with open(sys.argv[1], 'rb') as fin:
     fetch = []
     for i in range(fetchLen):
         fetch.insert(i, controlSignalsToHex(data['instructionFetch'][i]))
+
+    def output(d):
+      if coeFile:
+        fout.write(f"{d:04x}\n")
+      else:
+        if only == '0':
+          fout.write(f"0x{d & 0xff:02x},\n")
+        else:
+          fout.write(f"0x{(d >> 8) & 0xff:02x},\n")
+
     for i in range(2**13):
       if i % 8 < fetchLen:
-        fout.write(f"{fetch[i % 8]:04x}\n")
+        output(fetch[i % 8])
       elif i in memory.keys():
-        fout.write(f"{memory[i]:04x}\n")
+        output(memory[i])
       else:
-        fout.write("0000\n")
-
-    # for x in memory.keys():
-    #   print(f"{x:011b}: {memory[x]:016b}")
-    fout.write(";")
+        output(0)
+    if coeFile:
+      fout.write(";")
+    else:
+      fout.write("};\n#endif")
