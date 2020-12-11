@@ -32,7 +32,7 @@ always @(posedge i_clk) begin
   if (i_write1) begin
     r_1 <= i_d;
   end
-  if (i_reset) begin
+  if (i_reset) begin // should not be needed in ttl
     r_0 <= 0;
     r_1 <= 0;
   end

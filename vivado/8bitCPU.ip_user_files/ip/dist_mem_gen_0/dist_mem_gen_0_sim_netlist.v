@@ -1,7 +1,7 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-// Date        : Tue Nov 17 16:22:19 2020
+// Date        : Fri Dec 11 13:28:21 2020
 // Host        : niklasPC running 64-bit Manjaro Linux
 // Command     : write_verilog -force -mode funcsim
 //               /home/niklas/dev/8bitCpu/vivado/8bitCPU.runs/dist_mem_gen_0_synth_1/dist_mem_gen_0_sim_netlist.v
@@ -331,7 +331,7 @@ module dist_mem_gen_0_spram
   (* ram_slice_begin = "0" *) 
   (* ram_slice_end = "0" *) 
   RAM256X1S #(
-    .INIT(256'hFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF97)) 
+    .INIT(256'hFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF2F)) 
     ram_reg_0_255_0_0
        (.A(a[7:0]),
         .D(d[0]),
@@ -354,7 +354,7 @@ module dist_mem_gen_0_spram
   (* ram_slice_begin = "1" *) 
   (* ram_slice_end = "1" *) 
   RAM256X1S #(
-    .INIT(256'hFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF08)) 
+    .INIT(256'hFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE14)) 
     ram_reg_0_255_1_1
        (.A(a[7:0]),
         .D(d[1]),
@@ -371,7 +371,7 @@ module dist_mem_gen_0_spram
   (* ram_slice_begin = "2" *) 
   (* ram_slice_end = "2" *) 
   RAM256X1S #(
-    .INIT(256'hFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF32)) 
+    .INIT(256'hFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE66)) 
     ram_reg_0_255_2_2
        (.A(a[7:0]),
         .D(d[2]),
@@ -388,7 +388,7 @@ module dist_mem_gen_0_spram
   (* ram_slice_begin = "3" *) 
   (* ram_slice_end = "3" *) 
   RAM256X1S #(
-    .INIT(256'hFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF61)) 
+    .INIT(256'hFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEC1)) 
     ram_reg_0_255_3_3
        (.A(a[7:0]),
         .D(d[3]),
@@ -405,7 +405,7 @@ module dist_mem_gen_0_spram
   (* ram_slice_begin = "4" *) 
   (* ram_slice_end = "4" *) 
   RAM256X1S #(
-    .INIT(256'hFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFDA)) 
+    .INIT(256'hFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB4)) 
     ram_reg_0_255_4_4
        (.A(a[7:0]),
         .D(d[4]),
@@ -422,7 +422,7 @@ module dist_mem_gen_0_spram
   (* ram_slice_begin = "5" *) 
   (* ram_slice_end = "5" *) 
   RAM256X1S #(
-    .INIT(256'hFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF41)) 
+    .INIT(256'hFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE83)) 
     ram_reg_0_255_5_5
        (.A(a[7:0]),
         .D(d[5]),
@@ -439,7 +439,7 @@ module dist_mem_gen_0_spram
   (* ram_slice_begin = "6" *) 
   (* ram_slice_end = "6" *) 
   RAM256X1S #(
-    .INIT(256'hFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF4B)) 
+    .INIT(256'hFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE97)) 
     ram_reg_0_255_6_6
        (.A(a[7:0]),
         .D(d[6]),
@@ -456,7 +456,7 @@ module dist_mem_gen_0_spram
   (* ram_slice_begin = "7" *) 
   (* ram_slice_end = "7" *) 
   RAM256X1S #(
-    .INIT(256'hFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00)) 
+    .INIT(256'hFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE00)) 
     ram_reg_0_255_7_7
        (.A(a[7:0]),
         .D(d[7]),

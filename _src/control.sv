@@ -11,7 +11,7 @@ module control(
   output wire o_ctrlAluOE,
   output wire o_ctrlAluSubShiftDir,
   output wire[1:0] o_ctrlAluOp,
-  output wire o_ctrlAluBWr,
+  output wire o_ctrlAluWr,
 
   output wire o_ctrlRegWr0,
   output wire o_ctrlRegWr1,
@@ -38,7 +38,7 @@ dist_mem_gen_1 inst_controlStore (
 );
 
 assign {o_ctrlAluOE, o_ctrlAluSubShiftDir, o_ctrlAluOp,
-o_ctrlAluBWr, o_ctrlRegWr0, o_ctrlRegWr1, o_ctrlRegBusSel,
+o_ctrlAluWr, o_ctrlRegWr0, o_ctrlRegWr1, o_ctrlRegBusSel,
 o_ctrlRegBusEn, o_ctrlAluSel, o_ctrlRamAddressEn, o_ctrlRamWriteEn,
 o_ctrlRamOE, o_ctrlLoadPC, o_ctrlIncrPC, s_immOut} = s_controlSignals;
 
@@ -62,7 +62,7 @@ always @(posedge i_clk) begin
 
   if (i_reset) begin
     r_step <= 0;
-    r_instruction <= 0;
+    r_instruction <= 0; // should not be needed in ttl
   end
 end
 

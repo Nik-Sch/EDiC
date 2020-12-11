@@ -11,7 +11,7 @@ def controlSignalsToHex(control):
    + str(control['aluSubShiftDir'])
    + str(control['aluOp0'])
    + str(control['aluOp1'])
-   + str(control['aluBWr'])
+   + str(control['aluWr'])
    + str(control['regWr0'])
    + str(control['regWr1'])
    + str(control['regBusSel'])

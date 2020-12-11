@@ -4,7 +4,7 @@ instructionFetch: [
     aluSubShiftDir: 0
     aluOp0: 0
     aluOp1: 0
-    aluBWr: 0
+    aluWr: 0
     regWr0: 0
     regWr1: 0
     regBusSel: 0
@@ -22,7 +22,7 @@ instructionFetch: [
     aluSubShiftDir: 0
     aluOp0: 0
     aluOp1: 0
-    aluBWr: 0
+    aluWr: 0
     regWr0: 0
     regWr1: 0
     regBusSel: 0
@@ -40,7 +40,7 @@ instructionFetch: [
     aluSubShiftDir: 0
     aluOp0: 0
     aluOp1: 0
-    aluBWr: 0
+    aluWr: 0
     regWr0: 0
     regWr1: 0
     regBusSel: 0
@@ -63,7 +63,7 @@ instructions: [
           aluSubShiftDir: 0
           aluOp0: 0
           aluOp1: 0
-          aluBWr: 1
+          aluWr: 1
           regWr0: 0
           regWr1: 0
           regBusSel: 's'
@@ -81,7 +81,7 @@ instructions: [
           aluSubShiftDir: 0
           aluOp0: 0
           aluOp1: 0
-          aluBWr: 0
+          aluWr: 0
           regWr0: '!r'
           regWr1: 'r'
           regBusSel: 0
@@ -101,10 +101,10 @@ instructions: [
       signals: [
         { # r + s into alu
           aluOE: 0
-          aluSubShiftDir: 0
+          aluSubShiftDir: 1
           aluOp0: 0
           aluOp1: 0
-          aluBWr: 1
+          aluWr: 1
           regWr0: 0
           regWr1: 0
           regBusSel: 's'
@@ -119,10 +119,10 @@ instructions: [
         }
         { # alu into r
           aluOE: 1
-          aluSubShiftDir: 1
+          aluSubShiftDir: 0
           aluOp0: 0
           aluOp1: 0
-          aluBWr: 0
+          aluWr: 0
           regWr0: '!r'
           regWr1: 'r'
           regBusSel: 0
@@ -144,8 +144,8 @@ instructions: [
           aluOE: 0
           aluSubShiftDir: 0
           aluOp0: 0
-          aluOp1: 0
-          aluBWr: 1
+          aluOp1: 1
+          aluWr: 1
           regWr0: 0
           regWr1: 0
           regBusSel: 's'
@@ -162,8 +162,8 @@ instructions: [
           aluOE: 1
           aluSubShiftDir: 0
           aluOp0: 0
-          aluOp1: 1
-          aluBWr: 0
+          aluOp1: 0
+          aluWr: 0
           regWr0: '!r'
           regWr1: 'r'
           regBusSel: 0
@@ -184,9 +184,9 @@ instructions: [
         { # r + s into alu
           aluOE: 0
           aluSubShiftDir: 0
-          aluOp0: 0
+          aluOp0: 1
           aluOp1: 0
-          aluBWr: 1
+          aluWr: 1
           regWr0: 0
           regWr1: 0
           regBusSel: 's'
@@ -202,9 +202,9 @@ instructions: [
         { # alu into r
           aluOE: 1
           aluSubShiftDir: 0
-          aluOp0: 1
+          aluOp0: 0
           aluOp1: 0
-          aluBWr: 0
+          aluWr: 0
           regWr0: '!r'
           regWr1: 'r'
           regBusSel: 0
@@ -227,7 +227,7 @@ instructions: [
           aluSubShiftDir: 0
           aluOp0: 0
           aluOp1: 0
-          aluBWr: 1
+          aluWr: 1
           regWr0: 0
           regWr1: 0
           regBusSel: 0
@@ -245,7 +245,7 @@ instructions: [
           aluSubShiftDir: 0
           aluOp0: 0
           aluOp1: 0
-          aluBWr: 0
+          aluWr: 0
           regWr0: '!r'
           regWr1: 'r'
           regBusSel: 0
@@ -265,10 +265,10 @@ instructions: [
       signals: [
         { # r + s into alu
           aluOE: 0
-          aluSubShiftDir: 0
+          aluSubShiftDir: 1
           aluOp0: 0
           aluOp1: 0
-          aluBWr: 1
+          aluWr: 1
           regWr0: 0
           regWr1: 0
           regBusSel: 0
@@ -283,10 +283,10 @@ instructions: [
         }
         { # alu into r
           aluOE: 1
-          aluSubShiftDir: 1
+          aluSubShiftDir: 0
           aluOp0: 0
           aluOp1: 0
-          aluBWr: 0
+          aluWr: 0
           regWr0: '!r'
           regWr1: 'r'
           regBusSel: 0
@@ -306,10 +306,10 @@ instructions: [
       signals: [
         { # r + s into alu
           aluOE: 0
-          aluSubShiftDir: 0
-          aluOp0: 0
-          aluOp1: 0
-          aluBWr: 1
+          aluSubShiftDir: 1
+          aluOp0: 1
+          aluOp1: 1
+          aluWr: 1
           regWr0: 0
           regWr1: 0
           regBusSel: 0
@@ -324,10 +324,10 @@ instructions: [
         }
         { # alu into r
           aluOE: 1
-          aluSubShiftDir: 1
-          aluOp0: 1
-          aluOp1: 1
-          aluBWr: 0
+          aluSubShiftDir: 0
+          aluOp0: 0
+          aluOp1: 0
+          aluWr: 0
           regWr0: '!r'
           regWr1: 'r'
           regBusSel: 0
@@ -348,9 +348,9 @@ instructions: [
         { # r + s into alu
           aluOE: 0
           aluSubShiftDir: 0
-          aluOp0: 0
-          aluOp1: 0
-          aluBWr: 1
+          aluOp0: 1
+          aluOp1: 1
+          aluWr: 1
           regWr0: 0
           regWr1: 0
           regBusSel: 0
@@ -366,9 +366,9 @@ instructions: [
         { # alu into r
           aluOE: 1
           aluSubShiftDir: 0
-          aluOp0: 1
-          aluOp1: 1
-          aluBWr: 0
+          aluOp0: 0
+          aluOp1: 0
+          aluWr: 0
           regWr0: '!r'
           regWr1: 'r'
           regBusSel: 0
@@ -391,7 +391,7 @@ instructions: [
           aluSubShiftDir: 0
           aluOp0: 0
           aluOp1: 0
-          aluBWr: 0
+          aluWr: 0
           regWr0: 0
           regWr1: 0
           regBusSel: 's'
@@ -409,7 +409,7 @@ instructions: [
           aluSubShiftDir: 0
           aluOp0: 0
           aluOp1: 0
-          aluBWr: 0
+          aluWr: 0
           regWr0: 0
           regWr1: 0
           regBusSel: 0
@@ -427,7 +427,7 @@ instructions: [
           aluSubShiftDir: 0
           aluOp0: 0
           aluOp1: 0
-          aluBWr: 0
+          aluWr: 0
           regWr0: '!r'
           regWr1: 'r'
           regBusSel: 0
@@ -450,7 +450,7 @@ instructions: [
           aluSubShiftDir: 0
           aluOp0: 0
           aluOp1: 0
-          aluBWr: 0
+          aluWr: 0
           regWr0: 0
           regWr1: 0
           regBusSel: 's'
@@ -468,7 +468,7 @@ instructions: [
           aluSubShiftDir: 0
           aluOp0: 0
           aluOp1: 0
-          aluBWr: 0
+          aluWr: 0
           regWr0: 0
           regWr1: 0
           regBusSel: 'r'

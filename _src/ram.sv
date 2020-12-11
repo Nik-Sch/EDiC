@@ -1,6 +1,5 @@
 module ram(
   input wire i_clk,
-  input wire i_reset,
 
   input wire[7:0] i_address,
   input wire i_addressEn,
@@ -18,9 +17,6 @@ logic[7:0] r_address;
 always @(posedge i_clk) begin
   if (i_addressEn) begin
     r_address <= i_address;
-  end
-  if (i_reset) begin
-    r_address <= 'hff;
   end
 end
 

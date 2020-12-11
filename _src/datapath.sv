@@ -9,7 +9,7 @@ wire s_aluFlagZ;
 wire s_ctrlAluOE;
 wire s_ctrlAluSubShiftDir;
 wire[1:0] s_ctrlAluOp;
-wire s_ctrlAluBWr;
+wire s_ctrlAluWr;
 
 wire s_ctrlRegWr0;
 wire s_ctrlRegWr1;
@@ -73,7 +73,7 @@ control inst_control(
   .o_ctrlAluOE(s_ctrlAluOE),
   .o_ctrlAluSubShiftDir(s_ctrlAluSubShiftDir),
   .o_ctrlAluOp(s_ctrlAluOp),
-  .o_ctrlAluBWr(s_ctrlAluBWr),
+  .o_ctrlAluWr(s_ctrlAluWr),
   .o_ctrlRegWr0(s_ctrlRegWr0),
   .o_ctrlRegWr1(s_ctrlRegWr1),
   .o_ctrlRegBusSel(s_ctrlRegBusSel),
@@ -102,7 +102,7 @@ alu inst_alu(
   .i_oe(s_ctrlAluOE),
   .i_subShiftDir(s_ctrlAluSubShiftDir),
   .i_aluOp(s_ctrlAluOp),
-  .i_bWr(s_ctrlAluBWr)
+  .i_aluWr(s_ctrlAluWr)
 );
 
 regset inst_regs(
@@ -123,7 +123,6 @@ regset inst_regs(
 
 ram inst_ram(
   .i_clk(i_clk),
-  .i_reset(i_reset),
 
   .i_address(s_ramAddress),
   .i_addressEn(s_ctrlRamAddressEn),
