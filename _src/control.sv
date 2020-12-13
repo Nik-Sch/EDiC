@@ -3,13 +3,13 @@ module control(
   input wire i_reset,
 
   input wire i_aluFlagN,
-  input wire i_aluFlagZ,
+  input wire i_aluFlagNZ,
 
   input wire[7:0] i_instruction,
   output wire[7:0] o_immediate,
 
   output wire o_ctrlHlt,
-  
+
   output wire o_ctrlAluNOE,
   output wire o_ctrlAluSubShiftDir,
   output wire[1:0] o_ctrlAluOp,
@@ -35,7 +35,7 @@ logic[7:0] r_instruction;
 logic[15:0] s_controlSignals;
 
 dist_mem_gen_1 inst_controlStore (
-  .a({i_aluFlagZ, i_aluFlagN, r_instruction, r_step[2:0]}),
+  .a({i_aluFlagNZ, i_aluFlagN, r_instruction, r_step[2:0]}),
   .spo(s_controlSignals)
 );
 

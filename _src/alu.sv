@@ -8,7 +8,7 @@ module alu(
   output wire[7:0] o_y,
 
   output wire o_negative,
-  output wire o_zero,
+  output wire o_nZero,
 
   input wire i_aluWr,
   input wire i_noe,
@@ -37,7 +37,7 @@ transmitter inst_tx(
 );
 
 assign o_negative = r_y[7];
-assign o_zero = ~(r_y[7] | r_y[6] | r_y[5] | r_y[4] | r_y[3] | r_y[2] | r_y[1] | r_y[0]);
+assign o_nZero = | r_y;
 
 genvar i;
 for (i = 0; i < 8; i++) begin

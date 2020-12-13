@@ -30,17 +30,18 @@ def insertMemory(memory, address, data, name):
     exit(1)
   memory[address] = data
 
-def insertSignals(memory, signals, address, prefixCount, flags, name):
+
+def insertSignals(memory, signals, address, prefixCount, flags, name, noOp):
   i = prefixCount
   for step in signals:
     if (flags == "n"): # don't do stuff if N flag is low (0 and 2)
-      insertMemory(memory, (0 << 11) + (address << 3) + i, 0xffff, name)
+      insertMemory(memory, (0 << 11) + (address << 3) + i, noOp, name)
       insertMemory(memory, (1 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
-      insertMemory(memory, (2 << 11) + (address << 3) + i, 0xffff, name)
+      insertMemory(memory, (2 << 11) + (address << 3) + i, noOp, name)
       insertMemory(memory, (3 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
     elif (flags == "z"):  # don't do stuff if Z flag is low (0 and 1)
-      insertMemory(memory, (0 << 11) + (address << 3) + i, 0xffff, name)
-      insertMemory(memory, (1 << 11) + (address << 3) + i, 0xffff, name)
+      insertMemory(memory, (0 << 11) + (address << 3) + i, noOp, name)
+      insertMemory(memory, (1 << 11) + (address << 3) + i, noOp, name)
       insertMemory(memory, (2 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
       insertMemory(memory, (3 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
     else:
@@ -64,29 +65,29 @@ def makeInts(signals, s, i):
   return out
 
 
-def insertInstruction(memory, instr, prefixCount):
+def insertInstruction(memory, instr, prefixCount, noOp):
   flags = instr['flags'] if ('flags' in instr) else ''
   if ("r" in instr['op'] and "s" in instr['op']):
     addr = int(instr['op'].replace("r", "0").replace("s", "0"), base=2)
-    insertSignals(memory, makeInts(makeInts(instr['signals'], "r", 0), "s", 0), addr, prefixCount, flags, instr['op'])
+    insertSignals(memory, makeInts(makeInts(instr['signals'], "r", 0), "s", 0), addr, prefixCount, flags, instr['op'], noOp)
 
     addr = int(instr['op'].replace("r", "1").replace("s", "0"), base=2)
-    insertSignals(memory, makeInts(makeInts(instr['signals'], "r", 1), "s", 0), addr, prefixCount, flags, instr['op'])
+    insertSignals(memory, makeInts(makeInts(instr['signals'], "r", 1), "s", 0), addr, prefixCount, flags, instr['op'], noOp)
 
     addr = int(instr['op'].replace("r", "0").replace("s", "1"), base=2)
-    insertSignals(memory, makeInts(makeInts(instr['signals'], "r", 0), "s", 1), addr, prefixCount, flags, instr['op'])
+    insertSignals(memory, makeInts(makeInts(instr['signals'], "r", 0), "s", 1), addr, prefixCount, flags, instr['op'], noOp)
 
     addr = int(instr['op'].replace("r", "1").replace("s", "1"), base=2)
-    insertSignals(memory, makeInts(makeInts(instr['signals'], "r", 1), "s", 1), addr, prefixCount, flags, instr['op'])
+    insertSignals(memory, makeInts(makeInts(instr['signals'], "r", 1), "s", 1), addr, prefixCount, flags, instr['op'], noOp)
 
   elif ("r" in instr['op']):
     addr = int(instr['op'].replace("r", "0"), base=2)
-    insertSignals(memory, makeInts(instr['signals'], "r", 0), addr, prefixCount, flags, instr['op'])
+    insertSignals(memory, makeInts(instr['signals'], "r", 0), addr, prefixCount, flags, instr['op'], noOp)
     addr = int(instr['op'].replace("r", "1"), base=2)
-    insertSignals(memory, makeInts(instr['signals'], "r", 1), addr, prefixCount, flags, instr['op'])
+    insertSignals(memory, makeInts(instr['signals'], "r", 1), addr, prefixCount, flags, instr['op'], noOp)
   else:
     addr = int(instr['op'], base=2)
-    insertSignals(memory, instr['signals'], addr, prefixCount, flags, instr['op'])
+    insertSignals(memory, instr['signals'], addr, prefixCount, flags, instr['op'], noOp)
 
 
 coeFile = sys.argv[2].endswith('.coe')
@@ -113,6 +114,7 @@ with open(sys.argv[1], 'rb') as fin:
 const uint16_t length = {2**13};
 const uint8_t data[] PROGMEM = {{
 """)
+    noOp = controlSignalsToHex(data['noOp'])
 
     memory = {}
     for instruction in data['instructions']:
@@ -120,15 +122,14 @@ const uint8_t data[] PROGMEM = {{
         for i in range(8):
           newInstr = instruction.copy()
           newInstr['op'] = newInstr['op'].replace('imm', f"{i:03b}")
-          insertInstruction(memory, newInstr, fetchLen)
+          insertInstruction(memory, newInstr, fetchLen, noOp)
       else:
-        insertInstruction(memory, instruction, fetchLen)
+        insertInstruction(memory, instruction, fetchLen, noOp)
     
     fetch = []
     for i in range(fetchLen):
         fetch.insert(i, controlSignalsToHex(data['instructionFetch'][i]))
 
-    noOp = controlSignalsToHex(data['noOp'])
 
     def output(d):
       if coeFile:

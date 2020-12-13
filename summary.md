@@ -31,5 +31,5 @@ r0:=[r1]
 10: jump
   00000r: pc := r
   00001r: r := pc
-  00010r: jumpEqual: pc := r if Z
+  00010r: jumpNotEqual: pc := r if NZ
   00011r: jumpLess : pc := r if N

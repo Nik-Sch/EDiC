@@ -18,7 +18,7 @@ always @* begin
 end
 
 wire s_aluFlagN;
-wire s_aluFlagZ;
+wire s_aluFlagNZ;
 
 wire s_ctrlHlt;
 
@@ -81,7 +81,7 @@ control inst_control(
   .i_reset(i_reset),
 
   .i_aluFlagN(s_aluFlagN),
-  .i_aluFlagZ(s_aluFlagZ),
+  .i_aluFlagNZ(s_aluFlagNZ),
 
   .i_instruction(s_instruction),
   .o_immediate(s_immediate),
@@ -114,7 +114,7 @@ alu inst_alu(
   .o_y(s_aluY),
   
   .o_negative(s_aluFlagN),
-  .o_zero(s_aluFlagZ),
+  .o_nZero(s_aluFlagNZ),
 
   .i_noe(s_ctrlAluNOE),
   .i_subShiftDir(s_ctrlAluSubShiftDir),
