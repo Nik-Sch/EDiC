@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="1500001fs"></ZoomEndTime>
-      <Cursor1Time time="1500000fs"></Cursor1Time>
+      <ZoomStartTime time="179333fs"></ZoomStartTime>
+      <ZoomEndTime time="564134fs"></ZoomEndTime>
+      <Cursor1Time time="500000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="404"></NameColumnWidth>
-      <ValueColumnWidth column_width="181"></ValueColumnWidth>
+      <ValueColumnWidth column_width="175"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="13" />
+   <WVObjectSize size="15" />
    <wvobject type="logic" fp_name="/tb_datapath/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -50,10 +50,6 @@
       <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_control/o_ctrlAluOp">
          <obj_property name="ElementShortName">o_ctrlAluOp[1:0]</obj_property>
          <obj_property name="ObjectShortName">o_ctrlAluOp[1:0]</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_control/o_ctrlAluBWr">
-         <obj_property name="ElementShortName">o_ctrlAluBWr</obj_property>
-         <obj_property name="ObjectShortName">o_ctrlAluBWr</obj_property>
       </wvobject>
       <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_control/o_ctrlRegWr0">
          <obj_property name="ElementShortName">o_ctrlRegWr0</obj_property>
@@ -128,16 +124,24 @@
       <obj_property name="ElementShortName">i_a[7:0]</obj_property>
       <obj_property name="ObjectShortName">i_a[7:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_alu/r_b">
-      <obj_property name="ElementShortName">r_b[7:0]</obj_property>
-      <obj_property name="ObjectShortName">r_b[7:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_alu/o_y">
-      <obj_property name="ElementShortName">o_y[7:0]</obj_property>
-      <obj_property name="ObjectShortName">o_y[7:0]</obj_property>
+   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_alu/i_b">
+      <obj_property name="ElementShortName">i_b[7:0]</obj_property>
+      <obj_property name="ObjectShortName">i_b[7:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_alu/i_aluOp">
       <obj_property name="ElementShortName">i_aluOp[1:0]</obj_property>
       <obj_property name="ObjectShortName">i_aluOp[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_alu/s_y">
+      <obj_property name="ElementShortName">s_y[7:0]</obj_property>
+      <obj_property name="ObjectShortName">s_y[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_alu/r_y">
+      <obj_property name="ElementShortName">r_y[7:0]</obj_property>
+      <obj_property name="ObjectShortName">r_y[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_alu/i_aluWr">
+      <obj_property name="ElementShortName">i_aluWr</obj_property>
+      <obj_property name="ObjectShortName">i_aluWr</obj_property>
    </wvobject>
 </wave_config>

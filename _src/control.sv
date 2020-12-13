@@ -8,7 +8,9 @@ module control(
   input wire[7:0] i_instruction,
   output wire[7:0] o_immediate,
 
-  output wire o_ctrlAluOE,
+  output wire o_ctrlHlt,
+  
+  output wire o_ctrlAluNOE,
   output wire o_ctrlAluSubShiftDir,
   output wire[1:0] o_ctrlAluOp,
   output wire o_ctrlAluWr,
@@ -16,7 +18,7 @@ module control(
   output wire o_ctrlRegWr0,
   output wire o_ctrlRegWr1,
   output wire o_ctrlRegBusSel,
-  output wire o_ctrlRegBusEn,
+  output wire o_ctrlRegNBusEn,
   output wire o_ctrlAluSel,
 
   output wire o_ctrlRamAddressEn,
@@ -26,7 +28,7 @@ module control(
 
   output wire o_ctrlLoadPC,
   output wire o_ctrlIncrPC,
-  output wire o_ctrlPCOe
+  output wire o_ctrlPCNOe
 );
 logic[2:0] r_step;
 logic[7:0] r_instruction;
@@ -37,23 +39,26 @@ dist_mem_gen_1 inst_controlStore (
   .spo(s_controlSignals)
 );
 
-assign {o_ctrlAluOE, o_ctrlAluSubShiftDir, o_ctrlAluOp,
+assign {o_ctrlAluNOE, o_ctrlAluSubShiftDir, o_ctrlAluOp,
 o_ctrlAluWr, o_ctrlRegWr0, o_ctrlRegWr1, o_ctrlRegBusSel,
-o_ctrlRegBusEn, o_ctrlAluSel, o_ctrlRamAddressEn, o_ctrlRamWriteEn,
-o_ctrlRamOE, o_ctrlLoadPC, o_ctrlIncrPC, s_immOut} = s_controlSignals;
+o_ctrlRegNBusEn, o_ctrlAluSel, o_ctrlRamAddressEn, o_ctrlRamWriteEn,
+o_ctrlRamOE, o_ctrlLoadPC, o_ctrlIncrPC, s_nImmOut} = s_controlSignals;
 
-assign o_ctrlRamReadDataSelect = r_step <= 1;
-assign o_ctrlPCOe = r_step == 0;
+assign r_stepEqual1 = ~((~r_step[0] | r_step[1]) | r_step[2]);
+
+assign o_ctrlRamReadDataSelect = r_stepEqual1;
+assign o_ctrlPCNOe = (r_step[0] | r_step[1]) | r_step[2];
+assign o_ctrlHlt = & r_instruction;
 
 transmitter inst_tx( // is included in eeprom
   .a({5'b0, r_instruction[5-:3]}),
   .b(o_immediate),
-  .ce(s_immOut)
+  .noe(s_nImmOut)
 );
 
 always @(posedge i_clk) begin
   r_step <= r_step + 1;
-  if (r_step === 2) begin
+  if (r_stepEqual1) begin
     r_instruction <= i_instruction;
   end
   // if (r_step === 4) begin

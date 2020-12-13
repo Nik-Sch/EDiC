@@ -1,12 +1,28 @@
 module datapath(
   input wire i_clk,
-  input wire i_reset
+  input wire i_reset,
+  input wire i_button
 );
+
+logic s_hlt;
+wire s_clk;
+assign s_clk = i_clk & ~s_hlt;
+
+always @* begin
+  if (s_ctrlHlt) begin
+    s_hlt <= 1;
+  end
+  if (i_reset | i_button) begin
+    s_hlt <= 0;
+  end
+end
 
 wire s_aluFlagN;
 wire s_aluFlagZ;
 
-wire s_ctrlAluOE;
+wire s_ctrlHlt;
+
+wire s_ctrlAluNOE;
 wire s_ctrlAluSubShiftDir;
 wire[1:0] s_ctrlAluOp;
 wire s_ctrlAluWr;
@@ -14,7 +30,7 @@ wire s_ctrlAluWr;
 wire s_ctrlRegWr0;
 wire s_ctrlRegWr1;
 wire s_ctrlRegBusSel;
-wire s_ctrlRegBusEn;
+wire s_ctrlRegNBusEn;
 wire s_ctrlAluSel;
 
 wire s_ctrlRamAddressEn;
@@ -24,7 +40,7 @@ wire s_ctrlRamOE;
 
 wire s_ctrlLoadPC;
 wire s_ctrlIncrPC;
-wire s_ctrlPCOe;
+wire s_ctrlPCNOe;
 
 wire[7:0] s_instruction;
 wire[7:0] s_immediate;
@@ -61,7 +77,7 @@ assign s_instruction = s_BUS;
 assign s_aluA = s_regAlu;
 
 control inst_control(
-  .i_clk(i_clk),
+  .i_clk(s_clk),
   .i_reset(i_reset),
 
   .i_aluFlagN(s_aluFlagN),
@@ -70,14 +86,15 @@ control inst_control(
   .i_instruction(s_instruction),
   .o_immediate(s_immediate),
 
-  .o_ctrlAluOE(s_ctrlAluOE),
+  .o_ctrlHlt(s_ctrlHlt),
+  .o_ctrlAluNOE(s_ctrlAluNOE),
   .o_ctrlAluSubShiftDir(s_ctrlAluSubShiftDir),
   .o_ctrlAluOp(s_ctrlAluOp),
   .o_ctrlAluWr(s_ctrlAluWr),
   .o_ctrlRegWr0(s_ctrlRegWr0),
   .o_ctrlRegWr1(s_ctrlRegWr1),
   .o_ctrlRegBusSel(s_ctrlRegBusSel),
-  .o_ctrlRegBusEn(s_ctrlRegBusEn),
+  .o_ctrlRegNBusEn(s_ctrlRegNBusEn),
   .o_ctrlAluSel(s_ctrlAluSel),
   .o_ctrlRamAddressEn(s_ctrlRamAddressEn),
   .o_ctrlRamWriteEn(s_ctrlRamWriteEn),
@@ -85,11 +102,11 @@ control inst_control(
   .o_ctrlRamOE(s_ctrlRamOE),
   .o_ctrlLoadPC(s_ctrlLoadPC),
   .o_ctrlIncrPC(s_ctrlIncrPC),
-  .o_ctrlPCOe(s_ctrlPCOe)
+  .o_ctrlPCNOe(s_ctrlPCNOe)
 );
 
 alu inst_alu(
-  .i_clk(i_clk),
+  .i_clk(s_clk),
   .i_reset(i_reset),
 
   .i_a(s_aluA),
@@ -99,14 +116,14 @@ alu inst_alu(
   .o_negative(s_aluFlagN),
   .o_zero(s_aluFlagZ),
 
-  .i_oe(s_ctrlAluOE),
+  .i_noe(s_ctrlAluNOE),
   .i_subShiftDir(s_ctrlAluSubShiftDir),
   .i_aluOp(s_ctrlAluOp),
   .i_aluWr(s_ctrlAluWr)
 );
 
 regset inst_regs(
-  .i_clk(i_clk),
+  .i_clk(s_clk),
   .i_reset(i_reset),
 
   .i_d(s_regData),
@@ -114,7 +131,7 @@ regset inst_regs(
   .i_write1(s_ctrlRegWr1),
 
   .i_busSel(s_ctrlRegBusSel),
-  .i_busEn(s_ctrlRegBusEn),
+  .i_nBusEn(s_ctrlRegNBusEn),
   .o_bus(s_regBus),
 
   .i_aluSel(s_ctrlAluSel),
@@ -122,7 +139,7 @@ regset inst_regs(
 );
 
 ram inst_ram(
-  .i_clk(i_clk),
+  .i_clk(s_clk),
 
   .i_address(s_ramAddress),
   .i_addressEn(s_ctrlRamAddressEn),
@@ -136,13 +153,13 @@ ram inst_ram(
 );
 
 pc inst_pc(
-  .i_clk(i_clk),
+  .i_clk(s_clk),
   .i_reset(i_reset),
 
   .i_data(s_pcData),
   .i_loadData(s_ctrlLoadPC),
   .i_incr(s_ctrlIncrPC),
-  .i_oe(s_ctrlPCOe),
+  .i_noe(s_ctrlPCNOe),
   .o_addr(s_pcAddr)
 
 );

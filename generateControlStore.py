@@ -7,7 +7,7 @@ if (len(sys.argv) != 3 and len(sys.argv) != 4):
   exit(1)
 
 def controlSignalsToHex(control):
-  return int(str(control['aluOE'])
+  return int(str(control['aluNOE'])
    + str(control['aluSubShiftDir'])
    + str(control['aluOp0'])
    + str(control['aluOp1'])
@@ -15,14 +15,14 @@ def controlSignalsToHex(control):
    + str(control['regWr0'])
    + str(control['regWr1'])
    + str(control['regBusSel'])
-   + str(control['regBusEn'])
+   + str(control['regNBusEn'])
    + str(control['aluSel'])
    + str(control['ramAddressEn'])
    + str(control['ramWriteEn'])
    + str(control['ramOE'])
    + str(control['loadPC'])
    + str(control['incrPC'])
-   + str(control['immOut']), base=2)
+   + str(control['nImmOut']), base=2)
   
 def insertMemory(memory, address, data, name):
   if (address in memory):
@@ -128,6 +128,8 @@ const uint8_t data[] PROGMEM = {{
     for i in range(fetchLen):
         fetch.insert(i, controlSignalsToHex(data['instructionFetch'][i]))
 
+    noOp = controlSignalsToHex(data['noOp'])
+
     def output(d):
       if coeFile:
         fout.write(f"{d:04x}\n")
@@ -143,7 +145,7 @@ const uint8_t data[] PROGMEM = {{
       elif i in memory.keys():
         output(memory[i])
       else:
-        output(0)
+        output(noOp)
     if coeFile:
       fout.write(";")
     else:

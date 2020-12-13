@@ -7,19 +7,17 @@ module alu(
   input wire[7:0] i_b,
   output wire[7:0] o_y,
 
-  output logic o_negative,
-  output logic o_zero,
+  output wire o_negative,
+  output wire o_zero,
 
   input wire i_aluWr,
-  input wire i_oe,
+  input wire i_noe,
   input wire i_subShiftDir,
   input wire[1:0] i_aluOp
 );
 logic[7:0] s_b;
 logic[7:0] s_y;
 logic[7:0] r_y;
-wire s_negative;
-wire s_zero;
 logic[7:0] s_shift1, s_shift2, s_a, s_shift3;
 
 
@@ -28,19 +26,18 @@ always @(posedge i_clk) begin
     r_y <= s_y;
   end
   if (i_reset) begin // should not be needed in ttl
-    o_zero <= 0;
-    o_negative <= 0;
+    r_y <= 0;
   end
 end
 
 transmitter inst_tx(
   .a(r_y),
   .b(o_y),
-  .ce(i_oe)
+  .noe(i_noe)
 );
 
-assign s_negative = r_y[7];
-assign s_zero = ~(r_y[7] | r_y[6] | r_y[5] | r_y[4] | r_y[3] | r_y[2] | r_y[1] | r_y[0]);
+assign o_negative = r_y[7];
+assign o_zero = ~(r_y[7] | r_y[6] | r_y[5] | r_y[4] | r_y[3] | r_y[2] | r_y[1] | r_y[0]);
 
 genvar i;
 for (i = 0; i < 8; i++) begin

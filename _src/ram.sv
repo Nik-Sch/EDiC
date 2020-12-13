@@ -11,7 +11,7 @@ module ram(
   output wire[7:0] o_readData,
   input wire i_outEnable
 );
-wire[7:0] s_readData;
+wire[7:0] s_readDataInstr;
 logic[7:0] r_address;
 
 always @(posedge i_clk) begin
@@ -20,20 +20,24 @@ always @(posedge i_clk) begin
   end
 end
 
-
 // the AS6C1008-55PCN is true singleport with an integrated outEnable
-transmitter inst_tx(
-  .a(s_readData),
+transmitter inst_txInstr(
+  .a(s_readDataInstr),
   .b(o_readData),
-  .ce(i_outEnable)
+  .noe(~(i_outEnable & i_readDataSelect))
 );
 
-dist_mem_gen_0 your_instance_name (
-  .clk(i_clk),
-  .a({i_readDataSelect, r_address}),
-  .d(i_writeData),
-  .we(i_writeEn),
-  .spo(s_readData)
+dist_mem_gen_0 inst_instrRom (
+  .a(r_address),
+  .spo(s_readDataInstr)
+);
+
+asyncRam inst_ram (
+  .i_address(r_address),
+  .i_writeEn(i_writeEn),
+  .i_writeData(i_writeData),
+  .o_readData(o_readData),
+  .i_noe(~(i_outEnable & ~i_readDataSelect))
 );
 
 endmodule

@@ -5,6 +5,7 @@ verilog xil_defaultlib  \
 
 sv xil_defaultlib  \
 "../../../../../_src/alu.sv" \
+"../../../../../_src/asyncRam.sv" \
 "../../../../../_src/control.sv" \
 "../../../../../_src/datapath.sv" \
 "../../../../../_src/pc.sv" \

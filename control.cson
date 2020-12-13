@@ -1,6 +1,6 @@
 instructionFetch: [
-  { # pc into mar
-    aluOE: 0
+  { # pc into mar (pcout is seperate)
+    aluNOE: 1
     aluSubShiftDir: 0
     aluOp0: 0
     aluOp1: 0
@@ -8,35 +8,17 @@ instructionFetch: [
     regWr0: 0
     regWr1: 0
     regBusSel: 0
-    regBusEn: 0
+    regNBusEn: 1
     aluSel: 0
     ramAddressEn: 1
     ramWriteEn: 0
     ramOE: 0
     loadPC: 0
     incrPC: 0
-    immOut: 0
-  }
-  { # wait for ram
-    aluOE: 0
-    aluSubShiftDir: 0
-    aluOp0: 0
-    aluOp1: 0
-    aluWr: 0
-    regWr0: 0
-    regWr1: 0
-    regBusSel: 0
-    regBusEn: 0
-    aluSel: 0
-    ramAddressEn: 0
-    ramWriteEn: 0
-    ramOE: 0
-    loadPC: 0
-    incrPC: 0
-    immOut: 0
+    nImmOut: 1
   }
   { # load instruction
-    aluOE: 0
+    aluNOE: 1
     aluSubShiftDir: 0
     aluOp0: 0
     aluOp1: 0
@@ -44,22 +26,41 @@ instructionFetch: [
     regWr0: 0
     regWr1: 0
     regBusSel: 0
-    regBusEn: 0
+    regNBusEn: 1
     aluSel: 0
     ramAddressEn: 0
     ramWriteEn: 0
     ramOE: 1
     loadPC: 0
     incrPC: 1
-    immOut: 0
+    nImmOut: 1
   }
 ]
+noOp: {
+    aluNOE: 1
+    aluSubShiftDir: 0
+    aluOp0: 0
+    aluOp1: 0
+    aluWr: 0
+    regWr0: 0
+    regWr1: 0
+    regBusSel: 0
+    regNBusEn: 1
+    aluSel: 0
+    ramAddressEn: 0
+    ramWriteEn: 0
+    ramOE: 0
+    loadPC: 0
+    incrPC: 0
+    nImmOut: 1
+
+}
 instructions: [
     {
       op: '000000rs' # r = r + s
       signals: [
         { # r + s into alu
-          aluOE: 0
+          aluNOE: 1
           aluSubShiftDir: 0
           aluOp0: 0
           aluOp1: 0
@@ -67,17 +68,17 @@ instructions: [
           regWr0: 0
           regWr1: 0
           regBusSel: 's'
-          regBusEn: 1
+          regNBusEn: 0
           aluSel: 'r'
           ramAddressEn: 0
           ramWriteEn: 0
           ramOE: 0
           loadPC: 0
           incrPC: 0
-          immOut: 0
+          nImmOut: 1
         }
         { # alu into r
-          aluOE: 1
+          aluNOE: 0
           aluSubShiftDir: 0
           aluOp0: 0
           aluOp1: 0
@@ -85,14 +86,14 @@ instructions: [
           regWr0: '!r'
           regWr1: 'r'
           regBusSel: 0
-          regBusEn: 0
+          regNBusEn: 1
           aluSel: 'r'
           ramAddressEn: 0
           ramWriteEn: 0
           ramOE: 0
           loadPC: 0
           incrPC: 0
-          immOut: 0
+          nImmOut: 1
         }
       ]
     }
@@ -100,7 +101,7 @@ instructions: [
       op: '000001rs' # r = r - s
       signals: [
         { # r + s into alu
-          aluOE: 0
+          aluNOE: 1
           aluSubShiftDir: 1
           aluOp0: 0
           aluOp1: 0
@@ -108,17 +109,17 @@ instructions: [
           regWr0: 0
           regWr1: 0
           regBusSel: 's'
-          regBusEn: 1
+          regNBusEn: 0
           aluSel: 'r'
           ramAddressEn: 0
           ramWriteEn: 0
           ramOE: 0
           loadPC: 0
           incrPC: 0
-          immOut: 0
+          nImmOut: 1
         }
         { # alu into r
-          aluOE: 1
+          aluNOE: 0
           aluSubShiftDir: 0
           aluOp0: 0
           aluOp1: 0
@@ -126,14 +127,14 @@ instructions: [
           regWr0: '!r'
           regWr1: 'r'
           regBusSel: 0
-          regBusEn: 0
+          regNBusEn: 1
           aluSel: 'r'
           ramAddressEn: 0
           ramWriteEn: 0
           ramOE: 0
           loadPC: 0
           incrPC: 0
-          immOut: 0
+          nImmOut: 1
         }
       ]
     }
@@ -141,7 +142,7 @@ instructions: [
       op: '000010rs' # r = r & s
       signals: [
         { # r + s into alu
-          aluOE: 0
+          aluNOE: 1
           aluSubShiftDir: 0
           aluOp0: 0
           aluOp1: 1
@@ -149,17 +150,17 @@ instructions: [
           regWr0: 0
           regWr1: 0
           regBusSel: 's'
-          regBusEn: 1
+          regNBusEn: 0
           aluSel: 'r'
           ramAddressEn: 0
           ramWriteEn: 0
           ramOE: 0
           loadPC: 0
           incrPC: 0
-          immOut: 0
+          nImmOut: 1
         }
         { # alu into r
-          aluOE: 1
+          aluNOE: 0
           aluSubShiftDir: 0
           aluOp0: 0
           aluOp1: 0
@@ -167,14 +168,14 @@ instructions: [
           regWr0: '!r'
           regWr1: 'r'
           regBusSel: 0
-          regBusEn: 0
+          regNBusEn: 1
           aluSel: 'r'
           ramAddressEn: 0
           ramWriteEn: 0
           ramOE: 0
           loadPC: 0
           incrPC: 0
-          immOut: 0
+          nImmOut: 1
         }
       ]
     }
@@ -182,7 +183,7 @@ instructions: [
       op: '000011rs' # r = r ^ s
       signals: [
         { # r + s into alu
-          aluOE: 0
+          aluNOE: 1
           aluSubShiftDir: 0
           aluOp0: 1
           aluOp1: 0
@@ -190,17 +191,17 @@ instructions: [
           regWr0: 0
           regWr1: 0
           regBusSel: 's'
-          regBusEn: 1
+          regNBusEn: 0
           aluSel: 'r'
           ramAddressEn: 0
           ramWriteEn: 0
           ramOE: 0
           loadPC: 0
           incrPC: 0
-          immOut: 0
+          nImmOut: 1
         }
         { # alu into r
-          aluOE: 1
+          aluNOE: 0
           aluSubShiftDir: 0
           aluOp0: 0
           aluOp1: 0
@@ -208,14 +209,14 @@ instructions: [
           regWr0: '!r'
           regWr1: 'r'
           regBusSel: 0
-          regBusEn: 0
+          regNBusEn: 1
           aluSel: 'r'
           ramAddressEn: 0
           ramWriteEn: 0
           ramOE: 0
           loadPC: 0
           incrPC: 0
-          immOut: 0
+          nImmOut: 1
         }
       ]
     }
@@ -223,7 +224,7 @@ instructions: [
       op: '01imm00r' # r = r + imm
       signals: [
         { # r + s into alu
-          aluOE: 0
+          aluNOE: 1
           aluSubShiftDir: 0
           aluOp0: 0
           aluOp1: 0
@@ -231,17 +232,17 @@ instructions: [
           regWr0: 0
           regWr1: 0
           regBusSel: 0
-          regBusEn: 0
+          regNBusEn: 1
           aluSel: 'r'
           ramAddressEn: 0
           ramWriteEn: 0
           ramOE: 0
           loadPC: 0
           incrPC: 0
-          immOut: 1
+          nImmOut: 0
         }
         { # alu into r
-          aluOE: 1
+          aluNOE: 0
           aluSubShiftDir: 0
           aluOp0: 0
           aluOp1: 0
@@ -249,14 +250,14 @@ instructions: [
           regWr0: '!r'
           regWr1: 'r'
           regBusSel: 0
-          regBusEn: 0
+          regNBusEn: 1
           aluSel: 'r'
           ramAddressEn: 0
           ramWriteEn: 0
           ramOE: 0
           loadPC: 0
           incrPC: 0
-          immOut: 0
+          nImmOut: 1
         }
       ]
     }
@@ -264,7 +265,7 @@ instructions: [
       op: '01imm01r' # r = r - imm
       signals: [
         { # r + s into alu
-          aluOE: 0
+          aluNOE: 1
           aluSubShiftDir: 1
           aluOp0: 0
           aluOp1: 0
@@ -272,17 +273,17 @@ instructions: [
           regWr0: 0
           regWr1: 0
           regBusSel: 0
-          regBusEn: 0
+          regNBusEn: 1
           aluSel: 'r'
           ramAddressEn: 0
           ramWriteEn: 0
           ramOE: 0
           loadPC: 0
           incrPC: 0
-          immOut: 1
+          nImmOut: 0
         }
         { # alu into r
-          aluOE: 1
+          aluNOE: 0
           aluSubShiftDir: 0
           aluOp0: 0
           aluOp1: 0
@@ -290,14 +291,14 @@ instructions: [
           regWr0: '!r'
           regWr1: 'r'
           regBusSel: 0
-          regBusEn: 0
+          regNBusEn: 1
           aluSel: 'r'
           ramAddressEn: 0
           ramWriteEn: 0
           ramOE: 0
           loadPC: 0
           incrPC: 0
-          immOut: 0
+          nImmOut: 1
         }
       ]
     }
@@ -305,7 +306,7 @@ instructions: [
       op: '01imm10r' # r = r << imm
       signals: [
         { # r + s into alu
-          aluOE: 0
+          aluNOE: 1
           aluSubShiftDir: 1
           aluOp0: 1
           aluOp1: 1
@@ -313,17 +314,17 @@ instructions: [
           regWr0: 0
           regWr1: 0
           regBusSel: 0
-          regBusEn: 0
+          regNBusEn: 1
           aluSel: 'r'
           ramAddressEn: 0
           ramWriteEn: 0
           ramOE: 0
           loadPC: 0
           incrPC: 0
-          immOut: 1
+          nImmOut: 0
         }
         { # alu into r
-          aluOE: 1
+          aluNOE: 0
           aluSubShiftDir: 0
           aluOp0: 0
           aluOp1: 0
@@ -331,14 +332,14 @@ instructions: [
           regWr0: '!r'
           regWr1: 'r'
           regBusSel: 0
-          regBusEn: 0
+          regNBusEn: 1
           aluSel: 'r'
           ramAddressEn: 0
           ramWriteEn: 0
           ramOE: 0
           loadPC: 0
           incrPC: 0
-          immOut: 0
+          nImmOut: 1
         }
       ]
     }
@@ -346,7 +347,7 @@ instructions: [
       op: '01imm11r' # r = r >> imm
       signals: [
         { # r + s into alu
-          aluOE: 0
+          aluNOE: 1
           aluSubShiftDir: 0
           aluOp0: 1
           aluOp1: 1
@@ -354,17 +355,17 @@ instructions: [
           regWr0: 0
           regWr1: 0
           regBusSel: 0
-          regBusEn: 0
+          regNBusEn: 1
           aluSel: 'r'
           ramAddressEn: 0
           ramWriteEn: 0
           ramOE: 0
           loadPC: 0
           incrPC: 0
-          immOut: 1
+          nImmOut: 0
         }
         { # alu into r
-          aluOE: 1
+          aluNOE: 0
           aluSubShiftDir: 0
           aluOp0: 0
           aluOp1: 0
@@ -372,14 +373,14 @@ instructions: [
           regWr0: '!r'
           regWr1: 'r'
           regBusSel: 0
-          regBusEn: 0
+          regNBusEn: 1
           aluSel: 'r'
           ramAddressEn: 0
           ramWriteEn: 0
           ramOE: 0
           loadPC: 0
           incrPC: 0
-          immOut: 0
+          nImmOut: 1
         }
       ]
     }
@@ -387,7 +388,7 @@ instructions: [
       op: '000100rs' # r = [s]
       signals: [
         { # s to ram
-          aluOE: 0
+          aluNOE: 1
           aluSubShiftDir: 0
           aluOp0: 0
           aluOp1: 0
@@ -395,17 +396,17 @@ instructions: [
           regWr0: 0
           regWr1: 0
           regBusSel: 's'
-          regBusEn: 1
+          regNBusEn: 0
           aluSel: 0
           ramAddressEn: 1
           ramWriteEn: 0
           ramOE: 0
           loadPC: 0
           incrPC: 0
-          immOut: 0
+          nImmOut: 1
         }
         { # wait for ram
-          aluOE: 0
+          aluNOE: 1
           aluSubShiftDir: 0
           aluOp0: 0
           aluOp1: 0
@@ -413,17 +414,17 @@ instructions: [
           regWr0: 0
           regWr1: 0
           regBusSel: 0
-          regBusEn: 0
+          regNBusEn: 1
           aluSel: 0
           ramAddressEn: 0
           ramWriteEn: 0
           ramOE: 0
           loadPC: 0
           incrPC: 0
-          immOut: 0
+          nImmOut: 1
         }
         { # s to ram
-          aluOE: 0
+          aluNOE: 1
           aluSubShiftDir: 0
           aluOp0: 0
           aluOp1: 0
@@ -431,14 +432,14 @@ instructions: [
           regWr0: '!r'
           regWr1: 'r'
           regBusSel: 0
-          regBusEn: 0
+          regNBusEn: 1
           aluSel: 0
           ramAddressEn: 0
           ramWriteEn: 0
           ramOE: 1
           loadPC: 0
           incrPC: 0
-          immOut: 0
+          nImmOut: 1
         }
       ]
     }
@@ -446,7 +447,7 @@ instructions: [
       op: '000101rs' # [s] = r
       signals: [
         { # s to ram
-          aluOE: 0
+          aluNOE: 1
           aluSubShiftDir: 0
           aluOp0: 0
           aluOp1: 0
@@ -454,17 +455,17 @@ instructions: [
           regWr0: 0
           regWr1: 0
           regBusSel: 's'
-          regBusEn: 1
+          regNBusEn: 0
           aluSel: 0
           ramAddressEn: 1
           ramWriteEn: 0
           ramOE: 0
           loadPC: 0
           incrPC: 0
-          immOut: 0
+          nImmOut: 1
         }
         { # s to ram
-          aluOE: 0
+          aluNOE: 1
           aluSubShiftDir: 0
           aluOp0: 0
           aluOp1: 0
@@ -472,14 +473,14 @@ instructions: [
           regWr0: 0
           regWr1: 0
           regBusSel: 'r'
-          regBusEn: 1
+          regNBusEn: 0
           aluSel: 0
           ramAddressEn: 0
           ramWriteEn: 1
           ramOE: 0
           loadPC: 0
           incrPC: 0
-          immOut: 0
+          nImmOut: 1
         }
       ]
     }

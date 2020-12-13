@@ -70,6 +70,10 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "dist_mem_gen_0_synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 4
+set_param synth.incrementalSynthesisCache ./.Xil/Vivado-1244399-niklasPC/incrSyn
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 set_param project.vivado.isBlockSynthRun true
 set_msg_config -msgmgr_mode ooc_run
 OPTRACE "Creating in-memory project" START { }

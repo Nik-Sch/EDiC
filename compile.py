@@ -46,6 +46,10 @@ instructions = [
         'regex': re.compile("\s*mov\s+\[\s*r([01])\s*\]\s*,\s*r([01])"),
         'result': lambda res: f"000101{res.group(2)}{res.group(1)}\n"
     },
+    {
+        'regex': re.compile("\s*hlt"),
+        'result': lambda _: f"11111111\n"
+    },
 
 
     {

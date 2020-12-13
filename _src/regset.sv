@@ -7,7 +7,7 @@ module regset(
   input wire i_write1,
 
   input wire i_busSel,
-  input wire i_busEn,
+  input wire i_nBusEn,
   output wire[7:0] o_bus,
 
   input wire i_aluSel,
@@ -22,7 +22,7 @@ assign o_alu = i_aluSel ? r_1 : r_0;
 transmitter inst_tx(
   .a(i_busSel ? r_1 : r_0),
   .b(o_bus),
-  .ce(i_busEn)
+  .noe(i_nBusEn)
 );
 
 always @(posedge i_clk) begin
