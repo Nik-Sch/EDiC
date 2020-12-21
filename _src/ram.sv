@@ -5,7 +5,7 @@ module ram(
   input wire i_addressEn,
 
   input wire[7:0] i_writeData,
-  input wire i_writeEn,
+  input wire i_writeNEn,
 
   input wire i_readDataSelect, // 1 for data, 0 for program
   output wire[7:0] o_readData,
@@ -34,7 +34,7 @@ dist_mem_gen_0 inst_instrRom (
 
 asyncRam inst_ram (
   .i_address(r_address),
-  .i_writeEn(i_writeEn),
+  .i_writeNEn(i_writeNEn),
   .i_writeData(i_writeData),
   .o_readData(o_readData),
   .i_noe(~(i_outEnable & ~i_readDataSelect))

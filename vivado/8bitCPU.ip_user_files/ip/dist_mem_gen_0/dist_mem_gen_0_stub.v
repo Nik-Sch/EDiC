@@ -1,7 +1,7 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-// Date        : Sat Dec 12 17:47:16 2020
+// Date        : Mon Dec 21 23:50:27 2020
 // Host        : niklasPC running 64-bit Manjaro Linux
 // Command     : write_verilog -force -mode synth_stub
 //               /home/niklas/dev/8bitCpu/vivado/8bitCPU.runs/dist_mem_gen_0_synth_1/dist_mem_gen_0_stub.v

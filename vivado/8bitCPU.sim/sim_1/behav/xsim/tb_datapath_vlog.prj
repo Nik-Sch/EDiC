@@ -8,6 +8,7 @@ sv xil_defaultlib  \
 "../../../../../_src/asyncRam.sv" \
 "../../../../../_src/control.sv" \
 "../../../../../_src/datapath.sv" \
+"../../../../../_src/io.sv" \
 "../../../../../_src/pc.sv" \
 "../../../../../_src/ram.sv" \
 "../../../../../_src/regset.sv" \

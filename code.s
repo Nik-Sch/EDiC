@@ -1,10 +1,19 @@
-add r1, 5
-shl r1, 4
+add 5
+shl 4
 hlt
-shr r1, 2
-add r0, r1
-sub r0, 2
+shr 2
+add r1, r0
+sub 2
 mov [r1], r0
 xor r0, r0
-add r0, 7
+add 7
 mov r0, [r1]
+
+# test branch
+mov r1, [r1]
+sub r0, r1
+ble r0
+
+# infinite loop
+mov r0, pc
+jmp r0

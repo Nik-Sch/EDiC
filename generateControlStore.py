@@ -8,9 +8,6 @@ if (len(sys.argv) != 3 and len(sys.argv) != 4):
 
 def controlSignalsToHex(control):
   return int(str(control['aluNOE'])
-   + str(control['aluSubShiftDir'])
-   + str(control['aluOp0'])
-   + str(control['aluOp1'])
    + str(control['aluWr'])
    + str(control['regWr0'])
    + str(control['regWr1'])
@@ -18,11 +15,15 @@ def controlSignalsToHex(control):
    + str(control['regNBusEn'])
    + str(control['aluSel'])
    + str(control['ramAddressEn'])
-   + str(control['ramWriteEn'])
+   + str(control['ramWriteNEn'])
    + str(control['ramOE'])
    + str(control['loadPC'])
-   + str(control['incrPC'])
-   + str(control['nImmOut']), base=2)
+   + str(control['nImmOut'])
+   + str(control['wrOut'])
+   + str(control['pcNOut'])
+   + str(control['inNoe'])
+   + str(0)
+   , base=2)
   
 def insertMemory(memory, address, data, name):
   if (address in memory):
@@ -34,16 +35,36 @@ def insertMemory(memory, address, data, name):
 def insertSignals(memory, signals, address, prefixCount, flags, name, noOp):
   i = prefixCount
   for step in signals:
-    if (flags == "n"): # don't do stuff if N flag is low (0 and 2)
-      insertMemory(memory, (0 << 11) + (address << 3) + i, noOp, name)
-      insertMemory(memory, (1 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
-      insertMemory(memory, (2 << 11) + (address << 3) + i, noOp, name)
-      insertMemory(memory, (3 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
-    elif (flags == "z"):  # don't do stuff if Z flag is low (0 and 1)
-      insertMemory(memory, (0 << 11) + (address << 3) + i, noOp, name)
-      insertMemory(memory, (1 << 11) + (address << 3) + i, noOp, name)
-      insertMemory(memory, (2 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
-      insertMemory(memory, (3 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
+    if (flags == "eq"): # do stuff only if notZero is 0
+      insertMemory(memory, (0b00 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
+      insertMemory(memory, (0b01 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
+      insertMemory(memory, (0b10 << 11) + (address << 3) + i, noOp, name)
+      insertMemory(memory, (0b11 << 11) + (address << 3) + i, noOp, name)
+    elif (flags == "ne"): # do stuff only if notZero is 1
+      insertMemory(memory, (0b00 << 11) + (address << 3) + i, noOp, name)
+      insertMemory(memory, (0b01 << 11) + (address << 3) + i, noOp, name)
+      insertMemory(memory, (0b10 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
+      insertMemory(memory, (0b11 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
+    elif (flags == "lt"): # do stuff only if negative is 1
+      insertMemory(memory, (0b00 << 11) + (address << 3) + i, noOp, name)
+      insertMemory(memory, (0b01 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
+      insertMemory(memory, (0b10 << 11) + (address << 3) + i, noOp, name)
+      insertMemory(memory, (0b11 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
+    elif (flags == "le"): # do stuff only if negative is 1 or notZero is 0
+      insertMemory(memory, (0b00 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
+      insertMemory(memory, (0b01 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
+      insertMemory(memory, (0b10 << 11) + (address << 3) + i, noOp, name)
+      insertMemory(memory, (0b11 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
+    elif (flags == "ge"): # do stuff only if negative is 0
+      insertMemory(memory, (0b00 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
+      insertMemory(memory, (0b01 << 11) + (address << 3) + i, noOp, name)
+      insertMemory(memory, (0b10 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
+      insertMemory(memory, (0b11 << 11) + (address << 3) + i, noOp, name)
+    elif (flags == "gt"): # do stuff only if negative is 0 or notZero is 0
+      insertMemory(memory, (0b00 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
+      insertMemory(memory, (0b01 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
+      insertMemory(memory, (0b10 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
+      insertMemory(memory, (0b11 << 11) + (address << 3) + i, noOp, name)
     else:
       insertMemory(memory, (0 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
       insertMemory(memory, (1 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
@@ -118,10 +139,22 @@ const uint8_t data[] PROGMEM = {{
 
     memory = {}
     for instruction in data['instructions']:
-      if 'imm' in instruction['op']:
+      if 'imm' in instruction['op'] and 'alu' in instruction['op']:
+        for i in range(8):
+          for j in range(8):
+            newInstr = instruction.copy()
+            newInstr['op'] = newInstr['op'].replace(
+                'imm', f"{i:03b}").replace('alu', f"{j:03b}")
+            insertInstruction(memory, newInstr, fetchLen, noOp)
+      elif 'imm' in instruction['op']:
         for i in range(8):
           newInstr = instruction.copy()
           newInstr['op'] = newInstr['op'].replace('imm', f"{i:03b}")
+          insertInstruction(memory, newInstr, fetchLen, noOp)
+      elif 'alu' in instruction['op']:
+        for i in range(8):
+          newInstr = instruction.copy()
+          newInstr['op'] = newInstr['op'].replace('alu', f"{i:03b}")
           insertInstruction(memory, newInstr, fetchLen, noOp)
       else:
         insertInstruction(memory, instruction, fetchLen, noOp)

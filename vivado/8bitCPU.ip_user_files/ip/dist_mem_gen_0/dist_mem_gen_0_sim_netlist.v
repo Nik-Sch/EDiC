@@ -1,7 +1,7 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-// Date        : Sat Dec 12 17:47:16 2020
+// Date        : Mon Dec 21 23:50:27 2020
 // Host        : niklasPC running 64-bit Manjaro Linux
 // Command     : write_verilog -force -mode funcsim
 //               /home/niklas/dev/8bitCpu/vivado/8bitCPU.runs/dist_mem_gen_0_synth_1/dist_mem_gen_0_sim_netlist.v
@@ -187,85 +187,85 @@ module dist_mem_gen_0_rom
   wire [7:0]spo;
   wire \spo[7]_INST_0_i_1_n_0 ;
 
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
-  LUT5 #(
-    .INIT(32'hFFFEFF3F)) 
-    \spo[0]_INST_0 
-       (.I0(a[1]),
-        .I1(a[0]),
-        .I2(a[2]),
-        .I3(\spo[7]_INST_0_i_1_n_0 ),
-        .I4(a[3]),
-        .O(spo[0]));
   (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT5 #(
-    .INIT(32'hFFFFFA4A)) 
-    \spo[1]_INST_0 
-       (.I0(a[1]),
+    .INIT(32'hFFFFDE3C)) 
+    \spo[0]_INST_0 
+       (.I0(a[2]),
         .I1(a[0]),
-        .I2(a[2]),
+        .I2(a[1]),
         .I3(a[3]),
         .I4(\spo[7]_INST_0_i_1_n_0 ),
+        .O(spo[0]));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT5 #(
+    .INIT(32'hEAAEAAFE)) 
+    \spo[1]_INST_0 
+       (.I0(\spo[7]_INST_0_i_1_n_0 ),
+        .I1(a[1]),
+        .I2(a[0]),
+        .I3(a[2]),
+        .I4(a[3]),
         .O(spo[1]));
   (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT5 #(
-    .INIT(32'hFFFFEBEA)) 
+    .INIT(32'hFFFF82DC)) 
     \spo[2]_INST_0 
-       (.I0(\spo[7]_INST_0_i_1_n_0 ),
-        .I1(a[3]),
-        .I2(a[2]),
-        .I3(a[0]),
-        .I4(a[1]),
+       (.I0(a[2]),
+        .I1(a[1]),
+        .I2(a[0]),
+        .I3(a[3]),
+        .I4(\spo[7]_INST_0_i_1_n_0 ),
         .O(spo[2]));
   (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT5 #(
-    .INIT(32'hFFFBFF83)) 
+    .INIT(32'hEAAAEABF)) 
     \spo[3]_INST_0 
-       (.I0(a[1]),
-        .I1(a[0]),
-        .I2(a[2]),
-        .I3(\spo[7]_INST_0_i_1_n_0 ),
-        .I4(a[3]),
+       (.I0(\spo[7]_INST_0_i_1_n_0 ),
+        .I1(a[1]),
+        .I2(a[3]),
+        .I3(a[0]),
+        .I4(a[2]),
         .O(spo[3]));
   (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT5 #(
-    .INIT(32'hFFFFFF6A)) 
+    .INIT(32'hFF86FF16)) 
     \spo[4]_INST_0 
-       (.I0(a[1]),
-        .I1(a[2]),
-        .I2(a[0]),
+       (.I0(a[2]),
+        .I1(a[1]),
+        .I2(a[3]),
         .I3(\spo[7]_INST_0_i_1_n_0 ),
-        .I4(a[3]),
+        .I4(a[0]),
         .O(spo[4]));
   (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT5 #(
-    .INIT(32'hFFFBFF07)) 
+    .INIT(32'hEABBBFBB)) 
     \spo[5]_INST_0 
-       (.I0(a[1]),
-        .I1(a[0]),
-        .I2(a[2]),
-        .I3(\spo[7]_INST_0_i_1_n_0 ),
-        .I4(a[3]),
+       (.I0(\spo[7]_INST_0_i_1_n_0 ),
+        .I1(a[2]),
+        .I2(a[3]),
+        .I3(a[1]),
+        .I4(a[0]),
         .O(spo[5]));
   (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT5 #(
-    .INIT(32'hFFFBFF4F)) 
+    .INIT(32'hEAAEAFBF)) 
     \spo[6]_INST_0 
-       (.I0(a[1]),
+       (.I0(\spo[7]_INST_0_i_1_n_0 ),
         .I1(a[0]),
-        .I2(a[2]),
-        .I3(\spo[7]_INST_0_i_1_n_0 ),
-        .I4(a[3]),
+        .I2(a[3]),
+        .I3(a[1]),
+        .I4(a[2]),
         .O(spo[6]));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT5 #(
-    .INIT(32'hFFFFFC04)) 
+    .INIT(32'hFFF0F0F4)) 
     \spo[7]_INST_0 
        (.I0(a[0]),
         .I1(a[1]),
-        .I2(a[2]),
+        .I2(\spo[7]_INST_0_i_1_n_0 ),
         .I3(a[3]),
-        .I4(\spo[7]_INST_0_i_1_n_0 ),
+        .I4(a[2]),
         .O(spo[7]));
   LUT4 #(
     .INIT(16'hFFFE)) 

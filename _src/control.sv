@@ -22,13 +22,15 @@ module control(
   output wire o_ctrlAluSel,
 
   output wire o_ctrlRamAddressEn,
-  output wire o_ctrlRamWriteEn,
+  output wire o_ctrlRamWriteNEn,
   output wire o_ctrlRamReadDataSelect,
   output wire o_ctrlRamOE,
 
   output wire o_ctrlLoadPC,
   output wire o_ctrlIncrPC,
-  output wire o_ctrlPCNOe
+  output wire o_ctrlPCNOe,
+  output wire o_ctrlWrOut,
+  output wire o_ctrlInNoe
 );
 logic[2:0] r_step;
 logic[7:0] r_instruction;
@@ -39,18 +41,23 @@ dist_mem_gen_1 inst_controlStore (
   .spo(s_controlSignals)
 );
 
-assign {o_ctrlAluNOE, o_ctrlAluSubShiftDir, o_ctrlAluOp,
-o_ctrlAluWr, o_ctrlRegWr0, o_ctrlRegWr1, o_ctrlRegBusSel,
-o_ctrlRegNBusEn, o_ctrlAluSel, o_ctrlRamAddressEn, o_ctrlRamWriteEn,
-o_ctrlRamOE, o_ctrlLoadPC, o_ctrlIncrPC, s_nImmOut} = s_controlSignals;
+assign o_ctrlAluSubShiftDir = r_instruction[0];
+assign o_ctrlAluOp = r_instruction[2:1];
+
+assign {o_ctrlAluNOE, o_ctrlAluWr, o_ctrlRegWr0, o_ctrlRegWr1,
+o_ctrlRegBusSel, o_ctrlRegNBusEn, o_ctrlAluSel, o_ctrlRamAddressEn,
+o_ctrlRamWriteNEn, o_ctrlRamOE, o_ctrlLoadPC, s_nImmOut, o_ctrlWrOut,
+o_ctrlPCNOe, o_ctrlInNoe
+} = s_controlSignals[15:1];
 
 assign r_stepEqual1 = ~((~r_step[0] | r_step[1]) | r_step[2]);
 
 assign o_ctrlRamReadDataSelect = r_stepEqual1;
-assign o_ctrlPCNOe = (r_step[0] | r_step[1]) | r_step[2];
+assign o_ctrlIncrPC = r_stepEqual1;
+// assign o_ctrlPCNOe = (r_step[0] | r_step[1]) | r_step[2]; // at step 0
 assign o_ctrlHlt = & r_instruction;
 
-transmitter inst_tx( // is included in eeprom
+transmitter inst_tx(
   .a({5'b0, r_instruction[5-:3]}),
   .b(o_immediate),
   .noe(s_nImmOut)

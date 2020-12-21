@@ -34,13 +34,14 @@ wire s_ctrlRegNBusEn;
 wire s_ctrlAluSel;
 
 wire s_ctrlRamAddressEn;
-wire s_ctrlRamWriteEn;
+wire s_ctrlRamWriteNEn;
 wire s_ctrlRamReadDataSelect;
 wire s_ctrlRamOE;
 
 wire s_ctrlLoadPC;
-wire s_ctrlIncrPC;
 wire s_ctrlPCNOe;
+wire s_ctrlWrOut;
+wire s_ctrlIncrPC;
 
 wire[7:0] s_instruction;
 wire[7:0] s_immediate;
@@ -60,9 +61,13 @@ wire[7:0] s_ramReadData;
 wire[7:0] s_pcAddr;
 wire[7:0] s_pcData;
 
+wire[7:0] s_iData;
+wire[7:0] s_oData;
+
 wire[7:0] s_BUS;
 
 assign s_BUS = s_aluY;
+assign s_BUS = s_iData;
 assign s_BUS = s_regBus;
 assign s_BUS = s_ramReadData;
 assign s_BUS = s_pcAddr;
@@ -73,6 +78,7 @@ assign s_ramAddress = s_BUS;
 assign s_ramWriteData = s_BUS;
 assign s_pcData = s_BUS;
 assign s_instruction = s_BUS;
+assign s_oData = s_BUS;
 
 assign s_aluA = s_regAlu;
 
@@ -97,12 +103,14 @@ control inst_control(
   .o_ctrlRegNBusEn(s_ctrlRegNBusEn),
   .o_ctrlAluSel(s_ctrlAluSel),
   .o_ctrlRamAddressEn(s_ctrlRamAddressEn),
-  .o_ctrlRamWriteEn(s_ctrlRamWriteEn),
+  .o_ctrlRamWriteNEn(s_ctrlRamWriteNEn),
   .o_ctrlRamReadDataSelect(s_ctrlRamReadDataSelect),
   .o_ctrlRamOE(s_ctrlRamOE),
   .o_ctrlLoadPC(s_ctrlLoadPC),
+  .o_ctrlPCNOe(s_ctrlPCNOe),
+  .o_ctrlWrOut(s_ctrlWrOut),
   .o_ctrlIncrPC(s_ctrlIncrPC),
-  .o_ctrlPCNOe(s_ctrlPCNOe)
+  .o_ctrlInNoe(s_ctrlInNoe)
 );
 
 alu inst_alu(
@@ -138,6 +146,16 @@ regset inst_regs(
   .o_alu(s_regAlu)
 );
 
+io inst_io(
+  .i_clk(s_clk),
+
+  .i_data(s_oData),
+  .o_data(s_iData),
+
+  .i_wrOut(s_ctrlWrOut),
+  .i_inNOe(s_ctrlInNoe)
+);
+
 ram inst_ram(
   .i_clk(s_clk),
 
@@ -145,7 +163,7 @@ ram inst_ram(
   .i_addressEn(s_ctrlRamAddressEn),
 
   .i_writeData(s_ramWriteData),
-  .i_writeEn(s_ctrlRamWriteEn),
+  .i_writeNEn(s_ctrlRamWriteNEn),
 
   .i_readDataSelect(s_ctrlRamReadDataSelect),
   .o_readData(s_ramReadData),
