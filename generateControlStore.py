@@ -6,22 +6,23 @@ if (len(sys.argv) != 3 and len(sys.argv) != 4):
   print(sys.argv[0] + ' <in>.cson <out>.coe|h [0|1]')
   exit(1)
 
-def controlSignalsToHex(control):
-  return int(str(control['aluNOE'])
-   + str(control['aluWr'])
-   + str(control['regWr0'])
-   + str(control['regWr1'])
-   + str(control['regBusSel'])
-   + str(control['regNBusEn'])
-   + str(control['aluSel'])
-   + str(control['ramAddressEn'])
-   + str(control['ramWriteNEn'])
-   + str(control['ramOE'])
-   + str(control['loadPC'])
-   + str(control['nImmOut'])
-   + str(control['wrOut'])
-   + str(control['pcNOut'])
-   + str(control['inNoe'])
+def ctrlToInt(control, default = {}):
+  return int(
+     str(control['aluNOE'] if ('aluNOE' in control) else default['aluNOE'])
+   + str(control['aluWr'] if ('aluWr' in control) else default['aluWr'])
+   + str(control['regWr0'] if ('regWr0' in control) else default['regWr0'])
+   + str(control['regWr1'] if ('regWr1' in control) else default['regWr1'])
+   + str(control['regBusSel'] if ('regBusSel' in control) else default['regBusSel'])
+   + str(control['regNBusEn'] if ('regNBusEn' in control) else default['regNBusEn'])
+   + str(control['aluSel'] if ('aluSel' in control) else default['aluSel'])
+   + str(control['ramAddressEn'] if ('ramAddressEn' in control) else default['ramAddressEn'])
+   + str(control['ramWriteNEn'] if ('ramWriteNEn' in control) else default['ramWriteNEn'])
+   + str(control['ramOE'] if ('ramOE' in control) else default['ramOE'])
+   + str(control['loadPC'] if ('loadPC' in control) else default['loadPC'])
+   + str(control['nImmOut'] if ('nImmOut' in control) else default['nImmOut'])
+   + str(control['wrOut'] if ('wrOut' in control) else default['wrOut'])
+   + str(control['pcNOut'] if ('pcNOut' in control) else default['pcNOut'])
+   + str(control['inNoe'] if ('inNoe' in control) else default['inNoe'])
    + str(0)
    , base=2)
   
@@ -36,40 +37,40 @@ def insertSignals(memory, signals, address, prefixCount, flags, name, noOp):
   i = prefixCount
   for step in signals:
     if (flags == "eq"): # do stuff only if notZero is 0
-      insertMemory(memory, (0b00 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
-      insertMemory(memory, (0b01 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
-      insertMemory(memory, (0b10 << 11) + (address << 3) + i, noOp, name)
-      insertMemory(memory, (0b11 << 11) + (address << 3) + i, noOp, name)
+      insertMemory(memory, (0b00 << 11) + (address << 3) + i, ctrlToInt(step, noOp), name)
+      insertMemory(memory, (0b01 << 11) + (address << 3) + i, ctrlToInt(step, noOp), name)
+      insertMemory(memory, (0b10 << 11) + (address << 3) + i, ctrlToInt(noOp), name)
+      insertMemory(memory, (0b11 << 11) + (address << 3) + i, ctrlToInt(noOp), name)
     elif (flags == "ne"): # do stuff only if notZero is 1
-      insertMemory(memory, (0b00 << 11) + (address << 3) + i, noOp, name)
-      insertMemory(memory, (0b01 << 11) + (address << 3) + i, noOp, name)
-      insertMemory(memory, (0b10 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
-      insertMemory(memory, (0b11 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
+      insertMemory(memory, (0b00 << 11) + (address << 3) + i, ctrlToInt(noOp), name)
+      insertMemory(memory, (0b01 << 11) + (address << 3) + i, ctrlToInt(noOp), name)
+      insertMemory(memory, (0b10 << 11) + (address << 3) + i, ctrlToInt(step, noOp), name)
+      insertMemory(memory, (0b11 << 11) + (address << 3) + i, ctrlToInt(step, noOp), name)
     elif (flags == "lt"): # do stuff only if negative is 1
-      insertMemory(memory, (0b00 << 11) + (address << 3) + i, noOp, name)
-      insertMemory(memory, (0b01 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
-      insertMemory(memory, (0b10 << 11) + (address << 3) + i, noOp, name)
-      insertMemory(memory, (0b11 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
+      insertMemory(memory, (0b00 << 11) + (address << 3) + i, ctrlToInt(noOp), name)
+      insertMemory(memory, (0b01 << 11) + (address << 3) + i, ctrlToInt(step, noOp), name)
+      insertMemory(memory, (0b10 << 11) + (address << 3) + i, ctrlToInt(noOp), name)
+      insertMemory(memory, (0b11 << 11) + (address << 3) + i, ctrlToInt(step, noOp), name)
     elif (flags == "le"): # do stuff only if negative is 1 or notZero is 0
-      insertMemory(memory, (0b00 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
-      insertMemory(memory, (0b01 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
-      insertMemory(memory, (0b10 << 11) + (address << 3) + i, noOp, name)
-      insertMemory(memory, (0b11 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
+      insertMemory(memory, (0b00 << 11) + (address << 3) + i, ctrlToInt(step, noOp), name)
+      insertMemory(memory, (0b01 << 11) + (address << 3) + i, ctrlToInt(step, noOp), name)
+      insertMemory(memory, (0b10 << 11) + (address << 3) + i, ctrlToInt(noOp), name)
+      insertMemory(memory, (0b11 << 11) + (address << 3) + i, ctrlToInt(step, noOp), name)
     elif (flags == "ge"): # do stuff only if negative is 0
-      insertMemory(memory, (0b00 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
-      insertMemory(memory, (0b01 << 11) + (address << 3) + i, noOp, name)
-      insertMemory(memory, (0b10 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
-      insertMemory(memory, (0b11 << 11) + (address << 3) + i, noOp, name)
+      insertMemory(memory, (0b00 << 11) + (address << 3) + i, ctrlToInt(step, noOp), name)
+      insertMemory(memory, (0b01 << 11) + (address << 3) + i, ctrlToInt(noOp), name)
+      insertMemory(memory, (0b10 << 11) + (address << 3) + i, ctrlToInt(step, noOp), name)
+      insertMemory(memory, (0b11 << 11) + (address << 3) + i, ctrlToInt(noOp), name)
     elif (flags == "gt"): # do stuff only if negative is 0 or notZero is 0
-      insertMemory(memory, (0b00 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
-      insertMemory(memory, (0b01 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
-      insertMemory(memory, (0b10 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
-      insertMemory(memory, (0b11 << 11) + (address << 3) + i, noOp, name)
+      insertMemory(memory, (0b00 << 11) + (address << 3) + i, ctrlToInt(step, noOp), name)
+      insertMemory(memory, (0b01 << 11) + (address << 3) + i, ctrlToInt(step, noOp), name)
+      insertMemory(memory, (0b10 << 11) + (address << 3) + i, ctrlToInt(step, noOp), name)
+      insertMemory(memory, (0b11 << 11) + (address << 3) + i, ctrlToInt(noOp), name)
     else:
-      insertMemory(memory, (0 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
-      insertMemory(memory, (1 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
-      insertMemory(memory, (2 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
-      insertMemory(memory, (3 << 11) + (address << 3) + i, controlSignalsToHex(step), name)
+      insertMemory(memory, (0 << 11) + (address << 3) + i, ctrlToInt(step, noOp), name)
+      insertMemory(memory, (1 << 11) + (address << 3) + i, ctrlToInt(step, noOp), name)
+      insertMemory(memory, (2 << 11) + (address << 3) + i, ctrlToInt(step, noOp), name)
+      insertMemory(memory, (3 << 11) + (address << 3) + i, ctrlToInt(step, noOp), name)
 
     i += 1
 
@@ -135,7 +136,7 @@ with open(sys.argv[1], 'rb') as fin:
 const uint16_t length = {2**13};
 const uint8_t data[] PROGMEM = {{
 """)
-    noOp = controlSignalsToHex(data['noOp'])
+    noOp = data['noOp']
 
     memory = {}
     for instruction in data['instructions']:
@@ -161,7 +162,7 @@ const uint8_t data[] PROGMEM = {{
     
     fetch = []
     for i in range(fetchLen):
-        fetch.insert(i, controlSignalsToHex(data['instructionFetch'][i]))
+        fetch.insert(i, ctrlToInt(data['instructionFetch'][i], noOp))
 
 
     def output(d):
@@ -179,8 +180,10 @@ const uint8_t data[] PROGMEM = {{
       elif i in memory.keys():
         output(memory[i])
       else:
-        output(noOp)
+        output(ctrlToInt(noOp))
     if coeFile:
       fout.write(";")
     else:
       fout.write("};\n#endif")
+
+print("Successfully written file.")
