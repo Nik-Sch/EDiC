@@ -11,6 +11,7 @@
 last three bits: aluOp + sub
 immediate values zero padded 3 bits (0-7)
 ### what are the instructions
+```
 0: no immediate
 00: reg alu
 000: write back
@@ -78,3 +79,4 @@ immediate values zero padded 3 bits (0-7)
   imm101: y := r0 ^ !imm
   imm110: y := r0 >> imm
   imm111: y := r0 << imm
+```
