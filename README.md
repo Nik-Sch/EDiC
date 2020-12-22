@@ -19,5 +19,15 @@ SystemVerilog simulation of an 8 bit discrete TTL CPU I am building for fun. The
   The right board includes a 4bit step register for the multicycle control + incrementor (4bit half adder) + logic for external control signals like the halt signal.
   - The orange boards finally include the program counter + incrementor + Tristate Transceiver and load from bus MUX.
   
-  ![image](https://github.com/Nik-Sch/8bitCPU/raw/main/doc/update13122020.jpg)
+  ![image](https://github.com/Nik-Sch/8bitCPU/raw/main/doc/update20201213.jpg)
+</details>
+
+## Update 22.12.2020
+<details><summary>Update of the final(ish) layout:</summary>
+  
+  - I finished and interconnected all of the data path + bus, except for the PC at the bottom.
+  - The ALU + regset + SRAM is fully functional with some debugging effort like pulling up all connections to the 5V CMOS SRAM which has an higher voltage requirement for high level inputs.
+  - Half of the control logic has wires and I decided to swap the two control boards for better interconnection.
+  
+  ![image](https://github.com/Nik-Sch/8bitCPU/raw/main/doc/update20201222.jpg)
 </details>
