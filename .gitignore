@@ -24,7 +24,7 @@
 !generateControlStore.py
 !compile.py
 !control.cson
-!code.s
+!*.s
 !schematic/*
 !doc/*
 #########
