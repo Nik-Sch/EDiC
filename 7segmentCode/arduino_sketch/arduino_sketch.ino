@@ -1,5 +1,3 @@
-#include<Arduino.h>
-
 void setShiftRegister(uint8_t *data, uint8_t def) {
   for (uint8_t i = 0; i < 7; i++) {
     PORTD = def | (data[i] & 0x01);

@@ -7,8 +7,11 @@ eor r1, r1
 # [1]: value to sum
 # [2]: remaining loop count
 
-hlt
-in r1
+# hlt
+# in r1
+add r0, 5
+mov r1, r0
+
 eor r0, r0 # r0 now 0
 # store 0 in [0]
 str r0, [r0]

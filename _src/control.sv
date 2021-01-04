@@ -44,8 +44,9 @@ dist_mem_gen_1 inst_controlStore (
 assign o_ctrlAluSubShiftDir = r_instruction[0];
 assign o_ctrlAluOp = r_instruction[2:1];
 
-assign {o_ctrlAluNOE, o_ctrlAluWr, o_ctrlRegWr0, o_ctrlRegWr1,
-o_ctrlRegBusSel, o_ctrlRegNBusEn, o_ctrlAluSel, o_ctrlRamAddressEn,
+assign {o_ctrlAluNOE, o_ctrlAluWr, o_ctrlRegWr0, o_ctrlRegWr1, o_ctrlRegBusSel,
+o_ctrlRegNBusEn, o_ctrlAluSel, o_ctrlRamAddressEn, 
+
 o_ctrlRamWriteNEn, o_ctrlRamOE, o_ctrlLoadPC, s_nImmOut, o_ctrlWrOut,
 o_ctrlPCNOe, o_ctrlInNoe
 } = s_controlSignals[15:1];
@@ -63,17 +64,23 @@ transmitter inst_tx(
   .noe(s_nImmOut)
 );
 
-always @(posedge i_clk) begin
+always @(negedge i_clk) begin
   r_step <= r_step + 1;
-  if (r_stepEqual1) begin
-    r_instruction <= i_instruction;
-  end
   // if (r_step === 4) begin
   //   r_step <= 0;
   // end
 
   if (i_reset) begin
     r_step <= 0;
+  end
+end
+
+always @(posedge i_clk) begin
+  if (r_stepEqual1) begin
+    r_instruction <= i_instruction;
+  end
+
+  if (i_reset) begin
     r_instruction <= 0; // should not be needed in ttl
   end
 end

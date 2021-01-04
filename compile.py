@@ -155,10 +155,22 @@ instructions = [
     },
 ]
 
+coeFile = sys.argv[2].endswith('.coe')
+
 with open(sys.argv[1], 'r') as fin:
   code = fin.readlines()
 with open(sys.argv[2], 'w+') as fout:
-  fout.write("MEMORY_INITIALIZATION_RADIX=2;\nMEMORY_INITIALIZATION_VECTOR=\n")
+  if coeFile:
+    fout.write("MEMORY_INITIALIZATION_RADIX=2;\nMEMORY_INITIALIZATION_VECTOR=\n")
+  else:
+    fout.write(f"""#ifndef DATA_H
+#define DATA_H
+
+#include <Arduino.h>
+
+const uint16_t length = {2**8};
+const uint8_t data[] PROGMEM = {{
+""")
   i = 0
   j = 0
   for origLine in code:
@@ -177,11 +189,20 @@ with open(sys.argv[2], 'w+') as fout:
       if result:
         success = True
         print(f"{j:02x}: {instr['result'](result).strip()} - {origLine.strip()}")
-        fout.write(instr['result'](result))
+        if (coeFile):
+          fout.write(instr['result'](result))
+        else:
+          fout.write(f"0x{(int(instr['result'](result), 2)):02x},\n")
         j += 1
         break
     if not success:
       print(f"Unrecognized instruction in line {i}:\n'{line.strip()}'")
       exit(1)
-
-  fout.write(";")
+  if (not coeFile):
+    while (j < 2**8):
+      fout.write("0xff,\n")
+      j += 1
+  if coeFile:
+    fout.write(";")
+  else:
+    fout.write("};\n#endif")

@@ -6,7 +6,7 @@ logic reset = 1;
 initial begin
   reset = 1;
   repeat(10) begin
-    @(negedge clk);
+    @(posedge clk);
   end
   reset = 0;
 end

@@ -1,5 +1,5 @@
 #include <Arduino.h>
-#include "control1.h"
+#include "square.h"
 
 
 void setData(uint8_t data) {
@@ -41,7 +41,7 @@ void setup() {
     pinMode(i, OUTPUT); // a2-12
   }
 
-#if 1
+#if 0
   for (uint16_t i = 0; i < length; i++) {
   // for (uint16_t i = 0; i < 50; i++) {
     uint8_t byte = pgm_read_byte_near(data + i);
@@ -55,6 +55,8 @@ void setup() {
   }
   Serial.println("\nfinished");
 #else
+  // uint8_t byte = pgm_read_byte_near(data + 0);
+  // writeData(0, byte);
   setAddress(0);
 #endif
 }
