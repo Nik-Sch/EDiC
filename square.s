@@ -8,8 +8,8 @@ eor r1, r1
 # [2]: remaining loop count
 
 # hlt
-# in r1
-add r0, 5
+#in r1
+add r0, 6
 mov r1, r0
 
 eor r0, r0 # r0 now 0

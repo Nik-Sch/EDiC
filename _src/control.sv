@@ -34,15 +34,16 @@ module control(
 );
 logic[2:0] r_step;
 logic[7:0] r_instruction;
+logic[7:0] r_instructionFallingEdge;
 logic[15:0] s_controlSignals;
 
 dist_mem_gen_1 inst_controlStore (
-  .a({i_aluFlagNZ, i_aluFlagN, r_instruction, r_step[2:0]}),
+  .a({i_aluFlagNZ, i_aluFlagN, r_instructionFallingEdge, r_step[2:0]}),
   .spo(s_controlSignals)
 );
 
-assign o_ctrlAluSubShiftDir = r_instruction[0];
-assign o_ctrlAluOp = r_instruction[2:1];
+assign o_ctrlAluSubShiftDir = r_instructionFallingEdge[0];
+assign o_ctrlAluOp = r_instructionFallingEdge[2:1];
 
 assign {o_ctrlAluNOE, o_ctrlAluWr, o_ctrlRegWr0, o_ctrlRegWr1, o_ctrlRegBusSel,
 o_ctrlRegNBusEn, o_ctrlAluSel, o_ctrlRamAddressEn, 
@@ -56,7 +57,7 @@ assign r_stepEqual1 = ~((~r_step[0] | r_step[1]) | r_step[2]);
 assign o_ctrlRamReadDataSelect = r_stepEqual1;
 assign o_ctrlIncrPC = r_stepEqual1;
 // assign o_ctrlPCNOe = (r_step[0] | r_step[1]) | r_step[2]; // at step 0
-assign o_ctrlHlt = & r_instruction;
+assign o_ctrlHlt = & r_instruction;     
 
 transmitter inst_tx(
   .a({5'b0, r_instruction[5-:3]}),
@@ -66,6 +67,7 @@ transmitter inst_tx(
 
 always @(negedge i_clk) begin
   r_step <= r_step + 1;
+  r_instructionFallingEdge <= r_instruction;
   // if (r_step === 4) begin
   //   r_step <= 0;
   // end

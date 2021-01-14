@@ -70,8 +70,7 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 4
-set_param synth.incrementalSynthesisCache ./.Xil/Vivado-1244399-niklasPC/incrSyn
+set_param synth.incrementalSynthesisCache ./.Xil/Vivado-3461776-niklasPC/incrSyn
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
@@ -93,18 +92,20 @@ add_files /home/niklas/dev/8bitCpu/ram_init.coe
 add_files /home/niklas/dev/8bitCpu/controlRom.coe
 read_verilog -library xil_defaultlib -sv {
   /home/niklas/dev/8bitCpu/_src/alu.sv
+  /home/niklas/dev/8bitCpu/_src/asyncRam.sv
   /home/niklas/dev/8bitCpu/_src/control.sv
+  /home/niklas/dev/8bitCpu/_src/io.sv
   /home/niklas/dev/8bitCpu/_src/pc.sv
   /home/niklas/dev/8bitCpu/_src/ram.sv
   /home/niklas/dev/8bitCpu/_src/regset.sv
   /home/niklas/dev/8bitCpu/_src/transmitter.sv
   /home/niklas/dev/8bitCpu/_src/datapath.sv
 }
-read_ip -quiet /home/niklas/dev/8bitCpu/vivado/8bitCPU.srcs/sources_1/ip/dist_mem_gen_0/dist_mem_gen_0.xci
-set_property used_in_implementation false [get_files -all /home/niklas/dev/8bitCpu/vivado/8bitCPU.srcs/sources_1/ip/dist_mem_gen_0/dist_mem_gen_0_ooc.xdc]
-
 read_ip -quiet /home/niklas/dev/8bitCpu/vivado/8bitCPU.srcs/sources_1/ip/dist_mem_gen_1/dist_mem_gen_1.xci
 set_property used_in_implementation false [get_files -all /home/niklas/dev/8bitCpu/vivado/8bitCPU.srcs/sources_1/ip/dist_mem_gen_1/dist_mem_gen_1_ooc.xdc]
+
+read_ip -quiet /home/niklas/dev/8bitCpu/vivado/8bitCPU.srcs/sources_1/ip/dist_mem_gen_0/dist_mem_gen_0.xci
+set_property used_in_implementation false [get_files -all /home/niklas/dev/8bitCpu/vivado/8bitCPU.srcs/sources_1/ip/dist_mem_gen_0/dist_mem_gen_0_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -118,6 +119,8 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 read_xdc /home/niklas/dev/8bitCpu/_src/constraints.xdc
 set_property used_in_implementation false [get_files /home/niklas/dev/8bitCpu/_src/constraints.xdc]
 
+read_xdc dont_touch.xdc
+set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]
 
