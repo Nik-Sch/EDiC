@@ -7,7 +7,7 @@ noOp: {
     regNBusEn: 1
     aluSel: 0
     ramAddressEn: 0
-    ramWriteNEn: 1
+    ramWriteEn: 0
     ramOE: 0
     loadPC: 0
     nImmOut: 1
@@ -213,7 +213,7 @@ instructions: [
         { # s to ram
           regBusSel: 'r'
           regNBusEn: 0
-          ramWriteNEn: 0
+          ramWriteEn: 1
         }
       ]
     }

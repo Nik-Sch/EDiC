@@ -11,22 +11,22 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="55801fs"></ZoomEndTime>
-      <Cursor1Time time="105000fs"></Cursor1Time>
+      <ZoomStartTime time="2159550fs"></ZoomStartTime>
+      <ZoomEndTime time="2611351fs"></ZoomEndTime>
+      <Cursor1Time time="2426750fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="252"></NameColumnWidth>
-      <ValueColumnWidth column_width="163"></ValueColumnWidth>
+      <ValueColumnWidth column_width="157"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="12" />
    <wvobject type="logic" fp_name="/tb_datapath/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_datapath/reset">
-      <obj_property name="ElementShortName">reset</obj_property>
-      <obj_property name="ObjectShortName">reset</obj_property>
+   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_control/r_step">
+      <obj_property name="ElementShortName">r_step[2:0]</obj_property>
+      <obj_property name="ObjectShortName">r_step[2:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_datapath/inst_datapath/s_BUS">
       <obj_property name="ElementShortName">s_BUS[7:0]</obj_property>
@@ -135,10 +135,6 @@
       <obj_property name="ObjectShortName">r_addr[7:0]</obj_property>
       <obj_property name="label">r_pc[7:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_control/r_step">
-      <obj_property name="ElementShortName">r_step[2:0]</obj_property>
-      <obj_property name="ObjectShortName">r_step[2:0]</obj_property>
-   </wvobject>
    <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_control/r_instruction">
       <obj_property name="ElementShortName">r_instruction[7:0]</obj_property>
       <obj_property name="ObjectShortName">r_instruction[7:0]</obj_property>
@@ -162,5 +158,9 @@
    <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_ram/r_address">
       <obj_property name="ElementShortName">r_address[7:0]</obj_property>
       <obj_property name="ObjectShortName">r_address[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_io/r_output">
+      <obj_property name="ElementShortName">r_output[7:0]</obj_property>
+      <obj_property name="ObjectShortName">r_output[7:0]</obj_property>
    </wvobject>
 </wave_config>

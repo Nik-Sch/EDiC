@@ -16,7 +16,7 @@ def ctrlToInt(control, default = {}):
    + str(control['regNBusEn'] if ('regNBusEn' in control) else default['regNBusEn'])
    + str(control['aluSel'] if ('aluSel' in control) else default['aluSel'])
    + str(control['ramAddressEn'] if ('ramAddressEn' in control) else default['ramAddressEn'])
-   + str(control['ramWriteNEn'] if ('ramWriteNEn' in control) else default['ramWriteNEn'])
+   + str(control['ramWriteEn'] if ('ramWriteEn' in control) else default['ramWriteEn'])
    + str(control['ramOE'] if ('ramOE' in control) else default['ramOE'])
    + str(control['loadPC'] if ('loadPC' in control) else default['loadPC'])
    + str(control['nImmOut'] if ('nImmOut' in control) else default['nImmOut'])

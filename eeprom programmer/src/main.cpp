@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include "square.h"
 // do program or validate
-#define DO_PROGRAM 1
+// #define DO_PROGRAM 1
 
 void setData(uint8_t data) {
   digitalWrite(A2, (data >> 0) & 0x01);

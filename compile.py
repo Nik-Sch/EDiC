@@ -175,7 +175,7 @@ const uint8_t data[] PROGMEM = {{
   j = 0
   for origLine in code:
     i += 1
-    commentRegex = re.compile(".*?(\s*#.*$)").match(origLine)
+    commentRegex = re.compile(".*?(\s*[#@;].*$)").match(origLine)
     if (commentRegex):
         line = origLine.replace(commentRegex.group(1), '')
     else:
