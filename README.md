@@ -6,6 +6,25 @@ SystemVerilog simulation of an 8 bit discrete TTL CPU I am building for fun. The
 - 256 byte instruction EEPROM
 - 256 byte program SRAM
 
+## Update 15.01.2020
+<details><summary>First program got executed!</summary>
+  
+  - I finished building everything and after about a week of endless debugging bugfixing the first program ran correctly.
+  - The gif below shows how the CPU executes 6² and outputs the result which is shown in hexadecimal (6²=36=0x24).
+  
+  ![image](https://github.com/Nik-Sch/8bitCPU/raw/main/doc/update20210115.gif)
+</details>
+
+## Update 22.12.2020
+<details><summary>Update of the final(ish) layout:</summary>
+  
+  - I finished and interconnected all of the data path + bus, except for the PC at the bottom.
+  - The ALU + regset + SRAM is fully functional with some debugging effort like pulling up all connections to the 5V CMOS SRAM which has an higher voltage requirement for high level inputs.
+  - Half of the control logic has wires and I decided to swap the two control boards for better interconnection.
+  
+  ![image](https://github.com/Nik-Sch/8bitCPU/raw/main/doc/update20201222.jpg)
+</details>
+
 ## Update 13.12.2020
 <details><summary>First picture of the final(ish) layout:</summary>
   
@@ -22,12 +41,3 @@ SystemVerilog simulation of an 8 bit discrete TTL CPU I am building for fun. The
   ![image](https://github.com/Nik-Sch/8bitCPU/raw/main/doc/update20201213.jpg)
 </details>
 
-## Update 22.12.2020
-<details><summary>Update of the final(ish) layout:</summary>
-  
-  - I finished and interconnected all of the data path + bus, except for the PC at the bottom.
-  - The ALU + regset + SRAM is fully functional with some debugging effort like pulling up all connections to the 5V CMOS SRAM which has an higher voltage requirement for high level inputs.
-  - Half of the control logic has wires and I decided to swap the two control boards for better interconnection.
-  
-  ![image](https://github.com/Nik-Sch/8bitCPU/raw/main/doc/update20201222.jpg)
-</details>
