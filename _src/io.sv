@@ -8,7 +8,7 @@ module io(
   input wire i_inNOe
 );
 
-wire[7:0] s_input = 'h5;
+wire[7:0] s_input = 'h3;
 logic[7:0] r_output;
 
 transmitter inst_tx(

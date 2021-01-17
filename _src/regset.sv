@@ -33,8 +33,8 @@ always @(posedge i_clk) begin
     r_1 <= i_d;
   end
   if (i_reset) begin // should not be needed in ttl
-    r_0 <= 0;
-    r_1 <= 0;
+    r_0 <= 'hff;
+    r_1 <= 'hff;
   end
 end
 

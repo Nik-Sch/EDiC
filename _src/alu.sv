@@ -55,8 +55,6 @@ always @* begin
       s_shift2 = i_b[1] ? s_shift1 >> 2 : s_shift1;
       s_shift3 = i_b[2] ? s_shift2 >> 4 : s_shift2;
       s_y <= i_subShiftDir ? {s_shift3[0], s_shift3[1], s_shift3[2], s_shift3[3], s_shift3[4], s_shift3[5], s_shift3[6], s_shift3[7]} : s_shift3;
-      
-      
     end
   endcase
 end
