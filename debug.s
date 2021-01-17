@@ -1,7 +1,6 @@
 @ init regs to 0
-eor r0, r0
-eor r1, r1
-
-add r0, 5
+eor r0, 0
 str r0, [r1]
-ldr r1, [r1]
+str r0, [0x20]
+ldr r1, [0x20]
+mov r0, 3

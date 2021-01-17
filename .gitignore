@@ -27,6 +27,7 @@
 !*.s
 !schematic/*
 !doc/*
+!compiler.js/*
 #########
 #IP files
 #########

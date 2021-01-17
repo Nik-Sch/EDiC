@@ -23,7 +23,7 @@ module control(
 
   output wire o_ctrlRamAddressEn,
   output wire o_ctrlRamWriteEn,
-  output wire o_ctrlRamReadDataSelect,
+  output wire o_ctrlRamSelect,
   output wire o_ctrlRamOE,
 
   output wire o_ctrlLoadPC,
@@ -48,21 +48,19 @@ assign o_ctrlAluOp = r_instructionFallingEdge[2:1];
 assign {o_ctrlAluNOE, o_ctrlAluWr, o_ctrlRegWr0, o_ctrlRegWr1, o_ctrlRegBusSel,
 o_ctrlRegNBusEn, o_ctrlAluSel, o_ctrlRamAddressEn, 
 
-o_ctrlRamWriteEn, o_ctrlRamOE, o_ctrlLoadPC, s_nImmOut, o_ctrlWrOut,
-o_ctrlPCNOe, o_ctrlInNoe
-} = s_controlSignals[15:1];
+o_ctrlRamWriteEn, o_ctrlRamOE, o_ctrlLoadPC, o_ctrlIncrPC, o_ctrlWrOut,
+o_ctrlPCNOe, o_ctrlInNoe, o_ctrlRamSelect
+} = s_controlSignals[15:0];
 
 assign r_stepEqual1 = ~((~r_step[0] | r_step[1]) | r_step[2]);
 
-assign o_ctrlRamReadDataSelect = r_stepEqual1;
-assign o_ctrlIncrPC = r_stepEqual1;
-// assign o_ctrlPCNOe = (r_step[0] | r_step[1]) | r_step[2]; // at step 0
-assign o_ctrlHlt = & r_instruction;     
+assign o_ctrlHlt = & r_instruction;
 
+// assign o_immediate = 8'hzz;
 transmitter inst_tx(
   .a({5'b0, r_instruction[5-:3]}),
   .b(o_immediate),
-  .noe(s_nImmOut)
+  .noe(1)
 );
 
 always @(negedge i_clk) begin

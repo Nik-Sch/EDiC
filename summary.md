@@ -7,9 +7,8 @@
 ## 256byte ram + 256 byte rom for program
 ## instructions
 
-8 bit long instructions including all immediates
+8 bit long instructions with immediates as the next word
 last three bits: aluOp + sub
-immediate values zero padded 3 bits (0-7)
 ### what are the instructions
 ```
 0: no immediate
@@ -24,20 +23,13 @@ immediate values zero padded 3 bits (0-7)
    rs110: r := r >> s
    rs111: r := r << s
 001: alu no write back
-   rs000: y := r +  s
-   rs001: y := r -  s
-   rs010: y := r &  s
-   rs011: y := r & !s
-   rs100: y := r ^  s
-   rs101: y := r ^ !s
-   rs110: y := r >> s
-   rs111: y := r << s
+   rsalu: y := r x s
 
 01: misc
 010: non alu
 0100: jumpy stuff
-    r000: pc := r
-    r001: r := pc
+    r000: r := pc
+    r001: pc := r
     r010: branchEqual: pc := r
     r011: branchNotEqual: pc := r
     r100: branchLessThan: pc := r
@@ -51,32 +43,26 @@ immediate values zero padded 3 bits (0-7)
     110r: r := in
     111r: out := r
 011: mem alu
-   rs000: r := r +  [s]
-   rs001: r := r -  [s]
-   rs010: r := r &  [s]
-   rs011: r := r & ![s]
-   rs100: r := r ^  [s]
-   rs101: r := r ^ ![s]
-   rs110: r := r >> [s]
-   rs111: r := r << [s]
+   rsalu: r := r x [s]
 
-1: zero padded immediate alu always with reg 0
-10: write back
-  imm000: r0 := r0 +  imm
-  imm001: r0 := r0 -  imm
-  imm010: r0 := r0 &  imm
-  imm011: r0 := r0 & !imm
-  imm100: r0 := r0 ^  imm
-  imm101: r0 := r0 ^ !imm
-  imm110: r0 := r0 >> imm
-  imm111: r0 := r0 << imm
-11: only update status flags
-  imm000: y := r0 +  imm
-  imm001: y := r0 -  imm
-  imm010: y := r0 &  imm
-  imm011: y := r0 & !imm
-  imm100: y := r0 ^  imm
-  imm101: y := r0 ^ !imm
-  imm110: y := r0 >> imm
-  imm111: y := r0 << imm
+1: immediate
+100: alu
+   0ralu: r0 := r0 x imm
+   1ralu:  y := r0 x imm
+1100: mem alu
+    ralu: r0 := r0 x [imm]
+10100: jumpy stuff
+     001: pc := imm
+     010: branchEqual: pc := imm
+     011: branchNotEqual: pc := imm
+     100: branchLessThan: pc := imm
+     101: branchLessEqual: pc := imm
+     110: branchGreaterThan: pc := imm
+     111: branchGreaterEqual: pc := imm
+     111: branchGreaterEqual: pc := r
+10101: memory/io
+     00r: r := [imm] # ldr
+     01r: [imm] := r # str
+     10r: r := imm
+
 ```

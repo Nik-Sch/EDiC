@@ -10,10 +10,11 @@ noOp: {
     ramWriteEn: 0
     ramOE: 0
     loadPC: 0
-    nImmOut: 1
+    incrPC: 0
     wrOut: 0
     pcNOut: 1
     inNoe: 1
+    ramSelect: 0
 }
 instructionFetch: [
   {
@@ -22,230 +23,425 @@ instructionFetch: [
   }
   { # load instruction
     ramOE: 1
+    incrPC: 1
+    ramSelect: 1
   }
 ]
 instructions: [
-    {
-      op: '000rsalu' # r = r x s (alu)
-      signals: [
-        { # r x s into alu
-          aluWr: 1
-          regBusSel: 's'
-          regNBusEn: 0
-          aluSel: 'r'
-        }
-        { # alu into r
-          aluNOE: 0
-          regWr0: '!r'
-          regWr1: 'r'
-          aluSel: 'r'
-        }
-      ]
-    }
-    {
-      op: '001rsalu' # y = r x s (alu, no write back)
-      signals: [
-        { # r x s into alu
-          aluWr: 1
-          regBusSel: 's'
-          regNBusEn: 0
-          aluSel: 'r'
-        }
-      ]
-    }
-    {
-      op: '011rsalu' # r = r x [s] (mem alu)
-      signals: [
-        { # s to mar
-          regBusSel: 's'
-          regNBusEn: 0
-          ramAddressEn: 1
-        }
-        { # wait for ram
-        }
-        { # r x ram into alu
-          aluWr: 1
-          aluSel: 'r'
-          ramOE: 1
-        }
-        { # alu into r
-          aluNOE: 0
-          regWr0: '!r'
-          regWr1: 'r'
-          aluSel: 'r'
-        }
-      ]
-    }
-    {
-      op: '10immalu' # r0 = r0 x imm (alu)
-      signals: [
-        { # r0 x imm into alu
-          aluWr: 1
-          nImmOut: 0
-        }
-        { # alu into r
-          aluNOE: 0
-          regWr0: 1
-        }
-      ]
-    }
-    {
-      op: '11immalu' # y = r0 x imm (alu)
-      signals: [
-        { # r0 x imm into alu
-          aluWr: 1
-          nImmOut: 0
-        }
-      ]
-    }
-    {
-      op: '0100r000' # pc := r
-      signals: [
-        { # r to bus to pc
-          regBusSel: 'r'
-          regNBusEn: 0
-          loadPC: 1
-        }
-      ]
-    }
-    {
-      op: '0100r001' # r := pc
-      signals: [
-        { # pc to bus to r
-          regWr0: '!r'
-          regWr1: 'r'
-          pcNOut: 0
-        }
-      ]
-    }
-    {
-      op: '0100r010' # pc := r if eq
-      flags: 'eq'
-      signals: [
-        { # r to bus to pc
-          regBusSel: 'r'
-          regNBusEn: 0
-          loadPC: 1
-        }
-      ]
-    }
-    {
-      op: '0100r011' # pc := r if ne
-      flags: 'ne'
-      signals: [
-        { # r to bus to pc
-          regBusSel: 'r'
-          regNBusEn: 0
-          loadPC: 1
-        }
-      ]
-    }
-    {
-      op: '0100r100' # pc := r if lt
-      flags: 'lt'
-      signals: [
-        { # r to bus to pc
-          regBusSel: 'r'
-          regNBusEn: 0
-          loadPC: 1
-        }
-      ]
-    }
-    {
-      op: '0100r101' # pc := r if le
-      flags: 'le'
-      signals: [
-        { # r to bus to pc
-          regBusSel: 'r'
-          regNBusEn: 0
-          loadPC: 1
-        }
-      ]
-    }
-    {
-      op: '0100r110' # pc := r if gt
-      flags: 'gt'
-      signals: [
-        { # r to bus to pc
-          regBusSel: 'r'
-          regNBusEn: 0
-          loadPC: 1
-        }
-      ]
-    }
-    {
-      op: '0100r111' # pc := r if ge
-      flags: 'ge'
-      signals: [
-        { # r to bus to pc
-          regBusSel: 'r'
-          regNBusEn: 0
-          loadPC: 1
-        }
-      ]
-    }
+  # alu
+  {
+    op: '000rsalu' # r = r x s (alu)
+    signals: [
+      { # r x s into alu
+        aluWr: 1
+        regBusSel: 's'
+        regNBusEn: 0
+        aluSel: 'r'
+      }
+      { # alu into r
+        aluNOE: 0
+        regWr0: '!r'
+        regWr1: 'r'
+        aluSel: 'r'
+      }
+    ]
+  }
+  {
+    op: '001rsalu' # y = r x s (alu, no write back)
+    signals: [
+      { # r x s into alu
+        aluWr: 1
+        regBusSel: 's'
+        regNBusEn: 0
+        aluSel: 'r'
+      }
+    ]
+  }
+  {
+    op: '011rsalu' # r = r x [s] (mem alu)
+    signals: [
+      { # s to mar
+        regBusSel: 's'
+        regNBusEn: 0
+        ramAddressEn: 1
+      }
+      { # wait for ram
+      }
+      { # r x ram into alu
+        aluWr: 1
+        aluSel: 'r'
+        ramOE: 1
+      }
+      { # alu into r
+        aluNOE: 0
+        regWr0: '!r'
+        regWr1: 'r'
+      }
+    ]
+  }
+  {
+    op: '1100ralu' # r = r x [imm] ( mem alu imm)
+    signals: [
+      {
+        ramAddressEn: 1
+        pcNOut: 0
+      }
+      { # immediate -> mar, incrPC
+        ramOE: 1
+        incrPC: 1
+        ramSelect: 1
+        ramAddressEn: 1
+      }
+      { # wait for ram
+      }
+      { # r x ram into alu
+        aluWr: 1
+        aluSel: 'r'
+        ramOE: 1
+      }
+      { # alu into r
+        aluNOE: 0
+        regWr0: '!r'
+        regWr1: 'r'
+      }
+    ]
+  }
+  {
+    op: '1000ralu' # r = r x imm (alu)
+    signals: [
+      {
+        ramAddressEn: 1
+        pcNOut: 0
+      }
+      { # immediate -> bus, reg -> alu, incrPC
+        ramOE: 1
+        incrPC: 1
+        ramSelect: 1
+        aluWr: 1
+        aluSel: 'r'
+      }
+      { # alu into r
+        aluNOE: 0
+        regWr0: '!r'
+        regWr1: 'r'
+      }
+    ]
+  }
 
-    {
-      op: '010100rs' # r = [s] (ldr)
-      signals: [
-        { # s to ram
-          regBusSel: 's'
-          regNBusEn: 0
-          ramAddressEn: 1
-        }
-        { # wait for ram
-        }
-        { # ram to r
-          regWr0: '!r'
-          regWr1: 'r'
-          ramOE: 1
-        }
-      ]
-    }
-    {
-      op: '010101rs' # [s] = r (str)
-      signals: [
-        { # s to ram
-          regBusSel: 's'
-          regNBusEn: 0
-          ramAddressEn: 1
-        }
-        { # s to ram
-          regBusSel: 'r'
-          regNBusEn: 0
-          ramWriteEn: 1
-        }
-      ]
-    }
-    {
-      op: '010110rs' # r = s
-      signals: [
-        { # s to bus to r
-          regWr0: '!r'
-          regWr1: 'r'
-          regBusSel: 's'
-          regNBusEn: 0
-        }
-      ]
-    }
-    {
-      op: '0101110r' # r = in
-      signals: [
-        { # in to bus to r
-          regWr0: '!r'
-          regWr1: 'r'
-          inNoe: 0
-        }
-      ]
-    }
-    {
-      op: '0101111r' # out = r
-      signals: [
-        { # r to bus to out
-          regBusSel: 'r'
-          regNBusEn: 0
-          wrOut: 1
-        }
-      ]
-    }
-  ]
+  # memory ops & io
+  {
+    op: '010100rs' # r = [s] (ldr)
+    signals: [
+      { # s to ram
+        regBusSel: 's'
+        regNBusEn: 0
+        ramAddressEn: 1
+      }
+      { # wait for ram
+      }
+      { # ram to r
+        regWr0: '!r'
+        regWr1: 'r'
+        ramOE: 1
+      }
+    ]
+  }
+  {
+    op: '1010100r' # r = [imm] (ldr)
+    signals: [
+      {
+        ramAddressEn: 1
+        pcNOut: 0
+      }
+      { # imm to mar
+        ramOE: 1
+        ramSelect: 1
+        incrPC: 1
+        ramAddressEn: 1
+      }
+      { # wait for ram
+      }
+      { # ram to r
+        regWr0: '!r'
+        regWr1: 'r'
+        ramOE: 1
+      }
+    ]
+  }
+  {
+    op: '010101rs' # [s] = r (str)
+    signals: [
+      { # s to ram
+        regBusSel: 's'
+        regNBusEn: 0
+        ramAddressEn: 1
+      }
+      { # s to ram
+        regBusSel: 'r'
+        regNBusEn: 0
+        ramWriteEn: 1
+      }
+    ]
+  }
+  {
+    op: '1010101r' # [imm] = r (str)
+    signals: [
+      {
+        ramAddressEn: 1
+        pcNOut: 0
+      }
+      { # imm to mar
+        ramOE: 1
+        ramSelect: 1
+        incrPC: 1
+        ramAddressEn: 1
+      }
+      { # s to ram
+        regBusSel: 'r'
+        regNBusEn: 0
+        ramWriteEn: 1
+      }
+    ]
+  }
+  {
+    op: '010110rs' # r = s
+    signals: [
+      { # s to bus to r
+        regWr0: '!r'
+        regWr1: 'r'
+        regBusSel: 's'
+        regNBusEn: 0
+      }
+    ]
+  }
+  {
+    op: '1010110r' # r = imm
+    signals: [
+      {
+        ramAddressEn: 1
+        pcNOut: 0
+      }
+      { # imm to bus to r
+        regWr0: '!r'
+        regWr1: 'r'
+        ramOE: 1
+        ramSelect: 1
+        incrPC: 1
+      }
+    ]
+  }
+  {
+    op: '0101110r' # r = in
+    signals: [
+      { # in to bus to r
+        regWr0: '!r'
+        regWr1: 'r'
+        inNoe: 0
+      }
+    ]
+  }
+  {
+    op: '0101111r' # out = r
+    signals: [
+      { # r to bus to out
+        regBusSel: 'r'
+        regNBusEn: 0
+        wrOut: 1
+      }
+    ]
+  }
+
+  # jumpy with register
+  {
+    op: '0100r000' # r := pc
+    signals: [
+      { # pc to bus to r
+        regWr0: '!r'
+        regWr1: 'r'
+        pcNOut: 0
+      }
+    ]
+  }
+  {
+    op: '0100r001' # pc := r
+    signals: [
+      { # r to bus to pc
+        regBusSel: 'r'
+        regNBusEn: 0
+        loadPC: 1
+      }
+    ]
+  }
+  {
+    op: '0100r010' # pc := r if eq
+    flags: 'eq'
+    signals: [
+      { # r to bus to pc
+        regBusSel: 'r'
+        regNBusEn: 0
+        loadPC: 1
+      }
+    ]
+  }
+  {
+    op: '0100r011' # pc := r if ne
+    flags: 'ne'
+    signals: [
+      { # r to bus to pc
+        regBusSel: 'r'
+        regNBusEn: 0
+        loadPC: 1
+      }
+    ]
+  }
+  {
+    op: '0100r100' # pc := r if lt
+    flags: 'lt'
+    signals: [
+      { # r to bus to pc
+        regBusSel: 'r'
+        regNBusEn: 0
+        loadPC: 1
+      }
+    ]
+  }
+  {
+    op: '0100r101' # pc := r if le
+    flags: 'le'
+    signals: [
+      { # r to bus to pc
+        regBusSel: 'r'
+        regNBusEn: 0
+        loadPC: 1
+      }
+    ]
+  }
+  {
+    op: '0100r110' # pc := r if gt
+    flags: 'gt'
+    signals: [
+      { # r to bus to pc
+        regBusSel: 'r'
+        regNBusEn: 0
+        loadPC: 1
+      }
+    ]
+  }
+  {
+    op: '0100r111' # pc := r if ge
+    flags: 'ge'
+    signals: [
+      { # r to bus to pc
+        regBusSel: 'r'
+        regNBusEn: 0
+        loadPC: 1
+      }
+    ]
+  }
+
+  # jumpy with immediate
+  {
+    op: '10100001' # pc := imm
+    signals: [
+      {
+        ramAddressEn: 1
+        pcNOut: 0
+      }
+      { # imm to bus to pc
+        ramOE: 1
+        ramSelect: 1
+        loadPC: 1
+      }
+    ]
+  }
+  {
+    op: '10100010' # pc := imm if eq
+    flags: 'eq'
+    signals: [
+      {
+        ramAddressEn: 1
+        pcNOut: 0
+      }
+      { # imm to bus to pc
+        ramOE: 1
+        ramSelect: 1
+        loadPC: 1
+      }
+    ]
+  }
+  {
+    op: '10100011' # pc := imm if ne
+    flags: 'ne'
+    signals: [
+      {
+        ramAddressEn: 1
+        pcNOut: 0
+      }
+      { # imm to bus to pc
+        ramOE: 1
+        ramSelect: 1
+        loadPC: 1
+      }
+    ]
+  }
+  {
+    op: '10100100' # pc := imm if lt
+    flags: 'lt'
+    signals: [
+      {
+        ramAddressEn: 1
+        pcNOut: 0
+      }
+      { # imm to bus to pc
+        ramOE: 1
+        ramSelect: 1
+        loadPC: 1
+      }
+    ]
+  }
+  {
+    op: '10100101' # pc := imm if le
+    flags: 'le'
+    signals: [
+      {
+        ramAddressEn: 1
+        pcNOut: 0
+      }
+      { # imm to bus to pc
+        ramOE: 1
+        ramSelect: 1
+        loadPC: 1
+      }
+    ]
+  }
+  {
+    op: '10100110' # pc := imm if gt
+    flags: 'gt'
+    signals: [
+      {
+        ramAddressEn: 1
+        pcNOut: 0
+      }
+      { # imm to bus to pc
+        ramOE: 1
+        ramSelect: 1
+        loadPC: 1
+      }
+    ]
+  }
+  {
+    op: '10100111' # pc := imm if ge
+    flags: 'ge'
+    signals: [
+      {
+        ramAddressEn: 1
+        pcNOut: 0
+      }
+      { # imm to bus to pc
+        ramOE: 1
+        ramSelect: 1
+        loadPC: 1
+      }
+    ]
+  }
+]

@@ -37,7 +37,7 @@ asyncRam inst_ram (
   .i_writeNEn(~(i_writeEn & i_clk)),
   .i_writeData(i_writeData),
   .o_readData(o_readData),
-  .i_noe(~(i_outEnable & i_readDataSelect))
+  .i_noe(~(i_outEnable & ~i_readDataSelect))
 );
 
 endmodule

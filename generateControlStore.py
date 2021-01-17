@@ -19,11 +19,11 @@ def ctrlToInt(control, default = {}):
    + str(control['ramWriteEn'] if ('ramWriteEn' in control) else default['ramWriteEn'])
    + str(control['ramOE'] if ('ramOE' in control) else default['ramOE'])
    + str(control['loadPC'] if ('loadPC' in control) else default['loadPC'])
-   + str(control['nImmOut'] if ('nImmOut' in control) else default['nImmOut'])
+   + str(control['incrPC'] if ('incrPC' in control) else default['incrPC'])
    + str(control['wrOut'] if ('wrOut' in control) else default['wrOut'])
    + str(control['pcNOut'] if ('pcNOut' in control) else default['pcNOut'])
    + str(control['inNoe'] if ('inNoe' in control) else default['inNoe'])
-   + str(0)
+   + str(control['ramSelect'] if ('ramSelect' in control) else default['ramSelect'])
    , base=2)
   
 def insertMemory(memory, address, data, name):
