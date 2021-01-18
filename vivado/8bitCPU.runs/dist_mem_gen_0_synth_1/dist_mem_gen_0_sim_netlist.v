@@ -1,7 +1,7 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-// Date        : Sun Jan 17 17:44:44 2021
+// Date        : Mon Jan 18 11:14:50 2021
 // Host        : niklasPC running 64-bit Manjaro Linux
 // Command     : write_verilog -force -mode funcsim
 //               /home/niklas/dev/8bitCpu/vivado/8bitCPU.runs/dist_mem_gen_0_synth_1/dist_mem_gen_0_sim_netlist.v
@@ -17,10 +17,10 @@
 module dist_mem_gen_0
    (a,
     spo);
-  input [7:0]a;
+  input [8:0]a;
   output [7:0]spo;
 
-  wire [7:0]a;
+  wire [8:0]a;
   wire [7:0]spo;
   wire [7:0]NLW_U0_dpo_UNCONNECTED;
   wire [7:0]NLW_U0_qdpo_UNCONNECTED;
@@ -43,9 +43,9 @@ module dist_mem_gen_0
   (* C_QUALIFY_WE = "0" *) 
   (* C_REG_DPRA_INPUT = "0" *) 
   (* KEEP_HIERARCHY = "soft" *) 
-  (* c_addr_width = "8" *) 
+  (* c_addr_width = "9" *) 
   (* c_default_data = "11111111" *) 
-  (* c_depth = "256" *) 
+  (* c_depth = "512" *) 
   (* c_elaboration_dir = "./" *) 
   (* c_has_clk = "0" *) 
   (* c_has_qspo = "0" *) 
@@ -64,7 +64,7 @@ module dist_mem_gen_0
         .clk(1'b0),
         .d({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .dpo(NLW_U0_dpo_UNCONNECTED[7:0]),
-        .dpra({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
+        .dpra({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .i_ce(1'b1),
         .qdpo(NLW_U0_qdpo_UNCONNECTED[7:0]),
         .qdpo_ce(1'b1),
@@ -79,7 +79,7 @@ module dist_mem_gen_0
         .we(1'b0));
 endmodule
 
-(* C_ADDR_WIDTH = "8" *) (* C_DEFAULT_DATA = "11111111" *) (* C_DEPTH = "256" *) 
+(* C_ADDR_WIDTH = "9" *) (* C_DEFAULT_DATA = "11111111" *) (* C_DEPTH = "512" *) 
 (* C_ELABORATION_DIR = "./" *) (* C_FAMILY = "spartan7" *) (* C_HAS_CLK = "0" *) 
 (* C_HAS_D = "0" *) (* C_HAS_DPO = "0" *) (* C_HAS_DPRA = "0" *) 
 (* C_HAS_I_CE = "0" *) (* C_HAS_QDPO = "0" *) (* C_HAS_QDPO_CE = "0" *) 
@@ -108,9 +108,9 @@ module dist_mem_gen_0_dist_mem_gen_v8_0_13
     dpo,
     qspo,
     qdpo);
-  input [7:0]a;
+  input [8:0]a;
   input [7:0]d;
-  input [7:0]dpra;
+  input [8:0]dpra;
   input clk;
   input we;
   input i_ce;
@@ -127,7 +127,7 @@ module dist_mem_gen_0_dist_mem_gen_v8_0_13
   output [7:0]qdpo;
 
   wire \<const0> ;
-  wire [7:0]a;
+  wire [8:0]a;
   wire [7:0]spo;
 
   assign dpo[7] = \<const0> ;
@@ -166,9 +166,9 @@ module dist_mem_gen_0_dist_mem_gen_v8_0_13_synth
    (spo,
     a);
   output [7:0]spo;
-  input [7:0]a;
+  input [8:0]a;
 
-  wire [7:0]a;
+  wire [8:0]a;
   wire [7:0]spo;
 
   dist_mem_gen_0_rom \gen_rom.rom_inst 
@@ -181,101 +181,100 @@ module dist_mem_gen_0_rom
    (spo,
     a);
   output [7:0]spo;
-  input [7:0]a;
+  input [8:0]a;
 
-  wire [7:0]a;
+  wire [8:0]a;
   wire [7:0]spo;
   wire \spo[7]_INST_0_i_1_n_0 ;
 
   (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT5 #(
-    .INIT(32'hFFFFE26E)) 
+    .INIT(32'hFF97FFCA)) 
     \spo[0]_INST_0 
-       (.I0(a[3]),
-        .I1(a[1]),
-        .I2(a[0]),
-        .I3(a[2]),
-        .I4(\spo[7]_INST_0_i_1_n_0 ),
+       (.I0(a[8]),
+        .I1(a[0]),
+        .I2(a[2]),
+        .I3(\spo[7]_INST_0_i_1_n_0 ),
+        .I4(a[1]),
         .O(spo[0]));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT5 #(
-    .INIT(32'hECECFCEC)) 
+    .INIT(32'hFFFFD622)) 
     \spo[1]_INST_0 
-       (.I0(a[3]),
-        .I1(\spo[7]_INST_0_i_1_n_0 ),
+       (.I0(a[8]),
+        .I1(a[2]),
         .I2(a[0]),
         .I3(a[1]),
-        .I4(a[2]),
+        .I4(\spo[7]_INST_0_i_1_n_0 ),
         .O(spo[1]));
   (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT5 #(
-    .INIT(32'hFFCDCCCF)) 
+    .INIT(32'hFFCBFF33)) 
     \spo[2]_INST_0 
-       (.I0(a[0]),
-        .I1(\spo[7]_INST_0_i_1_n_0 ),
-        .I2(a[2]),
-        .I3(a[3]),
+       (.I0(a[8]),
+        .I1(a[2]),
+        .I2(a[0]),
+        .I3(\spo[7]_INST_0_i_1_n_0 ),
         .I4(a[1]),
         .O(spo[2]));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT5 #(
-    .INIT(32'hFFFF888E)) 
+    .INIT(32'hFFD3FF72)) 
     \spo[3]_INST_0 
-       (.I0(a[0]),
-        .I1(a[1]),
-        .I2(a[3]),
-        .I3(a[2]),
-        .I4(\spo[7]_INST_0_i_1_n_0 ),
+       (.I0(a[8]),
+        .I1(a[2]),
+        .I2(a[0]),
+        .I3(\spo[7]_INST_0_i_1_n_0 ),
+        .I4(a[1]),
         .O(spo[3]));
   (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT5 #(
-    .INIT(32'hEAAAEBAE)) 
+    .INIT(32'hFFC3FF32)) 
     \spo[4]_INST_0 
-       (.I0(\spo[7]_INST_0_i_1_n_0 ),
-        .I1(a[0]),
-        .I2(a[3]),
-        .I3(a[1]),
-        .I4(a[2]),
-        .O(spo[4]));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
-  LUT5 #(
-    .INIT(32'hCDCCFCCC)) 
-    \spo[5]_INST_0 
-       (.I0(a[2]),
-        .I1(\spo[7]_INST_0_i_1_n_0 ),
-        .I2(a[3]),
-        .I3(a[0]),
-        .I4(a[1]),
-        .O(spo[5]));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
-  LUT5 #(
-    .INIT(32'hEAEBFAAA)) 
-    \spo[6]_INST_0 
-       (.I0(\spo[7]_INST_0_i_1_n_0 ),
-        .I1(a[3]),
-        .I2(a[0]),
-        .I3(a[2]),
-        .I4(a[1]),
-        .O(spo[6]));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT5 #(
-    .INIT(32'hFFF6F0F0)) 
-    \spo[7]_INST_0 
-       (.I0(a[1]),
-        .I1(a[3]),
-        .I2(\spo[7]_INST_0_i_1_n_0 ),
-        .I3(a[2]),
+       (.I0(a[8]),
+        .I1(a[2]),
+        .I2(a[1]),
+        .I3(\spo[7]_INST_0_i_1_n_0 ),
         .I4(a[0]),
+        .O(spo[4]));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT5 #(
+    .INIT(32'hFFFF9622)) 
+    \spo[5]_INST_0 
+       (.I0(a[8]),
+        .I1(a[2]),
+        .I2(a[0]),
+        .I3(a[1]),
+        .I4(\spo[7]_INST_0_i_1_n_0 ),
+        .O(spo[5]));
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  LUT5 #(
+    .INIT(32'hFFFFC326)) 
+    \spo[6]_INST_0 
+       (.I0(a[8]),
+        .I1(a[2]),
+        .I2(a[0]),
+        .I3(a[1]),
+        .I4(\spo[7]_INST_0_i_1_n_0 ),
+        .O(spo[6]));
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  LUT5 #(
+    .INIT(32'hFFFF9666)) 
+    \spo[7]_INST_0 
+       (.I0(a[8]),
+        .I1(a[2]),
+        .I2(a[0]),
+        .I3(a[1]),
+        .I4(\spo[7]_INST_0_i_1_n_0 ),
         .O(spo[7]));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFFFFFEA)) 
+  LUT5 #(
+    .INIT(32'hFFFFFFFE)) 
     \spo[7]_INST_0_i_1 
-       (.I0(a[4]),
-        .I1(a[3]),
-        .I2(a[2]),
-        .I3(a[7]),
-        .I4(a[6]),
-        .I5(a[5]),
+       (.I0(a[6]),
+        .I1(a[4]),
+        .I2(a[3]),
+        .I3(a[5]),
+        .I4(a[7]),
         .O(\spo[7]_INST_0_i_1_n_0 ));
 endmodule
 `ifndef GLBL

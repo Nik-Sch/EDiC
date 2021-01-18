@@ -71,6 +71,7 @@ proc create_report { reportName command } {
 }
 OPTRACE "dist_mem_gen_1_synth_1" START { ROLLUP_AUTO }
 set_param synth.incrementalSynthesisCache ./.Xil/Vivado-440773-niklasPC/incrSyn
+set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 set_param project.vivado.isBlockSynthRun true

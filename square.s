@@ -15,7 +15,7 @@ str r1, [0] @ store value to sum
 @ loop:
 add r0, [0]
 sub r1, 1
-bne 5
+bne 4
 
 @ output
 out r0

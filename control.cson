@@ -82,13 +82,8 @@ instructions: [
   {
     op: '1100ralu' # r = r x [imm] ( mem alu imm)
     signals: [
-      {
-        ramAddressEn: 1
-        pcNOut: 0
-      }
-      { # immediate -> mar, incrPC
+      { # immediate -> mar
         ramOE: 1
-        incrPC: 1
         ramSelect: 1
         ramAddressEn: 1
       }
@@ -109,13 +104,8 @@ instructions: [
   {
     op: '1000ralu' # r = r x imm (alu)
     signals: [
-      {
-        ramAddressEn: 1
-        pcNOut: 0
-      }
-      { # immediate -> bus, reg -> alu, incrPC
+      { # immediate -> bus, reg -> alu
         ramOE: 1
-        incrPC: 1
         ramSelect: 1
         aluWr: 1
         aluSel: 'r'
@@ -149,14 +139,9 @@ instructions: [
   {
     op: '1010100r' # r = [imm] (ldr)
     signals: [
-      {
-        ramAddressEn: 1
-        pcNOut: 0
-      }
       { # imm to mar
         ramOE: 1
         ramSelect: 1
-        incrPC: 1
         ramAddressEn: 1
       }
       { # wait for ram
@@ -186,14 +171,9 @@ instructions: [
   {
     op: '1010101r' # [imm] = r (str)
     signals: [
-      {
-        ramAddressEn: 1
-        pcNOut: 0
-      }
       { # imm to mar
         ramOE: 1
         ramSelect: 1
-        incrPC: 1
         ramAddressEn: 1
       }
       { # s to ram
@@ -217,16 +197,11 @@ instructions: [
   {
     op: '1010110r' # r = imm
     signals: [
-      {
-        ramAddressEn: 1
-        pcNOut: 0
-      }
       { # imm to bus to r
         regWr0: '!r'
         regWr1: 'r'
         ramOE: 1
         ramSelect: 1
-        incrPC: 1
       }
     ]
   }
@@ -343,10 +318,6 @@ instructions: [
   {
     op: '10100001' # pc := imm
     signals: [
-      {
-        ramAddressEn: 1
-        pcNOut: 0
-      }
       { # imm to bus to pc
         ramOE: 1
         ramSelect: 1
@@ -358,10 +329,6 @@ instructions: [
     op: '10100010' # pc := imm if eq
     flags: 'eq'
     signals: [
-      {
-        ramAddressEn: 1
-        pcNOut: 0
-      }
       { # imm to bus to pc
         ramOE: 1
         ramSelect: 1
@@ -373,10 +340,6 @@ instructions: [
     op: '10100011' # pc := imm if ne
     flags: 'ne'
     signals: [
-      {
-        ramAddressEn: 1
-        pcNOut: 0
-      }
       { # imm to bus to pc
         ramOE: 1
         ramSelect: 1
@@ -388,10 +351,6 @@ instructions: [
     op: '10100100' # pc := imm if lt
     flags: 'lt'
     signals: [
-      {
-        ramAddressEn: 1
-        pcNOut: 0
-      }
       { # imm to bus to pc
         ramOE: 1
         ramSelect: 1
@@ -403,10 +362,6 @@ instructions: [
     op: '10100101' # pc := imm if le
     flags: 'le'
     signals: [
-      {
-        ramAddressEn: 1
-        pcNOut: 0
-      }
       { # imm to bus to pc
         ramOE: 1
         ramSelect: 1
@@ -418,10 +373,6 @@ instructions: [
     op: '10100110' # pc := imm if gt
     flags: 'gt'
     signals: [
-      {
-        ramAddressEn: 1
-        pcNOut: 0
-      }
       { # imm to bus to pc
         ramOE: 1
         ramSelect: 1
@@ -433,10 +384,6 @@ instructions: [
     op: '10100111' # pc := imm if ge
     flags: 'ge'
     signals: [
-      {
-        ramAddressEn: 1
-        pcNOut: 0
-      }
       { # imm to bus to pc
         ramOE: 1
         ramSelect: 1

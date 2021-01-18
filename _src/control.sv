@@ -24,6 +24,7 @@ module control(
   output wire o_ctrlRamAddressEn,
   output wire o_ctrlRamWriteEn,
   output wire o_ctrlRamSelect,
+  output wire o_ctrlImmediate,
   output wire o_ctrlRamOE,
 
   output wire o_ctrlLoadPC,
@@ -53,6 +54,7 @@ o_ctrlPCNOe, o_ctrlInNoe, o_ctrlRamSelect
 } = s_controlSignals[15:0];
 
 assign r_stepEqual1 = ~((~r_step[0] | r_step[1]) | r_step[2]);
+assign o_ctrlImmediate = (~r_step[0] | r_step[1]) | r_step[2];
 
 assign o_ctrlHlt = & r_instruction;
 

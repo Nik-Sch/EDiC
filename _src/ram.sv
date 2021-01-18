@@ -8,6 +8,7 @@ module ram(
   input wire i_writeEn,
 
   input wire i_readDataSelect, // 1 for data, 0 for program
+  input wire i_immediateSelect, // 1 for immediate, 0 for program
   output wire[7:0] o_readData,
   input wire i_outEnable
 );
@@ -28,7 +29,7 @@ transmitter inst_txInstr(
 );
 
 dist_mem_gen_0 inst_instrRom (
-  .a(r_address),
+  .a({i_immediateSelect, r_address}),
   .spo(s_readDataInstr)
 );
 

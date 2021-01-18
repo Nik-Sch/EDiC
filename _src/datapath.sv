@@ -36,6 +36,7 @@ wire s_ctrlAluSel;
 wire s_ctrlRamAddressEn;
 wire s_ctrlRamWriteEn;
 wire s_ctrlRamSelect;
+wire s_ctrlImmediate;
 wire s_ctrlRamOE;
 
 wire s_ctrlLoadPC;
@@ -105,6 +106,7 @@ control inst_control(
   .o_ctrlRamAddressEn(s_ctrlRamAddressEn),
   .o_ctrlRamWriteEn(s_ctrlRamWriteEn),
   .o_ctrlRamSelect(s_ctrlRamSelect),
+  .o_ctrlImmediate(s_ctrlImmediate),
   .o_ctrlRamOE(s_ctrlRamOE),
   .o_ctrlLoadPC(s_ctrlLoadPC),
   .o_ctrlPCNOe(s_ctrlPCNOe),
@@ -166,6 +168,7 @@ ram inst_ram(
   .i_writeEn(s_ctrlRamWriteEn),
 
   .i_readDataSelect(s_ctrlRamSelect),
+  .i_immediateSelect(s_ctrlImmediate),
   .o_readData(s_ramReadData),
   .i_outEnable(s_ctrlRamOE)
 );
