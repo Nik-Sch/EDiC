@@ -1,10 +1,11 @@
 # structure
 ## registers
-- 2 general purpose: r, s
+- 2 general purpose: r0, r1
 - 1 pc
 - 1 ir
+- 1 mar
 - 1 aluOut reg
-## 256byte ram + 256 byte rom for program
+## 256byte ram + 2 * 256 byte rom for program and immediate
 ## instructions
 
 8 bit long instructions with immediates as the next word

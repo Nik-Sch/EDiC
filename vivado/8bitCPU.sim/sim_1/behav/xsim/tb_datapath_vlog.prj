@@ -1,7 +1,7 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  \
-"../../../../8bitCPU.ip_user_files/ip/dist_mem_gen_0/sim/dist_mem_gen_0.v" \
-"../../../../8bitCPU.ip_user_files/ip/dist_mem_gen_1/sim/dist_mem_gen_1.v" \
+"../../../../8bitCPU.ip_user_files/ip/instructionRom/sim/instructionRom.v" \
+"../../../../8bitCPU.ip_user_files/ip/microCodeRom/sim/microCodeRom.v" \
 
 sv xil_defaultlib  \
 "../../../../../_src/alu.sv" \

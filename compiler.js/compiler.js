@@ -25,6 +25,10 @@ const branchOps = {
 const aluOpRegEx = Object.keys(aluOps).reduce((p, c) => `${p}|${c}`);
 const branchOpRegEx = Object.keys(branchOps).reduce((p, c) => `${p}|${c}`);
 const immRegEx = '\\b0x[0-9a-fA-F]+\\b|\\b\\d+\\b';
+const labelRegEx = '[a-zA-Z]\\w*';
+const labelDefRegEx = `\\s*(${labelRegEx}):\\s*`;
+;
+const labels = [];
 const checkImmediate = (match) => {
     const imm = parseInt(match);
     if (imm > 255 || imm < 0) {
@@ -116,6 +120,20 @@ const instructions = [
         }
     },
     {
+        regex: new RegExp(`\\s*(${branchOpRegEx})\\s+(${labelRegEx})\\s*`),
+        result: match => {
+            const label = labels.find(l => l.name === match[2]);
+            let imm = false;
+            if (typeof label === 'undefined') {
+                console.error(`Could not find label '${match[2]}'.`);
+            }
+            else {
+                imm = checkImmediate(label.pos.toString());
+            }
+            return { instr: `10100${branchOps[match[1]]}`, imm };
+        }
+    },
+    {
         regex: /\s*hlt/,
         result: () => ({ instr: `11111111` })
     },
@@ -137,12 +155,40 @@ const uint16_t length = 512;
 const uint8_t data[] PROGMEM = {\n`;
 let lineCount = 0;
 let instrCount = 0;
+for (const origLine of code) {
+    const line = origLine.replace(/\s*[#@;].*$/, '');
+    if (line.match(/^\s*$/)) {
+        continue;
+    }
+    const labelMatch = line.match(labelDefRegEx);
+    if (labelMatch) {
+        labels.push({ name: labelMatch[1], pos: instrCount });
+        continue;
+    }
+    let success = false;
+    for (const instr of instructions) {
+        const match = line.match(instr.regex);
+        if (match) {
+            success = true;
+            instrCount++;
+            break;
+        }
+    }
+    if (!success) {
+        console.error(`Unrecognized instruction in line ${lineCount}:\n'${line.trim()}'`);
+        process_1.exit(1);
+    }
+}
+instrCount = 0;
 const bytes = [];
 for (const origLine of code) {
     lineCount++;
     const line = origLine.replace(/\s*[#@;].*$/, '');
     if (line.match(/^\s*$/)) {
-        console.log(origLine.trim());
+        continue;
+    }
+    if (line.match(labelDefRegEx)) {
+        console.log(line.trim());
         continue;
     }
     let success = false;
@@ -158,10 +204,12 @@ for (const origLine of code) {
             bytes[instrCount] = result.instr;
             if (result.imm) {
                 bytes[instrCount + 256] = result.imm;
-                console.log(`${instrCount.toString(16).padStart(2, '0')}: ${result.instr.trim()} - ${origLine.trim()}`);
+                console.log(`${instrCount.toString(16).padStart(2, '0')}: ${result.instr.trim()} - ${line.trim()} (imm: 0x${parseInt(result.imm, 2).toString(16).padStart(2, '0')})`);
+            }
+            else {
+                console.log(`${instrCount.toString(16).padStart(2, '0')}: ${result.instr.trim()} - ${line.trim()}`);
             }
             instrCount++;
-            // fileContent += coeFile ? bits + '\n' : `0x${parseInt(bits, 2).toString(16).padStart(2, '0')},\n`;
             break;
         }
     }

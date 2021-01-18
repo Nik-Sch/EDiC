@@ -12,10 +12,10 @@ in r1
 
 str r1, [0] @ store value to sum
 
-@ loop:
+loop:
 add r0, [0]
 sub r1, 1
-bne 4
+bne loop
 
 @ output
 out r0

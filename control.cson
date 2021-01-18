@@ -10,11 +10,10 @@ noOp: {
     ramWriteEn: 0
     ramOE: 0
     loadPC: 0
-    incrPC: 0
+    ramSelect: 0
     wrOut: 0
     pcNOut: 1
     inNoe: 1
-    ramSelect: 0
 }
 instructionFetch: [
   {
@@ -23,7 +22,6 @@ instructionFetch: [
   }
   { # load instruction
     ramOE: 1
-    incrPC: 1
     ramSelect: 1
   }
 ]

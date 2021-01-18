@@ -6,6 +6,7 @@ module datapath(
 
 logic s_hlt;
 wire s_clk;
+wire s_ctrlHlt;
 assign s_clk = i_clk & ~s_hlt;
 
 always @* begin
@@ -20,7 +21,6 @@ end
 wire s_aluFlagN;
 wire s_aluFlagNZ;
 
-wire s_ctrlHlt;
 
 wire s_ctrlAluNOE;
 wire s_ctrlAluSubShiftDir;
