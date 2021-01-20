@@ -1,5 +1,5 @@
 #include <Arduino.h>
-#include "square.h"
+#include "factorization.h"
 // do program or validate
 // #define DO_PROGRAM 1
 

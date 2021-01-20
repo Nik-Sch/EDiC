@@ -1,7 +1,7 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-// Date        : Mon Jan 18 15:45:13 2021
+// Date        : Mon Jan 18 23:35:16 2021
 // Host        : niklasPC running 64-bit Manjaro Linux
 // Command     : write_verilog -force -mode synth_stub
 //               /home/niklas/dev/8bitCpu/vivado/8bitCPU.runs/microCodeRom_synth_1/microCodeRom_stub.v

@@ -100,6 +100,23 @@ instructions: [
     ]
   }
   {
+    op: '1101ralu' # y = r x [imm] ( mem alu imm)
+    signals: [
+      { # immediate -> mar
+        ramOE: 1
+        ramSelect: 1
+        ramAddressEn: 1
+      }
+      { # wait for ram
+      }
+      { # r x ram into alu
+        aluWr: 1
+        aluSel: 'r'
+        ramOE: 1
+      }
+    ]
+  }
+  {
     op: '1000ralu' # r = r x imm (alu)
     signals: [
       { # immediate -> bus, reg -> alu
@@ -112,6 +129,17 @@ instructions: [
         aluNOE: 0
         regWr0: '!r'
         regWr1: 'r'
+      }
+    ]
+  }
+  {
+    op: '1001ralu' # y = r x imm (alu, no write back)
+    signals: [
+      { # immediate -> bus, reg -> alu
+        ramOE: 1
+        ramSelect: 1
+        aluWr: 1
+        aluSel: 'r'
       }
     ]
   }

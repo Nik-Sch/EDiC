@@ -50,8 +50,9 @@ last three bits: aluOp + sub
 100: alu
    0ralu: r0 := r0 x imm
    1ralu:  y := r0 x imm
-1100: mem alu
-    ralu: r0 := r0 x [imm]
+110: mem alu
+   0ralu: r0 := r0 x [imm]
+   1ralu: y := r0 x [imm]
 10100: jumpy stuff
      001: pc := imm
      010: branchEqual: pc := imm

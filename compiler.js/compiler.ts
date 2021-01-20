@@ -70,10 +70,10 @@ const instructions: IInstruction[] = [
     }
   },
   { // reg x [imm] (memory with reg and imm)
-    regex: new RegExp(`\\s*(${aluOpRegEx})\\s+r([01])\\s*,\\s*\\[\\s*(${immRegEx})\\s*\\]`),
+    regex: new RegExp(`\\s*(${aluOpRegEx})(s?)\\s+r([01])\\s*,\\s*\\[\\s*(${immRegEx})\\s*\\]`),
     result: match => {
-      const imm = checkImmediate(match[3]);
-      return { instr: `1100${match[2]}${aluOps[match[1]]}`, imm }
+      const imm = checkImmediate(match[4]);
+      return { instr: `110${match[2] == 's' ? '1' : '0'}${match[3]}${aluOps[match[1]]}`, imm }
     }
   },
 
@@ -245,7 +245,7 @@ if (coeFile) {
   fileContent += ';';
 } else {
   for (let i = 0; i < 512; i++) {
-    fileContent += bytes[i] ? `0x${parseInt(bytes[i], 2).toString(16).padStart(2, '0')}\n` : '0xff,\n';
+    fileContent += bytes[i] ? `0x${parseInt(bytes[i], 2).toString(16).padStart(2, '0')},\n` : '0xff,\n';
   }
   fileContent += '};\n#endif';
 }

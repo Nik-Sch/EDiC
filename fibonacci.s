@@ -16,4 +16,5 @@ add r1, [0]
 str r1, [1]
 str r0, [0]
 out r0
+hlt
 b loop
