@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 13 13
+Sheet 3 14
 Title ""
 Date ""
 Rev ""
@@ -940,4 +940,15 @@ Wire Wire Line
 Connection ~ 7650 5300
 Wire Wire Line
 	7650 5300 8050 5300
+$Comp
+L power:+5V #PWR0108
+U 1 1 6032FB0C
+P 8800 1900
+F 0 "#PWR0108" H 8800 1750 50  0001 C CNN
+F 1 "+5V" H 8815 2073 50  0000 C CNN
+F 2 "" H 8800 1900 50  0001 C CNN
+F 3 "" H 8800 1900 50  0001 C CNN
+	1    8800 1900
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
