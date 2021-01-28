@@ -21,7 +21,7 @@ always @(posedge i_clk) begin
   end
 end
 
-// the AS6C1008-55PCN is true singleport with an integrated outEnable
+// the AS6C1008-55PCN is singleport with an integrated outEnable
 transmitter inst_txInstr(
   .a(s_readDataInstr),
   .b(o_readData),

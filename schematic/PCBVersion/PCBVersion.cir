@@ -1,0 +1,160 @@
+.title KiCad schematic
+.include "NE555.lib"
+U36 clk Net-_R8-Pad2_ Net-_R7-Pad2_ Net-_R6-Pad2_ Net-_R5-Pad2_ Net-_R4-Pad2_ Net-_R3-Pad2_ Net-_R2-Pad2_ flagNegative GND /bus7 /bus6 /bus5 /bus4 /bus3 /bus2 /bus1 /bus0 ctrlAluNOE clk 74LS245
+U29 ctrlAluYNWE Net-_R8-Pad2_ Net-_U17-Pad4_ Net-_U17-Pad7_ Net-_R7-Pad2_ Net-_R6-Pad2_ Net-_U17-Pad9_ Net-_U17-Pad12_ Net-_R5-Pad2_ GND clk Net-_R4-Pad2_ Net-_U18-Pad4_ Net-_U18-Pad7_ Net-_R3-Pad2_ Net-_R2-Pad2_ Net-_U18-Pad9_ Net-_U18-Pad12_ flagNegative clk 74LS377
+U16 ctrlAluOp1 /Alu/xor4 /Alu/shifter/y4 Net-_U16-Pad4_ /Alu/xor5 /Alu/shifter/y5 Net-_U16-Pad7_ GND Net-_U16-Pad9_ /Alu/shifter/y6 /Alu/xor6 Net-_U16-Pad12_ /Alu/shifter/y7 /Alu/xor7 GND clk 74LS157
+U15 ctrlAluOp1 /Alu/xor0 /Alu/shifter/y0 Net-_U15-Pad4_ /Alu/xor1 /Alu/shifter/y1 Net-_U15-Pad7_ GND Net-_U15-Pad9_ /Alu/shifter/y2 /Alu/xor2 Net-_U15-Pad12_ /Alu/shifter/y3 /Alu/xor3 GND clk 74LS157
+U18 ctrlAluOp0 Net-_U14-Pad4_ Net-_U16-Pad4_ Net-_U18-Pad4_ Net-_U14-Pad7_ Net-_U16-Pad7_ Net-_U18-Pad7_ GND Net-_U18-Pad9_ Net-_U16-Pad9_ Net-_U14-Pad9_ Net-_U18-Pad12_ Net-_U16-Pad12_ Net-_U14-Pad12_ GND clk 74LS157
+U17 ctrlAluOp0 Net-_U13-Pad4_ Net-_U15-Pad4_ Net-_U17-Pad4_ Net-_U13-Pad7_ Net-_U15-Pad7_ Net-_U17-Pad7_ GND Net-_U17-Pad9_ Net-_U15-Pad9_ Net-_U13-Pad9_ Net-_U17-Pad12_ Net-_U15-Pad12_ Net-_U13-Pad12_ GND clk 74LS157
+U13 ctrlAluOp1 /Alu/adderY0 /Alu/and0 Net-_U13-Pad4_ /Alu/adderY1 /Alu/and1 Net-_U13-Pad7_ GND Net-_U13-Pad9_ /Alu/and2 /Alu/adderY2 Net-_U13-Pad12_ /Alu/and3 /Alu/adderY3 GND clk 74LS157
+U12 /bus4 ctrlAluSub /Alu/Adder1/b0 /bus5 ctrlAluSub /Alu/Adder1/b1 GND /Alu/Adder1/b2 /bus6 ctrlAluSub /Alu/Adder1/b3 /bus7 ctrlAluSub clk 74LS86
+U11 /bus0 ctrlAluSub /Alu/Adder0/b0 /bus1 ctrlAluSub /Alu/Adder0/b1 GND /Alu/Adder0/b2 /bus2 ctrlAluSub /Alu/Adder0/b3 /bus3 ctrlAluSub clk 74LS86
+U14 ctrlAluOp1 /Alu/adderY4 /Alu/and4 Net-_U14-Pad4_ /Alu/adderY5 /Alu/and5 Net-_U14-Pad7_ GND Net-_U14-Pad9_ /Alu/and6 /Alu/adderY6 Net-_U14-Pad12_ /Alu/and7 /Alu/adderY7 GND clk 74LS157
+D1 GND Net-_D1-Pad2_ LED
+R1 Net-_D1-Pad2_ flagNegative 1k
+D2 GND Net-_D2-Pad2_ LED
+R2 Net-_D2-Pad2_ Net-_R2-Pad2_ 1k
+D3 GND Net-_D3-Pad2_ LED
+R3 Net-_D3-Pad2_ Net-_R3-Pad2_ 1k
+D4 GND Net-_D4-Pad2_ LED
+R4 Net-_D4-Pad2_ Net-_R4-Pad2_ 1k
+D5 GND Net-_D5-Pad2_ LED
+R5 Net-_D5-Pad2_ Net-_R5-Pad2_ 1k
+D6 GND Net-_D6-Pad2_ LED
+R6 Net-_D6-Pad2_ Net-_R6-Pad2_ 1k
+D7 GND Net-_D7-Pad2_ LED
+R7 Net-_D7-Pad2_ Net-_R7-Pad2_ 1k
+D8 GND Net-_D8-Pad2_ LED
+R8 Net-_D8-Pad2_ Net-_R8-Pad2_ 1k
+U42 Net-_U42-Pad1_ Net-_R8-Pad2_ flagNZero Net-_U42-Pad4_ Net-_R7-Pad2_ Net-_U42-Pad1_ GND Net-_U42-Pad4_ Net-_U42-Pad11_ Net-_R6-Pad2_ Net-_U42-Pad11_ Net-_U41-Pad3_ Net-_R5-Pad2_ clk 74LS32
+U41 Net-_U41-Pad1_ Net-_R4-Pad2_ Net-_U41-Pad3_ Net-_U41-Pad4_ Net-_R3-Pad2_ Net-_U41-Pad1_ GND Net-_U41-Pad4_ flagNegative Net-_R2-Pad2_ NC_01 GND GND clk 74LS32
+U19 ctrlAluSub /Alu/a0 /Alu/a7 Net-_U19-Pad4_ /Alu/a1 /Alu/a6 Net-_U19-Pad7_ GND Net-_U19-Pad9_ /Alu/a5 /Alu/a2 Net-_U19-Pad12_ /Alu/a4 /Alu/a3 GND clk 74LS157
+U20 ctrlAluSub /Alu/a4 /Alu/a3 Net-_U20-Pad4_ /Alu/a5 /Alu/a2 Net-_U20-Pad7_ GND Net-_U20-Pad9_ /Alu/a1 /Alu/a6 Net-_U20-Pad12_ /Alu/a0 /Alu/a7 GND clk 74LS157
+U21 /bus0 Net-_U19-Pad4_ Net-_U19-Pad7_ Net-_U21-Pad4_ Net-_U19-Pad7_ Net-_U19-Pad9_ Net-_U21-Pad7_ GND Net-_U21-Pad9_ Net-_U19-Pad12_ Net-_U19-Pad9_ Net-_U21-Pad12_ Net-_U20-Pad4_ Net-_U19-Pad12_ GND clk 74LS157
+U22 /bus0 Net-_U20-Pad4_ Net-_U20-Pad7_ Net-_U22-Pad4_ Net-_U20-Pad7_ Net-_U20-Pad9_ Net-_U22-Pad7_ GND Net-_U22-Pad9_ Net-_U20-Pad12_ Net-_U20-Pad9_ Net-_U22-Pad12_ GND Net-_U20-Pad12_ GND clk 74LS157
+U23 /bus1 Net-_U21-Pad4_ Net-_U21-Pad9_ Net-_U23-Pad4_ Net-_U21-Pad7_ Net-_U21-Pad12_ Net-_U23-Pad7_ GND Net-_U23-Pad9_ Net-_U22-Pad4_ Net-_U21-Pad9_ Net-_U23-Pad12_ Net-_U22-Pad7_ Net-_U21-Pad12_ GND clk 74LS157
+U24 /bus1 Net-_U22-Pad4_ Net-_U22-Pad9_ Net-_U24-Pad4_ Net-_U22-Pad7_ Net-_U22-Pad12_ Net-_U24-Pad7_ GND Net-_U24-Pad9_ GND Net-_U22-Pad9_ Net-_U24-Pad12_ GND Net-_U22-Pad12_ GND clk 74LS157
+U25 /bus2 Net-_U23-Pad4_ Net-_U24-Pad4_ Net-_U25-Pad4_ Net-_U23-Pad7_ Net-_U24-Pad7_ Net-_U25-Pad7_ GND Net-_U25-Pad9_ Net-_U24-Pad9_ Net-_U23-Pad9_ Net-_U25-Pad12_ Net-_U24-Pad12_ Net-_U23-Pad12_ GND clk 74LS157
+U26 /bus2 Net-_U24-Pad4_ GND Net-_U26-Pad4_ Net-_U24-Pad7_ GND Net-_U26-Pad7_ GND Net-_U26-Pad9_ GND Net-_U24-Pad9_ Net-_U26-Pad12_ GND Net-_U24-Pad12_ GND clk 74LS157
+U27 ctrlAluSub Net-_U25-Pad4_ Net-_U26-Pad12_ /Alu/shifter/y0 Net-_U25-Pad7_ Net-_U26-Pad9_ /Alu/shifter/y1 GND /Alu/shifter/y2 Net-_U26-Pad7_ Net-_U25-Pad9_ /Alu/shifter/y3 Net-_U26-Pad4_ Net-_U25-Pad12_ GND clk 74LS157
+U28 ctrlAluSub Net-_U26-Pad4_ Net-_U25-Pad12_ /Alu/shifter/y4 Net-_U26-Pad7_ Net-_U25-Pad9_ /Alu/shifter/y5 GND /Alu/shifter/y6 Net-_U25-Pad7_ Net-_U26-Pad9_ /Alu/shifter/y7 Net-_U25-Pad4_ Net-_U26-Pad12_ GND clk 74LS157
+U9 /Alu/Adder1/Cin /Alu/xor4 Net-_U10-Pad2_ /Alu/Adder1/Bit1/Cin /Alu/xor5 Net-_U10-Pad5_ GND Net-_U10-Pad10_ /Alu/Adder1/Bit2/Cin /Alu/xor6 Net-_U10-Pad13_ /Alu/Adder1/Bit3/Cin /Alu/xor7 clk 74LS08
+U10 /Alu/and4 Net-_U10-Pad2_ /Alu/Adder1/Bit1/Cin /Alu/and5 Net-_U10-Pad5_ /Alu/Adder1/Bit2/Cin GND /Alu/Adder1/Bit3/Cin /Alu/and6 Net-_U10-Pad10_ NC_02 /Alu/and7 Net-_U10-Pad13_ clk 74LS32
+U7 /Alu/a4 /Alu/Adder1/b0 /Alu/and4 /Alu/a5 /Alu/Adder1/b1 /Alu/and5 GND /Alu/and6 /Alu/a6 /Alu/Adder1/b2 /Alu/and7 /Alu/a7 /Alu/Adder1/b3 clk 74LS08
+U8 /Alu/Adder1/Cin /Alu/xor4 /Alu/adderY4 /Alu/Adder1/Bit1/Cin /Alu/xor5 /Alu/adderY5 GND /Alu/adderY6 /Alu/Adder1/Bit2/Cin /Alu/xor6 /Alu/adderY7 /Alu/Adder1/Bit3/Cin /Alu/xor7 clk 74LS86
+U6 /Alu/a4 /Alu/Adder1/b0 /Alu/xor4 /Alu/a5 /Alu/Adder1/b1 /Alu/xor5 GND /Alu/xor6 /Alu/a6 /Alu/Adder1/b2 /Alu/xor7 /Alu/a7 /Alu/Adder1/b3 clk 74LS86
+U4 ctrlAluSub /Alu/xor0 Net-_U4-Pad3_ /Alu/Adder0/Bit1/Cin /Alu/xor1 Net-_U4-Pad6_ GND Net-_U4-Pad8_ /Alu/Adder0/Bit2/Cin /Alu/xor2 Net-_U4-Pad11_ /Alu/Adder0/Bit3/Cin /Alu/xor3 clk 74LS08
+U5 /Alu/and0 Net-_U4-Pad3_ /Alu/Adder0/Bit1/Cin /Alu/and1 Net-_U4-Pad6_ /Alu/Adder0/Bit2/Cin GND /Alu/Adder0/Bit3/Cin /Alu/and2 Net-_U4-Pad8_ /Alu/Adder1/Cin /Alu/and3 Net-_U4-Pad11_ clk 74LS32
+U2 /Alu/a0 /Alu/Adder0/b0 /Alu/and0 /Alu/a1 /Alu/Adder0/b1 /Alu/and1 GND /Alu/and2 /Alu/a2 /Alu/Adder0/b2 /Alu/and3 /Alu/a3 /Alu/Adder0/b3 clk 74LS08
+U3 ctrlAluSub /Alu/xor0 /Alu/adderY0 /Alu/Adder0/Bit1/Cin /Alu/xor1 /Alu/adderY1 GND /Alu/adderY2 /Alu/Adder0/Bit2/Cin /Alu/xor2 /Alu/adderY3 /Alu/Adder0/Bit3/Cin /Alu/xor3 clk 74LS86
+U1 /Alu/a0 /Alu/Adder0/b0 /Alu/xor0 /Alu/a1 /Alu/Adder0/b1 /Alu/xor1 GND /Alu/xor2 /Alu/a2 /Alu/Adder0/b2 /Alu/xor3 /Alu/a3 /Alu/Adder0/b3 clk 74LS86
+U30 ctrlReg0NWE /regset/r00 /bus0 /bus1 /regset/r01 /regset/r02 /bus2 /bus3 /regset/r03 GND clk /regset/r04 /bus4 /bus5 /regset/r05 /regset/r06 /bus6 /bus7 /regset/r07 clk 74LS377
+U31 ctrlReg1NWE /regset/r10 /bus0 /bus1 /regset/r11 /regset/r12 /bus2 /bus3 /regset/r13 GND clk /regset/r14 /bus4 /bus5 /regset/r15 /regset/r16 /bus6 /bus7 /regset/r17 clk 74LS377
+U32 ctrlAluSel /regset/r00 /regset/r10 /Alu/a0 /regset/r01 /regset/r11 /Alu/a1 GND /Alu/a2 /regset/r12 /regset/r02 /Alu/a3 /regset/r13 /regset/r03 GND clk 74LS157
+U33 ctrlAluSel /regset/r04 /regset/r14 /Alu/a4 /regset/r05 /regset/r15 /Alu/a5 GND /Alu/a6 /regset/r16 /regset/r06 /Alu/a7 /regset/r17 /regset/r07 GND clk 74LS157
+U34 ctrlRegBusSel /regset/r00 /regset/r10 /bus0 /regset/r01 /regset/r11 /bus1 GND /bus3 /regset/r13 /regset/r03 /bus2 /regset/r12 /regset/r02 ctrlRegBusNOE clk 74LS257
+U35 ctrlRegBusSel /regset/r04 /regset/r14 /bus4 /regset/r05 /regset/r15 /bus5 GND /bus7 /regset/r17 /regset/r07 /bus6 /regset/r16 /regset/r06 ctrlRegBusNOE clk 74LS257
+R9 Net-_D9-Pad2_ /regset/r00 1k
+D9 GND Net-_D9-Pad2_ LED
+R10 Net-_D10-Pad2_ /regset/r01 1k
+D10 GND Net-_D10-Pad2_ LED
+R11 Net-_D11-Pad2_ /regset/r02 1k
+D11 GND Net-_D11-Pad2_ LED
+R12 Net-_D12-Pad2_ /regset/r03 1k
+D12 GND Net-_D12-Pad2_ LED
+R13 Net-_D13-Pad2_ /regset/r04 1k
+D13 GND Net-_D13-Pad2_ LED
+R14 Net-_D14-Pad2_ /regset/r05 1k
+D14 GND Net-_D14-Pad2_ LED
+R15 Net-_D15-Pad2_ /regset/r06 1k
+D15 GND Net-_D15-Pad2_ LED
+R16 Net-_D16-Pad2_ /regset/r07 1k
+D16 GND Net-_D16-Pad2_ LED
+R17 Net-_D17-Pad2_ /regset/r10 1k
+D17 GND Net-_D17-Pad2_ LED
+R18 Net-_D18-Pad2_ /regset/r11 1k
+D18 GND Net-_D18-Pad2_ LED
+R19 Net-_D19-Pad2_ /regset/r12 1k
+D19 GND Net-_D19-Pad2_ LED
+R20 Net-_D20-Pad2_ /regset/r13 1k
+D20 GND Net-_D20-Pad2_ LED
+R21 Net-_D21-Pad2_ /regset/r14 1k
+D21 GND Net-_D21-Pad2_ LED
+R22 Net-_D22-Pad2_ /regset/r15 1k
+D22 GND Net-_D22-Pad2_ LED
+R23 Net-_D23-Pad2_ /regset/r16 1k
+D23 GND Net-_D23-Pad2_ LED
+R24 Net-_D24-Pad2_ /regset/r17 1k
+D24 GND Net-_D24-Pad2_ LED
+U38 NC_03 GND GND GND Net-_R25-Pad2_ Net-_R26-Pad2_ Net-_R27-Pad2_ Net-_R28-Pad2_ Net-_R29-Pad2_ Net-_R30-Pad2_ Net-_R31-Pad2_ Net-_R32-Pad2_ /bus0 /bus1 /bus2 GND /bus3 /bus4 /bus5 /bus6 /bus7 GND GND /ram/ramNOE GND GND GND GND /ram/ramNWE clk GND clk AS6C1008-55PCN
+U40 ctrlRamWE clk /ram/ramNWE ctrlRamSelect ctrlRamSelect Net-_U40-Pad6_ GND /ram/ramNOE Net-_U40-Pad6_ ctrlRamOE /ram/romNOE ctrlRamOE ctrlRamSelect clk 74LS00
+D26 GND Net-_D26-Pad2_ LED
+R26 Net-_D26-Pad2_ Net-_R26-Pad2_ 1k
+D27 GND Net-_D27-Pad2_ LED
+R27 Net-_D27-Pad2_ Net-_R27-Pad2_ 1k
+D28 GND Net-_D28-Pad2_ LED
+R28 Net-_D28-Pad2_ Net-_R28-Pad2_ 1k
+D29 GND Net-_D29-Pad2_ LED
+R29 Net-_D29-Pad2_ Net-_R29-Pad2_ 1k
+D30 GND Net-_D30-Pad2_ LED
+R30 Net-_D30-Pad2_ Net-_R30-Pad2_ 1k
+D31 GND Net-_D31-Pad2_ LED
+R31 Net-_D31-Pad2_ Net-_R31-Pad2_ 1k
+D32 GND Net-_D32-Pad2_ LED
+R32 Net-_D32-Pad2_ Net-_R32-Pad2_ 1k
+U37 NC_04 GND Net-_R25-Pad2_ Net-_R26-Pad2_ Net-_R27-Pad2_ Net-_R28-Pad2_ Net-_R29-Pad2_ Net-_R30-Pad2_ Net-_R31-Pad2_ Net-_R32-Pad2_ /bus0 /bus1 /bus2 GND /bus3 /bus4 /bus5 /bus6 /bus7 GND GND /ram/romNOE GND GND ctrlInstrNWE NC_05 clk clk 28C64
+R25 Net-_D25-Pad2_ Net-_R25-Pad2_ 1k
+D25 GND Net-_D25-Pad2_ LED
+U39 ctrlMarNWE Net-_R32-Pad2_ /bus0 /bus1 Net-_R31-Pad2_ Net-_R30-Pad2_ /bus2 /bus3 Net-_R29-Pad2_ GND clk Net-_R28-Pad2_ /bus4 /bus5 Net-_R27-Pad2_ Net-_R26-Pad2_ /bus6 /bus7 Net-_R25-Pad2_ clk 74LS377
+U44 clk /control/a0 Net-_U44-Pad3_ Net-_U44-Pad4_ /control/a1 /control/a2 Net-_U44-Pad7_ flagNZero /control/a12 GND clk /control/a11 flagNegative GND NC_06 NC_07 GND GND NC_08 clk 74LS273
+U45 clk ctrlAluSub Net-_U43-Pad2_ Net-_U43-Pad5_ ctrlAluOp0 ctrlAluOp1 Net-_U43-Pad6_ Net-_U43-Pad9_ /control/a6 GND clk /control/a7 Net-_U43-Pad12_ Net-_U43-Pad15_ /control/a8 /control/a9 Net-_U43-Pad16_ Net-_U43-Pad19_ /control/a10 clk 74LS273
+U43 ctrlInstrNWE Net-_U43-Pad2_ /bus0 /bus1 Net-_U43-Pad5_ Net-_U43-Pad6_ /bus2 /bus3 Net-_U43-Pad9_ GND clk Net-_U43-Pad12_ /bus4 /bus5 Net-_U43-Pad15_ Net-_U43-Pad16_ /bus6 /bus7 Net-_U43-Pad19_ clk 74LS377
+U48 NC_09 /control/a12 /control/a7 /control/a6 ctrlAluOp1 ctrlAluOp0 ctrlAluSub /control/a2 /control/a1 /control/a0 ctrlAluNOE ctrlAluYNWE ctrlReg0NWE GND ctrlReg1NWE ctrlRegBusSel ctrlRegBusNOE ctrlAluSel ctrlMarNWE GND /control/a10 GND /control/a11 /control/a9 /control/a8 NC_10 clk clk 28C64
+U49 NC_11 /control/a12 /control/a7 /control/a6 ctrlAluOp1 ctrlAluOp0 ctrlAluSub /control/a2 /control/a1 /control/a0 ctrlRamWE ctrlRamOE NC_12 GND ctrlRamSelect NC_13 NC_14 NC_15 NC_16 GND /control/a10 GND /control/a11 /control/a9 /control/a8 NC_17 clk clk 28C64
+U47 clk /control/a0 Net-_U44-Pad3_ /control/a0 /control/a1 Net-_U44-Pad4_ GND Net-_U44-Pad7_ /control/a2 Net-_U46-Pad3_ Net-_U46-Pad4_ clk /control/a2 clk 74LS86
+U46 /control/a0 /control/a1 Net-_U46-Pad3_ Net-_U46-Pad4_ Net-_U46-Pad5_ ctrlInstrNWE GND Net-_U46-Pad5_ /control/a0 Net-_U44-Pad4_ NC_18 GND GND clk 74LS08
+R40 Net-_D40-Pad2_ ctrlRegBusNOE 1k
+D40 GND Net-_D40-Pad2_ regBusNOE
+R41 Net-_D41-Pad2_ ctrlAluSel 1k
+D41 GND Net-_D41-Pad2_ aluSel
+R42 Net-_D42-Pad2_ ctrlMarNWE 1k
+D42 GND Net-_D42-Pad2_ marNWE
+R43 Net-_D43-Pad2_ ctrlRamWE 1k
+D43 GND Net-_D43-Pad2_ ramWE
+R44 Net-_D44-Pad2_ ctrlRamOE 1k
+D44 GND Net-_D44-Pad2_ ramOE
+R45 Net-_D45-Pad2_ NC_19 1k
+D45 GND Net-_D45-Pad2_ LED
+R46 Net-_D46-Pad2_ ctrlRamSelect 1k
+D46 GND Net-_D46-Pad2_ ramSelect
+R47 Net-_D47-Pad2_ NC_20 1k
+D47 GND Net-_D47-Pad2_ LED
+R39 Net-_D39-Pad2_ ctrlRegBusSel 1k
+D39 GND Net-_D39-Pad2_ regBusSel
+R38 Net-_D38-Pad2_ ctrlReg1NWE 1k
+D38 GND Net-_D38-Pad2_ reg1NWE
+R37 Net-_D37-Pad2_ ctrlReg0NWE 1k
+D37 GND Net-_D37-Pad2_ reg0NWE
+R36 Net-_D36-Pad2_ ctrlAluYNWE 1k
+D36 GND Net-_D36-Pad2_ aluYNWE
+R35 Net-_D35-Pad2_ ctrlAluNOE 1k
+D35 GND Net-_D35-Pad2_ aluNOE
+R48 Net-_D48-Pad2_ NC_21 1k
+D48 GND Net-_D48-Pad2_ LED
+R49 Net-_D49-Pad2_ NC_22 1k
+D49 GND Net-_D49-Pad2_ LED
+R50 Net-_D50-Pad2_ NC_23 1k
+D50 GND Net-_D50-Pad2_ LED
+R34 Net-_D34-Pad2_ ctrlInstrNWE 1k
+D34 GND Net-_D34-Pad2_ instrSel
+R33 Net-_D33-Pad2_ ctrlInstrNWE 1k
+D33 GND Net-_D33-Pad2_ instrNWE
+XU50 GND Net-_C2-Pad1_ NC_24 clk Net-_C1-Pad1_ Net-_C2-Pad1_ Net-_R51-Pad2_ clk NE555
+R52 Net-_R52-Pad1_ Net-_R51-Pad2_ 1k
+R51 clk Net-_R51-Pad2_ 1k
+RV1 Net-_C2-Pad1_ Net-_R52-Pad1_ NC_25 1M
+C1 Net-_C1-Pad1_ GND 0.01µF
+C2 Net-_C2-Pad1_ GND 0.1µF
+V1 clk GND 5V
+.tran 1u 1m 
+.end

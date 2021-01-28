@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 14
+Sheet 1 18
 Title "ALU"
 Date "2021-01-20"
 Rev "v01"
@@ -170,21 +170,21 @@ Text Label 2200 1800 2    50   ~ 0
 bus6
 Text Label 2200 1900 2    50   ~ 0
 bus7
-Text Label 4450 1250 0    50   ~ 0
+Text Label 4600 1250 0    50   ~ 0
 bus0
-Text Label 4450 1350 0    50   ~ 0
+Text Label 4600 1350 0    50   ~ 0
 bus1
-Text Label 4450 1450 0    50   ~ 0
+Text Label 4600 1450 0    50   ~ 0
 bus2
-Text Label 4450 1550 0    50   ~ 0
+Text Label 4600 1550 0    50   ~ 0
 bus3
-Text Label 4450 1650 0    50   ~ 0
+Text Label 4600 1650 0    50   ~ 0
 bus4
-Text Label 4450 1750 0    50   ~ 0
+Text Label 4600 1750 0    50   ~ 0
 bus5
-Text Label 4450 1850 0    50   ~ 0
+Text Label 4600 1850 0    50   ~ 0
 bus6
-Text Label 4450 1950 0    50   ~ 0
+Text Label 4600 1950 0    50   ~ 0
 bus7
 $Comp
 L power:PWR_FLAG #FLG01
@@ -201,91 +201,125 @@ Wire Wire Line
 	1250 900  1250 750 
 Wire Wire Line
 	950  750  950  900 
-Text GLabel 9300 1850 2    50   Output ~ 0
-ctrlAluNOE
-Text GLabel 9300 1700 2    50   Output ~ 0
-ctrlAluNWrY
-Text GLabel 9300 1550 2    50   Output ~ 0
-ctrlAluOp1
-Text GLabel 9300 1400 2    50   Output ~ 0
-ctrlAluOp0
-Text GLabel 9300 1250 2    50   Output ~ 0
-ctrlAluSub
+$Sheet
+S 4850 1150 650  1250
+U 60ECA4CB
+F0 "ram" 50
+F1 "Ram.sch" 50
+F2 "bus0" T L 4850 1250 50 
+F3 "bus1" T L 4850 1350 50 
+F4 "bus2" T L 4850 1450 50 
+F5 "bus3" T L 4850 1550 50 
+F6 "bus4" T L 4850 1650 50 
+F7 "bus5" T L 4850 1750 50 
+F8 "bus6" T L 4850 1850 50 
+F9 "bus7" T L 4850 1950 50 
+$EndSheet
+Wire Wire Line
+	4450 1250 4850 1250
+Wire Wire Line
+	4850 1350 4450 1350
+Wire Wire Line
+	4450 1450 4850 1450
+Wire Wire Line
+	4450 1550 4850 1550
+Wire Wire Line
+	4450 1650 4850 1650
+Wire Wire Line
+	4850 1750 4450 1750
+Wire Wire Line
+	4450 1850 4850 1850
+Wire Wire Line
+	4450 1950 4850 1950
+$Sheet
+S 5000 2900 1000 1450
+U 601BB1C4
+F0 "control" 50
+F1 "Control.sch" 50
+F2 "b0" I L 5000 3000 50 
+F3 "b1" I L 5000 3100 50 
+F4 "b2" I L 5000 3200 50 
+F5 "b3" I L 5000 3300 50 
+F6 "b4" I L 5000 3400 50 
+F7 "b5" I L 5000 3500 50 
+F8 "b6" I L 5000 3600 50 
+F9 "b7" I L 5000 3700 50 
+$EndSheet
 $Comp
-L power:+5V #PWR0107
-U 1 1 6030CA22
-P 9200 850
-F 0 "#PWR0107" H 9200 700 50  0001 C CNN
-F 1 "+5V" H 9215 1023 50  0000 C CNN
-F 2 "" H 9200 850 50  0001 C CNN
-F 3 "" H 9200 850 50  0001 C CNN
-	1    9200 850 
+L power:+5V #PWR0159
+U 1 1 60701905
+P 7550 750
+AR Path="/60701905" Ref="#PWR0159"  Part="1" 
+AR Path="/601BB1C4/60701905" Ref="#PWR?"  Part="1" 
+F 0 "#PWR0159" H 7550 600 50  0001 C CNN
+F 1 "+5V" H 7565 923 50  0000 C CNN
+F 2 "" H 7550 750 50  0001 C CNN
+F 3 "" H 7550 750 50  0001 C CNN
+	1    7550 750 
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	9200 850  9200 1050
-Wire Wire Line
-	9200 1850 9300 1850
-Wire Wire Line
-	9300 1700 9200 1700
-Connection ~ 9200 1700
-Wire Wire Line
-	9200 1700 9200 1850
-Wire Wire Line
-	9200 1550 9300 1550
-Connection ~ 9200 1550
-Wire Wire Line
-	9200 1550 9200 1700
-Wire Wire Line
-	9300 1400 9200 1400
-Connection ~ 9200 1400
-Wire Wire Line
-	9200 1400 9200 1550
-Wire Wire Line
-	9200 1250 9300 1250
-Connection ~ 9200 1250
-Wire Wire Line
-	9200 1250 9200 1400
-Text GLabel 9300 2000 2    50   Output ~ 0
-ctrlReg0NWr
-Text GLabel 9300 2150 2    50   Output ~ 0
-ctrlReg1NWr
-Text GLabel 9300 2300 2    50   Output ~ 0
-ctrlAluSel
-Text GLabel 9300 2450 2    50   Output ~ 0
-ctrlRegBusSel
-Text GLabel 9300 2600 2    50   Output ~ 0
-ctrlRegBusNOE
-Wire Wire Line
-	9200 1850 9200 2000
-Wire Wire Line
-	9200 2000 9300 2000
-Connection ~ 9200 1850
-Wire Wire Line
-	9200 2000 9200 2150
-Wire Wire Line
-	9200 2600 9300 2600
-Connection ~ 9200 2000
-Wire Wire Line
-	9300 2450 9200 2450
-Connection ~ 9200 2450
-Wire Wire Line
-	9200 2450 9200 2600
-Wire Wire Line
-	9200 2300 9300 2300
-Connection ~ 9200 2300
-Wire Wire Line
-	9200 2300 9200 2450
-Wire Wire Line
-	9300 2150 9200 2150
-Connection ~ 9200 2150
-Wire Wire Line
-	9200 2150 9200 2300
-Text GLabel 9300 1050 2    50   Output ~ 0
+	7550 750  7550 950 
+Text GLabel 7650 950  2    50   Output ~ 0
 clk
 Wire Wire Line
-	9200 1050 9300 1050
-Connection ~ 9200 1050
+	7550 950  7650 950 
+Connection ~ 7550 950 
 Wire Wire Line
-	9200 1050 9200 1250
+	7550 950  7550 1100
+Text GLabel 7650 1100 2    50   Output ~ 0
+nClk
+Wire Wire Line
+	7650 1100 7550 1100
+Connection ~ 7550 1100
+Wire Wire Line
+	7550 1100 7550 1250
+Text GLabel 7650 1250 2    50   Output ~ 0
+reset
+Wire Wire Line
+	7650 1250 7550 1250
+Wire Wire Line
+	4900 3000 5000 3000
+Wire Wire Line
+	4900 3100 5000 3100
+Wire Wire Line
+	4900 3200 5000 3200
+Wire Wire Line
+	5000 3300 4900 3300
+Wire Wire Line
+	4900 3400 5000 3400
+Wire Wire Line
+	4900 3500 5000 3500
+Wire Wire Line
+	4900 3600 5000 3600
+Wire Wire Line
+	4900 3700 5000 3700
+Text Label 4900 3000 2    50   ~ 0
+bus0
+Text Label 4900 3100 2    50   ~ 0
+bus1
+Text Label 4900 3200 2    50   ~ 0
+bus2
+Text Label 4900 3300 2    50   ~ 0
+bus3
+Text Label 4900 3400 2    50   ~ 0
+bus4
+Text Label 4900 3500 2    50   ~ 0
+bus5
+Text Label 4900 3600 2    50   ~ 0
+bus6
+Text Label 4900 3700 2    50   ~ 0
+bus7
+$Sheet
+S 9450 750  1100 1350
+U 608A8AE7
+F0 "clock" 50
+F1 "Clock.sch" 50
+$EndSheet
+$Sheet
+S 6850 2350 950  1500
+U 6015C763
+F0 "pc" 100
+F1 "PC.sch" 100
+$EndSheet
 $EndSCHEMATC
