@@ -232,18 +232,18 @@ Wire Wire Line
 Wire Wire Line
 	4450 1950 4850 1950
 $Sheet
-S 5000 2900 1000 1450
+S 5900 2700 1000 1450
 U 601BB1C4
 F0 "control" 50
 F1 "Control.sch" 50
-F2 "b0" I L 5000 3000 50 
-F3 "b1" I L 5000 3100 50 
-F4 "b2" I L 5000 3200 50 
-F5 "b3" I L 5000 3300 50 
-F6 "b4" I L 5000 3400 50 
-F7 "b5" I L 5000 3500 50 
-F8 "b6" I L 5000 3600 50 
-F9 "b7" I L 5000 3700 50 
+F2 "b0" I L 5900 2800 50 
+F3 "b1" I L 5900 2900 50 
+F4 "b2" I L 5900 3000 50 
+F5 "b3" I L 5900 3100 50 
+F6 "b4" I L 5900 3200 50 
+F7 "b5" I L 5900 3300 50 
+F8 "b6" I L 5900 3400 50 
+F9 "b7" I L 5900 3500 50 
 $EndSheet
 $Comp
 L power:+5V #PWR0159
@@ -278,37 +278,21 @@ Text GLabel 7650 1250 2    50   Output ~ 0
 reset
 Wire Wire Line
 	7650 1250 7550 1250
-Wire Wire Line
-	4900 3000 5000 3000
-Wire Wire Line
-	4900 3100 5000 3100
-Wire Wire Line
-	4900 3200 5000 3200
-Wire Wire Line
-	5000 3300 4900 3300
-Wire Wire Line
-	4900 3400 5000 3400
-Wire Wire Line
-	4900 3500 5000 3500
-Wire Wire Line
-	4900 3600 5000 3600
-Wire Wire Line
-	4900 3700 5000 3700
-Text Label 4900 3000 2    50   ~ 0
+Text Label 5800 2800 2    50   ~ 0
 bus0
-Text Label 4900 3100 2    50   ~ 0
+Text Label 5800 2900 2    50   ~ 0
 bus1
-Text Label 4900 3200 2    50   ~ 0
+Text Label 5800 3000 2    50   ~ 0
 bus2
-Text Label 4900 3300 2    50   ~ 0
+Text Label 5800 3100 2    50   ~ 0
 bus3
-Text Label 4900 3400 2    50   ~ 0
+Text Label 5800 3200 2    50   ~ 0
 bus4
-Text Label 4900 3500 2    50   ~ 0
+Text Label 5800 3300 2    50   ~ 0
 bus5
-Text Label 4900 3600 2    50   ~ 0
+Text Label 5800 3400 2    50   ~ 0
 bus6
-Text Label 4900 3700 2    50   ~ 0
+Text Label 5800 3500 2    50   ~ 0
 bus7
 $Sheet
 S 9450 750  1100 1350
@@ -317,9 +301,33 @@ F0 "clock" 50
 F1 "Clock.sch" 50
 $EndSheet
 $Sheet
-S 6850 2350 950  1500
+S 4550 2700 950  1500
 U 6015C763
 F0 "pc" 100
 F1 "PC.sch" 100
+F2 "bus0" T R 5500 2800 50 
+F3 "bus1" T R 5500 2900 50 
+F4 "bus2" T R 5500 3000 50 
+F5 "bus3" T R 5500 3100 50 
+F6 "bus4" T R 5500 3200 50 
+F7 "bus5" T R 5500 3300 50 
+F8 "bus6" T R 5500 3400 50 
+F9 "bus7" T R 5500 3500 50 
 $EndSheet
+Wire Wire Line
+	5500 2800 5900 2800
+Wire Wire Line
+	5500 2900 5900 2900
+Wire Wire Line
+	5500 3000 5900 3000
+Wire Wire Line
+	5500 3100 5900 3100
+Wire Wire Line
+	5500 3200 5900 3200
+Wire Wire Line
+	5500 3300 5900 3300
+Wire Wire Line
+	5500 3400 5900 3400
+Wire Wire Line
+	5500 3500 5900 3500
 $EndSCHEMATC
