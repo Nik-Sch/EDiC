@@ -3,8 +3,9 @@ SystemVerilog simulation of an 8 bit discrete TTL CPU I am building for fun. The
 - I printed prototype PCBs that reassembles 830 Breadboards with some improvements.
 - Two general purpose registers.
 - ALU with `add/sub`, `AND`, `XOR` and left/right shift operations
-- 256 byte instruction EEPROM
+- 512 byte instruction EEPROM (256 byte instruction, 256 immediate values)
 - 256 byte program SRAM
+- 8bit input and output registers
 
 ## Update 21.01.2021 - 8bit-CPU is finished!
   
