@@ -6,7 +6,14 @@ SystemVerilog simulation of an 8 bit discrete TTL CPU I am building for fun. The
 - 256 byte instruction EEPROM
 - 256 byte program SRAM
 
-## Update 15.01.2020
+## Update 21.01.2021 - 8bit-CPU is finished!
+  
+- I debugged a lot of tiny bugs todo with writeEnable and especially clockEnable signals
+- Mounted all PCBs to look nice
+
+![image](https://github.com/Nik-Sch/8bitCPU/raw/main/doc/update20210121.jpg)
+
+## Update 15.01.2021
 <details><summary>First program got executed!</summary>
   
   - I finished building everything and after about a week of endless debugging bugfixing the first program ran correctly.
