@@ -1,0 +1,488 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 19
+Title "ALU"
+Date "2021-01-20"
+Rev "v01"
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L power:+5V #PWR02
+U 1 1 600C77C0
+P 1950 1850
+F 0 "#PWR02" H 1950 1700 50  0001 C CNN
+F 1 "+5V" H 1965 2023 50  0000 C CNN
+F 2 "" H 1950 1850 50  0001 C CNN
+F 3 "" H 1950 1850 50  0001 C CNN
+	1    1950 1850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:PWR_FLAG #FLG02
+U 1 1 603135A8
+P 1950 2000
+F 0 "#FLG02" H 1950 2075 50  0001 C CNN
+F 1 "PWR_FLAG" H 1950 2173 50  0000 C CNN
+F 2 "" H 1950 2000 50  0001 C CNN
+F 3 "~" H 1950 2000 50  0001 C CNN
+	1    1950 2000
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR01
+U 1 1 60311B16
+P 1650 2000
+F 0 "#PWR01" H 1650 1750 50  0001 C CNN
+F 1 "GND" H 1655 1827 50  0000 C CNN
+F 2 "" H 1650 2000 50  0001 C CNN
+F 3 "" H 1650 2000 50  0001 C CNN
+	1    1650 2000
+	1    0    0    -1  
+$EndComp
+$Sheet
+S 4150 2250 1000 1950
+U 600C5001
+F0 "Alu" 50
+F1 "Alu.sch" 50
+F2 "a0" I L 4150 2300 50 
+F3 "b0" I L 4150 3200 50 
+F4 "b1" I L 4150 3300 50 
+F5 "b2" I L 4150 3400 50 
+F6 "b3" I L 4150 3500 50 
+F7 "b4" I L 4150 3600 50 
+F8 "b5" I L 4150 3700 50 
+F9 "b6" I L 4150 3800 50 
+F10 "b7" I L 4150 3900 50 
+F11 "a1" I L 4150 2400 50 
+F12 "a2" I L 4150 2500 50 
+F13 "a3" I L 4150 2600 50 
+F14 "a4" I L 4150 2700 50 
+F15 "a5" I L 4150 2800 50 
+F16 "a6" I L 4150 2900 50 
+F17 "a7" I L 4150 3000 50 
+F18 "y0" O R 5150 2350 50 
+F19 "y1" O R 5150 2450 50 
+F20 "y2" O R 5150 2550 50 
+F21 "y3" O R 5150 2650 50 
+F22 "y4" O R 5150 2750 50 
+F23 "y5" O R 5150 2850 50 
+F24 "y6" O R 5150 2950 50 
+F25 "y7" O R 5150 3050 50 
+F26 "y_cp" I L 4150 4100 50 
+$EndSheet
+$Sheet
+S 2900 2250 1000 2000
+U 601B5CAE
+F0 "regset" 50
+F1 "Regset.sch" 50
+F2 "d0" I L 2900 2300 50 
+F3 "d1" I L 2900 2400 50 
+F4 "d2" I L 2900 2500 50 
+F5 "d3" I L 2900 2600 50 
+F6 "d4" I L 2900 2700 50 
+F7 "d5" I L 2900 2800 50 
+F8 "d6" I L 2900 2900 50 
+F9 "d7" I L 2900 3000 50 
+F10 "a0" O R 3900 2300 50 
+F11 "a1" O R 3900 2400 50 
+F12 "a2" O R 3900 2500 50 
+F13 "a3" O R 3900 2600 50 
+F14 "a4" O R 3900 2700 50 
+F15 "a5" O R 3900 2800 50 
+F16 "a6" O R 3900 2900 50 
+F17 "a7" O R 3900 3000 50 
+F18 "b0" O R 3900 3200 50 
+F19 "b1" O R 3900 3300 50 
+F20 "b2" O R 3900 3400 50 
+F21 "b3" O R 3900 3500 50 
+F22 "b4" O R 3900 3600 50 
+F23 "b5" O R 3900 3700 50 
+F24 "b6" O R 3900 3800 50 
+F25 "b7" O R 3900 3900 50 
+F26 "r0_cp" I L 2900 4000 50 
+F27 "r1_cp" I L 2900 4100 50 
+$EndSheet
+Wire Wire Line
+	3900 2300 4150 2300
+Wire Wire Line
+	3900 2400 4150 2400
+Wire Wire Line
+	3900 2500 4150 2500
+Wire Wire Line
+	4150 2600 3900 2600
+Wire Wire Line
+	3900 2700 4150 2700
+Wire Wire Line
+	3900 2800 4150 2800
+Wire Wire Line
+	3900 2900 4150 2900
+Wire Wire Line
+	3900 3000 4150 3000
+Wire Wire Line
+	3900 3200 4150 3200
+Wire Wire Line
+	3900 3300 4150 3300
+Wire Wire Line
+	3900 3400 4150 3400
+Wire Wire Line
+	4150 3500 3900 3500
+Wire Wire Line
+	3900 3600 4150 3600
+Wire Wire Line
+	3900 3700 4150 3700
+Wire Wire Line
+	3900 3800 4150 3800
+Wire Wire Line
+	3900 3900 4150 3900
+Text Label 4100 3200 2    50   ~ 0
+bus0
+Text Label 4100 3300 2    50   ~ 0
+bus1
+Text Label 4100 3400 2    50   ~ 0
+bus2
+Text Label 4100 3500 2    50   ~ 0
+bus3
+Text Label 4100 3600 2    50   ~ 0
+bus4
+Text Label 4100 3700 2    50   ~ 0
+bus5
+Text Label 4100 3800 2    50   ~ 0
+bus6
+Text Label 4100 3900 2    50   ~ 0
+bus7
+Text Label 2900 2300 2    50   ~ 0
+bus0
+Text Label 2900 2400 2    50   ~ 0
+bus1
+Text Label 2900 2500 2    50   ~ 0
+bus2
+Text Label 2900 2600 2    50   ~ 0
+bus3
+Text Label 2900 2700 2    50   ~ 0
+bus4
+Text Label 2900 2800 2    50   ~ 0
+bus5
+Text Label 2900 2900 2    50   ~ 0
+bus6
+Text Label 2900 3000 2    50   ~ 0
+bus7
+Text Label 5300 2350 0    50   ~ 0
+bus0
+Text Label 5300 2450 0    50   ~ 0
+bus1
+Text Label 5300 2550 0    50   ~ 0
+bus2
+Text Label 5300 2650 0    50   ~ 0
+bus3
+Text Label 5300 2750 0    50   ~ 0
+bus4
+Text Label 5300 2850 0    50   ~ 0
+bus5
+Text Label 5300 2950 0    50   ~ 0
+bus6
+Text Label 5300 3050 0    50   ~ 0
+bus7
+$Comp
+L power:PWR_FLAG #FLG01
+U 1 1 6025A1E2
+P 1650 1850
+F 0 "#FLG01" H 1650 1925 50  0001 C CNN
+F 1 "PWR_FLAG" H 1650 2023 50  0000 C CNN
+F 2 "" H 1650 1850 50  0001 C CNN
+F 3 "~" H 1650 1850 50  0001 C CNN
+	1    1650 1850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1950 2000 1950 1850
+Wire Wire Line
+	1650 1850 1650 2000
+$Sheet
+S 5550 2250 650  1250
+U 60ECA4CB
+F0 "ram" 50
+F1 "Ram.sch" 50
+F2 "bus0" T L 5550 2350 50 
+F3 "bus1" T L 5550 2450 50 
+F4 "bus2" T L 5550 2550 50 
+F5 "bus3" T L 5550 2650 50 
+F6 "bus4" T L 5550 2750 50 
+F7 "bus5" T L 5550 2850 50 
+F8 "bus6" T L 5550 2950 50 
+F9 "bus7" T L 5550 3050 50 
+$EndSheet
+Wire Wire Line
+	5150 2350 5550 2350
+Wire Wire Line
+	5550 2450 5150 2450
+Wire Wire Line
+	5150 2550 5550 2550
+Wire Wire Line
+	5150 2650 5550 2650
+Wire Wire Line
+	5150 2750 5550 2750
+Wire Wire Line
+	5550 2850 5150 2850
+Wire Wire Line
+	5150 2950 5550 2950
+Wire Wire Line
+	5150 3050 5550 3050
+$Sheet
+S 6900 3800 1000 1450
+U 601BB1C4
+F0 "control" 50
+F1 "Control.sch" 50
+F2 "b0" I L 6900 3900 50 
+F3 "b1" I L 6900 4000 50 
+F4 "b2" I L 6900 4100 50 
+F5 "b3" I L 6900 4200 50 
+F6 "b4" I L 6900 4300 50 
+F7 "b5" I L 6900 4400 50 
+F8 "b6" I L 6900 4500 50 
+F9 "b7" I L 6900 4600 50 
+F10 "haltPulse" O R 7900 3950 50 
+$EndSheet
+Text Label 6800 3900 2    50   ~ 0
+bus0
+Text Label 6800 4000 2    50   ~ 0
+bus1
+Text Label 6800 4100 2    50   ~ 0
+bus2
+Text Label 6800 4200 2    50   ~ 0
+bus3
+Text Label 6800 4300 2    50   ~ 0
+bus4
+Text Label 6800 4400 2    50   ~ 0
+bus5
+Text Label 6800 4500 2    50   ~ 0
+bus6
+Text Label 6800 4600 2    50   ~ 0
+bus7
+$Sheet
+S 5550 3700 950  1500
+U 6015C763
+F0 "pc" 50
+F1 "PC.sch" 50
+F2 "bus0" T R 6500 3900 50 
+F3 "bus1" T R 6500 4000 50 
+F4 "bus2" T R 6500 4100 50 
+F5 "bus3" T R 6500 4200 50 
+F6 "bus4" T R 6500 4300 50 
+F7 "bus5" T R 6500 4400 50 
+F8 "bus6" T R 6500 4500 50 
+F9 "bus7" T R 6500 4600 50 
+F10 "outWRPulse" O R 6500 3750 50 
+$EndSheet
+Wire Wire Line
+	6500 3900 6900 3900
+Wire Wire Line
+	6500 4000 6900 4000
+Wire Wire Line
+	6500 4100 6900 4100
+Wire Wire Line
+	6500 4200 6900 4200
+Wire Wire Line
+	6500 4300 6900 4300
+Wire Wire Line
+	6500 4400 6900 4400
+Wire Wire Line
+	6500 4500 6900 4500
+Wire Wire Line
+	6500 4600 6900 4600
+Wire Wire Line
+	4050 4750 4050 4100
+Wire Wire Line
+	4050 4100 4150 4100
+Wire Wire Line
+	4000 4750 4050 4750
+Wire Wire Line
+	3250 4850 3400 4850
+Text GLabel 3250 4850 0    50   Input ~ 0
+ctrlAluYWE
+Text GLabel 3250 4650 0    50   Input ~ 0
+clk
+$Comp
+L 74xx:74LS08 U29
+U 1 1 608F8A8E
+P 3700 4750
+F 0 "U29" H 3700 5075 50  0000 C CNN
+F 1 "74LS08" H 3700 4984 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 3700 4750 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 3700 4750 50  0001 C CNN
+	1    3700 4750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1900 4000 2050 4000
+Text GLabel 1900 4000 0    50   Input ~ 0
+ctrlReg0WE
+Wire Wire Line
+	2000 3800 2050 3800
+Wire Wire Line
+	2000 3550 2000 3800
+Wire Wire Line
+	1900 3550 2000 3550
+Text GLabel 1900 3550 0    50   Input ~ 0
+clk
+Text GLabel 1900 4500 0    50   Input ~ 0
+ctrlReg1WE
+$Comp
+L 74xx:74LS08 U29
+U 2 1 609606BF
+P 2350 4400
+F 0 "U29" H 2350 4725 50  0000 C CNN
+F 1 "74LS08" H 2350 4634 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 2350 4400 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 2350 4400 50  0001 C CNN
+	2    2350 4400
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS08 U29
+U 3 1 6095D963
+P 2350 3900
+F 0 "U29" H 2350 4225 50  0000 C CNN
+F 1 "74LS08" H 2350 4134 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 2350 3900 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 2350 3900 50  0001 C CNN
+	3    2350 3900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2000 3800 2000 4300
+Wire Wire Line
+	2000 4300 2050 4300
+Connection ~ 2000 3800
+Wire Wire Line
+	2650 3900 2800 3900
+Wire Wire Line
+	2800 3900 2800 4000
+Wire Wire Line
+	2800 4000 2900 4000
+Wire Wire Line
+	2650 4400 2800 4400
+Wire Wire Line
+	2800 4400 2800 4100
+Wire Wire Line
+	2800 4100 2900 4100
+Wire Wire Line
+	1900 4500 2050 4500
+$Comp
+L 74xx:74LS08 U29
+U 4 1 6096D3E6
+P 2150 5000
+F 0 "U29" H 2150 5325 50  0000 C CNN
+F 1 "74LS08" H 2150 5234 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 2150 5000 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 2150 5000 50  0001 C CNN
+	4    2150 5000
+	1    0    0    -1  
+$EndComp
+NoConn ~ 1850 4900
+NoConn ~ 1850 5100
+NoConn ~ 2450 5000
+$Comp
+L power:+5V #PWR0154
+U 1 1 6097FDE1
+P 1500 5150
+F 0 "#PWR0154" H 1500 5000 50  0001 C CNN
+F 1 "+5V" H 1515 5323 50  0000 C CNN
+F 2 "" H 1500 5150 50  0001 C CNN
+F 3 "" H 1500 5150 50  0001 C CNN
+	1    1500 5150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0160
+U 1 1 6097EF3F
+P 1500 6150
+F 0 "#PWR0160" H 1500 5900 50  0001 C CNN
+F 1 "GND" H 1505 5977 50  0000 C CNN
+F 2 "" H 1500 6150 50  0001 C CNN
+F 3 "" H 1500 6150 50  0001 C CNN
+	1    1500 6150
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS08 U29
+U 5 1 6097D580
+P 1500 5650
+F 0 "U29" H 1730 5696 50  0000 L CNN
+F 1 "74LS08" H 1730 5605 50  0000 L CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 1500 5650 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 1500 5650 50  0001 C CNN
+	5    1500 5650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3250 4650 3400 4650
+$Sheet
+S 8400 3800 1100 1350
+U 608A8AE7
+F0 "clock" 50
+F1 "Clock.sch" 50
+F2 "haltPulse" I L 8400 3950 50 
+$EndSheet
+Wire Wire Line
+	7900 3950 8400 3950
+$Sheet
+S 7100 2250 900  1250
+U 61038D80
+F0 "IO" 50
+F1 "io.sch" 50
+F2 "bus7" T L 7100 3050 50 
+F3 "bus6" T L 7100 2950 50 
+F4 "bus5" T L 7100 2850 50 
+F5 "bus4" T L 7100 2750 50 
+F6 "bus3" T L 7100 2650 50 
+F7 "bus2" T L 7100 2550 50 
+F8 "bus1" T L 7100 2450 50 
+F9 "bus0" T L 7100 2350 50 
+F10 "outWRPulse" I L 7100 3350 50 
+$EndSheet
+Text Label 7000 2350 2    50   ~ 0
+bus0
+Text Label 7000 2450 2    50   ~ 0
+bus1
+Text Label 7000 2550 2    50   ~ 0
+bus2
+Text Label 7000 2650 2    50   ~ 0
+bus3
+Text Label 7000 2750 2    50   ~ 0
+bus4
+Text Label 7000 2850 2    50   ~ 0
+bus5
+Text Label 7000 2950 2    50   ~ 0
+bus6
+Text Label 7000 3050 2    50   ~ 0
+bus7
+Wire Wire Line
+	7000 2350 7100 2350
+Wire Wire Line
+	7000 2450 7100 2450
+Wire Wire Line
+	7000 2550 7100 2550
+Wire Wire Line
+	7000 2650 7100 2650
+Wire Wire Line
+	7000 2750 7100 2750
+Wire Wire Line
+	7000 2850 7100 2850
+Wire Wire Line
+	7000 2950 7100 2950
+Wire Wire Line
+	7000 3050 7100 3050
+Wire Wire Line
+	6500 3750 6750 3750
+Wire Wire Line
+	6750 3750 6750 3350
+Wire Wire Line
+	6750 3350 7100 3350
+$EndSCHEMATC

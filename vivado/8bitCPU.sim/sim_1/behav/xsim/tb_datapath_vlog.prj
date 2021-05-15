@@ -1,6 +1,6 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  \
-"../../../../8bitCPU.ip_user_files/ip/instructionRom/sim/instructionRom.v" \
+"../../../../8bitCPU.ip_user_files/ip/instrRom/sim/instrRom.v" \
 "../../../../8bitCPU.ip_user_files/ip/microCodeRom/sim/microCodeRom.v" \
 
 sv xil_defaultlib  \

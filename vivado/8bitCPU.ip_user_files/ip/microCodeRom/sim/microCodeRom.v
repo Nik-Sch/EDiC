@@ -55,10 +55,16 @@
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module microCodeRom (
   a,
+  d,
+  clk,
+  we,
   spo
 );
 
 input wire [12 : 0] a;
+input wire [15 : 0] d;
+input wire clk;
+input wire we;
 output wire [15 : 0] spo;
 
   dist_mem_gen_v8_0_13 #(
@@ -66,8 +72,8 @@ output wire [15 : 0] spo;
     .C_ADDR_WIDTH(13),
     .C_DEFAULT_DATA("0"),
     .C_DEPTH(8192),
-    .C_HAS_CLK(0),
-    .C_HAS_D(0),
+    .C_HAS_CLK(1),
+    .C_HAS_D(1),
     .C_HAS_DPO(0),
     .C_HAS_DPRA(0),
     .C_HAS_I_CE(0),
@@ -81,10 +87,10 @@ output wire [15 : 0] spo;
     .C_HAS_QSPO_RST(0),
     .C_HAS_QSPO_SRST(0),
     .C_HAS_SPO(1),
-    .C_HAS_WE(0),
+    .C_HAS_WE(1),
     .C_MEM_INIT_FILE("microCodeRom.mif"),
     .C_ELABORATION_DIR("./"),
-    .C_MEM_TYPE(0),
+    .C_MEM_TYPE(1),
     .C_PIPELINE_STAGES(0),
     .C_QCE_JOINED(0),
     .C_QUALIFY_WE(0),
@@ -96,10 +102,10 @@ output wire [15 : 0] spo;
     .C_PARSER_TYPE(1)
   ) inst (
     .a(a),
-    .d(16'B0),
+    .d(d),
     .dpra(13'B0),
-    .clk(1'D0),
-    .we(1'D0),
+    .clk(clk),
+    .we(we),
     .i_ce(1'D1),
     .qspo_ce(1'D1),
     .qdpo_ce(1'D1),

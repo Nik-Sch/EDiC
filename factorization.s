@@ -21,7 +21,7 @@ subs r0, 0
 bne noFactor
 ldr r1, [1]
 out r1
-hlt
+@ hlt
 ldr r0, [0]
 b div
 divReturn:

@@ -28,7 +28,7 @@ transmitter inst_txInstr(
   .noe(~(i_outEnable & i_readDataSelect))
 );
 
-instructionRom inst_instrRom (
+instrRom inst_instrRom (
   .a({i_immediateSelect, r_address}),
   .spo(s_readDataInstr)
 );
