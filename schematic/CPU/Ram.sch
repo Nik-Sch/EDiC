@@ -284,7 +284,7 @@ Wire Wire Line
 Wire Wire Line
 	6600 5500 6600 5400
 Wire Wire Line
-	6600 5400 6750 5400
+	6600 5400 6700 5400
 Wire Wire Line
 	6550 5300 6750 5300
 Text HLabel 7100 1550 2    50   3State ~ 0
@@ -331,7 +331,7 @@ Wire Wire Line
 Connection ~ 6550 2250
 Text GLabel 750  4400 0    50   Input ~ 0
 ctrlMarWE
-Text GLabel 4500 2200 0    50   Input ~ 0
+Text GLabel 5050 1400 0    50   Input ~ 0
 ctrlInstrSel
 $Comp
 L 74xx:74LS00 U40
@@ -548,8 +548,6 @@ Wire Wire Line
 	3500 2650 3500 3250
 Wire Wire Line
 	3850 2550 3850 3250
-Wire Wire Line
-	4200 2450 4200 3250
 $Comp
 L power:GND #PWR?
 U 1 1 6012CF2F
@@ -896,11 +894,7 @@ F 3 "http://ww1.microchip.com/downloads/en/devicedoc/doc0001h.pdf" H 5750 1950 5
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5050 2200 5050 2350
-Wire Wire Line
 	5050 2350 5350 2350
-Wire Wire Line
-	4500 2200 5050 2200
 Wire Wire Line
 	5350 2750 5350 2650
 Connection ~ 5350 2550
@@ -1091,4 +1085,286 @@ F 3 "" H 900 3350 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	1050 3350 900  3350
+$Comp
+L Device:R R?
+U 1 1 60F648C2
+P 6550 5100
+AR Path="/601B5CAE/60F648C2" Ref="R?"  Part="1" 
+AR Path="/600C5001/60F648C2" Ref="R?"  Part="1" 
+AR Path="/60ECA4CB/60F648C2" Ref="R?"  Part="1" 
+F 0 "R?" V 6343 5100 50  0000 C CNN
+F 1 "1k" V 6434 5100 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 6480 5100 50  0001 C CNN
+F 3 "~" H 6550 5100 50  0001 C CNN
+	1    6550 5100
+	-1   0    0    1   
+$EndComp
+Connection ~ 6550 5300
+$Comp
+L Device:R R?
+U 1 1 60F64ED1
+P 6700 5100
+AR Path="/601B5CAE/60F64ED1" Ref="R?"  Part="1" 
+AR Path="/600C5001/60F64ED1" Ref="R?"  Part="1" 
+AR Path="/60ECA4CB/60F64ED1" Ref="R?"  Part="1" 
+F 0 "R?" V 6493 5100 50  0000 C CNN
+F 1 "1k" V 6584 5100 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 6630 5100 50  0001 C CNN
+F 3 "~" H 6700 5100 50  0001 C CNN
+	1    6700 5100
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	6700 5250 6700 5400
+Connection ~ 6700 5400
+Wire Wire Line
+	6700 5400 6750 5400
+Wire Wire Line
+	6550 5250 6550 5300
+$Comp
+L power:+5V #PWR?
+U 1 1 60F72F78
+P 6700 4950
+F 0 "#PWR?" H 6700 4800 50  0001 C CNN
+F 1 "+5V" H 6715 5123 50  0000 C CNN
+F 2 "" H 6700 4950 50  0001 C CNN
+F 3 "" H 6700 4950 50  0001 C CNN
+	1    6700 4950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 60F7383B
+P 6550 4950
+F 0 "#PWR?" H 6550 4800 50  0001 C CNN
+F 1 "+5V" H 6565 5123 50  0000 C CNN
+F 2 "" H 6550 4950 50  0001 C CNN
+F 3 "" H 6550 4950 50  0001 C CNN
+	1    6550 4950
+	1    0    0    -1  
+$EndComp
+Text Notes 7000 5200 0    50   ~ 0
+PullUp for 5V/3V3 compatibility\nDQ is connected to bus which is pulled up externaly
+Text Notes 7100 5300 0    50   Italic 0
+noe is not pulled up in hw for some reason but ctrlRamOE is...
+Wire Wire Line
+	5050 1400 5050 2350
+$Comp
+L Device:R R?
+U 1 1 60F7FEC7
+P 2450 2100
+AR Path="/601B5CAE/60F7FEC7" Ref="R?"  Part="1" 
+AR Path="/600C5001/60F7FEC7" Ref="R?"  Part="1" 
+AR Path="/60ECA4CB/60F7FEC7" Ref="R?"  Part="1" 
+F 0 "R?" V 2243 2100 50  0000 C CNN
+F 1 "1k" V 2334 2100 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 2380 2100 50  0001 C CNN
+F 3 "~" H 2450 2100 50  0001 C CNN
+	1    2450 2100
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 60F7FECD
+P 2800 2100
+AR Path="/601B5CAE/60F7FECD" Ref="R?"  Part="1" 
+AR Path="/600C5001/60F7FECD" Ref="R?"  Part="1" 
+AR Path="/60ECA4CB/60F7FECD" Ref="R?"  Part="1" 
+F 0 "R?" V 2593 2100 50  0000 C CNN
+F 1 "1k" V 2684 2100 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 2730 2100 50  0001 C CNN
+F 3 "~" H 2800 2100 50  0001 C CNN
+	1    2800 2100
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 60F7FED3
+P 3150 2100
+AR Path="/601B5CAE/60F7FED3" Ref="R?"  Part="1" 
+AR Path="/600C5001/60F7FED3" Ref="R?"  Part="1" 
+AR Path="/60ECA4CB/60F7FED3" Ref="R?"  Part="1" 
+F 0 "R?" V 2943 2100 50  0000 C CNN
+F 1 "1k" V 3034 2100 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 3080 2100 50  0001 C CNN
+F 3 "~" H 3150 2100 50  0001 C CNN
+	1    3150 2100
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 60F7FED9
+P 3500 2100
+AR Path="/601B5CAE/60F7FED9" Ref="R?"  Part="1" 
+AR Path="/600C5001/60F7FED9" Ref="R?"  Part="1" 
+AR Path="/60ECA4CB/60F7FED9" Ref="R?"  Part="1" 
+F 0 "R?" V 3293 2100 50  0000 C CNN
+F 1 "1k" V 3384 2100 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 3430 2100 50  0001 C CNN
+F 3 "~" H 3500 2100 50  0001 C CNN
+	1    3500 2100
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 60F7FEDF
+P 3850 2100
+AR Path="/601B5CAE/60F7FEDF" Ref="R?"  Part="1" 
+AR Path="/600C5001/60F7FEDF" Ref="R?"  Part="1" 
+AR Path="/60ECA4CB/60F7FEDF" Ref="R?"  Part="1" 
+F 0 "R?" V 3643 2100 50  0000 C CNN
+F 1 "1k" V 3734 2100 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 3780 2100 50  0001 C CNN
+F 3 "~" H 3850 2100 50  0001 C CNN
+	1    3850 2100
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 60F7FEE5
+P 4200 2100
+AR Path="/601B5CAE/60F7FEE5" Ref="R?"  Part="1" 
+AR Path="/600C5001/60F7FEE5" Ref="R?"  Part="1" 
+AR Path="/60ECA4CB/60F7FEE5" Ref="R?"  Part="1" 
+F 0 "R?" V 3993 2100 50  0000 C CNN
+F 1 "1k" V 4084 2100 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 4130 2100 50  0001 C CNN
+F 3 "~" H 4200 2100 50  0001 C CNN
+	1    4200 2100
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 60F7FEEB
+P 4550 2100
+AR Path="/601B5CAE/60F7FEEB" Ref="R?"  Part="1" 
+AR Path="/600C5001/60F7FEEB" Ref="R?"  Part="1" 
+AR Path="/60ECA4CB/60F7FEEB" Ref="R?"  Part="1" 
+F 0 "R?" V 4343 2100 50  0000 C CNN
+F 1 "1k" V 4434 2100 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 4480 2100 50  0001 C CNN
+F 3 "~" H 4550 2100 50  0001 C CNN
+	1    4550 2100
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 60F7FEF1
+P 2100 2100
+AR Path="/601B5CAE/60F7FEF1" Ref="R?"  Part="1" 
+AR Path="/600C5001/60F7FEF1" Ref="R?"  Part="1" 
+AR Path="/60ECA4CB/60F7FEF1" Ref="R?"  Part="1" 
+F 0 "R?" V 1893 2100 50  0000 C CNN
+F 1 "1k" V 1984 2100 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 2030 2100 50  0001 C CNN
+F 3 "~" H 2100 2100 50  0001 C CNN
+	1    2100 2100
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	2100 2250 2100 3050
+Wire Wire Line
+	2450 2950 2450 2250
+Wire Wire Line
+	2800 2250 2800 2850
+Wire Wire Line
+	3150 2750 3150 2250
+Wire Wire Line
+	3500 2250 3500 2650
+Wire Wire Line
+	3850 2550 3850 2250
+Wire Wire Line
+	4200 2450 4200 3250
+Wire Wire Line
+	4200 2450 4200 2250
+Wire Wire Line
+	4550 2250 4550 2350
+$Comp
+L power:+5V #PWR?
+U 1 1 60FC7158
+P 2100 1950
+F 0 "#PWR?" H 2100 1800 50  0001 C CNN
+F 1 "+5V" H 2115 2123 50  0000 C CNN
+F 2 "" H 2100 1950 50  0001 C CNN
+F 3 "" H 2100 1950 50  0001 C CNN
+	1    2100 1950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 60FC78F6
+P 2450 1950
+F 0 "#PWR?" H 2450 1800 50  0001 C CNN
+F 1 "+5V" H 2465 2123 50  0000 C CNN
+F 2 "" H 2450 1950 50  0001 C CNN
+F 3 "" H 2450 1950 50  0001 C CNN
+	1    2450 1950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 60FC7D71
+P 2800 1950
+F 0 "#PWR?" H 2800 1800 50  0001 C CNN
+F 1 "+5V" H 2815 2123 50  0000 C CNN
+F 2 "" H 2800 1950 50  0001 C CNN
+F 3 "" H 2800 1950 50  0001 C CNN
+	1    2800 1950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 60FC8120
+P 3150 1950
+F 0 "#PWR?" H 3150 1800 50  0001 C CNN
+F 1 "+5V" H 3165 2123 50  0000 C CNN
+F 2 "" H 3150 1950 50  0001 C CNN
+F 3 "" H 3150 1950 50  0001 C CNN
+	1    3150 1950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 60FC9B78
+P 3500 1950
+F 0 "#PWR?" H 3500 1800 50  0001 C CNN
+F 1 "+5V" H 3515 2123 50  0000 C CNN
+F 2 "" H 3500 1950 50  0001 C CNN
+F 3 "" H 3500 1950 50  0001 C CNN
+	1    3500 1950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 60FC9B7E
+P 3850 1950
+F 0 "#PWR?" H 3850 1800 50  0001 C CNN
+F 1 "+5V" H 3865 2123 50  0000 C CNN
+F 2 "" H 3850 1950 50  0001 C CNN
+F 3 "" H 3850 1950 50  0001 C CNN
+	1    3850 1950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 60FC9B84
+P 4200 1950
+F 0 "#PWR?" H 4200 1800 50  0001 C CNN
+F 1 "+5V" H 4215 2123 50  0000 C CNN
+F 2 "" H 4200 1950 50  0001 C CNN
+F 3 "" H 4200 1950 50  0001 C CNN
+	1    4200 1950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 60FC9B8A
+P 4550 1950
+F 0 "#PWR?" H 4550 1800 50  0001 C CNN
+F 1 "+5V" H 4565 2123 50  0000 C CNN
+F 2 "" H 4550 1950 50  0001 C CNN
+F 3 "" H 4550 1950 50  0001 C CNN
+	1    4550 1950
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

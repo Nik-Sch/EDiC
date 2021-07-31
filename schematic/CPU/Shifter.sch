@@ -193,11 +193,11 @@ Wire Wire Line
 Connection ~ 1900 5300
 Wire Wire Line
 	1900 5300 2150 5300
-Text Label 1950 1000 0    50   ~ 0
+Text Label 1150 600  0    50   ~ 0
 reverse
 Wire Wire Line
-	1950 1000 1800 1000
-Text HLabel 1800 1000 0    50   Input ~ 0
+	1150 600  1000 600 
+Text HLabel 1000 600  0    50   Input ~ 0
 rightNotLeft
 $Comp
 L 74xx:74LS157 U21
@@ -706,24 +706,24 @@ Wire Wire Line
 Connection ~ 6400 4400
 Wire Wire Line
 	6400 4400 6650 4400
-Text HLabel 1800 1150 0    50   Input ~ 0
+Text HLabel 1000 750  0    50   Input ~ 0
 b0
-Text HLabel 1800 1250 0    50   Input ~ 0
+Text HLabel 1000 850  0    50   Input ~ 0
 b1
-Text HLabel 1800 1350 0    50   Input ~ 0
+Text HLabel 1000 950  0    50   Input ~ 0
 b2
-Text Label 1950 1150 0    50   ~ 0
+Text Label 1150 750  0    50   ~ 0
 shift1
-Text Label 1950 1250 0    50   ~ 0
+Text Label 1150 850  0    50   ~ 0
 shift2
-Text Label 1950 1350 0    50   ~ 0
+Text Label 1150 950  0    50   ~ 0
 shift4
 Wire Wire Line
-	1800 1150 1950 1150
+	1000 750  1150 750 
 Wire Wire Line
-	1800 1250 1950 1250
+	1000 850  1150 850 
 Wire Wire Line
-	1950 1350 1800 1350
+	1150 950  1000 950 
 Text Label 3500 3400 2    50   ~ 0
 shift1
 Wire Wire Line
@@ -951,4 +951,32 @@ F 3 "" H 8800 1900 50  0001 C CNN
 	1    8800 1900
 	1    0    0    -1  
 $EndComp
+Wire Notes Line width 12
+	3250 1200 3250 6400
+Wire Notes Line width 12
+	3250 6400 8200 6400
+Wire Notes Line width 12
+	8200 6400 8200 3950
+Wire Notes Line width 12
+	8200 3950 9600 3950
+Wire Notes Line width 12
+	9600 3950 9600 1200
+Wire Notes Line width 12
+	9600 1200 3250 1200
+Text Notes 3300 1400 0    100  ~ 20
+board 10
+Wire Notes Line
+	3600 2200 3250 2200
+Wire Notes Line
+	3250 2200 3250 1200
+Wire Notes Line width 12
+	3250 1200 1200 1200
+Wire Notes Line width 12
+	1200 1200 1200 6500
+Wire Notes Line width 12
+	1200 6500 9600 6500
+Wire Notes Line width 12
+	9600 6500 9600 3950
+Text Notes 1250 1400 0    100  ~ 20
+board 11\n
 $EndSCHEMATC
