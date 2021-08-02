@@ -1263,7 +1263,7 @@ ctrlRamSelect
 Text GLabel 14250 6050 0    50   Input ~ 0
 ctrlRamOE
 Text GLabel 14250 2550 0    50   Input ~ 0
-ctrlPCIncr
+ctrlInstrWE
 Text GLabel 14250 2850 0    50   Input ~ 0
 ctrlInstrSel
 $Comp
@@ -1542,7 +1542,7 @@ AR Path="/60ECA4CB/61FF321B" Ref="D?"  Part="1"
 AR Path="/601BB1C4/61FF321B" Ref="D?"  Part="1" 
 AR Path="/6015C763/61FF321B" Ref="D?"  Part="1" 
 F 0 "D?" H 14743 6095 50  0000 C CNN
-F 1 "LED" H 14743 6186 50  0000 C CNN
+F 1 "pcLoad" H 14743 6186 50  0000 C CNN
 F 2 "LED_THT:LED_D3.0mm" H 14750 6350 50  0001 C CNN
 F 3 "~" H 14750 6350 50  0001 C CNN
 	1    14750 6350

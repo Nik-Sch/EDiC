@@ -247,7 +247,7 @@ F6 "b4" I L 12600 4850 50
 F7 "b5" I L 12600 4950 50 
 F8 "b6" I L 12600 5050 50 
 F9 "b7" I L 12600 5150 50 
-F11 "halt" O L 12600 5300 50 
+F10 "halt" O L 12600 5300 50 
 $EndSheet
 Text Label 11700 4900 2    50   ~ 0
 bus0
@@ -1373,23 +1373,19 @@ board 16
 Wire Notes Line width 12
 	2300 2100 13100 2100
 Wire Notes Line width 12
-	11300 7350 11300 2100
-Wire Notes Line width 12
 	12550 6050 12550 7600
 Wire Notes Line width 12
 	13700 3900 13700 6050
-Wire Notes Line width 12
-	13700 6050 12550 6050
 Text Notes 11350 4100 0    100  ~ 20
 board 04/14
 Wire Notes Line width 12
 	11300 3900 13700 3900
 Wire Notes Line width 12
-	11300 6050 12550 6050
-Wire Notes Line width 12
 	12550 7600 11300 7600
-Wire Notes Line width 12
-	11300 7600 11300 7350
 Text Notes 11350 4200 0    50   ~ 10
 +1 74ls374 of board 03
+Wire Notes Line width 12
+	11300 2100 11300 7600
+Wire Notes Line width 12
+	11300 6050 13700 6050
 $EndSCHEMATC
