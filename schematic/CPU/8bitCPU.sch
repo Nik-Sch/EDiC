@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
-Sheet 1 19
+Sheet 1 20
 Title "ALU"
 Date "2021-01-20"
 Rev "v01"
@@ -77,70 +77,38 @@ F24 "y6" O R 10150 3300 50
 F25 "y7" O R 10150 3400 50 
 F26 "y_cp" I L 9150 4450 50 
 $EndSheet
-$Sheet
-S 6050 2600 1000 2000
-U 601B5CAE
-F0 "regset" 50
-F1 "Regset.sch" 50
-F2 "d0" I L 6050 2650 50 
-F3 "d1" I L 6050 2750 50 
-F4 "d2" I L 6050 2850 50 
-F5 "d3" I L 6050 2950 50 
-F6 "d4" I L 6050 3050 50 
-F7 "d5" I L 6050 3150 50 
-F8 "d6" I L 6050 3250 50 
-F9 "d7" I L 6050 3350 50 
-F10 "a0" O R 7050 2650 50 
-F11 "a1" O R 7050 2750 50 
-F12 "a2" O R 7050 2850 50 
-F13 "a3" O R 7050 2950 50 
-F14 "a4" O R 7050 3050 50 
-F15 "a5" O R 7050 3150 50 
-F16 "a6" O R 7050 3250 50 
-F17 "a7" O R 7050 3350 50 
-F18 "b0" O R 7050 3550 50 
-F19 "b1" O R 7050 3650 50 
-F20 "b2" O R 7050 3750 50 
-F21 "b3" O R 7050 3850 50 
-F22 "b4" O R 7050 3950 50 
-F23 "b5" O R 7050 4050 50 
-F24 "b6" O R 7050 4150 50 
-F25 "b7" O R 7050 4250 50 
-F26 "r0_cp" I L 6050 4350 50 
-F27 "r1_cp" I L 6050 4450 50 
-$EndSheet
 Wire Wire Line
-	7050 2650 9150 2650
+	7950 2650 9150 2650
 Wire Wire Line
-	7050 2750 9150 2750
+	7950 2750 9150 2750
 Wire Wire Line
-	7050 2850 9150 2850
+	7950 2850 9150 2850
 Wire Wire Line
-	9150 2950 7050 2950
+	9150 2950 7950 2950
 Wire Wire Line
-	7050 3050 9150 3050
+	7950 3050 9150 3050
 Wire Wire Line
-	7050 3150 9150 3150
+	7950 3150 9150 3150
 Wire Wire Line
-	7050 3250 9150 3250
+	7950 3250 9150 3250
 Wire Wire Line
-	7050 3350 9150 3350
+	7950 3350 9150 3350
 Wire Wire Line
-	7050 3550 9150 3550
+	7950 3550 9150 3550
 Wire Wire Line
-	7050 3650 9150 3650
+	7950 3650 9150 3650
 Wire Wire Line
-	7050 3750 9150 3750
+	7950 3750 9150 3750
 Wire Wire Line
-	9150 3850 7050 3850
+	9150 3850 7950 3850
 Wire Wire Line
-	7050 3950 9150 3950
+	7950 3950 9150 3950
 Wire Wire Line
-	7050 4050 9150 4050
+	7950 4050 9150 4050
 Wire Wire Line
-	7050 4150 9150 4150
+	7950 4150 9150 4150
 Wire Wire Line
-	7050 4250 9150 4250
+	7950 4250 9150 4250
 Text Label 9100 3550 2    50   ~ 0
 bus0
 Text Label 9100 3650 2    50   ~ 0
@@ -156,22 +124,6 @@ bus5
 Text Label 9100 4150 2    50   ~ 0
 bus6
 Text Label 9100 4250 2    50   ~ 0
-bus7
-Text Label 6050 2650 2    50   ~ 0
-bus0
-Text Label 6050 2750 2    50   ~ 0
-bus1
-Text Label 6050 2850 2    50   ~ 0
-bus2
-Text Label 6050 2950 2    50   ~ 0
-bus3
-Text Label 6050 3050 2    50   ~ 0
-bus4
-Text Label 6050 3150 2    50   ~ 0
-bus5
-Text Label 6050 3250 2    50   ~ 0
-bus6
-Text Label 6050 3350 2    50   ~ 0
 bus7
 Text Label 10300 2700 0    50   ~ 0
 bus0
@@ -290,117 +242,6 @@ Wire Wire Line
 	11100 5100 12050 5100
 Wire Wire Line
 	11100 5200 12100 5200
-Wire Wire Line
-	9550 6100 9600 6100
-Wire Wire Line
-	8800 6200 8950 6200
-Text GLabel 8800 6200 0    50   Input ~ 0
-ctrlAluYWE
-Text GLabel 8800 6000 0    50   Input ~ 0
-clk
-$Comp
-L 74xx:74LS08 U29
-U 1 1 608F8A8E
-P 9250 6100
-F 0 "U29" H 9250 6425 50  0000 C CNN
-F 1 "74LS08" H 9250 6334 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 9250 6100 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 9250 6100 50  0001 C CNN
-	1    9250 6100
-	1    0    0    -1  
-$EndComp
-Text GLabel 8550 5250 2    50   Input ~ 0
-ctrlReg0WE
-Wire Wire Line
-	8350 5450 8300 5450
-Wire Wire Line
-	8350 5700 8350 5450
-Wire Wire Line
-	8450 5700 8350 5700
-Text GLabel 8450 5700 2    50   Input ~ 0
-clk
-Text GLabel 8550 4750 2    50   Input ~ 0
-ctrlReg1WE
-$Comp
-L 74xx:74LS08 U29
-U 2 1 609606BF
-P 8000 4850
-F 0 "U29" H 8000 5175 50  0000 C CNN
-F 1 "74LS08" H 8000 5084 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 8000 4850 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 8000 4850 50  0001 C CNN
-	2    8000 4850
-	-1   0    0    1   
-$EndComp
-$Comp
-L 74xx:74LS08 U29
-U 3 1 6095D963
-P 8000 5350
-F 0 "U29" H 8000 5675 50  0000 C CNN
-F 1 "74LS08" H 8000 5584 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 8000 5350 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 8000 5350 50  0001 C CNN
-	3    8000 5350
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	8350 5450 8350 4950
-Wire Wire Line
-	8350 4950 8300 4950
-Connection ~ 8350 5450
-Wire Wire Line
-	5950 4450 6050 4450
-Wire Wire Line
-	8550 4750 8500 4750
-$Comp
-L 74xx:74LS08 U29
-U 4 1 6096D3E6
-P 8000 6050
-F 0 "U29" H 8000 6375 50  0000 C CNN
-F 1 "74LS08" H 8000 6284 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 8000 6050 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 8000 6050 50  0001 C CNN
-	4    8000 6050
-	1    0    0    -1  
-$EndComp
-NoConn ~ 7700 5950
-NoConn ~ 7700 6150
-NoConn ~ 8300 6050
-$Comp
-L power:+5V #PWR0154
-U 1 1 6097FDE1
-P 7950 6500
-F 0 "#PWR0154" H 7950 6350 50  0001 C CNN
-F 1 "+5V" H 7965 6673 50  0000 C CNN
-F 2 "" H 7950 6500 50  0001 C CNN
-F 3 "" H 7950 6500 50  0001 C CNN
-	1    7950 6500
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0160
-U 1 1 6097EF3F
-P 7950 7500
-F 0 "#PWR0160" H 7950 7250 50  0001 C CNN
-F 1 "GND" H 7955 7327 50  0000 C CNN
-F 2 "" H 7950 7500 50  0001 C CNN
-F 3 "" H 7950 7500 50  0001 C CNN
-	1    7950 7500
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74LS08 U29
-U 5 1 6097D580
-P 7950 7000
-F 0 "U29" H 8180 7046 50  0000 L CNN
-F 1 "74LS08" H 8180 6955 50  0000 L CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 7950 7000 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 7950 7000 50  0001 C CNN
-	5    7950 7000
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	8800 6000 8950 6000
 $Sheet
 S 11550 6450 750  900 
 U 608A8AE7
@@ -461,53 +302,6 @@ Wire Wire Line
 	11850 4750 11850 3600
 Wire Wire Line
 	11850 3600 12100 3600
-$Comp
-L Device:C_Small C11
-U 1 1 60A9615C
-P 8500 4650
-F 0 "C11" H 8592 4696 50  0000 L CNN
-F 1 "0.1uF" H 8592 4605 50  0000 L CNN
-F 2 "" H 8500 4650 50  0001 C CNN
-F 3 "~" H 8500 4650 50  0001 C CNN
-	1    8500 4650
-	-1   0    0    1   
-$EndComp
-Connection ~ 8500 4750
-Wire Wire Line
-	8500 4750 8300 4750
-$Comp
-L power:GND #PWR0310
-U 1 1 60A96772
-P 8500 4550
-F 0 "#PWR0310" H 8500 4300 50  0001 C CNN
-F 1 "GND" H 8505 4377 50  0000 C CNN
-F 2 "" H 8500 4550 50  0001 C CNN
-F 3 "" H 8500 4550 50  0001 C CNN
-	1    8500 4550
-	-1   0    0    1   
-$EndComp
-$Comp
-L Device:C_Small C10
-U 1 1 60A9E4BB
-P 8500 5150
-F 0 "C10" H 8592 5196 50  0000 L CNN
-F 1 "0.1uF" H 8592 5105 50  0000 L CNN
-F 2 "" H 8500 5150 50  0001 C CNN
-F 3 "~" H 8500 5150 50  0001 C CNN
-	1    8500 5150
-	-1   0    0    1   
-$EndComp
-$Comp
-L power:GND #PWR0309
-U 1 1 60A9E4C1
-P 8500 5050
-F 0 "#PWR0309" H 8500 4800 50  0001 C CNN
-F 1 "GND" H 8505 4877 50  0000 C CNN
-F 2 "" H 8500 5050 50  0001 C CNN
-F 3 "" H 8500 5050 50  0001 C CNN
-	1    8500 5050
-	-1   0    0    1   
-$EndComp
 Text Label 3200 4450 3    50   ~ 0
 bus0
 Text Label 3100 4450 3    50   ~ 0
@@ -1256,63 +1050,6 @@ Wire Wire Line
 Wire Wire Line
 	4550 4050 4400 4050
 Wire Wire Line
-	8550 5250 8500 5250
-Wire Wire Line
-	8500 5250 8300 5250
-Connection ~ 8500 5250
-Text Notes 1550 800  0    100  ~ 0
-Board Layout Numbering:
-Text Notes 1550 1150 0    50   ~ 0
-00 is top left\n01 is top right\n06 is bottom left\n16 is bottom right\n
-Text Notes 7900 2300 0    100  ~ 20
-board 00/01/10/11/12
-Wire Wire Line
-	5950 4850 7700 4850
-Wire Wire Line
-	5950 4450 5950 4850
-Wire Wire Line
-	5800 5350 5800 4350
-Wire Wire Line
-	5800 5350 7700 5350
-Wire Wire Line
-	5800 4350 6050 4350
-Wire Wire Line
-	9600 6100 9600 4900
-Wire Wire Line
-	9600 4900 9100 4900
-Wire Wire Line
-	9100 4900 9100 4450
-Wire Wire Line
-	9100 4450 9150 4450
-Wire Notes Line width 12
-	7600 2100 7600 7900
-Wire Notes Line width 12
-	7600 7900 9900 7900
-Wire Notes Line width 12
-	9900 7900 9900 4600
-Wire Notes Line width 12
-	9900 4600 10200 4600
-Wire Notes Line width 12
-	10200 4600 10200 2100
-Wire Notes Line width 12
-	2300 2100 2300 5500
-Wire Notes Line width 12
-	2300 5500 7600 5500
-Wire Notes Line
-	5600 2100 5600 5500
-Text Notes 5650 2300 0    100  ~ 20
-board 02/03
-Text Notes 5200 2250 0    50   ~ 10
-board 03
-Wire Notes Line width 12
-	11300 4150 10200 4150
-Text Notes 10250 2300 0    100  ~ 20
-board 13
-Wire Notes Line width 12
-	11300 6350 9900 6350
-Text Notes 10250 4350 0    100  ~ 20
-board 05/15
-Wire Wire Line
 	11100 5850 11450 5850
 Wire Wire Line
 	11450 5850 11450 6600
@@ -1364,28 +1101,32 @@ Wire Wire Line
 	12400 5300 12400 5750
 Wire Wire Line
 	11100 5750 12400 5750
-Text Notes 11550 6250 0    100  ~ 20
-board 06
-Wire Notes Line width 12
-	13100 2100 13100 3900
-Text Notes 11400 2300 0    100  ~ 20
-board 16
-Wire Notes Line width 12
-	2300 2100 13100 2100
-Wire Notes Line width 12
-	12550 6050 12550 7600
-Wire Notes Line width 12
-	13700 3900 13700 6050
-Text Notes 11350 4100 0    100  ~ 20
-board 04/14
-Wire Notes Line width 12
-	11300 3900 13700 3900
-Wire Notes Line width 12
-	12550 7600 11300 7600
-Text Notes 11350 4200 0    50   ~ 10
-+1 74ls374 of board 03
-Wire Notes Line width 12
-	11300 2100 11300 7600
-Wire Notes Line width 12
-	11300 6050 13700 6050
+$Sheet
+S 6950 2600 1000 2000
+U 601B5CAE
+F0 "regset" 50
+F1 "Regset.sch" 50
+F2 "a0" O R 7950 2650 50 
+F3 "a1" O R 7950 2750 50 
+F4 "a2" O R 7950 2850 50 
+F5 "a3" O R 7950 2950 50 
+F6 "a4" O R 7950 3050 50 
+F7 "a5" O R 7950 3150 50 
+F8 "a6" O R 7950 3250 50 
+F9 "a7" O R 7950 3350 50 
+F10 "bus0" B R 7950 3550 50 
+F11 "bus1" B R 7950 3650 50 
+F12 "bus2" B R 7950 3750 50 
+F13 "bus3" B R 7950 3850 50 
+F14 "bus4" B R 7950 3950 50 
+F15 "bus5" B R 7950 4050 50 
+F16 "bus6" B R 7950 4150 50 
+F17 "bus7" B R 7950 4250 50 
+$EndSheet
+$Sheet
+S 6850 5250 1850 2200
+U 61492876
+F0 "memory" 50
+F1 "Memory.sch" 50
+$EndSheet
 $EndSCHEMATC
