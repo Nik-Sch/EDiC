@@ -1,0 +1,25 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../../_src/transmitter.v" \
+"../../../../../_src/memory.v" \
+"../../../../../_src/control.v" \
+"../../../../8bitCPU.ip_user_files/bd/memory_bd/ip/memory_bd_blk_mem_gen_0_0/sim/memory_bd_blk_mem_gen_0_0.v" \
+"../../../../8bitCPU.ip_user_files/bd/memory_bd/ip/memory_bd_blk_mem_gen_0_1/sim/memory_bd_blk_mem_gen_0_1.v" \
+"../../../../8bitCPU.ip_user_files/bd/memory_bd/ip/memory_bd_memory_0_0/sim/memory_bd_memory_0_0.v" \
+"../../../../8bitCPU.ip_user_files/bd/memory_bd/sim/memory_bd.v" \
+"../../../../8bitCPU.ip_user_files/bd/control_bd/ip/control_bd_instrRom_0/sim/control_bd_instrRom_0.v" \
+"../../../../8bitCPU.ip_user_files/bd/control_bd/ip/control_bd_xlconstant_0_0/sim/control_bd_xlconstant_0_0.v" \
+"../../../../8bitCPU.ip_user_files/bd/control_bd/ip/control_bd_control_0_0/sim/control_bd_control_0_0.v" \
+"../../../../8bitCPU.ip_user_files/bd/control_bd/sim/control_bd.v" \
+"../../../../../_src/alu.v" \
+"../../../../../_src/datapath.v" \
+"../../../../../_src/regset.v" \
+
+sv xil_defaultlib  \
+"../../../../../_sim/tb_datapath.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

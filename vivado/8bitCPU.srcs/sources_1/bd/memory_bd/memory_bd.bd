@@ -1,12 +1,13 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x525E92EA1D58C3EA",
+      "boundary_crc": "0x3B2AE55FDD52D60C",
       "device": "xc7a100tcsg324-3",
+      "gen_directory": "../../../../8bitCPU.gen/sources_1/bd/memory_bd",
       "name": "memory_bd",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2020.1",
+      "tool_version": "2021.1",
       "validated": "true"
     },
     "design_tree": {
@@ -15,11 +16,6 @@
       "memory": ""
     },
     "ports": {
-      "i_bus": {
-        "direction": "I",
-        "left": "7",
-        "right": "0"
-      },
       "i_clk": {
         "type": "clk",
         "direction": "I",
@@ -50,28 +46,13 @@
           }
         }
       },
-      "i_ctrlInstrImmNOE": {
-        "direction": "I"
-      },
       "i_ctrlInstrNWE": {
-        "direction": "I"
-      },
-      "i_ctrlNotPCIncr": {
-        "direction": "I"
-      },
-      "i_ctrlNotPCLoad": {
-        "direction": "I"
-      },
-      "i_ctrlNotSpEn": {
         "direction": "I"
       },
       "i_ctrlRamNOE": {
         "direction": "I"
       },
       "i_ctrlRamNWE": {
-        "direction": "I"
-      },
-      "i_ctrlSpDirection": {
         "direction": "I"
       },
       "i_reset": {
@@ -88,12 +69,41 @@
           }
         }
       },
-      "o_bus": {
+      "o_instrCode": {
         "direction": "O",
         "left": "7",
         "right": "0"
       },
-      "o_instrCode": {
+      "i_ctrlMemMar0NWE": {
+        "direction": "I"
+      },
+      "i_ctrlMemMar1NWE": {
+        "direction": "I"
+      },
+      "i_ctrlPCIncrN": {
+        "direction": "I"
+      },
+      "i_ctrlPCLoadN": {
+        "direction": "I"
+      },
+      "i_ctrlSpNEn": {
+        "direction": "I"
+      },
+      "i_ctrlInstrNOE": {
+        "direction": "I"
+      },
+      "i_ctrlSpUp": {
+        "direction": "I"
+      },
+      "i_ctrlMemInstrImmToRam": {
+        "direction": "I"
+      },
+      "i_bus": {
+        "direction": "I",
+        "left": "7",
+        "right": "0"
+      },
+      "o_bus": {
         "direction": "O",
         "left": "7",
         "right": "0"
@@ -103,6 +113,8 @@
       "ram": {
         "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
         "xci_name": "memory_bd_blk_mem_gen_0_0",
+        "xci_path": "ip/memory_bd_blk_mem_gen_0_0/memory_bd_blk_mem_gen_0_0.xci",
+        "inst_hier_path": "ram",
         "parameters": {
           "Enable_32bit_Address": {
             "value": "false"
@@ -136,12 +148,23 @@
       "instrRom": {
         "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
         "xci_name": "memory_bd_blk_mem_gen_0_1",
+        "xci_path": "ip/memory_bd_blk_mem_gen_0_1/memory_bd_blk_mem_gen_0_1.xci",
+        "inst_hier_path": "instrRom",
         "parameters": {
+          "Coe_File": {
+            "value": "../../../../../../../instructionRom.coe"
+          },
           "Enable_32bit_Address": {
             "value": "false"
           },
           "Enable_A": {
             "value": "Always_Enabled"
+          },
+          "Fill_Remaining_Memory_Locations": {
+            "value": "true"
+          },
+          "Load_Init_File": {
+            "value": "true"
           },
           "Memory_Type": {
             "value": "Single_Port_ROM"
@@ -150,7 +173,10 @@
             "value": "0"
           },
           "Register_PortA_Output_of_Memory_Primitives": {
-            "value": "true"
+            "value": "false"
+          },
+          "Remaining_Memory_Locations": {
+            "value": "ffffff"
           },
           "Use_RSTA_Pin": {
             "value": "false"
@@ -169,6 +195,8 @@
       "memory": {
         "vlnv": "xilinx.com:module_ref:memory:1.0",
         "xci_name": "memory_bd_memory_0_0",
+        "xci_path": "ip/memory_bd_memory_0_0/memory_bd_memory_0_0.xci",
+        "inst_hier_path": "memory",
         "reference_info": {
           "ref_type": "hdl",
           "ref_name": "memory",
@@ -182,6 +210,10 @@
               "ASSOCIATED_RESET": {
                 "value": "i_reset",
                 "value_src": "constant"
+              },
+              "PHASE": {
+                "value": "0.000",
+                "value_src": "default_prop"
               },
               "CLK_DOMAIN": {
                 "value": "memory_bd_i_clk_0",
@@ -208,28 +240,37 @@
             "left": "7",
             "right": "0"
           },
-          "i_ctrlNotPCIncr": {
+          "i_ctrlPCIncrN": {
             "direction": "I"
           },
-          "i_ctrlNotPCLoad": {
+          "i_ctrlPCLoadN": {
             "direction": "I"
           },
-          "i_ctrlSpDirection": {
+          "i_ctrlSpUp": {
             "direction": "I"
           },
-          "i_ctrlNotSpEn": {
+          "i_ctrlSpNEn": {
             "direction": "I"
           },
           "i_ctrlInstrNWE": {
             "direction": "I"
           },
-          "i_ctrlInstrImmNOE": {
+          "i_ctrlInstrNOE": {
             "direction": "I"
           },
           "i_ctrlRamNOE": {
             "direction": "I"
           },
           "i_ctrlRamNWE": {
+            "direction": "I"
+          },
+          "i_ctrlMemMar0NWE": {
+            "direction": "I"
+          },
+          "i_ctrlMemMar1NWE": {
+            "direction": "I"
+          },
+          "i_ctrlMemInstrImmToRam": {
             "direction": "I"
           },
           "o_romAddress": {
@@ -264,42 +305,6 @@
       }
     },
     "nets": {
-      "memory_0_o_ramWE": {
-        "ports": [
-          "memory/o_ramWE",
-          "ram/wea"
-        ]
-      },
-      "ram_douta": {
-        "ports": [
-          "ram/douta",
-          "memory/i_ramData"
-        ]
-      },
-      "memory_0_o_ramData": {
-        "ports": [
-          "memory/o_ramData",
-          "ram/dina"
-        ]
-      },
-      "memory_0_o_ramAddress": {
-        "ports": [
-          "memory/o_ramAddress",
-          "ram/addra"
-        ]
-      },
-      "memory_0_o_romAddress": {
-        "ports": [
-          "memory/o_romAddress",
-          "instrRom/addra"
-        ]
-      },
-      "instrRom_douta": {
-        "ports": [
-          "instrRom/douta",
-          "memory/i_romData"
-        ]
-      },
       "i_bus_0_1": {
         "ports": [
           "i_bus",
@@ -309,15 +314,15 @@
       "i_clk_0_1": {
         "ports": [
           "i_clk",
-          "memory/i_clk",
           "ram/clka",
-          "instrRom/clka"
+          "instrRom/clka",
+          "memory/i_clk"
         ]
       },
-      "i_ctrlInstrImmNOE_0_1": {
+      "i_ctrlInstrNOE_0_1": {
         "ports": [
-          "i_ctrlInstrImmNOE",
-          "memory/i_ctrlInstrImmNOE"
+          "i_ctrlInstrNOE",
+          "memory/i_ctrlInstrNOE"
         ]
       },
       "i_ctrlInstrNWE_0_1": {
@@ -326,22 +331,34 @@
           "memory/i_ctrlInstrNWE"
         ]
       },
-      "i_ctrlNotPCIncr_0_1": {
+      "i_ctrlMemInstrImmToRam_0_1": {
         "ports": [
-          "i_ctrlNotPCIncr",
-          "memory/i_ctrlNotPCIncr"
+          "i_ctrlMemInstrImmToRam",
+          "memory/i_ctrlMemInstrImmToRam"
         ]
       },
-      "i_ctrlNotPCLoad_0_1": {
+      "i_ctrlMemMar0NWE_0_1": {
         "ports": [
-          "i_ctrlNotPCLoad",
-          "memory/i_ctrlNotPCLoad"
+          "i_ctrlMemMar0NWE",
+          "memory/i_ctrlMemMar0NWE"
         ]
       },
-      "i_ctrlNotSpEn_0_1": {
+      "i_ctrlMemMar1NWE_0_1": {
         "ports": [
-          "i_ctrlNotSpEn",
-          "memory/i_ctrlNotSpEn"
+          "i_ctrlMemMar1NWE",
+          "memory/i_ctrlMemMar1NWE"
+        ]
+      },
+      "i_ctrlPCIncrN_0_1": {
+        "ports": [
+          "i_ctrlPCIncrN",
+          "memory/i_ctrlPCIncrN"
+        ]
+      },
+      "i_ctrlPCLoadN_0_1": {
+        "ports": [
+          "i_ctrlPCLoadN",
+          "memory/i_ctrlPCLoadN"
         ]
       },
       "i_ctrlRamNOE_0_1": {
@@ -356,10 +373,16 @@
           "memory/i_ctrlRamNWE"
         ]
       },
-      "i_ctrlSpDirection_0_1": {
+      "i_ctrlSpNEn_0_1": {
         "ports": [
-          "i_ctrlSpDirection",
-          "memory/i_ctrlSpDirection"
+          "i_ctrlSpNEn",
+          "memory/i_ctrlSpNEn"
+        ]
+      },
+      "i_ctrlSpUp_0_1": {
+        "ports": [
+          "i_ctrlSpUp",
+          "memory/i_ctrlSpUp"
         ]
       },
       "i_reset_0_1": {
@@ -368,16 +391,52 @@
           "memory/i_reset"
         ]
       },
-      "memory_0_o_bus": {
+      "instrRom_douta": {
         "ports": [
-          "memory/o_bus",
-          "o_bus"
+          "instrRom/douta",
+          "memory/i_romData"
         ]
       },
       "memory_0_o_instrCode": {
         "ports": [
           "memory/o_instrCode",
           "o_instrCode"
+        ]
+      },
+      "memory_0_o_ramAddress": {
+        "ports": [
+          "memory/o_ramAddress",
+          "ram/addra"
+        ]
+      },
+      "memory_0_o_ramData": {
+        "ports": [
+          "memory/o_ramData",
+          "ram/dina"
+        ]
+      },
+      "memory_0_o_ramWE": {
+        "ports": [
+          "memory/o_ramWE",
+          "ram/wea"
+        ]
+      },
+      "memory_0_o_romAddress": {
+        "ports": [
+          "memory/o_romAddress",
+          "instrRom/addra"
+        ]
+      },
+      "memory_o_bus": {
+        "ports": [
+          "memory/o_bus",
+          "o_bus"
+        ]
+      },
+      "ram_douta": {
+        "ports": [
+          "ram/douta",
+          "memory/i_ramData"
         ]
       }
     }

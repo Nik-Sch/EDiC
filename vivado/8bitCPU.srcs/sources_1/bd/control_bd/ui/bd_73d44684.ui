@@ -1,0 +1,72 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.5",
+   "Default View_TopLeft":"-837,-293",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
+#  -string -flagsOSRD
+preplace port port-id_i_clk -pg 1 -lvl 0 -x -380 -y -210 -defaultsOSRD
+preplace port port-id_i_flagNZero -pg 1 -lvl 0 -x -380 -y 100 -defaultsOSRD
+preplace port port-id_i_flagNegative -pg 1 -lvl 0 -x -380 -y 80 -defaultsOSRD
+preplace port port-id_i_reset -pg 1 -lvl 0 -x -380 -y 20 -defaultsOSRD
+preplace port port-id_o_ctrlAluNOE -pg 1 -lvl 3 -x 470 -y -80 -defaultsOSRD
+preplace port port-id_o_ctrlAluSub -pg 1 -lvl 3 -x 470 -y -120 -defaultsOSRD
+preplace port port-id_o_ctrlAluYNWE -pg 1 -lvl 3 -x 470 -y -100 -defaultsOSRD
+preplace port port-id_o_ctrlHlt -pg 1 -lvl 3 -x 470 -y 260 -defaultsOSRD
+preplace port port-id_o_ctrlMemInstrNOE -pg 1 -lvl 3 -x 470 -y 140 -defaultsOSRD
+preplace port port-id_o_ctrlMemInstrNWE -pg 1 -lvl 3 -x 470 -y 120 -defaultsOSRD
+preplace port port-id_o_ctrlMemMar0NWE -pg 1 -lvl 3 -x 470 -y 160 -defaultsOSRD
+preplace port port-id_o_ctrlMemMar1NWE -pg 1 -lvl 3 -x 470 -y 180 -defaultsOSRD
+preplace port port-id_o_ctrlMemPCIncrN -pg 1 -lvl 3 -x 470 -y 40 -defaultsOSRD
+preplace port port-id_o_ctrlMemPCLoadN -pg 1 -lvl 3 -x 470 -y 60 -defaultsOSRD
+preplace port port-id_o_ctrlMemRamNOE -pg 1 -lvl 3 -x 470 -y 240 -defaultsOSRD
+preplace port port-id_o_ctrlMemRamNWE -pg 1 -lvl 3 -x 470 -y 220 -defaultsOSRD
+preplace port port-id_o_ctrlMemSPNEn -pg 1 -lvl 3 -x 470 -y 100 -defaultsOSRD
+preplace port port-id_o_ctrlMemSPUp -pg 1 -lvl 3 -x 470 -y 80 -defaultsOSRD
+preplace port port-id_o_ctrlRegAluSel -pg 1 -lvl 3 -x 470 -y -20 -defaultsOSRD
+preplace port port-id_o_ctrlRegBusNOE -pg 1 -lvl 3 -x 470 -y 20 -defaultsOSRD
+preplace port port-id_o_ctrlRegBusSel -pg 1 -lvl 3 -x 470 -y 0 -defaultsOSRD
+preplace port port-id_o_ctrlReg0NWE -pg 1 -lvl 3 -x 470 -y -60 -defaultsOSRD
+preplace port port-id_o_ctrlReg1NWE -pg 1 -lvl 3 -x 470 -y -40 -defaultsOSRD
+preplace port port-id_o_ctrlMemInstrImmToRam -pg 1 -lvl 3 -x 470 -y 200 -defaultsOSRD
+preplace port port-id_i_nclk -pg 1 -lvl 0 -x -380 -y -150 -defaultsOSRD
+preplace portBus i_instrCode -pg 1 -lvl 0 -x -380 -y 40 -defaultsOSRD
+preplace portBus o_ctrlAluOp -pg 1 -lvl 3 -x 470 -y -140 -defaultsOSRD
+preplace inst instrDecode -pg 1 -lvl 2 -x 340 -y 390 -defaultsOSRD
+preplace inst xlconstant_0 -pg 1 -lvl 1 -x 10 -y 470 -defaultsOSRD
+preplace inst control_0 -pg 1 -lvl 1 -x 10 -y 50 -defaultsOSRD
+preplace netloc control_0_o_ctrlAluNOE 1 1 2 NJ -80 N
+preplace netloc control_0_o_ctrlAluOp 1 1 2 NJ -140 N
+preplace netloc control_0_o_ctrlAluSub 1 1 2 NJ -120 N
+preplace netloc control_0_o_ctrlAluYNWE 1 1 2 NJ -100 N
+preplace netloc control_0_o_ctrlHlt 1 1 2 NJ 260 N
+preplace netloc control_0_o_ctrlMemInstrImmToRam 1 1 2 NJ 200 NJ
+preplace netloc control_0_o_ctrlMemInstrNOE 1 1 2 NJ 140 N
+preplace netloc control_0_o_ctrlMemInstrNWE 1 1 2 NJ 120 N
+preplace netloc control_0_o_ctrlMemMar0NWE 1 1 2 NJ 160 N
+preplace netloc control_0_o_ctrlMemMar1NWE 1 1 2 NJ 180 N
+preplace netloc control_0_o_ctrlMemPCIncrN 1 1 2 NJ 40 N
+preplace netloc control_0_o_ctrlMemPCLoadN 1 1 2 NJ 60 N
+preplace netloc control_0_o_ctrlMemRamNOE 1 1 2 NJ 240 N
+preplace netloc control_0_o_ctrlMemRamNWE 1 1 2 NJ 220 N
+preplace netloc control_0_o_ctrlMemSPNEn 1 1 2 NJ 100 N
+preplace netloc control_0_o_ctrlMemSPUp 1 1 2 NJ 80 N
+preplace netloc control_0_o_ctrlReg0NWE 1 1 2 NJ -60 NJ
+preplace netloc control_0_o_ctrlReg1NWE 1 1 2 NJ -40 NJ
+preplace netloc control_0_o_ctrlRegAluSel 1 1 2 NJ -20 N
+preplace netloc control_0_o_ctrlRegBusNOE 1 1 2 NJ 20 N
+preplace netloc control_0_o_ctrlRegBusSel 1 1 2 NJ 0 N
+preplace netloc control_0_o_decodeAddr 1 1 1 220 -160n
+preplace netloc i_clk_0_1 1 0 1 -360J -210n
+preplace netloc i_flagNZero_0_1 1 0 1 NJ 100
+preplace netloc i_flagNegative_0_1 1 0 1 NJ 80
+preplace netloc i_instrCode_0_1 1 0 1 NJ 40
+preplace netloc i_reset_0_1 1 0 1 NJ 20
+preplace netloc instrDecode_douta 1 0 2 -350 410 N
+preplace netloc xlconstant_0_dout 1 1 1 220 430n
+preplace netloc i_nclk_1 1 0 2 -350J -220 230
+levelinfo -pg 1 -380 10 340 470
+pagesize -pg 1 -db -bbox -sgen -550 -390 710 620
+"
+}
+0

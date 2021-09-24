@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
-Sheet 19 20
+Sheet 15 17
 Title ""
 Date ""
 Rev ""
@@ -209,9 +209,9 @@ r16
 Text Label 7600 7200 2    50   ~ 0
 r17
 Text GLabel 5550 4900 0    50   Input ~ 0
-ctrlAluSel
+ctrlRegAluSel
 Text GLabel 5550 7400 0    50   Input ~ 0
-ctrlAluSel
+ctrlRegAluSel
 Text GLabel 7600 4900 0    50   Input ~ 0
 ctrlRegBusSel
 Text GLabel 7600 7400 0    50   Input ~ 0

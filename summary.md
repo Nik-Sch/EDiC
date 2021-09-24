@@ -43,7 +43,7 @@ last three bits: aluOp + sub
     10rs: r := s
     110r: r := in
     111r: out := r
-011: mem alu
+011: mem alu (s is lower address)
    rsalu: r := r x [s]
 
 1: immediate

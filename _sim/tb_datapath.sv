@@ -11,24 +11,13 @@ initial begin
   reset = 0;
 end
 
-logic s_button = 0;
 initial begin
-  s_button = 0;
-  repeat(50) begin
-    @(negedge clk);
-  end
-  s_button = 1;
-  repeat(10) begin
-    @(negedge clk);
-  end
-  s_button = 0;
 end
 
 
 datapath inst_datapath(
   .i_clk(clk),
-  .i_reset(reset),
-  .i_button(s_button)
+  .i_reset(reset)
 );
 
 endmodule

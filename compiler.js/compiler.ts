@@ -45,8 +45,8 @@ const labels: ILabel[] = [];
 
 const checkImmediate = (match: string) => {
   const imm = parseInt(match);
-  if (imm > 255 || imm < 0) {
-    console.error('Immediate must be in range of 0 to 255.');
+  if (imm > 0xffff || imm < 0) {
+    console.error(`Immediate must be in range of 0 to 0xffff but is 0x${imm.toString(16)}.`);
     return false;
   }
   return imm.toString(2).padStart(8, '0');
@@ -122,14 +122,14 @@ const instructions: IInstruction[] = [
 
 
   // jump
-  {
-    regex: /\s*mov\s+r([01])\s*,\s*pc/,
-    result: match => ({ instr: `0100${match[1]}000` })
-  },
-  {
-    regex: new RegExp(`\\s*(${branchOpRegEx})\\s+r([01])\\s*`),
-    result: match => ({ instr: `0100${match[2]}${branchOps[match[1]]}` })
-  },
+  // {
+  //   regex: /\s*mov\s+r([01])\s*,\s*pc/,
+  //   result: match => ({ instr: `0100${match[1]}000` })
+  // },
+  // {
+  //   regex: new RegExp(`\\s*(${branchOpRegEx})\\s+r([01])\\s*`),
+  //   result: match => ({ instr: `0100${match[2]}${branchOps[match[1]]}` })
+  // },
   {
     regex: new RegExp(`\\s*(${branchOpRegEx})\\s+(${immRegEx})\\s*`),
     result: match => {
@@ -164,7 +164,7 @@ if (argv.length !== 4) {
 const coeFile = argv[3].endsWith('.coe');
 const code = readFileSync(argv[2]).toString().replace('\r', '').split('\n');
 let fileContent = coeFile
-  ? 'MEMORY_INITIALIZATION_RADIX=2;\nMEMORY_INITIALIZATION_VECTOR=\n'
+  ? 'MEMORY_INITIALIZATION_RADIX=16;\nMEMORY_INITIALIZATION_VECTOR=\n'
   : `#ifndef DATA_H
 #define DATA_H
 
@@ -201,7 +201,7 @@ for (const origLine of code) {
   }
 }
 instrCount = 0;
-const bytes: string[] = [];
+const data: number[] = [];
 for (const origLine of code) {
   lineCount++;
   const line = origLine.replace(/\s*[#@;].*$/, '');
@@ -222,9 +222,9 @@ for (const origLine of code) {
         console.error(`Error in line ${lineCount}.`);
         exit(1);
       }
-      bytes[instrCount] = result.instr;
+      data[instrCount] = parseInt(result.instr, 2) << 16;
       if (result.imm) {
-        bytes[instrCount + 256] = result.imm;
+        data[instrCount] |= parseInt(result.imm, 2);
         console.log(`${instrCount.toString(16).padStart(2, '0')}: ${result.instr.trim()} - ${line.trim()} (imm: 0x${parseInt(result.imm, 2).toString(16).padStart(2, '0')})`);
       } else {
         console.log(`${instrCount.toString(16).padStart(2, '0')}: ${result.instr.trim()} - ${line.trim()}`);
@@ -239,13 +239,13 @@ for (const origLine of code) {
   }
 }
 if (coeFile) {
-  for (let i = 0; i < 512; i++) {
-    fileContent += bytes[i] ? `${bytes[i]}\n` : '11111111\n';
+  for (const word of data) {
+    fileContent += `${word.toString(16).padStart(6, '0')}\n`;
   }
   fileContent += ';';
 } else {
   for (let i = 0; i < 512; i++) {
-    fileContent += bytes[i] ? `0x${parseInt(bytes[i], 2).toString(16).padStart(2, '0')},\n` : '0xff,\n';
+    fileContent += data[i] ? `0x${data[i].toString(16).padStart(2, '0')},\n` : '0xff,\n';
   }
   fileContent += '};\n#endif';
 }

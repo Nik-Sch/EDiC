@@ -1,0 +1,53 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.5",
+   "Default View_TopLeft":"-699,-719",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
+#  -string -flagsOSRD
+preplace port port-id_i_clk -pg 1 -lvl 0 -x -150 -y -480 -defaultsOSRD
+preplace port port-id_i_ctrlInstrNWE -pg 1 -lvl 0 -x -150 -y -250 -defaultsOSRD
+preplace port port-id_i_ctrlRamNOE -pg 1 -lvl 0 -x -150 -y -230 -defaultsOSRD
+preplace port port-id_i_ctrlRamNWE -pg 1 -lvl 0 -x -150 -y -290 -defaultsOSRD
+preplace port port-id_i_reset -pg 1 -lvl 0 -x -150 -y -410 -defaultsOSRD
+preplace port port-id_i_ctrlMemMar0NWE -pg 1 -lvl 0 -x -150 -y -210 -defaultsOSRD
+preplace port port-id_i_ctrlMemMar1NWE -pg 1 -lvl 0 -x -150 -y -190 -defaultsOSRD
+preplace port port-id_i_ctrlPCIncrN -pg 1 -lvl 0 -x -150 -y -430 -defaultsOSRD
+preplace port port-id_i_ctrlPCLoadN -pg 1 -lvl 0 -x -150 -y -350 -defaultsOSRD
+preplace port port-id_i_ctrlSpNEn -pg 1 -lvl 0 -x -150 -y -310 -defaultsOSRD
+preplace port port-id_i_ctrlInstrNOE -pg 1 -lvl 0 -x -150 -y -270 -defaultsOSRD
+preplace port port-id_i_ctrlSpUp -pg 1 -lvl 0 -x -150 -y -330 -defaultsOSRD
+preplace port port-id_i_ctrlMemInstrImmToRam -pg 1 -lvl 0 -x -150 -y -170 -defaultsOSRD
+preplace portBus o_instrCode -pg 1 -lvl 3 -x 650 -y -300 -defaultsOSRD
+preplace portBus i_bus -pg 1 -lvl 0 -x -150 -y -380 -defaultsOSRD
+preplace portBus o_bus -pg 1 -lvl 3 -x 650 -y -320 -defaultsOSRD
+preplace inst ram -pg 1 -lvl 2 -x 510 -y -330 -defaultsOSRD
+preplace inst instrRom -pg 1 -lvl 2 -x 510 -y -150 -defaultsOSRD
+preplace inst memory -pg 1 -lvl 1 -x 130 -y -270 -defaultsOSRD
+preplace netloc memory_0_o_ramWE 1 1 1 400 -280n
+preplace netloc ram_douta 1 0 2 -100 -480 380J
+preplace netloc memory_0_o_ramData 1 1 1 390 -320n
+preplace netloc memory_0_o_ramAddress 1 1 1 360 -360n
+preplace netloc memory_0_o_romAddress 1 1 1 340 -280n
+preplace netloc instrRom_douta 1 0 2 -90 -60 370J
+preplace netloc i_clk_0_1 1 0 2 -110J -490 370
+preplace netloc i_ctrlInstrNWE_0_1 1 0 1 -110J -280n
+preplace netloc i_ctrlRamNOE_0_1 1 0 1 -110J -240n
+preplace netloc i_ctrlRamNWE_0_1 1 0 1 -120J -290n
+preplace netloc i_reset_0_1 1 0 1 -130J -410n
+preplace netloc memory_0_o_instrCode 1 1 2 340J -450 630J
+preplace netloc i_ctrlMemMar0NWE_0_1 1 0 1 -120J -210n
+preplace netloc i_ctrlMemMar1NWE_0_1 1 0 1 -120J -190n
+preplace netloc i_ctrlPCIncrN_0_1 1 0 1 -120J -430n
+preplace netloc i_ctrlPCLoadN_0_1 1 0 1 -120J -350n
+preplace netloc i_ctrlSpNEn_0_1 1 0 1 -120 -310n
+preplace netloc i_ctrlInstrNOE_0_1 1 0 1 -130 -270n
+preplace netloc i_ctrlSpUp_0_1 1 0 1 -120 -330n
+preplace netloc i_ctrlMemInstrImmToRam_0_1 1 0 1 -120 -170n
+preplace netloc i_bus_0_1 1 0 1 N -380
+preplace netloc memory_o_bus 1 1 2 350J -440 620J
+levelinfo -pg 1 -150 130 510 650
+pagesize -pg 1 -db -bbox -sgen -390 -610 820 180
+"
+}
+0
