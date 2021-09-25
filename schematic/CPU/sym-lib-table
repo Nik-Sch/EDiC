@@ -1,3 +1,4 @@
 (sym_lib_table
   (lib (name inputOutputConnector)(type Legacy)(uri ${KIPRJMOD}/inputOutputConnector.lib)(options "")(descr ""))
+  (lib (name 8bitCPU-rescue)(type Legacy)(uri ${KIPRJMOD}/8bitCPU-rescue.lib)(options "")(descr ""))
 )
