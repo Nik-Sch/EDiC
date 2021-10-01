@@ -624,4 +624,6 @@ Wire Wire Line
 	7550 2450 7550 3700
 Wire Wire Line
 	7000 2450 7550 2450
+Text Notes 1850 1250 0    100  ~ 0
+ioAddress == 0x00
 $EndSCHEMATC

@@ -2204,8 +2204,6 @@ Wire Wire Line
 	18600 9550 18750 9550
 Text Label 18750 9550 0    50   ~ 0
 ~instrImm1Select~
-Text Notes 17450 8950 0    50   ~ 0
-~instrImm1ToRam~=!(!ctrlMemInstrImmToRam and ~selectStackMem~)
 Wire Wire Line
 	20200 10650 20250 10650
 Wire Wire Line
@@ -2270,9 +2268,9 @@ F 3 "http://www.ti.com/lit/gpn/sn74LS04" H 18200 9550 50  0001 C CNN
 	1    18200 9550
 	1    0    0    -1  
 $EndComp
-Text Notes 17450 8800 0    50   ~ 0
-~instrImm0ToRam~=!ctrlMemInstrImmToRam
-Text Notes 17450 8650 0    100  ~ 20
+Text Notes 17500 9150 0    50   ~ 0
+~instrImm0ToRam~=~ctrlMemInstrImmToRam~\n\n~instrImm1ToRam~=!(~ctrlMemInstrImmToRam~ and ~selectStackMem~)\n\n~mar1ToRam~=!(ctrlMemInstrImmToRam and ~selectStackMem~)
+Text Notes 17450 8650 0    100  ~ 0
 ramAddress:\n7:0 -> instrImm or mar0 (depending on ctrlMemInstrImmToRam)\n15:0 -> instrImm or mar1 or sp (depending on ctrlMemInstrImmToRam and selectStackMem)
 $Comp
 L 74xx:74LS08 U38
@@ -4035,4 +4033,6 @@ Text Label 7550 17900 2    50   ~ 0
 pc6
 Text Label 7550 18000 2    50   ~ 0
 pc7
+Text Notes 18800 11700 0    100  ~ 0
+select == 0xff: stack\nselect == 0xfe: io\notherwise: ram
 $EndSCHEMATC

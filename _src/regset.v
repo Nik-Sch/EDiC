@@ -10,8 +10,8 @@ module regset(
   input wire i_ctrlReg0NWE,
   input wire i_ctrlReg1NWE,
   input wire i_ctrlAluSel,
-  input wire i_ctrlRegBusSel,
-  input wire i_ctrlRegBusNOE
+  input wire i_ctrlReg0BusNOE,
+  input wire i_ctrlReg1BusNOE
 );
 
 reg[7:0] r_0;
@@ -20,9 +20,15 @@ reg[7:0] r_1;
 assign o_alu = i_ctrlAluSel ? r_1 : r_0;
 
 transmitter inst_tx(
-  .a(i_ctrlRegBusSel ? r_1 : r_0),
+  .a(r_0),
   .b(o_bus),
-  .noe(i_ctrlRegBusNOE)
+  .noe(i_ctrlReg0BusNOE)
+);
+
+transmitter inst_tx(
+  .a(r_1),
+  .b(o_bus),
+  .noe(i_ctrlReg1BusNOE)
 );
 
 always @(posedge i_clk) begin
