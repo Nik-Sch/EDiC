@@ -50,21 +50,43 @@ last three bits: aluOp + sub
 100: alu
    0ralu: r0 := r0 x imm
    1ralu:  y := r0 x imm
+1010: jumpy stuff (pc := imm)
+    0000: (AL) Always [Any]
+    0001: (EQ) Equal [Z == 1]
+    0010: (NE) Not equal [Z == 0]
+    0011: (CS) Higher or same (unsigned >=) [C == 1]
+    0100: (CC) Lower (unsigned <) [C == 0]
+    0101: (MI) Negative [N == 1]
+    0110: (PL) Positive or zero [N == 0]
+    0111: (VS) Overflow [V == 1]
+    1000: (VC) No overflow [V == 0]
+    1001: (HI) Higher (unsigned >) [C == 1 && Z == 0]
+    1010: (LS) Lower or same (unsigned <=) [C == 0 or Z == 1]
+    1011: (GE) Signed >= [N and V the same]
+    1100: (LT) Signed < [N and V differ]
+    1101: (GT) Signed > [Z == 0, N && V the same]
+    1110: (LE) Signed <= [Z == 1, N && V differ]
+1011: jumpy stuff (pc[7:0] := bus, pc[15:8] := imm[15:8])
+    0000: (AL) Always [Any]
+    0001: (EQ) Equal [Z == 1]
+    0010: (NE) Not equal [Z == 0]
+    0011: (CS) Higher or same (unsigned >=) [C == 1]
+    0100: (CC) Lower (unsigned <) [C == 0]
+    0101: (MI) Negative [N == 1]
+    0110: (PL) Positive or zero [N == 0]
+    0111: (VS) Overflow [V == 1]
+    1000: (VC) No overflow [V == 0]
+    1001: (HI) Higher (unsigned >) [C == 1 && Z == 0]
+    1010: (LS) Lower or same (unsigned <=) [C == 0 or Z == 1]
+    1011: (GE) Signed >= [N and V the same]
+    1100: (LT) Signed < [N and V differ]
+    1101: (GT) Signed > [Z == 0, N && V the same]
+    1110: (LE) Signed <= [Z == 1, N && V differ]
 110: mem alu
    0ralu: r0 := r0 x [imm]
    1ralu: y := r0 x [imm]
-10100: jumpy stuff
-     001: pc := imm
-     010: branchEqual: pc := imm
-     011: branchNotEqual: pc := imm
-     100: branchLessThan: pc := imm
-     101: branchLessEqual: pc := imm
-     110: branchGreaterThan: pc := imm
-     111: branchGreaterEqual: pc := imm
-     111: branchGreaterEqual: pc := r
-10101: memory/io
+11110: memory/io
      00r: r := [imm] # ldr
      01r: [imm] := r # str
      10r: r := imm
-
 ```

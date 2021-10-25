@@ -571,7 +571,7 @@ Wire Wire Line
 Wire Wire Line
 	4200 5500 4200 5950
 Text GLabel 18400 12450 2    50   Output ~ 0
-flagNZero
+flagZero
 Wire Wire Line
 	15250 4850 15450 4850
 Text GLabel 18400 12350 2    50   Output ~ 0
@@ -714,12 +714,12 @@ flagOverflow
 $Comp
 L 74xx:74LS86 U2
 U 2 1 615DEB20
-P 3250 7850
-F 0 "U2" H 3250 8175 50  0000 C CNN
-F 1 "74LS86" H 3250 8084 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 3250 7850 50  0001 C CNN
-F 3 "74xx/74ls86.pdf" H 3250 7850 50  0001 C CNN
-	2    3250 7850
+P 15850 4850
+F 0 "U2" H 15850 5175 50  0000 C CNN
+F 1 "74LS86" H 15850 5084 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 15850 4850 50  0001 C CNN
+F 3 "74xx/74ls86.pdf" H 15850 4850 50  0001 C CNN
+	2    15850 4850
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -777,9 +777,6 @@ F 3 "" H 4100 9000 50  0001 C CNN
 	1    4100 9000
 	1    0    0    -1  
 $EndComp
-NoConn ~ 2950 7750
-NoConn ~ 2950 7950
-NoConn ~ 3550 7850
 NoConn ~ 3500 8400
 NoConn ~ 3500 9000
 NoConn ~ 2900 8900
@@ -1733,8 +1730,6 @@ Wire Wire Line
 Connection ~ 13800 8600
 Wire Wire Line
 	13800 8600 14550 8600
-Text Label 15450 4850 0    50   ~ 0
-flagNZ
 Text Label 15050 7250 0    50   ~ 0
 flagN
 Text Label 16950 12350 2    50   ~ 0
@@ -1789,11 +1784,11 @@ $EndComp
 Wire Wire Line
 	16900 12950 17050 12950
 Text Label 16950 12450 2    50   ~ 0
-flagNZ
+flagZ
 Text Label 16950 12550 2    50   ~ 0
 flagC
 Text Label 16950 12650 2    50   ~ 0
-flagO
+flagV
 Wire Wire Line
 	5950 7350 6650 7350
 Wire Wire Line
@@ -1806,7 +1801,20 @@ Wire Wire Line
 Text Label 7450 6750 0    50   ~ 0
 flagC
 Text Label 7450 7250 0    50   ~ 0
-flagO
+flagV
 Wire Wire Line
 	7250 7250 7450 7250
+Text Label 16250 4850 0    50   ~ 0
+flagZ
+Wire Wire Line
+	16250 4850 16150 4850
+Wire Wire Line
+	15450 4850 15450 4750
+Wire Wire Line
+	15450 4750 15550 4750
+Wire Wire Line
+	15450 4850 15450 4950
+Wire Wire Line
+	15450 4950 15550 4950
+Connection ~ 15450 4850
 $EndSCHEMATC

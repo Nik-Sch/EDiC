@@ -7,8 +7,10 @@ module memory(
 
   output reg [7:0] o_instrCode,
 
-  input wire i_ctrlPCIncrN,
   input wire i_ctrlPCLoadN,
+  input wire i_ctrlPCNEn,
+  input wire i_ctrlPC0FromBusN,
+  input wire i_ctrlPC1FromBusN,
   input wire i_ctrlSpUp, // 0: down, 1: up
   input wire i_ctrlSpNEn,
   input wire i_ctrlInstrNWE,
@@ -25,7 +27,11 @@ module memory(
   output wire [16:0] o_ramAddress,
   input  wire [7:0] i_ramData,
   output wire [7:0] o_ramData,
-  output wire o_ramWE
+  output wire o_ramWE,
+
+  input wire [15:0] i_breakpointAddress,
+  input wire i_breakpointEnableN,
+  output wire o_breakpointHitN
 );
 
 reg [15:0] r_pc;
@@ -34,6 +40,9 @@ reg [15:0] r_mar;
 reg [15:0] r_instrImm;
 wire s_selectStackMem;
 wire [7:0] s_select;
+wire [15:0] s_pcIn;
+
+assign o_breakpointHitN = (!i_breakpointEnableN) && (r_pc == i_breakpointAddress);
 
 assign o_romAddress = r_pc[14:0];
 
@@ -78,15 +87,39 @@ transmitter inst_sp(
   .noe(i_ctrlMemInstrImmToRam & s_selectStackMem)
 );
 
+transmitter inst_pc0Imm(
+  .a(r_instrImm[7:0]),
+  .b(s_pcIn[7:0]),
+  .noe(~ctrlMemPC0FromBusN)
+);
+transmitter inst_pc0Bus(
+  .a(i_bus),
+  .b(s_pcIn[7:0]),
+  .noe(ctrlMemPC0FromBusN)
+);
+transmitter inst_pc1Imm(
+  .a(r_instrImm[15:8]),
+  .b(s_pcIn[15:8]),
+  .noe(~ctrlMemPC1FromBusN)
+);
+transmitter inst_pc1Bus(
+  .a(i_bus),
+  .b(s_pcIn[15:8]),
+  .noe(ctrlMemPC1FromBusN)
+);
+
 assign o_ramAddress[16] = s_selectStackMem;
 
 always @(posedge i_clk) begin
-  if (!i_ctrlPCIncrN) begin
-    r_pc <= r_pc + 1;
+  
+  if (!i_ctrlPCNEn) begin
+    if (i_ctrlPCLoadN) begin // increment
+      r_pc <= r_pc + 1;
+    end else begin // load from instrImm or bus
+      r_pc <= s_pcIn;
+    end
   end
-  if (!i_ctrlPCLoadN) begin
-    r_pc <= r_instrImm;
-  end
+
   if (!i_ctrlMemMar0NWE) begin
     r_mar[7:0] <= i_bus;
   end

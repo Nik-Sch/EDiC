@@ -20,11 +20,11 @@ signals: [
     noOp: 0
   }
   {
-    name: 'regBusSel'
-    noOp: 0
+    name: 'reg0BusNOE'
+    noOp: 1
   }
   {
-    name: 'regBusNOE'
+    name: 'reg0BusNOE'
     noOp: 1
   }
   {
@@ -67,12 +67,30 @@ signals: [
     name: 'memRamNOE'
     noOp: 1
   }
+  {
+    name: 'memPCNEn'
+    noOp: 1
+  }
+  {
+    name: 'memPC0FromBusN'
+    noOp: 1
+  }
+  {
+    name: 'memPC1FromBusN'
+    noOp: 1
+  }
+  {
+    name: 'instrFinishedN' # automatically in script
+    noOp: 1
+  }
 ]
 instructionFetch: [
   {
     memInstrNWE: 0
   }
   { # wait
+    memPCNEn: 0
+    memPCLoadN: 1
   }
 ]
 instructions: [
@@ -82,8 +100,8 @@ instructions: [
     cycles: [
       { # r x s into alu
         aluYNWE: 0
-        regBusSel: 's'
-        regBusNOE: 0
+        reg0BusNOE: 's'
+        reg1BusNOE: '!s'
         regAluSel: 'r'
       }
       { # alu into r
@@ -98,8 +116,8 @@ instructions: [
     cycles: [
       { # r x s into alu
         aluYNWE: 0
-        regBusSel: 's'
-        regBusNOE: 0
+        reg0BusNOE: 's'
+        reg1BusNOE: '!s'
         regAluSel: 'r'
       }
     ]
@@ -108,8 +126,8 @@ instructions: [
     op: '011rsalu' # r = r x [s] (mem alu)
     cycles: [
       { # s to mar0
-        regBusSel: 's'
-        regBusNOE: 0
+        reg0BusNOE: 's'
+        reg1BusNOE: '!s'
         memMar0NWE: 0
       }
       { # wait for ram
@@ -192,8 +210,8 @@ instructions: [
     op: '010100rs' # r = [s] (ldr)
     cycles: [
       { # s to mar0
-        regBusSel: 's'
-        regBusNOE: 0
+        reg0BusNOE: 's'
+        reg1BusNOE: '!s'
         memMar0NWE: 0
       }
       { # wait for ram
@@ -223,13 +241,13 @@ instructions: [
     op: '010101rs' # [s] = r (str)
     cycles: [
       { # s to mar0
-        regBusSel: 's'
-        regBusNOE: 0
+        reg0BusNOE: 's'
+        reg1BusNOE: '!s'
         memMar0NWE: 0
       }
       { # r into ram
-        regBusSel: 'r'
-        regBusNOE: 0
+        reg0BusNOE: 's'
+        reg1BusNOE: '!s'
         memInstrImmToRam: 0
         memRamNWE: 0
       }
@@ -239,8 +257,8 @@ instructions: [
     op: '1010101r' # [imm] = r (str)
     cycles: [
       { # r into ram
-        regBusSel: 'r'
-        regBusNOE: 0
+        reg0BusNOE: 'r'
+        reg1BusNOE: '!r'
         memInstrImmToRam: 1
         memRamNWE: 0
       }
@@ -252,8 +270,8 @@ instructions: [
       { # s to bus to r
         reg0NWE: 'r'
         reg1NWE: '!r'
-        regBusSel: 's'
-        regBusNOE: 0
+        reg0BusNOE: 's'
+        reg1BusNOE: '!s'
       }
     ]
   }
@@ -358,64 +376,25 @@ instructions: [
 
   # jumpy with immediate
   {
-    op: '10100001' # pc := imm
+    op: '1010flag' # pc := imm
     cycles: [
       { # imm to pc
+        memPCNEn: 0
         memPCLoadN: 0
+        memPC0FromBusN: 1
+        memPC1FromBusN: 1
       }
     ]
   }
+  # jumpy with bus
   {
-    op: '10100010' # pc := imm if eq
-    flags: 'eq'
+    op: '1011flag' # pc[7:0] := bus, pc[15:8] := imm[15:8]
     cycles: [
       { # imm to pc
+        memPCNEn: 0
         memPCLoadN: 0
-      }
-    ]
-  }
-  {
-    op: '10100011' # pc := imm if ne
-    flags: 'ne'
-    cycles: [
-      { # imm to pc
-        memPCLoadN: 0
-      }
-    ]
-  }
-  {
-    op: '10100100' # pc := imm if lt
-    flags: 'lt'
-    cycles: [
-      { # imm to pc
-        memPCLoadN: 0
-      }
-    ]
-  }
-  {
-    op: '10100101' # pc := imm if le
-    flags: 'le'
-    cycles: [
-      { # imm to pc
-        memPCLoadN: 0
-      }
-    ]
-  }
-  {
-    op: '10100110' # pc := imm if gt
-    flags: 'gt'
-    cycles: [
-      { # imm to pc
-        memPCLoadN: 0
-      }
-    ]
-  }
-  {
-    op: '10100111' # pc := imm if ge
-    flags: 'ge'
-    cycles: [
-      { # imm to pc
-        memPCLoadN: 0
+        memPC0FromBusN: 0
+        memPC1FromBusN: 1
       }
     ]
   }

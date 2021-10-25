@@ -1,6 +1,13 @@
 module datapath(
-  input wire i_clk,
-  input wire i_reset
+  input wire i_oszClk,
+  // 1 is closed, 0 is open
+  input wire i_btnStep,
+  input wire i_swInstrNCycle,
+  input wire i_swStepNRun,
+  input wire i_swEnableBreakpoint,
+  input wire i_btnReset,
+
+  input wire [15:0] i_breakpointAddress
 );
   wire flagNZero;
   wire flagNegative;
@@ -9,62 +16,81 @@ module datapath(
   wire [7:0] s_bus;
   wire [7:0] s_alu;
 
-  wire ctrlAluNOE;
   wire [1:0] ctrlAluOp;
   wire ctrlAluSub;
   wire ctrlAluYNWE;
-  wire ctrlHlt;
-  wire ctrlMemInstrImmToRam;
-  wire ctrlMemInstrNOE;
-  wire ctrlMemInstrNWE;
-  wire ctrlMemMar0NWE;
-  wire ctrlMemMar1NWE;
-  wire ctrlMemPCIncrN;
-  wire ctrlMemPCLoadN;
-  wire ctrlMemRamNOE;
-  wire ctrlMemRamNWE;
-  wire ctrlMemSPNEn;
-  wire ctrlMemSPUp;
+  wire ctrlAluNOE;
   wire ctrlReg0NWE;
   wire ctrlReg1NWE;
   wire ctrlRegAluSel;
-  wire ctrlRegBusNOE;
-  wire ctrlRegBusSel;
+  wire ctrlReg0BusNOE;
+  wire ctrlReg1BusNOE;
+  wire ctrlMemPCLoadN;
+  wire ctrlMemSPUp;
+  wire ctrlMemSPNEn;
+  wire ctrlMemInstrNWE;
+  wire ctrlMemInstrNOE;
+  wire ctrlMemMar0NWE;
+  wire ctrlMemMar1NWE;
+  wire ctrlMemInstrImmToRam;
+  wire ctrlMemRamNWE;
+  wire ctrlMemRamNOE;
+  wire ctrlMemPCNEn;
+  wire ctrlMemPC0FromBusN;
+  wire ctrlMemPC1FromBusN;
+  wire ctrlInstrFinishedN;
+
+  wire clk;
+  wire clkn;
+  wire resetn;
+  wire breakpointHitN;
+  wire breakpointEnableN;
+  wire halt;
 
 control_bd control_bd_i (
-  .i_clk(i_clk),
-  .i_nclk(~i_clk),
-  .i_reset(i_reset),
+  .i_nclk(clkn),
+  .i_reset(~resetn),
+
+  .i_halt(halt),
 
   .i_flagNZero(flagNZero),
   .i_flagNegative(flagNegative),
+  .i_flagCarry(flagCarry),
+  .i_flagOverflow(flagOverflow),
+
   .i_instrCode(s_instrCode),
-  .o_ctrlAluNOE(ctrlAluNOE),
+
   .o_ctrlAluOp(ctrlAluOp),
   .o_ctrlAluSub(ctrlAluSub),
   .o_ctrlAluYNWE(ctrlAluYNWE),
-  .o_ctrlHlt(ctrlHlt),
-  .o_ctrlMemInstrImmToRam(ctrlMemInstrImmToRam),
-  .o_ctrlMemInstrNOE(ctrlMemInstrNOE),
-  .o_ctrlMemInstrNWE(ctrlMemInstrNWE),
-  .o_ctrlMemMar0NWE(ctrlMemMar0NWE),
-  .o_ctrlMemMar1NWE(ctrlMemMar1NWE),
-  .o_ctrlMemPCIncrN(ctrlMemPCIncrN),
-  .o_ctrlMemPCLoadN(ctrlMemPCLoadN),
-  .o_ctrlMemRamNOE(ctrlMemRamNOE),
-  .o_ctrlMemRamNWE(ctrlMemRamNWE),
-  .o_ctrlMemSPNEn(ctrlMemSPNEn),
-  .o_ctrlMemSPUp(ctrlMemSPUp),
+  .o_ctrlAluNOE(ctrlAluNOE),
+
   .o_ctrlReg0NWE(ctrlReg0NWE),
   .o_ctrlReg1NWE(ctrlReg1NWE),
   .o_ctrlRegAluSel(ctrlRegAluSel),
-  .o_ctrlRegBusNOE(ctrlRegBusNOE),
-  .o_ctrlRegBusSel(ctrlRegBusSel)
+  .o_ctrlReg0BusNOE(ctrlReg0BusNOE),
+  .o_ctrlReg1BusNOE(ctrlReg1BusNOE),
+
+  .o_ctrlMemPCLoadN(ctrlMemPCLoadN),
+  .o_ctrlMemSPUp(ctrlMemSPUp),
+  .o_ctrlMemSPNEn(ctrlMemSPNEn),
+  .o_ctrlMemInstrNWE(ctrlMemInstrNWE),
+  .o_ctrlMemInstrNOE(ctrlMemInstrNOE),
+  .o_ctrlMemMar0NWE(ctrlMemMar0NWE),
+  .o_ctrlMemMar1NWE(ctrlMemMar1NWE),
+  .o_ctrlMemInstrImmToRam(ctrlMemInstrImmToRam),
+  .o_ctrlMemRamNWE(ctrlMemRamNWE),
+  .o_ctrlMemRamNOE(ctrlMemRamNOE),
+  .o_ctrlMemPCNEn(ctrlMemPCNEn),
+  .o_ctrlMemPC0FromBusN(ctrlMemPC0FromBusN),
+  .o_ctrlMemPC1FromBusN(ctrlMemPC1FromBusN),
+
+  .o_ctrlInstrFinishedN(ctrlInstrFinishedN)
 );
 
 alu inst_alu(
-  .i_clk(i_clk),
-  .i_reset(i_reset),
+  .i_clk(clk),
+  .i_reset(~resetn),
 
   .i_a(s_alu),
   .i_bus(s_bus),
@@ -79,8 +105,8 @@ alu inst_alu(
 );
 
 regset inst_regset(
-  .i_clk(i_clk),
-  .i_reset(i_reset),
+  .i_clk(clk),
+  .i_reset(~resetn),
 
   .i_bus(s_bus),
   .o_bus(s_bus),
@@ -95,8 +121,8 @@ regset inst_regset(
 );
 
 memory_bd inst_memory (
-  .i_clk(i_clk),
-  .i_reset(i_reset),
+  .i_clk(clk),
+  .i_reset(~resetn),
 
   .i_bus(s_bus),
   .o_bus(s_bus),
@@ -107,12 +133,37 @@ memory_bd inst_memory (
   .i_ctrlMemInstrImmToRam(ctrlMemInstrImmToRam),
   .i_ctrlMemMar0NWE(ctrlMemMar0NWE),
   .i_ctrlMemMar1NWE(ctrlMemMar1NWE),
-  .i_ctrlPCIncrN(ctrlMemPCIncrN),
   .i_ctrlPCLoadN(ctrlMemPCLoadN),
+  .i_ctrlPCNEn(ctrlMemPCNEn),
+  .i_ctrlPC0FromBusN(ctrlMemPC0FromBusN),
+  .i_ctrlPC1FromBusN(ctrlMemPC1FromBusN),
   .i_ctrlRamNOE(ctrlMemRamNOE),
   .i_ctrlRamNWE(ctrlMemRamNWE),
   .i_ctrlSpNEn(ctrlMemSpNEn),
-  .i_ctrlSpUp(ctrlMemSpUp)
-  );
+  .i_ctrlSpUp(ctrlMemSpUp),
+
+  .i_breakpointAddress(i_breakpointAddress),
+  .o_breakpointHitN(breakpointHitN),
+  .i_breakpointEnableN(breakpointEnableN)
+);
+
+clock inst_clock (
+  .i_oszClk(i_oszClk),
+
+  .o_clk(clk),
+  .o_clkn(clkn),
+  .o_resetn(resetn),
+
+  .i_btnStep(i_btnStep),
+  .i_swInstrNCycle(i_swInstrNCycle),
+  .i_swStepNRun(i_swStepNRun),
+  .i_swEnableBreakpoint(i_swEnableBreakpoint),
+  .i_btnReset(i_btnReset),
+
+  .i_ctrlInstrFinishedN(ctrlInstrFinishedN),
+  .i_breakpointHitN(breakpointHitN),
+  .o_breakpointEnableN(breakpointEnableN),
+  .o_halt(halt)
+);
 
 endmodule

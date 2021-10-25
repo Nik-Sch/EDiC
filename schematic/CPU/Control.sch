@@ -106,7 +106,7 @@ instrCode5
 Text HLabel 5250 8100 0    50   Input ~ 0
 instrCode6
 Text GLabel 5250 5400 0    50   Input ~ 0
-flagNZero
+flagZero
 Text GLabel 5250 5300 0    50   Input ~ 0
 flagNegative
 Text Label 6250 5400 0    50   ~ 0

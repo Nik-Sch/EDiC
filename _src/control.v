@@ -1,5 +1,5 @@
 module control(
-  input wire i_clk,
+  input wire i_nclk,
   input wire i_reset,
 
   input wire[7:0] i_instrCode,
@@ -7,8 +7,12 @@ module control(
   output wire[14:0] o_decodeAddr,
   input wire[23:0] i_decodeData,
 
+  input wire i_halt,
+
   input wire i_flagNegative,
   input wire i_flagNZero,
+  input wire i_flagCarry,
+  input wire i_flagOverflow,
 
   // alu
   output wire[1:0] o_ctrlAluOp,
@@ -19,11 +23,13 @@ module control(
   output wire o_ctrlReg0NWE,
   output wire o_ctrlReg1NWE,
   output wire o_ctrlRegAluSel,
-  output wire o_ctrlRegBusSel,
-  output wire o_ctrlRegBusNOE,
+  output wire o_ctrlReg0BusNOE,
+  output wire o_ctrlReg1BusNOE,
   // memory
-  output wire o_ctrlMemPCIncrN,
   output wire o_ctrlMemPCLoadN,
+  output wire o_ctrlMemPCNEn,
+  output wire o_ctrlMemPC0FromBusN,
+  output wire o_ctrlMemPC1FromBusN,
   output wire o_ctrlMemSPUp,
   output wire o_ctrlMemSPNEn,
   output wire o_ctrlMemInstrNWE,
@@ -33,19 +39,18 @@ module control(
   output wire o_ctrlMemInstrImmToRam,
   output wire o_ctrlMemRamNWE,
   output wire o_ctrlMemRamNOE,
-  // IO: Todo
-
-  output wire o_ctrlHlt
+  output wire o_ctrlInstrFinishedN
 );
 reg[2:0] r_step;
 reg[7:0] r_instructionFallingEdge;
+reg[3:0] r_flags;
 
 wire s_stepEqual1N;
 
 assign s_stepEqual1N = (~r_step[0] | r_step[1]) | r_step[2];
 
 
-assign o_decodeAddr = {2'b00, i_flagNZero, i_flagNegative, r_instructionFallingEdge, r_step};
+assign o_decodeAddr = {r_flags, r_instructionFallingEdge, r_step};
 
 assign o_ctrlAluSub = r_instructionFallingEdge[0];
 assign o_ctrlAluOp = r_instructionFallingEdge[2:1];
@@ -54,9 +59,8 @@ assign o_ctrlAluNOE = i_decodeData[1];
 assign o_ctrlReg0NWE = i_decodeData[2];
 assign o_ctrlReg1NWE = i_decodeData[3];
 assign o_ctrlRegAluSel = i_decodeData[4];
-assign o_ctrlRegBusSel = i_decodeData[5];
-assign o_ctrlRegBusNOE = i_decodeData[6];
-assign o_ctrlMemPCIncrN = s_stepEqual1N;
+assign o_ctrlReg0BusNOE = i_decodeData[5];
+assign o_ctrlReg1BusNOE = i_decodeData[6];
 assign o_ctrlMemPCLoadN = i_decodeData[7];
 assign o_ctrlMemSPUp = i_decodeData[8];
 assign o_ctrlMemSPNEn = i_decodeData[9];
@@ -67,13 +71,26 @@ assign o_ctrlMemMar1NWE = i_decodeData[13];
 assign o_ctrlMemInstrImmToRam = i_decodeData[14];
 assign o_ctrlMemRamNWE = i_decodeData[15];
 assign o_ctrlMemRamNOE = i_decodeData[16];
+assign o_ctrlMemPCNEn = i_decodeData[17];
+assign o_ctrlMemPC0FromBusN = i_decodeData[18];
+assign o_ctrlMemPC1FromBusN = i_decodeData[19];
+assign o_ctrlInstrFinishedN = i_decodeData[20];
 
-always @(negedge i_clk) begin
-  r_step <= r_step + 1;
-  r_instructionFallingEdge <= i_instrCode;
+always @(posedge i_nclk) begin
+  if (!i_halt) begin
+    r_step <= r_step + 1;
+    r_instructionFallingEdge <= i_instrCode;
+    r_flags <= {i_flagOverflow, i_flagCarry, i_flagNZero, i_flagNegative};
+  end
+
+  if (!o_ctrlInstrFinishedN) begin
+    r_step <= 0;
+    r_flags <= 0;
+  end
 
   if (i_reset) begin
     r_step <= 0;
+    r_flags <= 0;
   end
 end
 
