@@ -1,4 +1,4 @@
-# 8bitCPU
+# MEDiC - Multi-chip Eight-bit Digital Computer
 SystemVerilog simulation of an 8 bit discrete TTL CPU I am building for fun. The final CPU will be similar to Ben Eaters Project with some differences and the following features:
 - I printed prototype PCBs that reassembles 830 Breadboards with some improvements.
 - Two general purpose registers.
@@ -7,12 +7,16 @@ SystemVerilog simulation of an 8 bit discrete TTL CPU I am building for fun. The
 - 256 byte program SRAM
 - 8bit input and output registers
 
+## Update 25.10.2021 - new name - new future
+This project is getting a revival as I am rebuilding it with a few key changes and improvements.
+It will get a real clock, one big multilayer PCB and stack pointer, 16bit ram/rom addressing and a lot more.
+
 ## Update 21.01.2021 - 8bit-CPU is finished!
   
 - I debugged a lot of tiny bugs todo with writeEnable and especially clockEnable signals
 - Mounted all PCBs to look nice
 
-![image](https://github.com/Nik-Sch/8bitCPU/raw/main/doc/update20210121.jpg)
+![image](https://github.com/Nik-Sch/MEDiC/raw/main/doc/update20210121.jpg)
 
 ## Update 15.01.2021
 <details><summary>First program got executed!</summary>
@@ -20,7 +24,7 @@ SystemVerilog simulation of an 8 bit discrete TTL CPU I am building for fun. The
   - I finished building everything and after about a week of endless debugging bugfixing the first program ran correctly.
   - The gif below shows how the CPU executes 6² and outputs the result which is shown in hexadecimal (6²=36=0x24).
   
-  ![image](https://github.com/Nik-Sch/8bitCPU/raw/main/doc/update20210115.gif)
+  ![image](https://github.com/Nik-Sch/MEDiC/raw/main/doc/update20210115.gif)
 </details>
 
 ## Update 22.12.2020
@@ -30,7 +34,7 @@ SystemVerilog simulation of an 8 bit discrete TTL CPU I am building for fun. The
   - The ALU + regset + SRAM is fully functional with some debugging effort like pulling up all connections to the 5V CMOS SRAM which has an higher voltage requirement for high level inputs.
   - Half of the control logic has wires and I decided to swap the two control boards for better interconnection.
   
-  ![image](https://github.com/Nik-Sch/8bitCPU/raw/main/doc/update20201222.jpg)
+  ![image](https://github.com/Nik-Sch/MEDiC/raw/main/doc/update20201222.jpg)
 </details>
 
 ## Update 13.12.2020
@@ -46,6 +50,6 @@ SystemVerilog simulation of an 8 bit discrete TTL CPU I am building for fun. The
   The right board includes a 4bit step register for the multicycle control + incrementor (4bit half adder) + logic for external control signals like the halt signal.
   - The orange boards finally include the program counter + incrementor + Tristate Transceiver and load from bus MUX.
   
-  ![image](https://github.com/Nik-Sch/8bitCPU/raw/main/doc/update20201213.jpg)
+  ![image](https://github.com/Nik-Sch/MEDiC/raw/main/doc/update20201213.jpg)
 </details>
 
