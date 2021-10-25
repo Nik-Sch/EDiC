@@ -1,3 +1,4 @@
+`timescale 1ns/1ps
 module tb_datapath;
 
 logic oszClk = 0;
@@ -17,7 +18,8 @@ datapath inst_datapath(
   .i_swInstrNCycle(swInstrNCycle),
   .i_swStepNRun(swStepNRun),
   .i_swEnableBreakpoint(swEnableBreakpoint),
-  .i_btnReset(btnReset)
+  .i_btnReset(btnReset),
+  .i_breakpointAddress(16'hff)
 );
 
 endmodule

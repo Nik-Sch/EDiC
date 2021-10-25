@@ -590,7 +590,7 @@ F 3 "" H 5250 8500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text GLabel 9750 6750 2    50   Output ~ 0
-ctrlMemInstrImmToRam
+ctrlMemInstrImmToRamAddr
 Text GLabel 9750 6550 2    50   Output ~ 0
 ~ctrlMemMar0WE~
 Text GLabel 9750 3600 2    50   Output ~ 0
@@ -703,7 +703,6 @@ Text Notes 9000 9450 0    50   ~ 0
 micro2
 Text GLabel 9750 6850 2    50   Output ~ 0
 ~ctrlMemRamWE~
-NoConn ~ 9750 9400
 NoConn ~ 9750 9500
 Text GLabel 9750 8900 2    50   Output ~ 0
 ~ctrlMemRamOE~
@@ -764,10 +763,6 @@ Text GLabel 9750 9000 2    50   Output ~ 0
 ~ctrlMemPCEn~
 Wire Wire Line
 	9550 9000 9750 9000
-Text GLabel 9750 9100 2    50   Output ~ 0
-~ctrlMemPC0FromBus~
-Text GLabel 9750 9200 2    50   Output ~ 0
-~ctrlMemPC1FromBus~
 $Comp
 L MEDiC-rescue:74AS825-74xx U?
 U 1 1 6152118F
@@ -1103,4 +1098,9 @@ Wire Wire Line
 Connection ~ 1100 4900
 Wire Wire Line
 	1100 4900 1100 4800
+Text GLabel 9750 9200 2    50   Output ~ 0
+~ctrlMemPCToRam~
+Text GLabel 9750 9100 2    50   Output ~ 0
+ctrlMemPCFromImm
+NoConn ~ 9750 9400
 $EndSCHEMATC

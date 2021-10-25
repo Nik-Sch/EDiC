@@ -1581,7 +1581,7 @@ ramAddress6
 Text Label 11200 7850 0    50   ~ 0
 ramAddress7
 Text GLabel 11200 8050 2    50   Input ~ 0
-ctrlMemInstrImmToRam
+ctrlMemInstrImmToRamAddr
 Text GLabel 9950 8150 0    50   Input ~ 0
 ~ctrlMemMar0WE~
 $Comp
@@ -1856,23 +1856,23 @@ Wire Wire Line
 $Comp
 L 74xx:74LS04 U48
 U 4 1 6225227C
-P 3900 3850
-F 0 "U48" H 3900 4167 50  0000 C CNN
-F 1 "74LS04" H 3900 4076 50  0000 C CNN
-F 2 "" H 3900 3850 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS04" H 3900 3850 50  0001 C CNN
-	4    3900 3850
+P 3750 4000
+F 0 "U48" H 3750 4317 50  0000 C CNN
+F 1 "74LS04" H 3750 4226 50  0000 C CNN
+F 2 "" H 3750 4000 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS04" H 3750 4000 50  0001 C CNN
+	4    3750 4000
 	1    0    0    -1  
 $EndComp
 $Comp
 L 74xx:74LS04 U48
 U 5 1 622540EA
-P 3800 8050
-F 0 "U48" H 3800 8367 50  0000 C CNN
-F 1 "74LS04" H 3800 8276 50  0000 C CNN
-F 2 "" H 3800 8050 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS04" H 3800 8050 50  0001 C CNN
-	5    3800 8050
+P 3700 8150
+F 0 "U48" H 3700 8467 50  0000 C CNN
+F 1 "74LS04" H 3700 8376 50  0000 C CNN
+F 2 "" H 3700 8150 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS04" H 3700 8150 50  0001 C CNN
+	5    3700 8150
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -1980,7 +1980,7 @@ F 3 "" H 15350 7100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text GLabel 15400 9400 0    50   Input ~ 0
-ctrlMemInstrImmToRam
+ctrlMemInstrImmToRamAddr
 Wire Wire Line
 	13950 7850 13950 7750
 Wire Wire Line
@@ -2256,7 +2256,7 @@ Wire Wire Line
 Wire Wire Line
 	17750 9550 17850 9550
 Text GLabel 17750 9550 0    50   Input ~ 0
-ctrlMemInstrImmToRam
+ctrlMemInstrImmToRamAddr
 $Comp
 L 74xx:74LS04 U48
 U 1 1 620C9A08
@@ -2269,9 +2269,9 @@ F 3 "http://www.ti.com/lit/gpn/sn74LS04" H 18200 9550 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text Notes 17500 9150 0    50   ~ 0
-~instrImm0ToRam~=~ctrlMemInstrImmToRam~\n\n~instrImm1ToRam~=!(~ctrlMemInstrImmToRam~ and ~selectStackMem~)\n\n~mar1ToRam~=!(ctrlMemInstrImmToRam and ~selectStackMem~)
+~instrImm0ToRam~=~ctrlMemInstrImmToRamAddr~\n\n~instrImm1ToRam~=!(~ctrlMemInstrImmToRam~ and ~selectStackMem~)\n\n~mar1ToRam~=!(ctrlMemInstrImmToRam and ~selectStackMem~)
 Text Notes 17450 8650 0    100  ~ 0
-ramAddress:\n7:0 -> instrImm or mar0 (depending on ctrlMemInstrImmToRam)\n15:0 -> instrImm or mar1 or sp (depending on ctrlMemInstrImmToRam and selectStackMem)
+ramAddress:\n7:0 -> instrImm or mar0 (depending on ctrlMemInstrImmToRamAddr)\n15:0 -> instrImm or mar1 or sp (depending on ctrlMemInstrImmToRam and selectStackMem)
 $Comp
 L 74xx:74LS08 U38
 U 4 1 61584F24
@@ -2633,22 +2633,6 @@ F 3 "" H 4050 10050 50  0001 C CNN
 	1    4050 10050
 	1    0    0    -1  
 $EndComp
-Text HLabel 4050 9850 0    50   BiDi ~ 0
-bus7
-Text HLabel 4050 9750 0    50   BiDi ~ 0
-bus6
-Text HLabel 4050 9650 0    50   BiDi ~ 0
-bus5
-Text HLabel 4050 9550 0    50   BiDi ~ 0
-bus4
-Text HLabel 4050 9450 0    50   BiDi ~ 0
-bus3
-Text HLabel 4050 9350 0    50   BiDi ~ 0
-bus2
-Text HLabel 4050 9250 0    50   BiDi ~ 0
-bus1
-Text HLabel 4050 9150 0    50   BiDi ~ 0
-bus0
 Text Label 5050 9150 0    50   ~ 0
 pcIn8
 Text Label 5050 9250 0    50   ~ 0
@@ -2681,14 +2665,8 @@ Text Label 7750 7750 2    50   ~ 0
 pcIn14
 Text Label 7750 7850 2    50   ~ 0
 pcIn15
-Text GLabel 4150 5950 0    50   Input ~ 0
-~ctrlMemPC0FromBus~
-Text GLabel 4050 10150 0    50   Input ~ 0
-~ctrlMemPC1FromBus~
-Text GLabel 3600 3850 0    50   Input ~ 0
-~ctrlMemPC0FromBus~
-Text GLabel 3500 8050 0    50   Input ~ 0
-~ctrlMemPC1FromBus~
+Text GLabel 3450 4000 0    50   Input ~ 0
+ctrlMemPCFromImm
 $Comp
 L MEDiC-rescue:74F521 U53
 U 1 1 616FD36C
@@ -4035,4 +4013,368 @@ Text Label 7550 18000 2    50   ~ 0
 pc7
 Text Notes 18800 11700 0    100  ~ 0
 select == 0xff: stack\nselect == 0xfe: io\notherwise: ram
+$Comp
+L 74xx:74LS245 U99
+U 1 1 6185F8B2
+P 2500 5500
+F 0 "U99" H 2500 6481 50  0000 C CNN
+F 1 "74LS245" H 2500 6390 50  0000 C CNN
+F 2 "" H 2500 5500 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS245" H 2500 5500 50  0001 C CNN
+	1    2500 5500
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0316
+U 1 1 6185F8B8
+P 2500 6300
+F 0 "#PWR0316" H 2500 6050 50  0001 C CNN
+F 1 "GND" H 2505 6127 50  0000 C CNN
+F 2 "" H 2500 6300 50  0001 C CNN
+F 3 "" H 2500 6300 50  0001 C CNN
+	1    2500 6300
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0317
+U 1 1 6185F8BE
+P 2500 4700
+F 0 "#PWR0317" H 2500 4550 50  0001 C CNN
+F 1 "+5V" H 2500 4950 50  0000 C CNN
+F 2 "" H 2500 4700 50  0001 C CNN
+F 3 "" H 2500 4700 50  0001 C CNN
+	1    2500 4700
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0318
+U 1 1 6185F8C4
+P 2000 5900
+F 0 "#PWR0318" H 2000 5750 50  0001 C CNN
+F 1 "+5V" H 2015 6073 50  0000 C CNN
+F 2 "" H 2000 5900 50  0001 C CNN
+F 3 "" H 2000 5900 50  0001 C CNN
+	1    2000 5900
+	1    0    0    -1  
+$EndComp
+Text HLabel 3000 5700 2    50   BiDi ~ 0
+bus7
+Text HLabel 3000 5600 2    50   BiDi ~ 0
+bus6
+Text HLabel 3000 5500 2    50   BiDi ~ 0
+bus5
+Text HLabel 3000 5400 2    50   BiDi ~ 0
+bus4
+Text HLabel 3000 5300 2    50   BiDi ~ 0
+bus3
+Text HLabel 3000 5200 2    50   BiDi ~ 0
+bus2
+Text HLabel 3000 5100 2    50   BiDi ~ 0
+bus1
+Text HLabel 3000 5000 2    50   BiDi ~ 0
+bus0
+Text GLabel 2000 6000 0    50   Input ~ 0
+~ctrlMemPCToRam~
+Text Label 2000 5000 2    50   ~ 0
+pc0
+Text Label 2000 5100 2    50   ~ 0
+pc1
+Text Label 2000 5200 2    50   ~ 0
+pc2
+Text Label 2000 5300 2    50   ~ 0
+pc3
+Text Label 2000 5400 2    50   ~ 0
+pc4
+Text Label 2000 5500 2    50   ~ 0
+pc5
+Text Label 2000 5600 2    50   ~ 0
+pc6
+Text Label 2000 5700 2    50   ~ 0
+pc7
+$Comp
+L Memory_RAM:AS6C4008-55PCN U100
+U 1 1 61B0766D
+P 22100 6750
+F 0 "U100" H 22100 8031 50  0000 C CNN
+F 1 "AS6C4008-55PCN" H 22100 7940 50  0000 C CNN
+F 2 "Package_DIP:DIP-32_W15.24mm" H 22100 6850 50  0001 C CNN
+F 3 "https://www.alliancememory.com/wp-content/uploads/pdf/AS6C4008.pdf" H 22100 6850 50  0001 C CNN
+	1    22100 6750
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0319
+U 1 1 61B07673
+P 22100 5650
+F 0 "#PWR0319" H 22100 5500 50  0001 C CNN
+F 1 "+5V" H 22100 5950 50  0000 C CNN
+F 2 "" H 22100 5650 50  0001 C CNN
+F 3 "" H 22100 5650 50  0001 C CNN
+	1    22100 5650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0320
+U 1 1 61B07679
+P 22100 7850
+F 0 "#PWR0320" H 22100 7600 50  0001 C CNN
+F 1 "GND" H 22105 7677 50  0000 C CNN
+F 2 "" H 22100 7850 50  0001 C CNN
+F 3 "" H 22100 7850 50  0001 C CNN
+	1    22100 7850
+	1    0    0    -1  
+$EndComp
+Text Label 21300 7450 2    50   ~ 0
+selectStackMem
+Wire Wire Line
+	21300 7450 21600 7450
+Wire Wire Line
+	22600 6550 22700 6550
+Wire Wire Line
+	22600 6450 22700 6450
+Wire Wire Line
+	22600 6350 22700 6350
+Wire Wire Line
+	22600 6250 22700 6250
+Wire Wire Line
+	22600 6150 22700 6150
+Wire Wire Line
+	22600 6050 22700 6050
+Wire Wire Line
+	22600 5950 22700 5950
+Wire Wire Line
+	22600 5850 22700 5850
+Wire Wire Line
+	22650 6900 22650 6950
+Wire Wire Line
+	22650 6950 22600 6950
+Text GLabel 22750 7350 2    50   Input ~ 0
+~ctrlMemRamWE~
+Wire Wire Line
+	22750 7350 22650 7350
+Wire Wire Line
+	22650 7350 22650 7050
+Wire Wire Line
+	22650 7050 22600 7050
+Wire Wire Line
+	22600 6850 22650 6850
+Wire Wire Line
+	22650 6850 22650 6800
+Wire Wire Line
+	22650 6800 22850 6800
+NoConn ~ 21600 7550
+NoConn ~ 21600 7650
+Text Notes 22000 6700 0    50   ~ 0
+RAM
+Text Label 21300 6650 2    50   ~ 0
+ramAddress8
+Text Label 21300 6750 2    50   ~ 0
+ramAddress9
+Text Label 21300 6850 2    50   ~ 0
+ramAddress10
+Text Label 21300 6950 2    50   ~ 0
+ramAddress11
+Text Label 21300 7050 2    50   ~ 0
+ramAddress12
+Text Label 21300 7150 2    50   ~ 0
+ramAddress13
+Text Label 21300 7250 2    50   ~ 0
+ramAddress14
+Text Label 21300 7350 2    50   ~ 0
+ramAddress15
+Text Label 21300 5850 2    50   ~ 0
+ramAddress0
+Text Label 21300 5950 2    50   ~ 0
+ramAddress1
+Text Label 21300 6050 2    50   ~ 0
+ramAddress2
+Text Label 21300 6150 2    50   ~ 0
+ramAddress3
+Text Label 21300 6250 2    50   ~ 0
+ramAddress4
+Text Label 21300 6350 2    50   ~ 0
+ramAddress5
+Text Label 21300 6450 2    50   ~ 0
+ramAddress6
+Text Label 21300 6550 2    50   ~ 0
+ramAddress7
+Wire Wire Line
+	21300 6550 21600 6550
+Wire Wire Line
+	21300 6450 21600 6450
+Wire Wire Line
+	21300 6350 21600 6350
+Wire Wire Line
+	21300 6250 21600 6250
+Wire Wire Line
+	21300 6150 21600 6150
+Wire Wire Line
+	21300 6050 21600 6050
+Wire Wire Line
+	21300 5950 21600 5950
+Wire Wire Line
+	21300 5850 21600 5850
+Wire Wire Line
+	21300 7350 21600 7350
+Wire Wire Line
+	21300 7250 21600 7250
+Wire Wire Line
+	21300 7150 21600 7150
+Wire Wire Line
+	21300 7050 21600 7050
+Wire Wire Line
+	21300 6950 21600 6950
+Wire Wire Line
+	21300 6850 21600 6850
+Wire Wire Line
+	21300 6750 21600 6750
+Wire Wire Line
+	21300 6650 21600 6650
+Text Label 22850 6800 0    50   ~ 0
+~ramCE~
+$Comp
+L 74xx:74LS245 U98
+U 1 1 61CB0889
+P 1800 7550
+F 0 "U98" H 1800 8531 50  0000 C CNN
+F 1 "74LS245" H 1800 8440 50  0000 C CNN
+F 2 "" H 1800 7550 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS245" H 1800 7550 50  0001 C CNN
+	1    1800 7550
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0321
+U 1 1 61CB088F
+P 1800 8350
+F 0 "#PWR0321" H 1800 8100 50  0001 C CNN
+F 1 "GND" H 1805 8177 50  0000 C CNN
+F 2 "" H 1800 8350 50  0001 C CNN
+F 3 "" H 1800 8350 50  0001 C CNN
+	1    1800 8350
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0322
+U 1 1 61CB0895
+P 1800 6750
+F 0 "#PWR0322" H 1800 6600 50  0001 C CNN
+F 1 "+5V" H 1815 6923 50  0000 C CNN
+F 2 "" H 1800 6750 50  0001 C CNN
+F 3 "" H 1800 6750 50  0001 C CNN
+	1    1800 6750
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0323
+U 1 1 61CB089B
+P 1300 7950
+F 0 "#PWR0323" H 1300 7800 50  0001 C CNN
+F 1 "+5V" H 1315 8123 50  0000 C CNN
+F 2 "" H 1300 7950 50  0001 C CNN
+F 3 "" H 1300 7950 50  0001 C CNN
+	1    1300 7950
+	1    0    0    -1  
+$EndComp
+Text GLabel 1300 8050 0    50   Input ~ 0
+~ctrlMemPCToRam~
+Text Label 1300 7050 2    50   ~ 0
+pc8
+Text Label 1300 7150 2    50   ~ 0
+pc9
+Text Label 1300 7250 2    50   ~ 0
+pc10
+Text Label 1300 7350 2    50   ~ 0
+pc11
+Text Label 1300 7450 2    50   ~ 0
+pc12
+Text Label 1300 7550 2    50   ~ 0
+pc13
+Text Label 1300 7650 2    50   ~ 0
+pc14
+Text Label 1300 7750 2    50   ~ 0
+pc15
+Text Label 2300 7050 0    50   ~ 0
+ram2data0
+Text Label 2300 7150 0    50   ~ 0
+ram2data1
+Text Label 2300 7250 0    50   ~ 0
+ram2data2
+Text Label 2300 7350 0    50   ~ 0
+ram2data3
+Text Label 2300 7450 0    50   ~ 0
+ram2data4
+Text Label 2300 7550 0    50   ~ 0
+ram2data5
+Text Label 2300 7650 0    50   ~ 0
+ram2data6
+Text Label 2300 7750 0    50   ~ 0
+ram2data7
+Text Label 22700 5850 0    50   ~ 0
+ram2data0
+Text Label 22700 5950 0    50   ~ 0
+ram2data1
+Text Label 22700 6050 0    50   ~ 0
+ram2data2
+Text Label 22700 6150 0    50   ~ 0
+ram2data3
+Text Label 22700 6250 0    50   ~ 0
+ram2data4
+Text Label 22700 6350 0    50   ~ 0
+ram2data5
+Text Label 22700 6450 0    50   ~ 0
+ram2data6
+Text Label 22700 6550 0    50   ~ 0
+ram2data7
+Text Label 4050 9150 2    50   ~ 0
+ram2data0
+Text Label 4050 9250 2    50   ~ 0
+ram2data1
+Text Label 4050 9350 2    50   ~ 0
+ram2data2
+Text Label 4050 9450 2    50   ~ 0
+ram2data3
+Text Label 4050 9550 2    50   ~ 0
+ram2data4
+Text Label 4050 9650 2    50   ~ 0
+ram2data5
+Text Label 4050 9750 2    50   ~ 0
+ram2data6
+Text Label 4050 9850 2    50   ~ 0
+ram2data7
+Text GLabel 23800 6900 2    50   Input ~ 0
+~ctrlMemPCToRam~
+Wire Wire Line
+	4000 8150 4050 8150
+Wire Wire Line
+	4050 8150 4050 8050
+Wire Wire Line
+	4050 8050 4100 8050
+Wire Wire Line
+	4050 4000 4100 4000
+Wire Wire Line
+	4100 4000 4100 3850
+Wire Wire Line
+	4100 3850 4200 3850
+$Comp
+L 74xx:74LS04 U80
+U 2 1 6242445A
+P 23400 6900
+F 0 "U80" H 23400 7217 50  0000 C CNN
+F 1 "74LS04" H 23400 7126 50  0000 C CNN
+F 2 "" H 23400 6900 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS04" H 23400 6900 50  0001 C CNN
+	2    23400 6900
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	22650 6900 23100 6900
+Wire Wire Line
+	23700 6900 23800 6900
+Text GLabel 4150 5950 0    50   Input ~ 0
+ctrlMemPCFromImm
+Text GLabel 3400 8150 0    50   Input ~ 0
+ctrlMemPCFromImm
+Text GLabel 4050 10150 0    50   Input ~ 0
+ctrlMemPCFromImm
 $EndSCHEMATC

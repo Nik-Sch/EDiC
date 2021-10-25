@@ -77,26 +77,26 @@ class CsonParser:
   def flagConditionMet(self, instrBits: int, aluFlagBits: str) -> bool:
     # aluBits: VCZN
     lut = [
-        lambda aluBits: True,# (AL) [Any]
-        lambda aluBits: aluBits[2] == '1', # (EQ) [Z == 1]
-        lambda aluBits: aluBits[2] == '0', # (NE) [Z == 0]
-        lambda aluBits: aluBits[1] == '1', # (CS) [C == 1]
-        lambda aluBits: aluBits[1] == '0', # (CC) [C == 0]
-        lambda aluBits: aluBits[3] == '1', # (MI) [N == 1]
-        lambda aluBits: aluBits[3] == '0', # (PL) [N == 0]
-        lambda aluBits: aluBits[0] == '1', # (VS) [V == 1]
-        lambda aluBits: aluBits[0] == '0', # (VC) [V == 0]
-        lambda aluBits: aluBits[1] == '1' and aluBits[2] == '0', # (HI) [C == 1 && Z == 0]
-        lambda aluBits: aluBits[2] == '1' and aluBits[2] == '1', # (LS) [C == 0 or Z == 1]
-        lambda aluBits: aluBits[0] == aluBits[3], # (GE) [N and V the same]
-        lambda aluBits: aluBits[0] != aluBits[3], # (LT) [N and V differ]
-        lambda aluBits: aluBits[2] == '0' and aluBits[0] == aluBits[3], # (GT) [Z == 0, N and V the same]
-        lambda aluBits: aluBits[2] == '1' and aluBits[0] != aluBits[3], # (LE) [Z == 1, N and V differ]
+        True,# (AL) [Any]
+        aluFlagBits[2] == '1', # (EQ) [Z == 1]
+        aluFlagBits[2] == '0', # (NE) [Z == 0]
+        aluFlagBits[1] == '1', # (CS) [C == 1]
+        aluFlagBits[1] == '0', # (CC) [C == 0]
+        aluFlagBits[3] == '1', # (MI) [N == 1]
+        aluFlagBits[3] == '0', # (PL) [N == 0]
+        aluFlagBits[0] == '1', # (VS) [V == 1]
+        aluFlagBits[0] == '0', # (VC) [V == 0]
+        aluFlagBits[1] == '1' and aluFlagBits[2] == '0', # (HI) [C == 1 && Z == 0]
+        aluFlagBits[2] == '1' and aluFlagBits[2] == '1', # (LS) [C == 0 or Z == 1]
+        aluFlagBits[0] == aluFlagBits[3], # (GE) [N and V the same]
+        aluFlagBits[0] != aluFlagBits[3], # (LT) [N and V differ]
+        aluFlagBits[2] == '0' and aluFlagBits[0] == aluFlagBits[3], # (GT) [Z == 0, N and V the same]
+        aluFlagBits[2] == '1' and aluFlagBits[0] != aluFlagBits[3], # (LE) [Z == 1, N and V differ]
+        False, # Never, not used
     ]
-    return lut[instrBits](aluFlagBits)
+    return lut[instrBits]
 
   def insertInstruction(self, instr: CsonInstruction):
-    flags = instr['flags'] if ('flags' in instr) else ''
     name = instr['op']
     if 'flag' in name:
       # for every flag instruction there are 16 memory locations (for all flags 4 bits)
@@ -112,7 +112,7 @@ class CsonParser:
               romData = self.cycleToRomData()
             self.setRom((aluBits << 11) + (baseAddress << 3) + i, romData, name)
             i += 1
-          self.setRom((3 << 11) + (baseAddress << 3) + i, self.cycleToRomData(instructionFinished=True), name)
+          # self.setRom((3 << 11) + (baseAddress << 3) + i, self.cycleToRomData(instructionFinished=True), name)
     else:
       for f in range(16):
         baseAddress = int(name, base=2)
@@ -120,11 +120,12 @@ class CsonParser:
         for cycle in instr['cycles']:
           self.setRom((f << 11) + (baseAddress << 3) + i, self.cycleToRomData(cycle), name)
           i += 1
-        self.setRom((3 << 11) + (baseAddress << 3) + i, self.cycleToRomData(instructionFinished=True), name)
+        # self.setRom((3 << 11) + (baseAddress << 3) + i, self.cycleToRomData(instructionFinished=True), name)
 
   def setRom(self, address: int, data: int, name: str):
     if (address in self.rom):
-      print(f"Address {address:013b} is already in memory (instruction {name})")
+      print(f"Address {address:015b} is already in memory (instruction {name})")
+      # print([f"{i:015b}" for i in self.rom])
       exit(1)
     self.rom[address] = data
 

@@ -9,8 +9,10 @@ module datapath(
 
   input wire [15:0] i_breakpointAddress
 );
-  wire flagNZero;
+  wire flagZero;
   wire flagNegative;
+  wire flagCarry;
+  wire flagOverflow;
 
   wire [7:0] s_instrCode;
   wire [7:0] s_bus;
@@ -32,12 +34,12 @@ module datapath(
   wire ctrlMemInstrNOE;
   wire ctrlMemMar0NWE;
   wire ctrlMemMar1NWE;
-  wire ctrlMemInstrImmToRam;
+  wire ctrlMemInstrImmToRamAddr;
   wire ctrlMemRamNWE;
   wire ctrlMemRamNOE;
   wire ctrlMemPCNEn;
-  wire ctrlMemPC0FromBusN;
-  wire ctrlMemPC1FromBusN;
+  wire ctrlMemPCFromImm;
+  wire ctrlMemPCToRamN;
   wire ctrlInstrFinishedN;
 
   wire clk;
@@ -47,13 +49,18 @@ module datapath(
   wire breakpointEnableN;
   wire halt;
 
+  wire ioSelect;
+  wire [7:0] ioAddress;
+  wire ioNOE;
+  wire ioNWE;
+
 control_bd control_bd_i (
   .i_nclk(clkn),
   .i_reset(~resetn),
 
   .i_halt(halt),
 
-  .i_flagNZero(flagNZero),
+  .i_flagZero(flagZero),
   .i_flagNegative(flagNegative),
   .i_flagCarry(flagCarry),
   .i_flagOverflow(flagOverflow),
@@ -78,12 +85,12 @@ control_bd control_bd_i (
   .o_ctrlMemInstrNOE(ctrlMemInstrNOE),
   .o_ctrlMemMar0NWE(ctrlMemMar0NWE),
   .o_ctrlMemMar1NWE(ctrlMemMar1NWE),
-  .o_ctrlMemInstrImmToRam(ctrlMemInstrImmToRam),
+  .o_ctrlMemInstrImmToRamAddr(ctrlMemInstrImmToRamAddr),
   .o_ctrlMemRamNWE(ctrlMemRamNWE),
   .o_ctrlMemRamNOE(ctrlMemRamNOE),
   .o_ctrlMemPCNEn(ctrlMemPCNEn),
-  .o_ctrlMemPC0FromBusN(ctrlMemPC0FromBusN),
-  .o_ctrlMemPC1FromBusN(ctrlMemPC1FromBusN),
+  .o_ctrlMemPCFromImm(ctrlMemPCFromImm),
+  .o_ctrlMemPCToRamN(ctrlMemPCToRamN),
 
   .o_ctrlInstrFinishedN(ctrlInstrFinishedN)
 );
@@ -101,7 +108,9 @@ alu inst_alu(
   .i_ctrlAluOp(ctrlAluOp),
 
   .o_flagNegative(flagNegative),
-  .o_flagNZero(flagNZero)
+  .o_flagZero(flagZero),
+  .o_flagOverflow(flagOverflow),
+  .o_flagCarry(flagCarry)
 );
 
 regset inst_regset(
@@ -116,8 +125,8 @@ regset inst_regset(
   .i_ctrlReg0NWE(ctrlReg0NWE),
   .i_ctrlReg1NWE(ctrlReg1NWE),
   .i_ctrlAluSel(ctrlRegAluSel),
-  .i_ctrlRegBusSel(ctrlRegBusSel),
-  .i_ctrlRegBusNOE(ctrlRegBusNOE)
+  .i_ctrlReg0BusNOE(ctrlReg0BusNOE),
+  .i_ctrlReg1BusNOE(ctrlReg1BusNOE)
 );
 
 memory_bd inst_memory (
@@ -130,13 +139,13 @@ memory_bd inst_memory (
 
   .i_ctrlInstrNOE(ctrlMemInstrNOE),
   .i_ctrlInstrNWE(ctrlMemInstrNWE),
-  .i_ctrlMemInstrImmToRam(ctrlMemInstrImmToRam),
+  .i_ctrlMemInstrImmToRamAddr(ctrlMemInstrImmToRamAddr),
   .i_ctrlMemMar0NWE(ctrlMemMar0NWE),
   .i_ctrlMemMar1NWE(ctrlMemMar1NWE),
   .i_ctrlPCLoadN(ctrlMemPCLoadN),
   .i_ctrlPCNEn(ctrlMemPCNEn),
-  .i_ctrlPC0FromBusN(ctrlMemPC0FromBusN),
-  .i_ctrlPC1FromBusN(ctrlMemPC1FromBusN),
+  .i_ctrlPCFromImm(ctrlMemPCFromImm),
+  .i_ctrlMemPCToRamN(ctrlMemPCToRamN),
   .i_ctrlRamNOE(ctrlMemRamNOE),
   .i_ctrlRamNWE(ctrlMemRamNWE),
   .i_ctrlSpNEn(ctrlMemSpNEn),
@@ -144,7 +153,12 @@ memory_bd inst_memory (
 
   .i_breakpointAddress(i_breakpointAddress),
   .o_breakpointHitN(breakpointHitN),
-  .i_breakpointEnableN(breakpointEnableN)
+  .i_breakpointEnableN(breakpointEnableN),
+
+  .o_ioSelect(ioSelect),
+  .o_ioAddress(ioAddress),
+  .o_ioNOE(ioNOE),
+  .o_ioNWE(ioNWE)
 );
 
 clock inst_clock (
@@ -164,6 +178,16 @@ clock inst_clock (
   .i_breakpointHitN(breakpointHitN),
   .o_breakpointEnableN(breakpointEnableN),
   .o_halt(halt)
+);
+
+io inst_io (
+  .i_clk(clk),
+  .i_bus(s_bus),
+  .o_bus(s_bus),
+  .i_ioSelect(ioSelect),
+  .i_ioAddress(ioAddress),
+  .i_ioNOE(ioNOE),
+  .i_ioNWE(ioNWE)
 );
 
 endmodule

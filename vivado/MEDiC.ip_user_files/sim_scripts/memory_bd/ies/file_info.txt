@@ -1,8 +1,9 @@
 xpm_memory.sv,systemverilog,xpm,../../../../../../../../../opt/Xilinx/Vivado/2021.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv,
 xpm_VCOMP.vhd,vhdl,xpm,../../../../../../../../../opt/Xilinx/Vivado/2021.1/data/ip/xpm/xpm_VCOMP.vhd,
-blk_mem_gen_v8_4.v,verilog,blk_mem_gen_v8_4_4,../../../../8bitCPU.gen/sources_1/bd/memory_bd/ipshared/2985/simulation/blk_mem_gen_v8_4.v,
+blk_mem_gen_v8_4.v,verilog,blk_mem_gen_v8_4_4,../../../../MEDiC.gen/sources_1/bd/memory_bd/ipshared/2985/simulation/blk_mem_gen_v8_4.v,
 memory_bd_blk_mem_gen_0_0.v,verilog,xil_defaultlib,../../../bd/memory_bd/ip/memory_bd_blk_mem_gen_0_0/sim/memory_bd_blk_mem_gen_0_0.v,
 memory_bd_blk_mem_gen_0_1.v,verilog,xil_defaultlib,../../../bd/memory_bd/ip/memory_bd_blk_mem_gen_0_1/sim/memory_bd_blk_mem_gen_0_1.v,
 memory_bd_memory_0_0.v,verilog,xil_defaultlib,../../../bd/memory_bd/ip/memory_bd_memory_0_0/sim/memory_bd_memory_0_0.v,
+memory_bd_ram_0.v,verilog,xil_defaultlib,../../../bd/memory_bd/ip/memory_bd_ram_0/sim/memory_bd_ram_0.v,
 memory_bd.v,verilog,xil_defaultlib,../../../bd/memory_bd/sim/memory_bd.v,
 glbl.v,Verilog,xil_defaultlib,glbl.v

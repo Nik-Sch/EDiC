@@ -8,7 +8,7 @@ module alu(
   output wire [7:0] o_bus,
 
   output reg o_flagNegative,
-  output reg o_flagNZero,
+  output reg o_flagZero,
   output reg o_flagOverflow,
   output reg o_flagCarry,
 
@@ -35,14 +35,14 @@ always @(posedge i_clk) begin
   if (!i_ctrlAluYNWE) begin
     r_y <= s_y;
     o_flagNegative <= s_y[7];
-    o_flagNZero <= s_y != 8'h00;
+    o_flagZero <= s_y == 8'h00;
     o_flagCarry <= s_cin[8];
     o_flagOverflow <= s_cin[7] ^ s_cin[8];
   end
   if (i_reset) begin
     r_y <= 0;
     o_flagNegative <= 0;
-    o_flagNZero <= 0;
+    o_flagZero <= 0;
     o_flagCarry <= 0;
     o_flagOverflow <= 0;
   end

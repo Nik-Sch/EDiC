@@ -22,13 +22,23 @@ const aluOps: { [i: string]: string } = {
 
 
 const branchOps: { [i: string]: string } = {
-  beq: '010',
-  bne: '011',
-  blt: '100',
-  ble: '101',
-  bgt: '110',
-  bge: '111',
-  b: '001',
+  b: '0000',
+  bal: '0000',
+  jmp: '0000',
+  beq: '0001',
+  bne: '0010',
+  bcs: '0011',
+  bcc: '0100',
+  bmi: '0101',
+  bpl: '0110',
+  bvs: '0111',
+  bvc: '1000',
+  bhi: '1001',
+  bls: '1010',
+  bge: '1011',
+  blt: '1100',
+  bgt: '1101',
+  ble: '1110',
 };
 
 const aluOpRegEx = Object.keys(aluOps).reduce((p, c) => `${p}|${c}`);
@@ -86,7 +96,7 @@ const instructions: IInstruction[] = [
     regex: new RegExp(`\\s*ldr\\s+r([01])\\s*,\\s*\\[\\s*(${immRegEx})\\s*\\]`),
     result: match => {
       const imm = checkImmediate(match[2]);
-      return { instr: `1010100${match[1]}`, imm }
+      return { instr: `1111000${match[1]}`, imm }
     }
   },
   {
@@ -97,7 +107,7 @@ const instructions: IInstruction[] = [
     regex: new RegExp(`\\s*str\\s+r([01])\\s*,\\s*\\[\\s*(${immRegEx})\\s*\\]`),
     result: match => {
       const imm = checkImmediate(match[2]);
-      return { instr: `1010101${match[1]}`, imm }
+      return { instr: `1111001${match[1]}`, imm }
     }
   },
   {
@@ -108,28 +118,9 @@ const instructions: IInstruction[] = [
     regex: new RegExp(`\\s*mov\\s+r([01])\\s*,\\s*(${immRegEx})\\s*`),
     result: match => {
       const imm = checkImmediate(match[2]);
-      return { instr: `1010110${match[1]}`, imm }
+      return { instr: `1111010${match[1]}`, imm }
     }
   },
-  {
-    regex: /\s*in\s+r([01])/,
-    result: match => ({ instr: `0101110${match[1]}` })
-  },
-  {
-    regex: /\s*out\s+r([01])/,
-    result: match => ({ instr: `0101111${match[1]}` })
-  },
-
-
-  // jump
-  // {
-  //   regex: /\s*mov\s+r([01])\s*,\s*pc/,
-  //   result: match => ({ instr: `0100${match[1]}000` })
-  // },
-  // {
-  //   regex: new RegExp(`\\s*(${branchOpRegEx})\\s+r([01])\\s*`),
-  //   result: match => ({ instr: `0100${match[2]}${branchOps[match[1]]}` })
-  // },
   {
     regex: new RegExp(`\\s*(${branchOpRegEx})\\s+(${immRegEx})\\s*`),
     result: match => {
@@ -147,13 +138,25 @@ const instructions: IInstruction[] = [
       } else {
         imm = checkImmediate(label.pos.toString());
       }
-      return { instr: `10100${branchOps[match[1]]}`, imm }
+      return { instr: `1010${branchOps[match[1]]}`, imm }
     }
   },
-
   {
-    regex: /\s*hlt/,
-    result: () => ({ instr: `11111111` })
+    regex: new RegExp(`\\s*call\\s+(${labelRegEx})\\s*`),
+    result: match => {
+      const label = labels.find(l => l.name === match[2]);
+      let imm: string | false = false;
+      if (typeof label === 'undefined') {
+        console.error(`Could not find label '${match[2]}'.`);
+      } else {
+        imm = checkImmediate(label.pos.toString());
+      }
+      return { instr: `10110000`, imm }
+    }
+  },
+  {
+    regex: /\s*(return|ret)\s*/,
+    result: () => ({ instr: `10110000` })
   },
 ];
 if (argv.length !== 4) {
@@ -177,6 +180,7 @@ let lineCount = 0;
 let instrCount = 0;
 
 for (const origLine of code) {
+  lineCount++;
   const line = origLine.replace(/\s*[#@;].*$/, '');
   if (line.match(/^\s*$/)) {
     continue;
@@ -201,6 +205,7 @@ for (const origLine of code) {
   }
 }
 instrCount = 0;
+lineCount = 0;
 const data: number[] = [];
 for (const origLine of code) {
   lineCount++;

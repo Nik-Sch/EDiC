@@ -1,463 +1,627 @@
 {
-    "design": {
-        "design_info": {
-            "boundary_crc": "0x3B2AE55FDD52D60C",
-            "device": "xc7a100tcsg324-3",
-            "gen_directory": "../../../../MEDiC.gen/sources_1/bd/memory_bd",
-            "name": "memory_bd",
-            "rev_ctrl_bd_flag": "RevCtrlBdOff",
-            "synth_flow_mode": "Hierarchical",
-            "tool_version": "2021.1"
-        },
-        "design_tree": {
-            "ram": "",
-            "instrRom": "",
-            "memory": ""
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x9DC90F2B14A2B648",
+      "device": "xc7a100tcsg324-3",
+      "gen_directory": "../../../../MEDiC.gen/sources_1/bd/memory_bd",
+      "name": "memory_bd",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2021.1",
+      "validated": "true"
+    },
+    "design_tree": {
+      "ram": "",
+      "instrRom": "",
+      "ram2": "",
+      "memory": ""
+    },
+    "ports": {
+      "i_clk": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "ASSOCIATED_RESET": {
+            "value": "i_reset",
+            "value_src": "default"
+          },
+          "CLK_DOMAIN": {
+            "value": "memory_bd_i_clk",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "default"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
+      },
+      "i_ctrlInstrNWE": {
+        "direction": "I"
+      },
+      "i_ctrlRamNOE": {
+        "direction": "I"
+      },
+      "i_ctrlRamNWE": {
+        "direction": "I"
+      },
+      "i_reset": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "default"
+          }
+        }
+      },
+      "o_instrCode": {
+        "direction": "O",
+        "left": "7",
+        "right": "0"
+      },
+      "i_ctrlMemMar0NWE": {
+        "direction": "I"
+      },
+      "i_ctrlMemMar1NWE": {
+        "direction": "I"
+      },
+      "i_ctrlPCLoadN": {
+        "direction": "I"
+      },
+      "i_ctrlSpNEn": {
+        "direction": "I"
+      },
+      "i_ctrlInstrNOE": {
+        "direction": "I"
+      },
+      "i_ctrlSpUp": {
+        "direction": "I"
+      },
+      "i_bus": {
+        "direction": "I",
+        "left": "7",
+        "right": "0"
+      },
+      "o_bus": {
+        "direction": "O",
+        "left": "7",
+        "right": "0"
+      },
+      "i_breakpointAddress": {
+        "direction": "I",
+        "left": "15",
+        "right": "0"
+      },
+      "i_breakpointEnableN": {
+        "direction": "I"
+      },
+      "o_breakpointHitN": {
+        "direction": "O"
+      },
+      "i_ctrlPCNEn": {
+        "direction": "I"
+      },
+      "o_ioSelect": {
+        "direction": "O"
+      },
+      "o_ioAddress": {
+        "direction": "O",
+        "left": "7",
+        "right": "0"
+      },
+      "o_ioNOE": {
+        "direction": "O"
+      },
+      "o_ioNWE": {
+        "direction": "O"
+      },
+      "i_ctrlPCFromImm": {
+        "direction": "I"
+      },
+      "i_ctrlMemPCToRamN": {
+        "direction": "I"
+      },
+      "i_ctrlMemInstrImmToRamAddr": {
+        "direction": "I"
+      }
+    },
+    "components": {
+      "ram": {
+        "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
+        "xci_name": "memory_bd_blk_mem_gen_0_0",
+        "xci_path": "ip/memory_bd_blk_mem_gen_0_0/memory_bd_blk_mem_gen_0_0.xci",
+        "inst_hier_path": "ram",
+        "parameters": {
+          "Enable_32bit_Address": {
+            "value": "false"
+          },
+          "Enable_A": {
+            "value": "Use_ENA_Pin"
+          },
+          "Read_Width_A": {
+            "value": "8"
+          },
+          "Register_PortA_Output_of_Memory_Primitives": {
+            "value": "false"
+          },
+          "Use_Byte_Write_Enable": {
+            "value": "false"
+          },
+          "Use_RSTA_Pin": {
+            "value": "false"
+          },
+          "Write_Depth_A": {
+            "value": "131072"
+          },
+          "Write_Width_A": {
+            "value": "8"
+          },
+          "use_bram_block": {
+            "value": "Stand_Alone"
+          }
+        }
+      },
+      "instrRom": {
+        "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
+        "xci_name": "memory_bd_blk_mem_gen_0_1",
+        "xci_path": "ip/memory_bd_blk_mem_gen_0_1/memory_bd_blk_mem_gen_0_1.xci",
+        "inst_hier_path": "instrRom",
+        "parameters": {
+          "Coe_File": {
+            "value": "../../../../../../../instructionRom.coe"
+          },
+          "Enable_32bit_Address": {
+            "value": "false"
+          },
+          "Enable_A": {
+            "value": "Always_Enabled"
+          },
+          "Fill_Remaining_Memory_Locations": {
+            "value": "true"
+          },
+          "Load_Init_File": {
+            "value": "true"
+          },
+          "Memory_Type": {
+            "value": "Single_Port_ROM"
+          },
+          "Port_A_Write_Rate": {
+            "value": "0"
+          },
+          "Register_PortA_Output_of_Memory_Primitives": {
+            "value": "false"
+          },
+          "Remaining_Memory_Locations": {
+            "value": "ffffff"
+          },
+          "Use_RSTA_Pin": {
+            "value": "false"
+          },
+          "Write_Depth_A": {
+            "value": "32768"
+          },
+          "Write_Width_A": {
+            "value": "24"
+          },
+          "use_bram_block": {
+            "value": "Stand_Alone"
+          }
+        }
+      },
+      "ram2": {
+        "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
+        "xci_name": "memory_bd_ram_0",
+        "xci_path": "ip/memory_bd_ram_0/memory_bd_ram_0.xci",
+        "inst_hier_path": "ram2",
+        "parameters": {
+          "Enable_32bit_Address": {
+            "value": "false"
+          },
+          "Enable_A": {
+            "value": "Use_ENA_Pin"
+          },
+          "Read_Width_A": {
+            "value": "8"
+          },
+          "Register_PortA_Output_of_Memory_Primitives": {
+            "value": "false"
+          },
+          "Use_Byte_Write_Enable": {
+            "value": "false"
+          },
+          "Use_RSTA_Pin": {
+            "value": "false"
+          },
+          "Write_Depth_A": {
+            "value": "131072"
+          },
+          "Write_Width_A": {
+            "value": "8"
+          },
+          "use_bram_block": {
+            "value": "Stand_Alone"
+          }
+        }
+      },
+      "memory": {
+        "vlnv": "xilinx.com:module_ref:memory:1.0",
+        "xci_name": "memory_bd_memory_0_0",
+        "xci_path": "ip/memory_bd_memory_0_0/memory_bd_memory_0_0.xci",
+        "inst_hier_path": "memory",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "memory",
+          "boundary_crc": "0x0"
         },
         "ports": {
-            "i_clk": {
-                "type": "clk",
-                "direction": "I"
-            },
-            "i_ctrlInstrNWE": {
-                "direction": "I"
-            },
-            "i_ctrlRamNOE": {
-                "direction": "I"
-            },
-            "i_ctrlRamNWE": {
-                "direction": "I"
-            },
-            "i_reset": {
-                "type": "rst",
-                "direction": "I"
-            },
-            "o_instrCode": {
-                "direction": "O",
-                "left": "7",
-                "right": "0"
-            },
-            "i_ctrlMemMar0NWE": {
-                "direction": "I"
-            },
-            "i_ctrlMemMar1NWE": {
-                "direction": "I"
-            },
-            "i_ctrlPCLoadN": {
-                "direction": "I"
-            },
-            "i_ctrlSpNEn": {
-                "direction": "I"
-            },
-            "i_ctrlInstrNOE": {
-                "direction": "I"
-            },
-            "i_ctrlSpUp": {
-                "direction": "I"
-            },
-            "i_ctrlMemInstrImmToRam": {
-                "direction": "I"
-            },
-            "i_bus": {
-                "direction": "I",
-                "left": "7",
-                "right": "0"
-            },
-            "o_bus": {
-                "direction": "O",
-                "left": "7",
-                "right": "0"
-            },
-            "i_breakpointAddress": {
-                "direction": "I",
-                "left": "15",
-                "right": "0"
-            },
-            "i_breakpointEnableN": {
-                "direction": "I"
-            },
-            "o_breakpointHitN": {
-                "direction": "O"
-            },
-            "i_ctrlPC0FromBusN": {
-                "direction": "I"
-            },
-            "i_ctrlPC1FromBusN": {
-                "direction": "I"
-            },
-            "i_ctrlPCNEn": {
-                "direction": "I"
+          "i_clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "i_reset",
+                "value_src": "constant"
+              },
+              "CLK_DOMAIN": {
+                "value": "memory_bd_i_clk",
+                "value_src": "default_prop"
+              }
             }
-        },
-        "components": {
-            "ram": {
-                "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
-                "xci_name": "memory_bd_blk_mem_gen_0_0",
-                "xci_path": "ip/memory_bd_blk_mem_gen_0_0/memory_bd_blk_mem_gen_0_0.xci",
-                "inst_hier_path": "ram",
-                "parameters": {
-                    "Enable_32bit_Address": {
-                        "value": "false"
-                    },
-                    "Enable_A": {
-                        "value": "Always_Enabled"
-                    },
-                    "Read_Width_A": {
-                        "value": "8"
-                    },
-                    "Register_PortA_Output_of_Memory_Primitives": {
-                        "value": "false"
-                    },
-                    "Use_Byte_Write_Enable": {
-                        "value": "false"
-                    },
-                    "Use_RSTA_Pin": {
-                        "value": "false"
-                    },
-                    "Write_Depth_A": {
-                        "value": "131072"
-                    },
-                    "Write_Width_A": {
-                        "value": "8"
-                    },
-                    "use_bram_block": {
-                        "value": "Stand_Alone"
-                    }
-                }
-            },
-            "instrRom": {
-                "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
-                "xci_name": "memory_bd_blk_mem_gen_0_1",
-                "xci_path": "ip/memory_bd_blk_mem_gen_0_1/memory_bd_blk_mem_gen_0_1.xci",
-                "inst_hier_path": "instrRom",
-                "parameters": {
-                    "Coe_File": {
-                        "value": "../../../../../../../instructionRom.coe"
-                    },
-                    "Enable_32bit_Address": {
-                        "value": "false"
-                    },
-                    "Enable_A": {
-                        "value": "Always_Enabled"
-                    },
-                    "Fill_Remaining_Memory_Locations": {
-                        "value": "true"
-                    },
-                    "Load_Init_File": {
-                        "value": "true"
-                    },
-                    "Memory_Type": {
-                        "value": "Single_Port_ROM"
-                    },
-                    "Port_A_Write_Rate": {
-                        "value": "0"
-                    },
-                    "Register_PortA_Output_of_Memory_Primitives": {
-                        "value": "false"
-                    },
-                    "Remaining_Memory_Locations": {
-                        "value": "ffffff"
-                    },
-                    "Use_RSTA_Pin": {
-                        "value": "false"
-                    },
-                    "Write_Depth_A": {
-                        "value": "32768"
-                    },
-                    "Write_Width_A": {
-                        "value": "24"
-                    },
-                    "use_bram_block": {
-                        "value": "Stand_Alone"
-                    }
-                }
-            },
-            "memory": {
-                "vlnv": "xilinx.com:module_ref:memory:1.0",
-                "xci_name": "memory_bd_memory_0_0",
-                "xci_path": "ip/memory_bd_memory_0_0/memory_bd_memory_0_0.xci",
-                "inst_hier_path": "memory",
-                "reference_info": {
-                    "ref_type": "hdl",
-                    "ref_name": "memory",
-                    "boundary_crc": "0x0"
-                },
-                "ports": {
-                    "i_clk": {
-                        "type": "clk",
-                        "direction": "I",
-                        "parameters": {
-                            "ASSOCIATED_RESET": {
-                                "value": "i_reset",
-                                "value_src": "constant"
-                            }
-                        }
-                    },
-                    "i_reset": {
-                        "type": "rst",
-                        "direction": "I"
-                    },
-                    "i_bus": {
-                        "direction": "I",
-                        "left": "7",
-                        "right": "0"
-                    },
-                    "o_bus": {
-                        "direction": "O",
-                        "left": "7",
-                        "right": "0"
-                    },
-                    "o_instrCode": {
-                        "direction": "O",
-                        "left": "7",
-                        "right": "0"
-                    },
-                    "i_ctrlPCLoadN": {
-                        "direction": "I"
-                    },
-                    "i_ctrlPCNEn": {
-                        "direction": "I"
-                    },
-                    "i_ctrlPC0FromBusN": {
-                        "direction": "I"
-                    },
-                    "i_ctrlPC1FromBusN": {
-                        "direction": "I"
-                    },
-                    "i_ctrlSpUp": {
-                        "direction": "I"
-                    },
-                    "i_ctrlSpNEn": {
-                        "direction": "I"
-                    },
-                    "i_ctrlInstrNWE": {
-                        "direction": "I"
-                    },
-                    "i_ctrlInstrNOE": {
-                        "direction": "I"
-                    },
-                    "i_ctrlRamNOE": {
-                        "direction": "I"
-                    },
-                    "i_ctrlRamNWE": {
-                        "direction": "I"
-                    },
-                    "i_ctrlMemMar0NWE": {
-                        "direction": "I"
-                    },
-                    "i_ctrlMemMar1NWE": {
-                        "direction": "I"
-                    },
-                    "i_ctrlMemInstrImmToRam": {
-                        "direction": "I"
-                    },
-                    "o_romAddress": {
-                        "direction": "O",
-                        "left": "14",
-                        "right": "0"
-                    },
-                    "i_romData": {
-                        "direction": "I",
-                        "left": "23",
-                        "right": "0"
-                    },
-                    "o_ramAddress": {
-                        "direction": "O",
-                        "left": "16",
-                        "right": "0"
-                    },
-                    "i_ramData": {
-                        "direction": "I",
-                        "left": "7",
-                        "right": "0"
-                    },
-                    "o_ramData": {
-                        "direction": "O",
-                        "left": "7",
-                        "right": "0"
-                    },
-                    "o_ramWE": {
-                        "direction": "O"
-                    },
-                    "i_breakpointAddress": {
-                        "direction": "I",
-                        "left": "15",
-                        "right": "0"
-                    },
-                    "i_breakpointEnableN": {
-                        "direction": "I"
-                    },
-                    "o_breakpointHitN": {
-                        "direction": "O"
-                    }
-                }
-            }
-        },
-        "nets": {
-            "i_breakpointAddress_0_1": {
-                "ports": [
-                    "i_breakpointAddress",
-                    "memory/i_breakpointAddress"
-                ]
-            },
-            "i_breakpointEnableN_0_1": {
-                "ports": [
-                    "i_breakpointEnableN",
-                    "memory/i_breakpointEnableN"
-                ]
-            },
-            "i_bus_0_1": {
-                "ports": [
-                    "i_bus",
-                    "memory/i_bus"
-                ]
-            },
-            "i_clk_0_1": {
-                "ports": [
-                    "i_clk",
-                    "ram/clka",
-                    "instrRom/clka",
-                    "memory/i_clk"
-                ]
-            },
-            "i_ctrlInstrNOE_0_1": {
-                "ports": [
-                    "i_ctrlInstrNOE",
-                    "memory/i_ctrlInstrNOE"
-                ]
-            },
-            "i_ctrlInstrNWE_0_1": {
-                "ports": [
-                    "i_ctrlInstrNWE",
-                    "memory/i_ctrlInstrNWE"
-                ]
-            },
-            "i_ctrlMemInstrImmToRam_0_1": {
-                "ports": [
-                    "i_ctrlMemInstrImmToRam",
-                    "memory/i_ctrlMemInstrImmToRam"
-                ]
-            },
-            "i_ctrlMemMar0NWE_0_1": {
-                "ports": [
-                    "i_ctrlMemMar0NWE",
-                    "memory/i_ctrlMemMar0NWE"
-                ]
-            },
-            "i_ctrlMemMar1NWE_0_1": {
-                "ports": [
-                    "i_ctrlMemMar1NWE",
-                    "memory/i_ctrlMemMar1NWE"
-                ]
-            },
-            "i_ctrlPC0FromBusN_0_1": {
-                "ports": [
-                    "i_ctrlPC0FromBusN",
-                    "memory/i_ctrlPC0FromBusN"
-                ]
-            },
-            "i_ctrlPC1FromBusN_0_1": {
-                "ports": [
-                    "i_ctrlPC1FromBusN",
-                    "memory/i_ctrlPC1FromBusN"
-                ]
-            },
-            "i_ctrlPCLoadN_0_1": {
-                "ports": [
-                    "i_ctrlPCLoadN",
-                    "memory/i_ctrlPCLoadN"
-                ]
-            },
-            "i_ctrlPCNEn_0_1": {
-                "ports": [
-                    "i_ctrlPCNEn",
-                    "memory/i_ctrlPCNEn"
-                ]
-            },
-            "i_ctrlRamNOE_0_1": {
-                "ports": [
-                    "i_ctrlRamNOE",
-                    "memory/i_ctrlRamNOE"
-                ]
-            },
-            "i_ctrlRamNWE_0_1": {
-                "ports": [
-                    "i_ctrlRamNWE",
-                    "memory/i_ctrlRamNWE"
-                ]
-            },
-            "i_ctrlSpNEn_0_1": {
-                "ports": [
-                    "i_ctrlSpNEn",
-                    "memory/i_ctrlSpNEn"
-                ]
-            },
-            "i_ctrlSpUp_0_1": {
-                "ports": [
-                    "i_ctrlSpUp",
-                    "memory/i_ctrlSpUp"
-                ]
-            },
-            "i_reset_0_1": {
-                "ports": [
-                    "i_reset",
-                    "memory/i_reset"
-                ]
-            },
-            "instrRom_douta": {
-                "ports": [
-                    "instrRom/douta",
-                    "memory/i_romData"
-                ]
-            },
-            "memory_0_o_instrCode": {
-                "ports": [
-                    "memory/o_instrCode",
-                    "o_instrCode"
-                ]
-            },
-            "memory_0_o_ramAddress": {
-                "ports": [
-                    "memory/o_ramAddress",
-                    "ram/addra"
-                ]
-            },
-            "memory_0_o_ramData": {
-                "ports": [
-                    "memory/o_ramData",
-                    "ram/dina"
-                ]
-            },
-            "memory_0_o_ramWE": {
-                "ports": [
-                    "memory/o_ramWE",
-                    "ram/wea"
-                ]
-            },
-            "memory_0_o_romAddress": {
-                "ports": [
-                    "memory/o_romAddress",
-                    "instrRom/addra"
-                ]
-            },
-            "memory_o_breakpointHitN": {
-                "ports": [
-                    "memory/o_breakpointHitN",
-                    "o_breakpointHitN"
-                ]
-            },
-            "memory_o_bus": {
-                "ports": [
-                    "memory/o_bus",
-                    "o_bus"
-                ]
-            },
-            "ram_douta": {
-                "ports": [
-                    "ram/douta",
-                    "memory/i_ramData"
-                ]
-            }
+          },
+          "i_reset": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "i_bus": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "o_bus": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "o_instrCode": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "i_ctrlPCLoadN": {
+            "direction": "I"
+          },
+          "i_ctrlPCNEn": {
+            "direction": "I"
+          },
+          "i_ctrlPCFromImm": {
+            "direction": "I"
+          },
+          "i_ctrlMemPCToRamN": {
+            "direction": "I"
+          },
+          "i_ctrlSpUp": {
+            "direction": "I"
+          },
+          "i_ctrlSpNEn": {
+            "direction": "I"
+          },
+          "i_ctrlInstrNWE": {
+            "direction": "I"
+          },
+          "i_ctrlInstrNOE": {
+            "direction": "I"
+          },
+          "i_ctrlRamNOE": {
+            "direction": "I"
+          },
+          "i_ctrlRamNWE": {
+            "direction": "I"
+          },
+          "i_ctrlMemMar0NWE": {
+            "direction": "I"
+          },
+          "i_ctrlMemMar1NWE": {
+            "direction": "I"
+          },
+          "i_ctrlMemInstrImmToRamAddr": {
+            "direction": "I"
+          },
+          "o_romAddress": {
+            "direction": "O",
+            "left": "14",
+            "right": "0"
+          },
+          "i_romData": {
+            "direction": "I",
+            "left": "23",
+            "right": "0"
+          },
+          "o_ramAddress": {
+            "direction": "O",
+            "left": "16",
+            "right": "0"
+          },
+          "i_ramData": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "o_ramData": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "i_ram2Data": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "o_ram2Data": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "o_ramWE": {
+            "direction": "O"
+          },
+          "o_ramCE": {
+            "direction": "O"
+          },
+          "o_ioSelect": {
+            "direction": "O"
+          },
+          "o_ioAddress": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "o_ioNOE": {
+            "direction": "O"
+          },
+          "o_ioNWE": {
+            "direction": "O"
+          },
+          "i_breakpointAddress": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "i_breakpointEnableN": {
+            "direction": "I"
+          },
+          "o_breakpointHitN": {
+            "direction": "O"
+          }
         }
+      }
+    },
+    "nets": {
+      "Net": {
+        "ports": [
+          "memory/o_ramCE",
+          "ram/ena",
+          "ram2/ena"
+        ]
+      },
+      "i_breakpointAddress_0_1": {
+        "ports": [
+          "i_breakpointAddress",
+          "memory/i_breakpointAddress"
+        ]
+      },
+      "i_breakpointEnableN_0_1": {
+        "ports": [
+          "i_breakpointEnableN",
+          "memory/i_breakpointEnableN"
+        ]
+      },
+      "i_bus_0_1": {
+        "ports": [
+          "i_bus",
+          "memory/i_bus"
+        ]
+      },
+      "i_clk_0_1": {
+        "ports": [
+          "i_clk",
+          "ram/clka",
+          "instrRom/clka",
+          "ram2/clka",
+          "memory/i_clk"
+        ]
+      },
+      "i_ctrlInstrNOE_0_1": {
+        "ports": [
+          "i_ctrlInstrNOE",
+          "memory/i_ctrlInstrNOE"
+        ]
+      },
+      "i_ctrlInstrNWE_0_1": {
+        "ports": [
+          "i_ctrlInstrNWE",
+          "memory/i_ctrlInstrNWE"
+        ]
+      },
+      "i_ctrlMemInstrImmToRamAddr_0_1": {
+        "ports": [
+          "i_ctrlMemInstrImmToRamAddr",
+          "memory/i_ctrlMemInstrImmToRamAddr"
+        ]
+      },
+      "i_ctrlMemMar0NWE_0_1": {
+        "ports": [
+          "i_ctrlMemMar0NWE",
+          "memory/i_ctrlMemMar0NWE"
+        ]
+      },
+      "i_ctrlMemMar1NWE_0_1": {
+        "ports": [
+          "i_ctrlMemMar1NWE",
+          "memory/i_ctrlMemMar1NWE"
+        ]
+      },
+      "i_ctrlMemPCToRamN_0_1": {
+        "ports": [
+          "i_ctrlMemPCToRamN",
+          "memory/i_ctrlMemPCToRamN"
+        ]
+      },
+      "i_ctrlPCFromImm_0_1": {
+        "ports": [
+          "i_ctrlPCFromImm",
+          "memory/i_ctrlPCFromImm"
+        ]
+      },
+      "i_ctrlPCLoadN_0_1": {
+        "ports": [
+          "i_ctrlPCLoadN",
+          "memory/i_ctrlPCLoadN"
+        ]
+      },
+      "i_ctrlPCNEn_0_1": {
+        "ports": [
+          "i_ctrlPCNEn",
+          "memory/i_ctrlPCNEn"
+        ]
+      },
+      "i_ctrlRamNOE_0_1": {
+        "ports": [
+          "i_ctrlRamNOE",
+          "memory/i_ctrlRamNOE"
+        ]
+      },
+      "i_ctrlRamNWE_0_1": {
+        "ports": [
+          "i_ctrlRamNWE",
+          "memory/i_ctrlRamNWE"
+        ]
+      },
+      "i_ctrlSpNEn_0_1": {
+        "ports": [
+          "i_ctrlSpNEn",
+          "memory/i_ctrlSpNEn"
+        ]
+      },
+      "i_ctrlSpUp_0_1": {
+        "ports": [
+          "i_ctrlSpUp",
+          "memory/i_ctrlSpUp"
+        ]
+      },
+      "i_reset_0_1": {
+        "ports": [
+          "i_reset",
+          "memory/i_reset"
+        ]
+      },
+      "instrRom_douta": {
+        "ports": [
+          "instrRom/douta",
+          "memory/i_romData"
+        ]
+      },
+      "memory_0_o_instrCode": {
+        "ports": [
+          "memory/o_instrCode",
+          "o_instrCode"
+        ]
+      },
+      "memory_0_o_ramAddress": {
+        "ports": [
+          "memory/o_ramAddress",
+          "ram/addra",
+          "ram2/addra"
+        ]
+      },
+      "memory_0_o_ramData": {
+        "ports": [
+          "memory/o_ramData",
+          "ram/dina"
+        ]
+      },
+      "memory_0_o_ramWE": {
+        "ports": [
+          "memory/o_ramWE",
+          "ram/wea",
+          "ram2/wea"
+        ]
+      },
+      "memory_0_o_romAddress": {
+        "ports": [
+          "memory/o_romAddress",
+          "instrRom/addra"
+        ]
+      },
+      "memory_o_breakpointHitN": {
+        "ports": [
+          "memory/o_breakpointHitN",
+          "o_breakpointHitN"
+        ]
+      },
+      "memory_o_bus": {
+        "ports": [
+          "memory/o_bus",
+          "o_bus"
+        ]
+      },
+      "memory_o_ioAddress": {
+        "ports": [
+          "memory/o_ioAddress",
+          "o_ioAddress"
+        ]
+      },
+      "memory_o_ioNOE": {
+        "ports": [
+          "memory/o_ioNOE",
+          "o_ioNOE"
+        ]
+      },
+      "memory_o_ioNWE": {
+        "ports": [
+          "memory/o_ioNWE",
+          "o_ioNWE"
+        ]
+      },
+      "memory_o_ioSelect": {
+        "ports": [
+          "memory/o_ioSelect",
+          "o_ioSelect"
+        ]
+      },
+      "memory_o_ram2Data": {
+        "ports": [
+          "memory/o_ram2Data",
+          "ram2/dina"
+        ]
+      },
+      "ram2_douta": {
+        "ports": [
+          "ram2/douta",
+          "memory/i_ram2Data"
+        ]
+      },
+      "ram_douta": {
+        "ports": [
+          "ram/douta",
+          "memory/i_ramData"
+        ]
+      }
     }
+  }
 }
