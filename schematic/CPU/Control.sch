@@ -769,7 +769,7 @@ Text GLabel 9750 9100 2    50   Output ~ 0
 Text GLabel 9750 9200 2    50   Output ~ 0
 ~ctrlMemPC1FromBus~
 $Comp
-L 8bitCPU-rescue:74AS825-74xx U?
+L MEDiC-rescue:74AS825-74xx U?
 U 1 1 6152118F
 P 5750 5800
 AR Path="/601B5CAE/6152118F" Ref="U?"  Part="1" 
@@ -821,7 +821,7 @@ Wire Wire Line
 Text GLabel 4300 6850 0    50   Input ~ 0
 ~ctrlInstrFinished~
 $Comp
-L 8bitCPU-rescue:74ABT540 U?
+L MEDiC-rescue:74ABT540 U?
 U 1 1 63C4D029
 P 2000 4700
 AR Path="/600C5001/63C4D029" Ref="U?"  Part="1" 

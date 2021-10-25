@@ -223,7 +223,7 @@ $EndComp
 Text GLabel 3300 4700 0    50   Input ~ 0
 ~ctrlReg0WE~
 $Comp
-L 8bitCPU-rescue:74AS825-74xx U40
+L MEDiC-rescue:74AS825-74xx U40
 U 1 1 611197FA
 P 4050 4200
 F 0 "U40" H 4050 5081 50  0000 C CNN
@@ -315,7 +315,7 @@ $EndComp
 Text GLabel 3300 7200 0    50   Input ~ 0
 ~ctrlReg1WE~
 $Comp
-L 8bitCPU-rescue:74AS825-74xx U41
+L MEDiC-rescue:74AS825-74xx U41
 U 1 1 61169563
 P 4050 6700
 F 0 "U41" H 4050 7581 50  0000 C CNN
@@ -526,7 +526,7 @@ r16
 Text Label 8000 6700 2    50   ~ 0
 r17
 $Comp
-L 8bitCPU-rescue:74ABT540 U?
+L MEDiC-rescue:74ABT540 U?
 U 1 1 633E01ED
 P 11050 4350
 AR Path="/600C5001/633E01ED" Ref="U?"  Part="1" 
@@ -768,7 +768,7 @@ r06
 Text Label 10250 4550 2    50   ~ 0
 r07
 $Comp
-L 8bitCPU-rescue:74ABT540 U?
+L MEDiC-rescue:74ABT540 U?
 U 1 1 633F48E3
 P 11050 6500
 AR Path="/600C5001/633F48E3" Ref="U?"  Part="1" 
