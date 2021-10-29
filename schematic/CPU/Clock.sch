@@ -1112,7 +1112,7 @@ F 3 "" H 7750 5900 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L MEDiC-rescue:ds1813 U34
+L EDiC-rescue:ds1813 U34
 U 1 1 6164C30A
 P 2450 7950
 F 0 "U34" H 2270 7746 50  0000 R CNN
@@ -1222,7 +1222,7 @@ Wire Wire Line
 Text Notes 2800 7900 0    100  ~ 0
 reset switch
 $Comp
-L MEDiC-rescue:74ABT540 U95
+L EDiC-rescue:74ABT540 U95
 U 1 1 63BAC286
 P 5000 9800
 F 0 "U95" H 4700 10781 50  0000 C CNN

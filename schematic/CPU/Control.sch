@@ -764,7 +764,7 @@ Text GLabel 9750 9000 2    50   Output ~ 0
 Wire Wire Line
 	9550 9000 9750 9000
 $Comp
-L MEDiC-rescue:74AS825-74xx U?
+L EDiC-rescue:74AS825-74xx U?
 U 1 1 6152118F
 P 5750 5800
 AR Path="/601B5CAE/6152118F" Ref="U?"  Part="1" 
@@ -816,7 +816,7 @@ Wire Wire Line
 Text GLabel 4300 6850 0    50   Input ~ 0
 ~ctrlInstrFinished~
 $Comp
-L MEDiC-rescue:74ABT540 U?
+L EDiC-rescue:74ABT540 U?
 U 1 1 63C4D029
 P 2000 4700
 AR Path="/600C5001/63C4D029" Ref="U?"  Part="1" 

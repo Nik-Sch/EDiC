@@ -1,1 +1,0 @@
--wto "24088bf468744bb7a9029c3e66ec34bd" --incr --debug "typical" --relax --mt "8" -L "xil_defaultlib" -L "blk_mem_gen_v8_4_4" -L "xlconstant_v1_1_7" -L "uvm" -L "unisims_ver" -L "unimacro_ver" -L "secureip" -L "xpm" --snapshot "tb_datapath_behav" "xil_defaultlib.tb_datapath" "xil_defaultlib.glbl" -log "elaborate.log" 

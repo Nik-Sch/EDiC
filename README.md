@@ -1,4 +1,4 @@
-# MEDiC - Multi-chip Eight-bit Digital Computer
+# EDiC - Educational Digital Computer
 SystemVerilog simulation of an 8 bit discrete TTL CPU I am building for fun. The final CPU will be similar to Ben Eaters Project with some differences and the following features:
 - I printed prototype PCBs that reassembles 830 Breadboards with some improvements.
 - Two general purpose registers.
