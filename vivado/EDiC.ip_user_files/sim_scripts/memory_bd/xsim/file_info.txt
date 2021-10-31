@@ -1,6 +1,6 @@
 memory_bd_blk_mem_gen_0_0.v,verilog,xil_defaultlib,../../../bd/memory_bd/ip/memory_bd_blk_mem_gen_0_0/sim/memory_bd_blk_mem_gen_0_0.v,
 memory_bd_blk_mem_gen_0_1.v,verilog,xil_defaultlib,../../../bd/memory_bd/ip/memory_bd_blk_mem_gen_0_1/sim/memory_bd_blk_mem_gen_0_1.v,
-memory_bd_memory_0_0.v,verilog,xil_defaultlib,../../../bd/memory_bd/ip/memory_bd_memory_0_0/sim/memory_bd_memory_0_0.v,
 memory_bd_ram_0.v,verilog,xil_defaultlib,../../../bd/memory_bd/ip/memory_bd_ram_0/sim/memory_bd_ram_0.v,
+memory_bd_memory_0_0.v,verilog,xil_defaultlib,../../../bd/memory_bd/ip/memory_bd_memory_0_0/sim/memory_bd_memory_0_0.v,
 memory_bd.v,verilog,xil_defaultlib,../../../bd/memory_bd/sim/memory_bd.v,
 glbl.v,Verilog,xil_defaultlib,glbl.v

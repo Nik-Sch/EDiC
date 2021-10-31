@@ -304,14 +304,14 @@ instructions: [
         memMar0NWE: 0
         memMar1NWE: 0
       }
+      { # increment sp
+        memSPUp: 1
+        memSPNEn: 0
+      }
       { # store pc in ram[0xffff]
         memPCToRamN: 0
         memInstrImmToRamAddr: 0
         memRamNWE: 0
-      }
-      { # increment sp
-        memSPUp: 1
-        memSPNEn: 0
       }
       { # load pc from instrImm
         memPCLoadN: 0

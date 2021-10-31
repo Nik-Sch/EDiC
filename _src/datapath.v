@@ -1,5 +1,6 @@
 module datapath(
   input wire i_oszClk,
+  input wire i_asyncRamSpecialClock,
   // 1 is closed, 0 is open
   input wire i_btnStep,
   input wire i_swInstrNCycle,
@@ -131,6 +132,7 @@ regset inst_regset(
 
 memory_bd inst_memory (
   .i_clk(clk),
+  .i_asyncRamSpecialClock(i_asyncRamSpecialClock),
   .i_reset(~resetn),
 
   .i_bus(s_bus),
@@ -148,8 +150,8 @@ memory_bd inst_memory (
   .i_ctrlMemPCToRamN(ctrlMemPCToRamN),
   .i_ctrlRamNOE(ctrlMemRamNOE),
   .i_ctrlRamNWE(ctrlMemRamNWE),
-  .i_ctrlSpNEn(ctrlMemSpNEn),
-  .i_ctrlSpUp(ctrlMemSpUp),
+  .i_ctrlSpNEn(ctrlMemSPNEn),
+  .i_ctrlSpUp(ctrlMemSPUp),
 
   .i_breakpointAddress(i_breakpointAddress),
   .o_breakpointHitN(breakpointHitN),

@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"1.5",
-   "Default View_TopLeft":"-753,-303",
+   "Default View_TopLeft":"-753,-289",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
 #  -string -flagsOSRD
@@ -44,12 +44,15 @@ preplace netloc control_0_o_ctrlAluOp 1 1 2 NJ -160 510
 preplace netloc control_0_o_ctrlAluSub 1 1 2 NJ -140 500
 preplace netloc control_0_o_ctrlAluYNWE 1 1 2 NJ -120 490
 preplace netloc control_0_o_ctrlInstrFinishedN 1 1 2 230J 290 NJ
+preplace netloc control_0_o_ctrlMemInstrImmToRamAddr 1 1 2 NJ 200 NJ
 preplace netloc control_0_o_ctrlMemInstrNOE 1 1 2 NJ 140 N
 preplace netloc control_0_o_ctrlMemInstrNWE 1 1 2 NJ 120 N
 preplace netloc control_0_o_ctrlMemMar0NWE 1 1 2 NJ 160 N
 preplace netloc control_0_o_ctrlMemMar1NWE 1 1 2 NJ 180 N
+preplace netloc control_0_o_ctrlMemPCFromImm 1 1 2 NJ 60 NJ
 preplace netloc control_0_o_ctrlMemPCLoadN 1 1 2 NJ 20 510
 preplace netloc control_0_o_ctrlMemPCNEn 1 1 2 NJ 40 500J
+preplace netloc control_0_o_ctrlMemPCToRamN 1 1 2 NJ 260 NJ
 preplace netloc control_0_o_ctrlMemRamNOE 1 1 2 NJ 240 480
 preplace netloc control_0_o_ctrlMemRamNWE 1 1 2 NJ 220 490
 preplace netloc control_0_o_ctrlMemSPNEn 1 1 2 NJ 100 N
@@ -63,16 +66,13 @@ preplace netloc control_0_o_decodeAddr 1 1 1 240 -180n
 preplace netloc i_flagCarry_0_1 1 0 1 -360 0n
 preplace netloc i_flagNegative_0_1 1 0 1 NJ 70
 preplace netloc i_flagOverflow_0_1 1 0 1 -350 120n
+preplace netloc i_flagZero_0_1 1 0 1 N 90
 preplace netloc i_halt_0_1 1 0 1 N 50
 preplace netloc i_instrCode_0_1 1 0 1 -340J -20n
 preplace netloc i_nclk_1 1 0 2 -340J -240 250
 preplace netloc i_reset_0_1 1 0 1 -350J -10n
 preplace netloc instrDecode_douta 1 0 2 -340 410 N
 preplace netloc xlconstant_0_dout 1 1 1 250 430n
-preplace netloc control_0_o_ctrlMemInstrImmToRamAddr 1 1 2 NJ 200 NJ
-preplace netloc control_0_o_ctrlMemPCToRamN 1 1 2 NJ 260 NJ
-preplace netloc control_0_o_ctrlMemPCFromImm 1 1 2 NJ 60 NJ
-preplace netloc i_flagZero_0_1 1 0 1 N 90
 levelinfo -pg 1 -380 10 370 600
 pagesize -pg 1 -db -bbox -sgen -550 -390 880 620
 "

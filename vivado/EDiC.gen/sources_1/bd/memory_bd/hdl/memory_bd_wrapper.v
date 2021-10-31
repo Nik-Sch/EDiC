@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.1 (lin64) Build 3247384 Thu Jun 10 19:36:07 MDT 2021
-//Date        : Mon Oct 25 17:48:29 2021
+//Date        : Sun Oct 31 21:03:25 2021
 //Host        : niklasPC running 64-bit Manjaro Linux
 //Command     : generate_target memory_bd_wrapper.bd
 //Design      : memory_bd_wrapper
@@ -10,7 +10,8 @@
 `timescale 1 ps / 1 ps
 
 module memory_bd_wrapper
-   (i_breakpointAddress,
+   (i_asyncRamSpecialClock,
+    i_breakpointAddress,
     i_breakpointEnableN,
     i_bus,
     i_clk,
@@ -35,6 +36,7 @@ module memory_bd_wrapper
     o_ioNOE,
     o_ioNWE,
     o_ioSelect);
+  input i_asyncRamSpecialClock;
   input [15:0]i_breakpointAddress;
   input i_breakpointEnableN;
   input [7:0]i_bus;
@@ -61,6 +63,7 @@ module memory_bd_wrapper
   output o_ioNWE;
   output o_ioSelect;
 
+  wire i_asyncRamSpecialClock;
   wire [15:0]i_breakpointAddress;
   wire i_breakpointEnableN;
   wire [7:0]i_bus;
@@ -88,7 +91,8 @@ module memory_bd_wrapper
   wire o_ioSelect;
 
   memory_bd memory_bd_i
-       (.i_breakpointAddress(i_breakpointAddress),
+       (.i_asyncRamSpecialClock(i_asyncRamSpecialClock),
+        .i_breakpointAddress(i_breakpointAddress),
         .i_breakpointEnableN(i_breakpointEnableN),
         .i_bus(i_bus),
         .i_clk(i_clk),

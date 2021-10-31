@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.1 (lin64) Build 3247384 Thu Jun 10 19:36:07 MDT 2021
-//Date        : Mon Oct 25 17:48:29 2021
+//Date        : Sun Oct 31 18:00:02 2021
 //Host        : niklasPC running 64-bit Manjaro Linux
 //Command     : generate_target memory_bd.bd
 //Design      : memory_bd
@@ -11,7 +11,8 @@
 
 (* CORE_GENERATION_INFO = "memory_bd,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=memory_bd,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=4,numReposBlks=4,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "memory_bd.hwdef" *) 
 module memory_bd
-   (i_breakpointAddress,
+   (i_asyncRamSpecialClock,
+    i_breakpointAddress,
     i_breakpointEnableN,
     i_bus,
     i_clk,
@@ -36,6 +37,7 @@ module memory_bd
     o_ioNOE,
     o_ioNWE,
     o_ioSelect);
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.I_ASYNCRAMSPECIALCLOCK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.I_ASYNCRAMSPECIALCLOCK, CLK_DOMAIN memory_bd_clka_0, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input i_asyncRamSpecialClock;
   input [15:0]i_breakpointAddress;
   input i_breakpointEnableN;
   input [7:0]i_bus;
@@ -63,6 +65,7 @@ module memory_bd
   output o_ioSelect;
 
   wire Net;
+  wire clka_0_1;
   wire [15:0]i_breakpointAddress_0_1;
   wire i_breakpointEnableN_0_1;
   wire [7:0]i_bus_0_1;
@@ -97,6 +100,7 @@ module memory_bd
   wire [7:0]ram2_douta;
   wire [7:0]ram_douta;
 
+  assign clka_0_1 = i_asyncRamSpecialClock;
   assign i_breakpointAddress_0_1 = i_breakpointAddress[15:0];
   assign i_breakpointEnableN_0_1 = i_breakpointEnableN;
   assign i_bus_0_1 = i_bus[7:0];
@@ -124,7 +128,7 @@ module memory_bd
   assign o_ioSelect = memory_o_ioSelect;
   memory_bd_blk_mem_gen_0_1 instrRom
        (.addra(memory_0_o_romAddress),
-        .clka(i_clk_0_1),
+        .clka(clka_0_1),
         .douta(instrRom_douta));
   memory_bd_memory_0_0 memory
        (.i_breakpointAddress(i_breakpointAddress_0_1),
@@ -163,14 +167,14 @@ module memory_bd
         .o_romAddress(memory_0_o_romAddress));
   memory_bd_blk_mem_gen_0_0 ram
        (.addra(memory_0_o_ramAddress),
-        .clka(i_clk_0_1),
+        .clka(clka_0_1),
         .dina(memory_0_o_ramData),
         .douta(ram_douta),
         .ena(Net),
         .wea(memory_0_o_ramWE));
   memory_bd_ram_0 ram2
        (.addra(memory_0_o_ramAddress),
-        .clka(i_clk_0_1),
+        .clka(clka_0_1),
         .dina(memory_o_ram2Data),
         .douta(ram2_douta),
         .ena(Net),

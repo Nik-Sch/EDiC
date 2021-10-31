@@ -118,7 +118,7 @@ const instructions = [
             const label = labels.find(l => l.name === match[2]);
             let imm = false;
             if (typeof label === 'undefined') {
-                console.error(`Could not find label '${match[2]}'.`);
+                console.error(`Could not find label '${match[2]}' in ${labels.map(l => ` ${l.name} @ ${l.pos}`)}.`);
             }
             else {
                 imm = checkImmediate(label.pos.toString());
@@ -129,10 +129,10 @@ const instructions = [
     {
         regex: new RegExp(`\\s*call\\s+(${labelRegEx})\\s*`),
         result: match => {
-            const label = labels.find(l => l.name === match[2]);
+            const label = labels.find(l => l.name === match[1]);
             let imm = false;
             if (typeof label === 'undefined') {
-                console.error(`Could not find label '${match[2]}'.`);
+                console.error(`Could not find label '${match[1]}' in ${labels.map(l => ` ${l.name} @ ${l.pos}`)}.`);
             }
             else {
                 imm = checkImmediate(label.pos.toString());
@@ -142,7 +142,7 @@ const instructions = [
     },
     {
         regex: /\s*(return|ret)\s*/,
-        result: () => ({ instr: `10110000` })
+        result: () => ({ instr: `10110001` })
     },
 ];
 if (process_1.argv.length !== 4) {

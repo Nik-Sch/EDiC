@@ -164,6 +164,7 @@ proc create_root_design { parentCell } {
   # Create interface ports
 
   # Create ports
+  set i_asyncRamSpecialClock [ create_bd_port -dir I -type clk i_asyncRamSpecialClock ]
   set i_breakpointAddress [ create_bd_port -dir I -from 15 -to 0 i_breakpointAddress ]
   set i_breakpointEnableN [ create_bd_port -dir I i_breakpointEnableN ]
   set i_bus [ create_bd_port -dir I -from 7 -to 0 i_bus ]
@@ -263,10 +264,11 @@ proc create_root_design { parentCell } {
 
   # Create port connections
   connect_bd_net -net Net [get_bd_pins memory/o_ramCE] [get_bd_pins ram/ena] [get_bd_pins ram2/ena]
+  connect_bd_net -net clka_0_1 [get_bd_ports i_asyncRamSpecialClock] [get_bd_pins instrRom/clka] [get_bd_pins ram/clka] [get_bd_pins ram2/clka]
   connect_bd_net -net i_breakpointAddress_0_1 [get_bd_ports i_breakpointAddress] [get_bd_pins memory/i_breakpointAddress]
   connect_bd_net -net i_breakpointEnableN_0_1 [get_bd_ports i_breakpointEnableN] [get_bd_pins memory/i_breakpointEnableN]
   connect_bd_net -net i_bus_0_1 [get_bd_ports i_bus] [get_bd_pins memory/i_bus]
-  connect_bd_net -net i_clk_0_1 [get_bd_ports i_clk] [get_bd_pins instrRom/clka] [get_bd_pins memory/i_clk] [get_bd_pins ram/clka] [get_bd_pins ram2/clka]
+  connect_bd_net -net i_clk_0_1 [get_bd_ports i_clk] [get_bd_pins memory/i_clk]
   connect_bd_net -net i_ctrlInstrNOE_0_1 [get_bd_ports i_ctrlInstrNOE] [get_bd_pins memory/i_ctrlInstrNOE]
   connect_bd_net -net i_ctrlInstrNWE_0_1 [get_bd_ports i_ctrlInstrNWE] [get_bd_pins memory/i_ctrlInstrNWE]
   connect_bd_net -net i_ctrlMemInstrImmToRamAddr_0_1 [get_bd_ports i_ctrlMemInstrImmToRamAddr] [get_bd_pins memory/i_ctrlMemInstrImmToRamAddr]

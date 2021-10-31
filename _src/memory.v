@@ -102,7 +102,7 @@ transmitter inst_txMar1Select(
 transmitter inst_txSp(
   .a(r_sp),
   .b(o_ramAddress[15:8]),
-  .noe(i_ctrlMemInstrImmToRamAddr & s_selectStackMem)
+  .noe(~s_selectStackMem)
 );
 
 transmitter inst_txPc0Imm(
@@ -139,7 +139,7 @@ transmitter inst_txPc1Ram2(
 transmitter inst_txRam(
   .a(i_ramData),
   .b(o_bus),
-  .noe(i_ctrlRamNOE)
+  .noe(i_ctrlRamNOE | ~o_ramCE)
 );
 
 assign o_ramAddress[16] = s_selectStackMem;
@@ -155,10 +155,10 @@ always @(posedge i_clk) begin
   end
 
   if (!i_ctrlMemMar0NWE) begin
-    r_mar[7:0] <= i_bus;
+    r_mar[7:0] <= i_bus === 8'bzzzz_zzzz ? 8'hff : i_bus; // bus has a pull up
   end
   if (!i_ctrlMemMar1NWE) begin
-    r_mar[15:8] <= i_bus;
+    r_mar[15:8] <= i_bus === 8'bzzzz_zzzz ? 8'hff : i_bus; // bus has a pull up
   end
 
   if (!i_ctrlSpNEn) begin

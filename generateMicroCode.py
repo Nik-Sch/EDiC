@@ -87,11 +87,11 @@ class CsonParser:
         aluFlagBits[0] == '1', # (VS) [V == 1]
         aluFlagBits[0] == '0', # (VC) [V == 0]
         aluFlagBits[1] == '1' and aluFlagBits[2] == '0', # (HI) [C == 1 && Z == 0]
-        aluFlagBits[2] == '1' and aluFlagBits[2] == '1', # (LS) [C == 0 or Z == 1]
+        aluFlagBits[1] == '0' or aluFlagBits[2] == '1', # (LS) [C == 0 or Z == 1]
         aluFlagBits[0] == aluFlagBits[3], # (GE) [N and V the same]
         aluFlagBits[0] != aluFlagBits[3], # (LT) [N and V differ]
-        aluFlagBits[2] == '0' and aluFlagBits[0] == aluFlagBits[3], # (GT) [Z == 0, N and V the same]
-        aluFlagBits[2] == '1' and aluFlagBits[0] != aluFlagBits[3], # (LE) [Z == 1, N and V differ]
+        aluFlagBits[2] == '0' and aluFlagBits[0] == aluFlagBits[3], # (GT) [Z == 0 and N & V the same]
+        aluFlagBits[2] == '1' or aluFlagBits[0] != aluFlagBits[3], # (LE) [Z == 1 or N & V differ]
         False, # Never, not used
     ]
     return lut[instrBits]
@@ -105,22 +105,22 @@ class CsonParser:
         baseAddress = int(op, base=2)
         for aluBits in range(16):
           i = self.fetchLen
+          lastCycle = i + len(instr['cycles']) - 1
           for cycle in instr['cycles']:
             if self.flagConditionMet(instrBits, f"{aluBits:04b}"):
-              romData = self.cycleToRomData(cycle)
+              romData = self.cycleToRomData(cycle, instructionFinished=i == lastCycle)
             else:
-              romData = self.cycleToRomData()
+              romData = self.cycleToRomData(instructionFinished=i == lastCycle)
             self.setRom((aluBits << 11) + (baseAddress << 3) + i, romData, name)
             i += 1
-          # self.setRom((3 << 11) + (baseAddress << 3) + i, self.cycleToRomData(instructionFinished=True), name)
     else:
       for f in range(16):
         baseAddress = int(name, base=2)
         i = self.fetchLen
+        lastCycle = i + len(instr['cycles']) - 1
         for cycle in instr['cycles']:
-          self.setRom((f << 11) + (baseAddress << 3) + i, self.cycleToRomData(cycle), name)
+          self.setRom((f << 11) + (baseAddress << 3) + i, self.cycleToRomData(cycle, instructionFinished=i==lastCycle), name)
           i += 1
-        # self.setRom((3 << 11) + (baseAddress << 3) + i, self.cycleToRomData(instructionFinished=True), name)
 
   def setRom(self, address: int, data: int, name: str):
     if (address in self.rom):

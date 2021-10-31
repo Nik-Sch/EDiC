@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:07 MDT 2021
+# IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+# Start of session at: Sun Oct 31 18:02:05 2021
+# Process ID: 4116006
+# Current directory: /home/niklas/dev/EDiC/vivado/EDiC.runs/memory_bd_ram_0_synth_1
+# Command line: vivado -log memory_bd_ram_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source memory_bd_ram_0.tcl
+# Log file: /home/niklas/dev/EDiC/vivado/EDiC.runs/memory_bd_ram_0_synth_1/memory_bd_ram_0.vds
+# Journal file: /home/niklas/dev/EDiC/vivado/EDiC.runs/memory_bd_ram_0_synth_1/vivado.jou
+#-----------------------------------------------------------
+source memory_bd_ram_0.tcl -notrace
+INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP memory_bd_ram_0, cache-ID = e01e38380e3b024c.
+INFO: [Common 17-206] Exiting Vivado at Sun Oct 31 18:02:11 2021...

@@ -53,8 +53,8 @@ last three bits: aluOp + sub
     1010: (LS) Lower or same (unsigned <=) [C == 0 or Z == 1]
     1011: (GE) Signed >= [N and V the same]
     1100: (LT) Signed < [N and V differ]
-    1101: (GT) Signed > [Z == 0, N && V the same]
-    1110: (LE) Signed <= [Z == 1, N && V differ]
+    1101: (GT) Signed > [Z == 0 and N && V the same]
+    1110: (LE) Signed <= [Z == 1 or N && V differ]
 1011: call/ret
     0000: call
     0001: return

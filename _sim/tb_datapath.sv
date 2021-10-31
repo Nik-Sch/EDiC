@@ -2,7 +2,9 @@
 module tb_datapath;
 
 logic oszClk = 0;
+logic asyncRamSpecialClock = 0;
 always #(10/2) oszClk = ~oszClk;
+always #(10/4) asyncRamSpecialClock = ~asyncRamSpecialClock;
 
 logic btnStep = 0;
 logic swInstrNCycle = 0;
@@ -12,6 +14,7 @@ logic btnReset = 0;
 
 datapath inst_datapath(
   .i_oszClk(oszClk),
+  .i_asyncRamSpecialClock(asyncRamSpecialClock),
 
   // 1 is closed, 0 is open
   .i_btnStep(btnStep),

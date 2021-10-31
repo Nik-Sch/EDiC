@@ -7,5 +7,6 @@
 # of Vivado)
 ################################################################################
 create_clock -name i_clk -period 10 [get_ports i_clk]
+create_clock -name i_asyncRamSpecialClock -period 10 [get_ports i_asyncRamSpecialClock]
 
 ################################################################################
