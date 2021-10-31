@@ -16,7 +16,7 @@ It will get a real clock, one big multilayer PCB and stack pointer, 16bit ram/ro
 - I debugged a lot of tiny bugs todo with writeEnable and especially clockEnable signals
 - Mounted all PCBs to look nice
 
-![image](https://github.com/Nik-Sch/MEDiC/raw/main/doc/update20210121.jpg)
+![image](https://github.com/Nik-Sch/EDiC/raw/main/doc/update20210121.jpg)
 
 ## Update 15.01.2021
 <details><summary>First program got executed!</summary>
@@ -24,7 +24,7 @@ It will get a real clock, one big multilayer PCB and stack pointer, 16bit ram/ro
   - I finished building everything and after about a week of endless debugging bugfixing the first program ran correctly.
   - The gif below shows how the CPU executes 6² and outputs the result which is shown in hexadecimal (6²=36=0x24).
   
-  ![image](https://github.com/Nik-Sch/MEDiC/raw/main/doc/update20210115.gif)
+  ![image](https://github.com/Nik-Sch/EDiC/raw/main/doc/update20210115.gif)
 </details>
 
 ## Update 22.12.2020
@@ -34,7 +34,7 @@ It will get a real clock, one big multilayer PCB and stack pointer, 16bit ram/ro
   - The ALU + regset + SRAM is fully functional with some debugging effort like pulling up all connections to the 5V CMOS SRAM which has an higher voltage requirement for high level inputs.
   - Half of the control logic has wires and I decided to swap the two control boards for better interconnection.
   
-  ![image](https://github.com/Nik-Sch/MEDiC/raw/main/doc/update20201222.jpg)
+  ![image](https://github.com/Nik-Sch/EDiC/raw/main/doc/update20201222.jpg)
 </details>
 
 ## Update 13.12.2020
@@ -50,6 +50,6 @@ It will get a real clock, one big multilayer PCB and stack pointer, 16bit ram/ro
   The right board includes a 4bit step register for the multicycle control + incrementor (4bit half adder) + logic for external control signals like the halt signal.
   - The orange boards finally include the program counter + incrementor + Tristate Transceiver and load from bus MUX.
   
-  ![image](https://github.com/Nik-Sch/MEDiC/raw/main/doc/update20201213.jpg)
+  ![image](https://github.com/Nik-Sch/EDiC/raw/main/doc/update20201213.jpg)
 </details>
 
