@@ -10,7 +10,7 @@ module io(
   input wire i_ioNWE
 );
 
-wire[7:0] s_input = 8'h06;
+wire[7:0] s_input = 42;
 reg[7:0] r_output = 0;
 
 transmitter inst_tx(

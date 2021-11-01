@@ -207,7 +207,7 @@ instructions: [
 
   # memory ops & io
   {
-    op: '010100rs' # r = [s] (ldr)
+    op: '010000rs' # r = [s] (ldr)
     cycles: [
       { # s to mar0
         reg0BusNOE: 's'
@@ -238,7 +238,28 @@ instructions: [
     ]
   }
   {
-    op: '010101rs' # [s] = r (str)
+    op: '1111010r' # r = [imm] (ldr) incremented sp
+    cycles: [
+      { # increment sp
+        memSPUp: 1
+        memSPNEn: 0
+      }
+      { # immediate -> ram
+        memInstrImmToRamAddr: 1
+      }
+      { # ram to r
+        memRamNOE: 0
+        reg0NWE: 'r'
+        reg1NWE: '!r'
+      }
+      { # decrement sp
+        memSPUp: 0
+        memSPNEn: 0
+      }
+    ]
+  }
+  {
+    op: '010001rs' # [s] = r (str)
     cycles: [
       { # s to mar0
         reg0BusNOE: 's'
@@ -265,7 +286,26 @@ instructions: [
     ]
   }
   {
-    op: '010110rs' # r = s
+    op: '1111011r' # [imm] = r (str) incremented sp
+    cycles: [
+      { # increment sp
+        memSPUp: 1
+        memSPNEn: 0
+      }
+      { # r into ram
+        reg0BusNOE: 'r'
+        reg1BusNOE: '!r'
+        memInstrImmToRamAddr: 1
+        memRamNWE: 0
+      }
+      { # decrement sp
+        memSPUp: 0
+        memSPNEn: 0
+      }
+    ]
+  }
+  {
+    op: '010010rs' # r = s
     cycles: [
       { # s to bus to r
         reg0NWE: 'r'
@@ -276,7 +316,7 @@ instructions: [
     ]
   }
   {
-    op: '1111010r' # r = imm
+    op: '1111100r' # r = imm
     cycles: [
       { # imm to bus to r
         reg0NWE: 'r'

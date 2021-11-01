@@ -30,7 +30,7 @@
 !*.s
 !schematic/**/*
 !doc/*
-!compiler.js/*
+!assembler.js/*
 #########
 #IP files
 #########

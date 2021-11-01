@@ -1,6 +1,6 @@
 {
   "extends": "@tsconfig/node12/tsconfig.json",
   "files": [
-    "compiler.ts"
+    "assembler.ts"
   ]
 }
