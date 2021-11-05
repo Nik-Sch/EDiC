@@ -8,52 +8,73 @@ module datapath(
   input wire i_swEnableBreakpoint,
   input wire i_btnReset,
 
+  output wire [7:0] o_cathodes, // dot + gfedcba
+  output wire [7:0] o_anodes,
+  input wire [7:0] i_switches,
+
   input wire [15:0] i_breakpointAddress
 );
-  wire flagZero;
-  wire flagNegative;
-  wire flagCarry;
-  wire flagOverflow;
 
-  wire [7:0] s_instrCode;
-  wire [7:0] s_bus;
-  wire [7:0] s_alu;
+wire flagZero;
+wire flagNegative;
+wire flagCarry;
+wire flagOverflow;
 
-  wire [1:0] ctrlAluOp;
-  wire ctrlAluSub;
-  wire ctrlAluYNWE;
-  wire ctrlAluNOE;
-  wire ctrlReg0NWE;
-  wire ctrlReg1NWE;
-  wire ctrlRegAluSel;
-  wire ctrlReg0BusNOE;
-  wire ctrlReg1BusNOE;
-  wire ctrlMemPCLoadN;
-  wire ctrlMemSPUp;
-  wire ctrlMemSPNEn;
-  wire ctrlMemInstrNWE;
-  wire ctrlMemInstrNOE;
-  wire ctrlMemMar0NWE;
-  wire ctrlMemMar1NWE;
-  wire ctrlMemInstrImmToRamAddr;
-  wire ctrlMemRamNWE;
-  wire ctrlMemRamNOE;
-  wire ctrlMemPCNEn;
-  wire ctrlMemPCFromImm;
-  wire ctrlMemPCToRamN;
-  wire ctrlInstrFinishedN;
+wire [7:0] s_instrCode;
+wire [7:0] s_bus;
+wire [7:0] s_busAlu;
+wire [7:0] s_busRegset;
+wire [7:0] s_busMemory;
+wire [7:0] s_busIO;
+wire s_busNOEAlu;
+wire s_busNOERegset;
+wire s_busNOEMemory;
+wire s_busNOEIO;
+wire [7:0] s_alu;
 
-  wire clk;
-  wire clkn;
-  wire resetn;
-  wire breakpointHitN;
-  wire breakpointEnableN;
-  wire halt;
+wire [1:0] ctrlAluOp;
+wire ctrlAluSub;
+wire ctrlAluYNWE;
+wire ctrlAluNOE;
+wire ctrlReg0NWE;
+wire ctrlReg1NWE;
+wire ctrlRegAluSel;
+wire ctrlReg0BusNOE;
+wire ctrlReg1BusNOE;
+wire ctrlMemPCLoadN;
+wire ctrlMemSPUp;
+wire ctrlMemSPNEn;
+wire ctrlMemInstrNWE;
+wire ctrlMemInstrNOE;
+wire ctrlMemMar0NWE;
+wire ctrlMemMar1NWE;
+wire ctrlMemInstrImmToRamAddr;
+wire ctrlMemRamNWE;
+wire ctrlMemRamNOE;
+wire ctrlMemPCNEn;
+wire ctrlMemPCFromImm;
+wire ctrlMemPCToRamN;
+wire ctrlInstrFinishedN;
 
-  wire ioSelect;
-  wire [7:0] ioAddress;
-  wire ioNOE;
-  wire ioNWE;
+wire clk;
+wire clkn;
+wire resetn;
+wire breakpointHitN;
+wire breakpointEnableN;
+wire halt;
+
+wire ioSelect;
+wire [7:0] ioAddress;
+wire ioNOE;
+wire ioNWE;
+
+tristatenet #(
+  .INPUT_COUNT(4)
+)inst_triBus (
+  .i_data({s_busAlu, s_busRegset, s_busMemory, s_busIO}),
+  .i_noe({s_busNOEAlu, s_busNOERegset, s_busNOEMemory, s_busNOEIO}),
+  .o_data(s_bus)
+);
 
 control_bd control_bd_i (
   .i_nclk(clkn),
@@ -102,7 +123,8 @@ alu inst_alu(
 
   .i_a(s_alu),
   .i_bus(s_bus),
-  .o_bus(s_bus),
+  .o_bus(s_busAlu),
+  .o_busNOE(s_busNOEAlu),
   .i_ctrlAluYNWE(ctrlAluYNWE),
   .i_ctrlAluNOE(ctrlAluNOE),
   .i_ctrlAluSub(ctrlAluSub),
@@ -119,7 +141,8 @@ regset inst_regset(
   .i_reset(~resetn),
 
   .i_bus(s_bus),
-  .o_bus(s_bus),
+  .o_bus(s_busRegset),
+  .o_busNOE(s_busNOERegset),
 
   .o_alu(s_alu),
 
@@ -136,7 +159,8 @@ memory_bd inst_memory (
   .i_reset(~resetn),
 
   .i_bus(s_bus),
-  .o_bus(s_bus),
+  .o_bus(s_busMemory),
+  .o_busNOE(s_busNOEMemory),
   .o_instrCode(s_instrCode),
 
   .i_ctrlInstrNOE(ctrlMemInstrNOE),
@@ -184,12 +208,17 @@ clock inst_clock (
 
 io inst_io (
   .i_clk(clk),
+  .i_resetn(resetn),
   .i_bus(s_bus),
-  .o_bus(s_bus),
+  .o_bus(s_busIO),
+  .o_busNOE(s_busNOEIO),
   .i_ioSelect(ioSelect),
   .i_ioAddress(ioAddress),
   .i_ioNOE(ioNOE),
-  .i_ioNWE(ioNWE)
+  .i_ioNWE(ioNWE),
+  .o_cathodes(o_cathodes),
+  .o_anodes(o_anodes),
+  .i_switches(i_switches)
 );
 
 endmodule

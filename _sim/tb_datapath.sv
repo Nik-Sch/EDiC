@@ -12,6 +12,10 @@ logic swStepNRun = 0;
 logic swEnableBreakpoint = 1;
 logic btnReset = 0;
 
+logic[7:0] cathodes;
+logic[7:0] anodes;
+logic[7:0] switches = 42;
+
 datapath inst_datapath(
   .i_oszClk(oszClk),
   .i_asyncRamSpecialClock(asyncRamSpecialClock),
@@ -22,7 +26,11 @@ datapath inst_datapath(
   .i_swStepNRun(swStepNRun),
   .i_swEnableBreakpoint(swEnableBreakpoint),
   .i_btnReset(btnReset),
-  .i_breakpointAddress(16'hff)
+  .i_breakpointAddress(16'hff),
+
+  .o_cathodes(cathodes),
+  .o_anodes(anodes),
+  .i_switches(switches)
 );
 
 endmodule

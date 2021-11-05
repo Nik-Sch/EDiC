@@ -4,6 +4,7 @@ module regset(
 
   input wire [7:0] i_bus,
   output wire [7:0] o_bus,
+  output wire o_busNOE,
 
   output wire[7:0] o_alu,
 
@@ -19,16 +20,14 @@ reg[7:0] r_1;
 
 assign o_alu = i_ctrlAluSel ? r_1 : r_0;
 
-transmitter inst_tx0(
-  .a(r_0),
-  .b(o_bus),
-  .noe(i_ctrlReg0BusNOE)
-);
 
-transmitter inst_tx1(
-  .a(r_1),
-  .b(o_bus),
-  .noe(i_ctrlReg1BusNOE)
+tristatenet #(
+  .INPUT_COUNT(2)
+) inst_triBus (
+  .i_data({r_0, r_1}),
+  .i_noe({i_ctrlReg0BusNOE, i_ctrlReg1BusNOE}),
+  .o_data(o_bus),
+  .o_noe(o_busNOE)
 );
 
 always @(posedge i_clk) begin

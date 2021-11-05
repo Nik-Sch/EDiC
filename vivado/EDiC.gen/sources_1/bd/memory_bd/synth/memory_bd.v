@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.1 (lin64) Build 3247384 Thu Jun 10 19:36:07 MDT 2021
-//Date        : Mon Nov  1 11:23:37 2021
+//Date        : Fri Nov  5 16:38:31 2021
 //Host        : niklasPC running 64-bit Manjaro Linux
 //Command     : generate_target memory_bd.bd
 //Design      : memory_bd
@@ -32,6 +32,7 @@ module memory_bd
     i_reset,
     o_breakpointHitN,
     o_bus,
+    o_busNOE,
     o_instrCode,
     o_ioAddress,
     o_ioNOE,
@@ -58,6 +59,7 @@ module memory_bd
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.I_RESET RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.I_RESET, INSERT_VIP 0, POLARITY ACTIVE_LOW" *) input i_reset;
   output o_breakpointHitN;
   output [7:0]o_bus;
+  output o_busNOE;
   output [7:0]o_instrCode;
   output [7:0]o_ioAddress;
   output o_ioNOE;
@@ -92,6 +94,7 @@ module memory_bd
   wire [14:0]memory_0_o_romAddress;
   wire memory_o_breakpointHitN;
   wire [7:0]memory_o_bus;
+  wire memory_o_busNOE;
   wire [7:0]memory_o_ioAddress;
   wire memory_o_ioNOE;
   wire memory_o_ioNWE;
@@ -121,6 +124,7 @@ module memory_bd
   assign i_reset_0_1 = i_reset;
   assign o_breakpointHitN = memory_o_breakpointHitN;
   assign o_bus[7:0] = memory_o_bus;
+  assign o_busNOE = memory_o_busNOE;
   assign o_instrCode[7:0] = memory_0_o_instrCode;
   assign o_ioAddress[7:0] = memory_o_ioAddress;
   assign o_ioNOE = memory_o_ioNOE;
@@ -154,6 +158,7 @@ module memory_bd
         .i_romData(instrRom_douta),
         .o_breakpointHitN(memory_o_breakpointHitN),
         .o_bus(memory_o_bus),
+        .o_busNOE(memory_o_busNOE),
         .o_instrCode(memory_0_o_instrCode),
         .o_ioAddress(memory_o_ioAddress),
         .o_ioNOE(memory_o_ioNOE),

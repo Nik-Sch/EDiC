@@ -4,6 +4,7 @@ module memory(
 
   input wire [7:0] i_bus,
   output wire [7:0] o_bus,
+  output wire o_busNOE,
 
   output reg [7:0] o_instrCode,
 
@@ -50,6 +51,7 @@ wire s_selectStackMem;
 wire [7:0] s_select;
 wire [15:0] s_pcIn;
 
+
 assign o_breakpointHitN = (!i_breakpointEnableN) && (r_pc == i_breakpointAddress);
 
 assign o_romAddress = r_pc[14:0];
@@ -64,88 +66,65 @@ assign o_ioNOE = i_ctrlRamNOE;
 assign o_ioNWE = i_ctrlRamNWE;
 
 
-transmitter inst_txInstrImm(
-  .a(r_instrImm[7:0]),
-  .b(o_bus),
-  .noe(i_ctrlInstrNOE)
-);
-transmitter inst_txInstrImm0(
-  .a(r_instrImm[7:0]),
-  .b(o_ramAddress[7:0]),
-  .noe(~i_ctrlMemInstrImmToRamAddr)
-);
-transmitter inst_txInstrImm1Ram(
-  .a(r_instrImm[15:8]),
-  .b(o_ramAddress[15:8]),
-  .noe(~(i_ctrlMemInstrImmToRamAddr & (~s_selectStackMem)))
-);
-transmitter inst_txInstrImm1Select(
-  .a(r_instrImm[15:8]),
-  .b(s_select),
-  .noe(~i_ctrlMemInstrImmToRamAddr)
-);
-transmitter inst_txMar0(
-  .a(r_mar[7:0]),
-  .b(o_ramAddress[7:0]),
-  .noe(i_ctrlMemInstrImmToRamAddr)
-);
-transmitter inst_txMar1Ram(
-  .a(r_mar[15:8]),
-  .b(o_ramAddress[15:8]),
-  .noe(~((~i_ctrlMemInstrImmToRamAddr) & (~s_selectStackMem)))
-);
-transmitter inst_txMar1Select(
-  .a(r_mar[15:8]),
-  .b(s_select),
-  .noe(i_ctrlMemInstrImmToRamAddr)
-);
-transmitter inst_txSp(
-  .a(r_sp),
-  .b(o_ramAddress[15:8]),
-  .noe(~s_selectStackMem)
+tristatenet #(
+  .INPUT_COUNT(3)
+) inst_triBus (
+  .i_data({r_instrImm[7:0], r_pc[7:0], i_ramData}),
+  .i_noe({i_ctrlInstrNOE, i_ctrlMemPCToRamN, i_ctrlRamNOE | ~o_ramCE}),
+  .o_data(o_bus),
+  .o_noe(o_busNOE)
 );
 
-transmitter inst_txPc0Imm(
-  .a(r_instrImm[7:0]),
-  .b(s_pcIn[7:0]),
-  .noe(~i_ctrlPCFromImm)
-);
-transmitter inst_txPc0Bus(
-  .a(i_bus),
-  .b(s_pcIn[7:0]),
-  .noe(i_ctrlPCFromImm)
-);
-transmitter inst_txPc0bus(
-  .a(r_pc[7:0]),
-  .b(o_bus),
-  .noe(i_ctrlMemPCToRamN)
-);
-transmitter inst_txPc1Imm(
-  .a(r_instrImm[15:8]),
-  .b(s_pcIn[15:8]),
-  .noe(~i_ctrlPCFromImm)
-);
-transmitter inst_txPc1Bus(
-  .a(i_ram2Data),
-  .b(s_pcIn[15:8]),
-  .noe(i_ctrlPCFromImm)
-);
-transmitter inst_txPc1Ram2(
-  .a(r_pc[15:8]),
-  .b(o_ram2Data),
-  .noe(i_ctrlMemPCToRamN)
+tristatenet #(
+  .INPUT_COUNT(2)
+) inst_triRamAddressLow (
+  .i_data({r_instrImm[7:0], r_mar[7:0]}),
+  .i_noe({~i_ctrlMemInstrImmToRamAddr, i_ctrlMemInstrImmToRamAddr}),
+  .o_data(o_ramAddress[7:0])
 );
 
-transmitter inst_txRam(
-  .a(i_ramData),
-  .b(o_bus),
-  .noe(i_ctrlRamNOE | ~o_ramCE)
+wire s_marHighNOE;
+wire s_instrImmHighNOE;
+assign s_marHighNOE = ~((~i_ctrlMemInstrImmToRamAddr) & (~s_selectStackMem));
+assign s_instrImmHighNOE = ~(i_ctrlMemInstrImmToRamAddr & (~s_selectStackMem));
+tristatenet #(
+  .INPUT_COUNT(3)
+) inst_triRamAddressHigh (
+  .i_data({r_instrImm[15:8], r_mar[15:8], r_sp}),
+  .i_noe({s_instrImmHighNOE, s_marHighNOE, ~s_selectStackMem}),
+  .o_data(o_ramAddress[15:8])
 );
+
+tristatenet #(
+  .INPUT_COUNT(2)
+) inst_triSelect (
+  .i_data({r_instrImm[15:8], r_mar[15:8]}),
+  .i_noe({~i_ctrlMemInstrImmToRamAddr, i_ctrlMemInstrImmToRamAddr}),
+  .o_data(s_select)
+);
+
+tristatenet #(
+  .INPUT_COUNT(2)
+) inst_triPcInLow (
+  .i_data({r_instrImm[7:0], i_bus}),
+  .i_noe({~i_ctrlPCFromImm, i_ctrlPCFromImm}),
+  .o_data(s_pcIn[7:0])
+);
+
+tristatenet #(
+  .INPUT_COUNT(2)
+) inst_triPcInHigh (
+  .i_data({r_instrImm[15:8], i_ram2Data}),
+  .i_noe({~i_ctrlPCFromImm, i_ctrlPCFromImm}),
+  .o_data(s_pcIn[15:8])
+);
+
+assign o_ram2Data = r_pc[15:8];
 
 assign o_ramAddress[16] = s_selectStackMem;
 
 always @(posedge i_clk) begin
-  
+
   if (!i_ctrlPCNEn) begin
     if (i_ctrlPCLoadN) begin // increment
       r_pc <= r_pc + 1;

@@ -59,6 +59,7 @@ module memory_bd_memory_0_0 (
   i_reset,
   i_bus,
   o_bus,
+  o_busNOE,
   o_instrCode,
   i_ctrlPCLoadN,
   i_ctrlPCNEn,
@@ -99,6 +100,7 @@ input wire i_clk;
 input wire i_reset;
 input wire [7 : 0] i_bus;
 output wire [7 : 0] o_bus;
+output wire o_busNOE;
 output wire [7 : 0] o_instrCode;
 input wire i_ctrlPCLoadN;
 input wire i_ctrlPCNEn;
@@ -135,6 +137,7 @@ output wire o_breakpointHitN;
     .i_reset(i_reset),
     .i_bus(i_bus),
     .o_bus(o_bus),
+    .o_busNOE(o_busNOE),
     .o_instrCode(o_instrCode),
     .i_ctrlPCLoadN(i_ctrlPCLoadN),
     .i_ctrlPCNEn(i_ctrlPCNEn),

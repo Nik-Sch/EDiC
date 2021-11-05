@@ -6,6 +6,7 @@ module alu(
   input wire[7:0] i_a,
   input wire [7:0] i_bus,
   output wire [7:0] o_bus,
+  output wire o_busNOE,
 
   output reg o_flagNegative,
   output reg o_flagZero,
@@ -48,11 +49,8 @@ always @(posedge i_clk) begin
   end
 end
 
-transmitter inst_tx(
-  .a(r_y),
-  .b(o_bus),
-  .noe(i_ctrlAluNOE)
-);
+assign o_bus = r_y;
+assign o_busNOE = i_ctrlAluNOE;
 
 genvar i;
 for (i = 0; i < 8; i=i+1) begin

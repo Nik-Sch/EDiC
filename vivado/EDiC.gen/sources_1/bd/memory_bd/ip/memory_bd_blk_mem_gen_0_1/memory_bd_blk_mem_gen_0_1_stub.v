@@ -1,13 +1,13 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.1 (lin64) Build 3247384 Thu Jun 10 19:36:07 MDT 2021
-// Date        : Sun Oct 31 18:02:04 2021
+// Date        : Fri Nov  5 14:23:56 2021
 // Host        : niklasPC running 64-bit Manjaro Linux
 // Command     : write_verilog -force -mode synth_stub
 //               /home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/bd/memory_bd/ip/memory_bd_blk_mem_gen_0_1/memory_bd_blk_mem_gen_0_1_stub.v
 // Design      : memory_bd_blk_mem_gen_0_1
 // Purpose     : Stub declaration of top-level module interface
-// Device      : xc7a100tcsg324-3
+// Device      : xc7a100tcsg324-1
 // --------------------------------------------------------------------------------
 
 // This empty module with port declaration file causes synthesis tools to infer a black box for IP.

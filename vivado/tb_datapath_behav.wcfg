@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="355.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="547.201 ns"></ZoomEndTime>
-      <Cursor1Time time="1,000.000 ns"></Cursor1Time>
+      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
+      <ZoomEndTime time="111.000001 us"></ZoomEndTime>
+      <Cursor1Time time="101.000000 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="404"></NameColumnWidth>
-      <ValueColumnWidth column_width="142"></ValueColumnWidth>
+      <ValueColumnWidth column_width="136"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="9" />
+   <WVObjectSize size="12" />
    <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_memory/memory/inst/i_clk">
       <obj_property name="ElementShortName">i_clk</obj_property>
       <obj_property name="ObjectShortName">i_clk</obj_property>
@@ -56,5 +56,18 @@
    <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_memory/memory/inst/r_mar">
       <obj_property name="ElementShortName">r_mar[15:0]</obj_property>
       <obj_property name="ObjectShortName">r_mar[15:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_datapath/cathodes">
+      <obj_property name="ElementShortName">cathodes[7:0]</obj_property>
+      <obj_property name="ObjectShortName">cathodes[7:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_datapath/anodes">
+      <obj_property name="ElementShortName">anodes[7:0]</obj_property>
+      <obj_property name="ObjectShortName">anodes[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_io/inst_7seg/s_bits">
+      <obj_property name="ElementShortName">s_bits[3:0]</obj_property>
+      <obj_property name="ObjectShortName">s_bits[3:0]</obj_property>
    </wvobject>
 </wave_config>

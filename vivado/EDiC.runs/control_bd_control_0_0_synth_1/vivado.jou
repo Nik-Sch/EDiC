@@ -2,11 +2,11 @@
 # Vivado v2021.1 (64-bit)
 # SW Build 3247384 on Thu Jun 10 19:36:07 MDT 2021
 # IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
-# Start of session at: Mon Oct 25 18:15:23 2021
-# Process ID: 1923277
-# Current directory: /home/niklas/dev/MEDiC/vivado/MEDiC.runs/control_bd_control_0_0_synth_1
+# Start of session at: Fri Nov  5 14:25:33 2021
+# Process ID: 2453533
+# Current directory: /home/niklas/dev/EDiC/vivado/EDiC.runs/control_bd_control_0_0_synth_1
 # Command line: vivado -log control_bd_control_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source control_bd_control_0_0.tcl
-# Log file: /home/niklas/dev/MEDiC/vivado/MEDiC.runs/control_bd_control_0_0_synth_1/control_bd_control_0_0.vds
-# Journal file: /home/niklas/dev/MEDiC/vivado/MEDiC.runs/control_bd_control_0_0_synth_1/vivado.jou
+# Log file: /home/niklas/dev/EDiC/vivado/EDiC.runs/control_bd_control_0_0_synth_1/control_bd_control_0_0.vds
+# Journal file: /home/niklas/dev/EDiC/vivado/EDiC.runs/control_bd_control_0_0_synth_1/vivado.jou
 #-----------------------------------------------------------
 source control_bd_control_0_0.tcl -notrace

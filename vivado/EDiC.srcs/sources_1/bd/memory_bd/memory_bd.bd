@@ -1,8 +1,8 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xC5055C8D80DF0455",
-      "device": "xc7a100tcsg324-3",
+      "boundary_crc": "0x4D8E55E5492C493C",
+      "device": "xc7a100tcsg324-1",
       "gen_directory": "../../../../EDiC.gen/sources_1/bd/memory_bd",
       "name": "memory_bd",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
@@ -165,6 +165,9 @@
             "value_src": "default"
           }
         }
+      },
+      "o_busNOE": {
+        "direction": "O"
       }
     },
     "components": {
@@ -323,6 +326,9 @@
             "direction": "O",
             "left": "7",
             "right": "0"
+          },
+          "o_busNOE": {
+            "direction": "O"
           },
           "o_instrCode": {
             "direction": "O",
@@ -609,6 +615,12 @@
         "ports": [
           "memory/o_bus",
           "o_bus"
+        ]
+      },
+      "memory_o_busNOE": {
+        "ports": [
+          "memory/o_busNOE",
+          "o_busNOE"
         ]
       },
       "memory_o_ioAddress": {

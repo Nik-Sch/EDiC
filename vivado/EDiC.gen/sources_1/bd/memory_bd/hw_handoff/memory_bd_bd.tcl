@@ -50,7 +50,8 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 
 set list_projs [get_projects -quiet]
 if { $list_projs eq "" } {
-   create_project project_1 myproj -part xc7a100tcsg324-3
+   create_project project_1 myproj -part xc7a100tcsg324-1
+   set_property BOARD_PART digilentinc.com:nexys-a7-100t:part0:1.0 [current_project]
 }
 
 
@@ -185,6 +186,7 @@ proc create_root_design { parentCell } {
   set i_reset [ create_bd_port -dir I -type rst i_reset ]
   set o_breakpointHitN [ create_bd_port -dir O o_breakpointHitN ]
   set o_bus [ create_bd_port -dir O -from 7 -to 0 o_bus ]
+  set o_busNOE [ create_bd_port -dir O o_busNOE ]
   set o_instrCode [ create_bd_port -dir O -from 7 -to 0 o_instrCode ]
   set o_ioAddress [ create_bd_port -dir O -from 7 -to 0 o_ioAddress ]
   set o_ioNOE [ create_bd_port -dir O o_ioNOE ]
@@ -291,6 +293,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net memory_0_o_romAddress [get_bd_pins instrRom/addra] [get_bd_pins memory/o_romAddress]
   connect_bd_net -net memory_o_breakpointHitN [get_bd_ports o_breakpointHitN] [get_bd_pins memory/o_breakpointHitN]
   connect_bd_net -net memory_o_bus [get_bd_ports o_bus] [get_bd_pins memory/o_bus]
+  connect_bd_net -net memory_o_busNOE [get_bd_ports o_busNOE] [get_bd_pins memory/o_busNOE]
   connect_bd_net -net memory_o_ioAddress [get_bd_ports o_ioAddress] [get_bd_pins memory/o_ioAddress]
   connect_bd_net -net memory_o_ioNOE [get_bd_ports o_ioNOE] [get_bd_pins memory/o_ioNOE]
   connect_bd_net -net memory_o_ioNWE [get_bd_ports o_ioNWE] [get_bd_pins memory/o_ioNWE]
