@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"1.5",
-   "Default View_TopLeft":"-753,-289",
+   "Default View_TopLeft":"-755,-289",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
 #  -string -flagsOSRD
@@ -37,8 +37,8 @@ preplace port port-id_i_flagZero -pg 1 -lvl 0 -x -380 -y 90 -defaultsOSRD
 preplace portBus i_instrCode -pg 1 -lvl 0 -x -380 -y -20 -defaultsOSRD
 preplace portBus o_ctrlAluOp -pg 1 -lvl 3 -x 600 -y -140 -defaultsOSRD
 preplace inst control_0 -pg 1 -lvl 1 -x 10 -y 50 -defaultsOSRD
-preplace inst instrDecode -pg 1 -lvl 2 -x 370 -y 390 -defaultsOSRD
 preplace inst xlconstant_0 -pg 1 -lvl 1 -x 10 -y 470 -defaultsOSRD
+preplace inst instrDecode -pg 1 -lvl 2 -x 370 -y 390 -defaultsOSRD
 preplace netloc control_0_o_ctrlAluNOE 1 1 2 NJ -100 480
 preplace netloc control_0_o_ctrlAluOp 1 1 2 NJ -160 510
 preplace netloc control_0_o_ctrlAluSub 1 1 2 NJ -140 500

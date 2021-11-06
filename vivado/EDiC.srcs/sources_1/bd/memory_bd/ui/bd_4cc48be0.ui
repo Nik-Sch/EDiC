@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"1.5",
-   "Default View_TopLeft":"-769,-550",
+   "Default View_TopLeft":"-771,-551",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
 #  -string -flagsOSRD
@@ -32,10 +32,10 @@ preplace portBus i_bus -pg 1 -lvl 0 -x -320 -y -450 -defaultsOSRD
 preplace portBus o_bus -pg 1 -lvl 3 -x 710 -y -460 -defaultsOSRD
 preplace portBus i_breakpointAddress -pg 1 -lvl 0 -x -320 -y -120 -defaultsOSRD
 preplace portBus o_ioAddress -pg 1 -lvl 3 -x 710 -y 70 -defaultsOSRD
+preplace inst memory -pg 1 -lvl 1 -x 100 -y 10 -defaultsOSRD
 preplace inst ram -pg 1 -lvl 2 -x 550 -y -360 -defaultsOSRD
 preplace inst instrRom -pg 1 -lvl 2 -x 550 -y 50 -defaultsOSRD
 preplace inst ram2 -pg 1 -lvl 2 -x 550 -y -140 -defaultsOSRD
-preplace inst memory -pg 1 -lvl 1 -x 100 -y 10 -defaultsOSRD
 preplace netloc Net 1 1 1 380 -320n
 preplace netloc clka_0_1 1 0 2 NJ -380 440J
 preplace netloc i_breakpointAddress_0_1 1 0 1 -300J -120n
@@ -64,6 +64,7 @@ preplace netloc memory_0_o_ramWE 1 1 1 410 -300n
 preplace netloc memory_0_o_romAddress 1 1 1 390 -60n
 preplace netloc memory_o_breakpointHitN 1 1 2 NJ 140 660J
 preplace netloc memory_o_bus 1 1 2 350J -480 660J
+preplace netloc memory_o_busNOE 1 1 2 350J 220 NJ
 preplace netloc memory_o_ioAddress 1 1 2 360J 150 670J
 preplace netloc memory_o_ioNOE 1 1 2 330J 160 NJ
 preplace netloc memory_o_ioNWE 1 1 2 320J 200 NJ
@@ -71,7 +72,6 @@ preplace netloc memory_o_ioSelect 1 1 2 340J 180 NJ
 preplace netloc memory_o_ram2Data 1 1 1 420 -140n
 preplace netloc ram2_douta 1 0 2 -150 -250 430
 preplace netloc ram_douta 1 0 2 -160 -340 NJ
-preplace netloc memory_o_busNOE 1 1 2 350J 220 NJ
 levelinfo -pg 1 -320 100 550 710
 pagesize -pg 1 -db -bbox -sgen -590 -610 890 270
 "

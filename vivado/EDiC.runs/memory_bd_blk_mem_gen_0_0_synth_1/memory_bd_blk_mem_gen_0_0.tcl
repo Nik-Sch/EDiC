@@ -70,7 +70,6 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "memory_bd_blk_mem_gen_0_0_synth_1" START { ROLLUP_AUTO }
-set_msg_config -id {HDL-1065} -limit 10000
 set_param project.vivado.isBlockSynthRun true
 set_msg_config -msgmgr_mode ooc_run
 OPTRACE "Creating in-memory project" START { }
@@ -82,10 +81,9 @@ set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
 set_property webtalk.parent_dir /home/niklas/dev/EDiC/vivado/EDiC.cache/wt [current_project]
 set_property parent.project_path /home/niklas/dev/EDiC/vivado/EDiC.xpr [current_project]
-set_property XPM_LIBRARIES XPM_MEMORY [current_project]
+set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property board_part digilentinc.com:nexys-a7-100t:part0:1.0 [current_project]
 set_property ip_output_repo /home/niklas/dev/EDiC/vivado/EDiC.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
@@ -107,10 +105,10 @@ set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 1
 OPTRACE "Configure IP Cache" START { }
 
-set cached_ip [config_ip_cache -export -no_bom  -dir /home/niklas/dev/EDiC/vivado/EDiC.runs/memory_bd_blk_mem_gen_0_0_synth_1 -new_name memory_bd_blk_mem_gen_0_0 -ip [get_ips memory_bd_blk_mem_gen_0_0]]
+set cacheID [config_ip_cache -export -no_bom  -dir /home/niklas/dev/EDiC/vivado/EDiC.runs/memory_bd_blk_mem_gen_0_0_synth_1 -new_name memory_bd_blk_mem_gen_0_0 -ip [get_ips memory_bd_blk_mem_gen_0_0]]
 
 OPTRACE "Configure IP Cache" END { }
-if { $cached_ip eq {} } {
+if { $cacheID == "" } {
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
@@ -227,7 +225,7 @@ if { [catch {
   puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
-}; # end if cached_ip 
+}; # end if cacheID 
 
 if {[file isdir /home/niklas/dev/EDiC/vivado/EDiC.ip_user_files/ip/memory_bd_blk_mem_gen_0_0]} {
   catch { 

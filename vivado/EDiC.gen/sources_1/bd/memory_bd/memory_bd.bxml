@@ -2,21 +2,23 @@
 <Root MajorVersion="0" MinorVersion="39">
   <CompositeFile CompositeFileTopName="memory_bd" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1636126712"/>
-    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1636126712"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1636126712"/>
-    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1636126712"/>
+    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1636199153"/>
+    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1636199153"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1636199153"/>
+    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1636199153"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="synth/memory_bd.v" Type="Verilog">
         <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
+        <ProcessingOrder Val="NORMAL"/>
       </File>
       <File Name="sim/memory_bd.v" Type="Verilog">
         <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SIMULATION"/>
+        <ProcessingOrder Val="NORMAL"/>
       </File>
       <File Name="memory_bd_ooc.xdc" Type="XDC">
         <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
@@ -24,31 +26,31 @@
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="OUT_OF_CONTEXT"/>
+        <ProcessingOrder Val="NORMAL"/>
       </File>
       <File Name="hw_handoff/memory_bd.hwh" Type="HwHandoff">
         <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="HW_HANDOFF"/>
+        <ProcessingOrder Val="NORMAL"/>
       </File>
       <File Name="memory_bd.bda">
         <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="HW_HANDOFF"/>
-      </File>
-      <File Name="hw_handoff/memory_bd_bd.tcl">
-        <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="HW_HANDOFF"/>
+        <ProcessingOrder Val="NORMAL"/>
       </File>
       <File Name="synth/memory_bd.hwdef">
         <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="HW_HANDOFF"/>
+        <ProcessingOrder Val="NORMAL"/>
       </File>
       <File Name="sim/memory_bd.protoinst">
         <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SIMULATION"/>
+        <ProcessingOrder Val="NORMAL"/>
       </File>
     </FileCollection>
   </CompositeFile>

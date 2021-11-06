@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
-//Tool Version: Vivado v.2021.1 (lin64) Build 3247384 Thu Jun 10 19:36:07 MDT 2021
-//Date        : Fri Nov  5 16:38:31 2021
+//Tool Version: Vivado v.2021.2 (lin64) Build 3367213 Tue Oct 19 02:47:39 MDT 2021
+//Date        : Sat Nov  6 12:45:52 2021
 //Host        : niklasPC running 64-bit Manjaro Linux
 //Command     : generate_target memory_bd.bd
 //Design      : memory_bd
@@ -38,7 +38,7 @@ module memory_bd
     o_ioNOE,
     o_ioNWE,
     o_ioSelect);
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.I_ASYNCRAMSPECIALCLOCK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.I_ASYNCRAMSPECIALCLOCK, CLK_DOMAIN memory_bd_clka_0, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input i_asyncRamSpecialClock;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.I_ASYNCRAMSPECIALCLOCK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.I_ASYNCRAMSPECIALCLOCK, CLK_DOMAIN memory_bd_i_asyncRamSpecialClock, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input i_asyncRamSpecialClock;
   input [15:0]i_breakpointAddress;
   input i_breakpointEnableN;
   input [7:0]i_bus;

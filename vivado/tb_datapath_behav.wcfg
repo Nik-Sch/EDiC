@@ -12,14 +12,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000000 us"></ZoomStartTime>
-      <ZoomEndTime time="111.000001 us"></ZoomEndTime>
-      <Cursor1Time time="101.000000 us"></Cursor1Time>
+      <ZoomEndTime time="38.680001 us"></ZoomEndTime>
+      <Cursor1Time time="0.028956 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="404"></NameColumnWidth>
-      <ValueColumnWidth column_width="136"></ValueColumnWidth>
+      <ValueColumnWidth column_width="130"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="12" />
+   <WVObjectSize size="14" />
    <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_memory/memory/inst/i_clk">
       <obj_property name="ElementShortName">i_clk</obj_property>
       <obj_property name="ObjectShortName">i_clk</obj_property>
@@ -60,7 +60,6 @@
    <wvobject type="array" fp_name="/tb_datapath/cathodes">
       <obj_property name="ElementShortName">cathodes[7:0]</obj_property>
       <obj_property name="ObjectShortName">cathodes[7:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_datapath/anodes">
       <obj_property name="ElementShortName">anodes[7:0]</obj_property>
@@ -69,5 +68,13 @@
    <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_io/inst_7seg/s_bits">
       <obj_property name="ElementShortName">s_bits[3:0]</obj_property>
       <obj_property name="ObjectShortName">s_bits[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_regset/inst_triBus/i_noe">
+      <obj_property name="ElementShortName">i_noe[1:0]</obj_property>
+      <obj_property name="ObjectShortName">i_noe[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_triBus/i_noe">
+      <obj_property name="ElementShortName">i_noe[3:0]</obj_property>
+      <obj_property name="ObjectShortName">i_noe[3:0]</obj_property>
    </wvobject>
 </wave_config>

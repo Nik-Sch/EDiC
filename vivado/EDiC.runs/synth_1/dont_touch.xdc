@@ -24,11 +24,11 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==control_bd 
 # IP: bd/control_bd/ip/control_bd_control_0_0/control_bd_control_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==control_bd_control_0_0 || ORIG_REF_NAME==control_bd_control_0_0} -quiet] -quiet
 
-# IP: bd/control_bd/ip/control_bd_instrRom_0/control_bd_instrRom_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==control_bd_instrRom_0 || ORIG_REF_NAME==control_bd_instrRom_0} -quiet] -quiet
-
 # IP: bd/control_bd/ip/control_bd_xlconstant_0_0/control_bd_xlconstant_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==control_bd_xlconstant_0_0 || ORIG_REF_NAME==control_bd_xlconstant_0_0} -quiet] -quiet
+
+# IP: bd/control_bd/ip/control_bd_instrRom_0/control_bd_instrRom_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==control_bd_instrRom_0 || ORIG_REF_NAME==control_bd_instrRom_0} -quiet] -quiet
 
 # XDC: /home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/bd/memory_bd/memory_bd_ooc.xdc
 

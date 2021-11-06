@@ -1,19 +1,19 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x6AF8AB96101132FB",
+      "boundary_crc": "0x6AF8AB969FCD6603",
       "device": "xc7a100tcsg324-1",
       "gen_directory": "../../../../EDiC.gen/sources_1/bd/control_bd",
       "name": "control_bd",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2021.1",
+      "tool_version": "2021.2",
       "validated": "true"
     },
     "design_tree": {
       "control_0": "",
-      "instrDecode": "",
-      "xlconstant_0": ""
+      "xlconstant_0": "",
+      "instrDecode": ""
     },
     "ports": {
       "i_flagNegative": {
@@ -283,6 +283,12 @@
           }
         }
       },
+      "xlconstant_0": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "control_bd_xlconstant_0_0",
+        "xci_path": "ip/control_bd_xlconstant_0_0/control_bd_xlconstant_0_0.xci",
+        "inst_hier_path": "xlconstant_0"
+      },
       "instrDecode": {
         "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
         "xci_name": "control_bd_instrRom_0",
@@ -326,12 +332,6 @@
             "value": "Stand_Alone"
           }
         }
-      },
-      "xlconstant_0": {
-        "vlnv": "xilinx.com:ip:xlconstant:1.1",
-        "xci_name": "control_bd_xlconstant_0_0",
-        "xci_path": "ip/control_bd_xlconstant_0_0/control_bd_xlconstant_0_0.xci",
-        "inst_hier_path": "xlconstant_0"
       }
     },
     "nets": {
