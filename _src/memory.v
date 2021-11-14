@@ -134,10 +134,10 @@ always @(posedge i_clk) begin
   end
 
   if (!i_ctrlMemMar0NWE) begin
-    r_mar[7:0] <= i_bus === 8'bzzzz_zzzz ? 8'hff : i_bus; // bus has a pull up
+    r_mar[7:0] <= i_bus;
   end
   if (!i_ctrlMemMar1NWE) begin
-    r_mar[15:8] <= i_bus === 8'bzzzz_zzzz ? 8'hff : i_bus; // bus has a pull up
+    r_mar[15:8] <= i_bus;
   end
 
   if (!i_ctrlSpNEn) begin

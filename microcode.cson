@@ -130,9 +130,6 @@ instructions: [
         reg1BusNOE: '!s'
         memMar0NWE: 0
       }
-      { # wait for ram
-        memInstrImmToRamAddr: 0
-      }
       { # r x ram into alu
         memInstrImmToRamAddr: 0
         memRamNOE: 0
@@ -214,10 +211,8 @@ instructions: [
         reg1BusNOE: '!s'
         memMar0NWE: 0
       }
-      { # wait for ram
-        memInstrImmToRamAddr: 0
-      }
       { # ram to r
+        memInstrImmToRamAddr: 0
         memRamNOE: 0
         reg0NWE: 'r'
         reg1NWE: '!r'
@@ -271,6 +266,25 @@ instructions: [
         reg1BusNOE: '!s'
         memInstrImmToRamAddr: 0
         memRamNWE: 0
+      }
+    ]
+  }
+  {
+    op: '0100110r' # mar1 = r
+    cycles: [
+      { # r to mar1
+        reg0BusNOE: 'r'
+        reg1BusNOE: '!r'
+        memMar1NWE: 0
+      }
+    ]
+  }
+  {
+    op: '01001110' # mar1 = imm
+    cycles: [
+      { # imm to mar1
+        memInstrNOE: 0
+        memMar1NWE: 0
       }
     ]
   }

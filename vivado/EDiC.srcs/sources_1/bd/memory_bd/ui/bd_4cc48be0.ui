@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"1.5",
-   "Default View_TopLeft":"-441,-551",
+   "Default View_TopLeft":"-769,-550",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
 #  -string -flagsOSRD
@@ -32,10 +32,10 @@ preplace portBus i_bus -pg 1 -lvl 0 -x -320 -y -450 -defaultsOSRD
 preplace portBus o_bus -pg 1 -lvl 3 -x 710 -y -460 -defaultsOSRD
 preplace portBus i_breakpointAddress -pg 1 -lvl 0 -x -320 -y -120 -defaultsOSRD
 preplace portBus o_ioAddress -pg 1 -lvl 3 -x 710 -y 70 -defaultsOSRD
-preplace inst memory -pg 1 -lvl 1 -x 100 -y 10 -defaultsOSRD
 preplace inst ram -pg 1 -lvl 2 -x 550 -y -360 -defaultsOSRD
 preplace inst instrRom -pg 1 -lvl 2 -x 550 -y 50 -defaultsOSRD
 preplace inst ram2 -pg 1 -lvl 2 -x 550 -y -140 -defaultsOSRD
+preplace inst memory -pg 1 -lvl 1 -x 100 -y 10 -defaultsOSRD
 preplace netloc Net 1 1 1 380 -320n
 preplace netloc clka_0_1 1 0 2 NJ -380 440J
 preplace netloc i_breakpointAddress_0_1 1 0 1 -300J -120n

@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2 (lin64) Build 3367213 Tue Oct 19 02:47:39 MDT 2021
-//Date        : Sat Nov  6 12:45:53 2021
+//Date        : Sun Nov 14 23:08:01 2021
 //Host        : niklasPC running 64-bit Manjaro Linux
 //Command     : generate_target control_bd.bd
 //Design      : control_bd

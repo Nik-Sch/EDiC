@@ -11,10 +11,10 @@
       "validated": "true"
     },
     "design_tree": {
-      "memory": "",
       "ram": "",
       "instrRom": "",
-      "ram2": ""
+      "ram2": "",
+      "memory": ""
     },
     "ports": {
       "i_clk": {
@@ -171,6 +171,123 @@
       }
     },
     "components": {
+      "ram": {
+        "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
+        "xci_name": "memory_bd_blk_mem_gen_0_0",
+        "xci_path": "ip/memory_bd_blk_mem_gen_0_0/memory_bd_blk_mem_gen_0_0.xci",
+        "inst_hier_path": "ram",
+        "parameters": {
+          "Enable_32bit_Address": {
+            "value": "false"
+          },
+          "Enable_A": {
+            "value": "Use_ENA_Pin"
+          },
+          "Read_Width_A": {
+            "value": "8"
+          },
+          "Register_PortA_Output_of_Memory_Primitives": {
+            "value": "false"
+          },
+          "Use_Byte_Write_Enable": {
+            "value": "false"
+          },
+          "Use_RSTA_Pin": {
+            "value": "false"
+          },
+          "Write_Depth_A": {
+            "value": "131072"
+          },
+          "Write_Width_A": {
+            "value": "8"
+          },
+          "use_bram_block": {
+            "value": "Stand_Alone"
+          }
+        }
+      },
+      "instrRom": {
+        "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
+        "xci_name": "memory_bd_blk_mem_gen_0_1",
+        "xci_path": "ip/memory_bd_blk_mem_gen_0_1/memory_bd_blk_mem_gen_0_1.xci",
+        "inst_hier_path": "instrRom",
+        "parameters": {
+          "Coe_File": {
+            "value": "../../../../../../../instructionRom.coe"
+          },
+          "Enable_32bit_Address": {
+            "value": "false"
+          },
+          "Enable_A": {
+            "value": "Always_Enabled"
+          },
+          "Fill_Remaining_Memory_Locations": {
+            "value": "true"
+          },
+          "Load_Init_File": {
+            "value": "true"
+          },
+          "Memory_Type": {
+            "value": "Single_Port_ROM"
+          },
+          "Port_A_Write_Rate": {
+            "value": "0"
+          },
+          "Register_PortA_Output_of_Memory_Primitives": {
+            "value": "false"
+          },
+          "Remaining_Memory_Locations": {
+            "value": "ffffff"
+          },
+          "Use_RSTA_Pin": {
+            "value": "false"
+          },
+          "Write_Depth_A": {
+            "value": "32768"
+          },
+          "Write_Width_A": {
+            "value": "24"
+          },
+          "use_bram_block": {
+            "value": "Stand_Alone"
+          }
+        }
+      },
+      "ram2": {
+        "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
+        "xci_name": "memory_bd_ram_0",
+        "xci_path": "ip/memory_bd_ram_0/memory_bd_ram_0.xci",
+        "inst_hier_path": "ram2",
+        "parameters": {
+          "Enable_32bit_Address": {
+            "value": "false"
+          },
+          "Enable_A": {
+            "value": "Use_ENA_Pin"
+          },
+          "Read_Width_A": {
+            "value": "8"
+          },
+          "Register_PortA_Output_of_Memory_Primitives": {
+            "value": "false"
+          },
+          "Use_Byte_Write_Enable": {
+            "value": "false"
+          },
+          "Use_RSTA_Pin": {
+            "value": "false"
+          },
+          "Write_Depth_A": {
+            "value": "131072"
+          },
+          "Write_Width_A": {
+            "value": "8"
+          },
+          "use_bram_block": {
+            "value": "Stand_Alone"
+          }
+        }
+      },
       "memory": {
         "vlnv": "xilinx.com:module_ref:memory:1.0",
         "xci_name": "memory_bd_memory_0_0",
@@ -322,123 +439,6 @@
           },
           "o_breakpointHitN": {
             "direction": "O"
-          }
-        }
-      },
-      "ram": {
-        "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
-        "xci_name": "memory_bd_blk_mem_gen_0_0",
-        "xci_path": "ip/memory_bd_blk_mem_gen_0_0/memory_bd_blk_mem_gen_0_0.xci",
-        "inst_hier_path": "ram",
-        "parameters": {
-          "Enable_32bit_Address": {
-            "value": "false"
-          },
-          "Enable_A": {
-            "value": "Use_ENA_Pin"
-          },
-          "Read_Width_A": {
-            "value": "8"
-          },
-          "Register_PortA_Output_of_Memory_Primitives": {
-            "value": "false"
-          },
-          "Use_Byte_Write_Enable": {
-            "value": "false"
-          },
-          "Use_RSTA_Pin": {
-            "value": "false"
-          },
-          "Write_Depth_A": {
-            "value": "131072"
-          },
-          "Write_Width_A": {
-            "value": "8"
-          },
-          "use_bram_block": {
-            "value": "Stand_Alone"
-          }
-        }
-      },
-      "instrRom": {
-        "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
-        "xci_name": "memory_bd_blk_mem_gen_0_1",
-        "xci_path": "ip/memory_bd_blk_mem_gen_0_1/memory_bd_blk_mem_gen_0_1.xci",
-        "inst_hier_path": "instrRom",
-        "parameters": {
-          "Coe_File": {
-            "value": "../../../../../../../instructionRom.coe"
-          },
-          "Enable_32bit_Address": {
-            "value": "false"
-          },
-          "Enable_A": {
-            "value": "Always_Enabled"
-          },
-          "Fill_Remaining_Memory_Locations": {
-            "value": "true"
-          },
-          "Load_Init_File": {
-            "value": "true"
-          },
-          "Memory_Type": {
-            "value": "Single_Port_ROM"
-          },
-          "Port_A_Write_Rate": {
-            "value": "0"
-          },
-          "Register_PortA_Output_of_Memory_Primitives": {
-            "value": "false"
-          },
-          "Remaining_Memory_Locations": {
-            "value": "ffffff"
-          },
-          "Use_RSTA_Pin": {
-            "value": "false"
-          },
-          "Write_Depth_A": {
-            "value": "32768"
-          },
-          "Write_Width_A": {
-            "value": "24"
-          },
-          "use_bram_block": {
-            "value": "Stand_Alone"
-          }
-        }
-      },
-      "ram2": {
-        "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
-        "xci_name": "memory_bd_ram_0",
-        "xci_path": "ip/memory_bd_ram_0/memory_bd_ram_0.xci",
-        "inst_hier_path": "ram2",
-        "parameters": {
-          "Enable_32bit_Address": {
-            "value": "false"
-          },
-          "Enable_A": {
-            "value": "Use_ENA_Pin"
-          },
-          "Read_Width_A": {
-            "value": "8"
-          },
-          "Register_PortA_Output_of_Memory_Primitives": {
-            "value": "false"
-          },
-          "Use_Byte_Write_Enable": {
-            "value": "false"
-          },
-          "Use_RSTA_Pin": {
-            "value": "false"
-          },
-          "Write_Depth_A": {
-            "value": "131072"
-          },
-          "Write_Width_A": {
-            "value": "8"
-          },
-          "use_bram_block": {
-            "value": "Stand_Alone"
           }
         }
       }

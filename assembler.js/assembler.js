@@ -38,7 +38,7 @@ const numericRegEx = '\\b0x[0-9a-fA-F]+\\b|\\b\\d+\\b';
 const identifierRegEx = '[a-zA-Z]\\w*';
 const labelDefRegEx = `\\s*(${identifierRegEx}):\\s*`;
 const constantDefRegEx = `\\s*(${identifierRegEx})\\s*=\\s*(${numericRegEx})\\s*`;
-const memoryRegEx = `[\\s*((?:${numericRegEx})|(?:${identifierRegEx}))\\s*\\]`;
+const valueRegEx = `(?:${numericRegEx})|(?:${identifierRegEx})`;
 ;
 ;
 const labels = [];
@@ -50,7 +50,11 @@ const checkImmediate = (match, options = {}) => {
     if (typeof options.memory === 'undefined') {
         options.memory = true;
     }
-    const maxImm = options.memory ? 0xfffe : 0xffff; // [0xffff] is used for return address
+    if (typeof options.regValue === 'undefined') {
+        options.regValue = false;
+    }
+    // [0xffff] is used for return address and register can only hold 8bit
+    const maxImm = options.memory ? 0xfffe : options.regValue ? 0xff : 0xffff;
     let imm = parseInt(match);
     if (isNaN(imm)) {
         const constant = constants.find(c => c.name === match);
@@ -59,6 +63,7 @@ const checkImmediate = (match, options = {}) => {
         }
         else {
             console.error(`Found no constant '${match}'`);
+            process_1.exit(1);
         }
     }
     if (imm > maxImm || imm < 0) {
@@ -89,20 +94,31 @@ const instructions = [
         result: match => ({ instr: `010010${match[1]}${match[2]}` })
     },
     {
+        regex: /^\s*sma\s+r([01])\s*/,
+        result: match => ({ instr: `0100110${match[1]}` })
+    },
+    {
+        regex: new RegExp(`^\\s*sma\\s+(${valueRegEx})`),
+        result: match => {
+            const imm = checkImmediate(match[1], { regValue: true });
+            return { instr: '01001110', imm };
+        }
+    },
+    {
         regex: new RegExp(`^\\s*(${aluOpRegEx})\\s+r([01])\\s*,\\s*\\[\\s*r([01])\\s*\\]`),
         result: match => ({ instr: `011${match[2]}${match[3]}${aluOps[match[1]]}` })
     },
     {
         regex: new RegExp(`^\\s*(${aluOpRegEx})(s?)\\s+r([01])\\s*,\\s*(${numericRegEx})`),
         result: match => {
-            const imm = checkImmediate(match[4], { memory: false });
+            const imm = checkImmediate(match[4], { regValue: true });
             return { instr: `100${match[2] == 's' ? '1' : '0'}${match[3]}${aluOps[match[1]]}`, imm };
         }
     },
     {
         regex: new RegExp(`^\\s*cmp\\s+r([01])\\s*,\\s*(${numericRegEx})`),
         result: match => {
-            const imm = checkImmediate(match[4], { memory: false });
+            const imm = checkImmediate(match[4], { regValue: true });
             return { instr: `1001${match[1]}${aluOps['sub']}`, imm };
         }
     },
@@ -146,58 +162,70 @@ const instructions = [
         result: () => ({ instr: `10110001` })
     },
     {
-        regex: new RegExp(`^\\s*(${aluOpRegEx})(s?)\\s+r([01])\\s*,\\s*\\${memoryRegEx}`),
+        regex: new RegExp(`^\\s*(${aluOpRegEx})(s?)\\s+r([01])\\s*,\\s*\\[\\s*(${valueRegEx})\\s*\\]`),
         result: match => {
-            const imm = checkImmediate(match[4]);
+            const imm = checkImmediate(match[4], { regValue: true });
             return { instr: `110${match[2] == 's' ? '1' : '0'}${match[3]}${aluOps[match[1]]}`, imm };
         }
     },
     {
-        regex: new RegExp(`^\\s*ldr\\s+r([01])\\s*,\\s*\\${memoryRegEx}`),
+        regex: new RegExp(`^\\s*ldr\\s+r([01])\\s*,\\s*\\[\\s*r([01])\\s*\\]`),
+        result: match => {
+            return { instr: `010000${match[1]}${match[2] == 's' ? '1' : '0'}` };
+        }
+    },
+    {
+        regex: new RegExp(`^\\s*ldr\\s+r([01])\\s*,\\s*\\[\\s*(${valueRegEx})\\s*\\]`),
         result: match => {
             const imm = checkImmediate(match[2]);
             return { instr: `1111000${match[1]}`, imm };
         }
     },
     {
-        regex: new RegExp(`^\\s*lds\\s+r([01])\\s*,\\s*\\${memoryRegEx}`),
+        regex: new RegExp(`^\\s*lds\\s+r([01])\\s*,\\s*\\[\\s*(${valueRegEx})\\s*\\]`),
         result: match => {
             const imm = checkImmediate(match[2], { stack: true });
             return { instr: `1111000${match[1]}`, imm };
         }
     },
     {
-        regex: new RegExp(`^\\s*str\\s+r([01])\\s*,\\s*\\${memoryRegEx}`),
+        regex: new RegExp(`^\\s*str\\s+r([01])\\s*,\\s*\\[\\s*r([01])\\s*\\]`),
+        result: match => {
+            return { instr: `010001${match[1]}` };
+        }
+    },
+    {
+        regex: new RegExp(`^\\s*str\\s+r([01])\\s*,\\s*\\[\\s*(${valueRegEx})\\s*\\]`),
         result: match => {
             const imm = checkImmediate(match[2]);
             return { instr: `1111001${match[1]}`, imm };
         }
     },
     {
-        regex: new RegExp(`^\\s*sts\\s+r([01])\\s*,\\s*\\${memoryRegEx}`),
+        regex: new RegExp(`^\\s*sts\\s+r([01])\\s*,\\s*\\[\\s*(${valueRegEx})\\s*\\]`),
         result: match => {
             const imm = checkImmediate(match[2], { stack: true });
             return { instr: `1111001${match[1]}`, imm };
         }
     },
     {
-        regex: new RegExp(`^\\s*ldf\\s+r([01])\\s*,\\s*\\${memoryRegEx}`),
+        regex: new RegExp(`^\\s*ldf\\s+r([01])\\s*,\\s*\\[\\s*(${valueRegEx})\\s*\\]`),
         result: match => {
             const imm = checkImmediate(match[2], { stack: true });
             return { instr: `1111010${match[1]}`, imm };
         }
     },
     {
-        regex: new RegExp(`^\\s*stf\\s+r([01])\\s*,\\s*\\${memoryRegEx}`),
+        regex: new RegExp(`^\\s*stf\\s+r([01])\\s*,\\s*\\[\\s*(${valueRegEx})\\s*\\]`),
         result: match => {
             const imm = checkImmediate(match[2], { stack: true });
             return { instr: `1111011${match[1]}`, imm };
         }
     },
     {
-        regex: new RegExp(`^\\s*mov\\s+r([01])\\s*,\\s*(${numericRegEx})\\s*`),
+        regex: new RegExp(`^\\s*mov\\s+r([01])\\s*,\\s*(${valueRegEx})\\s*`),
         result: match => {
-            const imm = checkImmediate(match[2], { memory: false });
+            const imm = checkImmediate(match[2], { regValue: true });
             return { instr: `1111100${match[1]}`, imm };
         }
     },

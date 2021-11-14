@@ -11,15 +11,19 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="378.700000 us"></ZoomStartTime>
-      <ZoomEndTime time="766.700001 us"></ZoomEndTime>
-      <Cursor1Time time="618.100000 us"></Cursor1Time>
+      <ZoomStartTime time="234,789.100 ns"></ZoomStartTime>
+      <ZoomEndTime time="238,681.101 ns"></ZoomEndTime>
+      <Cursor1Time time="235,705.100 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="404"></NameColumnWidth>
-      <ValueColumnWidth column_width="124"></ValueColumnWidth>
+      <ValueColumnWidth column_width="118"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="16" />
+   <WVObjectSize size="19" />
+   <wave_markers>
+      <marker label="" time="128908320" />
+      <marker label="" time="235705100" />
+   </wave_markers>
    <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/i_oszClk">
       <obj_property name="ElementShortName">i_oszClk</obj_property>
       <obj_property name="ObjectShortName">i_oszClk</obj_property>
@@ -65,24 +69,129 @@
       <obj_property name="ElementShortName">r_mar[15:0]</obj_property>
       <obj_property name="ObjectShortName">r_mar[15:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_datapath/cathodes">
-      <obj_property name="ElementShortName">cathodes[7:0]</obj_property>
-      <obj_property name="ObjectShortName">cathodes[7:0]</obj_property>
+   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/control_bd_i/control_0/inst/r_instructionFallingEdge">
+      <obj_property name="ElementShortName">r_instructionFallingEdge[7:0]</obj_property>
+      <obj_property name="ObjectShortName">r_instructionFallingEdge[7:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_datapath/anodes">
-      <obj_property name="ElementShortName">anodes[7:0]</obj_property>
-      <obj_property name="ObjectShortName">anodes[7:0]</obj_property>
+   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_memory/memory/inst/o_ramAddress">
+      <obj_property name="ElementShortName">o_ramAddress[16:0]</obj_property>
+      <obj_property name="ObjectShortName">o_ramAddress[16:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_io/inst_7seg/s_bits">
-      <obj_property name="ElementShortName">s_bits[3:0]</obj_property>
-      <obj_property name="ObjectShortName">s_bits[3:0]</obj_property>
+   <wvobject type="group" fp_name="group40">
+      <obj_property name="label">control</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/control_bd_i/o_ctrlAluNOE">
+         <obj_property name="ElementShortName">o_ctrlAluNOE</obj_property>
+         <obj_property name="ObjectShortName">o_ctrlAluNOE</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_datapath/inst_datapath/control_bd_i/o_ctrlAluOp">
+         <obj_property name="ElementShortName">o_ctrlAluOp[1:0]</obj_property>
+         <obj_property name="ObjectShortName">o_ctrlAluOp[1:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/control_bd_i/o_ctrlAluSub">
+         <obj_property name="ElementShortName">o_ctrlAluSub</obj_property>
+         <obj_property name="ObjectShortName">o_ctrlAluSub</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/control_bd_i/o_ctrlAluYNWE">
+         <obj_property name="ElementShortName">o_ctrlAluYNWE</obj_property>
+         <obj_property name="ObjectShortName">o_ctrlAluYNWE</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/control_bd_i/o_ctrlInstrFinishedN">
+         <obj_property name="ElementShortName">o_ctrlInstrFinishedN</obj_property>
+         <obj_property name="ObjectShortName">o_ctrlInstrFinishedN</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/control_bd_i/o_ctrlMemInstrImmToRamAddr">
+         <obj_property name="ElementShortName">o_ctrlMemInstrImmToRamAddr</obj_property>
+         <obj_property name="ObjectShortName">o_ctrlMemInstrImmToRamAddr</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/control_bd_i/o_ctrlMemInstrNOE">
+         <obj_property name="ElementShortName">o_ctrlMemInstrNOE</obj_property>
+         <obj_property name="ObjectShortName">o_ctrlMemInstrNOE</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/control_bd_i/o_ctrlMemInstrNWE">
+         <obj_property name="ElementShortName">o_ctrlMemInstrNWE</obj_property>
+         <obj_property name="ObjectShortName">o_ctrlMemInstrNWE</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/control_bd_i/o_ctrlMemMar0NWE">
+         <obj_property name="ElementShortName">o_ctrlMemMar0NWE</obj_property>
+         <obj_property name="ObjectShortName">o_ctrlMemMar0NWE</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/control_bd_i/o_ctrlMemMar1NWE">
+         <obj_property name="ElementShortName">o_ctrlMemMar1NWE</obj_property>
+         <obj_property name="ObjectShortName">o_ctrlMemMar1NWE</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/control_bd_i/o_ctrlMemPCFromImm">
+         <obj_property name="ElementShortName">o_ctrlMemPCFromImm</obj_property>
+         <obj_property name="ObjectShortName">o_ctrlMemPCFromImm</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/control_bd_i/o_ctrlMemPCLoadN">
+         <obj_property name="ElementShortName">o_ctrlMemPCLoadN</obj_property>
+         <obj_property name="ObjectShortName">o_ctrlMemPCLoadN</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/control_bd_i/o_ctrlMemPCNEn">
+         <obj_property name="ElementShortName">o_ctrlMemPCNEn</obj_property>
+         <obj_property name="ObjectShortName">o_ctrlMemPCNEn</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/control_bd_i/o_ctrlMemPCToRamN">
+         <obj_property name="ElementShortName">o_ctrlMemPCToRamN</obj_property>
+         <obj_property name="ObjectShortName">o_ctrlMemPCToRamN</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/control_bd_i/o_ctrlMemRamNOE">
+         <obj_property name="ElementShortName">o_ctrlMemRamNOE</obj_property>
+         <obj_property name="ObjectShortName">o_ctrlMemRamNOE</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/control_bd_i/o_ctrlMemRamNWE">
+         <obj_property name="ElementShortName">o_ctrlMemRamNWE</obj_property>
+         <obj_property name="ObjectShortName">o_ctrlMemRamNWE</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/control_bd_i/o_ctrlMemSPNEn">
+         <obj_property name="ElementShortName">o_ctrlMemSPNEn</obj_property>
+         <obj_property name="ObjectShortName">o_ctrlMemSPNEn</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/control_bd_i/o_ctrlMemSPUp">
+         <obj_property name="ElementShortName">o_ctrlMemSPUp</obj_property>
+         <obj_property name="ObjectShortName">o_ctrlMemSPUp</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/control_bd_i/o_ctrlReg0BusNOE">
+         <obj_property name="ElementShortName">o_ctrlReg0BusNOE</obj_property>
+         <obj_property name="ObjectShortName">o_ctrlReg0BusNOE</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/control_bd_i/o_ctrlReg0NWE">
+         <obj_property name="ElementShortName">o_ctrlReg0NWE</obj_property>
+         <obj_property name="ObjectShortName">o_ctrlReg0NWE</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/control_bd_i/o_ctrlReg1BusNOE">
+         <obj_property name="ElementShortName">o_ctrlReg1BusNOE</obj_property>
+         <obj_property name="ObjectShortName">o_ctrlReg1BusNOE</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/control_bd_i/o_ctrlReg1NWE">
+         <obj_property name="ElementShortName">o_ctrlReg1NWE</obj_property>
+         <obj_property name="ObjectShortName">o_ctrlReg1NWE</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/control_bd_i/o_ctrlRegAluSel">
+         <obj_property name="ElementShortName">o_ctrlRegAluSel</obj_property>
+         <obj_property name="ObjectShortName">o_ctrlRegAluSel</obj_property>
+      </wvobject>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_regset/inst_triBus/i_noe">
-      <obj_property name="ElementShortName">i_noe[1:0]</obj_property>
-      <obj_property name="ObjectShortName">i_noe[1:0]</obj_property>
+   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_memory/memory/inst/i_ramData">
+      <obj_property name="ElementShortName">i_ramData[7:0]</obj_property>
+      <obj_property name="ObjectShortName">i_ramData[7:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_triBus/i_noe">
-      <obj_property name="ElementShortName">i_noe[3:0]</obj_property>
-      <obj_property name="ObjectShortName">i_noe[3:0]</obj_property>
+   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_memory/memory/inst/o_ramData">
+      <obj_property name="ElementShortName">o_ramData[7:0]</obj_property>
+      <obj_property name="ObjectShortName">o_ramData[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_memory/memory/inst/o_ramWE">
+      <obj_property name="ElementShortName">o_ramWE</obj_property>
+      <obj_property name="ObjectShortName">o_ramWE</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_memory/memory/inst/o_bus">
+      <obj_property name="ElementShortName">o_bus[7:0]</obj_property>
+      <obj_property name="ObjectShortName">o_bus[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_memory/memory/inst/o_busNOE">
+      <obj_property name="ElementShortName">o_busNOE</obj_property>
+      <obj_property name="ObjectShortName">o_busNOE</obj_property>
    </wvobject>
 </wave_config>

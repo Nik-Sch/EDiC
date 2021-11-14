@@ -23,7 +23,9 @@ sub r1, [PAR1]
 add r0, 1
 b divLoop
 divReturn:
-lds r1, [0xfffe] @ restore r1
+sma 0xff
+mov r1, 0xfe
+ldr r1, [r1] @ restore r1
 ret
 
 start:

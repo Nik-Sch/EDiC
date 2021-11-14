@@ -6,6 +6,8 @@ r and s are register 0 or 1
 010000rs: r := [s] # ldr
 010001rs: [s] := r # str
 010010rs: r := s
+0100110r: mar1 := r
+01001110: mar1 := imm
 011rsalu: r := r x [s]
 1000ralu: r := r x imm
 1001ralu: y := r x imm
