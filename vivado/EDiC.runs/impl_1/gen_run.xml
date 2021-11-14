@@ -13,17 +13,17 @@
   <File Type="PLACE-DCP" Name="board_top_placed.dcp"/>
   <File Type="OPT-DCP" Name="board_top_opt.dcp"/>
   <File Type="ROUTE-BUS-SKEW" Name="board_top_bus_skew_routed.rpt"/>
-  <File Type="ROUTE-CLK" Name="board_top_clock_utilization_routed.rpt"/>
-  <File Type="ROUTE-TIMING-RPX" Name="board_top_timing_summary_routed.rpx"/>
   <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
   <File Type="BITSTR-LTX" Name="board_top.ltx"/>
   <File Type="BITSTR-SYSDEF" Name="board_top.sysdef"/>
   <File Type="BITSTR-MMI" Name="board_top.mmi"/>
   <File Type="BITSTR-BMM" Name="board_top_bd.bmm"/>
+  <File Type="ROUTE-CLK" Name="board_top_clock_utilization_routed.rpt"/>
   <File Type="BITSTR-NKY" Name="board_top.nky"/>
   <File Type="BITSTR-RBT" Name="board_top.rbt"/>
   <File Type="ROUTE-BUS-SKEW-RPX" Name="board_top_bus_skew_routed.rpx"/>
   <File Type="REPORTS-TCL" Name="board_top_reports.tcl"/>
+  <File Type="ROUTE-TIMING-RPX" Name="board_top_timing_summary_routed.rpx"/>
   <File Type="RBD_FILE" Name="board_top.rbd"/>
   <File Type="BITSTR-MSK" Name="board_top.msk"/>
   <File Type="ROUTE-BUS-SKEW-PB" Name="board_top_bus_skew_routed.pb"/>
@@ -196,11 +196,11 @@
     <Step Id="write_bitstream"/>
     <Step Id="write_device_image"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="control_bd_control_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="control_bd_instrRom_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="control_bd_control_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="clk_wiz_5Mhz"/>
   <BlockFileSet Type="BlockSrcs" Name="memory_bd_blk_mem_gen_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="memory_bd_blk_mem_gen_0_1"/>
   <BlockFileSet Type="BlockSrcs" Name="memory_bd_memory_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="memory_bd_ram_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="memory_bd_blk_mem_gen_0_1"/>
 </GenRun>

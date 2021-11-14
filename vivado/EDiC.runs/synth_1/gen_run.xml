@@ -136,11 +136,11 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2020"/>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="control_bd_control_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="control_bd_instrRom_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="control_bd_control_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="clk_wiz_5Mhz"/>
   <BlockFileSet Type="BlockSrcs" Name="memory_bd_blk_mem_gen_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="memory_bd_blk_mem_gen_0_1"/>
   <BlockFileSet Type="BlockSrcs" Name="memory_bd_memory_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="memory_bd_ram_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="memory_bd_blk_mem_gen_0_1"/>
 </GenRun>
