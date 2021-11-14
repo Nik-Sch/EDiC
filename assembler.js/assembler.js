@@ -34,11 +34,15 @@ const branchOps = {
 };
 const aluOpRegEx = Object.keys(aluOps).reduce((p, c) => `${p}|${c}`);
 const branchOpRegEx = Object.keys(branchOps).reduce((p, c) => `${p}|${c}`);
-const immRegEx = '\\b0x[0-9a-fA-F]+\\b|\\b\\d+\\b';
-const labelRegEx = '[a-zA-Z]\\w*';
-const labelDefRegEx = `\\s*(${labelRegEx}):\\s*`;
+const numericRegEx = '\\b0x[0-9a-fA-F]+\\b|\\b\\d+\\b';
+const identifierRegEx = '[a-zA-Z]\\w*';
+const labelDefRegEx = `\\s*(${identifierRegEx}):\\s*`;
+const constantDefRegEx = `\\s*(${identifierRegEx})\\s*=\\s*(${numericRegEx})\\s*`;
+const memoryRegEx = `[\\s*((?:${numericRegEx})|(?:${identifierRegEx}))\\s*\\]`;
+;
 ;
 const labels = [];
+const constants = [];
 const checkImmediate = (match, options = {}) => {
     if (typeof options.stack === 'undefined') {
         options.stack = false;
@@ -47,9 +51,18 @@ const checkImmediate = (match, options = {}) => {
         options.memory = true;
     }
     const maxImm = options.memory ? 0xfffe : 0xffff; // [0xffff] is used for return address
-    const imm = parseInt(match);
+    let imm = parseInt(match);
+    if (isNaN(imm)) {
+        const constant = constants.find(c => c.name === match);
+        if (constant) {
+            imm = constant.value;
+        }
+        else {
+            console.error(`Found no constant '${match}'`);
+        }
+    }
     if (imm > maxImm || imm < 0) {
-        console.error(`Immediate must be in range of 0 to  0x${maxImm.toString(16)} but is 0x${imm.toString(16)}.`);
+        console.error(`Immediate must be in range of 0 to 0x${maxImm.toString(16)} but is 0x${imm.toString(16)}.`);
         return false;
     }
     return imm | (options.stack ? 0xff00 : 0x0000);
@@ -58,6 +71,10 @@ const instructions = [
     {
         regex: new RegExp(`^\\s*(${aluOpRegEx})(s?)\\s+r([01])\\s*,\\s*r([01])`),
         result: match => ({ instr: `00${match[2] == 's' ? '1' : '0'}${match[3]}${match[4]}${aluOps[match[1]]}` })
+    },
+    {
+        regex: new RegExp(`^\\s*cmp\\s+r([01])\\s*,\\s*r([01])`),
+        result: match => ({ instr: `001${match[1]}${match[2]}${aluOps['sub']}` })
     },
     {
         regex: /^\s*ldr\s+r([01])\s*,\s*\[\s*r([01])\s*\]/,
@@ -76,43 +93,50 @@ const instructions = [
         result: match => ({ instr: `011${match[2]}${match[3]}${aluOps[match[1]]}` })
     },
     {
-        regex: new RegExp(`^\\s*(${aluOpRegEx})(s?)\\s+r([01])\\s*,\\s*(${immRegEx})`),
+        regex: new RegExp(`^\\s*(${aluOpRegEx})(s?)\\s+r([01])\\s*,\\s*(${numericRegEx})`),
         result: match => {
             const imm = checkImmediate(match[4], { memory: false });
             return { instr: `100${match[2] == 's' ? '1' : '0'}${match[3]}${aluOps[match[1]]}`, imm };
         }
     },
     {
-        regex: new RegExp(`^\\s*(${branchOpRegEx})\\s+(${immRegEx})\\s*`),
+        regex: new RegExp(`^\\s*cmp\\s+r([01])\\s*,\\s*(${numericRegEx})`),
+        result: match => {
+            const imm = checkImmediate(match[4], { memory: false });
+            return { instr: `1001${match[1]}${aluOps['sub']}`, imm };
+        }
+    },
+    {
+        regex: new RegExp(`^\\s*(${branchOpRegEx})\\s+(${numericRegEx})\\s*`),
         result: match => {
             const imm = checkImmediate(match[2]);
             return { instr: `1010${branchOps[match[1]]}`, imm };
         }
     },
     {
-        regex: new RegExp(`^\\s*(${branchOpRegEx})\\s+(${labelRegEx})\\s*`),
+        regex: new RegExp(`^\\s*(${branchOpRegEx})\\s+(${identifierRegEx})\\s*`),
         result: match => {
             const label = labels.find(l => l.name === match[2]);
             let imm = false;
             if (typeof label === 'undefined') {
-                console.error(`${match[0]}: Could not find label '${match[2]}' in ${labels.map(l => ` ${l.name} @ ${l.pos}`)}.`);
+                console.error(`${match[0]}: Could not find label '${match[2]}' in ${labels.map(l => ` ${l.name} @ ${l.instruction}`)}.`);
             }
             else {
-                imm = checkImmediate(label.pos.toString());
+                imm = checkImmediate(label.instruction.toString());
             }
             return { instr: `1010${branchOps[match[1]]}`, imm };
         }
     },
     {
-        regex: new RegExp(`^\\s*call\\s+(${labelRegEx})\\s*`),
+        regex: new RegExp(`^\\s*call\\s+(${identifierRegEx})\\s*`),
         result: match => {
             const label = labels.find(l => l.name === match[1]);
             let imm = false;
             if (typeof label === 'undefined') {
-                console.error(`${match[0]}: Could not find label '${match[1]}' in ${labels.map(l => ` ${l.name} @ ${l.pos}`)}.`);
+                console.error(`${match[0]}: Could not find label '${match[1]}' in ${labels.map(l => ` ${l.name} @ ${l.instruction}`)}.`);
             }
             else {
-                imm = checkImmediate(label.pos.toString());
+                imm = checkImmediate(label.instruction.toString());
             }
             return { instr: `10110000`, imm };
         }
@@ -122,56 +146,56 @@ const instructions = [
         result: () => ({ instr: `10110001` })
     },
     {
-        regex: new RegExp(`^\\s*(${aluOpRegEx})(s?)\\s+r([01])\\s*,\\s*\\[\\s*(${immRegEx})\\s*\\]`),
+        regex: new RegExp(`^\\s*(${aluOpRegEx})(s?)\\s+r([01])\\s*,\\s*\\${memoryRegEx}`),
         result: match => {
             const imm = checkImmediate(match[4]);
             return { instr: `110${match[2] == 's' ? '1' : '0'}${match[3]}${aluOps[match[1]]}`, imm };
         }
     },
     {
-        regex: new RegExp(`^\\s*ldr\\s+r([01])\\s*,\\s*\\[\\s*(${immRegEx})\\s*\\]`),
+        regex: new RegExp(`^\\s*ldr\\s+r([01])\\s*,\\s*\\${memoryRegEx}`),
         result: match => {
             const imm = checkImmediate(match[2]);
             return { instr: `1111000${match[1]}`, imm };
         }
     },
     {
-        regex: new RegExp(`^\\s*lds\\s+r([01])\\s*,\\s*\\[\\s*(${immRegEx})\\s*\\]`),
+        regex: new RegExp(`^\\s*lds\\s+r([01])\\s*,\\s*\\${memoryRegEx}`),
         result: match => {
             const imm = checkImmediate(match[2], { stack: true });
             return { instr: `1111000${match[1]}`, imm };
         }
     },
     {
-        regex: new RegExp(`^\\s*str\\s+r([01])\\s*,\\s*\\[\\s*(${immRegEx})\\s*\\]`),
+        regex: new RegExp(`^\\s*str\\s+r([01])\\s*,\\s*\\${memoryRegEx}`),
         result: match => {
             const imm = checkImmediate(match[2]);
             return { instr: `1111001${match[1]}`, imm };
         }
     },
     {
-        regex: new RegExp(`^\\s*sts\\s+r([01])\\s*,\\s*\\[\\s*(${immRegEx})\\s*\\]`),
+        regex: new RegExp(`^\\s*sts\\s+r([01])\\s*,\\s*\\${memoryRegEx}`),
         result: match => {
             const imm = checkImmediate(match[2], { stack: true });
             return { instr: `1111001${match[1]}`, imm };
         }
     },
     {
-        regex: new RegExp(`^\\s*ldf\\s+r([01])\\s*,\\s*\\[\\s*(${immRegEx})\\s*\\]`),
+        regex: new RegExp(`^\\s*ldf\\s+r([01])\\s*,\\s*\\${memoryRegEx}`),
         result: match => {
             const imm = checkImmediate(match[2], { stack: true });
             return { instr: `1111010${match[1]}`, imm };
         }
     },
     {
-        regex: new RegExp(`^\\s*stf\\s+r([01])\\s*,\\s*\\[\\s*(${immRegEx})\\s*\\]`),
+        regex: new RegExp(`^\\s*stf\\s+r([01])\\s*,\\s*\\${memoryRegEx}`),
         result: match => {
             const imm = checkImmediate(match[2], { stack: true });
             return { instr: `1111011${match[1]}`, imm };
         }
     },
     {
-        regex: new RegExp(`^\\s*mov\\s+r([01])\\s*,\\s*(${immRegEx})\\s*`),
+        regex: new RegExp(`^\\s*mov\\s+r([01])\\s*,\\s*(${numericRegEx})\\s*`),
         result: match => {
             const imm = checkImmediate(match[2], { memory: false });
             return { instr: `1111100${match[1]}`, imm };
@@ -195,7 +219,7 @@ const uint16_t length = 512;
 const uint8_t data[] PROGMEM = {\n`;
 let lineCount = 0;
 let instrCount = 0;
-// find labels
+// find labels and constants
 for (const origLine of code) {
     lineCount++;
     const line = origLine.replace(/\s*[#@;].*$/, '');
@@ -204,7 +228,22 @@ for (const origLine of code) {
     }
     const labelMatch = line.match(labelDefRegEx);
     if (labelMatch) {
-        labels.push({ name: labelMatch[1], pos: instrCount });
+        const existingLabel = labels.find(l => l.name === labelMatch[1]);
+        if (existingLabel) {
+            console.error(`Label '${labelMatch[1]}' defined multiple times (line ${existingLabel.line} and ${lineCount}).`);
+            process_1.exit(1);
+        }
+        labels.push({ name: labelMatch[1], instruction: instrCount, line: lineCount });
+        continue;
+    }
+    const constantMatch = line.match(constantDefRegEx);
+    if (constantMatch) {
+        const existingConstant = constants.find(c => c.name === constantMatch[1]);
+        if (existingConstant) {
+            console.error(`Constant '${constantMatch[1]}' defined multiple times (line ${existingConstant.line} and ${lineCount}).`);
+            process_1.exit(1);
+        }
+        constants.push({ name: constantMatch[1], value: parseInt(constantMatch[2]), line: lineCount });
         continue;
     }
     let success = false;
@@ -247,7 +286,7 @@ const insertInstruction = (line) => {
 };
 instrCount = 0;
 if (labels.find(l => l.name === 'start')) {
-    labels.forEach(l => l.pos++);
+    labels.forEach(l => l.instruction++);
     insertInstruction('b start');
 }
 lineCount = 0;
@@ -257,7 +296,7 @@ for (const origLine of code) {
     if (line.match(/^\s*$/)) {
         continue;
     }
-    if (line.match(labelDefRegEx)) {
+    if (line.match(labelDefRegEx) || line.match(constantDefRegEx)) {
         console.log(line.trim());
         continue;
     }

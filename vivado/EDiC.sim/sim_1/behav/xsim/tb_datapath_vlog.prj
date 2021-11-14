@@ -1,5 +1,5 @@
 # compile verilog/system verilog design source files
-verilog xil_defaultlib  --include "../../../../EDiC.gen/sources_1/ip/clk5" \
+verilog xil_defaultlib  \
 "../../../../../_src/tristatenet.v" \
 "../../../../../_src/memory.v" \
 "../../../../../_src/control.v" \
@@ -9,8 +9,8 @@ verilog xil_defaultlib  --include "../../../../EDiC.gen/sources_1/ip/clk5" \
 "../../../../EDiC.ip_user_files/bd/memory_bd/ip/memory_bd_ram_0/sim/memory_bd_ram_0.v" \
 "../../../../EDiC.ip_user_files/bd/memory_bd/sim/memory_bd.v" \
 "../../../../EDiC.ip_user_files/bd/control_bd/ip/control_bd_control_0_0/sim/control_bd_control_0_0.v" \
-"../../../../EDiC.ip_user_files/bd/control_bd/ip/control_bd_instrRom_0/sim/control_bd_instrRom_0.v" \
 "../../../../EDiC.ip_user_files/bd/control_bd/ip/control_bd_xlconstant_0_0/sim/control_bd_xlconstant_0_0.v" \
+"../../../../EDiC.ip_user_files/bd/control_bd/ip/control_bd_instrRom_0/sim/control_bd_instrRom_0.v" \
 "../../../../EDiC.ip_user_files/bd/control_bd/sim/control_bd.v" \
 "../../../../../_src/alu.v" \
 "../../../../../_src/clock.v" \
@@ -19,7 +19,7 @@ verilog xil_defaultlib  --include "../../../../EDiC.gen/sources_1/ip/clk5" \
 "../../../../../_src/io.v" \
 "../../../../../_src/regset.v" \
 
-sv xil_defaultlib  --include "../../../../EDiC.gen/sources_1/ip/clk5" \
+sv xil_defaultlib  \
 "../../../../../_sim/tb_datapath.sv" \
 
 # compile glbl module

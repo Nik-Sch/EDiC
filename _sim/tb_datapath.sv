@@ -3,8 +3,8 @@ module tb_datapath;
 
 logic oszClk = 0;
 logic asyncRamSpecialClock = 0;
-always #(10/2) oszClk = ~oszClk;
-always #(10/4) asyncRamSpecialClock = ~asyncRamSpecialClock;
+always #(200/2) oszClk = ~oszClk; // 5MHz
+always #(10/2) asyncRamSpecialClock = ~asyncRamSpecialClock; // 100MHz
 
 logic btnStep = 0;
 logic swInstrNCycle = 0;
@@ -32,5 +32,12 @@ datapath inst_datapath(
   .o_anodes(anodes),
   .i_switches(switches)
 );
+
+initial begin
+  while (1) begin
+    repeat (300) @(posedge oszClk);
+    switches = switches + 1;
+  end
+end
 
 endmodule

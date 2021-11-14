@@ -11,18 +11,22 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
-      <ZoomEndTime time="38.680001 us"></ZoomEndTime>
-      <Cursor1Time time="0.028956 us"></Cursor1Time>
+      <ZoomStartTime time="378.700000 us"></ZoomStartTime>
+      <ZoomEndTime time="766.700001 us"></ZoomEndTime>
+      <Cursor1Time time="618.100000 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="404"></NameColumnWidth>
-      <ValueColumnWidth column_width="130"></ValueColumnWidth>
+      <ValueColumnWidth column_width="124"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="14" />
-   <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_memory/memory/inst/i_clk">
-      <obj_property name="ElementShortName">i_clk</obj_property>
-      <obj_property name="ObjectShortName">i_clk</obj_property>
+   <WVObjectSize size="16" />
+   <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/i_oszClk">
+      <obj_property name="ElementShortName">i_oszClk</obj_property>
+      <obj_property name="ObjectShortName">i_oszClk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/i_asyncRamSpecialClock">
+      <obj_property name="ElementShortName">i_asyncRamSpecialClock</obj_property>
+      <obj_property name="ObjectShortName">i_asyncRamSpecialClock</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_memory/memory/inst/i_reset">
       <obj_property name="ElementShortName">i_reset</obj_property>
@@ -40,6 +44,10 @@
       <obj_property name="ElementShortName">r_output[7:0]</obj_property>
       <obj_property name="ObjectShortName">r_output[7:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_io/i_switches">
+      <obj_property name="ElementShortName">i_switches[7:0]</obj_property>
+      <obj_property name="ObjectShortName">i_switches[7:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_datapath/inst_datapath/s_bus">
       <obj_property name="ElementShortName">s_bus[7:0]</obj_property>

@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1636199165">
-  <File Type="VDS-TIMING-PB" Name="board_top_timing_summary_synth.pb"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="board_top_timing_summary_synth.rpt"/>
-  <File Type="RDS-DCP" Name="board_top.dcp"/>
-  <File Type="RDS-UTIL-PB" Name="board_top_utilization_synth.pb"/>
-  <File Type="RDS-UTIL" Name="board_top_utilization_synth.rpt"/>
-  <File Type="RDS-PROPCONSTRS" Name="board_top_drc_synth.rpt"/>
-  <File Type="RDS-RDS" Name="board_top.vds"/>
   <File Type="REPORTS-TCL" Name="board_top_reports.tcl"/>
   <File Type="PA-TCL" Name="board_top.tcl"/>
+  <File Type="RDS-DCP" Name="board_top.dcp"/>
+  <File Type="RDS-RDS" Name="board_top.vds"/>
+  <File Type="RDS-UTIL" Name="board_top_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="board_top_utilization_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PPRDIR/../_src/tristatenet.v">
@@ -139,11 +136,11 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2020"/>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="clk_wiz_5Mhz"/>
+  <BlockFileSet Type="BlockSrcs" Name="control_bd_control_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="control_bd_instrRom_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="clk_wiz_5Mhz"/>
   <BlockFileSet Type="BlockSrcs" Name="memory_bd_blk_mem_gen_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="memory_bd_memory_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="memory_bd_ram_0"/>
   <BlockFileSet Type="BlockSrcs" Name="memory_bd_blk_mem_gen_0_1"/>
-  <BlockFileSet Type="BlockSrcs" Name="memory_bd_memory_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="control_bd_control_0_0"/>
 </GenRun>
