@@ -50,9 +50,9 @@
 // IP VLNV: xilinx.com:module_ref:control:1.0
 // IP Revision: 1
 
-(* X_CORE_INFO = "control,Vivado 2021.1" *)
+(* X_CORE_INFO = "control,Vivado 2021.2" *)
 (* CHECK_LICENSE_TYPE = "control_bd_control_0_0,control,{}" *)
-(* CORE_GENERATION_INFO = "control_bd_control_0_0,control,{x_ipProduct=Vivado 2021.1,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=control,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED}" *)
+(* CORE_GENERATION_INFO = "control_bd_control_0_0,control,{x_ipProduct=Vivado 2021.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=control,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module control_bd_control_0_0 (
@@ -88,7 +88,8 @@ module control_bd_control_0_0 (
   o_ctrlMemRamNWE,
   o_ctrlMemRamNOE,
   o_ctrlMemPCToRamN,
-  o_ctrlInstrFinishedN
+  o_ctrlInstrFinishedN,
+  o_dbgStep
 );
 
 input wire i_nclk;
@@ -126,6 +127,7 @@ output wire o_ctrlMemRamNWE;
 output wire o_ctrlMemRamNOE;
 output wire o_ctrlMemPCToRamN;
 output wire o_ctrlInstrFinishedN;
+output wire [2 : 0] o_dbgStep;
 
   control inst (
     .i_nclk(i_nclk),
@@ -160,6 +162,7 @@ output wire o_ctrlInstrFinishedN;
     .o_ctrlMemRamNWE(o_ctrlMemRamNWE),
     .o_ctrlMemRamNOE(o_ctrlMemRamNOE),
     .o_ctrlMemPCToRamN(o_ctrlMemPCToRamN),
-    .o_ctrlInstrFinishedN(o_ctrlInstrFinishedN)
+    .o_ctrlInstrFinishedN(o_ctrlInstrFinishedN),
+    .o_dbgStep(o_dbgStep)
   );
 endmodule

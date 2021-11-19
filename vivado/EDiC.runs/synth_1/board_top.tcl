@@ -70,6 +70,8 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 4
+set_param xicom.use_bs_reader 1
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a100tcsg324-1
 
@@ -82,6 +84,7 @@ set_property parent.project_path /home/niklas/dev/EDiC/vivado/EDiC.xpr [current_
 set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
+set_property board_part digilentinc.com:nexys-a7-100t:part0:1.0 [current_project]
 set_property ip_output_repo /home/niklas/dev/EDiC/vivado/EDiC.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
@@ -107,6 +110,12 @@ set_property used_in_implementation false [get_files -all /home/niklas/dev/EDiC/
 add_files /home/niklas/dev/EDiC/vivado/EDiC.srcs/sources_1/bd/control_bd/control_bd.bd
 set_property used_in_implementation false [get_files -all /home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/bd/control_bd/ip/control_bd_instrRom_0/control_bd_instrRom_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/bd/control_bd/control_bd_ooc.xdc]
+
+read_ip -quiet /home/niklas/dev/EDiC/vivado/EDiC.srcs/sources_1/ip/dbgIla/dbgIla.xci
+set_property used_in_synthesis false [get_files -all /home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/ip/dbgIla/ila_v6_2/constraints/ila_impl.xdc]
+set_property used_in_implementation false [get_files -all /home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/ip/dbgIla/ila_v6_2/constraints/ila_impl.xdc]
+set_property used_in_implementation false [get_files -all /home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/ip/dbgIla/ila_v6_2/constraints/ila.xdc]
+set_property used_in_implementation false [get_files -all /home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/ip/dbgIla/dbgIla_ooc.xdc]
 
 read_ip -quiet /home/niklas/dev/EDiC/vivado/EDiC.srcs/sources_1/ip/clk_wiz_5Mhz/clk_wiz_5Mhz.xci
 set_property used_in_implementation false [get_files -all /home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/ip/clk_wiz_5Mhz/clk_wiz_5Mhz_board.xdc]

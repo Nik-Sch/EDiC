@@ -1,10 +1,10 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2 (lin64) Build 3367213 Tue Oct 19 02:47:39 MDT 2021
-// Date        : Sat Nov  6 12:47:02 2021
+// Date        : Fri Nov 19 00:17:07 2021
 // Host        : niklasPC running 64-bit Manjaro Linux
-// Command     : write_verilog -force -mode synth_stub
-//               /home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/bd/memory_bd/ip/memory_bd_blk_mem_gen_0_1/memory_bd_blk_mem_gen_0_1_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top memory_bd_blk_mem_gen_0_1 -prefix
+//               memory_bd_blk_mem_gen_0_1_ memory_bd_blk_mem_gen_0_1_stub.v
 // Design      : memory_bd_blk_mem_gen_0_1
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a100tcsg324-1

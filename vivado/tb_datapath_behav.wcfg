@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="234,789.100 ns"></ZoomStartTime>
-      <ZoomEndTime time="238,681.101 ns"></ZoomEndTime>
-      <Cursor1Time time="235,705.100 ns"></Cursor1Time>
+      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
+      <ZoomEndTime time="3,905.015001 us"></ZoomEndTime>
+      <Cursor1Time time="243.583504 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="404"></NameColumnWidth>
-      <ValueColumnWidth column_width="118"></ValueColumnWidth>
+      <ValueColumnWidth column_width="112"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="19" />
+   <WVObjectSize size="21" />
    <wave_markers>
       <marker label="" time="128908320" />
       <marker label="" time="235705100" />
@@ -193,5 +193,13 @@
    <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_memory/memory/inst/o_busNOE">
       <obj_property name="ElementShortName">o_busNOE</obj_property>
       <obj_property name="ObjectShortName">o_busNOE</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/o_cathodes">
+      <obj_property name="ElementShortName">o_cathodes[7:0]</obj_property>
+      <obj_property name="ObjectShortName">o_cathodes[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/o_anodes">
+      <obj_property name="ElementShortName">o_anodes[7:0]</obj_property>
+      <obj_property name="ObjectShortName">o_anodes[7:0]</obj_property>
    </wvobject>
 </wave_config>

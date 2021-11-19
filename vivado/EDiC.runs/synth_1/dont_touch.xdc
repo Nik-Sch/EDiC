@@ -6,9 +6,6 @@
 # Block Designs: bd/memory_bd/memory_bd.bd
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==memory_bd || ORIG_REF_NAME==memory_bd} -quiet] -quiet
 
-# IP: bd/memory_bd/ip/memory_bd_memory_0_0/memory_bd_memory_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==memory_bd_memory_0_0 || ORIG_REF_NAME==memory_bd_memory_0_0} -quiet] -quiet
-
 # IP: bd/memory_bd/ip/memory_bd_blk_mem_gen_0_0/memory_bd_blk_mem_gen_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==memory_bd_blk_mem_gen_0_0 || ORIG_REF_NAME==memory_bd_blk_mem_gen_0_0} -quiet] -quiet
 
@@ -18,17 +15,23 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==memory_bd_b
 # IP: bd/memory_bd/ip/memory_bd_ram_0/memory_bd_ram_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==memory_bd_ram_0 || ORIG_REF_NAME==memory_bd_ram_0} -quiet] -quiet
 
+# IP: bd/memory_bd/ip/memory_bd_memory_0_0/memory_bd_memory_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==memory_bd_memory_0_0 || ORIG_REF_NAME==memory_bd_memory_0_0} -quiet] -quiet
+
 # Block Designs: bd/control_bd/control_bd.bd
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==control_bd || ORIG_REF_NAME==control_bd} -quiet] -quiet
-
-# IP: bd/control_bd/ip/control_bd_control_0_0/control_bd_control_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==control_bd_control_0_0 || ORIG_REF_NAME==control_bd_control_0_0} -quiet] -quiet
 
 # IP: bd/control_bd/ip/control_bd_xlconstant_0_0/control_bd_xlconstant_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==control_bd_xlconstant_0_0 || ORIG_REF_NAME==control_bd_xlconstant_0_0} -quiet] -quiet
 
 # IP: bd/control_bd/ip/control_bd_instrRom_0/control_bd_instrRom_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==control_bd_instrRom_0 || ORIG_REF_NAME==control_bd_instrRom_0} -quiet] -quiet
+
+# IP: bd/control_bd/ip/control_bd_control_0_0/control_bd_control_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==control_bd_control_0_0 || ORIG_REF_NAME==control_bd_control_0_0} -quiet] -quiet
+
+# IP: ip/dbgIla/dbgIla.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==dbgIla || ORIG_REF_NAME==dbgIla} -quiet] -quiet
 
 # XDC: /home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/bd/memory_bd/memory_bd_ooc.xdc
 

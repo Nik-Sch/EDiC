@@ -1,62 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1636199165">
-  <File Type="RCFI_FILE" Name="board_top.rcfi"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="board_top_methodology_drc_routed.rpx"/>
-  <File Type="ROUTE-DRC-RPX" Name="board_top_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="board_top_methodology_drc_routed.pb"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="board_top_methodology_drc_routed.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="board_top_postroute_physopt_bb.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-DCP" Name="board_top_postroute_physopt.dcp"/>
-  <File Type="PHYSOPT-DCP" Name="board_top_physopt.dcp"/>
-  <File Type="POSTPLACE-PWROPT-DCP" Name="board_top_postplace_pwropt.dcp"/>
-  <File Type="PWROPT-DCP" Name="board_top_pwropt.dcp"/>
-  <File Type="PLACE-DCP" Name="board_top_placed.dcp"/>
-  <File Type="OPT-DCP" Name="board_top_opt.dcp"/>
-  <File Type="ROUTE-BUS-SKEW" Name="board_top_bus_skew_routed.rpt"/>
+<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1637333380">
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <File Type="BITSTR-SYSDEF" Name="board_top.sysdef"/>
   <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
   <File Type="BITSTR-LTX" Name="board_top.ltx"/>
-  <File Type="BITSTR-SYSDEF" Name="board_top.sysdef"/>
+  <File Type="BG-BGN" Name="board_top.bgn"/>
+  <File Type="RNPI_FILE" Name="board_top.rnpi"/>
+  <File Type="BG-DRC" Name="board_top.drc"/>
+  <File Type="CFI_FILE" Name="board_top.cfi"/>
+  <File Type="RCFI_FILE" Name="board_top.rcfi"/>
   <File Type="BITSTR-MMI" Name="board_top.mmi"/>
   <File Type="BITSTR-BMM" Name="board_top_bd.bmm"/>
-  <File Type="ROUTE-CLK" Name="board_top_clock_utilization_routed.rpt"/>
   <File Type="BITSTR-NKY" Name="board_top.nky"/>
   <File Type="BITSTR-RBT" Name="board_top.rbt"/>
-  <File Type="ROUTE-BUS-SKEW-RPX" Name="board_top_bus_skew_routed.rpx"/>
-  <File Type="REPORTS-TCL" Name="board_top_reports.tcl"/>
-  <File Type="ROUTE-TIMING-RPX" Name="board_top_timing_summary_routed.rpx"/>
   <File Type="RBD_FILE" Name="board_top.rbd"/>
   <File Type="BITSTR-MSK" Name="board_top.msk"/>
-  <File Type="ROUTE-BUS-SKEW-PB" Name="board_top_bus_skew_routed.pb"/>
-  <File Type="PA-TCL" Name="board_top.tcl"/>
-  <File Type="ROUTE-TIMING-PB" Name="board_top_timing_summary_routed.pb"/>
-  <File Type="OPT-DRC" Name="board_top_drc_opted.rpt"/>
   <File Type="NPI_FILE" Name="board_top.npi"/>
   <File Type="BG-BIN" Name="board_top.bin"/>
-  <File Type="ROUTE-TIMINGSUMMARY" Name="board_top_timing_summary_routed.rpt"/>
-  <File Type="RNPI_FILE" Name="board_top.rnpi"/>
-  <File Type="BG-BGN" Name="board_top.bgn"/>
-  <File Type="ROUTE-BLACKBOX-DCP" Name="board_top_routed_bb.dcp"/>
-  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
-  <File Type="RDI-RDI" Name="board_top.vdi"/>
-  <File Type="CFI_FILE" Name="board_top.cfi"/>
-  <File Type="BG-DRC" Name="board_top.drc"/>
-  <File Type="ROUTE-ERROR-DCP" Name="board_top_routed_error.dcp"/>
   <File Type="PDI-FILE" Name="board_top.pdi"/>
   <File Type="BG-BIT" Name="board_top.bit"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="board_top_bus_skew_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="board_top_bus_skew_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="board_top_bus_skew_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="board_top_timing_summary_postroute_physopted.rpx"/>
+  <File Type="RDI-RDI" Name="board_top.vdi"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="board_top_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="board_top_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="board_top_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="board_top_postroute_physopt.dcp"/>
+  <File Type="ROUTE-BUS-SKEW" Name="board_top_bus_skew_routed.rpt"/>
+  <File Type="ROUTE-CLK" Name="board_top_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-SIMILARITY" Name="board_top_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-TIMING-RPX" Name="board_top_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-TIMING-PB" Name="board_top_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="board_top_timing_summary_routed.rpt"/>
   <File Type="ROUTE-STATUS-PB" Name="board_top_route_status.pb"/>
-  <File Type="OPT-HWDEF" Name="board_top.hwdef"/>
-  <File Type="PLACE-IO" Name="board_top_io_placed.rpt"/>
-  <File Type="PLACE-UTIL" Name="board_top_utilization_placed.rpt"/>
-  <File Type="PLACE-UTIL-PB" Name="board_top_utilization_placed.pb"/>
-  <File Type="PLACE-CTRL" Name="board_top_control_sets_placed.rpt"/>
-  <File Type="PLACE-PRE-SIMILARITY" Name="board_top_incremental_reuse_pre_placed.rpt"/>
-  <File Type="ROUTE-DRC" Name="board_top_drc_routed.rpt"/>
-  <File Type="ROUTE-DRC-PB" Name="board_top_drc_routed.pb"/>
-  <File Type="ROUTE-PWR" Name="board_top_power_routed.rpt"/>
-  <File Type="ROUTE-PWR-SUM" Name="board_top_power_summary_routed.pb"/>
-  <File Type="ROUTE-PWR-RPX" Name="board_top_power_routed.rpx"/>
   <File Type="ROUTE-STATUS" Name="board_top_route_status.rpt"/>
+  <File Type="ROUTE-PWR-RPX" Name="board_top_power_routed.rpx"/>
+  <File Type="ROUTE-PWR-SUM" Name="board_top_power_summary_routed.pb"/>
+  <File Type="ROUTE-PWR" Name="board_top_power_routed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="board_top_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="board_top_methodology_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="board_top_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-RPX" Name="board_top_drc_routed.rpx"/>
+  <File Type="ROUTE-DRC-PB" Name="board_top_drc_routed.pb"/>
+  <File Type="ROUTE-DRC" Name="board_top_drc_routed.rpt"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="board_top_routed_bb.dcp"/>
   <File Type="ROUTE-DCP" Name="board_top_routed.dcp"/>
+  <File Type="ROUTE-ERROR-DCP" Name="board_top_routed_error.dcp"/>
+  <File Type="PHYSOPT-TIMING" Name="board_top_timing_summary_physopted.rpt"/>
+  <File Type="PHYSOPT-DRC" Name="board_top_drc_physopted.rpt"/>
+  <File Type="PHYSOPT-DCP" Name="board_top_physopt.dcp"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="board_top_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="board_top_postplace_pwropt.dcp"/>
+  <File Type="PLACE-TIMING" Name="board_top_timing_summary_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="board_top_incremental_reuse_pre_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="board_top_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-CTRL" Name="board_top_control_sets_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="board_top_utilization_placed.pb"/>
+  <File Type="PLACE-UTIL" Name="board_top_utilization_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="board_top_clock_utilization_placed.rpt"/>
+  <File Type="PLACE-IO" Name="board_top_io_placed.rpt"/>
+  <File Type="PLACE-DCP" Name="board_top_placed.dcp"/>
+  <File Type="PWROPT-TIMING" Name="board_top_timing_summary_pwropted.rpt"/>
+  <File Type="PWROPT-DRC" Name="board_top_drc_pwropted.rpt"/>
+  <File Type="PWROPT-DCP" Name="board_top_pwropt.dcp"/>
+  <File Type="OPT-TIMING" Name="board_top_timing_summary_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="board_top.hwdef"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="board_top_methodology_drc_opted.rpt"/>
+  <File Type="OPT-DRC" Name="board_top_drc_opted.rpt"/>
+  <File Type="OPT-DCP" Name="board_top_opt.dcp"/>
+  <File Type="INIT-TIMING" Name="board_top_timing_summary_init.rpt"/>
+  <File Type="ROUTE-BUS-SKEW-RPX" Name="board_top_bus_skew_routed.rpx"/>
+  <File Type="REPORTS-TCL" Name="board_top_reports.tcl"/>
+  <File Type="ROUTE-BUS-SKEW-PB" Name="board_top_bus_skew_routed.pb"/>
+  <File Type="PA-TCL" Name="board_top.tcl"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PPRDIR/../_src/tristatenet.v">
@@ -93,6 +111,13 @@
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/8bitCPU.srcs/sources_1/bd/control_bd/control_bd.bd"/>
         <Attr Name="ImportTime" Val="1635164921"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/dbgIla/dbgIla.xci">
+      <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -194,13 +219,6 @@
     <Step Id="route_design"/>
     <Step Id="post_route_phys_opt_design"/>
     <Step Id="write_bitstream"/>
-    <Step Id="write_device_image"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="control_bd_control_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="control_bd_instrRom_0"/>
   <BlockFileSet Type="BlockSrcs" Name="clk_wiz_5Mhz"/>
-  <BlockFileSet Type="BlockSrcs" Name="memory_bd_blk_mem_gen_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="memory_bd_ram_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="memory_bd_memory_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="memory_bd_blk_mem_gen_0_1"/>
 </GenRun>

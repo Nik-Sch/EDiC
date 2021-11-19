@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2 (lin64) Build 3367213 Tue Oct 19 02:47:39 MDT 2021
-//Date        : Sun Nov 14 23:08:02 2021
+//Date        : Fri Nov 19 12:31:59 2021
 //Host        : niklasPC running 64-bit Manjaro Linux
 //Command     : generate_target control_bd_wrapper.bd
 //Design      : control_bd_wrapper
@@ -40,7 +40,8 @@ module control_bd_wrapper
     o_ctrlReg0NWE,
     o_ctrlReg1BusNOE,
     o_ctrlReg1NWE,
-    o_ctrlRegAluSel);
+    o_ctrlRegAluSel,
+    o_dbgStep);
   input i_flagCarry;
   input i_flagNegative;
   input i_flagOverflow;
@@ -72,6 +73,7 @@ module control_bd_wrapper
   output o_ctrlReg1BusNOE;
   output o_ctrlReg1NWE;
   output o_ctrlRegAluSel;
+  output [2:0]o_dbgStep;
 
   wire i_flagCarry;
   wire i_flagNegative;
@@ -104,6 +106,7 @@ module control_bd_wrapper
   wire o_ctrlReg1BusNOE;
   wire o_ctrlReg1NWE;
   wire o_ctrlRegAluSel;
+  wire [2:0]o_dbgStep;
 
   control_bd control_bd_i
        (.i_flagCarry(i_flagCarry),
@@ -136,5 +139,6 @@ module control_bd_wrapper
         .o_ctrlReg0NWE(o_ctrlReg0NWE),
         .o_ctrlReg1BusNOE(o_ctrlReg1BusNOE),
         .o_ctrlReg1NWE(o_ctrlReg1NWE),
-        .o_ctrlRegAluSel(o_ctrlRegAluSel));
+        .o_ctrlRegAluSel(o_ctrlRegAluSel),
+        .o_dbgStep(o_dbgStep));
 endmodule

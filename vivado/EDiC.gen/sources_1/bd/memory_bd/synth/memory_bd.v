@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2 (lin64) Build 3367213 Tue Oct 19 02:47:39 MDT 2021
-//Date        : Sun Nov 14 19:30:53 2021
+//Date        : Fri Nov 19 12:31:57 2021
 //Host        : niklasPC running 64-bit Manjaro Linux
 //Command     : generate_target memory_bd.bd
 //Design      : memory_bd
@@ -33,6 +33,7 @@ module memory_bd
     o_breakpointHitN,
     o_bus,
     o_busNOE,
+    o_dbgPc,
     o_instrCode,
     o_ioAddress,
     o_ioNOE,
@@ -60,6 +61,7 @@ module memory_bd
   output o_breakpointHitN;
   output [7:0]o_bus;
   output o_busNOE;
+  output [15:0]o_dbgPc;
   output [7:0]o_instrCode;
   output [7:0]o_ioAddress;
   output o_ioNOE;
@@ -95,6 +97,7 @@ module memory_bd
   wire memory_o_breakpointHitN;
   wire [7:0]memory_o_bus;
   wire memory_o_busNOE;
+  wire [15:0]memory_o_dbgPc;
   wire [7:0]memory_o_ioAddress;
   wire memory_o_ioNOE;
   wire memory_o_ioNWE;
@@ -125,6 +128,7 @@ module memory_bd
   assign o_breakpointHitN = memory_o_breakpointHitN;
   assign o_bus[7:0] = memory_o_bus;
   assign o_busNOE = memory_o_busNOE;
+  assign o_dbgPc[15:0] = memory_o_dbgPc;
   assign o_instrCode[7:0] = memory_0_o_instrCode;
   assign o_ioAddress[7:0] = memory_o_ioAddress;
   assign o_ioNOE = memory_o_ioNOE;
@@ -159,6 +163,7 @@ module memory_bd
         .o_breakpointHitN(memory_o_breakpointHitN),
         .o_bus(memory_o_bus),
         .o_busNOE(memory_o_busNOE),
+        .o_dbgPc(memory_o_dbgPc),
         .o_instrCode(memory_0_o_instrCode),
         .o_ioAddress(memory_o_ioAddress),
         .o_ioNOE(memory_o_ioNOE),

@@ -40,7 +40,8 @@ module memory(
 
   input wire [15:0] i_breakpointAddress,
   input wire i_breakpointEnableN,
-  output wire o_breakpointHitN
+  output wire o_breakpointHitN,
+  output wire [15:0] o_dbgPc
 );
 
 reg [15:0] r_pc;
@@ -50,6 +51,8 @@ reg [15:0] r_instrImm;
 wire s_selectStackMem;
 wire [7:0] s_select;
 wire [15:0] s_pcIn;
+
+assign o_dbgPc = r_pc;
 
 
 assign o_breakpointHitN = (!i_breakpointEnableN) && (r_pc == i_breakpointAddress);

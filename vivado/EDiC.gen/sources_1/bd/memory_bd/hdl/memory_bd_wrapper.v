@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2 (lin64) Build 3367213 Tue Oct 19 02:47:39 MDT 2021
-//Date        : Sun Nov 14 19:30:53 2021
+//Date        : Fri Nov 19 12:31:58 2021
 //Host        : niklasPC running 64-bit Manjaro Linux
 //Command     : generate_target memory_bd_wrapper.bd
 //Design      : memory_bd_wrapper
@@ -32,6 +32,7 @@ module memory_bd_wrapper
     o_breakpointHitN,
     o_bus,
     o_busNOE,
+    o_dbgPc,
     o_instrCode,
     o_ioAddress,
     o_ioNOE,
@@ -59,6 +60,7 @@ module memory_bd_wrapper
   output o_breakpointHitN;
   output [7:0]o_bus;
   output o_busNOE;
+  output [15:0]o_dbgPc;
   output [7:0]o_instrCode;
   output [7:0]o_ioAddress;
   output o_ioNOE;
@@ -87,6 +89,7 @@ module memory_bd_wrapper
   wire o_breakpointHitN;
   wire [7:0]o_bus;
   wire o_busNOE;
+  wire [15:0]o_dbgPc;
   wire [7:0]o_instrCode;
   wire [7:0]o_ioAddress;
   wire o_ioNOE;
@@ -116,6 +119,7 @@ module memory_bd_wrapper
         .o_breakpointHitN(o_breakpointHitN),
         .o_bus(o_bus),
         .o_busNOE(o_busNOE),
+        .o_dbgPc(o_dbgPc),
         .o_instrCode(o_instrCode),
         .o_ioAddress(o_ioAddress),
         .o_ioNOE(o_ioNOE),

@@ -39,7 +39,8 @@ module control(
   output wire o_ctrlMemRamNWE,
   output wire o_ctrlMemRamNOE,
   output wire o_ctrlMemPCToRamN,
-  output wire o_ctrlInstrFinishedN
+  output wire o_ctrlInstrFinishedN,
+  output wire [2:0] o_dbgStep
 );
 reg[2:0] r_step;
 reg[7:0] r_instructionFallingEdge;
@@ -75,6 +76,8 @@ assign o_ctrlMemPCNEn = i_decodeData[17];
 assign o_ctrlMemPCFromImm = i_decodeData[18];
 assign o_ctrlMemPCToRamN = i_decodeData[19];
 assign o_ctrlInstrFinishedN = i_decodeData[20];
+
+assign o_dbgStep = r_step;
 
 always @(posedge i_nclk) begin
   if (!i_halt) begin

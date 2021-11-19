@@ -50,7 +50,8 @@ always @(posedge i_clk) begin
                 || s_bits == 4'hd
                 || s_bits == 4'he
                 || s_bits == 4'hf;
-  cathodesAH[5] <= s_bits == 4'h4 // f
+  cathodesAH[5] <= s_bits == 4'h0 // f
+                || s_bits == 4'h4
                 || s_bits == 4'h5
                 || s_bits == 4'h6
                 || s_bits == 4'h8
@@ -60,7 +61,8 @@ always @(posedge i_clk) begin
                 || s_bits == 4'hc
                 || s_bits == 4'he
                 || s_bits == 4'hf;
-  cathodesAH[4] <= s_bits == 4'h2 // e
+  cathodesAH[4] <= s_bits == 4'h0 // e
+                || s_bits == 4'h2
                 || s_bits == 4'h6
                 || s_bits == 4'h8
                 || s_bits == 4'ha
@@ -69,7 +71,8 @@ always @(posedge i_clk) begin
                 || s_bits == 4'hd
                 || s_bits == 4'he
                 || s_bits == 4'hf;
-  cathodesAH[3] <= s_bits == 4'h2 // d
+  cathodesAH[3] <= s_bits == 4'h0 // d
+                || s_bits == 4'h2
                 || s_bits == 4'h3
                 || s_bits == 4'h5
                 || s_bits == 4'h6
@@ -79,7 +82,8 @@ always @(posedge i_clk) begin
                 || s_bits == 4'hc
                 || s_bits == 4'hd
                 || s_bits == 4'he;
-  cathodesAH[2] <= s_bits == 4'h1 // c
+  cathodesAH[2] <= s_bits == 4'h0 // c
+                || s_bits == 4'h1
                 || s_bits == 4'h3
                 || s_bits == 4'h4
                 || s_bits == 4'h5
@@ -90,7 +94,8 @@ always @(posedge i_clk) begin
                 || s_bits == 4'ha
                 || s_bits == 4'hb
                 || s_bits == 4'hd;
-  cathodesAH[1] <= s_bits == 4'h1 // b
+  cathodesAH[1] <= s_bits == 4'h0 // b
+                || s_bits == 4'h1
                 || s_bits == 4'h2
                 || s_bits == 4'h3
                 || s_bits == 4'h4
@@ -99,7 +104,8 @@ always @(posedge i_clk) begin
                 || s_bits == 4'h9
                 || s_bits == 4'ha
                 || s_bits == 4'hd;
-  cathodesAH[0] <= s_bits == 4'h2 // a
+  cathodesAH[0] <= s_bits == 4'h0 // a
+                || s_bits == 4'h2
                 || s_bits == 4'h3
                 || s_bits == 4'h5
                 || s_bits == 4'h6

@@ -5,7 +5,7 @@ module board_top(
   input wire i_swInstrNCycle,
   input wire i_swStepNRun,
   input wire i_swEnableBreakpoint,
-  input wire i_btnReset,
+  input wire i_btnReset, // active low
 
   output wire [7:0] o_cathodes, // dot + gfedcba
   output wire [7:0] o_anodes,
@@ -27,7 +27,7 @@ datapath inst_datapath(
   .i_swInstrNCycle(i_swInstrNCycle),
   .i_swStepNRun(i_swStepNRun),
   .i_swEnableBreakpoint(i_swEnableBreakpoint),
-  .i_btnReset(i_btnReset),
+  .i_btnReset(~i_btnReset), // btn should be 1 if pressed -> active high 
   .i_breakpointAddress(16'hff),
 
   .o_cathodes(o_cathodes),

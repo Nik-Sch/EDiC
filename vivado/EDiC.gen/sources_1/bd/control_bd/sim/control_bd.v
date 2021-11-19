@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2 (lin64) Build 3367213 Tue Oct 19 02:47:39 MDT 2021
-//Date        : Sun Nov 14 23:08:01 2021
+//Date        : Fri Nov 19 12:31:59 2021
 //Host        : niklasPC running 64-bit Manjaro Linux
 //Command     : generate_target control_bd.bd
 //Design      : control_bd
@@ -41,7 +41,8 @@ module control_bd
     o_ctrlReg0NWE,
     o_ctrlReg1BusNOE,
     o_ctrlReg1NWE,
-    o_ctrlRegAluSel);
+    o_ctrlRegAluSel,
+    o_dbgStep);
   input i_flagCarry;
   input i_flagNegative;
   input i_flagOverflow;
@@ -73,6 +74,7 @@ module control_bd
   output o_ctrlReg1BusNOE;
   output o_ctrlReg1NWE;
   output o_ctrlRegAluSel;
+  output [2:0]o_dbgStep;
 
   wire control_0_o_ctrlAluNOE;
   wire [1:0]control_0_o_ctrlAluOp;
@@ -97,6 +99,7 @@ module control_bd
   wire control_0_o_ctrlReg1BusNOE;
   wire control_0_o_ctrlReg1NWE;
   wire control_0_o_ctrlRegAluSel;
+  wire [2:0]control_0_o_dbgStep;
   wire [14:0]control_0_o_decodeAddr;
   wire i_flagCarry_0_1;
   wire i_flagNegative_0_1;
@@ -140,6 +143,7 @@ module control_bd
   assign o_ctrlReg1BusNOE = control_0_o_ctrlReg1BusNOE;
   assign o_ctrlReg1NWE = control_0_o_ctrlReg1NWE;
   assign o_ctrlRegAluSel = control_0_o_ctrlRegAluSel;
+  assign o_dbgStep[2:0] = control_0_o_dbgStep;
   control_bd_control_0_0 control_0
        (.i_decodeData(instrDecode_douta),
         .i_flagCarry(i_flagCarry_0_1),
@@ -173,6 +177,7 @@ module control_bd
         .o_ctrlReg1BusNOE(control_0_o_ctrlReg1BusNOE),
         .o_ctrlReg1NWE(control_0_o_ctrlReg1NWE),
         .o_ctrlRegAluSel(control_0_o_ctrlRegAluSel),
+        .o_dbgStep(control_0_o_dbgStep),
         .o_decodeAddr(control_0_o_decodeAddr));
   control_bd_instrRom_0 instrDecode
        (.addra(control_0_o_decodeAddr),

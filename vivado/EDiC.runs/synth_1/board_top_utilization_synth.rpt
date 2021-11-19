@@ -1,7 +1,7 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.2 (lin64) Build 3367213 Tue Oct 19 02:47:39 MDT 2021
-| Date         : Sat Nov  6 12:48:03 2021
+| Date         : Fri Nov 19 15:50:18 2021
 | Host         : niklasPC running 64-bit Manjaro Linux
 | Command      : report_utilization -file board_top_utilization_synth.rpt -pb board_top_utilization_synth.pb
 | Design       : board_top
@@ -31,8 +31,8 @@ Table of Contents
 +-------------------------+------+-------+------------+-----------+-------+
 |        Site Type        | Used | Fixed | Prohibited | Available | Util% |
 +-------------------------+------+-------+------------+-----------+-------+
-| Slice LUTs*             |  148 |     0 |          0 |     63400 |  0.23 |
-|   LUT as Logic          |  148 |     0 |          0 |     63400 |  0.23 |
+| Slice LUTs*             |  124 |     0 |          0 |     63400 |  0.20 |
+|   LUT as Logic          |  124 |     0 |          0 |     63400 |  0.20 |
 |   LUT as Memory         |    0 |     0 |          0 |     19000 |  0.00 |
 | Slice Registers         |   80 |     0 |          0 |    126800 |  0.06 |
 |   Register as Flip Flop |   80 |     0 |          0 |    126800 |  0.06 |
@@ -113,7 +113,7 @@ Table of Contents
 +------------+------+-------+------------+-----------+-------+
 |  Site Type | Used | Fixed | Prohibited | Available | Util% |
 +------------+------+-------+------------+-----------+-------+
-| BUFGCTRL   |    1 |     0 |          0 |        32 |  3.13 |
+| BUFGCTRL   |    0 |     0 |          0 |        32 |  0.00 |
 | BUFIO      |    0 |     0 |          0 |        24 |  0.00 |
 | MMCME2_ADV |    0 |     0 |          0 |         6 |  0.00 |
 | PLLE2_ADV  |    0 |     0 |          0 |         6 |  0.00 |
@@ -148,17 +148,16 @@ Table of Contents
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
 | FDRE     |   76 |        Flop & Latch |
-| LUT6     |   73 |                 LUT |
-| LUT3     |   29 |                 LUT |
-| LUT5     |   26 |                 LUT |
-| LUT4     |   23 |                 LUT |
-| LUT2     |   21 |                 LUT |
+| LUT6     |   60 |                 LUT |
+| LUT3     |   26 |                 LUT |
+| LUT4     |   22 |                 LUT |
 | OBUF     |   16 |                  IO |
+| LUT2     |   16 |                 LUT |
+| LUT5     |   15 |                 LUT |
+| LUT1     |   13 |                 LUT |
 | IBUF     |   13 |                  IO |
-| LUT1     |   10 |                 LUT |
 | FDSE     |    4 |        Flop & Latch |
 | CARRY4   |    4 |          CarryLogic |
-| BUFG     |    1 |               Clock |
 +----------+------+---------------------+
 
 
@@ -172,6 +171,7 @@ Table of Contents
 | memory_bd_memory_0_0      |    1 |
 | memory_bd_blk_mem_gen_0_1 |    1 |
 | memory_bd_blk_mem_gen_0_0 |    1 |
+| dbgIla                    |    1 |
 | control_bd_instrRom_0     |    1 |
 | control_bd_control_0_0    |    1 |
 | clk_wiz_5Mhz              |    1 |

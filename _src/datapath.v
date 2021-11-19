@@ -68,9 +68,34 @@ wire [7:0] ioAddress;
 wire ioNOE;
 wire ioNWE;
 
+wire [15:0] dbgPc;
+wire [2:0] dbgStep;
+
+dbgIla inst_ila (
+  .clk(i_asyncRamSpecialClock),
+
+  .probe0(s_busAlu),
+  .probe1(s_busNOEAlu),
+  .probe2(s_busRegset),
+  .probe3(s_busNOERegset),
+  .probe4(s_busMemory),
+  .probe5(s_busNOEMemory),
+  .probe6(s_busIO),
+  .probe7(s_busNOEIO),
+  .probe8(s_bus),
+  .probe9(i_switches),
+  .probe10(ioSelect),
+  .probe11(ioNOE),
+  .probe12(ioNWE),
+  .probe13(ioAddress),
+  .probe14(dbgPc),
+  .probe15(dbgStep),
+  .probe16(resetn)
+);
+
 tristatenet #(
   .INPUT_COUNT(4)
-)inst_triBus (
+) inst_triBus (
   .i_data({s_busAlu, s_busRegset, s_busMemory, s_busIO}),
   .i_noe({s_busNOEAlu, s_busNOERegset, s_busNOEMemory, s_busNOEIO}),
   .o_data(s_bus)
@@ -114,7 +139,9 @@ control_bd control_bd_i (
   .o_ctrlMemPCFromImm(ctrlMemPCFromImm),
   .o_ctrlMemPCToRamN(ctrlMemPCToRamN),
 
-  .o_ctrlInstrFinishedN(ctrlInstrFinishedN)
+  .o_ctrlInstrFinishedN(ctrlInstrFinishedN),
+
+  .o_dbgStep(dbgStep)
 );
 
 alu inst_alu(
@@ -184,7 +211,9 @@ memory_bd inst_memory (
   .o_ioSelect(ioSelect),
   .o_ioAddress(ioAddress),
   .o_ioNOE(ioNOE),
-  .o_ioNWE(ioNWE)
+  .o_ioNWE(ioNWE),
+
+  .o_dbgPc(dbgPc)
 );
 
 clock inst_clock (

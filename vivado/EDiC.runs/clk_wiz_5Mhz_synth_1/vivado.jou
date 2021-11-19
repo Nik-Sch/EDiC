@@ -2,12 +2,12 @@
 # Vivado v2021.2 (64-bit)
 # SW Build 3367213 on Tue Oct 19 02:47:39 MDT 2021
 # IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
-# Start of session at: Sat Nov  6 12:46:08 2021
-# Process ID: 1201036
+# Start of session at: Fri Nov 19 12:32:10 2021
+# Process ID: 1953813
 # Current directory: /home/niklas/dev/EDiC/vivado/EDiC.runs/clk_wiz_5Mhz_synth_1
 # Command line: vivado -log clk_wiz_5Mhz.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source clk_wiz_5Mhz.tcl
 # Log file: /home/niklas/dev/EDiC/vivado/EDiC.runs/clk_wiz_5Mhz_synth_1/clk_wiz_5Mhz.vds
 # Journal file: /home/niklas/dev/EDiC/vivado/EDiC.runs/clk_wiz_5Mhz_synth_1/vivado.jou
-# Running On: niklasPC, OS: Linux, CPU Frequency: 3789.993 MHz, CPU Physical cores: 16, Host memory: 33679 MB
+# Running On: niklasPC, OS: Linux, CPU Frequency: 4130.277 MHz, CPU Physical cores: 16, Host memory: 33679 MB
 #-----------------------------------------------------------
 source clk_wiz_5Mhz.tcl -notrace

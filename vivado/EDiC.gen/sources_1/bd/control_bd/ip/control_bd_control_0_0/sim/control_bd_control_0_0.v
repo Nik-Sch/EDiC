@@ -87,7 +87,8 @@ module control_bd_control_0_0 (
   o_ctrlMemRamNWE,
   o_ctrlMemRamNOE,
   o_ctrlMemPCToRamN,
-  o_ctrlInstrFinishedN
+  o_ctrlInstrFinishedN,
+  o_dbgStep
 );
 
 input wire i_nclk;
@@ -125,6 +126,7 @@ output wire o_ctrlMemRamNWE;
 output wire o_ctrlMemRamNOE;
 output wire o_ctrlMemPCToRamN;
 output wire o_ctrlInstrFinishedN;
+output wire [2 : 0] o_dbgStep;
 
   control inst (
     .i_nclk(i_nclk),
@@ -159,6 +161,7 @@ output wire o_ctrlInstrFinishedN;
     .o_ctrlMemRamNWE(o_ctrlMemRamNWE),
     .o_ctrlMemRamNOE(o_ctrlMemRamNOE),
     .o_ctrlMemPCToRamN(o_ctrlMemPCToRamN),
-    .o_ctrlInstrFinishedN(o_ctrlInstrFinishedN)
+    .o_ctrlInstrFinishedN(o_ctrlInstrFinishedN),
+    .o_dbgStep(o_dbgStep)
   );
 endmodule

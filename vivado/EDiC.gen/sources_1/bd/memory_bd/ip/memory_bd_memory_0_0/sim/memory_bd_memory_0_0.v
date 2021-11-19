@@ -89,7 +89,8 @@ module memory_bd_memory_0_0 (
   o_ioNWE,
   i_breakpointAddress,
   i_breakpointEnableN,
-  o_breakpointHitN
+  o_breakpointHitN,
+  o_dbgPc
 );
 
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME i_clk, ASSOCIATED_RESET i_reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN memory_bd_i_clk, INSERT_VIP 0" *)
@@ -131,6 +132,7 @@ output wire o_ioNWE;
 input wire [15 : 0] i_breakpointAddress;
 input wire i_breakpointEnableN;
 output wire o_breakpointHitN;
+output wire [15 : 0] o_dbgPc;
 
   memory inst (
     .i_clk(i_clk),
@@ -167,6 +169,7 @@ output wire o_breakpointHitN;
     .o_ioNWE(o_ioNWE),
     .i_breakpointAddress(i_breakpointAddress),
     .i_breakpointEnableN(i_breakpointEnableN),
-    .o_breakpointHitN(o_breakpointHitN)
+    .o_breakpointHitN(o_breakpointHitN),
+    .o_dbgPc(o_dbgPc)
   );
 endmodule
