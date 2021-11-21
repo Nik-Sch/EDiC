@@ -42,9 +42,9 @@ module control(
   output wire o_ctrlInstrFinishedN,
   output wire [2:0] o_dbgStep
 );
-reg[2:0] r_step;
-reg[7:0] r_instructionFallingEdge;
-reg[3:0] r_flags;
+reg[2:0] r_step = 0;
+reg[7:0] r_instructionFallingEdge = 0;
+reg[3:0] r_flags = 0;
 
 wire s_stepEqual1N;
 
@@ -79,7 +79,7 @@ assign o_ctrlInstrFinishedN = i_decodeData[20];
 
 assign o_dbgStep = r_step;
 
-always @(posedge i_nclk) begin
+always @(posedge i_nclk, posedge i_reset) begin
   if (!i_halt) begin
     r_step <= r_step + 1;
     r_instructionFallingEdge <= i_instrCode;

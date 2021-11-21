@@ -45,10 +45,10 @@ module memory(
   output wire [15:0] o_dbgPc
 );
 
-reg [15:0] r_pc;
-reg [7:0] r_sp;
-reg [15:0] r_mar;
-reg [15:0] r_instrImm;
+reg [15:0] r_pc = 0;
+reg [7:0] r_sp = 0;
+reg [15:0] r_mar = 0;
+reg [15:0] r_instrImm = 0;
 wire s_selectStackMem;
 wire [7:0] s_select;
 wire [15:0] s_pcIn;
@@ -127,7 +127,7 @@ assign o_ram2Data = r_pc[15:8];
 
 assign o_ramAddress[16] = s_selectStackMem;
 
-always @(posedge i_clk) begin
+always @(posedge i_clk, posedge i_reset) begin
 
   if (!((i_ctrlPCNEn | i_halt) & i_ctrlPCLoadN)) begin
     if (i_ctrlPCLoadN) begin // increment

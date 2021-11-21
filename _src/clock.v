@@ -52,7 +52,7 @@ always @* begin
   endcase
 end
 
-always @(posedge o_clk) begin
+always @(posedge o_clk, negedge o_resetn) begin
   r_step1 <= ~i_btnStep;
   r_step2 <= r_step1;
   r_step3 <= r_step2;

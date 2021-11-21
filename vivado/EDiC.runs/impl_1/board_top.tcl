@@ -124,6 +124,8 @@ set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
   set_param chipscope.maxJobs 4
+  set_param xicom.use_bs_reader 1
+  set_param tcl.collectionResultDisplayLimit 0
 OPTRACE "create in-memory project" START { }
   create_project -in_memory -part xc7a100tcsg324-1
   set_property board_part digilentinc.com:nexys-a7-100t:part0:1.0 [current_project]

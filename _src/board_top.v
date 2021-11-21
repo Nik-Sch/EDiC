@@ -9,7 +9,9 @@ module board_top(
 
   output wire [7:0] o_cathodes, // dot + gfedcba
   output wire [7:0] o_anodes,
-  input wire [7:0] i_switches
+  input wire [7:0] i_switches,
+  output wire [7:0] o_r0,
+  output wire [7:0] o_r1
 );
 
 wire s_oszClk;
@@ -32,7 +34,9 @@ datapath inst_datapath(
 
   .o_cathodes(o_cathodes),
   .o_anodes(o_anodes),
-  .i_switches(i_switches)
+  .i_switches(i_switches),
+  .o_r0(o_r0),
+  .o_r1(o_r1)
 );
 
 endmodule

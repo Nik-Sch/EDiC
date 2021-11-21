@@ -11,6 +11,8 @@ module datapath(
   output wire [7:0] o_cathodes, // dot + gfedcba
   output wire [7:0] o_anodes,
   input wire [7:0] i_switches,
+  output wire [7:0] o_r0,
+  output wire [7:0] o_r1,
 
   input wire [15:0] i_breakpointAddress
 );
@@ -70,6 +72,7 @@ wire ioNWE;
 
 wire [15:0] dbgPc;
 wire [2:0] dbgStep;
+wire [7:0] s_output;
 
 dbgIla inst_ila (
   .clk(i_asyncRamSpecialClock),
@@ -182,7 +185,9 @@ regset inst_regset(
   .i_ctrlReg1NWE(ctrlReg1NWE),
   .i_ctrlAluSel(ctrlRegAluSel),
   .i_ctrlReg0BusNOE(ctrlReg0BusNOE),
-  .i_ctrlReg1BusNOE(ctrlReg1BusNOE)
+  .i_ctrlReg1BusNOE(ctrlReg1BusNOE),
+  .o_dbgR0(o_r0),
+  .o_dbgR1(o_r1)
 );
 
 memory_bd inst_memory (
@@ -251,9 +256,20 @@ io inst_io (
   .i_ioAddress(ioAddress),
   .i_ioNOE(ioNOE),
   .i_ioNWE(ioNWE),
-  .o_cathodes(o_cathodes),
-  .o_anodes(o_anodes),
+  .o_output(s_output),
   .i_switches(i_switches)
 );
+
+
+displayDriver inst_7seg(
+  .i_clk(clk),
+  .i_resetn(resetn),
+  .data({dbgPc[11:0], 1'b0, dbgStep, 8'h00, s_output}),
+  .enableDigit(halt ? 8'b11110011: 8'b00000011),
+  .dots(halt ? 8'b00100000 : 8'h00),
+  .cathodes(o_cathodes),
+  .anodes(o_anodes)
+);
+
 
 endmodule

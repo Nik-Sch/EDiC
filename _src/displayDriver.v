@@ -2,7 +2,9 @@ module displayDriver(
   input wire i_clk, // 5MHz
   input wire i_resetn,
 
-  input [7:0] data,
+  input [8*4-1:0] data,
+  input [7:0] enableDigit,
+  input [7:0] dots,
   output [7:0] cathodes, // dot + gfedcba
   output [7:0] anodes
 );
@@ -13,7 +15,7 @@ module displayDriver(
 //  d  dot
 
 parameter COUNTER_MAX = 10000; // 2ms
-reg [3:0] r_currentDigit = 0;
+reg [2:0] r_currentDigit = 0;
 reg [15:0] r_counter = 0;
 reg [7:0] cathodesAH;
 reg [7:0] anodesAH;
@@ -24,20 +26,17 @@ assign s_bits = data[4*(r_currentDigit+1)-1-:4];
 assign anodes = ~anodesAH;
 assign cathodes = ~cathodesAH;
 
-always @(posedge i_clk) begin
+always @(posedge i_clk, negedge i_resetn) begin
   r_counter <= r_counter + 1;
   if (r_counter == COUNTER_MAX) begin
     r_counter <= 0;
     r_currentDigit <= r_currentDigit + 1;
-    if (r_currentDigit == 1) begin
-      r_currentDigit <= 0;
-    end
   end
 
   anodesAH <= 0;
   anodesAH[r_currentDigit] <= 1;
 
-  cathodesAH[7] <= 0;
+  cathodesAH[7] <= dots[r_currentDigit];
   cathodesAH[6] <= s_bits == 4'h2 // g
                 || s_bits == 4'h3
                 || s_bits == 4'h4
@@ -116,6 +115,10 @@ always @(posedge i_clk) begin
                 || s_bits == 4'hc
                 || s_bits == 4'he
                 || s_bits == 4'hf;
+
+  if (~enableDigit[r_currentDigit]) begin
+    cathodesAH[6:0] <= 0;
+  end
 
   if (~i_resetn) begin
     r_currentDigit <= 0;
