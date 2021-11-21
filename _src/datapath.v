@@ -90,7 +90,12 @@ dbgIla inst_ila (
   .probe13(ioAddress),
   .probe14(dbgPc),
   .probe15(dbgStep),
-  .probe16(resetn)
+  .probe16(resetn),
+  .probe17(i_btnStep),
+  .probe18(i_swInstrNCycle),
+  .probe19(i_swStepNRun),
+  .probe20(i_swEnableBreakpoint),
+  .probe21(breakpointHitN)
 );
 
 tristatenet #(
@@ -212,6 +217,7 @@ memory_bd inst_memory (
   .o_ioAddress(ioAddress),
   .o_ioNOE(ioNOE),
   .o_ioNWE(ioNWE),
+  .i_halt(halt),
 
   .o_dbgPc(dbgPc)
 );

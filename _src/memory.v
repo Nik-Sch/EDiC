@@ -38,6 +38,7 @@ module memory(
   output wire o_ioNOE,
   output wire o_ioNWE,
 
+  input wire i_halt,
   input wire [15:0] i_breakpointAddress,
   input wire i_breakpointEnableN,
   output wire o_breakpointHitN,
@@ -55,7 +56,7 @@ wire [15:0] s_pcIn;
 assign o_dbgPc = r_pc;
 
 
-assign o_breakpointHitN = (!i_breakpointEnableN) && (r_pc == i_breakpointAddress);
+assign o_breakpointHitN = ~((!i_breakpointEnableN) && (r_pc == i_breakpointAddress));
 
 assign o_romAddress = r_pc[14:0];
 
@@ -128,7 +129,7 @@ assign o_ramAddress[16] = s_selectStackMem;
 
 always @(posedge i_clk) begin
 
-  if (!i_ctrlPCNEn) begin
+  if (!((i_ctrlPCNEn | i_halt) & i_ctrlPCLoadN)) begin
     if (i_ctrlPCLoadN) begin // increment
       r_pc <= r_pc + 1;
     end else begin // load from instrImm or bus
@@ -143,7 +144,7 @@ always @(posedge i_clk) begin
     r_mar[15:8] <= i_bus;
   end
 
-  if (!i_ctrlSpNEn) begin
+  if (!(i_ctrlSpNEn | i_halt)) begin
     r_sp <= r_sp + (i_ctrlSpUp ? 1 : -1);
   end
 

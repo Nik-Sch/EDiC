@@ -1,10 +1,10 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2 (lin64) Build 3367213 Tue Oct 19 02:47:39 MDT 2021
-// Date        : Fri Nov 19 12:12:32 2021
+// Date        : Sun Nov 21 19:53:39 2021
 // Host        : niklasPC running 64-bit Manjaro Linux
-// Command     : write_verilog -force -mode funcsim -rename_top memory_bd_memory_0_0 -prefix
-//               memory_bd_memory_0_0_ memory_bd_memory_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim
+//               /home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/bd/memory_bd/ip/memory_bd_memory_0_0/memory_bd_memory_0_0_sim_netlist.v
 // Design      : memory_bd_memory_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,6 +12,163 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
+(* CHECK_LICENSE_TYPE = "memory_bd_memory_0_0,memory,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
+(* X_CORE_INFO = "memory,Vivado 2021.2" *) 
+(* NotValidForBitStream *)
+module memory_bd_memory_0_0
+   (i_clk,
+    i_reset,
+    i_bus,
+    o_bus,
+    o_busNOE,
+    o_instrCode,
+    i_ctrlPCLoadN,
+    i_ctrlPCNEn,
+    i_ctrlPCFromImm,
+    i_ctrlMemPCToRamN,
+    i_ctrlSpUp,
+    i_ctrlSpNEn,
+    i_ctrlInstrNWE,
+    i_ctrlInstrNOE,
+    i_ctrlRamNOE,
+    i_ctrlRamNWE,
+    i_ctrlMemMar0NWE,
+    i_ctrlMemMar1NWE,
+    i_ctrlMemInstrImmToRamAddr,
+    o_romAddress,
+    i_romData,
+    o_ramAddress,
+    i_ramData,
+    o_ramData,
+    i_ram2Data,
+    o_ram2Data,
+    o_ramWE,
+    o_ramCE,
+    o_ioSelect,
+    o_ioAddress,
+    o_ioNOE,
+    o_ioNWE,
+    i_halt,
+    i_breakpointAddress,
+    i_breakpointEnableN,
+    o_breakpointHitN,
+    o_dbgPc);
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 i_clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME i_clk, ASSOCIATED_RESET i_reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN memory_bd_i_clk, INSERT_VIP 0" *) input i_clk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 i_reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME i_reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input i_reset;
+  input [7:0]i_bus;
+  output [7:0]o_bus;
+  output o_busNOE;
+  output [7:0]o_instrCode;
+  input i_ctrlPCLoadN;
+  input i_ctrlPCNEn;
+  input i_ctrlPCFromImm;
+  input i_ctrlMemPCToRamN;
+  input i_ctrlSpUp;
+  input i_ctrlSpNEn;
+  input i_ctrlInstrNWE;
+  input i_ctrlInstrNOE;
+  input i_ctrlRamNOE;
+  input i_ctrlRamNWE;
+  input i_ctrlMemMar0NWE;
+  input i_ctrlMemMar1NWE;
+  input i_ctrlMemInstrImmToRamAddr;
+  output [14:0]o_romAddress;
+  input [23:0]i_romData;
+  output [16:0]o_ramAddress;
+  input [7:0]i_ramData;
+  output [7:0]o_ramData;
+  input [7:0]i_ram2Data;
+  output [7:0]o_ram2Data;
+  output o_ramWE;
+  output o_ramCE;
+  output o_ioSelect;
+  output [7:0]o_ioAddress;
+  output o_ioNOE;
+  output o_ioNWE;
+  input i_halt;
+  input [15:0]i_breakpointAddress;
+  input i_breakpointEnableN;
+  output o_breakpointHitN;
+  output [15:0]o_dbgPc;
+
+  wire [15:0]i_breakpointAddress;
+  wire i_breakpointEnableN;
+  wire [7:0]i_bus;
+  wire i_clk;
+  wire i_ctrlInstrNOE;
+  wire i_ctrlInstrNWE;
+  wire i_ctrlMemInstrImmToRamAddr;
+  wire i_ctrlMemMar0NWE;
+  wire i_ctrlMemMar1NWE;
+  wire i_ctrlMemPCToRamN;
+  wire i_ctrlPCFromImm;
+  wire i_ctrlPCLoadN;
+  wire i_ctrlPCNEn;
+  wire i_ctrlRamNOE;
+  wire i_ctrlRamNWE;
+  wire i_ctrlSpNEn;
+  wire i_ctrlSpUp;
+  wire i_halt;
+  wire [7:0]i_ram2Data;
+  wire [7:0]i_ramData;
+  wire i_reset;
+  wire [23:0]i_romData;
+  wire o_breakpointHitN;
+  wire [7:0]o_bus;
+  wire o_busNOE;
+  wire [15:0]o_dbgPc;
+  wire [7:0]o_instrCode;
+  wire [7:0]o_ioAddress;
+  wire o_ioSelect;
+  wire [16:8]\^o_ramAddress ;
+  wire o_ramCE;
+  wire o_ramWE;
+
+  assign o_ioNOE = i_ctrlRamNOE;
+  assign o_ioNWE = i_ctrlRamNWE;
+  assign o_ram2Data[7:0] = o_dbgPc[15:8];
+  assign o_ramAddress[16:8] = \^o_ramAddress [16:8];
+  assign o_ramAddress[7:0] = o_ioAddress;
+  assign o_ramData[7:0] = i_bus;
+  assign o_romAddress[14:0] = o_dbgPc[14:0];
+  memory_bd_memory_0_0_memory inst
+       (.i_breakpointAddress(i_breakpointAddress),
+        .i_breakpointEnableN(i_breakpointEnableN),
+        .i_bus(i_bus),
+        .i_clk(i_clk),
+        .i_ctrlInstrNOE(i_ctrlInstrNOE),
+        .i_ctrlInstrNWE(i_ctrlInstrNWE),
+        .i_ctrlMemInstrImmToRamAddr(i_ctrlMemInstrImmToRamAddr),
+        .i_ctrlMemMar0NWE(i_ctrlMemMar0NWE),
+        .i_ctrlMemMar1NWE(i_ctrlMemMar1NWE),
+        .i_ctrlMemPCToRamN(i_ctrlMemPCToRamN),
+        .i_ctrlPCFromImm(i_ctrlPCFromImm),
+        .i_ctrlPCLoadN(i_ctrlPCLoadN),
+        .i_ctrlPCNEn(i_ctrlPCNEn),
+        .i_ctrlRamNOE(i_ctrlRamNOE),
+        .i_ctrlSpNEn(i_ctrlSpNEn),
+        .i_ctrlSpUp(i_ctrlSpUp),
+        .i_halt(i_halt),
+        .i_ram2Data(i_ram2Data),
+        .i_ramData(i_ramData),
+        .i_reset(i_reset),
+        .i_romData(i_romData),
+        .o_breakpointHitN(o_breakpointHitN),
+        .o_bus(o_bus),
+        .o_busNOE(o_busNOE),
+        .o_dbgPc(o_dbgPc),
+        .o_instrCode(o_instrCode),
+        .o_ioSelect(o_ioSelect),
+        .o_ramAddress({\^o_ramAddress ,o_ioAddress}),
+        .o_ramCE(o_ramCE));
+  LUT1 #(
+    .INIT(2'h1)) 
+    o_ramWE_INST_0
+       (.I0(i_ctrlRamNWE),
+        .O(o_ramWE));
+endmodule
+
+(* ORIG_REF_NAME = "memory" *) 
 module memory_bd_memory_0_0_memory
    (o_dbgPc,
     o_ramCE,
@@ -36,11 +193,12 @@ module memory_bd_memory_0_0_memory
     i_ctrlInstrNOE,
     i_ramData,
     i_ctrlRamNOE,
-    i_ctrlPCNEn,
+    i_halt,
+    i_ctrlSpNEn,
     i_ctrlPCLoadN,
     i_ctrlPCFromImm,
     i_ram2Data,
-    i_ctrlSpNEn);
+    i_ctrlPCNEn);
   output [15:0]o_dbgPc;
   output o_ramCE;
   output [7:0]o_instrCode;
@@ -64,11 +222,12 @@ module memory_bd_memory_0_0_memory
   input i_ctrlInstrNOE;
   input [7:0]i_ramData;
   input i_ctrlRamNOE;
-  input i_ctrlPCNEn;
+  input i_halt;
+  input i_ctrlSpNEn;
   input i_ctrlPCLoadN;
   input i_ctrlPCFromImm;
   input [7:0]i_ram2Data;
-  input i_ctrlSpNEn;
+  input i_ctrlPCNEn;
 
   wire [23:16]data2;
   wire [15:0]i_breakpointAddress;
@@ -87,23 +246,24 @@ module memory_bd_memory_0_0_memory
   wire i_ctrlRamNOE;
   wire i_ctrlSpNEn;
   wire i_ctrlSpUp;
+  wire i_halt;
   wire [7:0]i_ram2Data;
   wire [7:0]i_ramData;
   wire i_reset;
   wire [23:0]i_romData;
   wire o_breakpointHitN;
-  wire o_breakpointHitN0;
-  wire o_breakpointHitN0_carry__0_i_1_n_0;
-  wire o_breakpointHitN0_carry__0_i_2_n_0;
-  wire o_breakpointHitN0_carry__0_n_3;
-  wire o_breakpointHitN0_carry_i_1_n_0;
-  wire o_breakpointHitN0_carry_i_2_n_0;
-  wire o_breakpointHitN0_carry_i_3_n_0;
-  wire o_breakpointHitN0_carry_i_4_n_0;
-  wire o_breakpointHitN0_carry_n_0;
-  wire o_breakpointHitN0_carry_n_1;
-  wire o_breakpointHitN0_carry_n_2;
-  wire o_breakpointHitN0_carry_n_3;
+  wire o_breakpointHitN1;
+  wire o_breakpointHitN1_carry__0_i_1_n_0;
+  wire o_breakpointHitN1_carry__0_i_2_n_0;
+  wire o_breakpointHitN1_carry__0_n_3;
+  wire o_breakpointHitN1_carry_i_1_n_0;
+  wire o_breakpointHitN1_carry_i_2_n_0;
+  wire o_breakpointHitN1_carry_i_3_n_0;
+  wire o_breakpointHitN1_carry_i_4_n_0;
+  wire o_breakpointHitN1_carry_n_0;
+  wire o_breakpointHitN1_carry_n_1;
+  wire o_breakpointHitN1_carry_n_2;
+  wire o_breakpointHitN1_carry_n_3;
   wire [7:0]o_bus;
   wire o_busNOE;
   wire \o_bus[7]_INST_0_i_1_n_0 ;
@@ -136,6 +296,7 @@ module memory_bd_memory_0_0_memory
   wire \r_pc[11]_i_3_n_0 ;
   wire \r_pc[11]_i_4_n_0 ;
   wire \r_pc[11]_i_5_n_0 ;
+  wire \r_pc[14]_i_1_n_0 ;
   wire \r_pc[14]_i_3_n_0 ;
   wire \r_pc[14]_i_4_n_0 ;
   wire \r_pc[14]_i_5_n_0 ;
@@ -194,89 +355,88 @@ module memory_bd_memory_0_0_memory
   wire r_sp0_carry_n_3;
   wire \r_sp[7]_i_1_n_0 ;
   wire [7:0]r_sp_reg;
-  wire sel;
-  wire [3:0]NLW_o_breakpointHitN0_carry_O_UNCONNECTED;
-  wire [3:2]NLW_o_breakpointHitN0_carry__0_CO_UNCONNECTED;
-  wire [3:0]NLW_o_breakpointHitN0_carry__0_O_UNCONNECTED;
+  wire [3:0]NLW_o_breakpointHitN1_carry_O_UNCONNECTED;
+  wire [3:2]NLW_o_breakpointHitN1_carry__0_CO_UNCONNECTED;
+  wire [3:0]NLW_o_breakpointHitN1_carry__0_O_UNCONNECTED;
   wire [3:3]\NLW_r_pc_reg[14]_i_2_CO_UNCONNECTED ;
   wire [3:2]NLW_r_sp0_carry__0_CO_UNCONNECTED;
   wire [3:3]NLW_r_sp0_carry__0_O_UNCONNECTED;
 
-  CARRY4 o_breakpointHitN0_carry
+  CARRY4 o_breakpointHitN1_carry
        (.CI(1'b0),
-        .CO({o_breakpointHitN0_carry_n_0,o_breakpointHitN0_carry_n_1,o_breakpointHitN0_carry_n_2,o_breakpointHitN0_carry_n_3}),
+        .CO({o_breakpointHitN1_carry_n_0,o_breakpointHitN1_carry_n_1,o_breakpointHitN1_carry_n_2,o_breakpointHitN1_carry_n_3}),
         .CYINIT(1'b1),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(NLW_o_breakpointHitN0_carry_O_UNCONNECTED[3:0]),
-        .S({o_breakpointHitN0_carry_i_1_n_0,o_breakpointHitN0_carry_i_2_n_0,o_breakpointHitN0_carry_i_3_n_0,o_breakpointHitN0_carry_i_4_n_0}));
-  CARRY4 o_breakpointHitN0_carry__0
-       (.CI(o_breakpointHitN0_carry_n_0),
-        .CO({NLW_o_breakpointHitN0_carry__0_CO_UNCONNECTED[3:2],o_breakpointHitN0,o_breakpointHitN0_carry__0_n_3}),
+        .O(NLW_o_breakpointHitN1_carry_O_UNCONNECTED[3:0]),
+        .S({o_breakpointHitN1_carry_i_1_n_0,o_breakpointHitN1_carry_i_2_n_0,o_breakpointHitN1_carry_i_3_n_0,o_breakpointHitN1_carry_i_4_n_0}));
+  CARRY4 o_breakpointHitN1_carry__0
+       (.CI(o_breakpointHitN1_carry_n_0),
+        .CO({NLW_o_breakpointHitN1_carry__0_CO_UNCONNECTED[3:2],o_breakpointHitN1,o_breakpointHitN1_carry__0_n_3}),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(NLW_o_breakpointHitN0_carry__0_O_UNCONNECTED[3:0]),
-        .S({1'b0,1'b0,o_breakpointHitN0_carry__0_i_1_n_0,o_breakpointHitN0_carry__0_i_2_n_0}));
+        .O(NLW_o_breakpointHitN1_carry__0_O_UNCONNECTED[3:0]),
+        .S({1'b0,1'b0,o_breakpointHitN1_carry__0_i_1_n_0,o_breakpointHitN1_carry__0_i_2_n_0}));
   LUT2 #(
     .INIT(4'h9)) 
-    o_breakpointHitN0_carry__0_i_1
+    o_breakpointHitN1_carry__0_i_1
        (.I0(i_breakpointAddress[15]),
         .I1(o_dbgPc[15]),
-        .O(o_breakpointHitN0_carry__0_i_1_n_0));
+        .O(o_breakpointHitN1_carry__0_i_1_n_0));
   LUT6 #(
     .INIT(64'h9009000000009009)) 
-    o_breakpointHitN0_carry__0_i_2
-       (.I0(o_dbgPc[12]),
-        .I1(i_breakpointAddress[12]),
-        .I2(o_dbgPc[13]),
-        .I3(i_breakpointAddress[13]),
+    o_breakpointHitN1_carry__0_i_2
+       (.I0(o_dbgPc[13]),
+        .I1(i_breakpointAddress[13]),
+        .I2(o_dbgPc[12]),
+        .I3(i_breakpointAddress[12]),
         .I4(i_breakpointAddress[14]),
         .I5(o_dbgPc[14]),
-        .O(o_breakpointHitN0_carry__0_i_2_n_0));
+        .O(o_breakpointHitN1_carry__0_i_2_n_0));
   LUT6 #(
     .INIT(64'h9009000000009009)) 
-    o_breakpointHitN0_carry_i_1
-       (.I0(o_dbgPc[10]),
-        .I1(i_breakpointAddress[10]),
-        .I2(o_dbgPc[9]),
-        .I3(i_breakpointAddress[9]),
+    o_breakpointHitN1_carry_i_1
+       (.I0(o_dbgPc[9]),
+        .I1(i_breakpointAddress[9]),
+        .I2(o_dbgPc[10]),
+        .I3(i_breakpointAddress[10]),
         .I4(i_breakpointAddress[11]),
         .I5(o_dbgPc[11]),
-        .O(o_breakpointHitN0_carry_i_1_n_0));
+        .O(o_breakpointHitN1_carry_i_1_n_0));
   LUT6 #(
     .INIT(64'h9009000000009009)) 
-    o_breakpointHitN0_carry_i_2
+    o_breakpointHitN1_carry_i_2
        (.I0(o_dbgPc[8]),
         .I1(i_breakpointAddress[8]),
         .I2(o_dbgPc[6]),
         .I3(i_breakpointAddress[6]),
         .I4(i_breakpointAddress[7]),
         .I5(o_dbgPc[7]),
-        .O(o_breakpointHitN0_carry_i_2_n_0));
+        .O(o_breakpointHitN1_carry_i_2_n_0));
   LUT6 #(
     .INIT(64'h9009000000009009)) 
-    o_breakpointHitN0_carry_i_3
+    o_breakpointHitN1_carry_i_3
        (.I0(o_dbgPc[3]),
         .I1(i_breakpointAddress[3]),
         .I2(o_dbgPc[4]),
         .I3(i_breakpointAddress[4]),
         .I4(i_breakpointAddress[5]),
         .I5(o_dbgPc[5]),
-        .O(o_breakpointHitN0_carry_i_3_n_0));
+        .O(o_breakpointHitN1_carry_i_3_n_0));
   LUT6 #(
     .INIT(64'h9009000000009009)) 
-    o_breakpointHitN0_carry_i_4
-       (.I0(o_dbgPc[0]),
-        .I1(i_breakpointAddress[0]),
-        .I2(o_dbgPc[1]),
-        .I3(i_breakpointAddress[1]),
+    o_breakpointHitN1_carry_i_4
+       (.I0(o_dbgPc[1]),
+        .I1(i_breakpointAddress[1]),
+        .I2(o_dbgPc[0]),
+        .I3(i_breakpointAddress[0]),
         .I4(i_breakpointAddress[2]),
         .I5(o_dbgPc[2]),
-        .O(o_breakpointHitN0_carry_i_4_n_0));
+        .O(o_breakpointHitN1_carry_i_4_n_0));
   LUT2 #(
-    .INIT(4'h2)) 
+    .INIT(4'hB)) 
     o_breakpointHitN_INST_0
-       (.I0(o_breakpointHitN0),
-        .I1(i_breakpointEnableN),
+       (.I0(i_breakpointEnableN),
+        .I1(o_breakpointHitN1),
         .O(o_breakpointHitN));
   LUT3 #(
     .INIT(8'h97)) 
@@ -902,11 +1062,13 @@ module memory_bd_memory_0_0_memory
         .I3(i_ctrlPCFromImm),
         .I4(i_ram2Data[0]),
         .O(\r_pc[11]_i_5_n_0 ));
-  LUT1 #(
-    .INIT(2'h1)) 
+  LUT3 #(
+    .INIT(8'h57)) 
     \r_pc[14]_i_1 
-       (.I0(i_ctrlPCNEn),
-        .O(sel));
+       (.I0(i_ctrlPCLoadN),
+        .I1(i_ctrlPCNEn),
+        .I2(i_halt),
+        .O(\r_pc[14]_i_1_n_0 ));
   LUT5 #(
     .INIT(32'hB8BBB888)) 
     \r_pc[14]_i_3 
@@ -1017,19 +1179,19 @@ module memory_bd_memory_0_0_memory
         .O(\r_pc[7]_i_5_n_0 ));
   FDRE \r_pc_reg[0] 
        (.C(i_clk),
-        .CE(sel),
+        .CE(\r_pc[14]_i_1_n_0 ),
         .D(\r_pc_reg[3]_i_1_n_7 ),
         .Q(o_dbgPc[0]),
         .R(i_reset));
   FDRE \r_pc_reg[10] 
        (.C(i_clk),
-        .CE(sel),
+        .CE(\r_pc[14]_i_1_n_0 ),
         .D(\r_pc_reg[11]_i_1_n_5 ),
         .Q(o_dbgPc[10]),
         .R(i_reset));
   FDRE \r_pc_reg[11] 
        (.C(i_clk),
-        .CE(sel),
+        .CE(\r_pc[14]_i_1_n_0 ),
         .D(\r_pc_reg[11]_i_1_n_4 ),
         .Q(o_dbgPc[11]),
         .R(i_reset));
@@ -1043,19 +1205,19 @@ module memory_bd_memory_0_0_memory
         .S({\r_pc[11]_i_2_n_0 ,\r_pc[11]_i_3_n_0 ,\r_pc[11]_i_4_n_0 ,\r_pc[11]_i_5_n_0 }));
   FDRE \r_pc_reg[12] 
        (.C(i_clk),
-        .CE(sel),
+        .CE(\r_pc[14]_i_1_n_0 ),
         .D(\r_pc_reg[14]_i_2_n_7 ),
         .Q(o_dbgPc[12]),
         .R(i_reset));
   FDRE \r_pc_reg[13] 
        (.C(i_clk),
-        .CE(sel),
+        .CE(\r_pc[14]_i_1_n_0 ),
         .D(\r_pc_reg[14]_i_2_n_6 ),
         .Q(o_dbgPc[13]),
         .R(i_reset));
   FDRE \r_pc_reg[14] 
        (.C(i_clk),
-        .CE(sel),
+        .CE(\r_pc[14]_i_1_n_0 ),
         .D(\r_pc_reg[14]_i_2_n_5 ),
         .Q(o_dbgPc[14]),
         .R(i_reset));
@@ -1069,25 +1231,25 @@ module memory_bd_memory_0_0_memory
         .S({\r_pc[14]_i_3_n_0 ,\r_pc[14]_i_4_n_0 ,\r_pc[14]_i_5_n_0 ,\r_pc[14]_i_6_n_0 }));
   FDRE \r_pc_reg[15] 
        (.C(i_clk),
-        .CE(sel),
+        .CE(\r_pc[14]_i_1_n_0 ),
         .D(\r_pc_reg[14]_i_2_n_4 ),
         .Q(o_dbgPc[15]),
         .R(i_reset));
   FDRE \r_pc_reg[1] 
        (.C(i_clk),
-        .CE(sel),
+        .CE(\r_pc[14]_i_1_n_0 ),
         .D(\r_pc_reg[3]_i_1_n_6 ),
         .Q(o_dbgPc[1]),
         .R(i_reset));
   FDRE \r_pc_reg[2] 
        (.C(i_clk),
-        .CE(sel),
+        .CE(\r_pc[14]_i_1_n_0 ),
         .D(\r_pc_reg[3]_i_1_n_5 ),
         .Q(o_dbgPc[2]),
         .R(i_reset));
   FDRE \r_pc_reg[3] 
        (.C(i_clk),
-        .CE(sel),
+        .CE(\r_pc[14]_i_1_n_0 ),
         .D(\r_pc_reg[3]_i_1_n_4 ),
         .Q(o_dbgPc[3]),
         .R(i_reset));
@@ -1101,25 +1263,25 @@ module memory_bd_memory_0_0_memory
         .S({\r_pc[3]_i_2_n_0 ,\r_pc[3]_i_3_n_0 ,\r_pc[3]_i_4_n_0 ,\r_pc[3]_i_5_n_0 }));
   FDRE \r_pc_reg[4] 
        (.C(i_clk),
-        .CE(sel),
+        .CE(\r_pc[14]_i_1_n_0 ),
         .D(\r_pc_reg[7]_i_1_n_7 ),
         .Q(o_dbgPc[4]),
         .R(i_reset));
   FDRE \r_pc_reg[5] 
        (.C(i_clk),
-        .CE(sel),
+        .CE(\r_pc[14]_i_1_n_0 ),
         .D(\r_pc_reg[7]_i_1_n_6 ),
         .Q(o_dbgPc[5]),
         .R(i_reset));
   FDRE \r_pc_reg[6] 
        (.C(i_clk),
-        .CE(sel),
+        .CE(\r_pc[14]_i_1_n_0 ),
         .D(\r_pc_reg[7]_i_1_n_5 ),
         .Q(o_dbgPc[6]),
         .R(i_reset));
   FDRE \r_pc_reg[7] 
        (.C(i_clk),
-        .CE(sel),
+        .CE(\r_pc[14]_i_1_n_0 ),
         .D(\r_pc_reg[7]_i_1_n_4 ),
         .Q(o_dbgPc[7]),
         .R(i_reset));
@@ -1133,13 +1295,13 @@ module memory_bd_memory_0_0_memory
         .S({\r_pc[7]_i_2_n_0 ,\r_pc[7]_i_3_n_0 ,\r_pc[7]_i_4_n_0 ,\r_pc[7]_i_5_n_0 }));
   FDRE \r_pc_reg[8] 
        (.C(i_clk),
-        .CE(sel),
+        .CE(\r_pc[14]_i_1_n_0 ),
         .D(\r_pc_reg[11]_i_1_n_7 ),
         .Q(o_dbgPc[8]),
         .R(i_reset));
   FDRE \r_pc_reg[9] 
        (.C(i_clk),
-        .CE(sel),
+        .CE(\r_pc[14]_i_1_n_0 ),
         .D(\r_pc_reg[11]_i_1_n_6 ),
         .Q(o_dbgPc[9]),
         .R(i_reset));
@@ -1207,10 +1369,11 @@ module memory_bd_memory_0_0_memory
     \r_sp[0]_i_1 
        (.I0(r_sp_reg[0]),
         .O(p_0_in[0]));
-  LUT1 #(
-    .INIT(2'h1)) 
+  LUT2 #(
+    .INIT(4'h1)) 
     \r_sp[7]_i_1 
-       (.I0(i_ctrlSpNEn),
+       (.I0(i_halt),
+        .I1(i_ctrlSpNEn),
         .O(\r_sp[7]_i_1_n_0 ));
   FDRE \r_sp_reg[0] 
        (.C(i_clk),
@@ -1260,158 +1423,6 @@ module memory_bd_memory_0_0_memory
         .D(p_0_in[7]),
         .Q(r_sp_reg[7]),
         .R(i_reset));
-endmodule
-
-(* CHECK_LICENSE_TYPE = "memory_bd_memory_0_0,memory,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
-(* X_CORE_INFO = "memory,Vivado 2021.2" *) 
-(* NotValidForBitStream *)
-module memory_bd_memory_0_0
-   (i_clk,
-    i_reset,
-    i_bus,
-    o_bus,
-    o_busNOE,
-    o_instrCode,
-    i_ctrlPCLoadN,
-    i_ctrlPCNEn,
-    i_ctrlPCFromImm,
-    i_ctrlMemPCToRamN,
-    i_ctrlSpUp,
-    i_ctrlSpNEn,
-    i_ctrlInstrNWE,
-    i_ctrlInstrNOE,
-    i_ctrlRamNOE,
-    i_ctrlRamNWE,
-    i_ctrlMemMar0NWE,
-    i_ctrlMemMar1NWE,
-    i_ctrlMemInstrImmToRamAddr,
-    o_romAddress,
-    i_romData,
-    o_ramAddress,
-    i_ramData,
-    o_ramData,
-    i_ram2Data,
-    o_ram2Data,
-    o_ramWE,
-    o_ramCE,
-    o_ioSelect,
-    o_ioAddress,
-    o_ioNOE,
-    o_ioNWE,
-    i_breakpointAddress,
-    i_breakpointEnableN,
-    o_breakpointHitN,
-    o_dbgPc);
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 i_clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME i_clk, ASSOCIATED_RESET i_reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN memory_bd_i_clk, INSERT_VIP 0" *) input i_clk;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 i_reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME i_reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input i_reset;
-  input [7:0]i_bus;
-  output [7:0]o_bus;
-  output o_busNOE;
-  output [7:0]o_instrCode;
-  input i_ctrlPCLoadN;
-  input i_ctrlPCNEn;
-  input i_ctrlPCFromImm;
-  input i_ctrlMemPCToRamN;
-  input i_ctrlSpUp;
-  input i_ctrlSpNEn;
-  input i_ctrlInstrNWE;
-  input i_ctrlInstrNOE;
-  input i_ctrlRamNOE;
-  input i_ctrlRamNWE;
-  input i_ctrlMemMar0NWE;
-  input i_ctrlMemMar1NWE;
-  input i_ctrlMemInstrImmToRamAddr;
-  output [14:0]o_romAddress;
-  input [23:0]i_romData;
-  output [16:0]o_ramAddress;
-  input [7:0]i_ramData;
-  output [7:0]o_ramData;
-  input [7:0]i_ram2Data;
-  output [7:0]o_ram2Data;
-  output o_ramWE;
-  output o_ramCE;
-  output o_ioSelect;
-  output [7:0]o_ioAddress;
-  output o_ioNOE;
-  output o_ioNWE;
-  input [15:0]i_breakpointAddress;
-  input i_breakpointEnableN;
-  output o_breakpointHitN;
-  output [15:0]o_dbgPc;
-
-  wire [15:0]i_breakpointAddress;
-  wire i_breakpointEnableN;
-  wire [7:0]i_bus;
-  wire i_clk;
-  wire i_ctrlInstrNOE;
-  wire i_ctrlInstrNWE;
-  wire i_ctrlMemInstrImmToRamAddr;
-  wire i_ctrlMemMar0NWE;
-  wire i_ctrlMemMar1NWE;
-  wire i_ctrlMemPCToRamN;
-  wire i_ctrlPCFromImm;
-  wire i_ctrlPCLoadN;
-  wire i_ctrlPCNEn;
-  wire i_ctrlRamNOE;
-  wire i_ctrlRamNWE;
-  wire i_ctrlSpNEn;
-  wire i_ctrlSpUp;
-  wire [7:0]i_ram2Data;
-  wire [7:0]i_ramData;
-  wire i_reset;
-  wire [23:0]i_romData;
-  wire o_breakpointHitN;
-  wire [7:0]o_bus;
-  wire o_busNOE;
-  wire [15:0]o_dbgPc;
-  wire [7:0]o_instrCode;
-  wire [7:0]o_ioAddress;
-  wire o_ioSelect;
-  wire [16:8]\^o_ramAddress ;
-  wire o_ramCE;
-  wire o_ramWE;
-
-  assign o_ioNOE = i_ctrlRamNOE;
-  assign o_ioNWE = i_ctrlRamNWE;
-  assign o_ram2Data[7:0] = o_dbgPc[15:8];
-  assign o_ramAddress[16:8] = \^o_ramAddress [16:8];
-  assign o_ramAddress[7:0] = o_ioAddress;
-  assign o_ramData[7:0] = i_bus;
-  assign o_romAddress[14:0] = o_dbgPc[14:0];
-  memory_bd_memory_0_0_memory inst
-       (.i_breakpointAddress(i_breakpointAddress),
-        .i_breakpointEnableN(i_breakpointEnableN),
-        .i_bus(i_bus),
-        .i_clk(i_clk),
-        .i_ctrlInstrNOE(i_ctrlInstrNOE),
-        .i_ctrlInstrNWE(i_ctrlInstrNWE),
-        .i_ctrlMemInstrImmToRamAddr(i_ctrlMemInstrImmToRamAddr),
-        .i_ctrlMemMar0NWE(i_ctrlMemMar0NWE),
-        .i_ctrlMemMar1NWE(i_ctrlMemMar1NWE),
-        .i_ctrlMemPCToRamN(i_ctrlMemPCToRamN),
-        .i_ctrlPCFromImm(i_ctrlPCFromImm),
-        .i_ctrlPCLoadN(i_ctrlPCLoadN),
-        .i_ctrlPCNEn(i_ctrlPCNEn),
-        .i_ctrlRamNOE(i_ctrlRamNOE),
-        .i_ctrlSpNEn(i_ctrlSpNEn),
-        .i_ctrlSpUp(i_ctrlSpUp),
-        .i_ram2Data(i_ram2Data),
-        .i_ramData(i_ramData),
-        .i_reset(i_reset),
-        .i_romData(i_romData),
-        .o_breakpointHitN(o_breakpointHitN),
-        .o_bus(o_bus),
-        .o_busNOE(o_busNOE),
-        .o_dbgPc(o_dbgPc),
-        .o_instrCode(o_instrCode),
-        .o_ioSelect(o_ioSelect),
-        .o_ramAddress({\^o_ramAddress ,o_ioAddress}),
-        .o_ramCE(o_ramCE));
-  LUT1 #(
-    .INIT(2'h1)) 
-    o_ramWE_INST_0
-       (.I0(i_ctrlRamNWE),
-        .O(o_ramWE));
 endmodule
 `ifndef GLBL
 `define GLBL

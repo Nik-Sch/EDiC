@@ -115,6 +115,7 @@ proc step_failed { step } {
 OPTRACE "impl_1" END { }
 }
 
+set_msg_config -id {HDL-1065} -limit 10000
 
 OPTRACE "impl_1" START { ROLLUP_1 }
 OPTRACE "Phase: Init Design" START { ROLLUP_AUTO }
@@ -123,7 +124,6 @@ set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
   set_param chipscope.maxJobs 4
-  set_param xicom.use_bs_reader 1
 OPTRACE "create in-memory project" START { }
   create_project -in_memory -part xc7a100tcsg324-1
   set_property board_part digilentinc.com:nexys-a7-100t:part0:1.0 [current_project]
@@ -143,8 +143,8 @@ OPTRACE "add files" START { }
   set_param project.isImplRun true
   add_files /home/niklas/dev/EDiC/vivado/EDiC.srcs/sources_1/bd/memory_bd/memory_bd.bd
   add_files /home/niklas/dev/EDiC/vivado/EDiC.srcs/sources_1/bd/control_bd/control_bd.bd
-  read_ip -quiet /home/niklas/dev/EDiC/vivado/EDiC.srcs/sources_1/ip/dbgIla/dbgIla.xci
   read_ip -quiet /home/niklas/dev/EDiC/vivado/EDiC.srcs/sources_1/ip/clk_wiz_5Mhz/clk_wiz_5Mhz.xci
+  read_ip -quiet /home/niklas/dev/EDiC/vivado/EDiC.srcs/sources_1/ip/dbgIla/dbgIla.xci
   set_param project.isImplRun false
 OPTRACE "read constraints: implementation" START { }
   read_xdc /home/niklas/dev/EDiC/vivado/EDiC.srcs/constrs_1/new/io_constraint.xdc

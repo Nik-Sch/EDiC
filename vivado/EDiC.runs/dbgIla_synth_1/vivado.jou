@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:47:39 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Fri Nov 19 17:01:32 2021
+# Process ID: 4178543
+# Current directory: /home/niklas/dev/EDiC/vivado/EDiC.runs/dbgIla_synth_1
+# Command line: vivado -log dbgIla.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source dbgIla.tcl
+# Log file: /home/niklas/dev/EDiC/vivado/EDiC.runs/dbgIla_synth_1/dbgIla.vds
+# Journal file: /home/niklas/dev/EDiC/vivado/EDiC.runs/dbgIla_synth_1/vivado.jou
+# Running On: niklasPC, OS: Linux, CPU Frequency: 2744.224 MHz, CPU Physical cores: 16, Host memory: 33679 MB
+#-----------------------------------------------------------
+source dbgIla.tcl -notrace

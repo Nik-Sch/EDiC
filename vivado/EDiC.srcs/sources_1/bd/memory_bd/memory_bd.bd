@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xD1442E4BDEA6CD80",
+      "boundary_crc": "0x26CC458ADBAC7C13",
       "device": "xc7a100tcsg324-1",
       "gen_directory": "../../../../EDiC.gen/sources_1/bd/memory_bd",
       "name": "memory_bd",
@@ -173,6 +173,9 @@
         "direction": "O",
         "left": "15",
         "right": "0"
+      },
+      "i_halt": {
+        "direction": "I"
       }
     },
     "components": {
@@ -434,6 +437,9 @@
           "o_ioNWE": {
             "direction": "O"
           },
+          "i_halt": {
+            "direction": "I"
+          },
           "i_breakpointAddress": {
             "direction": "I",
             "left": "15",
@@ -569,6 +575,12 @@
         "ports": [
           "i_ctrlSpUp",
           "memory/i_ctrlSpUp"
+        ]
+      },
+      "i_haltN_0_1": {
+        "ports": [
+          "i_halt",
+          "memory/i_halt"
         ]
       },
       "i_reset_0_1": {

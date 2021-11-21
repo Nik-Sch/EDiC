@@ -41,7 +41,7 @@ Text GLabel 9750 4200 2    50   Output ~ 0
 ~ctrlMemPCLoad~
 Text GLabel 5250 6200 0    50   Input ~ 0
 ~clk~
-Text GLabel 4300 7050 0    50   Input ~ 0
+Text GLabel 4300 7400 0    50   Input ~ 0
 ~reset~
 Text Notes 5550 4750 0    50   ~ 0
 0-3: flags\n5-7: stepReg
@@ -368,55 +368,6 @@ Text Label 5250 5900 2    50   ~ 0
 s1
 Text Label 5250 6000 2    50   ~ 0
 s2
-Wire Wire Line
-	4400 5900 5250 5900
-$Comp
-L 74xx:74LS86 U81
-U 4 1 609DB284
-P 4100 5900
-F 0 "U81" H 4100 6225 50  0000 C CNN
-F 1 "74LS86" H 4100 6134 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 4100 5900 50  0001 C CNN
-F 3 "74xx/74ls86.pdf" H 4100 5900 50  0001 C CNN
-	4    4100 5900
-	1    0    0    -1  
-$EndComp
-Text Label 3800 5800 2    50   ~ 0
-a0
-Text Label 3800 6000 2    50   ~ 0
-a1
-$Comp
-L 74xx:74LS86 U81
-U 3 1 609F44E3
-P 4100 6450
-F 0 "U81" H 4100 6775 50  0000 C CNN
-F 1 "74LS86" H 4100 6684 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 4100 6450 50  0001 C CNN
-F 3 "74xx/74ls86.pdf" H 4100 6450 50  0001 C CNN
-	3    4100 6450
-	1    0    0    -1  
-$EndComp
-Text Label 3800 6350 2    50   ~ 0
-a2
-Wire Wire Line
-	4400 6450 4550 6450
-Wire Wire Line
-	4550 6450 4550 6000
-Wire Wire Line
-	4550 6000 5250 6000
-$Comp
-L 74xx:74LS08 U59
-U 4 1 609FE3E4
-P 3300 6550
-F 0 "U59" H 3300 6875 50  0000 C CNN
-F 1 "74LS08" H 3300 6784 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 3300 6550 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 3300 6550 50  0001 C CNN
-	4    3300 6550
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	3600 6550 3800 6550
 $Comp
 L 74xx:74LS86 U81
 U 2 1 60A03ACA
@@ -447,10 +398,6 @@ Wire Wire Line
 	4550 5200 4550 5800
 Wire Wire Line
 	4550 5800 5250 5800
-Text Label 3000 6650 2    50   ~ 0
-a1
-Text Label 3000 6450 2    50   ~ 0
-a0
 $Comp
 L 74xx:74LS86 U81
 U 1 1 60A228AC
@@ -487,12 +434,12 @@ $EndComp
 $Comp
 L 74xx:74LS08 U59
 U 3 1 60A2DFA7
-P 4600 6950
-F 0 "U59" H 4600 7275 50  0000 C CNN
-F 1 "74LS08" H 4600 7184 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 4600 6950 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 4600 6950 50  0001 C CNN
-	3    4600 6950
+P 4600 7300
+F 0 "U59" H 4600 7625 50  0000 C CNN
+F 1 "74LS08" H 4600 7534 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 4600 7300 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 4600 7300 50  0001 C CNN
+	3    4600 7300
 	1    0    0    -1  
 $EndComp
 NoConn ~ 4400 3650
@@ -801,19 +748,17 @@ Wire Wire Line
 Connection ~ 6350 6300
 Wire Wire Line
 	6350 6300 6350 6400
-Text GLabel 4950 6300 0    50   Input ~ 0
-halt
 Wire Wire Line
 	4950 6300 5250 6300
 Text GLabel 9750 9300 2    50   Output ~ 0
 ~ctrlInstrFinished~
 Wire Wire Line
-	4900 6950 5050 6950
+	4900 7300 5050 7300
 Wire Wire Line
-	5050 6950 5050 6400
+	5050 7300 5050 6400
 Wire Wire Line
 	5050 6400 5250 6400
-Text GLabel 4300 6850 0    50   Input ~ 0
+Text GLabel 3300 7100 0    50   Input ~ 0
 ~ctrlInstrFinished~
 $Comp
 L EDiC-rescue:74ABT540 U?
@@ -1103,4 +1048,78 @@ Text GLabel 9750 9200 2    50   Output ~ 0
 Text GLabel 9750 9100 2    50   Output ~ 0
 ctrlMemPCFromImm
 NoConn ~ 9750 9400
+Text GLabel 4950 6300 0    50   Input ~ 0
+halt
+Wire Wire Line
+	4550 6000 5250 6000
+Wire Wire Line
+	4550 6450 4550 6000
+Text Label 3000 6450 2    50   ~ 0
+a0
+Text Label 3000 6650 2    50   ~ 0
+a1
+Wire Wire Line
+	3600 6550 3800 6550
+$Comp
+L 74xx:74LS08 U59
+U 4 1 609FE3E4
+P 3300 6550
+F 0 "U59" H 3300 6875 50  0000 C CNN
+F 1 "74LS08" H 3300 6784 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 3300 6550 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 3300 6550 50  0001 C CNN
+	4    3300 6550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4400 6450 4550 6450
+Text Label 3800 6350 2    50   ~ 0
+a2
+$Comp
+L 74xx:74LS86 U81
+U 3 1 609F44E3
+P 4100 6450
+F 0 "U81" H 4100 6775 50  0000 C CNN
+F 1 "74LS86" H 4100 6684 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 4100 6450 50  0001 C CNN
+F 3 "74xx/74ls86.pdf" H 4100 6450 50  0001 C CNN
+	3    4100 6450
+	1    0    0    -1  
+$EndComp
+Text Label 3800 6000 2    50   ~ 0
+a1
+Text Label 3800 5800 2    50   ~ 0
+a0
+$Comp
+L 74xx:74LS86 U81
+U 4 1 609DB284
+P 4100 5900
+F 0 "U81" H 4100 6225 50  0000 C CNN
+F 1 "74LS86" H 4100 6134 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 4100 5900 50  0001 C CNN
+F 3 "74xx/74ls86.pdf" H 4100 5900 50  0001 C CNN
+	4    4100 5900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4400 5900 5250 5900
+$Comp
+L 74xx:74LS32 U?
+U 1 1 61D13A9C
+P 3800 7200
+F 0 "U?" H 3800 7525 50  0000 C CNN
+F 1 "74LS32" H 3800 7434 50  0000 C CNN
+F 2 "" H 3800 7200 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 3800 7200 50  0001 C CNN
+	1    3800 7200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4100 7200 4300 7200
+Wire Wire Line
+	3300 7100 3500 7100
+Text GLabel 3300 7300 0    50   Input ~ 0
+halt
+Wire Wire Line
+	3300 7300 3500 7300
 $EndSCHEMATC

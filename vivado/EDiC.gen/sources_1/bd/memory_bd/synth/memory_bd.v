@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2 (lin64) Build 3367213 Tue Oct 19 02:47:39 MDT 2021
-//Date        : Fri Nov 19 12:31:57 2021
+//Date        : Sun Nov 21 19:53:03 2021
 //Host        : niklasPC running 64-bit Manjaro Linux
 //Command     : generate_target memory_bd.bd
 //Design      : memory_bd
@@ -29,6 +29,7 @@ module memory_bd
     i_ctrlRamNWE,
     i_ctrlSpNEn,
     i_ctrlSpUp,
+    i_halt,
     i_reset,
     o_breakpointHitN,
     o_bus,
@@ -57,6 +58,7 @@ module memory_bd
   input i_ctrlRamNWE;
   input i_ctrlSpNEn;
   input i_ctrlSpUp;
+  input i_halt;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.I_RESET RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.I_RESET, INSERT_VIP 0, POLARITY ACTIVE_LOW" *) input i_reset;
   output o_breakpointHitN;
   output [7:0]o_bus;
@@ -87,6 +89,7 @@ module memory_bd
   wire i_ctrlRamNWE_0_1;
   wire i_ctrlSpNEn_0_1;
   wire i_ctrlSpUp_0_1;
+  wire i_haltN_0_1;
   wire i_reset_0_1;
   wire [23:0]instrRom_douta;
   wire [7:0]memory_0_o_instrCode;
@@ -124,6 +127,7 @@ module memory_bd
   assign i_ctrlRamNWE_0_1 = i_ctrlRamNWE;
   assign i_ctrlSpNEn_0_1 = i_ctrlSpNEn;
   assign i_ctrlSpUp_0_1 = i_ctrlSpUp;
+  assign i_haltN_0_1 = i_halt;
   assign i_reset_0_1 = i_reset;
   assign o_breakpointHitN = memory_o_breakpointHitN;
   assign o_bus[7:0] = memory_o_bus;
@@ -156,6 +160,7 @@ module memory_bd
         .i_ctrlRamNWE(i_ctrlRamNWE_0_1),
         .i_ctrlSpNEn(i_ctrlSpNEn_0_1),
         .i_ctrlSpUp(i_ctrlSpUp_0_1),
+        .i_halt(i_haltN_0_1),
         .i_ram2Data(ram2_douta),
         .i_ramData(ram_douta),
         .i_reset(i_reset_0_1),

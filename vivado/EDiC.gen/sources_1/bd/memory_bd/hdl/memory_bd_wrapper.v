@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2 (lin64) Build 3367213 Tue Oct 19 02:47:39 MDT 2021
-//Date        : Fri Nov 19 12:31:58 2021
+//Date        : Sun Nov 21 19:53:03 2021
 //Host        : niklasPC running 64-bit Manjaro Linux
 //Command     : generate_target memory_bd_wrapper.bd
 //Design      : memory_bd_wrapper
@@ -28,6 +28,7 @@ module memory_bd_wrapper
     i_ctrlRamNWE,
     i_ctrlSpNEn,
     i_ctrlSpUp,
+    i_halt,
     i_reset,
     o_breakpointHitN,
     o_bus,
@@ -56,6 +57,7 @@ module memory_bd_wrapper
   input i_ctrlRamNWE;
   input i_ctrlSpNEn;
   input i_ctrlSpUp;
+  input i_halt;
   input i_reset;
   output o_breakpointHitN;
   output [7:0]o_bus;
@@ -85,6 +87,7 @@ module memory_bd_wrapper
   wire i_ctrlRamNWE;
   wire i_ctrlSpNEn;
   wire i_ctrlSpUp;
+  wire i_halt;
   wire i_reset;
   wire o_breakpointHitN;
   wire [7:0]o_bus;
@@ -115,6 +118,7 @@ module memory_bd_wrapper
         .i_ctrlRamNWE(i_ctrlRamNWE),
         .i_ctrlSpNEn(i_ctrlSpNEn),
         .i_ctrlSpUp(i_ctrlSpUp),
+        .i_halt(i_halt),
         .i_reset(i_reset),
         .o_breakpointHitN(o_breakpointHitN),
         .o_bus(o_bus),

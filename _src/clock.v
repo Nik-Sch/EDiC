@@ -43,11 +43,12 @@ reg [1:0] r_haltSelect;
 assign o_breakpointEnableN = ~i_swEnableBreakpoint;
 
 always @* begin
+  // all negated because using the not output of mux
   case (r_haltSelect)
-    2'b00: o_halt <= i_breakpointHitN;
-    2'b01: o_halt <= i_breakpointHitN;
-    2'b10: o_halt <= r_stepToHalt;
-    2'b11: o_halt <= r_instrToHalt;
+    2'b00: o_halt <= ~i_breakpointHitN;
+    2'b01: o_halt <= ~i_breakpointHitN;
+    2'b10: o_halt <= ~r_stepToHalt;
+    2'b11: o_halt <= ~r_instrToHalt;
   endcase
 end
 
@@ -56,9 +57,10 @@ always @(posedge o_clk) begin
   r_step2 <= r_step1;
   r_step3 <= r_step2;
 
-  r_instrNCycle1 <= ~i_swInstrNCycle;
+  // inverter in kicad only needed because switch is towards gnd with pull up
+  r_instrNCycle1 <= i_swInstrNCycle;
   r_instrNCycle2 <= r_instrNCycle1;
-  r_stepNRun1 <= ~i_swStepNRun;
+  r_stepNRun1 <= i_swStepNRun;
   r_stepNRun2 <= r_stepNRun1;
 
   r_stepToHalt <= r_step2 & ~r_step3;

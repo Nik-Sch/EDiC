@@ -86,7 +86,7 @@ always @(posedge i_nclk) begin
     r_flags <= {i_flagOverflow, i_flagCarry, i_flagZero, i_flagNegative};
   end
 
-  if (!o_ctrlInstrFinishedN) begin
+  if (!(o_ctrlInstrFinishedN | i_halt)) begin
     r_step <= 0;
     r_flags <= 0;
   end

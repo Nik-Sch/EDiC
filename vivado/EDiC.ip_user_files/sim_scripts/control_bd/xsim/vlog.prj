@@ -1,0 +1,9 @@
+verilog xil_defaultlib  \
+"../../../bd/control_bd/ip/control_bd_xlconstant_0_0/sim/control_bd_xlconstant_0_0.v" \
+"../../../bd/control_bd/ip/control_bd_instrRom_0/sim/control_bd_instrRom_0.v" \
+"../../../bd/control_bd/ip/control_bd_control_0_0/sim/control_bd_control_0_0.v" \
+"../../../bd/control_bd/sim/control_bd.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+nosort

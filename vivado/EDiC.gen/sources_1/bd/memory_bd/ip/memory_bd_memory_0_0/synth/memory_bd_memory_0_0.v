@@ -88,6 +88,7 @@ module memory_bd_memory_0_0 (
   o_ioAddress,
   o_ioNOE,
   o_ioNWE,
+  i_halt,
   i_breakpointAddress,
   i_breakpointEnableN,
   o_breakpointHitN,
@@ -130,6 +131,7 @@ output wire o_ioSelect;
 output wire [7 : 0] o_ioAddress;
 output wire o_ioNOE;
 output wire o_ioNWE;
+input wire i_halt;
 input wire [15 : 0] i_breakpointAddress;
 input wire i_breakpointEnableN;
 output wire o_breakpointHitN;
@@ -168,6 +170,7 @@ output wire [15 : 0] o_dbgPc;
     .o_ioAddress(o_ioAddress),
     .o_ioNOE(o_ioNOE),
     .o_ioNWE(o_ioNWE),
+    .i_halt(i_halt),
     .i_breakpointAddress(i_breakpointAddress),
     .i_breakpointEnableN(i_breakpointEnableN),
     .o_breakpointHitN(o_breakpointHitN),

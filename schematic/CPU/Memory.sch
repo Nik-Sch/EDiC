@@ -753,9 +753,7 @@ Wire Wire Line
 	7150 5550 7150 5400
 Wire Wire Line
 	7150 5400 7850 5400
-Text GLabel 7850 5500 0    50   Input ~ 0
-~ctrlMemPCEn~
-Text GLabel 7850 8450 0    50   Input ~ 0
+Text GLabel 5650 1700 0    50   Input ~ 0
 ~ctrlMemPCEn~
 Text GLabel 7800 2850 0    50   Input ~ 0
 ~reset~
@@ -788,10 +786,8 @@ Wire Wire Line
 NoConn ~ 8850 8050
 Text GLabel 7850 10200 0    50   Input ~ 0
 clk
-Text GLabel 7800 10600 0    50   Input ~ 0
+Text GLabel 5650 1150 0    50   Input ~ 0
 ~ctrlMemSPEn~
-Wire Wire Line
-	7800 10600 7850 10600
 $Comp
 L power:GND #PWR0178
 U 1 1 61C959A0
@@ -4377,4 +4373,79 @@ Text GLabel 3400 8150 0    50   Input ~ 0
 ctrlMemPCFromImm
 Text GLabel 4050 10150 0    50   Input ~ 0
 ctrlMemPCFromImm
+$Comp
+L 74xx:74LS32 U?
+U 1 1 61A2880A
+P 6050 1800
+F 0 "U?" H 6050 2125 50  0000 C CNN
+F 1 "74LS32" H 6050 2034 50  0000 C CNN
+F 2 "" H 6050 1800 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 6050 1800 50  0001 C CNN
+	1    6050 1800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6350 1800 6450 1800
+Wire Wire Line
+	6450 1800 6450 1900
+Wire Wire Line
+	6450 1900 6550 1900
+Wire Wire Line
+	5650 1700 5750 1700
+Text Label 7350 2000 0    50   ~ 0
+~pcEn~
+Wire Wire Line
+	7350 2000 7150 2000
+Text GLabel 5650 1900 0    50   Input ~ 0
+halt
+Wire Wire Line
+	5650 1900 5750 1900
+Text Label 7700 5500 2    50   ~ 0
+~pcEn~
+Wire Wire Line
+	7700 5500 7850 5500
+Text Label 7700 8450 2    50   ~ 0
+~pcEn~
+Wire Wire Line
+	7700 8450 7850 8450
+$Comp
+L 74xx:74LS08 U?
+U 1 1 61D31E8E
+P 6850 2000
+F 0 "U?" H 6850 2325 50  0000 C CNN
+F 1 "74LS08" H 6850 2234 50  0000 C CNN
+F 2 "" H 6850 2000 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 6850 2000 50  0001 C CNN
+	1    6850 2000
+	1    0    0    -1  
+$EndComp
+Text GLabel 6350 2100 0    50   Input ~ 0
+~ctrlMemPCLoad~
+Wire Wire Line
+	6350 2100 6550 2100
+$Comp
+L 74xx:74LS32 U?
+U 1 1 61DAB1DF
+P 6050 1250
+F 0 "U?" H 6050 1575 50  0000 C CNN
+F 1 "74LS32" H 6050 1484 50  0000 C CNN
+F 2 "" H 6050 1250 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 6050 1250 50  0001 C CNN
+	1    6050 1250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5650 1150 5750 1150
+Text GLabel 5650 1350 0    50   Input ~ 0
+halt
+Wire Wire Line
+	5650 1350 5750 1350
+Text Label 6500 1250 0    50   ~ 0
+~spEn~
+Wire Wire Line
+	6500 1250 6350 1250
+Text Label 7700 10600 2    50   ~ 0
+~spEn~
+Wire Wire Line
+	7700 10600 7850 10600
 $EndSCHEMATC

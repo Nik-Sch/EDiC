@@ -27,8 +27,8 @@ datapath inst_datapath(
   .i_swInstrNCycle(i_swInstrNCycle),
   .i_swStepNRun(i_swStepNRun),
   .i_swEnableBreakpoint(i_swEnableBreakpoint),
-  .i_btnReset(~i_btnReset), // btn should be 1 if pressed -> active high 
-  .i_breakpointAddress(16'hff),
+  .i_btnReset(~i_btnReset), // btn should be 1 if pressed -> active high
+  .i_breakpointAddress(16'h0028),
 
   .o_cathodes(o_cathodes),
   .o_anodes(o_anodes),

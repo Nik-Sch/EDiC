@@ -1,171 +1,16 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2 (lin64) Build 3367213 Tue Oct 19 02:47:39 MDT 2021
-// Date        : Fri Nov 19 12:12:31 2021
+// Date        : Sun Nov 21 19:53:54 2021
 // Host        : niklasPC running 64-bit Manjaro Linux
-// Command     : write_verilog -force -mode funcsim -rename_top control_bd_control_0_0 -prefix
-//               control_bd_control_0_0_ control_bd_control_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim
+//               /home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/bd/control_bd/ip/control_bd_control_0_0/control_bd_control_0_0_sim_netlist.v
 // Design      : control_bd_control_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
 // Device      : xc7a100tcsg324-1
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
-
-module control_bd_control_0_0_control
-   (Q,
-    o_decodeAddr,
-    i_reset,
-    i_decodeData,
-    i_nclk,
-    i_instrCode,
-    D,
-    i_halt);
-  output [2:0]Q;
-  output [11:0]o_decodeAddr;
-  input i_reset;
-  input [0:0]i_decodeData;
-  input i_nclk;
-  input [7:0]i_instrCode;
-  input [3:0]D;
-  input i_halt;
-
-  wire [3:0]D;
-  wire [2:0]Q;
-  wire [0:0]i_decodeData;
-  wire i_halt;
-  wire [7:0]i_instrCode;
-  wire i_nclk;
-  wire i_reset;
-  wire [11:0]o_decodeAddr;
-  wire p_0_in;
-  wire \r_flags[3]_i_1_n_0 ;
-  wire \r_step[0]_i_1_n_0 ;
-  wire \r_step[1]_i_1_n_0 ;
-  wire \r_step[2]_i_1_n_0 ;
-
-  LUT2 #(
-    .INIT(4'hB)) 
-    \r_flags[3]_i_1 
-       (.I0(i_reset),
-        .I1(i_decodeData),
-        .O(\r_flags[3]_i_1_n_0 ));
-  LUT1 #(
-    .INIT(2'h1)) 
-    \r_flags[3]_i_2 
-       (.I0(i_halt),
-        .O(p_0_in));
-  FDRE \r_flags_reg[0] 
-       (.C(i_nclk),
-        .CE(p_0_in),
-        .D(D[0]),
-        .Q(o_decodeAddr[8]),
-        .R(\r_flags[3]_i_1_n_0 ));
-  FDRE \r_flags_reg[1] 
-       (.C(i_nclk),
-        .CE(p_0_in),
-        .D(D[1]),
-        .Q(o_decodeAddr[9]),
-        .R(\r_flags[3]_i_1_n_0 ));
-  FDRE \r_flags_reg[2] 
-       (.C(i_nclk),
-        .CE(p_0_in),
-        .D(D[2]),
-        .Q(o_decodeAddr[10]),
-        .R(\r_flags[3]_i_1_n_0 ));
-  FDRE \r_flags_reg[3] 
-       (.C(i_nclk),
-        .CE(p_0_in),
-        .D(D[3]),
-        .Q(o_decodeAddr[11]),
-        .R(\r_flags[3]_i_1_n_0 ));
-  FDRE \r_instructionFallingEdge_reg[0] 
-       (.C(i_nclk),
-        .CE(p_0_in),
-        .D(i_instrCode[0]),
-        .Q(o_decodeAddr[0]),
-        .R(i_reset));
-  FDRE \r_instructionFallingEdge_reg[1] 
-       (.C(i_nclk),
-        .CE(p_0_in),
-        .D(i_instrCode[1]),
-        .Q(o_decodeAddr[1]),
-        .R(i_reset));
-  FDRE \r_instructionFallingEdge_reg[2] 
-       (.C(i_nclk),
-        .CE(p_0_in),
-        .D(i_instrCode[2]),
-        .Q(o_decodeAddr[2]),
-        .R(i_reset));
-  FDRE \r_instructionFallingEdge_reg[3] 
-       (.C(i_nclk),
-        .CE(p_0_in),
-        .D(i_instrCode[3]),
-        .Q(o_decodeAddr[3]),
-        .R(i_reset));
-  FDRE \r_instructionFallingEdge_reg[4] 
-       (.C(i_nclk),
-        .CE(p_0_in),
-        .D(i_instrCode[4]),
-        .Q(o_decodeAddr[4]),
-        .R(i_reset));
-  FDRE \r_instructionFallingEdge_reg[5] 
-       (.C(i_nclk),
-        .CE(p_0_in),
-        .D(i_instrCode[5]),
-        .Q(o_decodeAddr[5]),
-        .R(i_reset));
-  FDRE \r_instructionFallingEdge_reg[6] 
-       (.C(i_nclk),
-        .CE(p_0_in),
-        .D(i_instrCode[6]),
-        .Q(o_decodeAddr[6]),
-        .R(i_reset));
-  FDRE \r_instructionFallingEdge_reg[7] 
-       (.C(i_nclk),
-        .CE(p_0_in),
-        .D(i_instrCode[7]),
-        .Q(o_decodeAddr[7]),
-        .R(i_reset));
-  LUT1 #(
-    .INIT(2'h1)) 
-    \r_step[0]_i_1 
-       (.I0(Q[0]),
-        .O(\r_step[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT2 #(
-    .INIT(4'h6)) 
-    \r_step[1]_i_1 
-       (.I0(Q[0]),
-        .I1(Q[1]),
-        .O(\r_step[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT3 #(
-    .INIT(8'h78)) 
-    \r_step[2]_i_1 
-       (.I0(Q[0]),
-        .I1(Q[1]),
-        .I2(Q[2]),
-        .O(\r_step[2]_i_1_n_0 ));
-  FDRE \r_step_reg[0] 
-       (.C(i_nclk),
-        .CE(p_0_in),
-        .D(\r_step[0]_i_1_n_0 ),
-        .Q(Q[0]),
-        .R(\r_flags[3]_i_1_n_0 ));
-  FDRE \r_step_reg[1] 
-       (.C(i_nclk),
-        .CE(p_0_in),
-        .D(\r_step[1]_i_1_n_0 ),
-        .Q(Q[1]),
-        .R(\r_flags[3]_i_1_n_0 ));
-  FDRE \r_step_reg[2] 
-       (.C(i_nclk),
-        .CE(p_0_in),
-        .D(\r_step[2]_i_1_n_0 ),
-        .Q(Q[2]),
-        .R(\r_flags[3]_i_1_n_0 ));
-endmodule
 
 (* CHECK_LICENSE_TYPE = "control_bd_control_0_0,control,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
 (* X_CORE_INFO = "control,Vivado 2021.2" *) 
@@ -288,6 +133,163 @@ module control_bd_control_0_0
         .i_nclk(i_nclk),
         .i_reset(i_reset),
         .o_decodeAddr({\^o_decodeAddr [14:6],o_ctrlAluOp,o_ctrlAluSub}));
+endmodule
+
+(* ORIG_REF_NAME = "control" *) 
+module control_bd_control_0_0_control
+   (Q,
+    o_decodeAddr,
+    i_nclk,
+    i_reset,
+    i_instrCode,
+    D,
+    i_halt,
+    i_decodeData);
+  output [2:0]Q;
+  output [11:0]o_decodeAddr;
+  input i_nclk;
+  input i_reset;
+  input [7:0]i_instrCode;
+  input [3:0]D;
+  input i_halt;
+  input [0:0]i_decodeData;
+
+  wire [3:0]D;
+  wire [2:0]Q;
+  wire [0:0]i_decodeData;
+  wire i_halt;
+  wire [7:0]i_instrCode;
+  wire i_nclk;
+  wire i_reset;
+  wire [11:0]o_decodeAddr;
+  wire p_0_in;
+  wire r_flags;
+  wire \r_step[0]_i_1_n_0 ;
+  wire \r_step[1]_i_1_n_0 ;
+  wire \r_step[2]_i_1_n_0 ;
+
+  LUT3 #(
+    .INIT(8'hAB)) 
+    \r_flags[3]_i_1 
+       (.I0(i_reset),
+        .I1(i_halt),
+        .I2(i_decodeData),
+        .O(r_flags));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \r_flags[3]_i_2 
+       (.I0(i_halt),
+        .O(p_0_in));
+  FDRE \r_flags_reg[0] 
+       (.C(i_nclk),
+        .CE(p_0_in),
+        .D(D[0]),
+        .Q(o_decodeAddr[8]),
+        .R(r_flags));
+  FDRE \r_flags_reg[1] 
+       (.C(i_nclk),
+        .CE(p_0_in),
+        .D(D[1]),
+        .Q(o_decodeAddr[9]),
+        .R(r_flags));
+  FDRE \r_flags_reg[2] 
+       (.C(i_nclk),
+        .CE(p_0_in),
+        .D(D[2]),
+        .Q(o_decodeAddr[10]),
+        .R(r_flags));
+  FDRE \r_flags_reg[3] 
+       (.C(i_nclk),
+        .CE(p_0_in),
+        .D(D[3]),
+        .Q(o_decodeAddr[11]),
+        .R(r_flags));
+  FDRE \r_instructionFallingEdge_reg[0] 
+       (.C(i_nclk),
+        .CE(p_0_in),
+        .D(i_instrCode[0]),
+        .Q(o_decodeAddr[0]),
+        .R(i_reset));
+  FDRE \r_instructionFallingEdge_reg[1] 
+       (.C(i_nclk),
+        .CE(p_0_in),
+        .D(i_instrCode[1]),
+        .Q(o_decodeAddr[1]),
+        .R(i_reset));
+  FDRE \r_instructionFallingEdge_reg[2] 
+       (.C(i_nclk),
+        .CE(p_0_in),
+        .D(i_instrCode[2]),
+        .Q(o_decodeAddr[2]),
+        .R(i_reset));
+  FDRE \r_instructionFallingEdge_reg[3] 
+       (.C(i_nclk),
+        .CE(p_0_in),
+        .D(i_instrCode[3]),
+        .Q(o_decodeAddr[3]),
+        .R(i_reset));
+  FDRE \r_instructionFallingEdge_reg[4] 
+       (.C(i_nclk),
+        .CE(p_0_in),
+        .D(i_instrCode[4]),
+        .Q(o_decodeAddr[4]),
+        .R(i_reset));
+  FDRE \r_instructionFallingEdge_reg[5] 
+       (.C(i_nclk),
+        .CE(p_0_in),
+        .D(i_instrCode[5]),
+        .Q(o_decodeAddr[5]),
+        .R(i_reset));
+  FDRE \r_instructionFallingEdge_reg[6] 
+       (.C(i_nclk),
+        .CE(p_0_in),
+        .D(i_instrCode[6]),
+        .Q(o_decodeAddr[6]),
+        .R(i_reset));
+  FDRE \r_instructionFallingEdge_reg[7] 
+       (.C(i_nclk),
+        .CE(p_0_in),
+        .D(i_instrCode[7]),
+        .Q(o_decodeAddr[7]),
+        .R(i_reset));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \r_step[0]_i_1 
+       (.I0(Q[0]),
+        .O(\r_step[0]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT2 #(
+    .INIT(4'h6)) 
+    \r_step[1]_i_1 
+       (.I0(Q[0]),
+        .I1(Q[1]),
+        .O(\r_step[1]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT3 #(
+    .INIT(8'h78)) 
+    \r_step[2]_i_1 
+       (.I0(Q[0]),
+        .I1(Q[1]),
+        .I2(Q[2]),
+        .O(\r_step[2]_i_1_n_0 ));
+  FDRE \r_step_reg[0] 
+       (.C(i_nclk),
+        .CE(p_0_in),
+        .D(\r_step[0]_i_1_n_0 ),
+        .Q(Q[0]),
+        .R(r_flags));
+  FDRE \r_step_reg[1] 
+       (.C(i_nclk),
+        .CE(p_0_in),
+        .D(\r_step[1]_i_1_n_0 ),
+        .Q(Q[1]),
+        .R(r_flags));
+  FDRE \r_step_reg[2] 
+       (.C(i_nclk),
+        .CE(p_0_in),
+        .D(\r_step[2]_i_1_n_0 ),
+        .Q(Q[2]),
+        .R(r_flags));
 endmodule
 `ifndef GLBL
 `define GLBL

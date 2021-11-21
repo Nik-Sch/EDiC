@@ -70,8 +70,7 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 4
-set_param xicom.use_bs_reader 1
+set_msg_config -id {HDL-1065} -limit 10000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a100tcsg324-1
 
@@ -111,16 +110,16 @@ add_files /home/niklas/dev/EDiC/vivado/EDiC.srcs/sources_1/bd/control_bd/control
 set_property used_in_implementation false [get_files -all /home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/bd/control_bd/ip/control_bd_instrRom_0/control_bd_instrRom_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/bd/control_bd/control_bd_ooc.xdc]
 
+read_ip -quiet /home/niklas/dev/EDiC/vivado/EDiC.srcs/sources_1/ip/clk_wiz_5Mhz/clk_wiz_5Mhz.xci
+set_property used_in_implementation false [get_files -all /home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/ip/clk_wiz_5Mhz/clk_wiz_5Mhz_board.xdc]
+set_property used_in_implementation false [get_files -all /home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/ip/clk_wiz_5Mhz/clk_wiz_5Mhz.xdc]
+set_property used_in_implementation false [get_files -all /home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/ip/clk_wiz_5Mhz/clk_wiz_5Mhz_ooc.xdc]
+
 read_ip -quiet /home/niklas/dev/EDiC/vivado/EDiC.srcs/sources_1/ip/dbgIla/dbgIla.xci
 set_property used_in_synthesis false [get_files -all /home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/ip/dbgIla/ila_v6_2/constraints/ila_impl.xdc]
 set_property used_in_implementation false [get_files -all /home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/ip/dbgIla/ila_v6_2/constraints/ila_impl.xdc]
 set_property used_in_implementation false [get_files -all /home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/ip/dbgIla/ila_v6_2/constraints/ila.xdc]
 set_property used_in_implementation false [get_files -all /home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/ip/dbgIla/dbgIla_ooc.xdc]
-
-read_ip -quiet /home/niklas/dev/EDiC/vivado/EDiC.srcs/sources_1/ip/clk_wiz_5Mhz/clk_wiz_5Mhz.xci
-set_property used_in_implementation false [get_files -all /home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/ip/clk_wiz_5Mhz/clk_wiz_5Mhz_board.xdc]
-set_property used_in_implementation false [get_files -all /home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/ip/clk_wiz_5Mhz/clk_wiz_5Mhz.xdc]
-set_property used_in_implementation false [get_files -all /home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/ip/clk_wiz_5Mhz/clk_wiz_5Mhz_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

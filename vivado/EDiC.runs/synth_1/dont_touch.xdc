@@ -30,9 +30,6 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==control_bd_
 # IP: bd/control_bd/ip/control_bd_control_0_0/control_bd_control_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==control_bd_control_0_0 || ORIG_REF_NAME==control_bd_control_0_0} -quiet] -quiet
 
-# IP: ip/dbgIla/dbgIla.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==dbgIla || ORIG_REF_NAME==dbgIla} -quiet] -quiet
-
 # XDC: /home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/bd/memory_bd/memory_bd_ooc.xdc
 
 # XDC: /home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/bd/control_bd/control_bd_ooc.xdc

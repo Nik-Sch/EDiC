@@ -15,9 +15,9 @@
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="404"></NameColumnWidth>
-      <ValueColumnWidth column_width="112"></ValueColumnWidth>
+      <ValueColumnWidth column_width="106"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="17" />
+   <WVObjectSize size="22" />
    <wave_markers>
    </wave_markers>
    <wvobject type="array" fp_name="inst_datapath/s_busAlu">
@@ -153,6 +153,41 @@
       <obj_property name="ElementShortName">inst_datapath/resetn</obj_property>
       <obj_property name="ObjectShortName">resetn</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="inst_datapath/breakpointHitN">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">inst_datapath/breakpointHitN</obj_property>
+      <obj_property name="ObjectShortName">breakpointHitN</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="inst_datapath/i_btnStep">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">inst_datapath/i_btnStep</obj_property>
+      <obj_property name="ObjectShortName">i_btnStep</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="inst_datapath/i_swEnableBreakpoint">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">inst_datapath/i_swEnableBreakpoint</obj_property>
+      <obj_property name="ObjectShortName">i_swEnableBreakpoint</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="inst_datapath/i_swInstrNCycle">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">inst_datapath/i_swInstrNCycle</obj_property>
+      <obj_property name="ObjectShortName">i_swInstrNCycle</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="inst_datapath/i_swStepNRun">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">inst_datapath/i_swStepNRun</obj_property>
+      <obj_property name="ObjectShortName">i_swStepNRun</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
