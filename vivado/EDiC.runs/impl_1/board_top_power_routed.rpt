@@ -1,7 +1,7 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2021.2 (lin64) Build 3367213 Tue Oct 19 02:47:39 MDT 2021
-| Date             : Sun Nov 21 23:05:10 2021
+| Date             : Mon Nov 22 15:34:04 2021
 | Host             : niklasPC running 64-bit Manjaro Linux
 | Command          : report_power -file board_top_power_routed.rpt -pb board_top_power_summary_routed.pb -rpx board_top_power_routed.rpx
 | Design           : board_top
@@ -53,15 +53,15 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |     0.021 |        7 |       --- |             --- |
-| Slice Logic              |     0.001 |     9376 |       --- |             --- |
-|   LUT as Logic           |    <0.001 |     2740 |     63400 |            4.32 |
+| Slice Logic              |     0.001 |     9382 |       --- |             --- |
+|   LUT as Logic           |    <0.001 |     2745 |     63400 |            4.33 |
 |   Register               |    <0.001 |     4344 |    126800 |            3.43 |
 |   LUT as Shift Register  |    <0.001 |      372 |     19000 |            1.96 |
 |   CARRY4                 |    <0.001 |      137 |     15850 |            0.86 |
 |   LUT as Distributed RAM |    <0.001 |       24 |     19000 |            0.13 |
 |   F7/F8 Muxes            |    <0.001 |      197 |     63400 |            0.31 |
-|   Others                 |     0.000 |      775 |       --- |             --- |
-| Signals                  |     0.002 |     6244 |       --- |             --- |
+|   Others                 |     0.000 |      777 |       --- |             --- |
+| Signals                  |     0.002 |     6241 |       --- |             --- |
 | Block RAM                |     0.066 |      113 |       135 |           83.70 |
 | MMCM                     |     0.086 |        1 |         6 |           16.67 |
 | I/O                      |    <0.001 |       46 |       210 |           21.90 |
@@ -155,7 +155,7 @@ Table of Contents
 |       BSCANID.u_xsdbm_id |     0.003 |
 |   inst_clk5Mhz           |     0.086 |
 |     inst                 |     0.086 |
-|   inst_datapath          |     0.087 |
+|   inst_datapath          |     0.088 |
 |     inst_ila             |     0.026 |
 |       inst               |     0.026 |
 |     inst_memory          |     0.061 |

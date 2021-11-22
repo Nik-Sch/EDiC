@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2 (lin64) Build 3367213 Tue Oct 19 02:47:39 MDT 2021
-// Date        : Sun Nov 21 19:53:39 2021
+// Date        : Sun Nov 21 22:56:31 2021
 // Host        : niklasPC running 64-bit Manjaro Linux
 // Command     : write_verilog -force -mode funcsim
 //               /home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/bd/memory_bd/ip/memory_bd_memory_0_0/memory_bd_memory_0_0_sim_netlist.v
@@ -824,97 +824,129 @@ module memory_bd_memory_0_0_memory
         .I3(i_ctrlMemInstrImmToRamAddr),
         .I4(\r_instrImm_reg_n_0_[10] ),
         .O(o_ramCE_INST_0_i_2_n_0));
-  FDRE \r_instrImm_reg[0] 
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_instrImm_reg[0] 
        (.C(i_clk),
         .CE(\o_instrCode[7]_i_1_n_0 ),
         .D(i_romData[0]),
         .Q(data2[16]),
         .R(1'b0));
-  FDRE \r_instrImm_reg[10] 
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_instrImm_reg[10] 
        (.C(i_clk),
         .CE(\o_instrCode[7]_i_1_n_0 ),
         .D(i_romData[10]),
         .Q(\r_instrImm_reg_n_0_[10] ),
         .R(1'b0));
-  FDRE \r_instrImm_reg[11] 
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_instrImm_reg[11] 
        (.C(i_clk),
         .CE(\o_instrCode[7]_i_1_n_0 ),
         .D(i_romData[11]),
         .Q(\r_instrImm_reg_n_0_[11] ),
         .R(1'b0));
-  FDRE \r_instrImm_reg[12] 
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_instrImm_reg[12] 
        (.C(i_clk),
         .CE(\o_instrCode[7]_i_1_n_0 ),
         .D(i_romData[12]),
         .Q(\r_instrImm_reg_n_0_[12] ),
         .R(1'b0));
-  FDRE \r_instrImm_reg[13] 
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_instrImm_reg[13] 
        (.C(i_clk),
         .CE(\o_instrCode[7]_i_1_n_0 ),
         .D(i_romData[13]),
         .Q(\r_instrImm_reg_n_0_[13] ),
         .R(1'b0));
-  FDRE \r_instrImm_reg[14] 
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_instrImm_reg[14] 
        (.C(i_clk),
         .CE(\o_instrCode[7]_i_1_n_0 ),
         .D(i_romData[14]),
         .Q(\r_instrImm_reg_n_0_[14] ),
         .R(1'b0));
-  FDRE \r_instrImm_reg[15] 
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_instrImm_reg[15] 
        (.C(i_clk),
         .CE(\o_instrCode[7]_i_1_n_0 ),
         .D(i_romData[15]),
         .Q(\r_instrImm_reg_n_0_[15] ),
         .R(1'b0));
-  FDRE \r_instrImm_reg[1] 
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_instrImm_reg[1] 
        (.C(i_clk),
         .CE(\o_instrCode[7]_i_1_n_0 ),
         .D(i_romData[1]),
         .Q(data2[17]),
         .R(1'b0));
-  FDRE \r_instrImm_reg[2] 
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_instrImm_reg[2] 
        (.C(i_clk),
         .CE(\o_instrCode[7]_i_1_n_0 ),
         .D(i_romData[2]),
         .Q(data2[18]),
         .R(1'b0));
-  FDRE \r_instrImm_reg[3] 
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_instrImm_reg[3] 
        (.C(i_clk),
         .CE(\o_instrCode[7]_i_1_n_0 ),
         .D(i_romData[3]),
         .Q(data2[19]),
         .R(1'b0));
-  FDRE \r_instrImm_reg[4] 
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_instrImm_reg[4] 
        (.C(i_clk),
         .CE(\o_instrCode[7]_i_1_n_0 ),
         .D(i_romData[4]),
         .Q(data2[20]),
         .R(1'b0));
-  FDRE \r_instrImm_reg[5] 
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_instrImm_reg[5] 
        (.C(i_clk),
         .CE(\o_instrCode[7]_i_1_n_0 ),
         .D(i_romData[5]),
         .Q(data2[21]),
         .R(1'b0));
-  FDRE \r_instrImm_reg[6] 
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_instrImm_reg[6] 
        (.C(i_clk),
         .CE(\o_instrCode[7]_i_1_n_0 ),
         .D(i_romData[6]),
         .Q(data2[22]),
         .R(1'b0));
-  FDRE \r_instrImm_reg[7] 
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_instrImm_reg[7] 
        (.C(i_clk),
         .CE(\o_instrCode[7]_i_1_n_0 ),
         .D(i_romData[7]),
         .Q(data2[23]),
         .R(1'b0));
-  FDRE \r_instrImm_reg[8] 
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_instrImm_reg[8] 
        (.C(i_clk),
         .CE(\o_instrCode[7]_i_1_n_0 ),
         .D(i_romData[8]),
         .Q(\r_instrImm_reg_n_0_[8] ),
         .R(1'b0));
-  FDRE \r_instrImm_reg[9] 
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_instrImm_reg[9] 
        (.C(i_clk),
         .CE(\o_instrCode[7]_i_1_n_0 ),
         .D(i_romData[9]),
@@ -930,97 +962,129 @@ module memory_bd_memory_0_0_memory
     \r_mar[7]_i_1 
        (.I0(i_ctrlMemMar0NWE),
         .O(p_0_out0));
-  FDRE \r_mar_reg[0] 
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_mar_reg[0] 
        (.C(i_clk),
         .CE(p_0_out0),
         .D(i_bus[0]),
         .Q(r_mar[0]),
         .R(1'b0));
-  FDRE \r_mar_reg[10] 
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_mar_reg[10] 
        (.C(i_clk),
         .CE(\r_mar[15]_i_1_n_0 ),
         .D(i_bus[2]),
         .Q(r_mar[10]),
         .R(1'b0));
-  FDRE \r_mar_reg[11] 
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_mar_reg[11] 
        (.C(i_clk),
         .CE(\r_mar[15]_i_1_n_0 ),
         .D(i_bus[3]),
         .Q(r_mar[11]),
         .R(1'b0));
-  FDRE \r_mar_reg[12] 
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_mar_reg[12] 
        (.C(i_clk),
         .CE(\r_mar[15]_i_1_n_0 ),
         .D(i_bus[4]),
         .Q(r_mar[12]),
         .R(1'b0));
-  FDRE \r_mar_reg[13] 
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_mar_reg[13] 
        (.C(i_clk),
         .CE(\r_mar[15]_i_1_n_0 ),
         .D(i_bus[5]),
         .Q(r_mar[13]),
         .R(1'b0));
-  FDRE \r_mar_reg[14] 
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_mar_reg[14] 
        (.C(i_clk),
         .CE(\r_mar[15]_i_1_n_0 ),
         .D(i_bus[6]),
         .Q(r_mar[14]),
         .R(1'b0));
-  FDRE \r_mar_reg[15] 
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_mar_reg[15] 
        (.C(i_clk),
         .CE(\r_mar[15]_i_1_n_0 ),
         .D(i_bus[7]),
         .Q(r_mar[15]),
         .R(1'b0));
-  FDRE \r_mar_reg[1] 
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_mar_reg[1] 
        (.C(i_clk),
         .CE(p_0_out0),
         .D(i_bus[1]),
         .Q(r_mar[1]),
         .R(1'b0));
-  FDRE \r_mar_reg[2] 
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_mar_reg[2] 
        (.C(i_clk),
         .CE(p_0_out0),
         .D(i_bus[2]),
         .Q(r_mar[2]),
         .R(1'b0));
-  FDRE \r_mar_reg[3] 
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_mar_reg[3] 
        (.C(i_clk),
         .CE(p_0_out0),
         .D(i_bus[3]),
         .Q(r_mar[3]),
         .R(1'b0));
-  FDRE \r_mar_reg[4] 
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_mar_reg[4] 
        (.C(i_clk),
         .CE(p_0_out0),
         .D(i_bus[4]),
         .Q(r_mar[4]),
         .R(1'b0));
-  FDRE \r_mar_reg[5] 
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_mar_reg[5] 
        (.C(i_clk),
         .CE(p_0_out0),
         .D(i_bus[5]),
         .Q(r_mar[5]),
         .R(1'b0));
-  FDRE \r_mar_reg[6] 
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_mar_reg[6] 
        (.C(i_clk),
         .CE(p_0_out0),
         .D(i_bus[6]),
         .Q(r_mar[6]),
         .R(1'b0));
-  FDRE \r_mar_reg[7] 
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_mar_reg[7] 
        (.C(i_clk),
         .CE(p_0_out0),
         .D(i_bus[7]),
         .Q(r_mar[7]),
         .R(1'b0));
-  FDRE \r_mar_reg[8] 
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_mar_reg[8] 
        (.C(i_clk),
         .CE(\r_mar[15]_i_1_n_0 ),
         .D(i_bus[0]),
         .Q(r_mar[8]),
         .R(1'b0));
-  FDRE \r_mar_reg[9] 
+  FDRE #(
+    .INIT(1'b0)) 
+    \r_mar_reg[9] 
        (.C(i_clk),
         .CE(\r_mar[15]_i_1_n_0 ),
         .D(i_bus[1]),
@@ -1177,24 +1241,30 @@ module memory_bd_memory_0_0_memory
         .I3(i_ctrlPCFromImm),
         .I4(i_bus[4]),
         .O(\r_pc[7]_i_5_n_0 ));
-  FDRE \r_pc_reg[0] 
+  FDCE #(
+    .INIT(1'b0)) 
+    \r_pc_reg[0] 
        (.C(i_clk),
         .CE(\r_pc[14]_i_1_n_0 ),
+        .CLR(i_reset),
         .D(\r_pc_reg[3]_i_1_n_7 ),
-        .Q(o_dbgPc[0]),
-        .R(i_reset));
-  FDRE \r_pc_reg[10] 
+        .Q(o_dbgPc[0]));
+  FDCE #(
+    .INIT(1'b0)) 
+    \r_pc_reg[10] 
        (.C(i_clk),
         .CE(\r_pc[14]_i_1_n_0 ),
+        .CLR(i_reset),
         .D(\r_pc_reg[11]_i_1_n_5 ),
-        .Q(o_dbgPc[10]),
-        .R(i_reset));
-  FDRE \r_pc_reg[11] 
+        .Q(o_dbgPc[10]));
+  FDCE #(
+    .INIT(1'b0)) 
+    \r_pc_reg[11] 
        (.C(i_clk),
         .CE(\r_pc[14]_i_1_n_0 ),
+        .CLR(i_reset),
         .D(\r_pc_reg[11]_i_1_n_4 ),
-        .Q(o_dbgPc[11]),
-        .R(i_reset));
+        .Q(o_dbgPc[11]));
   (* ADDER_THRESHOLD = "11" *) 
   CARRY4 \r_pc_reg[11]_i_1 
        (.CI(\r_pc_reg[7]_i_1_n_0 ),
@@ -1203,24 +1273,30 @@ module memory_bd_memory_0_0_memory
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\r_pc_reg[11]_i_1_n_4 ,\r_pc_reg[11]_i_1_n_5 ,\r_pc_reg[11]_i_1_n_6 ,\r_pc_reg[11]_i_1_n_7 }),
         .S({\r_pc[11]_i_2_n_0 ,\r_pc[11]_i_3_n_0 ,\r_pc[11]_i_4_n_0 ,\r_pc[11]_i_5_n_0 }));
-  FDRE \r_pc_reg[12] 
+  FDCE #(
+    .INIT(1'b0)) 
+    \r_pc_reg[12] 
        (.C(i_clk),
         .CE(\r_pc[14]_i_1_n_0 ),
+        .CLR(i_reset),
         .D(\r_pc_reg[14]_i_2_n_7 ),
-        .Q(o_dbgPc[12]),
-        .R(i_reset));
-  FDRE \r_pc_reg[13] 
+        .Q(o_dbgPc[12]));
+  FDCE #(
+    .INIT(1'b0)) 
+    \r_pc_reg[13] 
        (.C(i_clk),
         .CE(\r_pc[14]_i_1_n_0 ),
+        .CLR(i_reset),
         .D(\r_pc_reg[14]_i_2_n_6 ),
-        .Q(o_dbgPc[13]),
-        .R(i_reset));
-  FDRE \r_pc_reg[14] 
+        .Q(o_dbgPc[13]));
+  FDCE #(
+    .INIT(1'b0)) 
+    \r_pc_reg[14] 
        (.C(i_clk),
         .CE(\r_pc[14]_i_1_n_0 ),
+        .CLR(i_reset),
         .D(\r_pc_reg[14]_i_2_n_5 ),
-        .Q(o_dbgPc[14]),
-        .R(i_reset));
+        .Q(o_dbgPc[14]));
   (* ADDER_THRESHOLD = "11" *) 
   CARRY4 \r_pc_reg[14]_i_2 
        (.CI(\r_pc_reg[11]_i_1_n_0 ),
@@ -1229,30 +1305,38 @@ module memory_bd_memory_0_0_memory
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\r_pc_reg[14]_i_2_n_4 ,\r_pc_reg[14]_i_2_n_5 ,\r_pc_reg[14]_i_2_n_6 ,\r_pc_reg[14]_i_2_n_7 }),
         .S({\r_pc[14]_i_3_n_0 ,\r_pc[14]_i_4_n_0 ,\r_pc[14]_i_5_n_0 ,\r_pc[14]_i_6_n_0 }));
-  FDRE \r_pc_reg[15] 
+  FDCE #(
+    .INIT(1'b0)) 
+    \r_pc_reg[15] 
        (.C(i_clk),
         .CE(\r_pc[14]_i_1_n_0 ),
+        .CLR(i_reset),
         .D(\r_pc_reg[14]_i_2_n_4 ),
-        .Q(o_dbgPc[15]),
-        .R(i_reset));
-  FDRE \r_pc_reg[1] 
+        .Q(o_dbgPc[15]));
+  FDCE #(
+    .INIT(1'b0)) 
+    \r_pc_reg[1] 
        (.C(i_clk),
         .CE(\r_pc[14]_i_1_n_0 ),
+        .CLR(i_reset),
         .D(\r_pc_reg[3]_i_1_n_6 ),
-        .Q(o_dbgPc[1]),
-        .R(i_reset));
-  FDRE \r_pc_reg[2] 
+        .Q(o_dbgPc[1]));
+  FDCE #(
+    .INIT(1'b0)) 
+    \r_pc_reg[2] 
        (.C(i_clk),
         .CE(\r_pc[14]_i_1_n_0 ),
+        .CLR(i_reset),
         .D(\r_pc_reg[3]_i_1_n_5 ),
-        .Q(o_dbgPc[2]),
-        .R(i_reset));
-  FDRE \r_pc_reg[3] 
+        .Q(o_dbgPc[2]));
+  FDCE #(
+    .INIT(1'b0)) 
+    \r_pc_reg[3] 
        (.C(i_clk),
         .CE(\r_pc[14]_i_1_n_0 ),
+        .CLR(i_reset),
         .D(\r_pc_reg[3]_i_1_n_4 ),
-        .Q(o_dbgPc[3]),
-        .R(i_reset));
+        .Q(o_dbgPc[3]));
   (* ADDER_THRESHOLD = "11" *) 
   CARRY4 \r_pc_reg[3]_i_1 
        (.CI(1'b0),
@@ -1261,30 +1345,38 @@ module memory_bd_memory_0_0_memory
         .DI({1'b0,1'b0,1'b0,i_ctrlPCLoadN}),
         .O({\r_pc_reg[3]_i_1_n_4 ,\r_pc_reg[3]_i_1_n_5 ,\r_pc_reg[3]_i_1_n_6 ,\r_pc_reg[3]_i_1_n_7 }),
         .S({\r_pc[3]_i_2_n_0 ,\r_pc[3]_i_3_n_0 ,\r_pc[3]_i_4_n_0 ,\r_pc[3]_i_5_n_0 }));
-  FDRE \r_pc_reg[4] 
+  FDCE #(
+    .INIT(1'b0)) 
+    \r_pc_reg[4] 
        (.C(i_clk),
         .CE(\r_pc[14]_i_1_n_0 ),
+        .CLR(i_reset),
         .D(\r_pc_reg[7]_i_1_n_7 ),
-        .Q(o_dbgPc[4]),
-        .R(i_reset));
-  FDRE \r_pc_reg[5] 
+        .Q(o_dbgPc[4]));
+  FDCE #(
+    .INIT(1'b0)) 
+    \r_pc_reg[5] 
        (.C(i_clk),
         .CE(\r_pc[14]_i_1_n_0 ),
+        .CLR(i_reset),
         .D(\r_pc_reg[7]_i_1_n_6 ),
-        .Q(o_dbgPc[5]),
-        .R(i_reset));
-  FDRE \r_pc_reg[6] 
+        .Q(o_dbgPc[5]));
+  FDCE #(
+    .INIT(1'b0)) 
+    \r_pc_reg[6] 
        (.C(i_clk),
         .CE(\r_pc[14]_i_1_n_0 ),
+        .CLR(i_reset),
         .D(\r_pc_reg[7]_i_1_n_5 ),
-        .Q(o_dbgPc[6]),
-        .R(i_reset));
-  FDRE \r_pc_reg[7] 
+        .Q(o_dbgPc[6]));
+  FDCE #(
+    .INIT(1'b0)) 
+    \r_pc_reg[7] 
        (.C(i_clk),
         .CE(\r_pc[14]_i_1_n_0 ),
+        .CLR(i_reset),
         .D(\r_pc_reg[7]_i_1_n_4 ),
-        .Q(o_dbgPc[7]),
-        .R(i_reset));
+        .Q(o_dbgPc[7]));
   (* ADDER_THRESHOLD = "11" *) 
   CARRY4 \r_pc_reg[7]_i_1 
        (.CI(\r_pc_reg[3]_i_1_n_0 ),
@@ -1293,18 +1385,22 @@ module memory_bd_memory_0_0_memory
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\r_pc_reg[7]_i_1_n_4 ,\r_pc_reg[7]_i_1_n_5 ,\r_pc_reg[7]_i_1_n_6 ,\r_pc_reg[7]_i_1_n_7 }),
         .S({\r_pc[7]_i_2_n_0 ,\r_pc[7]_i_3_n_0 ,\r_pc[7]_i_4_n_0 ,\r_pc[7]_i_5_n_0 }));
-  FDRE \r_pc_reg[8] 
+  FDCE #(
+    .INIT(1'b0)) 
+    \r_pc_reg[8] 
        (.C(i_clk),
         .CE(\r_pc[14]_i_1_n_0 ),
+        .CLR(i_reset),
         .D(\r_pc_reg[11]_i_1_n_7 ),
-        .Q(o_dbgPc[8]),
-        .R(i_reset));
-  FDRE \r_pc_reg[9] 
+        .Q(o_dbgPc[8]));
+  FDCE #(
+    .INIT(1'b0)) 
+    \r_pc_reg[9] 
        (.C(i_clk),
         .CE(\r_pc[14]_i_1_n_0 ),
+        .CLR(i_reset),
         .D(\r_pc_reg[11]_i_1_n_6 ),
-        .Q(o_dbgPc[9]),
-        .R(i_reset));
+        .Q(o_dbgPc[9]));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 r_sp0_carry
        (.CI(1'b0),
@@ -1375,54 +1471,70 @@ module memory_bd_memory_0_0_memory
        (.I0(i_halt),
         .I1(i_ctrlSpNEn),
         .O(\r_sp[7]_i_1_n_0 ));
-  FDRE \r_sp_reg[0] 
+  FDCE #(
+    .INIT(1'b0)) 
+    \r_sp_reg[0] 
        (.C(i_clk),
         .CE(\r_sp[7]_i_1_n_0 ),
+        .CLR(i_reset),
         .D(p_0_in[0]),
-        .Q(r_sp_reg[0]),
-        .R(i_reset));
-  FDRE \r_sp_reg[1] 
+        .Q(r_sp_reg[0]));
+  FDCE #(
+    .INIT(1'b0)) 
+    \r_sp_reg[1] 
        (.C(i_clk),
         .CE(\r_sp[7]_i_1_n_0 ),
+        .CLR(i_reset),
         .D(p_0_in[1]),
-        .Q(r_sp_reg[1]),
-        .R(i_reset));
-  FDRE \r_sp_reg[2] 
+        .Q(r_sp_reg[1]));
+  FDCE #(
+    .INIT(1'b0)) 
+    \r_sp_reg[2] 
        (.C(i_clk),
         .CE(\r_sp[7]_i_1_n_0 ),
+        .CLR(i_reset),
         .D(p_0_in[2]),
-        .Q(r_sp_reg[2]),
-        .R(i_reset));
-  FDRE \r_sp_reg[3] 
+        .Q(r_sp_reg[2]));
+  FDCE #(
+    .INIT(1'b0)) 
+    \r_sp_reg[3] 
        (.C(i_clk),
         .CE(\r_sp[7]_i_1_n_0 ),
+        .CLR(i_reset),
         .D(p_0_in[3]),
-        .Q(r_sp_reg[3]),
-        .R(i_reset));
-  FDRE \r_sp_reg[4] 
+        .Q(r_sp_reg[3]));
+  FDCE #(
+    .INIT(1'b0)) 
+    \r_sp_reg[4] 
        (.C(i_clk),
         .CE(\r_sp[7]_i_1_n_0 ),
+        .CLR(i_reset),
         .D(p_0_in[4]),
-        .Q(r_sp_reg[4]),
-        .R(i_reset));
-  FDRE \r_sp_reg[5] 
+        .Q(r_sp_reg[4]));
+  FDCE #(
+    .INIT(1'b0)) 
+    \r_sp_reg[5] 
        (.C(i_clk),
         .CE(\r_sp[7]_i_1_n_0 ),
+        .CLR(i_reset),
         .D(p_0_in[5]),
-        .Q(r_sp_reg[5]),
-        .R(i_reset));
-  FDRE \r_sp_reg[6] 
+        .Q(r_sp_reg[5]));
+  FDCE #(
+    .INIT(1'b0)) 
+    \r_sp_reg[6] 
        (.C(i_clk),
         .CE(\r_sp[7]_i_1_n_0 ),
+        .CLR(i_reset),
         .D(p_0_in[6]),
-        .Q(r_sp_reg[6]),
-        .R(i_reset));
-  FDRE \r_sp_reg[7] 
+        .Q(r_sp_reg[6]));
+  FDCE #(
+    .INIT(1'b0)) 
+    \r_sp_reg[7] 
        (.C(i_clk),
         .CE(\r_sp[7]_i_1_n_0 ),
+        .CLR(i_reset),
         .D(p_0_in[7]),
-        .Q(r_sp_reg[7]),
-        .R(i_reset));
+        .Q(r_sp_reg[7]));
 endmodule
 `ifndef GLBL
 `define GLBL

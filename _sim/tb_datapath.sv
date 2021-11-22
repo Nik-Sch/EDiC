@@ -9,7 +9,7 @@ always #(10/2) asyncRamSpecialClock = ~asyncRamSpecialClock; // 100MHz
   // 1 is closed, 0 is open
 logic btnStep = 0;
 logic swInstrNCycle = 1;
-logic swStepNRun = 1;
+logic swStepNRun = 0;
 logic swEnableBreakpoint = 0;
 logic btnReset = 0;
 

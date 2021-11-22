@@ -27,6 +27,7 @@ wire [7:0] s_yXor;
 wire [7:0] s_yShift;
 
 wire[7:0] s_shift1, s_shift2, s_a, s_shift3;
+reg s_flagCShift;
 
 reg[7:0] r_y;
 reg[7:0] s_y;
@@ -37,8 +38,12 @@ always @(posedge i_clk) begin
     r_y <= s_y;
     o_flagNegative <= s_y[7];
     o_flagZero <= s_y == 8'h00;
-    o_flagCarry <= s_cin[8];
     o_flagOverflow <= s_cin[7] ^ s_cin[8];
+    if (i_ctrlAluOp == 2'b11) begin
+      o_flagCarry <= s_flagCShift;
+    end else begin
+      o_flagCarry <= s_cin[8];
+    end
   end
   if (i_reset) begin
     r_y <= 0;
@@ -70,6 +75,18 @@ assign s_shift1 = i_bus[0] ? s_a >> 1 : s_a;
 assign s_shift2 = i_bus[1] ? s_shift1 >> 2 : s_shift1;
 assign s_shift3 = i_bus[2] ? s_shift2 >> 4 : s_shift2;
 assign s_yShift = i_ctrlAluSub ? {s_shift3[0], s_shift3[1], s_shift3[2], s_shift3[3], s_shift3[4], s_shift3[5], s_shift3[6], s_shift3[7]} : s_shift3;
+always @* begin
+  case (i_bus[2:0])
+    3'b000: s_flagCShift <= o_flagCarry;
+    3'b001: s_flagCShift <= s_a[0];
+    3'b010: s_flagCShift <= s_a[1];
+    3'b011: s_flagCShift <= s_a[2];
+    3'b100: s_flagCShift <= s_a[3];
+    3'b101: s_flagCShift <= s_a[4];
+    3'b110: s_flagCShift <= s_a[5];
+    3'b111: s_flagCShift <= s_a[6];
+  endcase
+end
 
 always @* begin
   case (i_ctrlAluOp)

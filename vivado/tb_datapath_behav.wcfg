@@ -11,19 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
-      <ZoomEndTime time="97.900001 us"></ZoomEndTime>
-      <Cursor1Time time="1.000000 us"></Cursor1Time>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="9,880.001 ns"></ZoomEndTime>
+      <Cursor1Time time="7,000.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="404"></NameColumnWidth>
-      <ValueColumnWidth column_width="106"></ValueColumnWidth>
+      <NameColumnWidth column_width="395"></NameColumnWidth>
+      <ValueColumnWidth column_width="97"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="31" />
-   <wave_markers>
-      <marker label="" time="128908320" />
-      <marker label="" time="235705100" />
-   </wave_markers>
+   <WVObjectSize size="25" />
    <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/i_oszClk">
       <obj_property name="ElementShortName">i_oszClk</obj_property>
       <obj_property name="ObjectShortName">i_oszClk</obj_property>
@@ -74,9 +70,25 @@
       <obj_property name="ObjectShortName">r_instructionFallingEdge[7:0]</obj_property>
       <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
+   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_memory/memory/inst/r_sp">
+      <obj_property name="ElementShortName">r_sp[7:0]</obj_property>
+      <obj_property name="ObjectShortName">r_sp[7:0]</obj_property>
+   </wvobject>
    <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_memory/memory/inst/o_ramAddress">
       <obj_property name="ElementShortName">o_ramAddress[16:0]</obj_property>
       <obj_property name="ObjectShortName">o_ramAddress[16:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_memory/memory/inst/i_ramData">
+      <obj_property name="ElementShortName">i_ramData[7:0]</obj_property>
+      <obj_property name="ObjectShortName">i_ramData[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_memory/memory/inst/o_ramData">
+      <obj_property name="ElementShortName">o_ramData[7:0]</obj_property>
+      <obj_property name="ObjectShortName">o_ramData[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_memory/memory/inst/o_ramWE">
+      <obj_property name="ElementShortName">o_ramWE</obj_property>
+      <obj_property name="ObjectShortName">o_ramWE</obj_property>
    </wvobject>
    <wvobject type="group" fp_name="group40">
       <obj_property name="label">control</obj_property>
@@ -174,26 +186,6 @@
          <obj_property name="ObjectShortName">o_ctrlRegAluSel</obj_property>
       </wvobject>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_memory/memory/inst/i_ramData">
-      <obj_property name="ElementShortName">i_ramData[7:0]</obj_property>
-      <obj_property name="ObjectShortName">i_ramData[7:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_memory/memory/inst/o_ramData">
-      <obj_property name="ElementShortName">o_ramData[7:0]</obj_property>
-      <obj_property name="ObjectShortName">o_ramData[7:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_memory/memory/inst/o_ramWE">
-      <obj_property name="ElementShortName">o_ramWE</obj_property>
-      <obj_property name="ObjectShortName">o_ramWE</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_memory/memory/inst/o_bus">
-      <obj_property name="ElementShortName">o_bus[7:0]</obj_property>
-      <obj_property name="ObjectShortName">o_bus[7:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_memory/memory/inst/o_busNOE">
-      <obj_property name="ElementShortName">o_busNOE</obj_property>
-      <obj_property name="ObjectShortName">o_busNOE</obj_property>
-   </wvobject>
    <wvobject type="array" fp_name="/tb_datapath/inst_datapath/o_cathodes">
       <obj_property name="ElementShortName">o_cathodes[7:0]</obj_property>
       <obj_property name="ObjectShortName">o_cathodes[7:0]</obj_property>
@@ -202,44 +194,24 @@
       <obj_property name="ElementShortName">o_anodes[7:0]</obj_property>
       <obj_property name="ObjectShortName">o_anodes[7:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="divider79" type="divider">
-      <obj_property name="label">clock_module</obj_property>
-      <obj_property name="DisplayName">label</obj_property>
+   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_alu/r_y">
+      <obj_property name="ElementShortName">r_y[7:0]</obj_property>
+      <obj_property name="ObjectShortName">r_y[7:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_clock/i_btnStep">
-      <obj_property name="ElementShortName">i_btnStep</obj_property>
-      <obj_property name="ObjectShortName">i_btnStep</obj_property>
+   <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_alu/o_flagNegative">
+      <obj_property name="ElementShortName">o_flagNegative</obj_property>
+      <obj_property name="ObjectShortName">o_flagNegative</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_clock/i_swInstrNCycle">
-      <obj_property name="ElementShortName">i_swInstrNCycle</obj_property>
-      <obj_property name="ObjectShortName">i_swInstrNCycle</obj_property>
+   <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_alu/o_flagZero">
+      <obj_property name="ElementShortName">o_flagZero</obj_property>
+      <obj_property name="ObjectShortName">o_flagZero</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_clock/i_swStepNRun">
-      <obj_property name="ElementShortName">i_swStepNRun</obj_property>
-      <obj_property name="ObjectShortName">i_swStepNRun</obj_property>
+   <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_alu/o_flagOverflow">
+      <obj_property name="ElementShortName">o_flagOverflow</obj_property>
+      <obj_property name="ObjectShortName">o_flagOverflow</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_clock/i_swEnableBreakpoint">
-      <obj_property name="ElementShortName">i_swEnableBreakpoint</obj_property>
-      <obj_property name="ObjectShortName">i_swEnableBreakpoint</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_clock/i_btnReset">
-      <obj_property name="ElementShortName">i_btnReset</obj_property>
-      <obj_property name="ObjectShortName">i_btnReset</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_clock/i_breakpointHitN">
-      <obj_property name="ElementShortName">i_breakpointHitN</obj_property>
-      <obj_property name="ObjectShortName">i_breakpointHitN</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_clock/i_ctrlInstrFinishedN">
-      <obj_property name="ElementShortName">i_ctrlInstrFinishedN</obj_property>
-      <obj_property name="ObjectShortName">i_ctrlInstrFinishedN</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_clock/o_halt">
-      <obj_property name="ElementShortName">o_halt</obj_property>
-      <obj_property name="ObjectShortName">o_halt</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_clock/r_haltSelect">
-      <obj_property name="ElementShortName">r_haltSelect[1:0]</obj_property>
-      <obj_property name="ObjectShortName">r_haltSelect[1:0]</obj_property>
+   <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_alu/o_flagCarry">
+      <obj_property name="ElementShortName">o_flagCarry</obj_property>
+      <obj_property name="ObjectShortName">o_flagCarry</obj_property>
    </wvobject>
 </wave_config>

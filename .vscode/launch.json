@@ -5,11 +5,21 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Python: Current File",
+      "type": "python",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal"
+    },
+    {
       "name": "Python generateMicroCode",
       "type": "python",
       "request": "launch",
       "program": "${workspaceFolder}/generateMicroCode.py",
-      "args": ["microcode.cson", "microCodeRom.coe"],
+      "args": [
+        "microcode.cson",
+        "microCodeRom.coe"
+      ],
       "console": "integratedTerminal"
     }
   ]
