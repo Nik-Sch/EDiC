@@ -1,20 +1,34 @@
 module datapath(
+  // clocks
   input wire i_oszClk,
   input wire i_asyncRamSpecialClock,
+  output wire o_resetn,
+
+  // button controls
   // 1 is closed, 0 is open
   input wire i_btnStep,
   input wire i_swInstrNCycle,
   input wire i_swStepNRun,
   input wire i_swEnableBreakpoint,
   input wire i_btnReset,
+  input wire [15:0] i_breakpointAddress,
 
+  // io card
+  input wire [7:0] i_bus,
+  output wire [7:0] o_bus,
+  input wire i_busNOE,
+
+  output wire o_ioSelect,
+  output wire [7:0] o_ioAddress,
+  output wire o_ioNOE,
+  output wire o_ioNWE,
+
+  // fpga specific ports
   output wire [7:0] o_cathodes, // dot + gfedcba
   output wire [7:0] o_anodes,
   input wire [7:0] i_switches,
   output wire [7:0] o_r0,
-  output wire [7:0] o_r1,
-
-  input wire [15:0] i_breakpointAddress
+  output wire [7:0] o_r1
 );
 
 wire flagZero;
@@ -74,6 +88,14 @@ wire [15:0] dbgPc;
 wire [2:0] dbgStep;
 wire [7:0] s_output;
 
+assign o_resetn = resetn;
+
+assign o_ioSelect = ioSelect;
+assign o_ioAddress = ioAddress;
+assign o_ioNOE = ioNOE;
+assign o_ioNWE = ioNWE;
+assign o_bus = s_bus;
+
 dbgIla inst_ila (
   .clk(i_asyncRamSpecialClock),
 
@@ -102,11 +124,12 @@ dbgIla inst_ila (
 );
 
 tristatenet #(
-  .INPUT_COUNT(4)
+  .INPUT_COUNT(5)
 ) inst_triBus (
-  .i_data({s_busAlu, s_busRegset, s_busMemory, s_busIO}),
-  .i_noe({s_busNOEAlu, s_busNOERegset, s_busNOEMemory, s_busNOEIO}),
-  .o_data(s_bus)
+  .i_data({s_busAlu, s_busRegset, s_busMemory, s_busIO, i_bus}),
+  .i_noe({s_busNOEAlu, s_busNOERegset, s_busNOEMemory, s_busNOEIO, i_busNOE}),
+  .o_data(s_bus),
+  .o_noe()
 );
 
 control_bd control_bd_i (

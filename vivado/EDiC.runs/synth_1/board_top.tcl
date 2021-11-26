@@ -71,9 +71,15 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 4
+set_param checkpoint.writeSynthRtdsInDcp 1
 set_param xicom.use_bs_reader 1
 set_param tcl.collectionResultDisplayLimit 0
-set_msg_config -id {HDL-1065} -limit 10000
+set_param synth.incrementalSynthesisCache ./.Xil/Vivado-441303-niklasPC/incrSyn
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
+set_msg_config  -id {Synth 8-689}  -new_severity {CRITICAL WARNING} 
+set_msg_config  -id {Synth 8-689}  -new_severity {ERROR} 
+set_msg_config  -id {Synth 8-327}  -new_severity {CRITICAL WARNING} 
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a100tcsg324-1
 
@@ -99,8 +105,11 @@ read_verilog -library xil_defaultlib {
   /home/niklas/dev/EDiC/_src/clock.v
   /home/niklas/dev/EDiC/_src/datapath.v
   /home/niklas/dev/EDiC/_src/displayDriver.v
+  /home/niklas/dev/EDiC/_src/expansionCards/UART/expansion_uart.v
   /home/niklas/dev/EDiC/_src/io.v
   /home/niklas/dev/EDiC/_src/regset.v
+  /home/niklas/dev/EDiC/_src/expansionCards/UART/uart_rx.v
+  /home/niklas/dev/EDiC/_src/expansionCards/UART/uart_tx.v
   /home/niklas/dev/EDiC/_src/board_top.v
 }
 add_files /home/niklas/dev/EDiC/vivado/EDiC.srcs/sources_1/bd/memory_bd/memory_bd.bd
@@ -123,6 +132,16 @@ set_property used_in_synthesis false [get_files -all /home/niklas/dev/EDiC/vivad
 set_property used_in_implementation false [get_files -all /home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/ip/dbgIla/ila_v6_2/constraints/ila_impl.xdc]
 set_property used_in_implementation false [get_files -all /home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/ip/dbgIla/ila_v6_2/constraints/ila.xdc]
 set_property used_in_implementation false [get_files -all /home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/ip/dbgIla/dbgIla_ooc.xdc]
+
+read_ip -quiet /home/niklas/dev/EDiC/vivado/EDiC.srcs/sources_1/ip/uart_fifo_rx/uart_fifo_rx.xci
+set_property used_in_implementation false [get_files -all /home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/ip/uart_fifo_rx/uart_fifo_rx.xdc]
+set_property used_in_implementation false [get_files -all /home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/ip/uart_fifo_rx/uart_fifo_rx_clocks.xdc]
+set_property used_in_implementation false [get_files -all /home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/ip/uart_fifo_rx/uart_fifo_rx_ooc.xdc]
+
+read_ip -quiet /home/niklas/dev/EDiC/vivado/EDiC.srcs/sources_1/ip/uart_fifo_tx/uart_fifo_tx.xci
+set_property used_in_implementation false [get_files -all /home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/ip/uart_fifo_tx/uart_fifo_tx.xdc]
+set_property used_in_implementation false [get_files -all /home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/ip/uart_fifo_tx/uart_fifo_tx_clocks.xdc]
+set_property used_in_implementation false [get_files -all /home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/ip/uart_fifo_tx/uart_fifo_tx_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

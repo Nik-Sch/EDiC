@@ -67,7 +67,7 @@ always @(posedge o_clk, negedge o_resetn) begin
   r_instrToHalt <= ((r_instrToHalt | r_stepToHalt) & i_ctrlInstrFinishedN) | (~r_instrNCycle2);
 
   r_haltSelect[0] <= r_instrNCycle2;
-  r_haltSelect[1] <= r_stepNRun1;
+  r_haltSelect[1] <= r_stepNRun2;
 
   if (~o_resetn) begin
     r_instrToHalt <= 0;

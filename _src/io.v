@@ -15,9 +15,9 @@ module io(
   input wire [7:0] i_switches
 );
 
-assign o_output = r_output;
-
 reg [7:0] r_output = 0;
+
+assign o_output = r_output;
 
 assign o_bus = i_switches;
 assign o_busNOE = ~(i_ioAddress == 8'h00 && i_ioSelect) || i_ioNOE;

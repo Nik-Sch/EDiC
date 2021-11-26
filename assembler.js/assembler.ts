@@ -43,13 +43,14 @@ const branchOps: { [i: string]: string } = {
 
 const aluOpRegEx = Object.keys(aluOps).reduce((p, c) => `${p}|${c}`);
 const branchOpRegEx = Object.keys(branchOps).reduce((p, c) => `${p}|${c}`);
-const numericRegEx = '\\b0x[0-9a-fA-F]+\\b|\\b\\d+\\b';
+const numericRegEx = '\\b0x[0-9a-fA-F]+\\b|-?\\d+\\b';
 const identifierRegEx = '[a-zA-Z]\\w*';
 const stringRegEx = '"(\\\\.|[^"])*"';
 const labelDefRegEx = `\\s*(${identifierRegEx}):\\s*`;
 const constantDefRegEx = `\\s*(${identifierRegEx})\\s*=\\s*(${numericRegEx})\\s*`;
 const stringDefRegEx = `\\s*\\.(${identifierRegEx})\\s* =\\s*(${stringRegEx})\\s*`;
 const valueRegEx = `(?:${numericRegEx})|(?:${identifierRegEx})`;
+const lineCommentRegex = /^\s*(?:#|@|;|(?:\/\/)).*$/;
 
 interface ILabel {
   name: string;
@@ -75,7 +76,8 @@ const checkImmediate = (match: string, options: { stack?: boolean, memory?: bool
     options.regValue = false;
   }
   // [0xffff] is used for return address and register can only hold 8bit
-  const maxImm = options.memory ? 0xfffe : options.regValue ? 0xff : 0xffff;
+  const maxImm = options.memory ? 0xfffe : options.regValue ? 127 : 0xffff;
+  const minImm = options.regValue ? -128 : 0;
   let imm = parseInt(match);
   if (isNaN(imm)) {
     const constant = constants.find(c => c.name === match);
@@ -86,9 +88,12 @@ const checkImmediate = (match: string, options: { stack?: boolean, memory?: bool
       exit(1);
     }
   }
-  if (imm > maxImm || imm < 0) {
-    console.error(`Immediate must be in range of 0 to 0x${maxImm.toString(16)} but is 0x${imm.toString(16)}.`);
+  if (imm > maxImm || imm < minImm) {
+    console.error(`Immediate must be in range of ${minImm} to ${maxImm} but is ${imm}.`);
     return false;
+  }
+  if (imm < 0) {
+    imm = 256+imm; // to get the two's complement value correctly
   }
   return imm | (options.stack ? 0xff00 : 0x0000);
 }
@@ -300,7 +305,7 @@ let addressMSB = 0; // each new string gets a new 256 block of bytes for ease of
 for (const origLine of code) {
 
   lineCount++;
-  const line = origLine.replace(/\s*[#@;].*$/, '');
+  const line = origLine.replace(lineCommentRegex, '');
   if (line.match(/^\s*$/)) {
     continue;
   }
@@ -379,7 +384,7 @@ for (const origLine of code) {
     constants.push({
       line: lineCount,
       name: stringMatch[1],
-      value: instrCount
+      value: addressMSB
     });
     insertInstruction(`sma 0x${addressMSB.toString(16)}`);
     values.forEach((value, i) => {
@@ -389,6 +394,10 @@ for (const origLine of code) {
     addressMSB++;
   }
 }
+if (instrCount > 0) {
+  insertInstruction('sma 0');
+  insertInstruction('mov r0, 0');
+}
 
 const startOfProgramInstr = instrCount;
 
@@ -397,7 +406,7 @@ lineCount = 0;
 // second pass: find labels and constants
 for (const origLine of code) {
   lineCount++;
-  const line = origLine.replace(/\s*[#@;].*$/, '');
+  const line = origLine.replace(lineCommentRegex, '');
   if (line.match(/^\s*$/) || line.match(stringDefRegEx)) {
     continue;
   }
@@ -449,7 +458,7 @@ if (labels.find(l => l.name === 'start')) {
 }
 for (const origLine of code) {
   lineCount++;
-  const line = origLine.replace(/\s*[#@;].*$/, '');
+  const line = origLine.replace(lineCommentRegex, '');
   if (line.match(/^\s*$/)) {
     continue;
   }

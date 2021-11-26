@@ -1,0 +1,247 @@
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (lin64) Build 3367213 Tue Oct 19 02:47:39 MDT 2021
+| Date         : Fri Nov 19 12:30:53 2021
+| Host         : niklasPC running 64-bit Manjaro Linux
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'clk_wiz_5Mhz'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of clk_wiz_5Mhz (xilinx.com:ip:clk_wiz:6.0 (Rev. 9)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (lin64) Build 3367213 Tue Oct 19 02:47:39 MDT 2021
+| Date         : Sat Nov  6 12:44:55 2021
+| Host         : niklasPC running 64-bit Manjaro Linux
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'memory_bd_ram_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of memory_bd_ram_0 (xilinx.com:ip:blk_mem_gen:8.4) from (Rev. 4) to (Rev. 5)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (lin64) Build 3367213 Tue Oct 19 02:47:39 MDT 2021
+| Date         : Sat Nov  6 12:44:55 2021
+| Host         : niklasPC running 64-bit Manjaro Linux
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'memory_bd_blk_mem_gen_0_1'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of memory_bd_blk_mem_gen_0_1 (xilinx.com:ip:blk_mem_gen:8.4) from (Rev. 4) to (Rev. 5)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (lin64) Build 3367213 Tue Oct 19 02:47:39 MDT 2021
+| Date         : Sat Nov  6 12:44:55 2021
+| Host         : niklasPC running 64-bit Manjaro Linux
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'memory_bd_blk_mem_gen_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of memory_bd_blk_mem_gen_0_0 (xilinx.com:ip:blk_mem_gen:8.4) from (Rev. 4) to (Rev. 5)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (lin64) Build 3367213 Tue Oct 19 02:47:39 MDT 2021
+| Date         : Sat Nov  6 12:44:53 2021
+| Host         : niklasPC running 64-bit Manjaro Linux
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'control_bd_instrRom_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of control_bd_instrRom_0 (xilinx.com:ip:blk_mem_gen:8.4) from (Rev. 4) to (Rev. 5)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (lin64) Build 3367213 Tue Oct 19 02:47:39 MDT 2021
+| Date         : Sat Nov  6 12:44:50 2021
+| Host         : niklasPC running 64-bit Manjaro Linux
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'clk_wiz_5Mhz'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of clk_wiz_5Mhz (xilinx.com:ip:clk_wiz:6.0) from (Rev. 8) to (Rev. 9)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (lin64) Build 3247384 Thu Jun 10 19:36:07 MDT 2021
+| Date         : Fri Nov  5 14:14:11 2021
+| Host         : niklasPC running 64-bit Manjaro Linux
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'memory_bd_ram_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of memory_bd_ram_0 (xilinx.com:ip:blk_mem_gen:8.4 (Rev. 4)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (lin64) Build 3247384 Thu Jun 10 19:36:07 MDT 2021
+| Date         : Fri Nov  5 14:14:11 2021
+| Host         : niklasPC running 64-bit Manjaro Linux
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'memory_bd_blk_mem_gen_0_1'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of memory_bd_blk_mem_gen_0_1 (xilinx.com:ip:blk_mem_gen:8.4 (Rev. 4)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (lin64) Build 3247384 Thu Jun 10 19:36:07 MDT 2021
+| Date         : Fri Nov  5 14:14:11 2021
+| Host         : niklasPC running 64-bit Manjaro Linux
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'memory_bd_blk_mem_gen_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of memory_bd_blk_mem_gen_0_0 (xilinx.com:ip:blk_mem_gen:8.4 (Rev. 4)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (lin64) Build 3247384 Thu Jun 10 19:36:07 MDT 2021
+| Date         : Fri Nov  5 14:14:09 2021
+| Host         : niklasPC running 64-bit Manjaro Linux
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'control_bd_xlconstant_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of control_bd_xlconstant_0_0 (xilinx.com:ip:xlconstant:1.1 (Rev. 7)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (lin64) Build 3247384 Thu Jun 10 19:36:07 MDT 2021
+| Date         : Fri Nov  5 14:14:09 2021
+| Host         : niklasPC running 64-bit Manjaro Linux
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'control_bd_instrRom_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of control_bd_instrRom_0 (xilinx.com:ip:blk_mem_gen:8.4 (Rev. 4)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (lin64) Build 3247384 Thu Jun 10 19:36:07 MDT 2021
+| Date         : Fri Nov  5 14:14:09 2021
+| Host         : niklasPC running 64-bit Manjaro Linux
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'control_bd_control_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of control_bd_control_0_0 (xilinx.com:module_ref:control:1.0 (Rev. 1)) to Vivado generation flows.
+

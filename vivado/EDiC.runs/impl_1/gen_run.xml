@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1637591493">
+<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1637936449">
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <File Type="BITSTR-SYSDEF" Name="board_top.sysdef"/>
   <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
@@ -144,6 +144,13 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PPRDIR/../_src/expansionCards/UART/expansion_uart.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PPRDIR/../_src/io.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -152,6 +159,20 @@
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../_src/regset.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../_src/expansionCards/UART/uart_rx.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../_src/expansionCards/UART/uart_tx.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -213,9 +234,12 @@
     <Step Id="post_route_phys_opt_design"/>
     <Step Id="write_bitstream"/>
   </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="uart_fifo_tx"/>
+  <BlockFileSet Type="BlockSrcs" Name="control_bd_instrRom_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="uart_fifo_rx"/>
+  <BlockFileSet Type="BlockSrcs" Name="control_bd_control_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="memory_bd_blk_mem_gen_0_1"/>
   <BlockFileSet Type="BlockSrcs" Name="memory_bd_memory_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="dbgIla"/>
-  <BlockFileSet Type="BlockSrcs" Name="control_bd_control_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="clk_wiz_5Mhz"/>
 </GenRun>

@@ -17,6 +17,18 @@ logic[7:0] cathodes;
 logic[7:0] anodes;
 logic[7:0] switches = 42;
 
+logic [7:0] i_bus;
+logic [7:0]  o_bus;
+logic  i_busNOE;
+logic  o_ioSelect;
+logic [7:0]  o_ioAddress;
+logic o_ioNOE;
+logic o_ioNWE;
+
+// ignore register values and always output 0
+assign i_bus = 0;
+assign i_busNOE = ~(o_ioAddress != 8'h00 && ~o_ioNOE && o_ioSelect);
+
 datapath inst_datapath(
   .i_oszClk(oszClk),
   .i_asyncRamSpecialClock(asyncRamSpecialClock),
@@ -28,6 +40,16 @@ datapath inst_datapath(
   .i_swEnableBreakpoint(swEnableBreakpoint),
   .i_btnReset(btnReset),
   .i_breakpointAddress(16'h0028),
+
+
+  .i_bus(i_bus),
+  .o_bus(o_bus),
+  .i_busNOE(i_busNOE),
+
+  .o_ioSelect(o_ioSelect),
+  .o_ioAddress(o_ioAddress),
+  .o_ioNOE(o_ioNOE),
+  .o_ioNWE(o_ioNWE),
 
   .o_cathodes(cathodes),
   .o_anodes(anodes),
