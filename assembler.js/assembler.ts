@@ -45,8 +45,10 @@ const aluOpRegEx = Object.keys(aluOps).reduce((p, c) => `${p}|${c}`);
 const branchOpRegEx = Object.keys(branchOps).reduce((p, c) => `${p}|${c}`);
 const numericRegEx = '\\b0x[0-9a-fA-F]+\\b|\\b\\d+\\b';
 const identifierRegEx = '[a-zA-Z]\\w*';
+const stringRegEx = '"(\\\\.|[^"])*"';
 const labelDefRegEx = `\\s*(${identifierRegEx}):\\s*`;
 const constantDefRegEx = `\\s*(${identifierRegEx})\\s*=\\s*(${numericRegEx})\\s*`;
+const stringDefRegEx = `\\s*\\.(${identifierRegEx})\\s* =\\s*(${stringRegEx})\\s*`;
 const valueRegEx = `(?:${numericRegEx})|(?:${identifierRegEx})`;
 
 interface ILabel {
@@ -268,13 +270,138 @@ const uint8_t data[] PROGMEM = {\n`;
 let lineCount = 0;
 let instrCount = 0;
 
-// find labels and constants
+const data: number[] = [];
+
+const insertInstruction = (line: string): boolean => {
+  for (const instr of instructions) {
+    const match = line.match(instr.regex);
+    if (match) {
+      const result = instr.result(match);
+      if (result.imm === false) {
+        console.error(`Error in line ${lineCount}.`);
+        exit(1);
+      }
+      data[instrCount] = parseInt(result.instr, 2) << 16;
+      if (typeof result.imm === 'number') {
+        data[instrCount] |= result.imm;
+        console.log(`${instrCount.toString(16).padStart(2, '0')}: ${result.instr.trim()} - ${line.trim()} (imm: 0x${result.imm.toString(16).padStart(2, '0')})`);
+      } else {
+        console.log(`${instrCount.toString(16).padStart(2, '0')}: ${result.instr.trim()} - ${line.trim()}`);
+      }
+      instrCount++;
+      return true;
+    }
+  }
+  return false;
+}
+
+let addressMSB = 0; // each new string gets a new 256 block of bytes for ease of use
+// first pass: find strings and create instructions for it
 for (const origLine of code) {
+
   lineCount++;
   const line = origLine.replace(/\s*[#@;].*$/, '');
   if (line.match(/^\s*$/)) {
     continue;
   }
+  // find string definitions -> the strings are stored in memory and a constant is created that holds the start address
+  const stringMatch = line.match(stringDefRegEx);
+  if (stringMatch) {
+    const values = [];
+    const existingConstant = constants.find(c => c.name === stringMatch[1]);
+    if (existingConstant) {
+      console.error(`Constant '${stringMatch[1]}' defined multiple times (line ${existingConstant.line} and ${lineCount}).`);
+      exit(1);
+    }
+    if (stringMatch[2].length > 255) {
+      console.error(`String '${stringMatch[2]}' exceeds the 255 char limit (line ${lineCount}).`)
+      exit(1);
+    }
+
+    // ignore quotes of the string
+    let stringI = 1;
+    let addressI = 0;
+    while (stringI < stringMatch[2].length - 1) {
+      let charCode = stringMatch[2].charCodeAt(stringI);
+      if (charCode > 256) {
+        console.error(`Char ${stringMatch[2].charAt(stringI)} with the code ${charCode} in string '${stringMatch}' in line ${lineCount} is not supported.`);
+        exit(1);
+      }
+      if (charCode == 92) { // backslash
+        stringI++;
+        let value = -1;
+        const nextChar = stringMatch[2].charAt(stringI);
+        switch (nextChar) {
+          case 'n':
+            value = 0x0a;
+            break;
+          case 'r':
+            value = 0x0d;
+            break;
+          case 't':
+            value = 0x09;
+            break;
+          case '\\':
+            value = 0x5c;
+            break;
+          case '"':
+            value = 0x22;
+            break;
+          case 'x':
+            stringI++;
+            let hexEnd = stringI;
+            let charEndCode = stringMatch[2].charCodeAt(hexEnd);
+            while ((charEndCode >= 0x30 && charEndCode <= 0x39)
+              || (charEndCode >= 0x41 && charEndCode <= 0x46)
+              || (charEndCode >= 0x61 && charEndCode <= 0x66)) {
+                hexEnd++;
+                charEndCode = stringMatch[2].charCodeAt(hexEnd);
+              }
+            value = parseInt(stringMatch[2].substring(stringI, hexEnd), 16);
+            stringI = hexEnd - 1;
+            break;
+          default:
+            console.error(`Unkown escape code \\${nextChar} in string ${stringMatch[2]} in line ${lineCount}.`);
+            exit(1);
+        }
+        if (value > 255 || value < 0) {
+          console.error(`Cannot store value ${value} in string ${stringMatch[2]} in line ${lineCount}.`);
+          exit(1);
+        }
+        charCode = value;
+      }
+      values[addressI] = charCode;
+      addressI++;
+      stringI++;
+    }
+    values[addressI] = 0;
+    // add constant and instructions
+    constants.push({
+      line: lineCount,
+      name: stringMatch[1],
+      value: instrCount
+    });
+    insertInstruction(`sma 0x${addressMSB.toString(16)}`);
+    values.forEach((value, i) => {
+      insertInstruction(`mov r0, 0x${value.toString(16)}`);
+      insertInstruction(`str r0, [0x${i.toString(16)}]`);
+    });
+    addressMSB++;
+  }
+}
+
+const startOfProgramInstr = instrCount;
+
+
+lineCount = 0;
+// second pass: find labels and constants
+for (const origLine of code) {
+  lineCount++;
+  const line = origLine.replace(/\s*[#@;].*$/, '');
+  if (line.match(/^\s*$/) || line.match(stringDefRegEx)) {
+    continue;
+  }
+  // find label definitions
   const labelMatch = line.match(labelDefRegEx);
   if (labelMatch) {
     const existingLabel = labels.find(l => l.name === labelMatch[1]);
@@ -285,6 +412,7 @@ for (const origLine of code) {
     labels.push({ name: labelMatch[1], instruction: instrCount, line: lineCount });
     continue;
   }
+  // find constant definitions
   const constantMatch = line.match(constantDefRegEx);
   if (constantMatch) {
     const existingConstant = constants.find(c => c.name === constantMatch[1]);
@@ -295,6 +423,7 @@ for (const origLine of code) {
     constants.push({ name: constantMatch[1], value: parseInt(constantMatch[2]), line: lineCount });
     continue;
   }
+
   let success = false;
   for (const instr of instructions) {
     const match = line.match(instr.regex);
@@ -310,44 +439,21 @@ for (const origLine of code) {
   }
 }
 
-const data: number[] = [];
 
-const insertInstruction = (line: string): boolean => {
-  for (const instr of instructions) {
-    const match = line.match(instr.regex);
-    if (match) {
-      const result = instr.result(match);
-      if (result.imm === false) {
-        console.error(`Error in line ${lineCount}.`);
-        exit(1);
-      }
-      data[instrCount] = parseInt(result.instr, 2) << 16;
-      if (result.imm) {
-        data[instrCount] |= result.imm;
-        console.log(`${instrCount.toString(16).padStart(2, '0')}: ${result.instr.trim()} - ${line.trim()} (imm: 0x${result.imm.toString(16).padStart(2, '0')})`);
-      } else {
-        console.log(`${instrCount.toString(16).padStart(2, '0')}: ${result.instr.trim()} - ${line.trim()}`);
-      }
-      instrCount++;
-      return true;
-    }
-  }
-  return false;
-}
-
-instrCount = 0;
+// third pass: find instructions
+instrCount = startOfProgramInstr;
+lineCount = 0;
 if (labels.find(l => l.name === 'start')) {
   labels.forEach(l => l.instruction++);
   insertInstruction('b start');
 }
-lineCount = 0;
 for (const origLine of code) {
   lineCount++;
   const line = origLine.replace(/\s*[#@;].*$/, '');
   if (line.match(/^\s*$/)) {
     continue;
   }
-  if (line.match(labelDefRegEx) || line.match(constantDefRegEx)) {
+  if (line.match(labelDefRegEx) || line.match(constantDefRegEx) || line.match(stringDefRegEx)) {
     console.log(line.trim());
     continue;
   }
@@ -357,6 +463,7 @@ for (const origLine of code) {
     exit(1);
   }
 }
+
 if (coeFile) {
   for (const word of data) {
     fileContent += `${word.toString(16).padStart(6, '0')}\n`;
@@ -368,4 +475,5 @@ if (coeFile) {
   }
   fileContent += '};\n#endif';
 }
+
 writeFileSync(argv[3], fileContent);
