@@ -2,12 +2,12 @@
 # Vivado v2021.2 (64-bit)
 # SW Build 3367213 on Tue Oct 19 02:47:39 MDT 2021
 # IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
-# Start of session at: Fri Nov 26 15:22:23 2021
-# Process ID: 1391989
+# Start of session at: Sat Nov 27 01:15:18 2021
+# Process ID: 1723629
 # Current directory: /home/niklas/dev/EDiC/vivado/EDiC.runs/impl_1
 # Command line: vivado -log board_top.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source board_top.tcl -notrace
 # Log file: /home/niklas/dev/EDiC/vivado/EDiC.runs/impl_1/board_top.vdi
 # Journal file: /home/niklas/dev/EDiC/vivado/EDiC.runs/impl_1/vivado.jou
-# Running On: niklasPC, OS: Linux, CPU Frequency: 3598.592 MHz, CPU Physical cores: 16, Host memory: 33679 MB
+# Running On: niklasPC, OS: Linux, CPU Frequency: 2954.344 MHz, CPU Physical cores: 16, Host memory: 33679 MB
 #-----------------------------------------------------------
 source board_top.tcl -notrace

@@ -71,12 +71,8 @@ proc create_report { reportName command } {
 }
 OPTRACE "memory_bd_blk_mem_gen_0_1_synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 4
-set_param checkpoint.writeSynthRtdsInDcp 1
 set_param xicom.use_bs_reader 1
 set_param tcl.collectionResultDisplayLimit 0
-set_param synth.incrementalSynthesisCache ./.Xil/Vivado-441303-niklasPC/incrSyn
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 set_msg_config  -id {Synth 8-689}  -new_severity {CRITICAL WARNING} 
 set_msg_config  -id {Synth 8-689}  -new_severity {ERROR} 
 set_msg_config  -id {Synth 8-327}  -new_severity {CRITICAL WARNING} 

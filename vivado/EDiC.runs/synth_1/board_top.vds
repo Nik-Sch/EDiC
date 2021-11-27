@@ -2,13 +2,13 @@
 # Vivado v2021.2 (64-bit)
 # SW Build 3367213 on Tue Oct 19 02:47:39 MDT 2021
 # IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
-# Start of session at: Fri Nov 26 15:21:42 2021
-# Process ID: 1387772
+# Start of session at: Sat Nov 27 01:14:35 2021
+# Process ID: 1719297
 # Current directory: /home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1
 # Command line: vivado -log board_top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source board_top.tcl
 # Log file: /home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/board_top.vds
 # Journal file: /home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/vivado.jou
-# Running On: niklasPC, OS: Linux, CPU Frequency: 3618.305 MHz, CPU Physical cores: 16, Host memory: 33679 MB
+# Running On: niklasPC, OS: Linux, CPU Frequency: 4006.524 MHz, CPU Physical cores: 16, Host memory: 33679 MB
 #-----------------------------------------------------------
 source board_top.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
@@ -21,17 +21,17 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 1389701
+INFO: [Synth 8-7075] Helper process launched with PID 1721252
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2715.852 ; gain = 0.000 ; free physical = 1864 ; free virtual = 23110
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2723.852 ; gain = 0.000 ; free physical = 3815 ; free virtual = 24102
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'board_top' [/home/niklas/dev/EDiC/_src/board_top.v:1]
-INFO: [Synth 8-6157] synthesizing module 'clk_wiz_5Mhz' [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/.Xil/Vivado-1387772-niklasPC/realtime/clk_wiz_5Mhz_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_5Mhz' (1#1) [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/.Xil/Vivado-1387772-niklasPC/realtime/clk_wiz_5Mhz_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'clk_wiz_5Mhz' [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/.Xil/Vivado-1719297-niklasPC/realtime/clk_wiz_5Mhz_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_5Mhz' (1#1) [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/.Xil/Vivado-1719297-niklasPC/realtime/clk_wiz_5Mhz_stub.v:5]
 INFO: [Synth 8-6157] synthesizing module 'datapath' [/home/niklas/dev/EDiC/_src/datapath.v:1]
 WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [/home/niklas/dev/EDiC/_src/datapath.v:99]
-INFO: [Synth 8-6157] synthesizing module 'dbgIla' [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/.Xil/Vivado-1387772-niklasPC/realtime/dbgIla_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'dbgIla' (2#1) [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/.Xil/Vivado-1387772-niklasPC/realtime/dbgIla_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'dbgIla' [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/.Xil/Vivado-1719297-niklasPC/realtime/dbgIla_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'dbgIla' (2#1) [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/.Xil/Vivado-1719297-niklasPC/realtime/dbgIla_stub.v:6]
 INFO: [Synth 8-6157] synthesizing module 'tristatenet' [/home/niklas/dev/EDiC/_src/tristatenet.v:1]
 	Parameter INPUT_COUNT bound to: 5 - type: integer 
 WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/niklas/dev/EDiC/_src/tristatenet.v:24]
@@ -43,10 +43,10 @@ WARNING: [Synth 8-639] system function call 'time' not supported [/home/niklas/d
 INFO: [Synth 8-251] More than one output enable is high () at 1'b0. [/home/niklas/dev/EDiC/_src/tristatenet.v:31]
 INFO: [Synth 8-6155] done synthesizing module 'tristatenet' (3#1) [/home/niklas/dev/EDiC/_src/tristatenet.v:1]
 INFO: [Synth 8-6157] synthesizing module 'control_bd' [/home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/bd/control_bd/synth/control_bd.v:13]
-INFO: [Synth 8-6157] synthesizing module 'control_bd_control_0_0' [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/.Xil/Vivado-1387772-niklasPC/realtime/control_bd_control_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'control_bd_control_0_0' (4#1) [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/.Xil/Vivado-1387772-niklasPC/realtime/control_bd_control_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'control_bd_instrRom_0' [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/.Xil/Vivado-1387772-niklasPC/realtime/control_bd_instrRom_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'control_bd_instrRom_0' (5#1) [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/.Xil/Vivado-1387772-niklasPC/realtime/control_bd_instrRom_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'control_bd_control_0_0' [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/.Xil/Vivado-1719297-niklasPC/realtime/control_bd_control_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'control_bd_control_0_0' (4#1) [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/.Xil/Vivado-1719297-niklasPC/realtime/control_bd_control_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'control_bd_instrRom_0' [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/.Xil/Vivado-1719297-niklasPC/realtime/control_bd_instrRom_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'control_bd_instrRom_0' (5#1) [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/.Xil/Vivado-1719297-niklasPC/realtime/control_bd_instrRom_0_stub.v:6]
 INFO: [Synth 8-6157] synthesizing module 'control_bd_xlconstant_0_0' [/home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/bd/control_bd/ip/control_bd_xlconstant_0_0/synth/control_bd_xlconstant_0_0.v:57]
 INFO: [Synth 8-6157] synthesizing module 'xlconstant_v1_1_7_xlconstant' [/home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/bd/control_bd/ipshared/fcfc/hdl/xlconstant_v1_1_vl_rfs.v:23]
 INFO: [Synth 8-6155] done synthesizing module 'xlconstant_v1_1_7_xlconstant' (6#1) [/home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/bd/control_bd/ipshared/fcfc/hdl/xlconstant_v1_1_vl_rfs.v:23]
@@ -64,14 +64,14 @@ INFO: [Synth 8-251] More than one output enable is high () at 1'b0. [/home/nikla
 INFO: [Synth 8-6155] done synthesizing module 'tristatenet__parameterized0' (9#1) [/home/niklas/dev/EDiC/_src/tristatenet.v:1]
 INFO: [Synth 8-6155] done synthesizing module 'regset' (10#1) [/home/niklas/dev/EDiC/_src/regset.v:1]
 INFO: [Synth 8-6157] synthesizing module 'memory_bd' [/home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/bd/memory_bd/synth/memory_bd.v:13]
-INFO: [Synth 8-6157] synthesizing module 'memory_bd_blk_mem_gen_0_1' [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/.Xil/Vivado-1387772-niklasPC/realtime/memory_bd_blk_mem_gen_0_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'memory_bd_blk_mem_gen_0_1' (11#1) [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/.Xil/Vivado-1387772-niklasPC/realtime/memory_bd_blk_mem_gen_0_1_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'memory_bd_memory_0_0' [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/.Xil/Vivado-1387772-niklasPC/realtime/memory_bd_memory_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'memory_bd_memory_0_0' (12#1) [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/.Xil/Vivado-1387772-niklasPC/realtime/memory_bd_memory_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'memory_bd_blk_mem_gen_0_0' [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/.Xil/Vivado-1387772-niklasPC/realtime/memory_bd_blk_mem_gen_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'memory_bd_blk_mem_gen_0_0' (13#1) [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/.Xil/Vivado-1387772-niklasPC/realtime/memory_bd_blk_mem_gen_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'memory_bd_ram_0' [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/.Xil/Vivado-1387772-niklasPC/realtime/memory_bd_ram_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'memory_bd_ram_0' (14#1) [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/.Xil/Vivado-1387772-niklasPC/realtime/memory_bd_ram_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'memory_bd_blk_mem_gen_0_1' [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/.Xil/Vivado-1719297-niklasPC/realtime/memory_bd_blk_mem_gen_0_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'memory_bd_blk_mem_gen_0_1' (11#1) [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/.Xil/Vivado-1719297-niklasPC/realtime/memory_bd_blk_mem_gen_0_1_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'memory_bd_memory_0_0' [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/.Xil/Vivado-1719297-niklasPC/realtime/memory_bd_memory_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'memory_bd_memory_0_0' (12#1) [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/.Xil/Vivado-1719297-niklasPC/realtime/memory_bd_memory_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'memory_bd_blk_mem_gen_0_0' [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/.Xil/Vivado-1719297-niklasPC/realtime/memory_bd_blk_mem_gen_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'memory_bd_blk_mem_gen_0_0' (13#1) [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/.Xil/Vivado-1719297-niklasPC/realtime/memory_bd_blk_mem_gen_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'memory_bd_ram_0' [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/.Xil/Vivado-1719297-niklasPC/realtime/memory_bd_ram_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'memory_bd_ram_0' (14#1) [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/.Xil/Vivado-1719297-niklasPC/realtime/memory_bd_ram_0_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'memory_bd' (15#1) [/home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/bd/memory_bd/synth/memory_bd.v:13]
 INFO: [Synth 8-6157] synthesizing module 'clock' [/home/niklas/dev/EDiC/_src/clock.v:2]
 INFO: [Synth 8-6155] done synthesizing module 'clock' (16#1) [/home/niklas/dev/EDiC/_src/clock.v:2]
@@ -94,29 +94,29 @@ WARNING: [Synth 8-639] system function call 'time' not supported [/home/niklas/d
 INFO: [Synth 8-251] uart: writing unknown address xx. @1'b0 [/home/niklas/dev/EDiC/_src/expansionCards/UART/expansion_uart.v:41]
 WARNING: [Synth 8-639] system function call 'time' not supported [/home/niklas/dev/EDiC/_src/expansionCards/UART/expansion_uart.v:72]
 INFO: [Synth 8-251] uart: reading unknown address xx. @1'b0 [/home/niklas/dev/EDiC/_src/expansionCards/UART/expansion_uart.v:72]
-INFO: [Synth 8-6157] synthesizing module 'uart_fifo_rx' [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/.Xil/Vivado-1387772-niklasPC/realtime/uart_fifo_rx_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'uart_fifo_rx' (20#1) [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/.Xil/Vivado-1387772-niklasPC/realtime/uart_fifo_rx_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'uart_fifo_rx' [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/.Xil/Vivado-1719297-niklasPC/realtime/uart_fifo_rx_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'uart_fifo_rx' (20#1) [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/.Xil/Vivado-1719297-niklasPC/realtime/uart_fifo_rx_stub.v:6]
 INFO: [Synth 8-6157] synthesizing module 'uart_rx' [/home/niklas/dev/EDiC/_src/expansionCards/UART/uart_rx.v:1]
 INFO: [Synth 8-6155] done synthesizing module 'uart_rx' (21#1) [/home/niklas/dev/EDiC/_src/expansionCards/UART/uart_rx.v:1]
-INFO: [Synth 8-6157] synthesizing module 'uart_fifo_tx' [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/.Xil/Vivado-1387772-niklasPC/realtime/uart_fifo_tx_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'uart_fifo_tx' (22#1) [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/.Xil/Vivado-1387772-niklasPC/realtime/uart_fifo_tx_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'uart_fifo_tx' [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/.Xil/Vivado-1719297-niklasPC/realtime/uart_fifo_tx_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'uart_fifo_tx' (22#1) [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/.Xil/Vivado-1719297-niklasPC/realtime/uart_fifo_tx_stub.v:6]
 INFO: [Synth 8-6157] synthesizing module 'uart_tx' [/home/niklas/dev/EDiC/_src/expansionCards/UART/uart_tx.v:1]
 INFO: [Synth 8-6155] done synthesizing module 'uart_tx' (23#1) [/home/niklas/dev/EDiC/_src/expansionCards/UART/uart_tx.v:1]
 INFO: [Synth 8-6155] done synthesizing module 'expansion_uart' (24#1) [/home/niklas/dev/EDiC/_src/expansionCards/UART/expansion_uart.v:1]
 INFO: [Synth 8-6155] done synthesizing module 'board_top' (25#1) [/home/niklas/dev/EDiC/_src/board_top.v:1]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 2715.852 ; gain = 0.000 ; free physical = 1799 ; free virtual = 23046
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 2723.852 ; gain = 0.000 ; free physical = 3747 ; free virtual = 24032
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2715.852 ; gain = 0.000 ; free physical = 2663 ; free virtual = 23910
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2723.852 ; gain = 0.000 ; free physical = 4613 ; free virtual = 24898
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2715.852 ; gain = 0.000 ; free physical = 2663 ; free virtual = 23910
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2723.852 ; gain = 0.000 ; free physical = 4613 ; free virtual = 24898
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2715.852 ; gain = 0.000 ; free physical = 2719 ; free virtual = 23965
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2723.852 ; gain = 0.000 ; free physical = 4657 ; free virtual = 24942
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -226,24 +226,24 @@ Parsing XDC File [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/dont_touch.xdc]
 Finished Parsing XDC File [/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2715.852 ; gain = 0.000 ; free physical = 2624 ; free virtual = 23871
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2723.852 ; gain = 0.000 ; free physical = 4554 ; free virtual = 24842
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2715.852 ; gain = 0.000 ; free physical = 2624 ; free virtual = 23871
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2723.852 ; gain = 0.000 ; free physical = 4549 ; free virtual = 24837
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'inst_datapath/inst_memory/instrRom' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'inst_datapath/inst_memory/ram' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'inst_datapath/inst_memory/ram2' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '200.000' specified during out-of-context synthesis of instance 'uart/inst_fifo_tx' at clock pin 'rd_clk' is different from the actual clock period '10.000', this can lead to different synthesis results.
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2715.852 ; gain = 0.000 ; free physical = 2701 ; free virtual = 23948
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2723.852 ; gain = 0.000 ; free physical = 4619 ; free virtual = 24907
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2715.852 ; gain = 0.000 ; free physical = 2701 ; free virtual = 23948
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2723.852 ; gain = 0.000 ; free physical = 4619 ; free virtual = 24907
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -264,7 +264,7 @@ Applied set_property KEEP_HIERARCHY = SOFT for inst_datapath/inst_ila. (constrai
 Applied set_property KEEP_HIERARCHY = SOFT for uart/inst_fifo_rx. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for uart/inst_fifo_tx. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2715.852 ; gain = 0.000 ; free physical = 2700 ; free virtual = 23947
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2723.852 ; gain = 0.000 ; free physical = 4622 ; free virtual = 24907
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'uart_rx'
 INFO: [Synth 8-802] inferred FSM for state register 'r_state_reg' in module 'uart_tx'
@@ -287,7 +287,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'r_state_reg' using encoding 'sequential' in module 'uart_tx'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2715.852 ; gain = 0.000 ; free physical = 2688 ; free virtual = 23936
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2723.852 ; gain = 0.000 ; free physical = 4615 ; free virtual = 24900
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -302,12 +302,12 @@ Detailed RTL Component Info :
 +---XORs : 
 	   2 Input      1 Bit         XORs := 25    
 +---Registers : 
-	               16 Bit    Registers := 2     
+	               16 Bit    Registers := 3     
 	               11 Bit    Registers := 1     
 	                8 Bit    Registers := 9     
 	                3 Bit    Registers := 4     
 	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 16    
+	                1 Bit    Registers := 17    
 +---Muxes : 
 	   2 Input   16 Bit        Muxes := 4     
 	   4 Input   16 Bit        Muxes := 1     
@@ -341,26 +341,26 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 2715.852 ; gain = 0.000 ; free physical = 2675 ; free virtual = 23927
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 2723.852 ; gain = 0.000 ; free physical = 4589 ; free virtual = 24882
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-565] redefining clock 'i_clk100'
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2715.852 ; gain = 0.000 ; free physical = 2557 ; free virtual = 23809
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2723.852 ; gain = 0.000 ; free physical = 4499 ; free virtual = 24789
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2715.852 ; gain = 0.000 ; free physical = 2555 ; free virtual = 23807
+Finished Timing Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2723.852 ; gain = 0.000 ; free physical = 4495 ; free virtual = 24785
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2715.852 ; gain = 0.000 ; free physical = 2559 ; free virtual = 23811
+Finished Technology Mapping : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2723.852 ; gain = 0.000 ; free physical = 4495 ; free virtual = 24785
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -378,37 +378,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 2715.852 ; gain = 0.000 ; free physical = 2560 ; free virtual = 23812
+Finished IO Insertion : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2723.852 ; gain = 0.000 ; free physical = 4498 ; free virtual = 24788
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 2715.852 ; gain = 0.000 ; free physical = 2560 ; free virtual = 23812
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2723.852 ; gain = 0.000 ; free physical = 4498 ; free virtual = 24788
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 2715.852 ; gain = 0.000 ; free physical = 2560 ; free virtual = 23812
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2723.852 ; gain = 0.000 ; free physical = 4498 ; free virtual = 24788
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 2715.852 ; gain = 0.000 ; free physical = 2559 ; free virtual = 23812
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2723.852 ; gain = 0.000 ; free physical = 4498 ; free virtual = 24788
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 2715.852 ; gain = 0.000 ; free physical = 2559 ; free virtual = 23811
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2723.852 ; gain = 0.000 ; free physical = 4498 ; free virtual = 24788
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 2715.852 ; gain = 0.000 ; free physical = 2558 ; free virtual = 23811
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2723.852 ; gain = 0.000 ; free physical = 4497 ; free virtual = 24788
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -444,13 +444,13 @@ Report Cell Usage:
 |9     |uart_fifo_rx            |     1|
 |10    |uart_fifo_tx            |     1|
 |11    |CARRY4                  |     8|
-|12    |LUT1                    |    22|
+|12    |LUT1                    |    23|
 |13    |LUT2                    |    34|
 |14    |LUT3                    |    28|
 |15    |LUT4                    |    40|
 |16    |LUT5                    |    42|
 |17    |LUT6                    |    97|
-|18    |FDCE                    |    80|
+|18    |FDCE                    |    89|
 |19    |FDPE                    |     1|
 |20    |FDRE                    |    59|
 |21    |FDSE                    |     8|
@@ -458,30 +458,30 @@ Report Cell Usage:
 |23    |OBUF                    |    33|
 +------+------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 2715.852 ; gain = 0.000 ; free physical = 2559 ; free virtual = 23811
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2723.852 ; gain = 0.000 ; free physical = 4498 ; free virtual = 24788
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 2 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 2715.852 ; gain = 0.000 ; free physical = 2609 ; free virtual = 23861
-Synthesis Optimization Complete : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 2715.852 ; gain = 0.000 ; free physical = 2608 ; free virtual = 23861
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 2723.852 ; gain = 0.000 ; free physical = 4549 ; free virtual = 24839
+Synthesis Optimization Complete : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2723.852 ; gain = 0.000 ; free physical = 4549 ; free virtual = 24839
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2715.852 ; gain = 0.000 ; free physical = 2697 ; free virtual = 23949
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2723.852 ; gain = 0.000 ; free physical = 4638 ; free virtual = 24928
 INFO: [Netlist 29-17] Analyzing 8 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-140] Inserted 1 IBUFs to IO ports without IO buffers.
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2715.852 ; gain = 0.000 ; free physical = 2635 ; free virtual = 23887
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2723.852 ; gain = 0.000 ; free physical = 4581 ; free virtual = 24871
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete, checksum: 5cf4ce48
+Synth Design complete, checksum: 1cbbdf1c
 INFO: [Common 17-83] Releasing license: Synthesis
 88 Infos, 58 Warnings, 1 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:24 ; elapsed = 00:00:21 . Memory (MB): peak = 2715.852 ; gain = 0.000 ; free physical = 2836 ; free virtual = 24087
+synth_design: Time (s): cpu = 00:00:25 ; elapsed = 00:00:22 . Memory (MB): peak = 2723.852 ; gain = 0.000 ; free physical = 4782 ; free virtual = 25072
 INFO: [Common 17-600] The following parameters have non-default value.
 tcl.collectionResultDisplayLimit
 INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
 INFO: [Common 17-1381] The checkpoint '/home/niklas/dev/EDiC/vivado/EDiC.runs/synth_1/board_top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file board_top_utilization_synth.rpt -pb board_top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Fri Nov 26 15:22:19 2021...
+INFO: [Common 17-206] Exiting Vivado at Sat Nov 27 01:15:13 2021...

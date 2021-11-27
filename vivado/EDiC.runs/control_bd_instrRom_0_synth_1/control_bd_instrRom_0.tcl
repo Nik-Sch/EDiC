@@ -73,6 +73,9 @@ OPTRACE "control_bd_instrRom_0_synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 4
 set_param xicom.use_bs_reader 1
 set_param tcl.collectionResultDisplayLimit 0
+set_msg_config  -id {Synth 8-689}  -new_severity {CRITICAL WARNING} 
+set_msg_config  -id {Synth 8-689}  -new_severity {ERROR} 
+set_msg_config  -id {Synth 8-327}  -new_severity {CRITICAL WARNING} 
 set_param project.vivado.isBlockSynthRun true
 set_msg_config -msgmgr_mode ooc_run
 OPTRACE "Creating in-memory project" START { }

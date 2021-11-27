@@ -135,16 +135,16 @@ const instructions: IInstruction[] = [
     result: match => ({ instr: `011${match[2]}${match[3]}${aluOps[match[1]]}` })
   },
   { // r/y := r x imm
-    regex: new RegExp(`^\\s*(${aluOpRegEx})(s?)\\s+r([01])\\s*,\\s*(${numericRegEx})`),
+    regex: new RegExp(`^\\s*(${aluOpRegEx})(s?)\\s+r([01])\\s*,\\s*(${valueRegEx})`),
     result: match => {
       const imm = checkImmediate(match[4], { regValue: true });
       return { instr: `100${match[2] == 's' ? '1' : '0'}${match[3]}${aluOps[match[1]]}`, imm }
     }
   },
   { // special case: cmp == subs
-    regex: new RegExp(`^\\s*cmp\\s+r([01])\\s*,\\s*(${numericRegEx})`),
+    regex: new RegExp(`^\\s*cmp\\s+r([01])\\s*,\\s*(${valueRegEx})`),
     result: match => {
-      const imm = checkImmediate(match[4], { regValue: true });
+      const imm = checkImmediate(match[2], { regValue: true });
       return { instr: `1001${match[1]}${aluOps['sub']}`, imm };
     }
   },

@@ -25,12 +25,28 @@ wire [7:0] s_expansionIoAddress;
 wire s_expansionIoNOE;
 wire s_expansionIoNWE;
 
+reg [15:0] r_breakpoint;
+reg r_breakpointSet;
+
+
 wire s_oszClk;
 wire s_resetn;
 clk_wiz_5Mhz inst_clk5Mhz(
   .clk_in1(i_clk100),
   .clk5(s_oszClk)
 );
+
+always @(negedge s_oszClk, negedge s_resetn) begin
+  r_breakpointSet <= 1;
+  if (~r_breakpointSet) begin
+    r_breakpoint <= {8'h00, i_switches};
+  end
+
+  if (~s_resetn) begin
+    r_breakpointSet <= 0;
+    r_breakpoint <= 0;
+  end
+end
 
 datapath inst_datapath(
   .i_oszClk(s_oszClk),
@@ -44,7 +60,7 @@ datapath inst_datapath(
   .i_swStepNRun(i_swStepNRun),
   .i_swEnableBreakpoint(i_swEnableBreakpoint),
   .i_btnReset(~i_btnReset), // btn should be 1 if pressed -> active high
-  .i_breakpointAddress(16'h0028),
+  .i_breakpointAddress(r_breakpoint),
 
   // expansion card
   .i_bus(s_expansionBusOut),

@@ -262,8 +262,8 @@ instructions: [
         memMar0NWE: 0
       }
       { # r into ram
-        reg0BusNOE: 's'
-        reg1BusNOE: '!s'
+        reg0BusNOE: 'r'
+        reg1BusNOE: '!r'
         memInstrImmToRamAddr: 0
         memRamNWE: 0
       }
