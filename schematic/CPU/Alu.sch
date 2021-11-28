@@ -121,7 +121,7 @@ a1
 Text Label 4950 8150 2    50   ~ 0
 a0
 $Sheet
-S 5050 8100 800  1500
+S 5050 8100 800  1700
 U 60297135
 F0 "shifter" 50
 F1 "Shifter.sch" 50
@@ -145,6 +145,8 @@ F18 "y4" O R 5850 8550 50
 F19 "y5" O R 5850 8650 50 
 F20 "y6" O R 5850 8750 50 
 F21 "y7" O R 5850 8850 50 
+F22 "oldCFlag" I L 5050 9650 50 
+F23 "flagC" O R 5850 9050 50 
 $EndSheet
 Wire Wire Line
 	4800 3150 5050 3150
@@ -1747,8 +1749,6 @@ Wire Wire Line
 Wire Wire Line
 	16950 12450 17150 12450
 Wire Wire Line
-	16950 12550 17150 12550
-Wire Wire Line
 	16950 12650 17150 12650
 NoConn ~ 18150 12750
 NoConn ~ 18150 12850
@@ -1785,8 +1785,6 @@ Wire Wire Line
 	16900 12950 17050 12950
 Text Label 16950 12450 2    50   ~ 0
 flagZ
-Text Label 16950 12550 2    50   ~ 0
-flagC
 Text Label 16950 12650 2    50   ~ 0
 flagV
 Wire Wire Line
@@ -1817,4 +1815,98 @@ Wire Wire Line
 Wire Wire Line
 	15450 4950 15550 4950
 Connection ~ 15450 4850
+$Comp
+L power:GND #PWR?
+U 1 1 619E0241
+P 16000 14150
+AR Path="/608A8AE7/619E0241" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/619E0241" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 16000 13900 50  0001 C CNN
+F 1 "GND" H 16005 13977 50  0000 C CNN
+F 2 "" H 16000 14150 50  0001 C CNN
+F 3 "" H 16000 14150 50  0001 C CNN
+	1    16000 14150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 619E0247
+P 16000 12250
+AR Path="/608A8AE7/619E0247" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/619E0247" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 16000 12100 50  0001 C CNN
+F 1 "+5V" H 16000 12500 50  0000 C CNN
+F 2 "" H 16000 12250 50  0001 C CNN
+F 3 "" H 16000 12250 50  0001 C CNN
+	1    16000 12250
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS151 U?
+U 1 1 619E024D
+P 16000 13150
+AR Path="/608A8AE7/619E024D" Ref="U?"  Part="1" 
+AR Path="/600C5001/619E024D" Ref="U?"  Part="1" 
+F 0 "U?" H 16000 14231 50  0000 C CNN
+F 1 "74LS151" H 16000 14140 50  0000 C CNN
+F 2 "" H 16000 13150 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS151" H 16000 13150 50  0001 C CNN
+	1    16000 13150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 619E0253
+P 15500 13850
+AR Path="/608A8AE7/619E0253" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/619E0253" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 15500 13600 50  0001 C CNN
+F 1 "GND" H 15505 13677 50  0000 C CNN
+F 2 "" H 15500 13850 50  0001 C CNN
+F 3 "" H 15500 13850 50  0001 C CNN
+	1    15500 13850
+	1    0    0    -1  
+$EndComp
+NoConn ~ 16500 12650
+Wire Wire Line
+	16500 12550 17150 12550
+Text GLabel 15500 13450 0    50   Input ~ 0
+ctrlAluOp0
+Text GLabel 15500 13550 0    50   Input ~ 0
+ctrlAluOp1
+Text Label 15300 12550 2    50   ~ 0
+flagC
+Wire Wire Line
+	15300 12550 15400 12550
+Wire Wire Line
+	15400 12550 15400 12650
+Connection ~ 15400 12550
+Wire Wire Line
+	15400 12550 15500 12550
+Wire Wire Line
+	15500 12650 15400 12650
+Wire Wire Line
+	15500 13850 15500 13650
+Connection ~ 15500 13850
+Wire Wire Line
+	15500 12750 15400 12750
+Wire Wire Line
+	15400 12750 15400 12650
+Connection ~ 15400 12650
+Wire Wire Line
+	15300 12850 15500 12850
+NoConn ~ 15500 12950
+NoConn ~ 15500 13050
+NoConn ~ 15500 13150
+NoConn ~ 15500 13250
+Text Label 15300 12850 2    50   ~ 0
+flagCShift
+Text Label 6000 9050 0    50   ~ 0
+flagCShift
+Wire Wire Line
+	5850 9050 6000 9050
+Text GLabel 4950 9650 0    50   Input ~ 0
+flagCarry
+Wire Wire Line
+	4950 9650 5050 9650
 $EndSCHEMATC
