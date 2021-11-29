@@ -25,6 +25,7 @@ SNAKE_TAIL_LINE = 0x0004
 SNAKE_TAIL_COL  = 0x0005
 SNAKE_LEFT_LINE = 0x0006
 SNAKE_LEFT_COL  = 0x0007
+PRNG_SEED       = 0x0008 # do not init for extra randomness
 
 # local variables
 LINE_COUNTER = 0xff00
@@ -43,10 +44,21 @@ start:
   // mov r0, 42
   // call outputDecimal
   call createBoard
+  call updateItem
   mainLoop:
-    # TODO: call update functions
     call updateHead
+    cmp r0, -1
+    beq lost
+    cmp r0, 1
+    beq mainAteItem
     call updateTail
+    b mainUpdateBoard
+  mainAteItem:
+    ldr r0, [SNAKE_LENGTH]
+    add r0, 1
+    str r0, [SNAKE_LENGTH]
+    call updateItem
+  mainUpdateBoard:
     call drawBoard
     ldr r0, [SNAKE_LENGTH]
     stf r0, [PAR1]
@@ -57,7 +69,29 @@ start:
     beq mainLoop
     str r0, [SNAKE_DIRECTION]
   b mainLoop
+  lost:
+  b lost
 
+
+updateItem:
+  str r1, [0xfffe]
+
+  itemStart:
+    call prng
+    mov r1, r0 # column
+    call prng
+    sma r0 # line
+    ldr r0, [r1]
+    cmp r0, SPACE
+  bne itemStart # if there is something at the new item position find a new one
+  # store new item
+  mov r0, ITEM
+  str r0, [r1]
+
+  ldr r1, [0xfffe]
+ret
+
+# returns -1 if lost, 0 if nothing happend and 1 if ate item
 updateHead:
   str r1, [0xfffe]
 
@@ -109,12 +143,30 @@ updateHead:
   b headEnd
 
 headEnd:
-  # draw new head
+  
   ldr r1, [SNAKE_HEAD_LINE]
   sma r1
   ldr r1, [SNAKE_HEAD_COL]
+  ldr r0, [r1]
+  # if new position is border -> lost
+  cmp r0, BORDER
+  bne headNotLost
+  mov r0, -1
+  ldr r1, [0xfffe]
+ret
+headNotLost:
+  cmp r0, ITEM
+  bne headNoItem
   mov r0, HEAD
   str r0, [r1]
+  mov r0, 1
+  ldr r1, [0xfffe]
+ret
+headNoItem:
+  # draw new head
+  mov r0, HEAD
+  str r0, [r1]
+  mov r0, 0
   ldr r1, [0xfffe]
 ret
 
@@ -453,6 +505,18 @@ ret
   mov r0, -1 # return -1 if nothing was found
 ret
 
+prng:
+  ldr r0, [PRNG_SEED]
+  subs r0, 0
+  beq prngDoEor
+  lsl r0, 1
+  beq prngNoEor
+  bcc prngNoEor
+prngDoEor:
+  xor r0, 0x1d
+prngNoEor:
+  str r0, [PRNG_SEED]
+ 
 
 # par0 (r0) ignored and preserved, value outputed is p1
 output:
