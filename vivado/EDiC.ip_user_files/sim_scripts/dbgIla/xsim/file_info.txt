@@ -1,2 +1,0 @@
-dbgIla.v,verilog,xil_defaultlib,../../../../EDiC.gen/sources_1/ip/dbgIla/sim/dbgIla.v,incdir="../../../../EDiC.gen/sources_1/ip/dbgIla/hdl/verilog"
-glbl.v,Verilog,xil_defaultlib,glbl.v

@@ -17,14 +17,18 @@ reg[1:0] state;
 reg[15:0] r_clkCount;
 reg[2:0] r_dataCount;
 
-always @(posedge i_clk, negedge i_resetn) begin
+reg r_serialIn;
+reg rr_serialIn;
 
+always @(posedge i_clk, negedge i_resetn) begin
+  r_serialIn <= i_serialIn;
+  rr_serialIn <= r_serialIn;
   r_clkCount <= r_clkCount + 1;
 
   case (state)
     `s_IDLE: begin
       o_valid <= 0;
-      if (~i_serialIn) begin
+      if (~rr_serialIn) begin
         r_clkCount <= 0;
         state <= `s_START;
       end
@@ -35,13 +39,13 @@ always @(posedge i_clk, negedge i_resetn) begin
         r_dataCount <= 0;
         state <= `s_DATA;
       end
-      if (i_serialIn) begin // if i_serialIn gets high too early, it probably was a glitch
+      if (rr_serialIn) begin // if rr_serialIn gets high too early, it probably was a glitch
         state <= `s_IDLE;
       end
     end
     `s_DATA: begin
       if (r_clkCount == CLK_DIVIDE) begin
-        o_data[r_dataCount] <= i_serialIn;
+        o_data[r_dataCount] <= rr_serialIn;
         r_clkCount <= 0;
         if (r_dataCount == 7) begin
           state <= `s_STOP;
@@ -52,7 +56,7 @@ always @(posedge i_clk, negedge i_resetn) begin
     end
     `s_STOP: begin
       if (r_clkCount == CLK_DIVIDE) begin
-        if (i_serialIn) begin
+        if (rr_serialIn) begin
           o_valid <= 1;
         end
         state <= `s_IDLE;
@@ -64,6 +68,8 @@ always @(posedge i_clk, negedge i_resetn) begin
     state <= `s_IDLE;
     o_valid <= 0;
     r_clkCount <= 0;
+    r_serialIn <= 0;
+    rr_serialIn <= 0;
   end
 end
 

@@ -12,4 +12,5 @@ loop:
   # send data
   ldr r0, [UART_DATA]
   str r0, [UART_DATA]
+  str r0, [0xfe00]
   b loop

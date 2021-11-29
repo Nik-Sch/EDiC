@@ -39,10 +39,6 @@ COLUMNS = 80
 COLUMNS_1 = 79
 
 start:
-  // mov r0, 120
-  // call outputDecimal
-  // mov r0, 42
-  // call outputDecimal
   call createBoard
   call updateItem
   mainLoop:
@@ -148,9 +144,11 @@ headEnd:
   sma r1
   ldr r1, [SNAKE_HEAD_COL]
   ldr r0, [r1]
-  # if new position is border -> lost
-  cmp r0, BORDER
-  bne headNotLost
+  # if new position is not space or item -> lost
+  cmp r0, SPACE
+  beq headNotLost
+  cmp r0, ITEM
+  beq headNotLost
   mov r0, -1
   ldr r1, [0xfffe]
 ret

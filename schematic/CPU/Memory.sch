@@ -4374,14 +4374,14 @@ ctrlMemPCFromImm
 Text GLabel 4050 10150 0    50   Input ~ 0
 ctrlMemPCFromImm
 $Comp
-L 74xx:74LS32 U?
-U 1 1 61A2880A
+L 74xx:74LS32 U103
+U 2 1 61A2880A
 P 6050 1800
-F 0 "U?" H 6050 2125 50  0000 C CNN
+F 0 "U103" H 6050 2125 50  0000 C CNN
 F 1 "74LS32" H 6050 2034 50  0000 C CNN
 F 2 "" H 6050 1800 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 6050 1800 50  0001 C CNN
-	1    6050 1800
+	2    6050 1800
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -4409,10 +4409,10 @@ Text Label 7700 8450 2    50   ~ 0
 Wire Wire Line
 	7700 8450 7850 8450
 $Comp
-L 74xx:74LS08 U?
+L 74xx:74LS08 U105
 U 1 1 61D31E8E
 P 6850 2000
-F 0 "U?" H 6850 2325 50  0000 C CNN
+F 0 "U105" H 6850 2325 50  0000 C CNN
 F 1 "74LS08" H 6850 2234 50  0000 C CNN
 F 2 "" H 6850 2000 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 6850 2000 50  0001 C CNN
@@ -4424,10 +4424,10 @@ Text GLabel 6350 2100 0    50   Input ~ 0
 Wire Wire Line
 	6350 2100 6550 2100
 $Comp
-L 74xx:74LS32 U?
+L 74xx:74LS32 U103
 U 1 1 61DAB1DF
 P 6050 1250
-F 0 "U?" H 6050 1575 50  0000 C CNN
+F 0 "U103" H 6050 1575 50  0000 C CNN
 F 1 "74LS32" H 6050 1484 50  0000 C CNN
 F 2 "" H 6050 1250 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 6050 1250 50  0001 C CNN
@@ -4448,4 +4448,76 @@ Text Label 7700 10600 2    50   ~ 0
 ~spEn~
 Wire Wire Line
 	7700 10600 7850 10600
+Wire Notes Line rgb(255, 0, 0)
+	5050 2250 7650 2250
+Wire Notes Line rgb(255, 0, 0)
+	7650 2250 7650 850 
+Wire Notes Line rgb(255, 0, 0)
+	7650 850  5050 850 
+Wire Notes Line rgb(255, 0, 0)
+	5050 850  5050 2250
+Wire Notes Line rgb(255, 0, 0)
+	7450 5550 7750 5550
+Wire Notes Line rgb(255, 0, 0)
+	7750 5550 7750 5350
+Wire Notes Line rgb(255, 0, 0)
+	7750 5350 7450 5350
+Wire Notes Line rgb(255, 0, 0)
+	7450 5350 7450 5550
+Wire Notes Line rgb(255, 0, 0)
+	7500 8500 7800 8500
+Wire Notes Line rgb(255, 0, 0)
+	7500 8500 7500 8300
+Wire Notes Line rgb(255, 0, 0)
+	7500 8300 7800 8300
+Wire Notes Line rgb(255, 0, 0)
+	7800 8300 7800 8500
+Wire Notes Line rgb(255, 0, 0)
+	7500 10650 7500 10450
+Wire Notes Line rgb(255, 0, 0)
+	7500 10450 7750 10450
+Wire Notes Line rgb(255, 0, 0)
+	7750 10450 7750 10650
+Wire Notes Line rgb(255, 0, 0)
+	7500 10650 7750 10650
+Wire Notes Line rgb(255, 0, 0)
+	12350 8150 12350 7950
+Wire Notes Line rgb(255, 0, 0)
+	12350 7950 11150 7950
+Wire Notes Line rgb(255, 0, 0)
+	11150 7950 11150 8150
+Wire Notes Line rgb(255, 0, 0)
+	20600 8150 20600 5200
+Wire Notes Line rgb(255, 0, 0)
+	20600 5200 24650 5200
+Wire Notes Line rgb(255, 0, 0)
+	24650 5200 24650 8150
+Wire Notes Line rgb(255, 0, 0)
+	24650 8150 20600 8150
+Wire Notes Line rgb(255, 0, 0)
+	11150 8150 12350 8150
+Wire Notes Line rgb(255, 0, 0)
+	550  8650 3100 8650
+Wire Notes Line rgb(255, 0, 0)
+	3100 8650 3100 10350
+Wire Notes Line rgb(255, 0, 0)
+	3100 10350 4100 10350
+Wire Notes Line rgb(255, 0, 0)
+	4100 10350 4100 9950
+Wire Notes Line rgb(255, 0, 0)
+	4100 9950 3500 9950
+Wire Notes Line rgb(255, 0, 0)
+	3500 9950 3500 6100
+Wire Notes Line rgb(255, 0, 0)
+	3500 6100 4200 6100
+Wire Notes Line rgb(255, 0, 0)
+	4200 6100 4200 5750
+Wire Notes Line rgb(255, 0, 0)
+	4200 5750 3500 5750
+Wire Notes Line rgb(255, 0, 0)
+	3500 5750 3500 3750
+Wire Notes Line rgb(255, 0, 0)
+	3500 3750 550  3750
+Wire Notes Line rgb(255, 0, 0)
+	550  3750 550  8650
 $EndSCHEMATC

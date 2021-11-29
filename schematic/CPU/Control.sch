@@ -1104,10 +1104,10 @@ $EndComp
 Wire Wire Line
 	4400 5900 5250 5900
 $Comp
-L 74xx:74LS32 U?
+L 74xx:74LS32 U106
 U 1 1 61D13A9C
 P 3800 7200
-F 0 "U?" H 3800 7525 50  0000 C CNN
+F 0 "U106" H 3800 7525 50  0000 C CNN
 F 1 "74LS32" H 3800 7434 50  0000 C CNN
 F 2 "" H 3800 7200 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 3800 7200 50  0001 C CNN
@@ -1122,4 +1122,28 @@ Text GLabel 3300 7300 0    50   Input ~ 0
 halt
 Wire Wire Line
 	3300 7300 3500 7300
+Wire Notes Line rgb(255, 0, 0)
+	2450 6800 4050 6800
+Wire Notes Line rgb(255, 0, 0)
+	4050 6800 4050 7400
+Wire Notes Line rgb(255, 0, 0)
+	4050 7400 2450 7400
+Wire Notes Line rgb(255, 0, 0)
+	10900 6700 9700 6700
+Wire Notes Line rgb(255, 0, 0)
+	9700 6700 9700 6800
+Wire Notes Line rgb(255, 0, 0)
+	9700 6800 10900 6800
+Wire Notes Line rgb(255, 0, 0)
+	10900 6800 10900 6700
+Wire Notes Line rgb(255, 0, 0)
+	2450 6800 2450 7400
+Wire Notes Line rgb(255, 0, 0)
+	10600 9050 9700 9050
+Wire Notes Line rgb(255, 0, 0)
+	9700 9050 9700 9250
+Wire Notes Line rgb(255, 0, 0)
+	9700 9250 10600 9250
+Wire Notes Line rgb(255, 0, 0)
+	10600 9250 10600 9050
 $EndSCHEMATC

@@ -40,43 +40,43 @@ preplace portBus o_dbgStep -pg 1 -lvl 3 -x 600 -y 290 -defaultsOSRD
 preplace inst xlconstant_0 -pg 1 -lvl 1 -x 10 -y 470 -defaultsOSRD
 preplace inst instrDecode -pg 1 -lvl 2 -x 370 -y 390 -defaultsOSRD
 preplace inst control_0 -pg 1 -lvl 1 -x 10 -y 50 -defaultsOSRD
-preplace netloc control_0_o_ctrlAluNOE 1 1 2 NJ -110 490
-preplace netloc control_0_o_ctrlAluOp 1 1 2 NJ -170 530
-preplace netloc control_0_o_ctrlAluSub 1 1 2 NJ -150 520
-preplace netloc control_0_o_ctrlAluYNWE 1 1 2 NJ -130 510
-preplace netloc control_0_o_ctrlInstrFinishedN 1 1 2 NJ 270 480J
-preplace netloc control_0_o_ctrlMemInstrImmToRamAddr 1 1 2 230J 200 NJ
-preplace netloc control_0_o_ctrlMemInstrNOE 1 1 2 NJ 130 490
-preplace netloc control_0_o_ctrlMemInstrNWE 1 1 2 NJ 110 490
-preplace netloc control_0_o_ctrlMemMar0NWE 1 1 2 NJ 150 490
-preplace netloc control_0_o_ctrlMemMar1NWE 1 1 2 NJ 170 490
-preplace netloc control_0_o_ctrlMemPCFromImm 1 1 2 NJ 50 530J
-preplace netloc control_0_o_ctrlMemPCLoadN 1 1 2 NJ 10 520
-preplace netloc control_0_o_ctrlMemPCNEn 1 1 2 NJ 30 510J
-preplace netloc control_0_o_ctrlMemPCToRamN 1 1 2 230J 260 NJ
-preplace netloc control_0_o_ctrlMemRamNOE 1 1 2 NJ 230 490
-preplace netloc control_0_o_ctrlMemRamNWE 1 1 2 NJ 210 500
-preplace netloc control_0_o_ctrlMemSPNEn 1 1 2 NJ 90 530
-preplace netloc control_0_o_ctrlMemSPUp 1 1 2 NJ 70 530
+preplace netloc control_0_o_ctrlAluNOE 1 1 2 NJ -110 480
+preplace netloc control_0_o_ctrlAluOp 1 1 2 NJ -170 520
+preplace netloc control_0_o_ctrlAluSub 1 1 2 NJ -150 510
+preplace netloc control_0_o_ctrlAluYNWE 1 1 2 NJ -130 500
+preplace netloc control_0_o_ctrlInstrFinishedN 1 1 2 NJ 270 470J
+preplace netloc control_0_o_ctrlMemInstrImmToRamAddr 1 1 2 210J 200 NJ
+preplace netloc control_0_o_ctrlMemInstrNOE 1 1 2 NJ 130 480
+preplace netloc control_0_o_ctrlMemInstrNWE 1 1 2 NJ 110 480
+preplace netloc control_0_o_ctrlMemMar0NWE 1 1 2 NJ 150 480
+preplace netloc control_0_o_ctrlMemMar1NWE 1 1 2 NJ 170 480
+preplace netloc control_0_o_ctrlMemPCFromImm 1 1 2 NJ 50 520J
+preplace netloc control_0_o_ctrlMemPCLoadN 1 1 2 NJ 10 510
+preplace netloc control_0_o_ctrlMemPCNEn 1 1 2 NJ 30 500J
+preplace netloc control_0_o_ctrlMemPCToRamN 1 1 2 210J 260 NJ
+preplace netloc control_0_o_ctrlMemRamNOE 1 1 2 NJ 230 480
+preplace netloc control_0_o_ctrlMemRamNWE 1 1 2 NJ 210 490
+preplace netloc control_0_o_ctrlMemSPNEn 1 1 2 NJ 90 520
+preplace netloc control_0_o_ctrlMemSPUp 1 1 2 NJ 70 520
 preplace netloc control_0_o_ctrlReg0BusNOE 1 1 2 NJ -30 NJ
-preplace netloc control_0_o_ctrlReg0NWE 1 1 2 260J -60 NJ
+preplace netloc control_0_o_ctrlReg0NWE 1 1 2 240J -60 NJ
 preplace netloc control_0_o_ctrlReg1BusNOE 1 1 2 NJ -10 NJ
-preplace netloc control_0_o_ctrlReg1NWE 1 1 2 230J -160 NJ
-preplace netloc control_0_o_ctrlRegAluSel 1 1 2 NJ -50 530
+preplace netloc control_0_o_ctrlReg1NWE 1 1 2 210J -160 NJ
+preplace netloc control_0_o_ctrlRegAluSel 1 1 2 NJ -50 520
 preplace netloc control_0_o_dbgStep 1 1 2 NJ 290 NJ
-preplace netloc control_0_o_decodeAddr 1 1 1 240 -190n
+preplace netloc control_0_o_decodeAddr 1 1 1 220 -190n
 preplace netloc i_flagCarry_0_1 1 0 1 -360 0n
 preplace netloc i_flagNegative_0_1 1 0 1 NJ 70
 preplace netloc i_flagOverflow_0_1 1 0 1 -350 120n
 preplace netloc i_flagZero_0_1 1 0 1 N 90
 preplace netloc i_halt_0_1 1 0 1 -330 -170n
 preplace netloc i_instrCode_0_1 1 0 1 -340J -20n
-preplace netloc i_nclk_1 1 0 2 -320J -250 250
+preplace netloc i_nclk_1 1 0 2 -320J -250 230
 preplace netloc i_reset_0_1 1 0 1 -350J -10n
 preplace netloc instrDecode_douta 1 0 2 -320 410 N
-preplace netloc xlconstant_0_dout 1 1 1 250 430n
+preplace netloc xlconstant_0_dout 1 1 1 230 430n
 levelinfo -pg 1 -380 10 370 600
-pagesize -pg 1 -db -bbox -sgen -550 -390 880 620
+pagesize -pg 1 -db -bbox -sgen -550 -390 840 620
 "
 }
 0
