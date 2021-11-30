@@ -1,4 +1,4 @@
-update=Tue 30 Nov 2021 02:14:58 PM CET
+update=Tue 30 Nov 2021 10:53:13 PM CET
 version=1
 last_client=kicad
 [general]
@@ -15,7 +15,7 @@ LibDir=
 [pcbnew]
 version=1
 PageLayoutDescrFile=
-LastNetListRead=EDiC.net
+LastNetListRead=EDiCPoster.net
 CopperLayerCount=2
 BoardThickness=1.6
 AllowMicroVias=0
@@ -249,11 +249,11 @@ dPairGap=0.25
 dPairViaGap=0.25
 [schematic_editor]
 version=1
-PageLayoutDescrFile=
+PageLayoutDescrFile=/home/niklas/dev/EDiC/schematic/logoLayout.kicad_wks
 PlotDirectoryName=./
-SubpartIdSeparator=0
+SubpartIdSeparator=45
 SubpartFirstId=65
 NetFmtName=Pcbnew
 SpiceAjustPassiveValues=0
-LabSize=50
+LabSize=75
 ERC_TestSimilarLabels=1

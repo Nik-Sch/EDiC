@@ -58,7 +58,7 @@ F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/doc0006.pdf" H 14050 4900 5
 	1    0    0    -1  
 $EndComp
 $Comp
-L EDiC-rescue:74AS867-74xx U54
+L EDiCPoster-rescue:74AS867-74xx U54
 U 1 1 614A13D4
 P 8350 4700
 F 0 "U54" H 8350 5581 50  0000 C CNN
@@ -69,7 +69,7 @@ F 3 "https://www.ti.com/lit/ds/symlink/sn74als867a.pdf" H 8350 4700 50  0001 C C
 	1    0    0    -1  
 $EndComp
 $Comp
-L EDiC-rescue:74AS867-74xx U55
+L EDiCPoster-rescue:74AS867-74xx U55
 U 1 1 614A1BAD
 P 8350 7650
 F 0 "U55" H 8350 8531 50  0000 C CNN
@@ -252,7 +252,7 @@ Wire Wire Line
 Wire Wire Line
 	10150 5100 10050 5100
 $Comp
-L EDiC-rescue:74AS867-74xx U56
+L EDiCPoster-rescue:74AS867-74xx U56
 U 1 1 614C84B2
 P 8350 9800
 F 0 "U56" H 8350 10681 50  0000 C CNN
@@ -976,7 +976,7 @@ F 3 "" H 8450 2350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L EDiC-rescue:74AS825-74xx U70
+L EDiCPoster-rescue:74AS825-74xx U70
 U 1 1 622368AD
 P 14850 2250
 F 0 "U70" H 14850 3131 50  0000 C CNN
@@ -1116,7 +1116,7 @@ Wire Wire Line
 Text GLabel 14100 2750 0    50   Input ~ 0
 ~ctrlMemInstrWE~
 $Comp
-L EDiC-rescue:74AS825-74xx U71
+L EDiCPoster-rescue:74AS825-74xx U71
 U 1 1 622CCE3A
 P 15800 4500
 F 0 "U71" H 15800 5381 50  0000 C CNN
@@ -1345,7 +1345,7 @@ Wire Wire Line
 Wire Wire Line
 	12750 4300 12900 4300
 $Comp
-L EDiC-rescue:74AS825-74xx U64
+L EDiCPoster-rescue:74AS825-74xx U64
 U 1 1 6255A4D7
 P 12250 4800
 F 0 "U64" H 12250 5681 50  0000 C CNN
@@ -1428,7 +1428,7 @@ F 3 "" H 10700 8500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L EDiC-rescue:74AS825-74xx U63
+L EDiCPoster-rescue:74AS825-74xx U63
 U 1 1 6172F6E1
 P 10700 7650
 F 0 "U63" H 10700 8531 50  0000 C CNN
@@ -1505,7 +1505,7 @@ F 3 "" H 13350 8200 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L EDiC-rescue:74AS825-74xx U68
+L EDiCPoster-rescue:74AS825-74xx U68
 U 1 1 61818E6C
 P 13350 7350
 F 0 "U68" H 13350 8231 50  0000 C CNN
@@ -2664,7 +2664,7 @@ pcIn15
 Text GLabel 3450 4000 0    50   Input ~ 0
 ctrlMemPCFromImm
 $Comp
-L EDiC-rescue:74F521 U53
+L EDiCPoster-rescue:74F521 U53
 U 1 1 616FD36C
 P 8000 12900
 F 0 "U53" H 7944 12883 100 0000 L CNN
@@ -2675,7 +2675,7 @@ F 3 "" H 8000 12900 100 0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L EDiC-rescue:74F521 U60
+L EDiCPoster-rescue:74F521 U60
 U 1 1 616FE128
 P 10000 12850
 F 0 "U60" H 9944 12833 100 0000 L CNN
@@ -3168,7 +3168,7 @@ comp15
 Text Label 8800 13550 2    50   ~ 0
 comp14
 $Comp
-L EDiC-rescue:74F521 U76
+L EDiCPoster-rescue:74F521 U76
 U 1 1 62289ACE
 P 18950 12800
 F 0 "U76" H 18894 12783 100 0000 L CNN
@@ -3286,7 +3286,7 @@ selectStackMem
 Wire Wire Line
 	19000 12000 18850 12000
 $Comp
-L EDiC-rescue:74F521 U79
+L EDiCPoster-rescue:74F521 U79
 U 1 1 625D2667
 P 21250 12750
 F 0 "U79" H 21194 12733 100 0000 L CNN
@@ -3500,7 +3500,7 @@ Wire Wire Line
 Wire Wire Line
 	22650 13300 22300 13300
 $Comp
-L EDiC-rescue:74ABT540 U?
+L EDiCPoster-rescue:74ABT540 U?
 U 1 1 634E144D
 P 8350 17800
 AR Path="/600C5001/634E144D" Ref="U?"  Part="1" 
@@ -3738,7 +3738,7 @@ Wire Wire Line
 Wire Wire Line
 	9350 18000 8950 18000
 $Comp
-L EDiC-rescue:74ABT540 U?
+L EDiCPoster-rescue:74ABT540 U?
 U 1 1 6363F628
 P 8350 19900
 AR Path="/600C5001/6363F628" Ref="U?"  Part="1" 

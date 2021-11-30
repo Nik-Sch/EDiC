@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name inputOutputConnector)(type Legacy)(uri ${KIPRJMOD}/inputOutputConnector.lib)(options "")(descr ""))
+  (lib (name EDiCPoster-rescue)(type Legacy)(uri ${KIPRJMOD}/EDiCPoster-rescue.lib)(options "")(descr ""))
+)
