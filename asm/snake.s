@@ -172,8 +172,10 @@ updateTail:
   str r1, [0xfffe]
 
   ldr r0, [SNAKE_TAIL_LINE]
+  str r0, [SNAKE_LEFT_LINE]
   sma r0
   ldr r0, [SNAKE_TAIL_COL]
+  str r0, [SNAKE_LEFT_COL]
   # load direction char
   ldr r1, [r0]
   # store direction to put space at the location
@@ -222,6 +224,13 @@ ret
 createBoard:
   str r0, [0xfffe]
   str r1, [0xfffd]
+
+  mov r0, ESCAPE0
+  call outputChar
+  mov r0, ESCAPE1
+  call outputChar
+  mov r0, 0x48 # 'H'
+  call outputChar
 
   # init snake
   sma 0
@@ -306,72 +315,45 @@ createBoard:
   ldr r1, [0xfffd]
 ret
 
-// drawBoard:
-//   str r0, [0xfffe]
-//   str r1, [0xfffd]
 
-//   // clear screen
-//   mov r0, ESCAPE0
-//   call outputChar
-//   mov r0, ESCAPE1
-//   call outputChar
-//   mov r0, 0x32 # '2'
-//   call outputChar
-//   mov r0, 0x4A # 'A'
-//   call outputChar
+// r0: char, PAR1: col, PAR2: line
+drawChar:
+  str r0, [0xfffe]
 
-//   mov r0, 1
-//   str r0, [LINE_COUNTER]
-//   drawLineLoop:
-//     sma r0
-//     mov r0, 0
-//     # loop through line (1-70) and store space
-//     drawColumnLoop:
-//       ldr r1, [r0]
-//       cmp r1, SPACE
-//       beq drawSkip
-//       # draw everything that is not space
-//       # output \033[y;xH where y and x are ascii decimal representations of x and y coordinates on the screen
-//       mov r0, ESCAPE0
-//       call outputChar
-//       mov r0, ESCAPE1
-//       call outputChar
-//       ldr r0, [LINE_COUNTER]
-//       call outputDecimal
-//       mov r0, 0x3b # ';'
-//       call outputChar
-//       ldr r0, [COLUMN_COUNTER]
-//       call outputDecimal
-//       mov r0, 0x48 # 'H'
-//       call outputChar
-//       mov r0, r1 # output the actual char
-//       call outputChar
+  mov r0, ESCAPE0
+  call outputChar
+  mov r0, ESCAPE1
+  call outputChar
+  ldr r0, [PAR2]
+  call outputDecimal
+  mov r0, 0x3b # ';'
+  call outputChar
+  ldr r0, [PAR1]
+  add r0, 1
+  call outputDecimal
+  mov r0, 0x48 # 'H'
+  call outputChar
 
-//     drawSkip:
-//       ldr r0, [COLUMN_COUNTER]
-//       add r0, 1
-//       cmp r0, COLUMNS
-//     blt drawColumnLoop
+  ldr r0, [0xfffe]
+  call outputChar
 
-//     ldr r0, [LINE_COUNTER]
-//     add r0, 1
-//     str r0, [LINE_COUNTER]
-//     cmp r0, LINES
-//   ble drawLineLoop
+ret
 
-//   ldr r0, [0xfffe]
-//   ldr r1, [0xfffd]
-// ret
+
+
 drawBoard:
   str r0, [0xfffe]
   str r1, [0xfffd]
 
   // go to home '\033[H'
+  // clear screen '\033[H'
   mov r0, ESCAPE0
   call outputChar
   mov r0, ESCAPE1
   call outputChar
-  mov r0, 0x48 # 'H'
+  mov r0, 0x32 # '2'
+  call outputChar
+  mov r0, 0x4a # 'J'
   call outputChar
 
   mov r0, 1
@@ -383,24 +365,39 @@ drawBoard:
     drawColumnLoop:
       ldr r1, [LINE_COUNTER]
       sma r1
+      subs r0, [SNAKE_LEFT_COL]
+      stf r0, [PAR1]
+      stf r1, [PAR2]
+      bne checkSpace
+      subs r1, [SNAKE_LEFT_LINE]
+      bne checkSpace
       ldr r0, [r0]
-      call outputChar
+      call drawChar
+      b afterOutput
+
+    checkSpace:
+      ldr r0, [r0]
+      cmp r0, SPACE
+      beq afterOutput
+      ldr r0, [r0]
+      call drawChar
+    afterOutput:
       ldr r0, [COLUMN_COUNTER]
       add r0, 1
       str r0, [COLUMN_COUNTER]
       cmp r0, COLUMNS
     blt drawColumnLoop
 
-    mov r0, 0x0a # lf
-    call outputChar
-    mov r0, 0x0d # cr
-    call outputChar
-
     ldr r0, [LINE_COUNTER]
     add r0, 1
     str r0, [LINE_COUNTER]
     cmp r0, LINES
   ble drawLineLoop
+
+  mov r0, 0x0d # cr
+  call outputChar
+  mov r0, 0x0a # lf
+  call outputChar
 
   ldr r0, [0xfffe]
   ldr r1, [0xfffd]

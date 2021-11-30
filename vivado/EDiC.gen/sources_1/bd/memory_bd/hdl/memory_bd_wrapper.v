@@ -1,8 +1,8 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2 (lin64) Build 3367213 Tue Oct 19 02:47:39 MDT 2021
-//Date        : Mon Nov 29 11:36:17 2021
-//Host        : niklasPC running 64-bit Manjaro Linux
+//Date        : Mon Nov 29 17:45:38 2021
+//Host        : niklas-manj running 64-bit Manjaro Linux
 //Command     : generate_target memory_bd_wrapper.bd
 //Design      : memory_bd_wrapper
 //Purpose     : IP block netlist

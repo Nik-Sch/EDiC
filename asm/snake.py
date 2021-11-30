@@ -59,16 +59,17 @@ class Snake():
 
   def printScreen(self, ):
     # clear screen
-    # self.output('\033[2J')
+    self.output('\033[2J')
     # go to home
-    self.output('\033[H')
+    # self.output('\033[H')
     for y in range(self.LINES):
       for x in range(self.COLUMNS):
-        self.output(self.getScreen(x, y))
-      self.output('\r\n')
-        # if (self.getScreen(x, y) != ' ' or (y == self.snakeLeftLine and x == self.snakeLeftColumn)):
-        #   self.output(f'\033[{y};{x}H')
-        #   self.output(self.getScreen(x, y))
+        # self.output(self.getScreen(x, y))
+      # self.output('\r\n')
+        if (self.getScreen(x, y) != ' ' or (y == self.snakeLeftLine and x == self.snakeLeftColumn)):
+          self.output(f'\033[{y};{x}H')
+          self.output(self.getScreen(x, y))
+    self.output(f'\r\n')
 
 
   # main loop
