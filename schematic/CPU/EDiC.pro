@@ -1,4 +1,4 @@
-update=Tue 30 Nov 2021 02:14:58 PM CET
+update=Tue 30 Nov 2021 11:02:24 PM CET
 version=1
 last_client=kicad
 [general]
@@ -249,7 +249,7 @@ dPairGap=0.25
 dPairViaGap=0.25
 [schematic_editor]
 version=1
-PageLayoutDescrFile=
+PageLayoutDescrFile=/home/niklas/dev/EDiC/schematic/logoLayout.kicad_wks
 PlotDirectoryName=./
 SubpartIdSeparator=0
 SubpartFirstId=65
