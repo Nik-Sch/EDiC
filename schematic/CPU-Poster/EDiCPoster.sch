@@ -62,1621 +62,6 @@ Wire Wire Line
 Wire Wire Line
 	900  900  900  1050
 $Comp
-L EDiCPoster-rescue:74ABT540 U?
-U 1 1 63407316
-P 4400 3850
-AR Path="/600C5001/63407316" Ref="U?"  Part="1" 
-AR Path="/601B5CAE/63407316" Ref="U?"  Part="1" 
-AR Path="/63407316" Ref="U1"  Part="1" 
-F 0 "U1" H 4100 4831 50  0000 C CNN
-F 1 "74ABT540" H 4100 4900 50  0000 C CNN
-F 2 "" H 4600 3425 50  0001 C CNN
-F 3 "" H 4600 3425 50  0001 C CNN
-	1    4400 3850
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 6340731C
-P 3500 4350
-AR Path="/600C5001/6340731C" Ref="#PWR?"  Part="1" 
-AR Path="/601B5CAE/6340731C" Ref="#PWR?"  Part="1" 
-AR Path="/6340731C" Ref="#PWR03"  Part="1" 
-F 0 "#PWR03" H 3500 4100 50  0001 C CNN
-F 1 "GND" H 3505 4177 50  0000 C CNN
-F 2 "" H 3500 4350 50  0001 C CNN
-F 3 "" H 3500 4350 50  0001 C CNN
-	1    3500 4350
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	3500 4350 3600 4350
-Wire Wire Line
-	3600 4250 3500 4250
-Wire Wire Line
-	3500 4250 3500 4350
-Connection ~ 3500 4350
-$Comp
-L power:GND #PWR?
-U 1 1 63407326
-P 4100 4650
-AR Path="/600C5001/63407326" Ref="#PWR?"  Part="1" 
-AR Path="/601B5CAE/63407326" Ref="#PWR?"  Part="1" 
-AR Path="/63407326" Ref="#PWR05"  Part="1" 
-F 0 "#PWR05" H 4100 4400 50  0001 C CNN
-F 1 "GND" H 4105 4477 50  0000 C CNN
-F 2 "" H 4100 4650 50  0001 C CNN
-F 3 "" H 4100 4650 50  0001 C CNN
-	1    4100 4650
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+5V #PWR?
-U 1 1 6340732C
-P 4100 3050
-AR Path="/600C5001/6340732C" Ref="#PWR?"  Part="1" 
-AR Path="/601B5CAE/6340732C" Ref="#PWR?"  Part="1" 
-AR Path="/6340732C" Ref="#PWR04"  Part="1" 
-F 0 "#PWR04" H 4100 2900 50  0001 C CNN
-F 1 "+5V" H 4200 3100 50  0000 C CNN
-F 2 "" H 4100 3050 50  0001 C CNN
-F 3 "" H 4100 3050 50  0001 C CNN
-	1    4100 3050
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:LED_Small D?
-U 1 1 63407332
-P 4900 3350
-AR Path="/600C5001/63407332" Ref="D?"  Part="1" 
-AR Path="/601B5CAE/63407332" Ref="D?"  Part="1" 
-AR Path="/63407332" Ref="D1"  Part="1" 
-F 0 "D1" H 4700 3400 50  0000 C CNN
-F 1 "LED_Small" H 5150 3400 50  0000 C CNN
-F 2 "" V 4900 3350 50  0001 C CNN
-F 3 "~" V 4900 3350 50  0001 C CNN
-	1    4900 3350
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4800 3350 4600 3350
-$Comp
-L Device:R_Network08 RN?
-U 1 1 63407339
-P 5600 3750
-AR Path="/61492876/63407339" Ref="RN?"  Part="1" 
-AR Path="/601B5CAE/63407339" Ref="RN?"  Part="1" 
-AR Path="/63407339" Ref="RN2"  Part="1" 
-F 0 "RN2" H 5988 3796 50  0000 L CNN
-F 1 "220" H 5988 3705 50  0000 L CNN
-F 2 "Resistor_THT:R_Array_SIP9" V 6075 3750 50  0001 C CNN
-F 3 "http://www.vishay.com/docs/31509/csc.pdf" H 5600 3750 50  0001 C CNN
-	1    5600 3750
-	0    1    1    0   
-$EndComp
-$Comp
-L power:+5V #PWR?
-U 1 1 6340733F
-P 5900 3250
-AR Path="/61492876/6340733F" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/6340733F" Ref="#PWR?"  Part="1" 
-AR Path="/601B5CAE/6340733F" Ref="#PWR?"  Part="1" 
-AR Path="/6340733F" Ref="#PWR07"  Part="1" 
-F 0 "#PWR07" H 5900 3100 50  0001 C CNN
-F 1 "+5V" H 5915 3423 50  0000 C CNN
-F 2 "" H 5900 3250 50  0001 C CNN
-F 3 "" H 5900 3250 50  0001 C CNN
-	1    5900 3250
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	5900 3250 5900 3350
-Wire Wire Line
-	5900 3350 5800 3350
-Wire Wire Line
-	5400 3350 5000 3350
-$Comp
-L Device:LED_Small D?
-U 1 1 63407348
-P 4900 3450
-AR Path="/600C5001/63407348" Ref="D?"  Part="1" 
-AR Path="/601B5CAE/63407348" Ref="D?"  Part="1" 
-AR Path="/63407348" Ref="D2"  Part="1" 
-F 0 "D2" H 4700 3500 50  0000 C CNN
-F 1 "LED_Small" H 5150 3500 50  0000 C CNN
-F 2 "" V 4900 3450 50  0001 C CNN
-F 3 "~" V 4900 3450 50  0001 C CNN
-	1    4900 3450
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4800 3450 4600 3450
-Wire Wire Line
-	5400 3450 5000 3450
-$Comp
-L Device:LED_Small D?
-U 1 1 63407350
-P 4900 3550
-AR Path="/600C5001/63407350" Ref="D?"  Part="1" 
-AR Path="/601B5CAE/63407350" Ref="D?"  Part="1" 
-AR Path="/63407350" Ref="D3"  Part="1" 
-F 0 "D3" H 4700 3600 50  0000 C CNN
-F 1 "LED_Small" H 5150 3600 50  0000 C CNN
-F 2 "" V 4900 3550 50  0001 C CNN
-F 3 "~" V 4900 3550 50  0001 C CNN
-	1    4900 3550
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4800 3550 4600 3550
-Wire Wire Line
-	5400 3550 5000 3550
-$Comp
-L Device:LED_Small D?
-U 1 1 63407358
-P 4900 3650
-AR Path="/600C5001/63407358" Ref="D?"  Part="1" 
-AR Path="/601B5CAE/63407358" Ref="D?"  Part="1" 
-AR Path="/63407358" Ref="D4"  Part="1" 
-F 0 "D4" H 4700 3700 50  0000 C CNN
-F 1 "LED_Small" H 5150 3700 50  0000 C CNN
-F 2 "" V 4900 3650 50  0001 C CNN
-F 3 "~" V 4900 3650 50  0001 C CNN
-	1    4900 3650
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4800 3650 4600 3650
-Wire Wire Line
-	5400 3650 5000 3650
-$Comp
-L Device:LED_Small D?
-U 1 1 63407360
-P 4900 3750
-AR Path="/600C5001/63407360" Ref="D?"  Part="1" 
-AR Path="/601B5CAE/63407360" Ref="D?"  Part="1" 
-AR Path="/63407360" Ref="D5"  Part="1" 
-F 0 "D5" H 4700 3800 50  0000 C CNN
-F 1 "LED_Small" H 5150 3800 50  0000 C CNN
-F 2 "" V 4900 3750 50  0001 C CNN
-F 3 "~" V 4900 3750 50  0001 C CNN
-	1    4900 3750
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4800 3750 4600 3750
-Wire Wire Line
-	5400 3750 5000 3750
-$Comp
-L Device:LED_Small D?
-U 1 1 63407368
-P 4900 3850
-AR Path="/600C5001/63407368" Ref="D?"  Part="1" 
-AR Path="/601B5CAE/63407368" Ref="D?"  Part="1" 
-AR Path="/63407368" Ref="D6"  Part="1" 
-F 0 "D6" H 4700 3900 50  0000 C CNN
-F 1 "LED_Small" H 5150 3900 50  0000 C CNN
-F 2 "" V 4900 3850 50  0001 C CNN
-F 3 "~" V 4900 3850 50  0001 C CNN
-	1    4900 3850
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4800 3850 4600 3850
-Wire Wire Line
-	5400 3850 5000 3850
-$Comp
-L Device:LED_Small D?
-U 1 1 63407370
-P 4900 3950
-AR Path="/600C5001/63407370" Ref="D?"  Part="1" 
-AR Path="/601B5CAE/63407370" Ref="D?"  Part="1" 
-AR Path="/63407370" Ref="D7"  Part="1" 
-F 0 "D7" H 4700 4000 50  0000 C CNN
-F 1 "LED_Small" H 5150 4000 50  0000 C CNN
-F 2 "" V 4900 3950 50  0001 C CNN
-F 3 "~" V 4900 3950 50  0001 C CNN
-	1    4900 3950
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4800 3950 4600 3950
-Wire Wire Line
-	5400 3950 5000 3950
-$Comp
-L Device:LED_Small D?
-U 1 1 63407378
-P 4900 4050
-AR Path="/600C5001/63407378" Ref="D?"  Part="1" 
-AR Path="/601B5CAE/63407378" Ref="D?"  Part="1" 
-AR Path="/63407378" Ref="D8"  Part="1" 
-F 0 "D8" H 4700 4100 50  0000 C CNN
-F 1 "LED_Small" H 5150 4100 50  0000 C CNN
-F 2 "" V 4900 4050 50  0001 C CNN
-F 3 "~" V 4900 4050 50  0001 C CNN
-	1    4900 4050
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4800 4050 4600 4050
-Wire Wire Line
-	5400 4050 5000 4050
-Wire Wire Line
-	3600 3350 3250 3350
-Wire Wire Line
-	3600 3450 3250 3450
-Wire Wire Line
-	3600 3550 3250 3550
-Wire Wire Line
-	3600 3650 3250 3650
-Wire Wire Line
-	3600 3750 3250 3750
-Wire Wire Line
-	3600 3850 3250 3850
-Wire Wire Line
-	3600 3950 3250 3950
-Wire Wire Line
-	3600 4050 3250 4050
-$Comp
-L Device:R_Network08 RN?
-U 1 1 6341601C
-P 3850 2150
-AR Path="/61492876/6341601C" Ref="RN?"  Part="1" 
-AR Path="/601B5CAE/6341601C" Ref="RN?"  Part="1" 
-AR Path="/6341601C" Ref="RN1"  Part="1" 
-F 0 "RN1" H 4238 2196 50  0000 L CNN
-F 1 "10k" H 4238 2105 50  0000 L CNN
-F 2 "Resistor_THT:R_Array_SIP9" V 4325 2150 50  0001 C CNN
-F 3 "http://www.vishay.com/docs/31509/csc.pdf" H 3850 2150 50  0001 C CNN
-	1    3850 2150
-	0    1    1    0   
-$EndComp
-$Comp
-L power:+5V #PWR?
-U 1 1 63416022
-P 4150 1650
-AR Path="/61492876/63416022" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/63416022" Ref="#PWR?"  Part="1" 
-AR Path="/601B5CAE/63416022" Ref="#PWR?"  Part="1" 
-AR Path="/63416022" Ref="#PWR06"  Part="1" 
-F 0 "#PWR06" H 4150 1500 50  0001 C CNN
-F 1 "+5V" H 4165 1823 50  0000 C CNN
-F 2 "" H 4150 1650 50  0001 C CNN
-F 3 "" H 4150 1650 50  0001 C CNN
-	1    4150 1650
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4150 1650 4150 1750
-Wire Wire Line
-	4150 1750 4050 1750
-Text Label 3600 1750 2    75   ~ 0
-bus0
-Text Label 3600 1850 2    75   ~ 0
-bus1
-Text Label 3600 1950 2    75   ~ 0
-bus2
-Text Label 3600 2050 2    75   ~ 0
-bus3
-Text Label 3600 2150 2    75   ~ 0
-bus4
-Text Label 3600 2250 2    75   ~ 0
-bus5
-Text Label 3600 2350 2    75   ~ 0
-bus6
-Text Label 3600 2450 2    75   ~ 0
-bus7
-Wire Wire Line
-	3650 1750 3250 1750
-Wire Wire Line
-	3650 1850 3250 1850
-Text Label 3600 4050 2    75   ~ 0
-bus7
-Text Label 3600 3950 2    75   ~ 0
-bus6
-Text Label 3600 3850 2    75   ~ 0
-bus5
-Text Label 3600 3750 2    75   ~ 0
-bus4
-Text Label 3600 3650 2    75   ~ 0
-bus3
-Text Label 3600 3550 2    75   ~ 0
-bus2
-Text Label 3600 3450 2    75   ~ 0
-bus1
-Text Label 3600 3350 2    75   ~ 0
-bus0
-Wire Wire Line
-	3650 2450 3250 2450
-Wire Wire Line
-	3650 2350 3250 2350
-Wire Wire Line
-	3650 2250 3250 2250
-Wire Wire Line
-	3650 2150 3250 2150
-Wire Wire Line
-	3650 2050 3250 2050
-Wire Wire Line
-	3650 1950 3250 1950
-Entry Wire Line
-	3150 1650 3250 1750
-Entry Wire Line
-	3150 1750 3250 1850
-Entry Wire Line
-	3150 1850 3250 1950
-Entry Wire Line
-	3150 1950 3250 2050
-Entry Wire Line
-	3150 2050 3250 2150
-Entry Wire Line
-	3150 2150 3250 2250
-Entry Wire Line
-	3150 2250 3250 2350
-Entry Wire Line
-	3150 2350 3250 2450
-Entry Wire Line
-	3150 3250 3250 3350
-Entry Wire Line
-	3150 3350 3250 3450
-Entry Wire Line
-	3150 3450 3250 3550
-Entry Wire Line
-	3150 3550 3250 3650
-Entry Wire Line
-	3150 3650 3250 3750
-Entry Wire Line
-	3150 3750 3250 3850
-Entry Wire Line
-	3150 3850 3250 3950
-Entry Wire Line
-	3150 3950 3250 4050
-$Comp
-L power:+5V #PWR?
-U 1 1 61AEA885
-P 3600 8150
-AR Path="/601B5CAE/61AEA885" Ref="#PWR?"  Part="1" 
-AR Path="/61AEA885" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 3600 8000 50  0001 C CNN
-F 1 "+5V" H 3700 8250 50  0000 C CNN
-F 2 "" H 3600 8150 50  0001 C CNN
-F 3 "" H 3600 8150 50  0001 C CNN
-	1    3600 8150
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+5V #PWR?
-U 1 1 61AEA88B
-P 3600 5650
-AR Path="/601B5CAE/61AEA88B" Ref="#PWR?"  Part="1" 
-AR Path="/61AEA88B" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 3600 5500 50  0001 C CNN
-F 1 "+5V" H 3700 5750 50  0000 C CNN
-F 2 "" H 3600 5650 50  0001 C CNN
-F 3 "" H 3600 5650 50  0001 C CNN
-	1    3600 5650
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 61AEA891
-P 3600 7200
-AR Path="/601B5CAE/61AEA891" Ref="#PWR?"  Part="1" 
-AR Path="/61AEA891" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 3600 6950 50  0001 C CNN
-F 1 "GND" H 3605 7027 50  0000 C CNN
-F 2 "" H 3600 7200 50  0001 C CNN
-F 3 "" H 3600 7200 50  0001 C CNN
-	1    3600 7200
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 61AEA897
-P 5550 7450
-AR Path="/601B5CAE/61AEA897" Ref="#PWR?"  Part="1" 
-AR Path="/61AEA897" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 5550 7200 50  0001 C CNN
-F 1 "GND" H 5555 7277 50  0000 C CNN
-F 2 "" H 5550 7450 50  0001 C CNN
-F 3 "" H 5550 7450 50  0001 C CNN
-	1    5550 7450
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 61AEA89D
-P 5550 9950
-AR Path="/601B5CAE/61AEA89D" Ref="#PWR?"  Part="1" 
-AR Path="/61AEA89D" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 5550 9700 50  0001 C CNN
-F 1 "GND" H 5555 9777 50  0000 C CNN
-F 2 "" H 5550 9950 50  0001 C CNN
-F 3 "" H 5550 9950 50  0001 C CNN
-	1    5550 9950
-	1    0    0    -1  
-$EndComp
-Text Label 4100 5850 0    75   ~ 0
-r00
-Text Label 4100 5950 0    75   ~ 0
-r01
-Text Label 4100 6050 0    75   ~ 0
-r02
-Text Label 4100 6150 0    75   ~ 0
-r03
-Text Label 4100 6250 0    75   ~ 0
-r04
-Text Label 4100 6350 0    75   ~ 0
-r05
-Text Label 4100 6450 0    75   ~ 0
-r06
-Text Label 4100 6550 0    75   ~ 0
-r07
-Text Label 4100 8350 0    75   ~ 0
-r10
-Text Label 4100 8450 0    75   ~ 0
-r11
-Text Label 4100 8550 0    75   ~ 0
-r12
-Text Label 4100 8650 0    75   ~ 0
-r13
-Text Label 4100 8750 0    75   ~ 0
-r14
-Text Label 4100 8850 0    75   ~ 0
-r15
-Text Label 4100 8950 0    75   ~ 0
-r16
-Text Label 4100 9050 0    75   ~ 0
-r17
-Text Label 5050 5850 2    75   ~ 0
-r00
-Text Label 5050 5950 2    75   ~ 0
-r10
-Text Label 5050 6150 2    75   ~ 0
-r01
-Text Label 5050 6250 2    75   ~ 0
-r11
-Text Label 5050 6450 2    75   ~ 0
-r02
-Text Label 5050 6750 2    75   ~ 0
-r03
-Text Label 5050 8350 2    75   ~ 0
-r04
-Text Label 5050 8650 2    75   ~ 0
-r05
-Text Label 5050 8950 2    75   ~ 0
-r06
-Text Label 5050 9250 2    75   ~ 0
-r07
-Text Label 5050 6550 2    75   ~ 0
-r12
-Text Label 5050 6850 2    75   ~ 0
-r13
-Text Label 5050 8450 2    75   ~ 0
-r14
-Text Label 5050 8750 2    75   ~ 0
-r15
-Text Label 5050 9050 2    75   ~ 0
-r16
-Text Label 5050 9350 2    75   ~ 0
-r17
-$Comp
-L power:GND #PWR?
-U 1 1 61AEA8C3
-P 5050 7150
-AR Path="/601B5CAE/61AEA8C3" Ref="#PWR?"  Part="1" 
-AR Path="/61AEA8C3" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 5050 6900 50  0001 C CNN
-F 1 "GND" H 5055 6977 50  0000 C CNN
-F 2 "" H 5050 7150 50  0001 C CNN
-F 3 "" H 5050 7150 50  0001 C CNN
-	1    5050 7150
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 61AEA8C9
-P 5050 9650
-AR Path="/601B5CAE/61AEA8C9" Ref="#PWR?"  Part="1" 
-AR Path="/61AEA8C9" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 5050 9400 50  0001 C CNN
-F 1 "GND" H 5055 9477 50  0000 C CNN
-F 2 "" H 5050 9650 50  0001 C CNN
-F 3 "" H 5050 9650 50  0001 C CNN
-	1    5050 9650
-	1    0    0    -1  
-$EndComp
-Text GLabel 5050 7050 0    75   Input ~ 0
-ctrlRegAluSel
-Text GLabel 5050 9550 0    75   Input ~ 0
-ctrlRegAluSel
-$Comp
-L power:+5V #PWR?
-U 1 1 61AEA8DA
-P 5550 5550
-AR Path="/601B5CAE/61AEA8DA" Ref="#PWR?"  Part="1" 
-AR Path="/61AEA8DA" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 5550 5400 50  0001 C CNN
-F 1 "+5V" H 5650 5650 50  0000 C CNN
-F 2 "" H 5550 5550 50  0001 C CNN
-F 3 "" H 5550 5550 50  0001 C CNN
-	1    5550 5550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+5V #PWR?
-U 1 1 61AEA8E0
-P 5550 8050
-AR Path="/601B5CAE/61AEA8E0" Ref="#PWR?"  Part="1" 
-AR Path="/61AEA8E0" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 5550 7900 50  0001 C CNN
-F 1 "+5V" H 5650 8150 50  0000 C CNN
-F 2 "" H 5550 8050 50  0001 C CNN
-F 3 "" H 5550 8050 50  0001 C CNN
-	1    5550 8050
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+5V #PWR?
-U 1 1 61AEA8E6
-P 8050 5700
-AR Path="/601B5CAE/61AEA8E6" Ref="#PWR?"  Part="1" 
-AR Path="/61AEA8E6" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 8050 5550 50  0001 C CNN
-F 1 "+5V" H 8150 5800 50  0000 C CNN
-F 2 "" H 8050 5700 50  0001 C CNN
-F 3 "" H 8050 5700 50  0001 C CNN
-	1    8050 5700
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 61AEA8EC
-P 8050 7300
-AR Path="/601B5CAE/61AEA8EC" Ref="#PWR?"  Part="1" 
-AR Path="/61AEA8EC" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 8050 7050 50  0001 C CNN
-F 1 "GND" H 8055 7127 50  0000 C CNN
-F 2 "" H 8050 7300 50  0001 C CNN
-F 3 "" H 8050 7300 50  0001 C CNN
-	1    8050 7300
-	1    0    0    -1  
-$EndComp
-Text GLabel 2850 6850 0    75   Input ~ 0
-~ctrlReg0WE~
-$Comp
-L EDiCPoster-rescue:74AS825-74xx U?
-U 1 1 61AEA8F3
-P 3600 6350
-AR Path="/601B5CAE/61AEA8F3" Ref="U?"  Part="1" 
-AR Path="/61AEA8F3" Ref="U?"  Part="1" 
-F 0 "U?" H 3600 7231 50  0000 C CNN
-F 1 "74AS825" H 3600 7300 50  0000 C CNN
-F 2 "" H 3600 6350 50  0001 C CNN
-F 3 "https://www.ti.com/lit/ds/symlink/sn54as825a.pdf" H 3600 6350 50  0001 C CNN
-	1    3600 6350
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74LS157 U?
-U 1 1 61AEA8F9
-P 5550 6450
-AR Path="/601B5CAE/61AEA8F9" Ref="U?"  Part="1" 
-AR Path="/61AEA8F9" Ref="U?"  Part="1" 
-F 0 "U?" H 5550 7531 50  0000 C CNN
-F 1 "74LS157" H 5550 7600 50  0000 C CNN
-F 2 "" H 5550 6450 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS157" H 5550 6450 50  0001 C CNN
-	1    5550 6450
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74LS157 U?
-U 1 1 61AEA8FF
-P 5550 8950
-AR Path="/601B5CAE/61AEA8FF" Ref="U?"  Part="1" 
-AR Path="/61AEA8FF" Ref="U?"  Part="1" 
-F 0 "U?" H 5550 10031 50  0000 C CNN
-F 1 "74LS157" H 5550 10100 50  0000 C CNN
-F 2 "" H 5550 8950 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS157" H 5550 8950 50  0001 C CNN
-	1    5550 8950
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74LS245 U?
-U 1 1 61AEA905
-P 8050 6500
-AR Path="/601B5CAE/61AEA905" Ref="U?"  Part="1" 
-AR Path="/61AEA905" Ref="U?"  Part="1" 
-F 0 "U?" H 8050 7481 50  0000 C CNN
-F 1 "74LS245" H 8050 7550 50  0000 C CNN
-F 2 "" H 8050 6500 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS245" H 8050 6500 50  0001 C CNN
-	1    8050 6500
-	1    0    0    -1  
-$EndComp
-Text GLabel 3100 6750 0    75   Input ~ 0
-clk
-Text GLabel 2950 7100 0    75   Input ~ 0
-~reset~
-Wire Wire Line
-	2950 7100 3000 7100
-Wire Wire Line
-	3000 7100 3000 6950
-Wire Wire Line
-	3000 6950 3100 6950
-Wire Wire Line
-	4100 6750 4150 6750
-Wire Wire Line
-	4150 6750 4150 6850
-Wire Wire Line
-	4100 6950 4150 6950
-Connection ~ 4150 6950
-Wire Wire Line
-	4150 6950 4150 7000
-Wire Wire Line
-	4100 6850 4150 6850
-Connection ~ 4150 6850
-Wire Wire Line
-	4150 6850 4150 6950
-$Comp
-L power:GND #PWR?
-U 1 1 61AEA918
-P 4150 7000
-AR Path="/601B5CAE/61AEA918" Ref="#PWR?"  Part="1" 
-AR Path="/61AEA918" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 4150 6750 50  0001 C CNN
-F 1 "GND" H 4155 6827 50  0000 C CNN
-F 2 "" H 4150 7000 50  0001 C CNN
-F 3 "" H 4150 7000 50  0001 C CNN
-	1    4150 7000
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 61AEA91E
-P 3600 9700
-AR Path="/601B5CAE/61AEA91E" Ref="#PWR?"  Part="1" 
-AR Path="/61AEA91E" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 3600 9450 50  0001 C CNN
-F 1 "GND" H 3605 9527 50  0000 C CNN
-F 2 "" H 3600 9700 50  0001 C CNN
-F 3 "" H 3600 9700 50  0001 C CNN
-	1    3600 9700
-	1    0    0    -1  
-$EndComp
-Text GLabel 2850 9350 0    75   Input ~ 0
-~ctrlReg1WE~
-$Comp
-L EDiCPoster-rescue:74AS825-74xx U?
-U 1 1 61AEA925
-P 3600 8850
-AR Path="/601B5CAE/61AEA925" Ref="U?"  Part="1" 
-AR Path="/61AEA925" Ref="U?"  Part="1" 
-F 0 "U?" H 3600 9731 50  0000 C CNN
-F 1 "74AS825" H 3600 9800 50  0000 C CNN
-F 2 "" H 3600 8850 50  0001 C CNN
-F 3 "https://www.ti.com/lit/ds/symlink/sn54as825a.pdf" H 3600 8850 50  0001 C CNN
-	1    3600 8850
-	1    0    0    -1  
-$EndComp
-Text GLabel 3100 9250 0    75   Input ~ 0
-clk
-Text GLabel 2950 9600 0    75   Input ~ 0
-~reset~
-Wire Wire Line
-	2950 9600 3000 9600
-Wire Wire Line
-	3000 9600 3000 9450
-Wire Wire Line
-	3000 9450 3100 9450
-Wire Wire Line
-	4100 9250 4150 9250
-Wire Wire Line
-	4150 9250 4150 9350
-Wire Wire Line
-	4100 9450 4150 9450
-Connection ~ 4150 9450
-Wire Wire Line
-	4150 9450 4150 9500
-Wire Wire Line
-	4100 9350 4150 9350
-Connection ~ 4150 9350
-Wire Wire Line
-	4150 9350 4150 9450
-$Comp
-L power:GND #PWR?
-U 1 1 61AEA938
-P 4150 9500
-AR Path="/601B5CAE/61AEA938" Ref="#PWR?"  Part="1" 
-AR Path="/61AEA938" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 4150 9250 50  0001 C CNN
-F 1 "GND" H 4155 9327 50  0000 C CNN
-F 2 "" H 4150 9500 50  0001 C CNN
-F 3 "" H 4150 9500 50  0001 C CNN
-	1    4150 9500
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	2850 6850 3100 6850
-Wire Wire Line
-	2850 9350 3100 9350
-Text Label 7550 6000 2    75   ~ 0
-r00
-Text Label 7550 6100 2    75   ~ 0
-r01
-Text Label 7550 6200 2    75   ~ 0
-r02
-Text Label 7550 6300 2    75   ~ 0
-r03
-Text Label 7550 6400 2    75   ~ 0
-r04
-Text Label 7550 6500 2    75   ~ 0
-r05
-Text Label 7550 6600 2    75   ~ 0
-r06
-Text Label 7550 6700 2    75   ~ 0
-r07
-$Comp
-L power:+5V #PWR?
-U 1 1 61AEA95F
-P 7350 6900
-AR Path="/601B5CAE/61AEA95F" Ref="#PWR?"  Part="1" 
-AR Path="/61AEA95F" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 7350 6750 50  0001 C CNN
-F 1 "+5V" H 7365 7073 50  0000 C CNN
-F 2 "" H 7350 6900 50  0001 C CNN
-F 3 "" H 7350 6900 50  0001 C CNN
-	1    7350 6900
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	7350 6900 7550 6900
-Text GLabel 7350 7000 0    75   Input ~ 0
-~ctrlReg0BusOE~
-Wire Wire Line
-	7350 7000 7550 7000
-$Comp
-L power:+5V #PWR?
-U 1 1 61AEA969
-P 8050 7850
-AR Path="/601B5CAE/61AEA969" Ref="#PWR?"  Part="1" 
-AR Path="/61AEA969" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 8050 7700 50  0001 C CNN
-F 1 "+5V" H 8150 7950 50  0000 C CNN
-F 2 "" H 8050 7850 50  0001 C CNN
-F 3 "" H 8050 7850 50  0001 C CNN
-	1    8050 7850
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 61AEA96F
-P 8050 9450
-AR Path="/601B5CAE/61AEA96F" Ref="#PWR?"  Part="1" 
-AR Path="/61AEA96F" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 8050 9200 50  0001 C CNN
-F 1 "GND" H 8055 9277 50  0000 C CNN
-F 2 "" H 8050 9450 50  0001 C CNN
-F 3 "" H 8050 9450 50  0001 C CNN
-	1    8050 9450
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74LS245 U?
-U 1 1 61AEA975
-P 8050 8650
-AR Path="/601B5CAE/61AEA975" Ref="U?"  Part="1" 
-AR Path="/61AEA975" Ref="U?"  Part="1" 
-F 0 "U?" H 8050 9631 50  0000 C CNN
-F 1 "74LS245" H 8050 9700 50  0000 C CNN
-F 2 "" H 8050 8650 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS245" H 8050 8650 50  0001 C CNN
-	1    8050 8650
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+5V #PWR?
-U 1 1 61AEA982
-P 7350 9050
-AR Path="/601B5CAE/61AEA982" Ref="#PWR?"  Part="1" 
-AR Path="/61AEA982" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 7350 8900 50  0001 C CNN
-F 1 "+5V" H 7365 9223 50  0000 C CNN
-F 2 "" H 7350 9050 50  0001 C CNN
-F 3 "" H 7350 9050 50  0001 C CNN
-	1    7350 9050
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	7350 9050 7550 9050
-Text GLabel 7350 9150 0    75   Input ~ 0
-~ctrlReg1BusOE~
-Wire Wire Line
-	7350 9150 7550 9150
-Text Label 7550 8150 2    75   ~ 0
-r10
-Text Label 7550 8250 2    75   ~ 0
-r11
-Text Label 7550 8350 2    75   ~ 0
-r12
-Text Label 7550 8450 2    75   ~ 0
-r13
-Text Label 7550 8550 2    75   ~ 0
-r14
-Text Label 7550 8650 2    75   ~ 0
-r15
-Text Label 7550 8750 2    75   ~ 0
-r16
-Text Label 7550 8850 2    75   ~ 0
-r17
-$Comp
-L EDiCPoster-rescue:74ABT540 U?
-U 1 1 61AEA993
-P 10600 6500
-AR Path="/600C5001/61AEA993" Ref="U?"  Part="1" 
-AR Path="/601B5CAE/61AEA993" Ref="U?"  Part="1" 
-AR Path="/61AEA993" Ref="U?"  Part="1" 
-F 0 "U?" H 10300 7481 50  0000 C CNN
-F 1 "74ABT540" H 10300 7390 50  0000 C CNN
-F 2 "" H 10800 6075 50  0001 C CNN
-F 3 "" H 10800 6075 50  0001 C CNN
-	1    10600 6500
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 61AEA999
-P 9700 7000
-AR Path="/600C5001/61AEA999" Ref="#PWR?"  Part="1" 
-AR Path="/601B5CAE/61AEA999" Ref="#PWR?"  Part="1" 
-AR Path="/61AEA999" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 9700 6750 50  0001 C CNN
-F 1 "GND" H 9705 6827 50  0000 C CNN
-F 2 "" H 9700 7000 50  0001 C CNN
-F 3 "" H 9700 7000 50  0001 C CNN
-	1    9700 7000
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	9700 7000 9800 7000
-Wire Wire Line
-	9800 6900 9700 6900
-Wire Wire Line
-	9700 6900 9700 7000
-Connection ~ 9700 7000
-$Comp
-L power:GND #PWR?
-U 1 1 61AEA9A3
-P 10300 7300
-AR Path="/600C5001/61AEA9A3" Ref="#PWR?"  Part="1" 
-AR Path="/601B5CAE/61AEA9A3" Ref="#PWR?"  Part="1" 
-AR Path="/61AEA9A3" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 10300 7050 50  0001 C CNN
-F 1 "GND" H 10305 7127 50  0000 C CNN
-F 2 "" H 10300 7300 50  0001 C CNN
-F 3 "" H 10300 7300 50  0001 C CNN
-	1    10300 7300
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+5V #PWR?
-U 1 1 61AEA9A9
-P 10300 5700
-AR Path="/600C5001/61AEA9A9" Ref="#PWR?"  Part="1" 
-AR Path="/601B5CAE/61AEA9A9" Ref="#PWR?"  Part="1" 
-AR Path="/61AEA9A9" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 10300 5550 50  0001 C CNN
-F 1 "+5V" H 10300 5950 50  0000 C CNN
-F 2 "" H 10300 5700 50  0001 C CNN
-F 3 "" H 10300 5700 50  0001 C CNN
-	1    10300 5700
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:LED_Small D?
-U 1 1 61AEA9AF
-P 11100 6000
-AR Path="/600C5001/61AEA9AF" Ref="D?"  Part="1" 
-AR Path="/601B5CAE/61AEA9AF" Ref="D?"  Part="1" 
-AR Path="/61AEA9AF" Ref="D?"  Part="1" 
-F 0 "D?" H 10900 6050 50  0000 C CNN
-F 1 "LED_Small" H 11350 6050 50  0000 C CNN
-F 2 "" V 11100 6000 50  0001 C CNN
-F 3 "~" V 11100 6000 50  0001 C CNN
-	1    11100 6000
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	11000 6000 10800 6000
-$Comp
-L Device:R_Network08 RN?
-U 1 1 61AEA9B6
-P 11800 6400
-AR Path="/61492876/61AEA9B6" Ref="RN?"  Part="1" 
-AR Path="/601B5CAE/61AEA9B6" Ref="RN?"  Part="1" 
-AR Path="/61AEA9B6" Ref="RN?"  Part="1" 
-F 0 "RN?" H 12188 6446 50  0000 L CNN
-F 1 "220" H 12188 6355 50  0000 L CNN
-F 2 "Resistor_THT:R_Array_SIP9" V 12275 6400 50  0001 C CNN
-F 3 "http://www.vishay.com/docs/31509/csc.pdf" H 11800 6400 50  0001 C CNN
-	1    11800 6400
-	0    1    1    0   
-$EndComp
-$Comp
-L power:+5V #PWR?
-U 1 1 61AEA9BC
-P 12100 5900
-AR Path="/61492876/61AEA9BC" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/61AEA9BC" Ref="#PWR?"  Part="1" 
-AR Path="/601B5CAE/61AEA9BC" Ref="#PWR?"  Part="1" 
-AR Path="/61AEA9BC" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 12100 5750 50  0001 C CNN
-F 1 "+5V" H 12115 6073 50  0000 C CNN
-F 2 "" H 12100 5900 50  0001 C CNN
-F 3 "" H 12100 5900 50  0001 C CNN
-	1    12100 5900
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	12100 5900 12100 6000
-Wire Wire Line
-	12100 6000 12000 6000
-Wire Wire Line
-	11600 6000 11200 6000
-$Comp
-L Device:LED_Small D?
-U 1 1 61AEA9C5
-P 11100 6100
-AR Path="/600C5001/61AEA9C5" Ref="D?"  Part="1" 
-AR Path="/601B5CAE/61AEA9C5" Ref="D?"  Part="1" 
-AR Path="/61AEA9C5" Ref="D?"  Part="1" 
-F 0 "D?" H 10900 6150 50  0000 C CNN
-F 1 "LED_Small" H 11350 6150 50  0000 C CNN
-F 2 "" V 11100 6100 50  0001 C CNN
-F 3 "~" V 11100 6100 50  0001 C CNN
-	1    11100 6100
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	11000 6100 10800 6100
-Wire Wire Line
-	11600 6100 11200 6100
-$Comp
-L Device:LED_Small D?
-U 1 1 61AEA9CD
-P 11100 6200
-AR Path="/600C5001/61AEA9CD" Ref="D?"  Part="1" 
-AR Path="/601B5CAE/61AEA9CD" Ref="D?"  Part="1" 
-AR Path="/61AEA9CD" Ref="D?"  Part="1" 
-F 0 "D?" H 10900 6250 50  0000 C CNN
-F 1 "LED_Small" H 11350 6250 50  0000 C CNN
-F 2 "" V 11100 6200 50  0001 C CNN
-F 3 "~" V 11100 6200 50  0001 C CNN
-	1    11100 6200
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	11000 6200 10800 6200
-Wire Wire Line
-	11600 6200 11200 6200
-$Comp
-L Device:LED_Small D?
-U 1 1 61AEA9D5
-P 11100 6300
-AR Path="/600C5001/61AEA9D5" Ref="D?"  Part="1" 
-AR Path="/601B5CAE/61AEA9D5" Ref="D?"  Part="1" 
-AR Path="/61AEA9D5" Ref="D?"  Part="1" 
-F 0 "D?" H 10900 6350 50  0000 C CNN
-F 1 "LED_Small" H 11350 6350 50  0000 C CNN
-F 2 "" V 11100 6300 50  0001 C CNN
-F 3 "~" V 11100 6300 50  0001 C CNN
-	1    11100 6300
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	11000 6300 10800 6300
-Wire Wire Line
-	11600 6300 11200 6300
-$Comp
-L Device:LED_Small D?
-U 1 1 61AEA9DD
-P 11100 6400
-AR Path="/600C5001/61AEA9DD" Ref="D?"  Part="1" 
-AR Path="/601B5CAE/61AEA9DD" Ref="D?"  Part="1" 
-AR Path="/61AEA9DD" Ref="D?"  Part="1" 
-F 0 "D?" H 10900 6450 50  0000 C CNN
-F 1 "LED_Small" H 11350 6450 50  0000 C CNN
-F 2 "" V 11100 6400 50  0001 C CNN
-F 3 "~" V 11100 6400 50  0001 C CNN
-	1    11100 6400
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	11000 6400 10800 6400
-Wire Wire Line
-	11600 6400 11200 6400
-$Comp
-L Device:LED_Small D?
-U 1 1 61AEA9E5
-P 11100 6500
-AR Path="/600C5001/61AEA9E5" Ref="D?"  Part="1" 
-AR Path="/601B5CAE/61AEA9E5" Ref="D?"  Part="1" 
-AR Path="/61AEA9E5" Ref="D?"  Part="1" 
-F 0 "D?" H 10900 6550 50  0000 C CNN
-F 1 "LED_Small" H 11350 6550 50  0000 C CNN
-F 2 "" V 11100 6500 50  0001 C CNN
-F 3 "~" V 11100 6500 50  0001 C CNN
-	1    11100 6500
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	11000 6500 10800 6500
-Wire Wire Line
-	11600 6500 11200 6500
-$Comp
-L Device:LED_Small D?
-U 1 1 61AEA9ED
-P 11100 6600
-AR Path="/600C5001/61AEA9ED" Ref="D?"  Part="1" 
-AR Path="/601B5CAE/61AEA9ED" Ref="D?"  Part="1" 
-AR Path="/61AEA9ED" Ref="D?"  Part="1" 
-F 0 "D?" H 10900 6650 50  0000 C CNN
-F 1 "LED_Small" H 11350 6650 50  0000 C CNN
-F 2 "" V 11100 6600 50  0001 C CNN
-F 3 "~" V 11100 6600 50  0001 C CNN
-	1    11100 6600
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	11000 6600 10800 6600
-Wire Wire Line
-	11600 6600 11200 6600
-$Comp
-L Device:LED_Small D?
-U 1 1 61AEA9F5
-P 11100 6700
-AR Path="/600C5001/61AEA9F5" Ref="D?"  Part="1" 
-AR Path="/601B5CAE/61AEA9F5" Ref="D?"  Part="1" 
-AR Path="/61AEA9F5" Ref="D?"  Part="1" 
-F 0 "D?" H 10900 6750 50  0000 C CNN
-F 1 "LED_Small" H 11350 6750 50  0000 C CNN
-F 2 "" V 11100 6700 50  0001 C CNN
-F 3 "~" V 11100 6700 50  0001 C CNN
-	1    11100 6700
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	11000 6700 10800 6700
-Wire Wire Line
-	11600 6700 11200 6700
-Text Label 9800 6000 2    75   ~ 0
-r00
-Text Label 9800 6100 2    75   ~ 0
-r01
-Text Label 9800 6200 2    75   ~ 0
-r02
-Text Label 9800 6300 2    75   ~ 0
-r03
-Text Label 9800 6400 2    75   ~ 0
-r04
-Text Label 9800 6500 2    75   ~ 0
-r05
-Text Label 9800 6600 2    75   ~ 0
-r06
-Text Label 9800 6700 2    75   ~ 0
-r07
-$Comp
-L EDiCPoster-rescue:74ABT540 U?
-U 1 1 61AEAA05
-P 10600 8650
-AR Path="/600C5001/61AEAA05" Ref="U?"  Part="1" 
-AR Path="/601B5CAE/61AEAA05" Ref="U?"  Part="1" 
-AR Path="/61AEAA05" Ref="U?"  Part="1" 
-F 0 "U?" H 10300 9631 50  0000 C CNN
-F 1 "74ABT540" H 10300 9700 50  0000 C CNN
-F 2 "" H 10800 8225 50  0001 C CNN
-F 3 "" H 10800 8225 50  0001 C CNN
-	1    10600 8650
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 61AEAA0B
-P 9700 9150
-AR Path="/600C5001/61AEAA0B" Ref="#PWR?"  Part="1" 
-AR Path="/601B5CAE/61AEAA0B" Ref="#PWR?"  Part="1" 
-AR Path="/61AEAA0B" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 9700 8900 50  0001 C CNN
-F 1 "GND" H 9705 8977 50  0000 C CNN
-F 2 "" H 9700 9150 50  0001 C CNN
-F 3 "" H 9700 9150 50  0001 C CNN
-	1    9700 9150
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	9700 9150 9800 9150
-Wire Wire Line
-	9800 9050 9700 9050
-Wire Wire Line
-	9700 9050 9700 9150
-Connection ~ 9700 9150
-$Comp
-L power:GND #PWR?
-U 1 1 61AEAA15
-P 10300 9450
-AR Path="/600C5001/61AEAA15" Ref="#PWR?"  Part="1" 
-AR Path="/601B5CAE/61AEAA15" Ref="#PWR?"  Part="1" 
-AR Path="/61AEAA15" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 10300 9200 50  0001 C CNN
-F 1 "GND" H 10305 9277 50  0000 C CNN
-F 2 "" H 10300 9450 50  0001 C CNN
-F 3 "" H 10300 9450 50  0001 C CNN
-	1    10300 9450
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+5V #PWR?
-U 1 1 61AEAA1B
-P 10300 7850
-AR Path="/600C5001/61AEAA1B" Ref="#PWR?"  Part="1" 
-AR Path="/601B5CAE/61AEAA1B" Ref="#PWR?"  Part="1" 
-AR Path="/61AEAA1B" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 10300 7700 50  0001 C CNN
-F 1 "+5V" H 10400 7950 50  0000 C CNN
-F 2 "" H 10300 7850 50  0001 C CNN
-F 3 "" H 10300 7850 50  0001 C CNN
-	1    10300 7850
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:LED_Small D?
-U 1 1 61AEAA21
-P 11100 8150
-AR Path="/600C5001/61AEAA21" Ref="D?"  Part="1" 
-AR Path="/601B5CAE/61AEAA21" Ref="D?"  Part="1" 
-AR Path="/61AEAA21" Ref="D?"  Part="1" 
-F 0 "D?" H 10900 8200 50  0000 C CNN
-F 1 "LED_Small" H 11350 8200 50  0000 C CNN
-F 2 "" V 11100 8150 50  0001 C CNN
-F 3 "~" V 11100 8150 50  0001 C CNN
-	1    11100 8150
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	11000 8150 10800 8150
-$Comp
-L Device:R_Network08 RN?
-U 1 1 61AEAA28
-P 11800 8550
-AR Path="/61492876/61AEAA28" Ref="RN?"  Part="1" 
-AR Path="/601B5CAE/61AEAA28" Ref="RN?"  Part="1" 
-AR Path="/61AEAA28" Ref="RN?"  Part="1" 
-F 0 "RN?" H 12188 8596 50  0000 L CNN
-F 1 "220" H 12188 8505 50  0000 L CNN
-F 2 "Resistor_THT:R_Array_SIP9" V 12275 8550 50  0001 C CNN
-F 3 "http://www.vishay.com/docs/31509/csc.pdf" H 11800 8550 50  0001 C CNN
-	1    11800 8550
-	0    1    1    0   
-$EndComp
-$Comp
-L power:+5V #PWR?
-U 1 1 61AEAA2E
-P 12100 8050
-AR Path="/61492876/61AEAA2E" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/61AEAA2E" Ref="#PWR?"  Part="1" 
-AR Path="/601B5CAE/61AEAA2E" Ref="#PWR?"  Part="1" 
-AR Path="/61AEAA2E" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 12100 7900 50  0001 C CNN
-F 1 "+5V" H 12115 8223 50  0000 C CNN
-F 2 "" H 12100 8050 50  0001 C CNN
-F 3 "" H 12100 8050 50  0001 C CNN
-	1    12100 8050
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	12100 8050 12100 8150
-Wire Wire Line
-	12100 8150 12000 8150
-Wire Wire Line
-	11600 8150 11200 8150
-$Comp
-L Device:LED_Small D?
-U 1 1 61AEAA37
-P 11100 8250
-AR Path="/600C5001/61AEAA37" Ref="D?"  Part="1" 
-AR Path="/601B5CAE/61AEAA37" Ref="D?"  Part="1" 
-AR Path="/61AEAA37" Ref="D?"  Part="1" 
-F 0 "D?" H 10900 8300 50  0000 C CNN
-F 1 "LED_Small" H 11350 8300 50  0000 C CNN
-F 2 "" V 11100 8250 50  0001 C CNN
-F 3 "~" V 11100 8250 50  0001 C CNN
-	1    11100 8250
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	11000 8250 10800 8250
-Wire Wire Line
-	11600 8250 11200 8250
-$Comp
-L Device:LED_Small D?
-U 1 1 61AEAA3F
-P 11100 8350
-AR Path="/600C5001/61AEAA3F" Ref="D?"  Part="1" 
-AR Path="/601B5CAE/61AEAA3F" Ref="D?"  Part="1" 
-AR Path="/61AEAA3F" Ref="D?"  Part="1" 
-F 0 "D?" H 10900 8400 50  0000 C CNN
-F 1 "LED_Small" H 11350 8400 50  0000 C CNN
-F 2 "" V 11100 8350 50  0001 C CNN
-F 3 "~" V 11100 8350 50  0001 C CNN
-	1    11100 8350
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	11000 8350 10800 8350
-Wire Wire Line
-	11600 8350 11200 8350
-$Comp
-L Device:LED_Small D?
-U 1 1 61AEAA47
-P 11100 8450
-AR Path="/600C5001/61AEAA47" Ref="D?"  Part="1" 
-AR Path="/601B5CAE/61AEAA47" Ref="D?"  Part="1" 
-AR Path="/61AEAA47" Ref="D?"  Part="1" 
-F 0 "D?" H 10900 8500 50  0000 C CNN
-F 1 "LED_Small" H 11350 8500 50  0000 C CNN
-F 2 "" V 11100 8450 50  0001 C CNN
-F 3 "~" V 11100 8450 50  0001 C CNN
-	1    11100 8450
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	11000 8450 10800 8450
-Wire Wire Line
-	11600 8450 11200 8450
-$Comp
-L Device:LED_Small D?
-U 1 1 61AEAA4F
-P 11100 8550
-AR Path="/600C5001/61AEAA4F" Ref="D?"  Part="1" 
-AR Path="/601B5CAE/61AEAA4F" Ref="D?"  Part="1" 
-AR Path="/61AEAA4F" Ref="D?"  Part="1" 
-F 0 "D?" H 10900 8600 50  0000 C CNN
-F 1 "LED_Small" H 11350 8600 50  0000 C CNN
-F 2 "" V 11100 8550 50  0001 C CNN
-F 3 "~" V 11100 8550 50  0001 C CNN
-	1    11100 8550
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	11000 8550 10800 8550
-Wire Wire Line
-	11600 8550 11200 8550
-$Comp
-L Device:LED_Small D?
-U 1 1 61AEAA57
-P 11100 8650
-AR Path="/600C5001/61AEAA57" Ref="D?"  Part="1" 
-AR Path="/601B5CAE/61AEAA57" Ref="D?"  Part="1" 
-AR Path="/61AEAA57" Ref="D?"  Part="1" 
-F 0 "D?" H 10900 8700 50  0000 C CNN
-F 1 "LED_Small" H 11350 8700 50  0000 C CNN
-F 2 "" V 11100 8650 50  0001 C CNN
-F 3 "~" V 11100 8650 50  0001 C CNN
-	1    11100 8650
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	11000 8650 10800 8650
-Wire Wire Line
-	11600 8650 11200 8650
-$Comp
-L Device:LED_Small D?
-U 1 1 61AEAA5F
-P 11100 8750
-AR Path="/600C5001/61AEAA5F" Ref="D?"  Part="1" 
-AR Path="/601B5CAE/61AEAA5F" Ref="D?"  Part="1" 
-AR Path="/61AEAA5F" Ref="D?"  Part="1" 
-F 0 "D?" H 10900 8800 50  0000 C CNN
-F 1 "LED_Small" H 11350 8800 50  0000 C CNN
-F 2 "" V 11100 8750 50  0001 C CNN
-F 3 "~" V 11100 8750 50  0001 C CNN
-	1    11100 8750
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	11000 8750 10800 8750
-Wire Wire Line
-	11600 8750 11200 8750
-$Comp
-L Device:LED_Small D?
-U 1 1 61AEAA67
-P 11100 8850
-AR Path="/600C5001/61AEAA67" Ref="D?"  Part="1" 
-AR Path="/601B5CAE/61AEAA67" Ref="D?"  Part="1" 
-AR Path="/61AEAA67" Ref="D?"  Part="1" 
-F 0 "D?" H 10900 8900 50  0000 C CNN
-F 1 "LED_Small" H 11350 8900 50  0000 C CNN
-F 2 "" V 11100 8850 50  0001 C CNN
-F 3 "~" V 11100 8850 50  0001 C CNN
-	1    11100 8850
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	11000 8850 10800 8850
-Wire Wire Line
-	11600 8850 11200 8850
-Text Label 9800 8150 2    75   ~ 0
-r10
-Text Label 9800 8250 2    75   ~ 0
-r11
-Text Label 9800 8350 2    75   ~ 0
-r12
-Text Label 9800 8450 2    75   ~ 0
-r13
-Text Label 9800 8550 2    75   ~ 0
-r14
-Text Label 9800 8650 2    75   ~ 0
-r15
-Text Label 9800 8750 2    75   ~ 0
-r16
-Text Label 9800 8850 2    75   ~ 0
-r17
-Wire Wire Line
-	3100 5850 2850 5850
-Wire Wire Line
-	3100 5950 2850 5950
-Wire Wire Line
-	3100 6050 2850 6050
-Wire Wire Line
-	3100 6150 2850 6150
-Wire Wire Line
-	3100 6250 2850 6250
-Wire Wire Line
-	3100 6350 2850 6350
-Wire Wire Line
-	3100 6450 2850 6450
-Wire Wire Line
-	3100 6550 2850 6550
-Text Label 3100 6550 2    75   ~ 0
-bus7
-Text Label 3100 6450 2    75   ~ 0
-bus6
-Text Label 3100 6350 2    75   ~ 0
-bus5
-Text Label 3100 6250 2    75   ~ 0
-bus4
-Text Label 3100 6150 2    75   ~ 0
-bus3
-Text Label 3100 6050 2    75   ~ 0
-bus2
-Text Label 3100 5950 2    75   ~ 0
-bus1
-Text Label 3100 5850 2    75   ~ 0
-bus0
-Entry Wire Line
-	2750 5750 2850 5850
-Entry Wire Line
-	2750 5850 2850 5950
-Entry Wire Line
-	2750 5950 2850 6050
-Entry Wire Line
-	2750 6050 2850 6150
-Entry Wire Line
-	2750 6150 2850 6250
-Entry Wire Line
-	2750 6250 2850 6350
-Entry Wire Line
-	2750 6350 2850 6450
-Entry Wire Line
-	2750 6450 2850 6550
-Wire Wire Line
-	3100 8350 2850 8350
-Wire Wire Line
-	3100 8450 2850 8450
-Wire Wire Line
-	3100 8550 2850 8550
-Wire Wire Line
-	3100 8650 2850 8650
-Wire Wire Line
-	3100 8750 2850 8750
-Wire Wire Line
-	3100 8850 2850 8850
-Wire Wire Line
-	3100 8950 2850 8950
-Wire Wire Line
-	3100 9050 2850 9050
-Text Label 3100 9050 2    75   ~ 0
-bus7
-Text Label 3100 8950 2    75   ~ 0
-bus6
-Text Label 3100 8850 2    75   ~ 0
-bus5
-Text Label 3100 8750 2    75   ~ 0
-bus4
-Text Label 3100 8650 2    75   ~ 0
-bus3
-Text Label 3100 8550 2    75   ~ 0
-bus2
-Text Label 3100 8450 2    75   ~ 0
-bus1
-Text Label 3100 8350 2    75   ~ 0
-bus0
-Entry Wire Line
-	2750 8250 2850 8350
-Entry Wire Line
-	2750 8350 2850 8450
-Entry Wire Line
-	2750 8450 2850 8550
-Entry Wire Line
-	2750 8550 2850 8650
-Entry Wire Line
-	2750 8650 2850 8750
-Entry Wire Line
-	2750 8750 2850 8850
-Entry Wire Line
-	2750 8850 2850 8950
-Entry Wire Line
-	2750 8950 2850 9050
-Wire Bus Line
-	2750 8000 2100 8000
-Wire Bus Line
-	2100 8000 2100 5100
-Wire Bus Line
-	2100 5100 2750 5100
-Wire Bus Line
-	2750 5100 2750 2850
-Wire Bus Line
-	2750 2850 3150 2850
-Connection ~ 2750 5100
-Connection ~ 3150 2850
-Wire Wire Line
-	8550 6000 8900 6000
-Wire Wire Line
-	8550 6100 8900 6100
-Wire Wire Line
-	8550 6200 8900 6200
-Wire Wire Line
-	8550 6300 8900 6300
-Wire Wire Line
-	8550 6400 8900 6400
-Wire Wire Line
-	8550 6500 8900 6500
-Wire Wire Line
-	8550 6600 8900 6600
-Wire Wire Line
-	8550 6700 8900 6700
-Text Label 8550 6700 0    75   ~ 0
-bus7
-Text Label 8550 6600 0    75   ~ 0
-bus6
-Text Label 8550 6500 0    75   ~ 0
-bus5
-Text Label 8550 6400 0    75   ~ 0
-bus4
-Text Label 8550 6300 0    75   ~ 0
-bus3
-Text Label 8550 6200 0    75   ~ 0
-bus2
-Text Label 8550 6100 0    75   ~ 0
-bus1
-Text Label 8550 6000 0    75   ~ 0
-bus0
-Entry Wire Line
-	9000 5900 8900 6000
-Entry Wire Line
-	9000 6000 8900 6100
-Entry Wire Line
-	9000 6100 8900 6200
-Entry Wire Line
-	9000 6200 8900 6300
-Entry Wire Line
-	9000 6300 8900 6400
-Entry Wire Line
-	9000 6400 8900 6500
-Entry Wire Line
-	9000 6500 8900 6600
-Entry Wire Line
-	9000 6600 8900 6700
-Wire Wire Line
-	8550 8150 8900 8150
-Wire Wire Line
-	8550 8250 8900 8250
-Wire Wire Line
-	8550 8350 8900 8350
-Wire Wire Line
-	8550 8450 8900 8450
-Wire Wire Line
-	8550 8550 8900 8550
-Wire Wire Line
-	8550 8650 8900 8650
-Wire Wire Line
-	8550 8750 8900 8750
-Wire Wire Line
-	8550 8850 8900 8850
-Text Label 8550 8850 0    75   ~ 0
-bus7
-Text Label 8550 8750 0    75   ~ 0
-bus6
-Text Label 8550 8650 0    75   ~ 0
-bus5
-Text Label 8550 8550 0    75   ~ 0
-bus4
-Text Label 8550 8450 0    75   ~ 0
-bus3
-Text Label 8550 8350 0    75   ~ 0
-bus2
-Text Label 8550 8250 0    75   ~ 0
-bus1
-Text Label 8550 8150 0    75   ~ 0
-bus0
-Entry Wire Line
-	9000 8050 8900 8150
-Entry Wire Line
-	9000 8150 8900 8250
-Entry Wire Line
-	9000 8250 8900 8350
-Entry Wire Line
-	9000 8350 8900 8450
-Entry Wire Line
-	9000 8450 8900 8550
-Entry Wire Line
-	9000 8550 8900 8650
-Entry Wire Line
-	9000 8650 8900 8750
-Entry Wire Line
-	9000 8750 8900 8850
-Wire Bus Line
-	2750 5100 9000 5100
-Wire Wire Line
-	6050 6750 6300 6750
-Wire Wire Line
-	6050 8950 6300 8950
-Wire Wire Line
-	6050 5850 6300 5850
-Wire Wire Line
-	6050 6450 6300 6450
-Wire Wire Line
-	6050 9250 6300 9250
-Wire Wire Line
-	6050 6150 6300 6150
-Wire Wire Line
-	6050 8350 6300 8350
-Entry Wire Line
-	6400 6850 6300 6750
-Entry Wire Line
-	6400 9050 6300 8950
-Entry Wire Line
-	6400 5950 6300 5850
-Entry Wire Line
-	6400 6550 6300 6450
-Entry Wire Line
-	6400 6250 6300 6150
-Entry Wire Line
-	6400 8450 6300 8350
-Entry Wire Line
-	6400 9350 6300 9250
-Entry Wire Line
-	6400 8750 6300 8650
-Wire Wire Line
-	6050 8650 6300 8650
-Text Label 6100 5850 0    75   ~ 0
-a0
-Text Label 6100 6150 0    75   ~ 0
-a1
-Text Label 6100 6450 0    75   ~ 0
-a2
-Text Label 6100 6750 0    75   ~ 0
-a3
-Text Label 6100 9250 0    75   ~ 0
-a7
-Text Label 6100 8950 0    75   ~ 0
-a6
-Text Label 6100 8650 0    75   ~ 0
-a5
-Text Label 6100 8350 0    75   ~ 0
-a4
-$Comp
 L power:+5V #PWR?
 U 1 1 61EF6431
 P 15650 19100
@@ -1741,55 +126,12 @@ F 3 "" H 13600 18000 50  0001 C CNN
 	1    13600 18000
 	1    0    0    -1  
 $EndComp
-Text Label 3850 11950 2    75   ~ 0
-bus0
-$Comp
-L power:GND #PWR?
-U 1 1 61EF64CF
-P 1250 11850
-AR Path="/600C5001/61EF64CF" Ref="#PWR?"  Part="1" 
-AR Path="/61EF64CF" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 1250 11600 50  0001 C CNN
-F 1 "GND" H 1255 11677 50  0000 C CNN
-F 2 "" H 1250 11850 50  0001 C CNN
-F 3 "" H 1250 11850 50  0001 C CNN
-	1    1250 11850
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+5V #PWR?
-U 1 1 61EF64DB
-P 1250 10850
-AR Path="/600C5001/61EF64DB" Ref="#PWR?"  Part="1" 
-AR Path="/61EF64DB" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 1250 10700 50  0001 C CNN
-F 1 "+5V" H 1265 11023 50  0000 C CNN
-F 2 "" H 1250 10850 50  0001 C CNN
-F 3 "" H 1250 10850 50  0001 C CNN
-	1    1250 10850
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74LS86 U?
-U 5 1 61EF64FF
-P 1250 11350
-AR Path="/600C5001/61EF64FF" Ref="U?"  Part="5" 
-AR Path="/61EF64FF" Ref="U?"  Part="5" 
-F 0 "U?" H 1480 11396 50  0000 L CNN
-F 1 "74LS86" H 1480 11305 50  0000 L CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 1250 11350 50  0001 C CNN
-F 3 "74xx/74ls86.pdf" H 1250 11350 50  0001 C CNN
-	5    1250 11350
-	1    0    0    -1  
-$EndComp
 Text GLabel 19000 24350 2    75   Output ~ 0
 flagZero
 Wire Wire Line
 	13500 21850 13700 21850
 Text GLabel 19000 24500 2    75   Output ~ 0
 flagNegative
-Wire Wire Line
-	12050 18900 12050 23450
 $Comp
 L power:GND #PWR?
 U 1 1 61EF6575
@@ -1850,10 +192,6 @@ F 3 "" H 14100 19350 50  0001 C CNN
 	1    14100 19350
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	12800 19200 13100 19200
-Text GLabel 12800 19200 0    75   Input ~ 0
-~ctrlAluYWE~
 Text GLabel 15650 19200 0    75   Input ~ 0
 ~ctrlAluOE~
 Text HLabel 16800 18200 2    50   BiDi ~ 0
@@ -1906,414 +244,6 @@ F 3 "74xx/74ls86.pdf" H 14100 21850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:+5V #PWR?
-U 1 1 61EF6602
-P 9250 12100
-AR Path="/600C5001/61EF6602" Ref="#PWR?"  Part="1" 
-AR Path="/61EF6602" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 9250 11950 50  0001 C CNN
-F 1 "+5V" H 9350 12200 50  0000 C CNN
-F 2 "" H 9250 12100 50  0001 C CNN
-F 3 "" H 9250 12100 50  0001 C CNN
-	1    9250 12100
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74LS153 U?
-U 1 1 61EF6608
-P 9250 15750
-AR Path="/600C5001/61EF6608" Ref="U?"  Part="1" 
-AR Path="/61EF6608" Ref="U?"  Part="1" 
-F 0 "U?" H 9250 16931 50  0000 C CNN
-F 1 "74LS153" H 9250 17000 50  0000 C CNN
-F 2 "" H 9250 15750 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS153" H 9250 15750 50  0001 C CNN
-	1    9250 15750
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 61EF660E
-P 9250 16850
-AR Path="/600C5001/61EF660E" Ref="#PWR?"  Part="1" 
-AR Path="/61EF660E" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 9250 16600 50  0001 C CNN
-F 1 "GND" H 9255 16677 50  0000 C CNN
-F 2 "" H 9250 16850 50  0001 C CNN
-F 3 "" H 9250 16850 50  0001 C CNN
-	1    9250 16850
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+5V #PWR?
-U 1 1 61EF6614
-P 9250 14750
-AR Path="/600C5001/61EF6614" Ref="#PWR?"  Part="1" 
-AR Path="/61EF6614" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 9250 14600 50  0001 C CNN
-F 1 "+5V" H 9350 14850 50  0000 C CNN
-F 2 "" H 9250 14750 50  0001 C CNN
-F 3 "" H 9250 14750 50  0001 C CNN
-	1    9250 14750
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 61EF661A
-P 8550 15450
-AR Path="/600C5001/61EF661A" Ref="#PWR?"  Part="1" 
-AR Path="/61EF661A" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 8550 15200 50  0001 C CNN
-F 1 "GND" H 8555 15277 50  0000 C CNN
-F 2 "" H 8550 15450 50  0001 C CNN
-F 3 "" H 8550 15450 50  0001 C CNN
-	1    8550 15450
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	8550 15450 8750 15450
-$Comp
-L power:GND #PWR?
-U 1 1 61EF6621
-P 8550 16150
-AR Path="/600C5001/61EF6621" Ref="#PWR?"  Part="1" 
-AR Path="/61EF6621" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 8550 15900 50  0001 C CNN
-F 1 "GND" H 8555 15977 50  0000 C CNN
-F 2 "" H 8550 16150 50  0001 C CNN
-F 3 "" H 8550 16150 50  0001 C CNN
-	1    8550 16150
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	8550 16150 8750 16150
-Wire Wire Line
-	8750 16250 8750 16150
-Wire Wire Line
-	8750 15450 8750 15550
-$Comp
-L 74xx:74LS153 U?
-U 1 1 61EF662A
-P 9250 18400
-AR Path="/600C5001/61EF662A" Ref="U?"  Part="1" 
-AR Path="/61EF662A" Ref="U?"  Part="1" 
-F 0 "U?" H 9250 19581 50  0000 C CNN
-F 1 "74LS153" H 9250 19650 50  0000 C CNN
-F 2 "" H 9250 18400 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS153" H 9250 18400 50  0001 C CNN
-	1    9250 18400
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 61EF6630
-P 9250 19500
-AR Path="/600C5001/61EF6630" Ref="#PWR?"  Part="1" 
-AR Path="/61EF6630" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 9250 19250 50  0001 C CNN
-F 1 "GND" H 9255 19327 50  0000 C CNN
-F 2 "" H 9250 19500 50  0001 C CNN
-F 3 "" H 9250 19500 50  0001 C CNN
-	1    9250 19500
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+5V #PWR?
-U 1 1 61EF6636
-P 9250 17400
-AR Path="/600C5001/61EF6636" Ref="#PWR?"  Part="1" 
-AR Path="/61EF6636" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 9250 17250 50  0001 C CNN
-F 1 "+5V" H 9350 17500 50  0000 C CNN
-F 2 "" H 9250 17400 50  0001 C CNN
-F 3 "" H 9250 17400 50  0001 C CNN
-	1    9250 17400
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 61EF663C
-P 8550 18100
-AR Path="/600C5001/61EF663C" Ref="#PWR?"  Part="1" 
-AR Path="/61EF663C" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 8550 17850 50  0001 C CNN
-F 1 "GND" H 8555 17927 50  0000 C CNN
-F 2 "" H 8550 18100 50  0001 C CNN
-F 3 "" H 8550 18100 50  0001 C CNN
-	1    8550 18100
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	8550 18100 8750 18100
-$Comp
-L power:GND #PWR?
-U 1 1 61EF6643
-P 8550 18800
-AR Path="/600C5001/61EF6643" Ref="#PWR?"  Part="1" 
-AR Path="/61EF6643" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 8550 18550 50  0001 C CNN
-F 1 "GND" H 8555 18627 50  0000 C CNN
-F 2 "" H 8550 18800 50  0001 C CNN
-F 3 "" H 8550 18800 50  0001 C CNN
-	1    8550 18800
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	8550 18800 8750 18800
-Wire Wire Line
-	8750 18900 8750 18800
-Wire Wire Line
-	8750 18100 8750 18200
-Text GLabel 8750 19100 0    75   Input ~ 0
-ctrlAluOp0
-Text GLabel 8750 19350 0    75   Input ~ 0
-ctrlAluOp1
-$Comp
-L 74xx:74LS153 U?
-U 1 1 61EF664E
-P 9250 21050
-AR Path="/600C5001/61EF664E" Ref="U?"  Part="1" 
-AR Path="/61EF664E" Ref="U?"  Part="1" 
-F 0 "U?" H 9250 22231 50  0000 C CNN
-F 1 "74LS153" H 9250 22300 50  0000 C CNN
-F 2 "" H 9250 21050 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS153" H 9250 21050 50  0001 C CNN
-	1    9250 21050
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 61EF6654
-P 9250 22150
-AR Path="/600C5001/61EF6654" Ref="#PWR?"  Part="1" 
-AR Path="/61EF6654" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 9250 21900 50  0001 C CNN
-F 1 "GND" H 9255 21977 50  0000 C CNN
-F 2 "" H 9250 22150 50  0001 C CNN
-F 3 "" H 9250 22150 50  0001 C CNN
-	1    9250 22150
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+5V #PWR?
-U 1 1 61EF665A
-P 9250 20050
-AR Path="/600C5001/61EF665A" Ref="#PWR?"  Part="1" 
-AR Path="/61EF665A" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 9250 19900 50  0001 C CNN
-F 1 "+5V" H 9350 20150 50  0000 C CNN
-F 2 "" H 9250 20050 50  0001 C CNN
-F 3 "" H 9250 20050 50  0001 C CNN
-	1    9250 20050
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 61EF6660
-P 8550 20750
-AR Path="/600C5001/61EF6660" Ref="#PWR?"  Part="1" 
-AR Path="/61EF6660" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 8550 20500 50  0001 C CNN
-F 1 "GND" H 8555 20577 50  0000 C CNN
-F 2 "" H 8550 20750 50  0001 C CNN
-F 3 "" H 8550 20750 50  0001 C CNN
-	1    8550 20750
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	8550 20750 8750 20750
-$Comp
-L power:GND #PWR?
-U 1 1 61EF6667
-P 8550 21450
-AR Path="/600C5001/61EF6667" Ref="#PWR?"  Part="1" 
-AR Path="/61EF6667" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 8550 21200 50  0001 C CNN
-F 1 "GND" H 8555 21277 50  0000 C CNN
-F 2 "" H 8550 21450 50  0001 C CNN
-F 3 "" H 8550 21450 50  0001 C CNN
-	1    8550 21450
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	8550 21450 8750 21450
-Wire Wire Line
-	8750 21550 8750 21450
-Wire Wire Line
-	8750 20750 8750 20850
-Wire Wire Line
-	8750 12800 8750 12900
-Wire Wire Line
-	8750 13600 8750 13500
-Wire Wire Line
-	8550 13500 8750 13500
-$Comp
-L power:GND #PWR?
-U 1 1 61EF6673
-P 8550 13500
-AR Path="/600C5001/61EF6673" Ref="#PWR?"  Part="1" 
-AR Path="/61EF6673" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 8550 13250 50  0001 C CNN
-F 1 "GND" H 8555 13327 50  0000 C CNN
-F 2 "" H 8550 13500 50  0001 C CNN
-F 3 "" H 8550 13500 50  0001 C CNN
-	1    8550 13500
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	8550 12800 8750 12800
-$Comp
-L power:GND #PWR?
-U 1 1 61EF667A
-P 8550 12800
-AR Path="/600C5001/61EF667A" Ref="#PWR?"  Part="1" 
-AR Path="/61EF667A" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 8550 12550 50  0001 C CNN
-F 1 "GND" H 8555 12627 50  0000 C CNN
-F 2 "" H 8550 12800 50  0001 C CNN
-F 3 "" H 8550 12800 50  0001 C CNN
-	1    8550 12800
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 61EF6680
-P 9250 14200
-AR Path="/600C5001/61EF6680" Ref="#PWR?"  Part="1" 
-AR Path="/61EF6680" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 9250 13950 50  0001 C CNN
-F 1 "GND" H 9255 14027 50  0000 C CNN
-F 2 "" H 9250 14200 50  0001 C CNN
-F 3 "" H 9250 14200 50  0001 C CNN
-	1    9250 14200
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74LS153 U?
-U 1 1 61EF6686
-P 9250 13100
-AR Path="/600C5001/61EF6686" Ref="U?"  Part="1" 
-AR Path="/61EF6686" Ref="U?"  Part="1" 
-F 0 "U?" H 9250 14281 50  0000 C CNN
-F 1 "74LS153" H 9250 14350 50  0000 C CNN
-F 2 "" H 9250 13100 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS153" H 9250 13100 50  0001 C CNN
-	1    9250 13100
-	1    0    0    -1  
-$EndComp
-Text Label 8750 12400 2    75   ~ 0
-adder0
-Text Label 8750 12500 2    75   ~ 0
-and0
-Text Label 8750 12600 2    75   ~ 0
-xor0
-Text Label 8750 12700 2    75   ~ 0
-shift0
-Text Label 8750 13100 2    75   ~ 0
-adder1
-Text Label 8750 13200 2    75   ~ 0
-and1
-Text Label 8750 13300 2    75   ~ 0
-xor1
-Text Label 8750 13400 2    75   ~ 0
-shift1
-Text Label 8750 15050 2    75   ~ 0
-adder2
-Text Label 8750 15150 2    75   ~ 0
-and2
-Text Label 8750 15250 2    75   ~ 0
-xor2
-Text Label 8750 15350 2    75   ~ 0
-shift2
-Text Label 8750 15750 2    75   ~ 0
-adder3
-Text Label 8750 15850 2    75   ~ 0
-and3
-Text Label 8750 15950 2    75   ~ 0
-xor3
-Text Label 8750 16050 2    75   ~ 0
-shift3
-Text Label 8750 17700 2    75   ~ 0
-adder4
-Text Label 8750 17800 2    75   ~ 0
-and4
-Text Label 8750 17900 2    75   ~ 0
-xor4
-Text Label 8750 18000 2    75   ~ 0
-shift4
-Text Label 8750 18400 2    75   ~ 0
-adder5
-Text Label 8750 18500 2    75   ~ 0
-and5
-Text Label 8750 18600 2    75   ~ 0
-xor5
-Text Label 8750 18700 2    75   ~ 0
-shift5
-Text Label 8750 20350 2    75   ~ 0
-adder6
-Text Label 8750 20450 2    75   ~ 0
-and6
-Text Label 8750 20550 2    75   ~ 0
-xor6
-Text Label 8750 20650 2    75   ~ 0
-shift6
-Text Label 8750 21050 2    75   ~ 0
-adder7
-Text Label 8750 21150 2    75   ~ 0
-and7
-Text Label 8750 21250 2    75   ~ 0
-xor7
-Text Label 8750 21350 2    75   ~ 0
-shift7
-Wire Wire Line
-	9750 21050 11000 21050
-Wire Wire Line
-	11000 21050 11000 18900
-Wire Wire Line
-	11000 18900 12050 18900
-Wire Wire Line
-	13100 18800 11950 18800
-Wire Wire Line
-	10900 18800 10900 20350
-Wire Wire Line
-	10900 20350 9750 20350
-Wire Wire Line
-	9750 18400 9950 18400
-Wire Wire Line
-	9950 18400 9950 18700
-Wire Wire Line
-	9950 18700 11850 18700
-Wire Wire Line
-	13100 18600 11750 18600
-Wire Wire Line
-	10050 18600 10050 17700
-Wire Wire Line
-	10050 17700 9750 17700
-Wire Wire Line
-	9750 15750 10150 15750
-Wire Wire Line
-	10150 15750 10150 18500
-Wire Wire Line
-	10150 18500 11650 18500
-Wire Wire Line
-	13100 18400 11550 18400
-Wire Wire Line
-	10250 18400 10250 15050
-Wire Wire Line
-	10250 15050 9750 15050
-Wire Wire Line
-	9750 13100 10350 13100
-Wire Wire Line
-	9750 12400 10450 12400
-Wire Wire Line
-	10350 18300 11450 18300
-Wire Wire Line
-	10350 13100 10350 18300
-Wire Wire Line
-	13100 18200 11350 18200
-Wire Wire Line
-	10450 12400 10450 18200
-$Comp
 L EDiCPoster-rescue:74F521 U?
 U 1 1 61EF66C4
 P 13600 22650
@@ -2355,28 +285,25 @@ $EndComp
 $Comp
 L power:GND #PWR?
 U 1 1 61EF66D6
-P 12300 22550
+P 12200 22350
 AR Path="/600C5001/61EF66D6" Ref="#PWR?"  Part="1" 
 AR Path="/61EF66D6" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 12300 22300 50  0001 C CNN
-F 1 "GND" H 12305 22377 50  0000 C CNN
-F 2 "" H 12300 22550 50  0001 C CNN
-F 3 "" H 12300 22550 50  0001 C CNN
-	1    12300 22550
+F 0 "#PWR?" H 12200 22100 50  0001 C CNN
+F 1 "GND" H 12205 22177 50  0000 C CNN
+F 2 "" H 12200 22350 50  0001 C CNN
+F 3 "" H 12200 22350 50  0001 C CNN
+	1    12200 22350
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	12300 22550 12500 22550
+	12200 22350 12300 22350
 Wire Wire Line
 	12500 21850 12300 21850
 Wire Wire Line
 	12300 21850 12300 21950
-Connection ~ 12300 22550
 Wire Wire Line
 	12300 22450 12500 22450
 Connection ~ 12300 22450
-Wire Wire Line
-	12300 22450 12300 22550
 Wire Wire Line
 	12500 22350 12300 22350
 Connection ~ 12300 22350
@@ -2417,39 +344,7 @@ Wire Wire Line
 Wire Wire Line
 	14100 18500 14700 18500
 Wire Wire Line
-	12050 24200 12050 23450
-Wire Wire Line
-	12050 23450 12500 23450
-Wire Wire Line
-	12500 23350 11950 23350
-Wire Wire Line
-	11950 23350 11950 18800
-Wire Wire Line
-	11850 18700 11850 23250
-Wire Wire Line
-	11850 23250 12500 23250
-Wire Wire Line
-	12500 23150 11750 23150
-Wire Wire Line
-	12500 23050 11650 23050
-Wire Wire Line
-	12500 22950 11550 22950
-Wire Wire Line
-	12500 22850 11450 22850
-Wire Wire Line
-	12500 22750 11350 22750
-Wire Wire Line
 	14100 18600 14600 18600
-Wire Wire Line
-	11750 23150 11750 18600
-Wire Wire Line
-	11650 23050 11650 18500
-Wire Wire Line
-	11550 22950 11550 18400
-Wire Wire Line
-	11450 22850 11450 18300
-Wire Wire Line
-	11350 22750 11350 18200
 Connection ~ 15000 18200
 Wire Wire Line
 	15000 18200 15650 18200
@@ -2737,16 +632,6 @@ Wire Wire Line
 	16850 21150 16650 21150
 Wire Wire Line
 	17450 21150 17050 21150
-Text GLabel 8750 16450 0    75   Input ~ 0
-ctrlAluOp0
-Text GLabel 8750 16700 0    75   Input ~ 0
-ctrlAluOp1
-Text GLabel 8750 13800 0    75   Input ~ 0
-ctrlAluOp0
-Text GLabel 8750 14050 0    75   Input ~ 0
-ctrlAluOp1
-Text GLabel 8750 21750 0    75   Input ~ 0
-ctrlAluOp0
 $Comp
 L power:+5V #PWR?
 U 1 1 61EF679C
@@ -2836,30 +721,6 @@ Wire Wire Line
 	14800 18400 15650 18400
 Wire Wire Line
 	14900 18300 15650 18300
-Connection ~ 11350 18200
-Wire Wire Line
-	11350 18200 10450 18200
-Connection ~ 11450 18300
-Wire Wire Line
-	11450 18300 13100 18300
-Connection ~ 11550 18400
-Wire Wire Line
-	11550 18400 10250 18400
-Connection ~ 11650 18500
-Wire Wire Line
-	11650 18500 13100 18500
-Connection ~ 11750 18600
-Wire Wire Line
-	11750 18600 10050 18600
-Connection ~ 11850 18700
-Wire Wire Line
-	11850 18700 13100 18700
-Connection ~ 11950 18800
-Wire Wire Line
-	11950 18800 10900 18800
-Connection ~ 12050 18900
-Wire Wire Line
-	12050 18900 13100 18900
 Text Label 14600 24200 0    75   ~ 0
 flagN
 NoConn ~ 18750 24800
@@ -2974,2759 +835,59 @@ NoConn ~ 15500 25700
 NoConn ~ 15500 25800
 Text Label 14600 25400 0    75   ~ 0
 flagCShift
-Wire Wire Line
-	2000 12400 2000 12350
-Wire Wire Line
-	1250 13900 1250 13950
-Wire Wire Line
-	2000 13950 2000 13900
-Wire Wire Line
-	2000 15000 2000 14950
-Wire Wire Line
-	1250 14950 1250 15000
-Wire Wire Line
-	2000 13450 2000 13400
-Wire Wire Line
-	2000 11900 2000 11850
-Wire Wire Line
-	1250 13400 1250 13450
-Wire Wire Line
-	1250 12350 1250 12400
-Wire Wire Line
-	2000 10800 2000 10850
-$Comp
-L power:+5V #PWR?
-U 1 1 62525F5D
-P 2000 13900
-AR Path="/60248238/62525F5D" Ref="#PWR?"  Part="1" 
-AR Path="/60260EB9/62525F5D" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/60248238/62525F5D" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/60260EB9/62525F5D" Ref="#PWR?"  Part="1" 
-AR Path="/61EF6542/62525F5D" Ref="#PWR?"  Part="1" 
-AR Path="/61EF655B/62525F5D" Ref="#PWR?"  Part="1" 
-AR Path="/62525F5D" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 2000 13750 50  0001 C CNN
-F 1 "+5V" H 2015 14073 50  0000 C CNN
-F 2 "" H 2000 13900 50  0001 C CNN
-F 3 "" H 2000 13900 50  0001 C CNN
-	1    2000 13900
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+5V #PWR?
-U 1 1 62525F63
-P 1250 13900
-AR Path="/60248238/62525F63" Ref="#PWR?"  Part="1" 
-AR Path="/60260EB9/62525F63" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/60248238/62525F63" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/60260EB9/62525F63" Ref="#PWR?"  Part="1" 
-AR Path="/61EF6542/62525F63" Ref="#PWR?"  Part="1" 
-AR Path="/61EF655B/62525F63" Ref="#PWR?"  Part="1" 
-AR Path="/62525F63" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 1250 13750 50  0001 C CNN
-F 1 "+5V" H 1265 14073 50  0000 C CNN
-F 2 "" H 1250 13900 50  0001 C CNN
-F 3 "" H 1250 13900 50  0001 C CNN
-	1    1250 13900
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74LS08 U?
-U 5 1 62525F69
-P 1250 14450
-AR Path="/60248238/62525F69" Ref="U?"  Part="5" 
-AR Path="/60260EB9/62525F69" Ref="U?"  Part="5" 
-AR Path="/600C5001/60248238/62525F69" Ref="U?"  Part="5" 
-AR Path="/600C5001/60260EB9/62525F69" Ref="U?"  Part="5" 
-AR Path="/61EF6542/62525F69" Ref="U?"  Part="5" 
-AR Path="/61EF655B/62525F69" Ref="U?"  Part="5" 
-AR Path="/62525F69" Ref="U?"  Part="5" 
-F 0 "U?" H 1480 14496 50  0000 L CNN
-F 1 "74LS08" H 1480 14405 50  0000 L CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 1250 14450 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 1250 14450 50  0001 C CNN
-	5    1250 14450
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 62525F6F
-P 2000 11900
-AR Path="/60248238/62525F6F" Ref="#PWR?"  Part="1" 
-AR Path="/60260EB9/62525F6F" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/60248238/62525F6F" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/60260EB9/62525F6F" Ref="#PWR?"  Part="1" 
-AR Path="/61EF6542/62525F6F" Ref="#PWR?"  Part="1" 
-AR Path="/61EF655B/62525F6F" Ref="#PWR?"  Part="1" 
-AR Path="/62525F6F" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 2000 11650 50  0001 C CNN
-F 1 "GND" H 2005 11727 50  0000 C CNN
-F 2 "" H 2000 11900 50  0001 C CNN
-F 3 "" H 2000 11900 50  0001 C CNN
-	1    2000 11900
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 62525F75
-P 1250 13450
-AR Path="/60248238/62525F75" Ref="#PWR?"  Part="1" 
-AR Path="/60260EB9/62525F75" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/60248238/62525F75" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/60260EB9/62525F75" Ref="#PWR?"  Part="1" 
-AR Path="/61EF6542/62525F75" Ref="#PWR?"  Part="1" 
-AR Path="/61EF655B/62525F75" Ref="#PWR?"  Part="1" 
-AR Path="/62525F75" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 1250 13200 50  0001 C CNN
-F 1 "GND" H 1255 13277 50  0000 C CNN
-F 2 "" H 1250 13450 50  0001 C CNN
-F 3 "" H 1250 13450 50  0001 C CNN
-	1    1250 13450
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 62525F7B
-P 2000 13450
-AR Path="/60248238/62525F7B" Ref="#PWR?"  Part="1" 
-AR Path="/60260EB9/62525F7B" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/60248238/62525F7B" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/60260EB9/62525F7B" Ref="#PWR?"  Part="1" 
-AR Path="/61EF6542/62525F7B" Ref="#PWR?"  Part="1" 
-AR Path="/61EF655B/62525F7B" Ref="#PWR?"  Part="1" 
-AR Path="/62525F7B" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 2000 13200 50  0001 C CNN
-F 1 "GND" H 2005 13277 50  0000 C CNN
-F 2 "" H 2000 13450 50  0001 C CNN
-F 3 "" H 2000 13450 50  0001 C CNN
-	1    2000 13450
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 62525F81
-P 1250 15000
-AR Path="/60248238/62525F81" Ref="#PWR?"  Part="1" 
-AR Path="/60260EB9/62525F81" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/60248238/62525F81" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/60260EB9/62525F81" Ref="#PWR?"  Part="1" 
-AR Path="/61EF6542/62525F81" Ref="#PWR?"  Part="1" 
-AR Path="/61EF655B/62525F81" Ref="#PWR?"  Part="1" 
-AR Path="/62525F81" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 1250 14750 50  0001 C CNN
-F 1 "GND" H 1255 14827 50  0000 C CNN
-F 2 "" H 1250 15000 50  0001 C CNN
-F 3 "" H 1250 15000 50  0001 C CNN
-	1    1250 15000
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 62525F87
-P 2000 15000
-AR Path="/60248238/62525F87" Ref="#PWR?"  Part="1" 
-AR Path="/60260EB9/62525F87" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/60248238/62525F87" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/60260EB9/62525F87" Ref="#PWR?"  Part="1" 
-AR Path="/61EF6542/62525F87" Ref="#PWR?"  Part="1" 
-AR Path="/61EF655B/62525F87" Ref="#PWR?"  Part="1" 
-AR Path="/62525F87" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 2000 14750 50  0001 C CNN
-F 1 "GND" H 2005 14827 50  0000 C CNN
-F 2 "" H 2000 15000 50  0001 C CNN
-F 3 "" H 2000 15000 50  0001 C CNN
-	1    2000 15000
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+5V #PWR?
-U 1 1 62525F8D
-P 2000 12350
-AR Path="/60248238/62525F8D" Ref="#PWR?"  Part="1" 
-AR Path="/60260EB9/62525F8D" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/60248238/62525F8D" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/60260EB9/62525F8D" Ref="#PWR?"  Part="1" 
-AR Path="/61EF6542/62525F8D" Ref="#PWR?"  Part="1" 
-AR Path="/61EF655B/62525F8D" Ref="#PWR?"  Part="1" 
-AR Path="/62525F8D" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 2000 12200 50  0001 C CNN
-F 1 "+5V" H 2015 12523 50  0000 C CNN
-F 2 "" H 2000 12350 50  0001 C CNN
-F 3 "" H 2000 12350 50  0001 C CNN
-	1    2000 12350
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+5V #PWR?
-U 1 1 62525F93
-P 1250 12350
-AR Path="/60248238/62525F93" Ref="#PWR?"  Part="1" 
-AR Path="/60260EB9/62525F93" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/60248238/62525F93" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/60260EB9/62525F93" Ref="#PWR?"  Part="1" 
-AR Path="/61EF6542/62525F93" Ref="#PWR?"  Part="1" 
-AR Path="/61EF655B/62525F93" Ref="#PWR?"  Part="1" 
-AR Path="/62525F93" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 1250 12200 50  0001 C CNN
-F 1 "+5V" H 1265 12523 50  0000 C CNN
-F 2 "" H 1250 12350 50  0001 C CNN
-F 3 "" H 1250 12350 50  0001 C CNN
-	1    1250 12350
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+5V #PWR?
-U 1 1 62525F99
-P 2000 10800
-AR Path="/60248238/62525F99" Ref="#PWR?"  Part="1" 
-AR Path="/60260EB9/62525F99" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/60248238/62525F99" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/60260EB9/62525F99" Ref="#PWR?"  Part="1" 
-AR Path="/61EF6542/62525F99" Ref="#PWR?"  Part="1" 
-AR Path="/61EF655B/62525F99" Ref="#PWR?"  Part="1" 
-AR Path="/62525F99" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 2000 10650 50  0001 C CNN
-F 1 "+5V" H 2015 10973 50  0000 C CNN
-F 2 "" H 2000 10800 50  0001 C CNN
-F 3 "" H 2000 10800 50  0001 C CNN
-	1    2000 10800
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74LS32 U?
-U 5 1 62525F9F
-P 2000 14450
-AR Path="/60248238/62525F9F" Ref="U?"  Part="5" 
-AR Path="/60260EB9/62525F9F" Ref="U?"  Part="5" 
-AR Path="/600C5001/60248238/62525F9F" Ref="U?"  Part="5" 
-AR Path="/600C5001/60260EB9/62525F9F" Ref="U?"  Part="5" 
-AR Path="/61EF6542/62525F9F" Ref="U?"  Part="5" 
-AR Path="/61EF655B/62525F9F" Ref="U?"  Part="5" 
-AR Path="/62525F9F" Ref="U?"  Part="5" 
-F 0 "U?" H 2230 14496 50  0000 L CNN
-F 1 "74LS32" H 2230 14405 50  0000 L CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 2000 14450 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 2000 14450 50  0001 C CNN
-	5    2000 14450
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74LS08 U?
-U 5 1 62525FA5
-P 1250 12900
-AR Path="/60248238/62525FA5" Ref="U?"  Part="5" 
-AR Path="/60260EB9/62525FA5" Ref="U?"  Part="5" 
-AR Path="/600C5001/60248238/62525FA5" Ref="U?"  Part="5" 
-AR Path="/600C5001/60260EB9/62525FA5" Ref="U?"  Part="5" 
-AR Path="/61EF6542/62525FA5" Ref="U?"  Part="5" 
-AR Path="/61EF655B/62525FA5" Ref="U?"  Part="5" 
-AR Path="/62525FA5" Ref="U?"  Part="5" 
-F 0 "U?" H 1480 12946 50  0000 L CNN
-F 1 "74LS08" H 1480 12855 50  0000 L CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 1250 12900 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 1250 12900 50  0001 C CNN
-	5    1250 12900
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74LS86 U?
-U 5 1 62525FAB
-P 2000 12900
-AR Path="/60248238/62525FAB" Ref="U?"  Part="5" 
-AR Path="/60260EB9/62525FAB" Ref="U?"  Part="5" 
-AR Path="/600C5001/60248238/62525FAB" Ref="U?"  Part="5" 
-AR Path="/600C5001/60260EB9/62525FAB" Ref="U?"  Part="5" 
-AR Path="/61EF6542/62525FAB" Ref="U?"  Part="5" 
-AR Path="/61EF655B/62525FAB" Ref="U?"  Part="5" 
-AR Path="/62525FAB" Ref="U?"  Part="5" 
-F 0 "U?" H 2230 12946 50  0000 L CNN
-F 1 "74LS86" H 2230 12855 50  0000 L CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 2000 12900 50  0001 C CNN
-F 3 "74xx/74ls86.pdf" H 2000 12900 50  0001 C CNN
-	5    2000 12900
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74LS86 U?
-U 5 1 62525FB1
-P 2000 11350
-AR Path="/60248238/62525FB1" Ref="U?"  Part="5" 
-AR Path="/60260EB9/62525FB1" Ref="U?"  Part="5" 
-AR Path="/600C5001/60248238/62525FB1" Ref="U?"  Part="5" 
-AR Path="/600C5001/60260EB9/62525FB1" Ref="U?"  Part="5" 
-AR Path="/61EF6542/62525FB1" Ref="U?"  Part="5" 
-AR Path="/61EF655B/62525FB1" Ref="U?"  Part="5" 
-AR Path="/62525FB1" Ref="U?"  Part="5" 
-F 0 "U?" H 2230 11396 50  0000 L CNN
-F 1 "74LS86" H 2230 11305 50  0000 L CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 2000 11350 50  0001 C CNN
-F 3 "74xx/74ls86.pdf" H 2000 11350 50  0001 C CNN
-	5    2000 11350
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74LS08 U?
-U 1 1 62586640
-P 5200 11450
-AR Path="/600C5001/60248238/6016C9C5/62586640" Ref="U?"  Part="4" 
-AR Path="/600C5001/60248238/6016C700/62586640" Ref="U?"  Part="3" 
-AR Path="/600C5001/60248238/6016C4DC/62586640" Ref="U?"  Part="2" 
-AR Path="/600C5001/60248238/6014201D/62586640" Ref="U?"  Part="1" 
-AR Path="/600C5001/60260EB9/6016C9C5/62586640" Ref="U?"  Part="4" 
-AR Path="/600C5001/60260EB9/6016C700/62586640" Ref="U?"  Part="3" 
-AR Path="/600C5001/60260EB9/6016C4DC/62586640" Ref="U?"  Part="2" 
-AR Path="/600C5001/60260EB9/6014201D/62586640" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C9C5/62586640" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C700/62586640" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C4DC/62586640" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6014201D/62586640" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C9C5/62586640" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C700/62586640" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C4DC/62586640" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6014201D/62586640" Ref="U?"  Part="1" 
-AR Path="/62525FCD/62586640" Ref="U?"  Part="1" 
-AR Path="/62525FD6/62586640" Ref="U?"  Part="1" 
-AR Path="/62525FDF/62586640" Ref="U?"  Part="1" 
-AR Path="/62525FE8/62586640" Ref="U?"  Part="1" 
-AR Path="/62586640" Ref="U?"  Part="1" 
-F 0 "U?" H 5200 11775 50  0000 C CNN
-F 1 "74LS08" H 5200 11684 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 5200 11450 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 5200 11450 50  0001 C CNN
-	1    5200 11450
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4900 11350 4850 11350
-Wire Wire Line
-	4850 11350 4850 11850
-Wire Wire Line
-	4850 11850 4900 11850
-Wire Wire Line
-	4900 11550 4750 11550
-Wire Wire Line
-	4750 11550 4750 12050
-Wire Wire Line
-	4750 12050 4900 12050
-Connection ~ 4750 12050
-Connection ~ 4850 11350
-$Comp
-L 74xx:74LS86 U?
-U 1 1 62586677
-P 5200 11950
-AR Path="/600C5001/60248238/6016C9C5/62586677" Ref="U?"  Part="4" 
-AR Path="/600C5001/60248238/6016C700/62586677" Ref="U?"  Part="3" 
-AR Path="/600C5001/60248238/6016C4DC/62586677" Ref="U?"  Part="2" 
-AR Path="/600C5001/60248238/6014201D/62586677" Ref="U?"  Part="1" 
-AR Path="/600C5001/60260EB9/6016C9C5/62586677" Ref="U?"  Part="4" 
-AR Path="/600C5001/60260EB9/6016C700/62586677" Ref="U?"  Part="3" 
-AR Path="/600C5001/60260EB9/6016C4DC/62586677" Ref="U?"  Part="2" 
-AR Path="/600C5001/60260EB9/6014201D/62586677" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C9C5/62586677" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C700/62586677" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C4DC/62586677" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6014201D/62586677" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C9C5/62586677" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C700/62586677" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C4DC/62586677" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6014201D/62586677" Ref="U?"  Part="1" 
-AR Path="/62525FCD/62586677" Ref="U?"  Part="1" 
-AR Path="/62525FD6/62586677" Ref="U?"  Part="1" 
-AR Path="/62525FDF/62586677" Ref="U?"  Part="1" 
-AR Path="/62525FE8/62586677" Ref="U?"  Part="1" 
-AR Path="/62586677" Ref="U?"  Part="1" 
-F 0 "U?" H 5200 12275 50  0000 C CNN
-F 1 "74LS86" H 5200 12184 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 5200 11950 50  0001 C CNN
-F 3 "74xx/74ls86.pdf" H 5200 11950 50  0001 C CNN
-	1    5200 11950
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6200 11450 6200 11200
-Wire Wire Line
-	5700 12050 5700 11950
-$Comp
-L 74xx:74LS32 U?
-U 1 1 62586671
-P 6750 11550
-AR Path="/600C5001/60248238/6016C9C5/62586671" Ref="U?"  Part="4" 
-AR Path="/600C5001/60248238/6016C700/62586671" Ref="U?"  Part="3" 
-AR Path="/600C5001/60248238/6016C4DC/62586671" Ref="U?"  Part="2" 
-AR Path="/600C5001/60248238/6014201D/62586671" Ref="U?"  Part="1" 
-AR Path="/600C5001/60260EB9/6016C9C5/62586671" Ref="U?"  Part="4" 
-AR Path="/600C5001/60260EB9/6016C700/62586671" Ref="U?"  Part="3" 
-AR Path="/600C5001/60260EB9/6016C4DC/62586671" Ref="U?"  Part="2" 
-AR Path="/600C5001/60260EB9/6014201D/62586671" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C9C5/62586671" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C700/62586671" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C4DC/62586671" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6014201D/62586671" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C9C5/62586671" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C700/62586671" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C4DC/62586671" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6014201D/62586671" Ref="U?"  Part="1" 
-AR Path="/62525FCD/62586671" Ref="U?"  Part="1" 
-AR Path="/62525FD6/62586671" Ref="U?"  Part="1" 
-AR Path="/62525FDF/62586671" Ref="U?"  Part="1" 
-AR Path="/62525FE8/62586671" Ref="U?"  Part="1" 
-AR Path="/62586671" Ref="U?"  Part="1" 
-F 0 "U?" H 6750 11875 50  0000 C CNN
-F 1 "74LS32" H 6750 11784 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 6750 11550 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 6750 11550 50  0001 C CNN
-	1    6750 11550
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6450 11850 6450 11650
-Wire Wire Line
-	6350 11850 6450 11850
-Wire Wire Line
-	5500 11450 6200 11450
-Wire Wire Line
-	5700 11950 5750 11950
-Connection ~ 5700 11950
-Wire Wire Line
-	5700 11150 5700 11950
-Wire Wire Line
-	5750 11150 5700 11150
-Wire Wire Line
-	5500 11950 5700 11950
-Wire Wire Line
-	5600 10950 5350 10950
-Connection ~ 5600 10950
-Wire Wire Line
-	5600 11750 5750 11750
-Wire Wire Line
-	5600 10950 5600 11750
-Wire Wire Line
-	5750 10950 5600 10950
-$Comp
-L 74xx:74LS86 U?
-U 1 1 62586654
-P 6050 11050
-AR Path="/600C5001/60248238/6016C9C5/62586654" Ref="U?"  Part="4" 
-AR Path="/600C5001/60248238/6016C700/62586654" Ref="U?"  Part="3" 
-AR Path="/600C5001/60248238/6016C4DC/62586654" Ref="U?"  Part="2" 
-AR Path="/600C5001/60248238/6014201D/62586654" Ref="U?"  Part="1" 
-AR Path="/600C5001/60260EB9/6016C9C5/62586654" Ref="U?"  Part="4" 
-AR Path="/600C5001/60260EB9/6016C700/62586654" Ref="U?"  Part="3" 
-AR Path="/600C5001/60260EB9/6016C4DC/62586654" Ref="U?"  Part="2" 
-AR Path="/600C5001/60260EB9/6014201D/62586654" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C9C5/62586654" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C700/62586654" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C4DC/62586654" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6014201D/62586654" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C9C5/62586654" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C700/62586654" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C4DC/62586654" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6014201D/62586654" Ref="U?"  Part="1" 
-AR Path="/62525FCD/62586654" Ref="U?"  Part="1" 
-AR Path="/62525FD6/62586654" Ref="U?"  Part="1" 
-AR Path="/62525FDF/62586654" Ref="U?"  Part="1" 
-AR Path="/62525FE8/62586654" Ref="U?"  Part="1" 
-AR Path="/62586654" Ref="U?"  Part="1" 
-F 0 "U?" H 6050 11375 50  0000 C CNN
-F 1 "74LS86" H 6050 11284 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 6050 11050 50  0001 C CNN
-F 3 "74xx/74ls86.pdf" H 6050 11050 50  0001 C CNN
-	1    6050 11050
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74LS08 U?
-U 1 1 6258664E
-P 6050 11850
-AR Path="/600C5001/60248238/6016C9C5/6258664E" Ref="U?"  Part="4" 
-AR Path="/600C5001/60248238/6016C700/6258664E" Ref="U?"  Part="3" 
-AR Path="/600C5001/60248238/6016C4DC/6258664E" Ref="U?"  Part="2" 
-AR Path="/600C5001/60248238/6014201D/6258664E" Ref="U?"  Part="1" 
-AR Path="/600C5001/60260EB9/6016C9C5/6258664E" Ref="U?"  Part="4" 
-AR Path="/600C5001/60260EB9/6016C700/6258664E" Ref="U?"  Part="3" 
-AR Path="/600C5001/60260EB9/6016C4DC/6258664E" Ref="U?"  Part="2" 
-AR Path="/600C5001/60260EB9/6014201D/6258664E" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C9C5/6258664E" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C700/6258664E" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C4DC/6258664E" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6014201D/6258664E" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C9C5/6258664E" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C700/6258664E" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C4DC/6258664E" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6014201D/6258664E" Ref="U?"  Part="1" 
-AR Path="/62525FCD/6258664E" Ref="U?"  Part="1" 
-AR Path="/62525FD6/6258664E" Ref="U?"  Part="1" 
-AR Path="/62525FDF/6258664E" Ref="U?"  Part="1" 
-AR Path="/62525FE8/6258664E" Ref="U?"  Part="1" 
-AR Path="/6258664E" Ref="U?"  Part="1" 
-F 0 "U?" H 6050 12175 50  0000 C CNN
-F 1 "74LS08" H 6050 12084 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 6050 11850 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 6050 11850 50  0001 C CNN
-	1    6050 11850
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6200 11450 6450 11450
-Connection ~ 6200 11450
-Wire Wire Line
-	4500 12050 4750 12050
-$Comp
-L 74xx:74LS86 U?
-U 1 1 62FA08D2
-P 4200 12050
-AR Path="/600C5001/62FA08D2" Ref="U?"  Part="1" 
-AR Path="/62FA08D2" Ref="U?"  Part="1" 
-F 0 "U?" H 4200 12375 50  0000 C CNN
-F 1 "74LS86" H 4200 12284 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 4200 12050 50  0001 C CNN
-F 3 "74xx/74ls86.pdf" H 4200 12050 50  0001 C CNN
-	1    4200 12050
-	1    0    0    -1  
-$EndComp
-Text GLabel 3900 12150 0    75   Input ~ 0
-ctrlAluSub
-Text GLabel 5350 10950 0    75   Input ~ 0
-ctrlAluSub
-Text Label 4800 11350 2    75   ~ 0
-a0
-Wire Wire Line
-	4650 11350 4850 11350
-Entry Wire Line
-	4550 11250 4650 11350
-Entry Wire Line
-	7300 11050 7400 11150
-Entry Wire Line
-	7500 11200 7600 11300
-Entry Wire Line
-	7700 12050 7800 12150
-Wire Wire Line
-	6350 11050 7300 11050
-Text Label 7200 11050 2    75   ~ 0
-adder0
-Wire Wire Line
-	6200 11200 7500 11200
-Text Label 7200 11200 2    75   ~ 0
-and0
-Text Label 7200 12050 2    75   ~ 0
-xor0
-Wire Wire Line
-	5700 12050 7700 12050
-Text Label 3850 13700 2    75   ~ 0
-bus1
-Wire Wire Line
-	3250 13700 3900 13700
-$Comp
-L 74xx:74LS08 U?
-U 1 1 640CC99B
-P 5200 13200
-AR Path="/600C5001/60248238/6016C9C5/640CC99B" Ref="U?"  Part="4" 
-AR Path="/600C5001/60248238/6016C700/640CC99B" Ref="U?"  Part="3" 
-AR Path="/600C5001/60248238/6016C4DC/640CC99B" Ref="U?"  Part="2" 
-AR Path="/600C5001/60248238/6014201D/640CC99B" Ref="U?"  Part="1" 
-AR Path="/600C5001/60260EB9/6016C9C5/640CC99B" Ref="U?"  Part="4" 
-AR Path="/600C5001/60260EB9/6016C700/640CC99B" Ref="U?"  Part="3" 
-AR Path="/600C5001/60260EB9/6016C4DC/640CC99B" Ref="U?"  Part="2" 
-AR Path="/600C5001/60260EB9/6014201D/640CC99B" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C9C5/640CC99B" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C700/640CC99B" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C4DC/640CC99B" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6014201D/640CC99B" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C9C5/640CC99B" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C700/640CC99B" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C4DC/640CC99B" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6014201D/640CC99B" Ref="U?"  Part="1" 
-AR Path="/62525FCD/640CC99B" Ref="U?"  Part="1" 
-AR Path="/62525FD6/640CC99B" Ref="U?"  Part="1" 
-AR Path="/62525FDF/640CC99B" Ref="U?"  Part="1" 
-AR Path="/62525FE8/640CC99B" Ref="U?"  Part="1" 
-AR Path="/640CC99B" Ref="U?"  Part="1" 
-F 0 "U?" H 5200 13525 50  0000 C CNN
-F 1 "74LS08" H 5200 13434 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 5200 13200 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 5200 13200 50  0001 C CNN
-	1    5200 13200
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4900 13100 4850 13100
-Wire Wire Line
-	4850 13100 4850 13600
-Wire Wire Line
-	4850 13600 4900 13600
-Wire Wire Line
-	4900 13300 4750 13300
-Wire Wire Line
-	4750 13300 4750 13800
-Wire Wire Line
-	4750 13800 4900 13800
-Connection ~ 4750 13800
-Connection ~ 4850 13100
-$Comp
-L 74xx:74LS86 U?
-U 1 1 640CC9A9
-P 5200 13700
-AR Path="/600C5001/60248238/6016C9C5/640CC9A9" Ref="U?"  Part="4" 
-AR Path="/600C5001/60248238/6016C700/640CC9A9" Ref="U?"  Part="3" 
-AR Path="/600C5001/60248238/6016C4DC/640CC9A9" Ref="U?"  Part="2" 
-AR Path="/600C5001/60248238/6014201D/640CC9A9" Ref="U?"  Part="1" 
-AR Path="/600C5001/60260EB9/6016C9C5/640CC9A9" Ref="U?"  Part="4" 
-AR Path="/600C5001/60260EB9/6016C700/640CC9A9" Ref="U?"  Part="3" 
-AR Path="/600C5001/60260EB9/6016C4DC/640CC9A9" Ref="U?"  Part="2" 
-AR Path="/600C5001/60260EB9/6014201D/640CC9A9" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C9C5/640CC9A9" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C700/640CC9A9" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C4DC/640CC9A9" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6014201D/640CC9A9" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C9C5/640CC9A9" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C700/640CC9A9" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C4DC/640CC9A9" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6014201D/640CC9A9" Ref="U?"  Part="1" 
-AR Path="/62525FCD/640CC9A9" Ref="U?"  Part="1" 
-AR Path="/62525FD6/640CC9A9" Ref="U?"  Part="1" 
-AR Path="/62525FDF/640CC9A9" Ref="U?"  Part="1" 
-AR Path="/62525FE8/640CC9A9" Ref="U?"  Part="1" 
-AR Path="/640CC9A9" Ref="U?"  Part="1" 
-F 0 "U?" H 5200 14025 50  0000 C CNN
-F 1 "74LS86" H 5200 13934 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 5200 13700 50  0001 C CNN
-F 3 "74xx/74ls86.pdf" H 5200 13700 50  0001 C CNN
-	1    5200 13700
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6200 13200 6200 12950
-Wire Wire Line
-	5700 13800 5700 13700
-$Comp
-L 74xx:74LS32 U?
-U 1 1 640CC9B1
-P 6750 13300
-AR Path="/600C5001/60248238/6016C9C5/640CC9B1" Ref="U?"  Part="4" 
-AR Path="/600C5001/60248238/6016C700/640CC9B1" Ref="U?"  Part="3" 
-AR Path="/600C5001/60248238/6016C4DC/640CC9B1" Ref="U?"  Part="2" 
-AR Path="/600C5001/60248238/6014201D/640CC9B1" Ref="U?"  Part="1" 
-AR Path="/600C5001/60260EB9/6016C9C5/640CC9B1" Ref="U?"  Part="4" 
-AR Path="/600C5001/60260EB9/6016C700/640CC9B1" Ref="U?"  Part="3" 
-AR Path="/600C5001/60260EB9/6016C4DC/640CC9B1" Ref="U?"  Part="2" 
-AR Path="/600C5001/60260EB9/6014201D/640CC9B1" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C9C5/640CC9B1" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C700/640CC9B1" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C4DC/640CC9B1" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6014201D/640CC9B1" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C9C5/640CC9B1" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C700/640CC9B1" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C4DC/640CC9B1" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6014201D/640CC9B1" Ref="U?"  Part="1" 
-AR Path="/62525FCD/640CC9B1" Ref="U?"  Part="1" 
-AR Path="/62525FD6/640CC9B1" Ref="U?"  Part="1" 
-AR Path="/62525FDF/640CC9B1" Ref="U?"  Part="1" 
-AR Path="/62525FE8/640CC9B1" Ref="U?"  Part="1" 
-AR Path="/640CC9B1" Ref="U?"  Part="1" 
-F 0 "U?" H 6750 13625 50  0000 C CNN
-F 1 "74LS32" H 6750 13534 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 6750 13300 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 6750 13300 50  0001 C CNN
-	1    6750 13300
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6450 13600 6450 13400
-Wire Wire Line
-	6350 13600 6450 13600
-Wire Wire Line
-	5500 13200 6200 13200
-Wire Wire Line
-	5700 13700 5750 13700
-Connection ~ 5700 13700
-Wire Wire Line
-	5700 12900 5700 13700
-Wire Wire Line
-	5750 12900 5700 12900
-Wire Wire Line
-	5500 13700 5700 13700
-Wire Wire Line
-	5600 13500 5750 13500
-Wire Wire Line
-	5600 12700 5600 13500
-Wire Wire Line
-	5750 12700 5600 12700
-$Comp
-L 74xx:74LS86 U?
-U 1 1 640CC9C5
-P 6050 12800
-AR Path="/600C5001/60248238/6016C9C5/640CC9C5" Ref="U?"  Part="4" 
-AR Path="/600C5001/60248238/6016C700/640CC9C5" Ref="U?"  Part="3" 
-AR Path="/600C5001/60248238/6016C4DC/640CC9C5" Ref="U?"  Part="2" 
-AR Path="/600C5001/60248238/6014201D/640CC9C5" Ref="U?"  Part="1" 
-AR Path="/600C5001/60260EB9/6016C9C5/640CC9C5" Ref="U?"  Part="4" 
-AR Path="/600C5001/60260EB9/6016C700/640CC9C5" Ref="U?"  Part="3" 
-AR Path="/600C5001/60260EB9/6016C4DC/640CC9C5" Ref="U?"  Part="2" 
-AR Path="/600C5001/60260EB9/6014201D/640CC9C5" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C9C5/640CC9C5" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C700/640CC9C5" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C4DC/640CC9C5" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6014201D/640CC9C5" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C9C5/640CC9C5" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C700/640CC9C5" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C4DC/640CC9C5" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6014201D/640CC9C5" Ref="U?"  Part="1" 
-AR Path="/62525FCD/640CC9C5" Ref="U?"  Part="1" 
-AR Path="/62525FD6/640CC9C5" Ref="U?"  Part="1" 
-AR Path="/62525FDF/640CC9C5" Ref="U?"  Part="1" 
-AR Path="/62525FE8/640CC9C5" Ref="U?"  Part="1" 
-AR Path="/640CC9C5" Ref="U?"  Part="1" 
-F 0 "U?" H 6050 13125 50  0000 C CNN
-F 1 "74LS86" H 6050 13034 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 6050 12800 50  0001 C CNN
-F 3 "74xx/74ls86.pdf" H 6050 12800 50  0001 C CNN
-	1    6050 12800
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74LS08 U?
-U 1 1 640CC9CB
-P 6050 13600
-AR Path="/600C5001/60248238/6016C9C5/640CC9CB" Ref="U?"  Part="4" 
-AR Path="/600C5001/60248238/6016C700/640CC9CB" Ref="U?"  Part="3" 
-AR Path="/600C5001/60248238/6016C4DC/640CC9CB" Ref="U?"  Part="2" 
-AR Path="/600C5001/60248238/6014201D/640CC9CB" Ref="U?"  Part="1" 
-AR Path="/600C5001/60260EB9/6016C9C5/640CC9CB" Ref="U?"  Part="4" 
-AR Path="/600C5001/60260EB9/6016C700/640CC9CB" Ref="U?"  Part="3" 
-AR Path="/600C5001/60260EB9/6016C4DC/640CC9CB" Ref="U?"  Part="2" 
-AR Path="/600C5001/60260EB9/6014201D/640CC9CB" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C9C5/640CC9CB" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C700/640CC9CB" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C4DC/640CC9CB" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6014201D/640CC9CB" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C9C5/640CC9CB" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C700/640CC9CB" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C4DC/640CC9CB" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6014201D/640CC9CB" Ref="U?"  Part="1" 
-AR Path="/62525FCD/640CC9CB" Ref="U?"  Part="1" 
-AR Path="/62525FD6/640CC9CB" Ref="U?"  Part="1" 
-AR Path="/62525FDF/640CC9CB" Ref="U?"  Part="1" 
-AR Path="/62525FE8/640CC9CB" Ref="U?"  Part="1" 
-AR Path="/640CC9CB" Ref="U?"  Part="1" 
-F 0 "U?" H 6050 13925 50  0000 C CNN
-F 1 "74LS08" H 6050 13834 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 6050 13600 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 6050 13600 50  0001 C CNN
-	1    6050 13600
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6200 13200 6450 13200
-Connection ~ 6200 13200
-Wire Wire Line
-	4500 13800 4750 13800
-$Comp
-L 74xx:74LS86 U?
-U 1 1 640CC9D4
-P 4200 13800
-AR Path="/600C5001/640CC9D4" Ref="U?"  Part="1" 
-AR Path="/640CC9D4" Ref="U?"  Part="1" 
-F 0 "U?" H 4200 14125 50  0000 C CNN
-F 1 "74LS86" H 4200 14034 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 4200 13800 50  0001 C CNN
-F 3 "74xx/74ls86.pdf" H 4200 13800 50  0001 C CNN
-	1    4200 13800
-	1    0    0    -1  
-$EndComp
-Text GLabel 3900 13900 0    75   Input ~ 0
-ctrlAluSub
-Text Label 4800 13100 2    75   ~ 0
-a1
-Wire Wire Line
-	4700 13100 4850 13100
-Entry Wire Line
-	4600 13000 4700 13100
-Entry Wire Line
-	3150 13600 3250 13700
-Entry Wire Line
-	7300 12800 7400 12900
-Entry Wire Line
-	7500 12950 7600 13050
-Entry Wire Line
-	7700 13800 7800 13900
-Wire Wire Line
-	6350 12800 7300 12800
-Text Label 7200 12800 2    75   ~ 0
-adder1
-Wire Wire Line
-	6200 12950 7500 12950
-Text Label 7200 12950 2    75   ~ 0
-and1
-Text Label 7200 13800 2    75   ~ 0
-xor1
-Wire Wire Line
-	5700 13800 7700 13800
-Text Label 3850 15450 2    75   ~ 0
-bus2
-Wire Wire Line
-	3250 15450 3900 15450
-$Comp
-L 74xx:74LS08 U?
-U 1 1 6414131E
-P 5200 14950
-AR Path="/600C5001/60248238/6016C9C5/6414131E" Ref="U?"  Part="4" 
-AR Path="/600C5001/60248238/6016C700/6414131E" Ref="U?"  Part="3" 
-AR Path="/600C5001/60248238/6016C4DC/6414131E" Ref="U?"  Part="2" 
-AR Path="/600C5001/60248238/6014201D/6414131E" Ref="U?"  Part="1" 
-AR Path="/600C5001/60260EB9/6016C9C5/6414131E" Ref="U?"  Part="4" 
-AR Path="/600C5001/60260EB9/6016C700/6414131E" Ref="U?"  Part="3" 
-AR Path="/600C5001/60260EB9/6016C4DC/6414131E" Ref="U?"  Part="2" 
-AR Path="/600C5001/60260EB9/6014201D/6414131E" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C9C5/6414131E" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C700/6414131E" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C4DC/6414131E" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6014201D/6414131E" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C9C5/6414131E" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C700/6414131E" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C4DC/6414131E" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6014201D/6414131E" Ref="U?"  Part="1" 
-AR Path="/62525FCD/6414131E" Ref="U?"  Part="1" 
-AR Path="/62525FD6/6414131E" Ref="U?"  Part="1" 
-AR Path="/62525FDF/6414131E" Ref="U?"  Part="1" 
-AR Path="/62525FE8/6414131E" Ref="U?"  Part="1" 
-AR Path="/6414131E" Ref="U?"  Part="1" 
-F 0 "U?" H 5200 15275 50  0000 C CNN
-F 1 "74LS08" H 5200 15184 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 5200 14950 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 5200 14950 50  0001 C CNN
-	1    5200 14950
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4900 14850 4850 14850
-Wire Wire Line
-	4850 14850 4850 15350
-Wire Wire Line
-	4850 15350 4900 15350
-Wire Wire Line
-	4900 15050 4750 15050
-Wire Wire Line
-	4750 15050 4750 15550
-Wire Wire Line
-	4750 15550 4900 15550
-Connection ~ 4750 15550
-Connection ~ 4850 14850
-$Comp
-L 74xx:74LS86 U?
-U 1 1 6414132C
-P 5200 15450
-AR Path="/600C5001/60248238/6016C9C5/6414132C" Ref="U?"  Part="4" 
-AR Path="/600C5001/60248238/6016C700/6414132C" Ref="U?"  Part="3" 
-AR Path="/600C5001/60248238/6016C4DC/6414132C" Ref="U?"  Part="2" 
-AR Path="/600C5001/60248238/6014201D/6414132C" Ref="U?"  Part="1" 
-AR Path="/600C5001/60260EB9/6016C9C5/6414132C" Ref="U?"  Part="4" 
-AR Path="/600C5001/60260EB9/6016C700/6414132C" Ref="U?"  Part="3" 
-AR Path="/600C5001/60260EB9/6016C4DC/6414132C" Ref="U?"  Part="2" 
-AR Path="/600C5001/60260EB9/6014201D/6414132C" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C9C5/6414132C" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C700/6414132C" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C4DC/6414132C" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6014201D/6414132C" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C9C5/6414132C" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C700/6414132C" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C4DC/6414132C" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6014201D/6414132C" Ref="U?"  Part="1" 
-AR Path="/62525FCD/6414132C" Ref="U?"  Part="1" 
-AR Path="/62525FD6/6414132C" Ref="U?"  Part="1" 
-AR Path="/62525FDF/6414132C" Ref="U?"  Part="1" 
-AR Path="/62525FE8/6414132C" Ref="U?"  Part="1" 
-AR Path="/6414132C" Ref="U?"  Part="1" 
-F 0 "U?" H 5200 15775 50  0000 C CNN
-F 1 "74LS86" H 5200 15684 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 5200 15450 50  0001 C CNN
-F 3 "74xx/74ls86.pdf" H 5200 15450 50  0001 C CNN
-	1    5200 15450
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6200 14950 6200 14700
-Wire Wire Line
-	5700 15550 5700 15450
-$Comp
-L 74xx:74LS32 U?
-U 1 1 64141334
-P 6750 15050
-AR Path="/600C5001/60248238/6016C9C5/64141334" Ref="U?"  Part="4" 
-AR Path="/600C5001/60248238/6016C700/64141334" Ref="U?"  Part="3" 
-AR Path="/600C5001/60248238/6016C4DC/64141334" Ref="U?"  Part="2" 
-AR Path="/600C5001/60248238/6014201D/64141334" Ref="U?"  Part="1" 
-AR Path="/600C5001/60260EB9/6016C9C5/64141334" Ref="U?"  Part="4" 
-AR Path="/600C5001/60260EB9/6016C700/64141334" Ref="U?"  Part="3" 
-AR Path="/600C5001/60260EB9/6016C4DC/64141334" Ref="U?"  Part="2" 
-AR Path="/600C5001/60260EB9/6014201D/64141334" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C9C5/64141334" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C700/64141334" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C4DC/64141334" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6014201D/64141334" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C9C5/64141334" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C700/64141334" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C4DC/64141334" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6014201D/64141334" Ref="U?"  Part="1" 
-AR Path="/62525FCD/64141334" Ref="U?"  Part="1" 
-AR Path="/62525FD6/64141334" Ref="U?"  Part="1" 
-AR Path="/62525FDF/64141334" Ref="U?"  Part="1" 
-AR Path="/62525FE8/64141334" Ref="U?"  Part="1" 
-AR Path="/64141334" Ref="U?"  Part="1" 
-F 0 "U?" H 6750 15375 50  0000 C CNN
-F 1 "74LS32" H 6750 15284 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 6750 15050 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 6750 15050 50  0001 C CNN
-	1    6750 15050
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6450 15350 6450 15150
-Wire Wire Line
-	6350 15350 6450 15350
-Wire Wire Line
-	5500 14950 6200 14950
-Wire Wire Line
-	5700 15450 5750 15450
-Connection ~ 5700 15450
-Wire Wire Line
-	5700 14650 5700 15450
-Wire Wire Line
-	5750 14650 5700 14650
-Wire Wire Line
-	5500 15450 5700 15450
-Connection ~ 5600 14450
-Wire Wire Line
-	5600 15250 5750 15250
-Wire Wire Line
-	5600 14450 5600 15250
-Wire Wire Line
-	5750 14450 5600 14450
-$Comp
-L 74xx:74LS86 U?
-U 1 1 64141348
-P 6050 14550
-AR Path="/600C5001/60248238/6016C9C5/64141348" Ref="U?"  Part="4" 
-AR Path="/600C5001/60248238/6016C700/64141348" Ref="U?"  Part="3" 
-AR Path="/600C5001/60248238/6016C4DC/64141348" Ref="U?"  Part="2" 
-AR Path="/600C5001/60248238/6014201D/64141348" Ref="U?"  Part="1" 
-AR Path="/600C5001/60260EB9/6016C9C5/64141348" Ref="U?"  Part="4" 
-AR Path="/600C5001/60260EB9/6016C700/64141348" Ref="U?"  Part="3" 
-AR Path="/600C5001/60260EB9/6016C4DC/64141348" Ref="U?"  Part="2" 
-AR Path="/600C5001/60260EB9/6014201D/64141348" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C9C5/64141348" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C700/64141348" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C4DC/64141348" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6014201D/64141348" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C9C5/64141348" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C700/64141348" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C4DC/64141348" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6014201D/64141348" Ref="U?"  Part="1" 
-AR Path="/62525FCD/64141348" Ref="U?"  Part="1" 
-AR Path="/62525FD6/64141348" Ref="U?"  Part="1" 
-AR Path="/62525FDF/64141348" Ref="U?"  Part="1" 
-AR Path="/62525FE8/64141348" Ref="U?"  Part="1" 
-AR Path="/64141348" Ref="U?"  Part="1" 
-F 0 "U?" H 6050 14875 50  0000 C CNN
-F 1 "74LS86" H 6050 14784 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 6050 14550 50  0001 C CNN
-F 3 "74xx/74ls86.pdf" H 6050 14550 50  0001 C CNN
-	1    6050 14550
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74LS08 U?
-U 1 1 6414134E
-P 6050 15350
-AR Path="/600C5001/60248238/6016C9C5/6414134E" Ref="U?"  Part="4" 
-AR Path="/600C5001/60248238/6016C700/6414134E" Ref="U?"  Part="3" 
-AR Path="/600C5001/60248238/6016C4DC/6414134E" Ref="U?"  Part="2" 
-AR Path="/600C5001/60248238/6014201D/6414134E" Ref="U?"  Part="1" 
-AR Path="/600C5001/60260EB9/6016C9C5/6414134E" Ref="U?"  Part="4" 
-AR Path="/600C5001/60260EB9/6016C700/6414134E" Ref="U?"  Part="3" 
-AR Path="/600C5001/60260EB9/6016C4DC/6414134E" Ref="U?"  Part="2" 
-AR Path="/600C5001/60260EB9/6014201D/6414134E" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C9C5/6414134E" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C700/6414134E" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C4DC/6414134E" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6014201D/6414134E" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C9C5/6414134E" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C700/6414134E" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C4DC/6414134E" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6014201D/6414134E" Ref="U?"  Part="1" 
-AR Path="/62525FCD/6414134E" Ref="U?"  Part="1" 
-AR Path="/62525FD6/6414134E" Ref="U?"  Part="1" 
-AR Path="/62525FDF/6414134E" Ref="U?"  Part="1" 
-AR Path="/62525FE8/6414134E" Ref="U?"  Part="1" 
-AR Path="/6414134E" Ref="U?"  Part="1" 
-F 0 "U?" H 6050 15675 50  0000 C CNN
-F 1 "74LS08" H 6050 15584 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 6050 15350 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 6050 15350 50  0001 C CNN
-	1    6050 15350
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6200 14950 6450 14950
-Connection ~ 6200 14950
-Wire Wire Line
-	4500 15550 4750 15550
-$Comp
-L 74xx:74LS86 U?
-U 1 1 64141357
-P 4200 15550
-AR Path="/600C5001/64141357" Ref="U?"  Part="1" 
-AR Path="/64141357" Ref="U?"  Part="1" 
-F 0 "U?" H 4200 15875 50  0000 C CNN
-F 1 "74LS86" H 4200 15784 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 4200 15550 50  0001 C CNN
-F 3 "74xx/74ls86.pdf" H 4200 15550 50  0001 C CNN
-	1    4200 15550
-	1    0    0    -1  
-$EndComp
-Text GLabel 3900 15650 0    75   Input ~ 0
-ctrlAluSub
-Text Label 4800 14850 2    75   ~ 0
-a2
-Wire Wire Line
-	4650 14850 4850 14850
-Entry Wire Line
-	4550 14750 4650 14850
-Entry Wire Line
-	3150 15350 3250 15450
-Entry Wire Line
-	7300 14550 7400 14650
-Entry Wire Line
-	7500 14700 7600 14800
-Entry Wire Line
-	7700 15550 7800 15650
-Wire Wire Line
-	6350 14550 7300 14550
-Text Label 7200 14550 2    75   ~ 0
-adder2
-Wire Wire Line
-	6200 14700 7500 14700
-Text Label 7200 14700 2    75   ~ 0
-and2
-Text Label 7200 15550 2    75   ~ 0
-xor2
-Wire Wire Line
-	5700 15550 7700 15550
-Text Label 3850 17200 2    75   ~ 0
-bus3
-Wire Wire Line
-	3250 17200 3900 17200
-$Comp
-L 74xx:74LS08 U?
-U 1 1 641BEC5F
-P 5200 16700
-AR Path="/600C5001/60248238/6016C9C5/641BEC5F" Ref="U?"  Part="4" 
-AR Path="/600C5001/60248238/6016C700/641BEC5F" Ref="U?"  Part="3" 
-AR Path="/600C5001/60248238/6016C4DC/641BEC5F" Ref="U?"  Part="2" 
-AR Path="/600C5001/60248238/6014201D/641BEC5F" Ref="U?"  Part="1" 
-AR Path="/600C5001/60260EB9/6016C9C5/641BEC5F" Ref="U?"  Part="4" 
-AR Path="/600C5001/60260EB9/6016C700/641BEC5F" Ref="U?"  Part="3" 
-AR Path="/600C5001/60260EB9/6016C4DC/641BEC5F" Ref="U?"  Part="2" 
-AR Path="/600C5001/60260EB9/6014201D/641BEC5F" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C9C5/641BEC5F" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C700/641BEC5F" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C4DC/641BEC5F" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6014201D/641BEC5F" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C9C5/641BEC5F" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C700/641BEC5F" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C4DC/641BEC5F" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6014201D/641BEC5F" Ref="U?"  Part="1" 
-AR Path="/62525FCD/641BEC5F" Ref="U?"  Part="1" 
-AR Path="/62525FD6/641BEC5F" Ref="U?"  Part="1" 
-AR Path="/62525FDF/641BEC5F" Ref="U?"  Part="1" 
-AR Path="/62525FE8/641BEC5F" Ref="U?"  Part="1" 
-AR Path="/641BEC5F" Ref="U?"  Part="1" 
-F 0 "U?" H 5200 17025 50  0000 C CNN
-F 1 "74LS08" H 5200 16934 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 5200 16700 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 5200 16700 50  0001 C CNN
-	1    5200 16700
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4900 16600 4850 16600
-Wire Wire Line
-	4850 16600 4850 17100
-Wire Wire Line
-	4850 17100 4900 17100
-Wire Wire Line
-	4900 16800 4750 16800
-Wire Wire Line
-	4750 16800 4750 17300
-Wire Wire Line
-	4750 17300 4900 17300
-Connection ~ 4750 17300
-Connection ~ 4850 16600
-$Comp
-L 74xx:74LS86 U?
-U 1 1 641BEC6D
-P 5200 17200
-AR Path="/600C5001/60248238/6016C9C5/641BEC6D" Ref="U?"  Part="4" 
-AR Path="/600C5001/60248238/6016C700/641BEC6D" Ref="U?"  Part="3" 
-AR Path="/600C5001/60248238/6016C4DC/641BEC6D" Ref="U?"  Part="2" 
-AR Path="/600C5001/60248238/6014201D/641BEC6D" Ref="U?"  Part="1" 
-AR Path="/600C5001/60260EB9/6016C9C5/641BEC6D" Ref="U?"  Part="4" 
-AR Path="/600C5001/60260EB9/6016C700/641BEC6D" Ref="U?"  Part="3" 
-AR Path="/600C5001/60260EB9/6016C4DC/641BEC6D" Ref="U?"  Part="2" 
-AR Path="/600C5001/60260EB9/6014201D/641BEC6D" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C9C5/641BEC6D" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C700/641BEC6D" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C4DC/641BEC6D" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6014201D/641BEC6D" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C9C5/641BEC6D" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C700/641BEC6D" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C4DC/641BEC6D" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6014201D/641BEC6D" Ref="U?"  Part="1" 
-AR Path="/62525FCD/641BEC6D" Ref="U?"  Part="1" 
-AR Path="/62525FD6/641BEC6D" Ref="U?"  Part="1" 
-AR Path="/62525FDF/641BEC6D" Ref="U?"  Part="1" 
-AR Path="/62525FE8/641BEC6D" Ref="U?"  Part="1" 
-AR Path="/641BEC6D" Ref="U?"  Part="1" 
-F 0 "U?" H 5200 17525 50  0000 C CNN
-F 1 "74LS86" H 5200 17434 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 5200 17200 50  0001 C CNN
-F 3 "74xx/74ls86.pdf" H 5200 17200 50  0001 C CNN
-	1    5200 17200
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6200 16700 6200 16450
-Wire Wire Line
-	5700 17300 5700 17200
-$Comp
-L 74xx:74LS32 U?
-U 1 1 641BEC75
-P 6750 16800
-AR Path="/600C5001/60248238/6016C9C5/641BEC75" Ref="U?"  Part="4" 
-AR Path="/600C5001/60248238/6016C700/641BEC75" Ref="U?"  Part="3" 
-AR Path="/600C5001/60248238/6016C4DC/641BEC75" Ref="U?"  Part="2" 
-AR Path="/600C5001/60248238/6014201D/641BEC75" Ref="U?"  Part="1" 
-AR Path="/600C5001/60260EB9/6016C9C5/641BEC75" Ref="U?"  Part="4" 
-AR Path="/600C5001/60260EB9/6016C700/641BEC75" Ref="U?"  Part="3" 
-AR Path="/600C5001/60260EB9/6016C4DC/641BEC75" Ref="U?"  Part="2" 
-AR Path="/600C5001/60260EB9/6014201D/641BEC75" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C9C5/641BEC75" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C700/641BEC75" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C4DC/641BEC75" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6014201D/641BEC75" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C9C5/641BEC75" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C700/641BEC75" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C4DC/641BEC75" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6014201D/641BEC75" Ref="U?"  Part="1" 
-AR Path="/62525FCD/641BEC75" Ref="U?"  Part="1" 
-AR Path="/62525FD6/641BEC75" Ref="U?"  Part="1" 
-AR Path="/62525FDF/641BEC75" Ref="U?"  Part="1" 
-AR Path="/62525FE8/641BEC75" Ref="U?"  Part="1" 
-AR Path="/641BEC75" Ref="U?"  Part="1" 
-F 0 "U?" H 6750 17125 50  0000 C CNN
-F 1 "74LS32" H 6750 17034 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 6750 16800 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 6750 16800 50  0001 C CNN
-	1    6750 16800
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6450 17100 6450 16900
-Wire Wire Line
-	6350 17100 6450 17100
-Wire Wire Line
-	5500 16700 6200 16700
-Wire Wire Line
-	5700 17200 5750 17200
-Connection ~ 5700 17200
-Wire Wire Line
-	5700 16400 5700 17200
-Wire Wire Line
-	5750 16400 5700 16400
-Wire Wire Line
-	5500 17200 5700 17200
-Wire Wire Line
-	5600 17000 5750 17000
-Wire Wire Line
-	5600 16200 5600 17000
-Wire Wire Line
-	5750 16200 5600 16200
-$Comp
-L 74xx:74LS86 U?
-U 1 1 641BEC89
-P 6050 16300
-AR Path="/600C5001/60248238/6016C9C5/641BEC89" Ref="U?"  Part="4" 
-AR Path="/600C5001/60248238/6016C700/641BEC89" Ref="U?"  Part="3" 
-AR Path="/600C5001/60248238/6016C4DC/641BEC89" Ref="U?"  Part="2" 
-AR Path="/600C5001/60248238/6014201D/641BEC89" Ref="U?"  Part="1" 
-AR Path="/600C5001/60260EB9/6016C9C5/641BEC89" Ref="U?"  Part="4" 
-AR Path="/600C5001/60260EB9/6016C700/641BEC89" Ref="U?"  Part="3" 
-AR Path="/600C5001/60260EB9/6016C4DC/641BEC89" Ref="U?"  Part="2" 
-AR Path="/600C5001/60260EB9/6014201D/641BEC89" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C9C5/641BEC89" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C700/641BEC89" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C4DC/641BEC89" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6014201D/641BEC89" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C9C5/641BEC89" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C700/641BEC89" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C4DC/641BEC89" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6014201D/641BEC89" Ref="U?"  Part="1" 
-AR Path="/62525FCD/641BEC89" Ref="U?"  Part="1" 
-AR Path="/62525FD6/641BEC89" Ref="U?"  Part="1" 
-AR Path="/62525FDF/641BEC89" Ref="U?"  Part="1" 
-AR Path="/62525FE8/641BEC89" Ref="U?"  Part="1" 
-AR Path="/641BEC89" Ref="U?"  Part="1" 
-F 0 "U?" H 6050 16625 50  0000 C CNN
-F 1 "74LS86" H 6050 16534 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 6050 16300 50  0001 C CNN
-F 3 "74xx/74ls86.pdf" H 6050 16300 50  0001 C CNN
-	1    6050 16300
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74LS08 U?
-U 1 1 641BEC8F
-P 6050 17100
-AR Path="/600C5001/60248238/6016C9C5/641BEC8F" Ref="U?"  Part="4" 
-AR Path="/600C5001/60248238/6016C700/641BEC8F" Ref="U?"  Part="3" 
-AR Path="/600C5001/60248238/6016C4DC/641BEC8F" Ref="U?"  Part="2" 
-AR Path="/600C5001/60248238/6014201D/641BEC8F" Ref="U?"  Part="1" 
-AR Path="/600C5001/60260EB9/6016C9C5/641BEC8F" Ref="U?"  Part="4" 
-AR Path="/600C5001/60260EB9/6016C700/641BEC8F" Ref="U?"  Part="3" 
-AR Path="/600C5001/60260EB9/6016C4DC/641BEC8F" Ref="U?"  Part="2" 
-AR Path="/600C5001/60260EB9/6014201D/641BEC8F" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C9C5/641BEC8F" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C700/641BEC8F" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C4DC/641BEC8F" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6014201D/641BEC8F" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C9C5/641BEC8F" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C700/641BEC8F" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C4DC/641BEC8F" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6014201D/641BEC8F" Ref="U?"  Part="1" 
-AR Path="/62525FCD/641BEC8F" Ref="U?"  Part="1" 
-AR Path="/62525FD6/641BEC8F" Ref="U?"  Part="1" 
-AR Path="/62525FDF/641BEC8F" Ref="U?"  Part="1" 
-AR Path="/62525FE8/641BEC8F" Ref="U?"  Part="1" 
-AR Path="/641BEC8F" Ref="U?"  Part="1" 
-F 0 "U?" H 6050 17425 50  0000 C CNN
-F 1 "74LS08" H 6050 17334 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 6050 17100 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 6050 17100 50  0001 C CNN
-	1    6050 17100
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6200 16700 6450 16700
-Connection ~ 6200 16700
-Wire Wire Line
-	4500 17300 4750 17300
-$Comp
-L 74xx:74LS86 U?
-U 1 1 641BEC98
-P 4200 17300
-AR Path="/600C5001/641BEC98" Ref="U?"  Part="1" 
-AR Path="/641BEC98" Ref="U?"  Part="1" 
-F 0 "U?" H 4200 17625 50  0000 C CNN
-F 1 "74LS86" H 4200 17534 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 4200 17300 50  0001 C CNN
-F 3 "74xx/74ls86.pdf" H 4200 17300 50  0001 C CNN
-	1    4200 17300
-	1    0    0    -1  
-$EndComp
-Text GLabel 3900 17400 0    75   Input ~ 0
-ctrlAluSub
-Text Label 4800 16600 2    75   ~ 0
-a3
-Wire Wire Line
-	4650 16600 4850 16600
-Entry Wire Line
-	4550 16500 4650 16600
-Entry Wire Line
-	3150 17100 3250 17200
-Entry Wire Line
-	7300 16300 7400 16400
-Entry Wire Line
-	7500 16450 7600 16550
-Entry Wire Line
-	7700 17300 7800 17400
-Wire Wire Line
-	6350 16300 7300 16300
-Text Label 7200 16300 2    75   ~ 0
-adder3
-Wire Wire Line
-	6200 16450 7500 16450
-Text Label 7200 16450 2    75   ~ 0
-and3
-Text Label 7200 17300 2    75   ~ 0
-xor3
-Wire Wire Line
-	5700 17300 7700 17300
-Text Label 3850 18950 2    75   ~ 0
-bus4
-Wire Wire Line
-	3250 18950 3900 18950
-$Comp
-L 74xx:74LS08 U?
-U 1 1 642474C1
-P 5200 18450
-AR Path="/600C5001/60248238/6016C9C5/642474C1" Ref="U?"  Part="4" 
-AR Path="/600C5001/60248238/6016C700/642474C1" Ref="U?"  Part="3" 
-AR Path="/600C5001/60248238/6016C4DC/642474C1" Ref="U?"  Part="2" 
-AR Path="/600C5001/60248238/6014201D/642474C1" Ref="U?"  Part="1" 
-AR Path="/600C5001/60260EB9/6016C9C5/642474C1" Ref="U?"  Part="4" 
-AR Path="/600C5001/60260EB9/6016C700/642474C1" Ref="U?"  Part="3" 
-AR Path="/600C5001/60260EB9/6016C4DC/642474C1" Ref="U?"  Part="2" 
-AR Path="/600C5001/60260EB9/6014201D/642474C1" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C9C5/642474C1" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C700/642474C1" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C4DC/642474C1" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6014201D/642474C1" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C9C5/642474C1" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C700/642474C1" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C4DC/642474C1" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6014201D/642474C1" Ref="U?"  Part="1" 
-AR Path="/62525FCD/642474C1" Ref="U?"  Part="1" 
-AR Path="/62525FD6/642474C1" Ref="U?"  Part="1" 
-AR Path="/62525FDF/642474C1" Ref="U?"  Part="1" 
-AR Path="/62525FE8/642474C1" Ref="U?"  Part="1" 
-AR Path="/642474C1" Ref="U?"  Part="1" 
-F 0 "U?" H 5200 18775 50  0000 C CNN
-F 1 "74LS08" H 5200 18684 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 5200 18450 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 5200 18450 50  0001 C CNN
-	1    5200 18450
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4900 18350 4850 18350
-Wire Wire Line
-	4850 18350 4850 18850
-Wire Wire Line
-	4850 18850 4900 18850
-Wire Wire Line
-	4900 18550 4750 18550
-Wire Wire Line
-	4750 18550 4750 19050
-Wire Wire Line
-	4750 19050 4900 19050
-Connection ~ 4750 19050
-Connection ~ 4850 18350
-$Comp
-L 74xx:74LS86 U?
-U 1 1 642474CF
-P 5200 18950
-AR Path="/600C5001/60248238/6016C9C5/642474CF" Ref="U?"  Part="4" 
-AR Path="/600C5001/60248238/6016C700/642474CF" Ref="U?"  Part="3" 
-AR Path="/600C5001/60248238/6016C4DC/642474CF" Ref="U?"  Part="2" 
-AR Path="/600C5001/60248238/6014201D/642474CF" Ref="U?"  Part="1" 
-AR Path="/600C5001/60260EB9/6016C9C5/642474CF" Ref="U?"  Part="4" 
-AR Path="/600C5001/60260EB9/6016C700/642474CF" Ref="U?"  Part="3" 
-AR Path="/600C5001/60260EB9/6016C4DC/642474CF" Ref="U?"  Part="2" 
-AR Path="/600C5001/60260EB9/6014201D/642474CF" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C9C5/642474CF" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C700/642474CF" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C4DC/642474CF" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6014201D/642474CF" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C9C5/642474CF" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C700/642474CF" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C4DC/642474CF" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6014201D/642474CF" Ref="U?"  Part="1" 
-AR Path="/62525FCD/642474CF" Ref="U?"  Part="1" 
-AR Path="/62525FD6/642474CF" Ref="U?"  Part="1" 
-AR Path="/62525FDF/642474CF" Ref="U?"  Part="1" 
-AR Path="/62525FE8/642474CF" Ref="U?"  Part="1" 
-AR Path="/642474CF" Ref="U?"  Part="1" 
-F 0 "U?" H 5200 19275 50  0000 C CNN
-F 1 "74LS86" H 5200 19184 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 5200 18950 50  0001 C CNN
-F 3 "74xx/74ls86.pdf" H 5200 18950 50  0001 C CNN
-	1    5200 18950
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6200 18450 6200 18200
-Wire Wire Line
-	5700 19050 5700 18950
-$Comp
-L 74xx:74LS32 U?
-U 1 1 642474D7
-P 6750 18550
-AR Path="/600C5001/60248238/6016C9C5/642474D7" Ref="U?"  Part="4" 
-AR Path="/600C5001/60248238/6016C700/642474D7" Ref="U?"  Part="3" 
-AR Path="/600C5001/60248238/6016C4DC/642474D7" Ref="U?"  Part="2" 
-AR Path="/600C5001/60248238/6014201D/642474D7" Ref="U?"  Part="1" 
-AR Path="/600C5001/60260EB9/6016C9C5/642474D7" Ref="U?"  Part="4" 
-AR Path="/600C5001/60260EB9/6016C700/642474D7" Ref="U?"  Part="3" 
-AR Path="/600C5001/60260EB9/6016C4DC/642474D7" Ref="U?"  Part="2" 
-AR Path="/600C5001/60260EB9/6014201D/642474D7" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C9C5/642474D7" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C700/642474D7" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C4DC/642474D7" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6014201D/642474D7" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C9C5/642474D7" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C700/642474D7" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C4DC/642474D7" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6014201D/642474D7" Ref="U?"  Part="1" 
-AR Path="/62525FCD/642474D7" Ref="U?"  Part="1" 
-AR Path="/62525FD6/642474D7" Ref="U?"  Part="1" 
-AR Path="/62525FDF/642474D7" Ref="U?"  Part="1" 
-AR Path="/62525FE8/642474D7" Ref="U?"  Part="1" 
-AR Path="/642474D7" Ref="U?"  Part="1" 
-F 0 "U?" H 6750 18875 50  0000 C CNN
-F 1 "74LS32" H 6750 18784 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 6750 18550 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 6750 18550 50  0001 C CNN
-	1    6750 18550
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6450 18850 6450 18650
-Wire Wire Line
-	6350 18850 6450 18850
-Wire Wire Line
-	5500 18450 6200 18450
-Wire Wire Line
-	5700 18950 5750 18950
-Connection ~ 5700 18950
-Wire Wire Line
-	5700 18150 5700 18950
-Wire Wire Line
-	5750 18150 5700 18150
-Wire Wire Line
-	5500 18950 5700 18950
-Connection ~ 5600 17950
-Wire Wire Line
-	5600 18750 5750 18750
-Wire Wire Line
-	5600 17950 5600 18750
-Wire Wire Line
-	5750 17950 5600 17950
-$Comp
-L 74xx:74LS86 U?
-U 1 1 642474EB
-P 6050 18050
-AR Path="/600C5001/60248238/6016C9C5/642474EB" Ref="U?"  Part="4" 
-AR Path="/600C5001/60248238/6016C700/642474EB" Ref="U?"  Part="3" 
-AR Path="/600C5001/60248238/6016C4DC/642474EB" Ref="U?"  Part="2" 
-AR Path="/600C5001/60248238/6014201D/642474EB" Ref="U?"  Part="1" 
-AR Path="/600C5001/60260EB9/6016C9C5/642474EB" Ref="U?"  Part="4" 
-AR Path="/600C5001/60260EB9/6016C700/642474EB" Ref="U?"  Part="3" 
-AR Path="/600C5001/60260EB9/6016C4DC/642474EB" Ref="U?"  Part="2" 
-AR Path="/600C5001/60260EB9/6014201D/642474EB" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C9C5/642474EB" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C700/642474EB" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C4DC/642474EB" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6014201D/642474EB" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C9C5/642474EB" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C700/642474EB" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C4DC/642474EB" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6014201D/642474EB" Ref="U?"  Part="1" 
-AR Path="/62525FCD/642474EB" Ref="U?"  Part="1" 
-AR Path="/62525FD6/642474EB" Ref="U?"  Part="1" 
-AR Path="/62525FDF/642474EB" Ref="U?"  Part="1" 
-AR Path="/62525FE8/642474EB" Ref="U?"  Part="1" 
-AR Path="/642474EB" Ref="U?"  Part="1" 
-F 0 "U?" H 6050 18375 50  0000 C CNN
-F 1 "74LS86" H 6050 18284 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 6050 18050 50  0001 C CNN
-F 3 "74xx/74ls86.pdf" H 6050 18050 50  0001 C CNN
-	1    6050 18050
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74LS08 U?
-U 1 1 642474F1
-P 6050 18850
-AR Path="/600C5001/60248238/6016C9C5/642474F1" Ref="U?"  Part="4" 
-AR Path="/600C5001/60248238/6016C700/642474F1" Ref="U?"  Part="3" 
-AR Path="/600C5001/60248238/6016C4DC/642474F1" Ref="U?"  Part="2" 
-AR Path="/600C5001/60248238/6014201D/642474F1" Ref="U?"  Part="1" 
-AR Path="/600C5001/60260EB9/6016C9C5/642474F1" Ref="U?"  Part="4" 
-AR Path="/600C5001/60260EB9/6016C700/642474F1" Ref="U?"  Part="3" 
-AR Path="/600C5001/60260EB9/6016C4DC/642474F1" Ref="U?"  Part="2" 
-AR Path="/600C5001/60260EB9/6014201D/642474F1" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C9C5/642474F1" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C700/642474F1" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C4DC/642474F1" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6014201D/642474F1" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C9C5/642474F1" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C700/642474F1" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C4DC/642474F1" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6014201D/642474F1" Ref="U?"  Part="1" 
-AR Path="/62525FCD/642474F1" Ref="U?"  Part="1" 
-AR Path="/62525FD6/642474F1" Ref="U?"  Part="1" 
-AR Path="/62525FDF/642474F1" Ref="U?"  Part="1" 
-AR Path="/62525FE8/642474F1" Ref="U?"  Part="1" 
-AR Path="/642474F1" Ref="U?"  Part="1" 
-F 0 "U?" H 6050 19175 50  0000 C CNN
-F 1 "74LS08" H 6050 19084 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 6050 18850 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 6050 18850 50  0001 C CNN
-	1    6050 18850
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6200 18450 6450 18450
-Connection ~ 6200 18450
-Wire Wire Line
-	4500 19050 4750 19050
-$Comp
-L 74xx:74LS86 U?
-U 1 1 642474FA
-P 4200 19050
-AR Path="/600C5001/642474FA" Ref="U?"  Part="1" 
-AR Path="/642474FA" Ref="U?"  Part="1" 
-F 0 "U?" H 4200 19375 50  0000 C CNN
-F 1 "74LS86" H 4200 19284 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 4200 19050 50  0001 C CNN
-F 3 "74xx/74ls86.pdf" H 4200 19050 50  0001 C CNN
-	1    4200 19050
-	1    0    0    -1  
-$EndComp
-Text GLabel 3900 19150 0    75   Input ~ 0
-ctrlAluSub
-Text Label 4800 18350 2    75   ~ 0
-a4
-Wire Wire Line
-	4650 18350 4850 18350
-Entry Wire Line
-	4550 18250 4650 18350
-Entry Wire Line
-	3150 18850 3250 18950
-Entry Wire Line
-	7300 18050 7400 18150
-Entry Wire Line
-	7500 18200 7600 18300
-Entry Wire Line
-	7700 19050 7800 19150
-Wire Wire Line
-	6350 18050 7300 18050
-Text Label 7200 18050 2    75   ~ 0
-adder4
-Wire Wire Line
-	6200 18200 7500 18200
-Text Label 7200 18200 2    75   ~ 0
-and4
-Text Label 7200 19050 2    75   ~ 0
-xor4
-Wire Wire Line
-	5700 19050 7700 19050
-Text Label 3850 20700 2    75   ~ 0
-bus5
-Wire Wire Line
-	3250 20700 3900 20700
-$Comp
-L 74xx:74LS08 U?
-U 1 1 642DAF69
-P 5200 20200
-AR Path="/600C5001/60248238/6016C9C5/642DAF69" Ref="U?"  Part="4" 
-AR Path="/600C5001/60248238/6016C700/642DAF69" Ref="U?"  Part="3" 
-AR Path="/600C5001/60248238/6016C4DC/642DAF69" Ref="U?"  Part="2" 
-AR Path="/600C5001/60248238/6014201D/642DAF69" Ref="U?"  Part="1" 
-AR Path="/600C5001/60260EB9/6016C9C5/642DAF69" Ref="U?"  Part="4" 
-AR Path="/600C5001/60260EB9/6016C700/642DAF69" Ref="U?"  Part="3" 
-AR Path="/600C5001/60260EB9/6016C4DC/642DAF69" Ref="U?"  Part="2" 
-AR Path="/600C5001/60260EB9/6014201D/642DAF69" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C9C5/642DAF69" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C700/642DAF69" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C4DC/642DAF69" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6014201D/642DAF69" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C9C5/642DAF69" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C700/642DAF69" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C4DC/642DAF69" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6014201D/642DAF69" Ref="U?"  Part="1" 
-AR Path="/62525FCD/642DAF69" Ref="U?"  Part="1" 
-AR Path="/62525FD6/642DAF69" Ref="U?"  Part="1" 
-AR Path="/62525FDF/642DAF69" Ref="U?"  Part="1" 
-AR Path="/62525FE8/642DAF69" Ref="U?"  Part="1" 
-AR Path="/642DAF69" Ref="U?"  Part="1" 
-F 0 "U?" H 5200 20525 50  0000 C CNN
-F 1 "74LS08" H 5200 20434 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 5200 20200 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 5200 20200 50  0001 C CNN
-	1    5200 20200
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4900 20100 4850 20100
-Wire Wire Line
-	4850 20100 4850 20600
-Wire Wire Line
-	4850 20600 4900 20600
-Wire Wire Line
-	4900 20300 4750 20300
-Wire Wire Line
-	4750 20300 4750 20800
-Wire Wire Line
-	4750 20800 4900 20800
-Connection ~ 4750 20800
-Connection ~ 4850 20100
-$Comp
-L 74xx:74LS86 U?
-U 1 1 642DAF77
-P 5200 20700
-AR Path="/600C5001/60248238/6016C9C5/642DAF77" Ref="U?"  Part="4" 
-AR Path="/600C5001/60248238/6016C700/642DAF77" Ref="U?"  Part="3" 
-AR Path="/600C5001/60248238/6016C4DC/642DAF77" Ref="U?"  Part="2" 
-AR Path="/600C5001/60248238/6014201D/642DAF77" Ref="U?"  Part="1" 
-AR Path="/600C5001/60260EB9/6016C9C5/642DAF77" Ref="U?"  Part="4" 
-AR Path="/600C5001/60260EB9/6016C700/642DAF77" Ref="U?"  Part="3" 
-AR Path="/600C5001/60260EB9/6016C4DC/642DAF77" Ref="U?"  Part="2" 
-AR Path="/600C5001/60260EB9/6014201D/642DAF77" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C9C5/642DAF77" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C700/642DAF77" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C4DC/642DAF77" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6014201D/642DAF77" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C9C5/642DAF77" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C700/642DAF77" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C4DC/642DAF77" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6014201D/642DAF77" Ref="U?"  Part="1" 
-AR Path="/62525FCD/642DAF77" Ref="U?"  Part="1" 
-AR Path="/62525FD6/642DAF77" Ref="U?"  Part="1" 
-AR Path="/62525FDF/642DAF77" Ref="U?"  Part="1" 
-AR Path="/62525FE8/642DAF77" Ref="U?"  Part="1" 
-AR Path="/642DAF77" Ref="U?"  Part="1" 
-F 0 "U?" H 5200 21025 50  0000 C CNN
-F 1 "74LS86" H 5200 20934 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 5200 20700 50  0001 C CNN
-F 3 "74xx/74ls86.pdf" H 5200 20700 50  0001 C CNN
-	1    5200 20700
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6200 20200 6200 19950
-Wire Wire Line
-	5700 20800 5700 20700
-$Comp
-L 74xx:74LS32 U?
-U 1 1 642DAF7F
-P 6750 20300
-AR Path="/600C5001/60248238/6016C9C5/642DAF7F" Ref="U?"  Part="4" 
-AR Path="/600C5001/60248238/6016C700/642DAF7F" Ref="U?"  Part="3" 
-AR Path="/600C5001/60248238/6016C4DC/642DAF7F" Ref="U?"  Part="2" 
-AR Path="/600C5001/60248238/6014201D/642DAF7F" Ref="U?"  Part="1" 
-AR Path="/600C5001/60260EB9/6016C9C5/642DAF7F" Ref="U?"  Part="4" 
-AR Path="/600C5001/60260EB9/6016C700/642DAF7F" Ref="U?"  Part="3" 
-AR Path="/600C5001/60260EB9/6016C4DC/642DAF7F" Ref="U?"  Part="2" 
-AR Path="/600C5001/60260EB9/6014201D/642DAF7F" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C9C5/642DAF7F" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C700/642DAF7F" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C4DC/642DAF7F" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6014201D/642DAF7F" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C9C5/642DAF7F" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C700/642DAF7F" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C4DC/642DAF7F" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6014201D/642DAF7F" Ref="U?"  Part="1" 
-AR Path="/62525FCD/642DAF7F" Ref="U?"  Part="1" 
-AR Path="/62525FD6/642DAF7F" Ref="U?"  Part="1" 
-AR Path="/62525FDF/642DAF7F" Ref="U?"  Part="1" 
-AR Path="/62525FE8/642DAF7F" Ref="U?"  Part="1" 
-AR Path="/642DAF7F" Ref="U?"  Part="1" 
-F 0 "U?" H 6750 20625 50  0000 C CNN
-F 1 "74LS32" H 6750 20534 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 6750 20300 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 6750 20300 50  0001 C CNN
-	1    6750 20300
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6450 20600 6450 20400
-Wire Wire Line
-	6350 20600 6450 20600
-Wire Wire Line
-	5500 20200 6200 20200
-Wire Wire Line
-	5700 20700 5750 20700
-Connection ~ 5700 20700
-Wire Wire Line
-	5700 19900 5700 20700
-Wire Wire Line
-	5750 19900 5700 19900
-Wire Wire Line
-	5500 20700 5700 20700
-Wire Wire Line
-	5600 20500 5750 20500
-Wire Wire Line
-	5600 19700 5600 20500
-Wire Wire Line
-	5750 19700 5600 19700
-$Comp
-L 74xx:74LS86 U?
-U 1 1 642DAF93
-P 6050 19800
-AR Path="/600C5001/60248238/6016C9C5/642DAF93" Ref="U?"  Part="4" 
-AR Path="/600C5001/60248238/6016C700/642DAF93" Ref="U?"  Part="3" 
-AR Path="/600C5001/60248238/6016C4DC/642DAF93" Ref="U?"  Part="2" 
-AR Path="/600C5001/60248238/6014201D/642DAF93" Ref="U?"  Part="1" 
-AR Path="/600C5001/60260EB9/6016C9C5/642DAF93" Ref="U?"  Part="4" 
-AR Path="/600C5001/60260EB9/6016C700/642DAF93" Ref="U?"  Part="3" 
-AR Path="/600C5001/60260EB9/6016C4DC/642DAF93" Ref="U?"  Part="2" 
-AR Path="/600C5001/60260EB9/6014201D/642DAF93" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C9C5/642DAF93" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C700/642DAF93" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C4DC/642DAF93" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6014201D/642DAF93" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C9C5/642DAF93" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C700/642DAF93" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C4DC/642DAF93" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6014201D/642DAF93" Ref="U?"  Part="1" 
-AR Path="/62525FCD/642DAF93" Ref="U?"  Part="1" 
-AR Path="/62525FD6/642DAF93" Ref="U?"  Part="1" 
-AR Path="/62525FDF/642DAF93" Ref="U?"  Part="1" 
-AR Path="/62525FE8/642DAF93" Ref="U?"  Part="1" 
-AR Path="/642DAF93" Ref="U?"  Part="1" 
-F 0 "U?" H 6050 20125 50  0000 C CNN
-F 1 "74LS86" H 6050 20034 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 6050 19800 50  0001 C CNN
-F 3 "74xx/74ls86.pdf" H 6050 19800 50  0001 C CNN
-	1    6050 19800
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74LS08 U?
-U 1 1 642DAF99
-P 6050 20600
-AR Path="/600C5001/60248238/6016C9C5/642DAF99" Ref="U?"  Part="4" 
-AR Path="/600C5001/60248238/6016C700/642DAF99" Ref="U?"  Part="3" 
-AR Path="/600C5001/60248238/6016C4DC/642DAF99" Ref="U?"  Part="2" 
-AR Path="/600C5001/60248238/6014201D/642DAF99" Ref="U?"  Part="1" 
-AR Path="/600C5001/60260EB9/6016C9C5/642DAF99" Ref="U?"  Part="4" 
-AR Path="/600C5001/60260EB9/6016C700/642DAF99" Ref="U?"  Part="3" 
-AR Path="/600C5001/60260EB9/6016C4DC/642DAF99" Ref="U?"  Part="2" 
-AR Path="/600C5001/60260EB9/6014201D/642DAF99" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C9C5/642DAF99" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C700/642DAF99" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C4DC/642DAF99" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6014201D/642DAF99" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C9C5/642DAF99" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C700/642DAF99" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C4DC/642DAF99" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6014201D/642DAF99" Ref="U?"  Part="1" 
-AR Path="/62525FCD/642DAF99" Ref="U?"  Part="1" 
-AR Path="/62525FD6/642DAF99" Ref="U?"  Part="1" 
-AR Path="/62525FDF/642DAF99" Ref="U?"  Part="1" 
-AR Path="/62525FE8/642DAF99" Ref="U?"  Part="1" 
-AR Path="/642DAF99" Ref="U?"  Part="1" 
-F 0 "U?" H 6050 20925 50  0000 C CNN
-F 1 "74LS08" H 6050 20834 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 6050 20600 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 6050 20600 50  0001 C CNN
-	1    6050 20600
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6200 20200 6450 20200
-Connection ~ 6200 20200
-Wire Wire Line
-	4500 20800 4750 20800
-$Comp
-L 74xx:74LS86 U?
-U 1 1 642DAFA2
-P 4200 20800
-AR Path="/600C5001/642DAFA2" Ref="U?"  Part="1" 
-AR Path="/642DAFA2" Ref="U?"  Part="1" 
-F 0 "U?" H 4200 21125 50  0000 C CNN
-F 1 "74LS86" H 4200 21034 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 4200 20800 50  0001 C CNN
-F 3 "74xx/74ls86.pdf" H 4200 20800 50  0001 C CNN
-	1    4200 20800
-	1    0    0    -1  
-$EndComp
-Text GLabel 3900 20900 0    75   Input ~ 0
-ctrlAluSub
-Text Label 4800 20100 2    75   ~ 0
-a5
-Wire Wire Line
-	4650 20100 4850 20100
-Entry Wire Line
-	4550 20000 4650 20100
-Entry Wire Line
-	3150 20600 3250 20700
-Entry Wire Line
-	7300 19800 7400 19900
-Entry Wire Line
-	7500 19950 7600 20050
-Entry Wire Line
-	7700 20800 7800 20900
-Wire Wire Line
-	6350 19800 7300 19800
-Text Label 7200 19800 2    75   ~ 0
-adder5
-Wire Wire Line
-	6200 19950 7500 19950
-Text Label 7200 19950 2    75   ~ 0
-and5
-Text Label 7200 20800 2    75   ~ 0
-xor5
-Wire Wire Line
-	5700 20800 7700 20800
-Text Label 3850 22450 2    75   ~ 0
-bus6
-Wire Wire Line
-	3250 22450 3900 22450
-$Comp
-L 74xx:74LS08 U?
-U 1 1 64380C3A
-P 5200 21950
-AR Path="/600C5001/60248238/6016C9C5/64380C3A" Ref="U?"  Part="4" 
-AR Path="/600C5001/60248238/6016C700/64380C3A" Ref="U?"  Part="3" 
-AR Path="/600C5001/60248238/6016C4DC/64380C3A" Ref="U?"  Part="2" 
-AR Path="/600C5001/60248238/6014201D/64380C3A" Ref="U?"  Part="1" 
-AR Path="/600C5001/60260EB9/6016C9C5/64380C3A" Ref="U?"  Part="4" 
-AR Path="/600C5001/60260EB9/6016C700/64380C3A" Ref="U?"  Part="3" 
-AR Path="/600C5001/60260EB9/6016C4DC/64380C3A" Ref="U?"  Part="2" 
-AR Path="/600C5001/60260EB9/6014201D/64380C3A" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C9C5/64380C3A" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C700/64380C3A" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C4DC/64380C3A" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6014201D/64380C3A" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C9C5/64380C3A" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C700/64380C3A" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C4DC/64380C3A" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6014201D/64380C3A" Ref="U?"  Part="1" 
-AR Path="/62525FCD/64380C3A" Ref="U?"  Part="1" 
-AR Path="/62525FD6/64380C3A" Ref="U?"  Part="1" 
-AR Path="/62525FDF/64380C3A" Ref="U?"  Part="1" 
-AR Path="/62525FE8/64380C3A" Ref="U?"  Part="1" 
-AR Path="/64380C3A" Ref="U?"  Part="1" 
-F 0 "U?" H 5200 22275 50  0000 C CNN
-F 1 "74LS08" H 5200 22184 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 5200 21950 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 5200 21950 50  0001 C CNN
-	1    5200 21950
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4900 21850 4850 21850
-Wire Wire Line
-	4850 21850 4850 22350
-Wire Wire Line
-	4850 22350 4900 22350
-Wire Wire Line
-	4900 22050 4750 22050
-Wire Wire Line
-	4750 22050 4750 22550
-Wire Wire Line
-	4750 22550 4900 22550
-Connection ~ 4750 22550
-Connection ~ 4850 21850
-$Comp
-L 74xx:74LS86 U?
-U 1 1 64380C48
-P 5200 22450
-AR Path="/600C5001/60248238/6016C9C5/64380C48" Ref="U?"  Part="4" 
-AR Path="/600C5001/60248238/6016C700/64380C48" Ref="U?"  Part="3" 
-AR Path="/600C5001/60248238/6016C4DC/64380C48" Ref="U?"  Part="2" 
-AR Path="/600C5001/60248238/6014201D/64380C48" Ref="U?"  Part="1" 
-AR Path="/600C5001/60260EB9/6016C9C5/64380C48" Ref="U?"  Part="4" 
-AR Path="/600C5001/60260EB9/6016C700/64380C48" Ref="U?"  Part="3" 
-AR Path="/600C5001/60260EB9/6016C4DC/64380C48" Ref="U?"  Part="2" 
-AR Path="/600C5001/60260EB9/6014201D/64380C48" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C9C5/64380C48" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C700/64380C48" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C4DC/64380C48" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6014201D/64380C48" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C9C5/64380C48" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C700/64380C48" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C4DC/64380C48" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6014201D/64380C48" Ref="U?"  Part="1" 
-AR Path="/62525FCD/64380C48" Ref="U?"  Part="1" 
-AR Path="/62525FD6/64380C48" Ref="U?"  Part="1" 
-AR Path="/62525FDF/64380C48" Ref="U?"  Part="1" 
-AR Path="/62525FE8/64380C48" Ref="U?"  Part="1" 
-AR Path="/64380C48" Ref="U?"  Part="1" 
-F 0 "U?" H 5200 22775 50  0000 C CNN
-F 1 "74LS86" H 5200 22684 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 5200 22450 50  0001 C CNN
-F 3 "74xx/74ls86.pdf" H 5200 22450 50  0001 C CNN
-	1    5200 22450
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6200 21950 6200 21700
-Wire Wire Line
-	5700 22550 5700 22450
-$Comp
-L 74xx:74LS32 U?
-U 1 1 64380C50
-P 6750 22050
-AR Path="/600C5001/60248238/6016C9C5/64380C50" Ref="U?"  Part="4" 
-AR Path="/600C5001/60248238/6016C700/64380C50" Ref="U?"  Part="3" 
-AR Path="/600C5001/60248238/6016C4DC/64380C50" Ref="U?"  Part="2" 
-AR Path="/600C5001/60248238/6014201D/64380C50" Ref="U?"  Part="1" 
-AR Path="/600C5001/60260EB9/6016C9C5/64380C50" Ref="U?"  Part="4" 
-AR Path="/600C5001/60260EB9/6016C700/64380C50" Ref="U?"  Part="3" 
-AR Path="/600C5001/60260EB9/6016C4DC/64380C50" Ref="U?"  Part="2" 
-AR Path="/600C5001/60260EB9/6014201D/64380C50" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C9C5/64380C50" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C700/64380C50" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C4DC/64380C50" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6014201D/64380C50" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C9C5/64380C50" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C700/64380C50" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C4DC/64380C50" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6014201D/64380C50" Ref="U?"  Part="1" 
-AR Path="/62525FCD/64380C50" Ref="U?"  Part="1" 
-AR Path="/62525FD6/64380C50" Ref="U?"  Part="1" 
-AR Path="/62525FDF/64380C50" Ref="U?"  Part="1" 
-AR Path="/62525FE8/64380C50" Ref="U?"  Part="1" 
-AR Path="/64380C50" Ref="U?"  Part="1" 
-F 0 "U?" H 6750 22375 50  0000 C CNN
-F 1 "74LS32" H 6750 22284 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 6750 22050 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 6750 22050 50  0001 C CNN
-	1    6750 22050
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6450 22350 6450 22150
-Wire Wire Line
-	6350 22350 6450 22350
-Wire Wire Line
-	5500 21950 6200 21950
-Wire Wire Line
-	5700 22450 5750 22450
-Connection ~ 5700 22450
-Wire Wire Line
-	5700 21650 5700 22450
-Wire Wire Line
-	5750 21650 5700 21650
-Wire Wire Line
-	5500 22450 5700 22450
-Wire Wire Line
-	5600 22250 5750 22250
-Wire Wire Line
-	5600 21450 5600 22250
-Wire Wire Line
-	5750 21450 5600 21450
-$Comp
-L 74xx:74LS86 U?
-U 1 1 64380C64
-P 6050 21550
-AR Path="/600C5001/60248238/6016C9C5/64380C64" Ref="U?"  Part="4" 
-AR Path="/600C5001/60248238/6016C700/64380C64" Ref="U?"  Part="3" 
-AR Path="/600C5001/60248238/6016C4DC/64380C64" Ref="U?"  Part="2" 
-AR Path="/600C5001/60248238/6014201D/64380C64" Ref="U?"  Part="1" 
-AR Path="/600C5001/60260EB9/6016C9C5/64380C64" Ref="U?"  Part="4" 
-AR Path="/600C5001/60260EB9/6016C700/64380C64" Ref="U?"  Part="3" 
-AR Path="/600C5001/60260EB9/6016C4DC/64380C64" Ref="U?"  Part="2" 
-AR Path="/600C5001/60260EB9/6014201D/64380C64" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C9C5/64380C64" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C700/64380C64" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C4DC/64380C64" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6014201D/64380C64" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C9C5/64380C64" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C700/64380C64" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C4DC/64380C64" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6014201D/64380C64" Ref="U?"  Part="1" 
-AR Path="/62525FCD/64380C64" Ref="U?"  Part="1" 
-AR Path="/62525FD6/64380C64" Ref="U?"  Part="1" 
-AR Path="/62525FDF/64380C64" Ref="U?"  Part="1" 
-AR Path="/62525FE8/64380C64" Ref="U?"  Part="1" 
-AR Path="/64380C64" Ref="U?"  Part="1" 
-F 0 "U?" H 6050 21875 50  0000 C CNN
-F 1 "74LS86" H 6050 21784 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 6050 21550 50  0001 C CNN
-F 3 "74xx/74ls86.pdf" H 6050 21550 50  0001 C CNN
-	1    6050 21550
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74LS08 U?
-U 1 1 64380C6A
-P 6050 22350
-AR Path="/600C5001/60248238/6016C9C5/64380C6A" Ref="U?"  Part="4" 
-AR Path="/600C5001/60248238/6016C700/64380C6A" Ref="U?"  Part="3" 
-AR Path="/600C5001/60248238/6016C4DC/64380C6A" Ref="U?"  Part="2" 
-AR Path="/600C5001/60248238/6014201D/64380C6A" Ref="U?"  Part="1" 
-AR Path="/600C5001/60260EB9/6016C9C5/64380C6A" Ref="U?"  Part="4" 
-AR Path="/600C5001/60260EB9/6016C700/64380C6A" Ref="U?"  Part="3" 
-AR Path="/600C5001/60260EB9/6016C4DC/64380C6A" Ref="U?"  Part="2" 
-AR Path="/600C5001/60260EB9/6014201D/64380C6A" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C9C5/64380C6A" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C700/64380C6A" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C4DC/64380C6A" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6014201D/64380C6A" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C9C5/64380C6A" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C700/64380C6A" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C4DC/64380C6A" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6014201D/64380C6A" Ref="U?"  Part="1" 
-AR Path="/62525FCD/64380C6A" Ref="U?"  Part="1" 
-AR Path="/62525FD6/64380C6A" Ref="U?"  Part="1" 
-AR Path="/62525FDF/64380C6A" Ref="U?"  Part="1" 
-AR Path="/62525FE8/64380C6A" Ref="U?"  Part="1" 
-AR Path="/64380C6A" Ref="U?"  Part="1" 
-F 0 "U?" H 6050 22675 50  0000 C CNN
-F 1 "74LS08" H 6050 22584 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 6050 22350 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 6050 22350 50  0001 C CNN
-	1    6050 22350
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6200 21950 6450 21950
-Connection ~ 6200 21950
-Wire Wire Line
-	4500 22550 4750 22550
-$Comp
-L 74xx:74LS86 U?
-U 1 1 64380C73
-P 4200 22550
-AR Path="/600C5001/64380C73" Ref="U?"  Part="1" 
-AR Path="/64380C73" Ref="U?"  Part="1" 
-F 0 "U?" H 4200 22875 50  0000 C CNN
-F 1 "74LS86" H 4200 22784 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 4200 22550 50  0001 C CNN
-F 3 "74xx/74ls86.pdf" H 4200 22550 50  0001 C CNN
-	1    4200 22550
-	1    0    0    -1  
-$EndComp
-Text GLabel 3900 22650 0    75   Input ~ 0
-ctrlAluSub
-Text Label 4800 21850 2    75   ~ 0
-a6
-Wire Wire Line
-	4650 21850 4850 21850
-Entry Wire Line
-	4550 21750 4650 21850
-Entry Wire Line
-	3150 22350 3250 22450
-Entry Wire Line
-	7300 21550 7400 21650
-Entry Wire Line
-	7500 21700 7600 21800
-Entry Wire Line
-	7700 22550 7800 22650
-Wire Wire Line
-	6350 21550 7300 21550
-Text Label 7200 21550 2    75   ~ 0
-adder6
-Wire Wire Line
-	6200 21700 7500 21700
-Text Label 7200 21700 2    75   ~ 0
-and6
-Text Label 7200 22550 2    75   ~ 0
-xor6
-Wire Wire Line
-	5700 22550 7700 22550
-Text Label 3850 24200 2    75   ~ 0
-bus7
-Wire Wire Line
-	3250 24200 3900 24200
-$Comp
-L 74xx:74LS08 U?
-U 1 1 6442C484
-P 5200 23700
-AR Path="/600C5001/60248238/6016C9C5/6442C484" Ref="U?"  Part="4" 
-AR Path="/600C5001/60248238/6016C700/6442C484" Ref="U?"  Part="3" 
-AR Path="/600C5001/60248238/6016C4DC/6442C484" Ref="U?"  Part="2" 
-AR Path="/600C5001/60248238/6014201D/6442C484" Ref="U?"  Part="1" 
-AR Path="/600C5001/60260EB9/6016C9C5/6442C484" Ref="U?"  Part="4" 
-AR Path="/600C5001/60260EB9/6016C700/6442C484" Ref="U?"  Part="3" 
-AR Path="/600C5001/60260EB9/6016C4DC/6442C484" Ref="U?"  Part="2" 
-AR Path="/600C5001/60260EB9/6014201D/6442C484" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C9C5/6442C484" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C700/6442C484" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C4DC/6442C484" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6014201D/6442C484" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C9C5/6442C484" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C700/6442C484" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C4DC/6442C484" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6014201D/6442C484" Ref="U?"  Part="1" 
-AR Path="/62525FCD/6442C484" Ref="U?"  Part="1" 
-AR Path="/62525FD6/6442C484" Ref="U?"  Part="1" 
-AR Path="/62525FDF/6442C484" Ref="U?"  Part="1" 
-AR Path="/62525FE8/6442C484" Ref="U?"  Part="1" 
-AR Path="/6442C484" Ref="U?"  Part="1" 
-F 0 "U?" H 5200 24025 50  0000 C CNN
-F 1 "74LS08" H 5200 23934 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 5200 23700 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 5200 23700 50  0001 C CNN
-	1    5200 23700
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4900 23600 4850 23600
-Wire Wire Line
-	4850 23600 4850 24100
-Wire Wire Line
-	4850 24100 4900 24100
-Wire Wire Line
-	4900 23800 4750 23800
-Wire Wire Line
-	4750 23800 4750 24300
-Wire Wire Line
-	4750 24300 4900 24300
-Connection ~ 4750 24300
-Connection ~ 4850 23600
-$Comp
-L 74xx:74LS86 U?
-U 1 1 6442C492
-P 5200 24200
-AR Path="/600C5001/60248238/6016C9C5/6442C492" Ref="U?"  Part="4" 
-AR Path="/600C5001/60248238/6016C700/6442C492" Ref="U?"  Part="3" 
-AR Path="/600C5001/60248238/6016C4DC/6442C492" Ref="U?"  Part="2" 
-AR Path="/600C5001/60248238/6014201D/6442C492" Ref="U?"  Part="1" 
-AR Path="/600C5001/60260EB9/6016C9C5/6442C492" Ref="U?"  Part="4" 
-AR Path="/600C5001/60260EB9/6016C700/6442C492" Ref="U?"  Part="3" 
-AR Path="/600C5001/60260EB9/6016C4DC/6442C492" Ref="U?"  Part="2" 
-AR Path="/600C5001/60260EB9/6014201D/6442C492" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C9C5/6442C492" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C700/6442C492" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C4DC/6442C492" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6014201D/6442C492" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C9C5/6442C492" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C700/6442C492" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C4DC/6442C492" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6014201D/6442C492" Ref="U?"  Part="1" 
-AR Path="/62525FCD/6442C492" Ref="U?"  Part="1" 
-AR Path="/62525FD6/6442C492" Ref="U?"  Part="1" 
-AR Path="/62525FDF/6442C492" Ref="U?"  Part="1" 
-AR Path="/62525FE8/6442C492" Ref="U?"  Part="1" 
-AR Path="/6442C492" Ref="U?"  Part="1" 
-F 0 "U?" H 5200 24525 50  0000 C CNN
-F 1 "74LS86" H 5200 24434 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 5200 24200 50  0001 C CNN
-F 3 "74xx/74ls86.pdf" H 5200 24200 50  0001 C CNN
-	1    5200 24200
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6200 23700 6200 23450
-Wire Wire Line
-	5700 24300 5700 24200
-$Comp
-L 74xx:74LS32 U?
-U 1 1 6442C49A
-P 6750 23800
-AR Path="/600C5001/60248238/6016C9C5/6442C49A" Ref="U?"  Part="4" 
-AR Path="/600C5001/60248238/6016C700/6442C49A" Ref="U?"  Part="3" 
-AR Path="/600C5001/60248238/6016C4DC/6442C49A" Ref="U?"  Part="2" 
-AR Path="/600C5001/60248238/6014201D/6442C49A" Ref="U?"  Part="1" 
-AR Path="/600C5001/60260EB9/6016C9C5/6442C49A" Ref="U?"  Part="4" 
-AR Path="/600C5001/60260EB9/6016C700/6442C49A" Ref="U?"  Part="3" 
-AR Path="/600C5001/60260EB9/6016C4DC/6442C49A" Ref="U?"  Part="2" 
-AR Path="/600C5001/60260EB9/6014201D/6442C49A" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C9C5/6442C49A" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C700/6442C49A" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C4DC/6442C49A" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6014201D/6442C49A" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C9C5/6442C49A" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C700/6442C49A" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C4DC/6442C49A" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6014201D/6442C49A" Ref="U?"  Part="1" 
-AR Path="/62525FCD/6442C49A" Ref="U?"  Part="1" 
-AR Path="/62525FD6/6442C49A" Ref="U?"  Part="1" 
-AR Path="/62525FDF/6442C49A" Ref="U?"  Part="1" 
-AR Path="/62525FE8/6442C49A" Ref="U?"  Part="1" 
-AR Path="/6442C49A" Ref="U?"  Part="1" 
-F 0 "U?" H 6750 24125 50  0000 C CNN
-F 1 "74LS32" H 6750 24034 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 6750 23800 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 6750 23800 50  0001 C CNN
-	1    6750 23800
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6450 24100 6450 23900
-Wire Wire Line
-	6350 24100 6450 24100
-Wire Wire Line
-	5500 23700 6200 23700
-Wire Wire Line
-	5700 24200 5750 24200
-Connection ~ 5700 24200
-Wire Wire Line
-	5700 23400 5700 24200
-Wire Wire Line
-	5750 23400 5700 23400
-Wire Wire Line
-	5500 24200 5700 24200
-Wire Wire Line
-	5600 24000 5750 24000
-Wire Wire Line
-	5600 23200 5600 24000
-Wire Wire Line
-	5750 23200 5600 23200
-$Comp
-L 74xx:74LS86 U?
-U 1 1 6442C4AE
-P 6050 23300
-AR Path="/600C5001/60248238/6016C9C5/6442C4AE" Ref="U?"  Part="4" 
-AR Path="/600C5001/60248238/6016C700/6442C4AE" Ref="U?"  Part="3" 
-AR Path="/600C5001/60248238/6016C4DC/6442C4AE" Ref="U?"  Part="2" 
-AR Path="/600C5001/60248238/6014201D/6442C4AE" Ref="U?"  Part="1" 
-AR Path="/600C5001/60260EB9/6016C9C5/6442C4AE" Ref="U?"  Part="4" 
-AR Path="/600C5001/60260EB9/6016C700/6442C4AE" Ref="U?"  Part="3" 
-AR Path="/600C5001/60260EB9/6016C4DC/6442C4AE" Ref="U?"  Part="2" 
-AR Path="/600C5001/60260EB9/6014201D/6442C4AE" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C9C5/6442C4AE" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C700/6442C4AE" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C4DC/6442C4AE" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6014201D/6442C4AE" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C9C5/6442C4AE" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C700/6442C4AE" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C4DC/6442C4AE" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6014201D/6442C4AE" Ref="U?"  Part="1" 
-AR Path="/62525FCD/6442C4AE" Ref="U?"  Part="1" 
-AR Path="/62525FD6/6442C4AE" Ref="U?"  Part="1" 
-AR Path="/62525FDF/6442C4AE" Ref="U?"  Part="1" 
-AR Path="/62525FE8/6442C4AE" Ref="U?"  Part="1" 
-AR Path="/6442C4AE" Ref="U?"  Part="1" 
-F 0 "U?" H 6050 23625 50  0000 C CNN
-F 1 "74LS86" H 6050 23534 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 6050 23300 50  0001 C CNN
-F 3 "74xx/74ls86.pdf" H 6050 23300 50  0001 C CNN
-	1    6050 23300
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74LS08 U?
-U 1 1 6442C4B4
-P 6050 24100
-AR Path="/600C5001/60248238/6016C9C5/6442C4B4" Ref="U?"  Part="4" 
-AR Path="/600C5001/60248238/6016C700/6442C4B4" Ref="U?"  Part="3" 
-AR Path="/600C5001/60248238/6016C4DC/6442C4B4" Ref="U?"  Part="2" 
-AR Path="/600C5001/60248238/6014201D/6442C4B4" Ref="U?"  Part="1" 
-AR Path="/600C5001/60260EB9/6016C9C5/6442C4B4" Ref="U?"  Part="4" 
-AR Path="/600C5001/60260EB9/6016C700/6442C4B4" Ref="U?"  Part="3" 
-AR Path="/600C5001/60260EB9/6016C4DC/6442C4B4" Ref="U?"  Part="2" 
-AR Path="/600C5001/60260EB9/6014201D/6442C4B4" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C9C5/6442C4B4" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C700/6442C4B4" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6016C4DC/6442C4B4" Ref="U?"  Part="1" 
-AR Path="/61EF6542/6014201D/6442C4B4" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C9C5/6442C4B4" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C700/6442C4B4" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6016C4DC/6442C4B4" Ref="U?"  Part="1" 
-AR Path="/61EF655B/6014201D/6442C4B4" Ref="U?"  Part="1" 
-AR Path="/62525FCD/6442C4B4" Ref="U?"  Part="1" 
-AR Path="/62525FD6/6442C4B4" Ref="U?"  Part="1" 
-AR Path="/62525FDF/6442C4B4" Ref="U?"  Part="1" 
-AR Path="/62525FE8/6442C4B4" Ref="U?"  Part="1" 
-AR Path="/6442C4B4" Ref="U?"  Part="1" 
-F 0 "U?" H 6050 24425 50  0000 C CNN
-F 1 "74LS08" H 6050 24334 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 6050 24100 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 6050 24100 50  0001 C CNN
-	1    6050 24100
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6200 23700 6450 23700
-Connection ~ 6200 23700
-Wire Wire Line
-	4500 24300 4750 24300
-$Comp
-L 74xx:74LS86 U?
-U 1 1 6442C4BD
-P 4200 24300
-AR Path="/600C5001/6442C4BD" Ref="U?"  Part="1" 
-AR Path="/6442C4BD" Ref="U?"  Part="1" 
-F 0 "U?" H 4200 24625 50  0000 C CNN
-F 1 "74LS86" H 4200 24534 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 4200 24300 50  0001 C CNN
-F 3 "74xx/74ls86.pdf" H 4200 24300 50  0001 C CNN
-	1    4200 24300
-	1    0    0    -1  
-$EndComp
-Text GLabel 3900 24400 0    75   Input ~ 0
-ctrlAluSub
-Text Label 4800 23600 2    75   ~ 0
-a7
-Wire Wire Line
-	4650 23600 4850 23600
-Entry Wire Line
-	4550 23500 4650 23600
-Entry Wire Line
-	7300 23300 7400 23400
-Entry Wire Line
-	7500 23450 7600 23550
-Entry Wire Line
-	7700 24300 7800 24400
-Wire Wire Line
-	6350 23300 7300 23300
-Text Label 7200 23300 2    75   ~ 0
-adder7
-Wire Wire Line
-	6200 23450 7500 23450
-Text Label 7200 23450 2    75   ~ 0
-and7
-Text Label 7200 24300 2    75   ~ 0
-xor7
-Wire Wire Line
-	5700 24300 7700 24300
-Wire Wire Line
-	5600 12700 5600 12200
-Wire Wire Line
-	5600 12200 7250 12200
-Wire Wire Line
-	7250 12200 7250 11550
-Wire Wire Line
-	7050 11550 7250 11550
-Connection ~ 5600 12700
-Wire Wire Line
-	7250 13300 7250 13950
-Wire Wire Line
-	7250 13950 5600 13950
-Wire Wire Line
-	5600 13950 5600 14450
-Wire Wire Line
-	7050 13300 7250 13300
-Wire Wire Line
-	5600 16200 5600 15700
-Wire Wire Line
-	5600 15700 7250 15700
-Wire Wire Line
-	7250 15700 7250 15050
-Wire Wire Line
-	7050 15050 7250 15050
-Connection ~ 5600 16200
-Wire Wire Line
-	7250 16800 7250 17450
-Wire Wire Line
-	7250 17450 5600 17450
-Wire Wire Line
-	5600 17450 5600 17950
-Wire Wire Line
-	7050 16800 7250 16800
-Wire Wire Line
-	5600 23200 5600 22800
-Wire Wire Line
-	5600 22800 7250 22800
-Wire Wire Line
-	7250 22800 7250 22050
-Wire Wire Line
-	7050 22050 7250 22050
-Connection ~ 5600 23200
-Wire Wire Line
-	5600 21450 5600 20950
-Wire Wire Line
-	5600 20950 7250 20950
-Wire Wire Line
-	7250 20950 7250 20300
-Wire Wire Line
-	7050 20300 7250 20300
-Connection ~ 5600 21450
-Wire Wire Line
-	7250 18550 7250 19200
-Wire Wire Line
-	5600 19200 5600 19700
-Wire Wire Line
-	7050 18550 7250 18550
-Wire Wire Line
-	5600 19200 7250 19200
-Connection ~ 5600 19700
-$Comp
-L 74xx:74LS86 U?
-U 1 1 64F66365
-P 8300 23700
-AR Path="/600C5001/64F66365" Ref="U?"  Part="1" 
-AR Path="/64F66365" Ref="U?"  Part="1" 
-F 0 "U?" H 8300 24025 50  0000 C CNN
-F 1 "74LS86" H 8300 23934 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 8300 23700 50  0001 C CNN
-F 3 "74xx/74ls86.pdf" H 8300 23700 50  0001 C CNN
-	1    8300 23700
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	7900 23600 8000 23600
 Text Label 14600 24500 0    75   ~ 0
 flagC
 Text Label 14600 24350 0    75   ~ 0
 flagV
-Wire Wire Line
-	8600 23700 8800 23700
-Wire Wire Line
-	7050 23800 8000 23800
-Wire Wire Line
-	7250 22800 7900 22800
-Connection ~ 7250 22800
-Wire Wire Line
-	7900 22800 7900 23300
-$Comp
-L power:GND #PWR?
-U 1 1 66262F19
-P 1250 16550
-AR Path="/600C5001/66262F19" Ref="#PWR?"  Part="1" 
-AR Path="/66262F19" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 1250 16300 50  0001 C CNN
-F 1 "GND" H 1255 16377 50  0000 C CNN
-F 2 "" H 1250 16550 50  0001 C CNN
-F 3 "" H 1250 16550 50  0001 C CNN
-	1    1250 16550
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+5V #PWR?
-U 1 1 66262F1F
-P 1250 15550
-AR Path="/600C5001/66262F1F" Ref="#PWR?"  Part="1" 
-AR Path="/66262F1F" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 1250 15400 50  0001 C CNN
-F 1 "+5V" H 1265 15723 50  0000 C CNN
-F 2 "" H 1250 15550 50  0001 C CNN
-F 3 "" H 1250 15550 50  0001 C CNN
-	1    1250 15550
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74LS86 U?
-U 5 1 66262F25
-P 1250 16050
-AR Path="/600C5001/66262F25" Ref="U?"  Part="5" 
-AR Path="/66262F25" Ref="U?"  Part="5" 
-F 0 "U?" H 1480 16096 50  0000 L CNN
-F 1 "74LS86" H 1480 16005 50  0000 L CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 1250 16050 50  0001 C CNN
-F 3 "74xx/74ls86.pdf" H 1250 16050 50  0001 C CNN
-	5    1250 16050
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	2000 17100 2000 17050
-Wire Wire Line
-	1250 18600 1250 18650
-Wire Wire Line
-	2000 18650 2000 18600
-Wire Wire Line
-	2000 19700 2000 19650
-Wire Wire Line
-	1250 19650 1250 19700
-Wire Wire Line
-	2000 18150 2000 18100
-Wire Wire Line
-	2000 16600 2000 16550
-Wire Wire Line
-	1250 18100 1250 18150
-Wire Wire Line
-	1250 17050 1250 17100
-Wire Wire Line
-	2000 15500 2000 15550
-$Comp
-L power:+5V #PWR?
-U 1 1 66262F35
-P 2000 18600
-AR Path="/60248238/66262F35" Ref="#PWR?"  Part="1" 
-AR Path="/60260EB9/66262F35" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/60248238/66262F35" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/60260EB9/66262F35" Ref="#PWR?"  Part="1" 
-AR Path="/61EF6542/66262F35" Ref="#PWR?"  Part="1" 
-AR Path="/61EF655B/66262F35" Ref="#PWR?"  Part="1" 
-AR Path="/66262F35" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 2000 18450 50  0001 C CNN
-F 1 "+5V" H 2015 18773 50  0000 C CNN
-F 2 "" H 2000 18600 50  0001 C CNN
-F 3 "" H 2000 18600 50  0001 C CNN
-	1    2000 18600
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+5V #PWR?
-U 1 1 66262F3B
-P 1250 18600
-AR Path="/60248238/66262F3B" Ref="#PWR?"  Part="1" 
-AR Path="/60260EB9/66262F3B" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/60248238/66262F3B" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/60260EB9/66262F3B" Ref="#PWR?"  Part="1" 
-AR Path="/61EF6542/66262F3B" Ref="#PWR?"  Part="1" 
-AR Path="/61EF655B/66262F3B" Ref="#PWR?"  Part="1" 
-AR Path="/66262F3B" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 1250 18450 50  0001 C CNN
-F 1 "+5V" H 1265 18773 50  0000 C CNN
-F 2 "" H 1250 18600 50  0001 C CNN
-F 3 "" H 1250 18600 50  0001 C CNN
-	1    1250 18600
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74LS08 U?
-U 5 1 66262F41
-P 1250 19150
-AR Path="/60248238/66262F41" Ref="U?"  Part="5" 
-AR Path="/60260EB9/66262F41" Ref="U?"  Part="5" 
-AR Path="/600C5001/60248238/66262F41" Ref="U?"  Part="5" 
-AR Path="/600C5001/60260EB9/66262F41" Ref="U?"  Part="5" 
-AR Path="/61EF6542/66262F41" Ref="U?"  Part="5" 
-AR Path="/61EF655B/66262F41" Ref="U?"  Part="5" 
-AR Path="/66262F41" Ref="U?"  Part="5" 
-F 0 "U?" H 1480 19196 50  0000 L CNN
-F 1 "74LS08" H 1480 19105 50  0000 L CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 1250 19150 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 1250 19150 50  0001 C CNN
-	5    1250 19150
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 66262F47
-P 2000 16600
-AR Path="/60248238/66262F47" Ref="#PWR?"  Part="1" 
-AR Path="/60260EB9/66262F47" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/60248238/66262F47" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/60260EB9/66262F47" Ref="#PWR?"  Part="1" 
-AR Path="/61EF6542/66262F47" Ref="#PWR?"  Part="1" 
-AR Path="/61EF655B/66262F47" Ref="#PWR?"  Part="1" 
-AR Path="/66262F47" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 2000 16350 50  0001 C CNN
-F 1 "GND" H 2005 16427 50  0000 C CNN
-F 2 "" H 2000 16600 50  0001 C CNN
-F 3 "" H 2000 16600 50  0001 C CNN
-	1    2000 16600
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 66262F4D
-P 1250 18150
-AR Path="/60248238/66262F4D" Ref="#PWR?"  Part="1" 
-AR Path="/60260EB9/66262F4D" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/60248238/66262F4D" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/60260EB9/66262F4D" Ref="#PWR?"  Part="1" 
-AR Path="/61EF6542/66262F4D" Ref="#PWR?"  Part="1" 
-AR Path="/61EF655B/66262F4D" Ref="#PWR?"  Part="1" 
-AR Path="/66262F4D" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 1250 17900 50  0001 C CNN
-F 1 "GND" H 1255 17977 50  0000 C CNN
-F 2 "" H 1250 18150 50  0001 C CNN
-F 3 "" H 1250 18150 50  0001 C CNN
-	1    1250 18150
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 66262F53
-P 2000 18150
-AR Path="/60248238/66262F53" Ref="#PWR?"  Part="1" 
-AR Path="/60260EB9/66262F53" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/60248238/66262F53" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/60260EB9/66262F53" Ref="#PWR?"  Part="1" 
-AR Path="/61EF6542/66262F53" Ref="#PWR?"  Part="1" 
-AR Path="/61EF655B/66262F53" Ref="#PWR?"  Part="1" 
-AR Path="/66262F53" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 2000 17900 50  0001 C CNN
-F 1 "GND" H 2005 17977 50  0000 C CNN
-F 2 "" H 2000 18150 50  0001 C CNN
-F 3 "" H 2000 18150 50  0001 C CNN
-	1    2000 18150
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 66262F59
-P 1250 19700
-AR Path="/60248238/66262F59" Ref="#PWR?"  Part="1" 
-AR Path="/60260EB9/66262F59" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/60248238/66262F59" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/60260EB9/66262F59" Ref="#PWR?"  Part="1" 
-AR Path="/61EF6542/66262F59" Ref="#PWR?"  Part="1" 
-AR Path="/61EF655B/66262F59" Ref="#PWR?"  Part="1" 
-AR Path="/66262F59" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 1250 19450 50  0001 C CNN
-F 1 "GND" H 1255 19527 50  0000 C CNN
-F 2 "" H 1250 19700 50  0001 C CNN
-F 3 "" H 1250 19700 50  0001 C CNN
-	1    1250 19700
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 66262F5F
-P 2000 19700
-AR Path="/60248238/66262F5F" Ref="#PWR?"  Part="1" 
-AR Path="/60260EB9/66262F5F" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/60248238/66262F5F" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/60260EB9/66262F5F" Ref="#PWR?"  Part="1" 
-AR Path="/61EF6542/66262F5F" Ref="#PWR?"  Part="1" 
-AR Path="/61EF655B/66262F5F" Ref="#PWR?"  Part="1" 
-AR Path="/66262F5F" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 2000 19450 50  0001 C CNN
-F 1 "GND" H 2005 19527 50  0000 C CNN
-F 2 "" H 2000 19700 50  0001 C CNN
-F 3 "" H 2000 19700 50  0001 C CNN
-	1    2000 19700
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+5V #PWR?
-U 1 1 66262F65
-P 2000 17050
-AR Path="/60248238/66262F65" Ref="#PWR?"  Part="1" 
-AR Path="/60260EB9/66262F65" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/60248238/66262F65" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/60260EB9/66262F65" Ref="#PWR?"  Part="1" 
-AR Path="/61EF6542/66262F65" Ref="#PWR?"  Part="1" 
-AR Path="/61EF655B/66262F65" Ref="#PWR?"  Part="1" 
-AR Path="/66262F65" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 2000 16900 50  0001 C CNN
-F 1 "+5V" H 2015 17223 50  0000 C CNN
-F 2 "" H 2000 17050 50  0001 C CNN
-F 3 "" H 2000 17050 50  0001 C CNN
-	1    2000 17050
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+5V #PWR?
-U 1 1 66262F6B
-P 1250 17050
-AR Path="/60248238/66262F6B" Ref="#PWR?"  Part="1" 
-AR Path="/60260EB9/66262F6B" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/60248238/66262F6B" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/60260EB9/66262F6B" Ref="#PWR?"  Part="1" 
-AR Path="/61EF6542/66262F6B" Ref="#PWR?"  Part="1" 
-AR Path="/61EF655B/66262F6B" Ref="#PWR?"  Part="1" 
-AR Path="/66262F6B" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 1250 16900 50  0001 C CNN
-F 1 "+5V" H 1265 17223 50  0000 C CNN
-F 2 "" H 1250 17050 50  0001 C CNN
-F 3 "" H 1250 17050 50  0001 C CNN
-	1    1250 17050
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+5V #PWR?
-U 1 1 66262F71
-P 2000 15500
-AR Path="/60248238/66262F71" Ref="#PWR?"  Part="1" 
-AR Path="/60260EB9/66262F71" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/60248238/66262F71" Ref="#PWR?"  Part="1" 
-AR Path="/600C5001/60260EB9/66262F71" Ref="#PWR?"  Part="1" 
-AR Path="/61EF6542/66262F71" Ref="#PWR?"  Part="1" 
-AR Path="/61EF655B/66262F71" Ref="#PWR?"  Part="1" 
-AR Path="/66262F71" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 2000 15350 50  0001 C CNN
-F 1 "+5V" H 2015 15673 50  0000 C CNN
-F 2 "" H 2000 15500 50  0001 C CNN
-F 3 "" H 2000 15500 50  0001 C CNN
-	1    2000 15500
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74LS32 U?
-U 5 1 66262F77
-P 2000 19150
-AR Path="/60248238/66262F77" Ref="U?"  Part="5" 
-AR Path="/60260EB9/66262F77" Ref="U?"  Part="5" 
-AR Path="/600C5001/60248238/66262F77" Ref="U?"  Part="5" 
-AR Path="/600C5001/60260EB9/66262F77" Ref="U?"  Part="5" 
-AR Path="/61EF6542/66262F77" Ref="U?"  Part="5" 
-AR Path="/61EF655B/66262F77" Ref="U?"  Part="5" 
-AR Path="/66262F77" Ref="U?"  Part="5" 
-F 0 "U?" H 2230 19196 50  0000 L CNN
-F 1 "74LS32" H 2230 19105 50  0000 L CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 2000 19150 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 2000 19150 50  0001 C CNN
-	5    2000 19150
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74LS08 U?
-U 5 1 66262F7D
-P 1250 17600
-AR Path="/60248238/66262F7D" Ref="U?"  Part="5" 
-AR Path="/60260EB9/66262F7D" Ref="U?"  Part="5" 
-AR Path="/600C5001/60248238/66262F7D" Ref="U?"  Part="5" 
-AR Path="/600C5001/60260EB9/66262F7D" Ref="U?"  Part="5" 
-AR Path="/61EF6542/66262F7D" Ref="U?"  Part="5" 
-AR Path="/61EF655B/66262F7D" Ref="U?"  Part="5" 
-AR Path="/66262F7D" Ref="U?"  Part="5" 
-F 0 "U?" H 1480 17646 50  0000 L CNN
-F 1 "74LS08" H 1480 17555 50  0000 L CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 1250 17600 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 1250 17600 50  0001 C CNN
-	5    1250 17600
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74LS86 U?
-U 5 1 66262F83
-P 2000 17600
-AR Path="/60248238/66262F83" Ref="U?"  Part="5" 
-AR Path="/60260EB9/66262F83" Ref="U?"  Part="5" 
-AR Path="/600C5001/60248238/66262F83" Ref="U?"  Part="5" 
-AR Path="/600C5001/60260EB9/66262F83" Ref="U?"  Part="5" 
-AR Path="/61EF6542/66262F83" Ref="U?"  Part="5" 
-AR Path="/61EF655B/66262F83" Ref="U?"  Part="5" 
-AR Path="/66262F83" Ref="U?"  Part="5" 
-F 0 "U?" H 2230 17646 50  0000 L CNN
-F 1 "74LS86" H 2230 17555 50  0000 L CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 2000 17600 50  0001 C CNN
-F 3 "74xx/74ls86.pdf" H 2000 17600 50  0001 C CNN
-	5    2000 17600
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74LS86 U?
-U 5 1 66262F89
-P 2000 16050
-AR Path="/60248238/66262F89" Ref="U?"  Part="5" 
-AR Path="/60260EB9/66262F89" Ref="U?"  Part="5" 
-AR Path="/600C5001/60248238/66262F89" Ref="U?"  Part="5" 
-AR Path="/600C5001/60260EB9/66262F89" Ref="U?"  Part="5" 
-AR Path="/61EF6542/66262F89" Ref="U?"  Part="5" 
-AR Path="/61EF655B/66262F89" Ref="U?"  Part="5" 
-AR Path="/66262F89" Ref="U?"  Part="5" 
-F 0 "U?" H 2230 16096 50  0000 L CNN
-F 1 "74LS86" H 2230 16005 50  0000 L CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 2000 16050 50  0001 C CNN
-F 3 "74xx/74ls86.pdf" H 2000 16050 50  0001 C CNN
-	5    2000 16050
-	1    0    0    -1  
-$EndComp
-Wire Bus Line
-	2100 8000 2100 10250
-Connection ~ 2100 8000
 Entry Wire Line
-	6500 24800 6600 24900
+	6500 24150 6600 24250
 Entry Wire Line
-	7900 24800 8000 24900
+	7900 24150 8000 24250
 Entry Wire Line
-	9350 24800 9450 24900
+	9350 24150 9450 24250
 Text GLabel 7100 30550 0    75   Input ~ 0
 flagCarry
-Text GLabel 12000 27150 0    75   Input ~ 0
+Text GLabel 12000 26950 0    75   Input ~ 0
 ctrlAluSub
 Text GLabel 12000 29600 0    75   Input ~ 0
 ctrlAluSub
 Text GLabel 4700 29600 0    75   Input ~ 0
 ctrlAluSub
-Text GLabel 4700 27150 0    75   Input ~ 0
+Text GLabel 4700 26950 0    75   Input ~ 0
 ctrlAluSub
 Wire Wire Line
-	9450 27150 9450 29600
-Connection ~ 9450 27150
+	9450 26950 9450 29600
+Connection ~ 9450 26950
 Wire Wire Line
-	9450 27150 9850 27150
+	9450 26950 9850 26950
 Wire Wire Line
-	9450 24900 9450 27150
+	9450 24250 9450 26950
 Wire Wire Line
 	9450 29600 9850 29600
-Text Label 9450 25050 0    75   ~ 0
+Text Label 9450 24400 0    75   ~ 0
 bus2
 Wire Wire Line
-	8000 27150 8000 29600
-Connection ~ 8000 27150
+	8000 26950 8000 29600
+Connection ~ 8000 26950
 Wire Wire Line
-	8000 27150 8350 27150
+	8000 26950 8350 26950
 Wire Wire Line
-	8000 24900 8000 27150
+	8000 24250 8000 26950
 Wire Wire Line
 	8000 29600 8350 29600
-Text Label 8000 25050 0    75   ~ 0
+Text Label 8000 24400 0    75   ~ 0
 bus1
-Text Label 6600 25050 0    75   ~ 0
+Text Label 6600 24400 0    75   ~ 0
 bus0
 Wire Wire Line
-	6600 27150 6600 29600
-Connection ~ 6600 27150
+	6600 26950 6600 29600
+Connection ~ 6600 26950
 Wire Wire Line
-	6600 27150 6850 27150
+	6600 26950 6850 26950
 Wire Wire Line
 	6600 29600 6850 29600
 Wire Wire Line
-	6600 24900 6600 27150
-Wire Bus Line
-	3350 24950 4550 24950
+	6600 24250 6600 26950
 Entry Wire Line
 	3350 29200 3450 29300
 Entry Wire Line
@@ -5736,13 +897,13 @@ Entry Wire Line
 Entry Wire Line
 	3350 28300 3450 28400
 Entry Wire Line
-	3350 26750 3450 26850
+	3350 26550 3450 26650
 Entry Wire Line
-	3350 26450 3450 26550
+	3350 26250 3450 26350
 Entry Wire Line
-	3350 26150 3450 26250
+	3350 25950 3450 26050
 Entry Wire Line
-	3350 25850 3450 25950
+	3350 25650 3450 25750
 Wire Wire Line
 	5850 29000 6800 29000
 Connection ~ 5850 29000
@@ -5761,23 +922,23 @@ Connection ~ 6050 28400
 Wire Wire Line
 	6050 28400 6050 31100
 Wire Wire Line
-	6150 26850 6750 26850
+	6150 26650 6750 26650
 Wire Wire Line
-	6250 26550 6750 26550
+	6250 26350 6750 26350
 Wire Wire Line
-	6350 26250 5700 26250
-Connection ~ 6350 26250
+	6350 26050 5700 26050
+Connection ~ 6350 26050
 Wire Wire Line
 	6350 30800 7100 30800
 Wire Wire Line
-	6350 26250 6350 30800
+	6350 26050 6350 30800
 Wire Wire Line
-	6450 25950 6850 25950
-Connection ~ 6450 25950
+	6450 25750 6850 25750
+Connection ~ 6450 25750
 Wire Wire Line
 	6450 30700 7100 30700
 Wire Wire Line
-	6450 25950 6450 30700
+	6450 25750 6450 30700
 NoConn ~ 8100 30700
 $Comp
 L power:GND #PWR?
@@ -5844,94 +1005,94 @@ F 3 "" H 7600 32200 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5700 25950 6450 25950
+	5700 25750 6450 25750
 $Comp
 L power:+5V #PWR?
 U 1 1 664382C1
-P 12500 25650
+P 12500 25450
 AR Path="/61EF647B/664382C1" Ref="#PWR?"  Part="1" 
 AR Path="/664382C1" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 12500 25500 50  0001 C CNN
-F 1 "+5V" H 12600 25750 50  0000 C CNN
-F 2 "" H 12500 25650 50  0001 C CNN
-F 3 "" H 12500 25650 50  0001 C CNN
-	1    12500 25650
+F 0 "#PWR?" H 12500 25300 50  0001 C CNN
+F 1 "+5V" H 12600 25550 50  0000 C CNN
+F 2 "" H 12500 25450 50  0001 C CNN
+F 3 "" H 12500 25450 50  0001 C CNN
+	1    12500 25450
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	10850 29300 11250 29300
+	10850 29300 11300 29300
 Wire Wire Line
-	10850 28700 11150 28700
+	10850 28700 11200 28700
 Wire Wire Line
-	10850 28400 11100 28400
-Text Notes 12000 25300 0    50   ~ 0
+	10850 28400 11150 28400
+Text Notes 12000 25100 0    50   ~ 0
 Reverse MUXs
 Wire Wire Line
-	11250 29300 12000 29300
-Connection ~ 11250 29300
+	11300 29300 12000 29300
+Connection ~ 11300 29300
 Wire Wire Line
-	11250 26050 12000 26050
+	11300 25850 12000 25850
 Wire Wire Line
-	11250 29300 11250 26050
+	11300 29300 11300 25850
 Wire Wire Line
-	11200 29000 10850 29000
-Connection ~ 11200 29000
+	11250 29000 10850 29000
+Connection ~ 11250 29000
 Wire Wire Line
-	11200 26350 11200 29000
+	11250 26150 11250 29000
 Wire Wire Line
-	11200 26350 12000 26350
+	11250 26150 12000 26150
 Wire Wire Line
-	11150 28700 12000 28700
-Connection ~ 11150 28700
+	11200 28700 12000 28700
+Connection ~ 11200 28700
 Wire Wire Line
-	11150 26650 12000 26650
+	11200 26450 12000 26450
 Wire Wire Line
-	11150 28700 11150 26650
+	11200 28700 11200 26450
 Wire Wire Line
-	11100 28400 12000 28400
-Connection ~ 11100 28400
+	11150 28400 12000 28400
+Connection ~ 11150 28400
 Wire Wire Line
-	11100 26950 12000 26950
+	11150 26750 12000 26750
 Wire Wire Line
-	11100 28400 11100 26950
+	11150 28400 11150 26750
 Wire Wire Line
-	11050 26850 12000 26850
-Connection ~ 11050 26850
+	11050 26650 12000 26650
+Connection ~ 11050 26650
 Wire Wire Line
 	11050 28500 12000 28500
 Wire Wire Line
-	11050 26850 11050 28500
+	11050 26650 11050 28500
 Wire Wire Line
-	11000 26550 10850 26550
-Connection ~ 11000 26550
+	11000 26350 10850 26350
+Connection ~ 11000 26350
 Wire Wire Line
 	11000 28800 12000 28800
 Wire Wire Line
-	11000 26550 11000 28800
+	11000 26350 11000 28800
 Wire Wire Line
-	10950 26250 12000 26250
-Connection ~ 10950 26250
+	10950 26050 12000 26050
+Connection ~ 10950 26050
 Wire Wire Line
 	10950 29100 12000 29100
 Wire Wire Line
-	10950 26250 10950 29100
+	10950 26050 10950 29100
 Wire Wire Line
-	10900 25950 12000 25950
-Connection ~ 10900 25950
+	10900 25750 12000 25750
+Connection ~ 10900 25750
 Wire Wire Line
 	10900 29400 12000 29400
 Wire Wire Line
-	10900 25950 10900 29400
+	10900 25750 10900 29400
 Wire Wire Line
-	12000 29000 11200 29000
+	12000 29000 11250 29000
 Wire Wire Line
-	10850 26850 11050 26850
+	10850 26650 11050 26650
 Wire Wire Line
-	12000 26550 11000 26550
+	12000 26350 11000 26350
 Wire Wire Line
-	10850 26250 10950 26250
+	10850 26050 10950 26050
 Wire Wire Line
-	10850 25950 10900 25950
+	10850 25750 10900 25750
 $Comp
 L power:+5V #PWR?
 U 1 1 66438280
@@ -5948,27 +1109,27 @@ $EndComp
 $Comp
 L power:GND #PWR?
 U 1 1 6643827A
-P 12000 27250
+P 12000 27050
 AR Path="/61EF647B/6643827A" Ref="#PWR?"  Part="1" 
 AR Path="/6643827A" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 12000 27000 50  0001 C CNN
-F 1 "GND" H 12005 27077 50  0000 C CNN
-F 2 "" H 12000 27250 50  0001 C CNN
-F 3 "" H 12000 27250 50  0001 C CNN
-	1    12000 27250
+F 0 "#PWR?" H 12000 26800 50  0001 C CNN
+F 1 "GND" H 12005 26877 50  0000 C CNN
+F 2 "" H 12000 27050 50  0001 C CNN
+F 3 "" H 12000 27050 50  0001 C CNN
+	1    12000 27050
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR?
 U 1 1 66438274
-P 12500 27550
+P 12500 27350
 AR Path="/61EF647B/66438274" Ref="#PWR?"  Part="1" 
 AR Path="/66438274" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 12500 27300 50  0001 C CNN
-F 1 "GND" H 12505 27377 50  0000 C CNN
-F 2 "" H 12500 27550 50  0001 C CNN
-F 3 "" H 12500 27550 50  0001 C CNN
-	1    12500 27550
+F 0 "#PWR?" H 12500 27100 50  0001 C CNN
+F 1 "GND" H 12505 27177 50  0000 C CNN
+F 2 "" H 12500 27350 50  0001 C CNN
+F 3 "" H 12500 27350 50  0001 C CNN
+	1    12500 27350
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -6013,57 +1174,57 @@ $EndComp
 $Comp
 L 74xx:74LS157 U?
 U 1 1 6643825C
-P 12500 26550
+P 12500 26350
 AR Path="/61EF647B/6643825C" Ref="U?"  Part="1" 
 AR Path="/6643825C" Ref="U?"  Part="1" 
-F 0 "U?" H 12500 27631 50  0000 C CNN
-F 1 "74LS157" H 12500 27700 50  0000 C CNN
-F 2 "Package_DIP:DIP-16_W7.62mm" H 12500 26550 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS157" H 12500 26550 50  0001 C CNN
-	1    12500 26550
+F 0 "U?" H 12500 27431 50  0000 C CNN
+F 1 "74LS157" H 12500 27500 50  0000 C CNN
+F 2 "Package_DIP:DIP-16_W7.62mm" H 12500 26350 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS157" H 12500 26350 50  0001 C CNN
+	1    12500 26350
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
 	8200 28700 8350 28700
 Connection ~ 8200 28700
 Wire Wire Line
-	8200 26950 8200 28700
+	8200 26750 8200 28700
 Wire Wire Line
-	8350 26950 8200 26950
+	8350 26750 8200 26750
 Wire Wire Line
 	7850 28700 8200 28700
 Wire Wire Line
 	9600 28400 9850 28400
 Connection ~ 9600 28400
 Wire Wire Line
-	9600 26050 9850 26050
+	9600 25850 9850 25850
 Wire Wire Line
-	9600 28400 9600 26050
+	9600 28400 9600 25850
 Wire Wire Line
 	9650 28700 9850 28700
 Connection ~ 9650 28700
 Wire Wire Line
-	9650 26350 9850 26350
+	9650 26150 9850 26150
 Wire Wire Line
-	9650 28700 9650 26350
+	9650 28700 9650 26150
 Wire Wire Line
 	9700 29000 9850 29000
 Connection ~ 9700 29000
 Wire Wire Line
-	9700 26650 9850 26650
+	9700 26450 9850 26450
 Wire Wire Line
-	9700 29000 9700 26650
+	9700 29000 9700 26450
 Wire Wire Line
 	9750 29300 9850 29300
 Connection ~ 9750 29300
 Wire Wire Line
-	9750 26950 9850 26950
+	9750 26750 9850 26750
 Wire Wire Line
-	9750 29300 9750 26950
+	9750 29300 9750 26750
 Wire Wire Line
-	9350 26550 9850 26550
+	9350 26350 9850 26350
 Wire Wire Line
-	9350 26850 9850 26850
+	9350 26650 9850 26650
 Wire Wire Line
 	9350 28400 9600 28400
 Wire Wire Line
@@ -6098,7 +1259,7 @@ F 3 "" H 9850 28500 50  0001 C CNN
 	1    9850 28500
 	1    0    0    -1  
 $EndComp
-Text Notes 10050 25300 0    50   ~ 0
+Text Notes 10050 25100 0    50   ~ 0
 Shift4 MUXs
 $Comp
 L power:GND #PWR?
@@ -6114,7 +1275,7 @@ F 3 "" H 9850 29100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	9350 26250 9850 26250
+	9350 26050 9850 26050
 $Comp
 L power:GND #PWR?
 U 1 1 66438212
@@ -6129,7 +1290,7 @@ F 3 "" H 9850 29400 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	9350 25950 9850 25950
+	9350 25750 9850 25750
 $Comp
 L power:GND #PWR?
 U 1 1 6643820B
@@ -6146,27 +1307,27 @@ $EndComp
 $Comp
 L power:GND #PWR?
 U 1 1 66438205
-P 9850 27250
+P 9850 27050
 AR Path="/61EF647B/66438205" Ref="#PWR?"  Part="1" 
 AR Path="/66438205" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 9850 27000 50  0001 C CNN
-F 1 "GND" H 9855 27077 50  0000 C CNN
-F 2 "" H 9850 27250 50  0001 C CNN
-F 3 "" H 9850 27250 50  0001 C CNN
-	1    9850 27250
+F 0 "#PWR?" H 9850 26800 50  0001 C CNN
+F 1 "GND" H 9855 26877 50  0000 C CNN
+F 2 "" H 9850 27050 50  0001 C CNN
+F 3 "" H 9850 27050 50  0001 C CNN
+	1    9850 27050
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:+5V #PWR?
 U 1 1 664381FF
-P 10350 25650
+P 10350 25450
 AR Path="/61EF647B/664381FF" Ref="#PWR?"  Part="1" 
 AR Path="/664381FF" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 10350 25500 50  0001 C CNN
-F 1 "+5V" H 10450 25750 50  0000 C CNN
-F 2 "" H 10350 25650 50  0001 C CNN
-F 3 "" H 10350 25650 50  0001 C CNN
-	1    10350 25650
+F 0 "#PWR?" H 10350 25300 50  0001 C CNN
+F 1 "+5V" H 10450 25550 50  0000 C CNN
+F 2 "" H 10350 25450 50  0001 C CNN
+F 3 "" H 10350 25450 50  0001 C CNN
+	1    10350 25450
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -6185,14 +1346,14 @@ $EndComp
 $Comp
 L power:GND #PWR?
 U 1 1 664381F3
-P 10350 27550
+P 10350 27350
 AR Path="/61EF647B/664381F3" Ref="#PWR?"  Part="1" 
 AR Path="/664381F3" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 10350 27300 50  0001 C CNN
-F 1 "GND" H 10355 27377 50  0000 C CNN
-F 2 "" H 10350 27550 50  0001 C CNN
-F 3 "" H 10350 27550 50  0001 C CNN
-	1    10350 27550
+F 0 "#PWR?" H 10350 27100 50  0001 C CNN
+F 1 "GND" H 10355 27177 50  0000 C CNN
+F 2 "" H 10350 27350 50  0001 C CNN
+F 3 "" H 10350 27350 50  0001 C CNN
+	1    10350 27350
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -6224,43 +1385,43 @@ $EndComp
 $Comp
 L 74xx:74LS157 U?
 U 1 1 664381E1
-P 10350 26550
+P 10350 26350
 AR Path="/61EF647B/664381E1" Ref="U?"  Part="1" 
 AR Path="/664381E1" Ref="U?"  Part="1" 
-F 0 "U?" H 10350 27631 50  0000 C CNN
-F 1 "74LS157" H 10350 27700 50  0000 C CNN
-F 2 "Package_DIP:DIP-16_W7.62mm" H 10350 26550 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS157" H 10350 26550 50  0001 C CNN
-	1    10350 26550
+F 0 "U?" H 10350 27431 50  0000 C CNN
+F 1 "74LS157" H 10350 27500 50  0000 C CNN
+F 2 "Package_DIP:DIP-16_W7.62mm" H 10350 26350 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS157" H 10350 26350 50  0001 C CNN
+	1    10350 26350
 	1    0    0    -1  
 $EndComp
-Text Notes 8550 25300 0    50   ~ 0
+Text Notes 8550 25100 0    50   ~ 0
 Shift2 MUXs
-Text Notes 7100 25300 0    50   ~ 0
+Text Notes 7100 25100 0    50   ~ 0
 Shift1 MUXs
-Text Notes 4900 25300 0    50   ~ 0
+Text Notes 4900 25100 0    50   ~ 0
 Reverse MUXs
 Wire Wire Line
-	8150 26550 8350 26550
-Connection ~ 8150 26550
+	8150 26350 8350 26350
+Connection ~ 8150 26350
 Wire Wire Line
-	8150 26050 8350 26050
+	8150 25850 8350 25850
 Wire Wire Line
-	8150 26550 8150 26050
+	8150 26350 8150 25850
 Wire Wire Line
-	8200 26850 8350 26850
-Connection ~ 8200 26850
+	8200 26650 8350 26650
+Connection ~ 8200 26650
 Wire Wire Line
-	8200 26350 8350 26350
+	8200 26150 8350 26150
 Wire Wire Line
-	8200 26850 8200 26350
+	8200 26650 8200 26150
 Wire Wire Line
 	8150 28400 8350 28400
 Connection ~ 8150 28400
 Wire Wire Line
-	8150 26650 8350 26650
+	8150 26450 8350 26450
 Wire Wire Line
-	8150 28400 8150 26650
+	8150 28400 8150 26450
 Wire Wire Line
 	8150 29000 8350 29000
 Connection ~ 8150 29000
@@ -6295,11 +1456,11 @@ Wire Wire Line
 Wire Wire Line
 	7850 28400 8150 28400
 Wire Wire Line
-	7850 26850 8200 26850
+	7850 26650 8200 26650
 Wire Wire Line
-	7850 26550 8150 26550
+	7850 26350 8150 26350
 Wire Wire Line
-	7850 26250 8350 26250
+	7850 26050 8350 26050
 $Comp
 L power:GND #PWR?
 U 1 1 664381B8
@@ -6314,7 +1475,7 @@ F 3 "" H 8350 29400 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	7850 25950 8350 25950
+	7850 25750 8350 25750
 $Comp
 L power:GND #PWR?
 U 1 1 664381B1
@@ -6331,27 +1492,27 @@ $EndComp
 $Comp
 L power:GND #PWR?
 U 1 1 664381AB
-P 8350 27250
+P 8350 27050
 AR Path="/61EF647B/664381AB" Ref="#PWR?"  Part="1" 
 AR Path="/664381AB" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 8350 27000 50  0001 C CNN
-F 1 "GND" H 8355 27077 50  0000 C CNN
-F 2 "" H 8350 27250 50  0001 C CNN
-F 3 "" H 8350 27250 50  0001 C CNN
-	1    8350 27250
+F 0 "#PWR?" H 8350 26800 50  0001 C CNN
+F 1 "GND" H 8355 26877 50  0000 C CNN
+F 2 "" H 8350 27050 50  0001 C CNN
+F 3 "" H 8350 27050 50  0001 C CNN
+	1    8350 27050
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:+5V #PWR?
 U 1 1 664381A5
-P 8850 25650
+P 8850 25450
 AR Path="/61EF647B/664381A5" Ref="#PWR?"  Part="1" 
 AR Path="/664381A5" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 8850 25500 50  0001 C CNN
-F 1 "+5V" H 8950 25750 50  0000 C CNN
-F 2 "" H 8850 25650 50  0001 C CNN
-F 3 "" H 8850 25650 50  0001 C CNN
-	1    8850 25650
+F 0 "#PWR?" H 8850 25300 50  0001 C CNN
+F 1 "+5V" H 8950 25550 50  0000 C CNN
+F 2 "" H 8850 25450 50  0001 C CNN
+F 3 "" H 8850 25450 50  0001 C CNN
+	1    8850 25450
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -6370,14 +1531,14 @@ $EndComp
 $Comp
 L power:GND #PWR?
 U 1 1 66438199
-P 8850 27550
+P 8850 27350
 AR Path="/61EF647B/66438199" Ref="#PWR?"  Part="1" 
 AR Path="/66438199" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 8850 27300 50  0001 C CNN
-F 1 "GND" H 8855 27377 50  0000 C CNN
-F 2 "" H 8850 27550 50  0001 C CNN
-F 3 "" H 8850 27550 50  0001 C CNN
-	1    8850 27550
+F 0 "#PWR?" H 8850 27100 50  0001 C CNN
+F 1 "GND" H 8855 27177 50  0000 C CNN
+F 2 "" H 8850 27350 50  0001 C CNN
+F 3 "" H 8850 27350 50  0001 C CNN
+	1    8850 27350
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -6409,44 +1570,44 @@ $EndComp
 $Comp
 L 74xx:74LS157 U?
 U 1 1 66438187
-P 8850 26550
+P 8850 26350
 AR Path="/61EF647B/66438187" Ref="U?"  Part="1" 
 AR Path="/66438187" Ref="U?"  Part="1" 
-F 0 "U?" H 8850 27631 50  0000 C CNN
-F 1 "74LS157" H 8850 27700 50  0000 C CNN
-F 2 "Package_DIP:DIP-16_W7.62mm" H 8850 26550 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS157" H 8850 26550 50  0001 C CNN
-	1    8850 26550
+F 0 "U?" H 8850 27431 50  0000 C CNN
+F 1 "74LS157" H 8850 27500 50  0000 C CNN
+F 2 "Package_DIP:DIP-16_W7.62mm" H 8850 26350 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS157" H 8850 26350 50  0001 C CNN
+	1    8850 26350
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6750 26250 6350 26250
-Connection ~ 6750 26250
+	6750 26050 6350 26050
+Connection ~ 6750 26050
 Wire Wire Line
-	6750 26050 6850 26050
+	6750 25850 6850 25850
 Wire Wire Line
-	6750 26250 6750 26050
-Wire Wire Line
-	6750 26550 6850 26550
-Connection ~ 6750 26550
+	6750 26050 6750 25850
 Wire Wire Line
 	6750 26350 6850 26350
+Connection ~ 6750 26350
 Wire Wire Line
-	6750 26550 6750 26350
+	6750 26150 6850 26150
 Wire Wire Line
-	6750 26850 6850 26850
-Connection ~ 6750 26850
+	6750 26350 6750 26150
 Wire Wire Line
 	6750 26650 6850 26650
+Connection ~ 6750 26650
 Wire Wire Line
-	6750 26850 6750 26650
+	6750 26450 6850 26450
+Wire Wire Line
+	6750 26650 6750 26450
 Wire Wire Line
 	6750 28400 6850 28400
 Connection ~ 6750 28400
 Wire Wire Line
-	6750 26950 6850 26950
+	6750 26750 6850 26750
 Wire Wire Line
-	6750 28400 6750 26950
+	6750 28400 6750 26750
 Wire Wire Line
 	6800 28700 6850 28700
 Connection ~ 6800 28700
@@ -6490,11 +1651,11 @@ Wire Wire Line
 Wire Wire Line
 	5700 28400 6050 28400
 Wire Wire Line
-	5700 26850 6150 26850
+	5700 26650 6150 26650
 Wire Wire Line
-	5700 26550 6250 26550
+	5700 26350 6250 26350
 Wire Wire Line
-	6850 26250 6750 26250
+	6850 26050 6750 26050
 $Comp
 L power:GND #PWR?
 U 1 1 66438158
@@ -6511,27 +1672,27 @@ $EndComp
 $Comp
 L power:GND #PWR?
 U 1 1 66438152
-P 6850 27250
+P 6850 27050
 AR Path="/61EF647B/66438152" Ref="#PWR?"  Part="1" 
 AR Path="/66438152" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 6850 27000 50  0001 C CNN
-F 1 "GND" H 6855 27077 50  0000 C CNN
-F 2 "" H 6850 27250 50  0001 C CNN
-F 3 "" H 6850 27250 50  0001 C CNN
-	1    6850 27250
+F 0 "#PWR?" H 6850 26800 50  0001 C CNN
+F 1 "GND" H 6855 26877 50  0000 C CNN
+F 2 "" H 6850 27050 50  0001 C CNN
+F 3 "" H 6850 27050 50  0001 C CNN
+	1    6850 27050
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:+5V #PWR?
 U 1 1 6643814C
-P 7350 25650
+P 7350 25450
 AR Path="/61EF647B/6643814C" Ref="#PWR?"  Part="1" 
 AR Path="/6643814C" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 7350 25500 50  0001 C CNN
-F 1 "+5V" H 7450 25750 50  0000 C CNN
-F 2 "" H 7350 25650 50  0001 C CNN
-F 3 "" H 7350 25650 50  0001 C CNN
-	1    7350 25650
+F 0 "#PWR?" H 7350 25300 50  0001 C CNN
+F 1 "+5V" H 7450 25550 50  0000 C CNN
+F 2 "" H 7350 25450 50  0001 C CNN
+F 3 "" H 7350 25450 50  0001 C CNN
+	1    7350 25450
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -6550,14 +1711,14 @@ $EndComp
 $Comp
 L power:GND #PWR?
 U 1 1 66438140
-P 7350 27550
+P 7350 27350
 AR Path="/61EF647B/66438140" Ref="#PWR?"  Part="1" 
 AR Path="/66438140" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 7350 27300 50  0001 C CNN
-F 1 "GND" H 7355 27377 50  0000 C CNN
-F 2 "" H 7350 27550 50  0001 C CNN
-F 3 "" H 7350 27550 50  0001 C CNN
-	1    7350 27550
+F 0 "#PWR?" H 7350 27100 50  0001 C CNN
+F 1 "GND" H 7355 27177 50  0000 C CNN
+F 2 "" H 7350 27350 50  0001 C CNN
+F 3 "" H 7350 27350 50  0001 C CNN
+	1    7350 27350
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -6589,99 +1750,87 @@ $EndComp
 $Comp
 L 74xx:74LS157 U?
 U 1 1 6643812E
-P 7350 26550
+P 7350 26350
 AR Path="/61EF647B/6643812E" Ref="U?"  Part="1" 
 AR Path="/6643812E" Ref="U?"  Part="1" 
-F 0 "U?" H 7350 27631 50  0000 C CNN
-F 1 "74LS157" H 7350 27700 50  0000 C CNN
-F 2 "Package_DIP:DIP-16_W7.62mm" H 7350 26550 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS157" H 7350 26550 50  0001 C CNN
-	1    7350 26550
+F 0 "U?" H 7350 27431 50  0000 C CNN
+F 1 "74LS157" H 7350 27500 50  0000 C CNN
+F 2 "Package_DIP:DIP-16_W7.62mm" H 7350 26350 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS157" H 7350 26350 50  0001 C CNN
+	1    7350 26350
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3950 29300 4700 29300
-Connection ~ 3950 29300
+	4000 29300 4700 29300
+Connection ~ 4000 29300
 Wire Wire Line
-	3950 26050 4700 26050
+	4000 25850 4700 25850
 Wire Wire Line
-	3950 29300 3950 26050
+	4000 29300 4000 25850
 Wire Wire Line
-	3900 29000 3450 29000
-Connection ~ 3900 29000
+	3950 29000 3450 29000
+Connection ~ 3950 29000
 Wire Wire Line
-	3900 26350 3900 29000
+	3950 26150 3950 29000
 Wire Wire Line
-	3900 26350 4700 26350
+	3950 26150 4700 26150
 Wire Wire Line
-	3850 28700 4700 28700
-Connection ~ 3850 28700
+	3900 28700 4700 28700
+Connection ~ 3900 28700
 Wire Wire Line
-	3850 26650 4700 26650
+	3900 26450 4700 26450
 Wire Wire Line
-	3850 28700 3850 26650
+	3900 28700 3900 26450
 Wire Wire Line
-	3800 28400 4700 28400
-Connection ~ 3800 28400
+	3850 28400 4700 28400
+Connection ~ 3850 28400
 Wire Wire Line
-	3800 26950 4700 26950
+	3850 26750 4700 26750
 Wire Wire Line
-	3800 28400 3800 26950
+	3850 28400 3850 26750
 Wire Wire Line
-	3750 26850 4700 26850
-Connection ~ 3750 26850
+	3750 26650 4700 26650
 Wire Wire Line
 	3750 28500 4700 28500
 Wire Wire Line
-	3750 26850 3750 28500
-Wire Wire Line
-	3700 26550 3450 26550
-Connection ~ 3700 26550
+	3750 26650 3750 28500
 Wire Wire Line
 	3700 28800 4700 28800
 Wire Wire Line
-	3700 26550 3700 28800
+	3700 26350 3700 28800
 Wire Wire Line
-	3650 26250 4700 26250
-Connection ~ 3650 26250
+	3650 26050 4700 26050
 Wire Wire Line
 	3650 29100 4700 29100
 Wire Wire Line
-	3650 26250 3650 29100
+	3650 26050 3650 29100
 Wire Wire Line
-	3600 25950 4700 25950
-Connection ~ 3600 25950
+	3600 25750 4700 25750
 Wire Wire Line
 	3600 29400 4700 29400
 Wire Wire Line
-	3600 25950 3600 29400
+	3600 25750 3600 29400
 Wire Wire Line
-	3450 29300 3950 29300
+	3450 29300 4000 29300
 Wire Wire Line
-	4700 29000 3900 29000
+	4700 29000 3950 29000
 Wire Wire Line
-	3450 28700 3850 28700
+	3450 28700 3900 28700
 Wire Wire Line
-	3450 28400 3800 28400
+	3450 28400 3850 28400
 Wire Wire Line
-	3450 26850 3750 26850
-Wire Wire Line
-	4700 26550 3700 26550
-Wire Wire Line
-	3450 26250 3650 26250
-Wire Wire Line
-	3450 25950 3600 25950
+	4700 26350 3700 26350
 $Comp
 L power:+5V #PWR?
 U 1 1 664380F3
-P 5200 25650
+P 5200 25450
 AR Path="/61EF647B/664380F3" Ref="#PWR?"  Part="1" 
 AR Path="/664380F3" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 5200 25500 50  0001 C CNN
-F 1 "+5V" H 5300 25750 50  0000 C CNN
-F 2 "" H 5200 25650 50  0001 C CNN
-F 3 "" H 5200 25650 50  0001 C CNN
-	1    5200 25650
+F 0 "#PWR?" H 5200 25300 50  0001 C CNN
+F 1 "+5V" H 5300 25550 50  0000 C CNN
+F 2 "" H 5200 25450 50  0001 C CNN
+F 3 "" H 5200 25450 50  0001 C CNN
+	1    5200 25450
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -6700,27 +1849,27 @@ $EndComp
 $Comp
 L power:GND #PWR?
 U 1 1 664380E7
-P 4700 27250
+P 4700 27050
 AR Path="/61EF647B/664380E7" Ref="#PWR?"  Part="1" 
 AR Path="/664380E7" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 4700 27000 50  0001 C CNN
-F 1 "GND" H 4705 27077 50  0000 C CNN
-F 2 "" H 4700 27250 50  0001 C CNN
-F 3 "" H 4700 27250 50  0001 C CNN
-	1    4700 27250
+F 0 "#PWR?" H 4700 26800 50  0001 C CNN
+F 1 "GND" H 4705 26877 50  0000 C CNN
+F 2 "" H 4700 27050 50  0001 C CNN
+F 3 "" H 4700 27050 50  0001 C CNN
+	1    4700 27050
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR?
 U 1 1 664380E1
-P 5200 27550
+P 5200 27350
 AR Path="/61EF647B/664380E1" Ref="#PWR?"  Part="1" 
 AR Path="/664380E1" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 5200 27300 50  0001 C CNN
-F 1 "GND" H 5205 27377 50  0000 C CNN
-F 2 "" H 5200 27550 50  0001 C CNN
-F 3 "" H 5200 27550 50  0001 C CNN
-	1    5200 27550
+F 0 "#PWR?" H 5200 27100 50  0001 C CNN
+F 1 "GND" H 5205 27177 50  0000 C CNN
+F 2 "" H 5200 27350 50  0001 C CNN
+F 3 "" H 5200 27350 50  0001 C CNN
+	1    5200 27350
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -6765,24 +1914,16 @@ $EndComp
 $Comp
 L 74xx:74LS157 U?
 U 1 1 664380C9
-P 5200 26550
+P 5200 26350
 AR Path="/61EF647B/664380C9" Ref="U?"  Part="1" 
 AR Path="/664380C9" Ref="U?"  Part="1" 
-F 0 "U?" H 5200 27631 50  0000 C CNN
-F 1 "74LS157" H 5200 27700 50  0000 C CNN
-F 2 "Package_DIP:DIP-16_W7.62mm" H 5200 26550 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS157" H 5200 26550 50  0001 C CNN
-	1    5200 26550
+F 0 "U?" H 5200 27431 50  0000 C CNN
+F 1 "74LS157" H 5200 27500 50  0000 C CNN
+F 2 "Package_DIP:DIP-16_W7.62mm" H 5200 26350 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS157" H 5200 26350 50  0001 C CNN
+	1    5200 26350
 	1    0    0    -1  
 $EndComp
-Entry Wire Line
-	3150 24100 3250 24200
-Wire Bus Line
-	2100 10250 3150 10250
-Entry Wire Line
-	3150 11850 3250 11950
-Wire Wire Line
-	3250 11950 3900 11950
 Wire Bus Line
 	3150 31800 6650 31800
 Entry Wire Line
@@ -6797,13 +1938,6 @@ Text Label 6800 31600 0    75   ~ 0
 bus1
 Text Label 6800 31700 0    75   ~ 0
 bus2
-Connection ~ 7900 23300
-Wire Wire Line
-	7900 23300 7900 23600
-Wire Wire Line
-	8800 23700 8800 24350
-Wire Wire Line
-	9000 23300 9000 24500
 Wire Wire Line
 	13750 30550 13750 25400
 Wire Wire Line
@@ -6816,22 +1950,6 @@ Entry Wire Line
 	13500 28600 13400 28700
 Entry Wire Line
 	13500 28300 13400 28400
-Entry Wire Line
-	13500 26750 13400 26850
-Entry Wire Line
-	13500 26450 13400 26550
-Entry Wire Line
-	13500 26150 13400 26250
-Entry Wire Line
-	13500 25850 13400 25950
-Wire Wire Line
-	13000 25950 13400 25950
-Wire Wire Line
-	13000 26250 13400 26250
-Wire Wire Line
-	13000 26550 13400 26550
-Wire Wire Line
-	13000 26850 13400 26850
 Wire Wire Line
 	13000 28400 13400 28400
 Wire Wire Line
@@ -6840,13 +1958,13 @@ Wire Wire Line
 	13000 29000 13400 29000
 Wire Wire Line
 	13000 29300 13400 29300
-Text Label 13000 25950 0    75   ~ 0
+Text Label 13000 25750 0    75   ~ 0
 shift0
-Text Label 13000 26250 0    75   ~ 0
+Text Label 13000 26050 0    75   ~ 0
 shift1
-Text Label 13000 26550 0    75   ~ 0
+Text Label 13000 26350 0    75   ~ 0
 shift2
-Text Label 13000 26850 0    75   ~ 0
+Text Label 13000 26650 0    75   ~ 0
 shift3
 Text Label 13000 28400 0    75   ~ 0
 shift4
@@ -14159,146 +9277,8 @@ Wire Wire Line
 	41100 650  40700 650 
 Wire Wire Line
 	40700 250  41100 250 
-Connection ~ 3150 24800
-Text GLabel 8750 21950 0    75   Input ~ 0
-ctrlAluOp1
-Wire Wire Line
-	8750 21950 8750 21850
 Wire Bus Line
-	4550 10250 6400 10250
-Wire Bus Line
-	13500 24650 8000 24650
-Entry Wire Line
-	7500 12400 7400 12500
-Entry Wire Line
-	7700 12500 7600 12600
-Entry Wire Line
-	7900 12600 7800 12700
-Entry Wire Line
-	8100 12700 8000 12800
-Entry Wire Line
-	7500 13100 7400 13200
-Entry Wire Line
-	7700 13200 7600 13300
-Entry Wire Line
-	7900 13300 7800 13400
-Entry Wire Line
-	8100 13400 8000 13500
-Entry Wire Line
-	7500 15050 7400 15150
-Entry Wire Line
-	7700 15150 7600 15250
-Wire Wire Line
-	7500 15050 8750 15050
-Wire Wire Line
-	7700 15150 8750 15150
-Entry Wire Line
-	7900 15250 7800 15350
-Wire Wire Line
-	7900 15250 8750 15250
-Entry Wire Line
-	8100 15350 8000 15450
-Wire Wire Line
-	8100 15350 8750 15350
-Entry Wire Line
-	7500 15750 7400 15850
-Entry Wire Line
-	7700 15850 7600 15950
-Wire Wire Line
-	7500 15750 8750 15750
-Wire Wire Line
-	7700 15850 8750 15850
-Entry Wire Line
-	7900 15950 7800 16050
-Wire Wire Line
-	7900 15950 8750 15950
-Entry Wire Line
-	8100 16050 8000 16150
-Wire Wire Line
-	8100 16050 8750 16050
-Entry Wire Line
-	7500 17700 7400 17800
-Entry Wire Line
-	7700 17800 7600 17900
-Wire Wire Line
-	7500 17700 8750 17700
-Wire Wire Line
-	7700 17800 8750 17800
-Entry Wire Line
-	7900 17900 7800 18000
-Wire Wire Line
-	7900 17900 8750 17900
-Entry Wire Line
-	8100 18000 8000 18100
-Wire Wire Line
-	8100 18000 8750 18000
-Entry Wire Line
-	7500 18400 7400 18500
-Entry Wire Line
-	7700 18500 7600 18600
-Wire Wire Line
-	7500 18400 8750 18400
-Wire Wire Line
-	7700 18500 8750 18500
-Entry Wire Line
-	7900 18600 7800 18700
-Wire Wire Line
-	7900 18600 8750 18600
-Entry Wire Line
-	8100 18700 8000 18800
-Wire Wire Line
-	8100 18700 8750 18700
-Entry Wire Line
-	7500 20350 7400 20450
-Entry Wire Line
-	7700 20450 7600 20550
-Wire Wire Line
-	7500 20350 8750 20350
-Wire Wire Line
-	7700 20450 8750 20450
-Entry Wire Line
-	7900 20550 7800 20650
-Wire Wire Line
-	7900 20550 8750 20550
-Entry Wire Line
-	8100 20650 8000 20750
-Wire Wire Line
-	8100 20650 8750 20650
-Entry Wire Line
-	7500 21050 7400 21150
-Entry Wire Line
-	7700 21150 7600 21250
-Wire Wire Line
-	7500 21050 8750 21050
-Wire Wire Line
-	7700 21150 8750 21150
-Entry Wire Line
-	7900 21250 7800 21350
-Wire Wire Line
-	7900 21250 8750 21250
-Entry Wire Line
-	8100 21350 8000 21450
-Wire Wire Line
-	8100 21350 8750 21350
-Wire Wire Line
-	8750 14050 8750 13900
-Wire Wire Line
-	8750 16700 8750 16550
-Wire Wire Line
-	8750 19350 8750 19200
-Text Notes 7450 11000 1    75   ~ 0
-adder
-Text Notes 7650 11000 1    75   ~ 0
-and
-Text Notes 7850 11000 1    75   ~ 0
-xor
-Text Notes 8050 11000 1    75   ~ 0
-shifter
-Wire Wire Line
-	7900 23300 9000 23300
-Connection ~ 12050 23450
-Wire Wire Line
-	9000 24500 15250 24500
+	13500 24650 10650 24650
 Wire Wire Line
 	15450 26250 15450 26100
 Wire Wire Line
@@ -14334,8 +9314,6 @@ Wire Wire Line
 Wire Wire Line
 	17050 24600 17750 24600
 Wire Wire Line
-	8800 24350 17050 24350
-Wire Wire Line
 	14500 21850 14500 24050
 Wire Wire Line
 	17250 24050 17250 24400
@@ -14347,8 +9325,6 @@ Wire Wire Line
 	17150 24200 17150 24500
 Wire Wire Line
 	17150 24500 17750 24500
-Wire Wire Line
-	12050 24200 17150 24200
 Wire Wire Line
 	16500 25100 17050 25100
 Wire Wire Line
@@ -15112,43 +10088,25 @@ Connection ~ 14800 7800
 Wire Wire Line
 	14800 7800 14800 7400
 Wire Wire Line
-	7500 13100 8750 13100
-Wire Wire Line
-	7700 13200 8750 13200
-Wire Wire Line
-	7900 13300 8750 13300
-Wire Wire Line
-	8100 13400 8750 13400
-Wire Wire Line
-	7500 12400 8750 12400
-Wire Wire Line
-	7700 12500 8750 12500
-Wire Wire Line
-	7900 12600 8750 12600
-Wire Wire Line
-	8100 12700 8750 12700
-Wire Wire Line
 	6050 31100 7100 31100
 Wire Wire Line
 	5950 31200 7100 31200
 Wire Wire Line
 	7100 30900 6250 30900
 Wire Wire Line
-	6250 30900 6250 26550
-Connection ~ 6250 26550
+	6250 30900 6250 26350
+Connection ~ 6250 26350
 Wire Wire Line
-	6150 26850 6150 31000
+	6150 26650 6150 31000
 Wire Wire Line
 	6150 31000 7100 31000
-Connection ~ 6150 26850
+Connection ~ 6150 26650
 Wire Wire Line
 	6750 31500 7100 31500
 Wire Wire Line
 	6750 31600 7100 31600
 Wire Wire Line
 	6750 31700 7100 31700
-Wire Bus Line
-	3150 24800 3150 31800
 $Comp
 L 74xx:74LS245 U?
 U 1 1 6D173279
@@ -16675,16 +11633,5093 @@ Wire Wire Line
 	23150 26200 24000 26200
 Wire Wire Line
 	23150 26300 24000 26300
+Text Notes 12050 2050 0    787  ~ 0
+EDiC - Educational Digital Computer
+Wire Bus Line
+	3350 23550 4550 23550
+Wire Bus Line
+	3150 24150 3150 31800
+Connection ~ 3150 24150
+Wire Wire Line
+	12800 19200 13100 19200
+Wire Wire Line
+	8100 11350 8750 11350
+Wire Wire Line
+	7900 11250 8750 11250
+Wire Wire Line
+	7700 11150 8750 11150
+Wire Wire Line
+	7500 11050 8750 11050
+Wire Wire Line
+	8100 12050 8750 12050
+Wire Wire Line
+	7900 11950 8750 11950
+Wire Wire Line
+	7700 11850 8750 11850
+Wire Wire Line
+	7500 11750 8750 11750
+Wire Wire Line
+	12050 24200 17150 24200
+Wire Wire Line
+	11000 24350 17050 24350
+Wire Wire Line
+	10900 24500 15250 24500
+Connection ~ 12050 23450
+Wire Wire Line
+	7900 21950 10900 21950
+Text Notes 8050 9650 1    75   ~ 0
+shifter
+Text Notes 7850 9650 1    75   ~ 0
+xor
+Text Notes 7650 9650 1    75   ~ 0
+and
+Text Notes 7450 9650 1    75   ~ 0
+adder
+Wire Wire Line
+	8750 18000 8750 17850
+Wire Wire Line
+	8750 15350 8750 15200
+Wire Wire Line
+	8750 12700 8750 12550
+Wire Wire Line
+	8100 20000 8750 20000
+Entry Wire Line
+	8100 20000 8000 20100
+Wire Wire Line
+	7900 19900 8750 19900
+Entry Wire Line
+	7900 19900 7800 20000
+Wire Wire Line
+	7700 19800 8750 19800
+Wire Wire Line
+	7500 19700 8750 19700
+Entry Wire Line
+	7700 19800 7600 19900
+Entry Wire Line
+	7500 19700 7400 19800
+Wire Wire Line
+	8100 19300 8750 19300
+Entry Wire Line
+	8100 19300 8000 19400
+Wire Wire Line
+	7900 19200 8750 19200
+Entry Wire Line
+	7900 19200 7800 19300
+Wire Wire Line
+	7700 19100 8750 19100
+Wire Wire Line
+	7500 19000 8750 19000
+Entry Wire Line
+	7700 19100 7600 19200
+Entry Wire Line
+	7500 19000 7400 19100
+Wire Wire Line
+	8100 17350 8750 17350
+Entry Wire Line
+	8100 17350 8000 17450
+Wire Wire Line
+	7900 17250 8750 17250
+Entry Wire Line
+	7900 17250 7800 17350
+Wire Wire Line
+	7700 17150 8750 17150
+Wire Wire Line
+	7500 17050 8750 17050
+Entry Wire Line
+	7700 17150 7600 17250
+Entry Wire Line
+	7500 17050 7400 17150
+Wire Wire Line
+	8100 16650 8750 16650
+Entry Wire Line
+	8100 16650 8000 16750
+Wire Wire Line
+	7900 16550 8750 16550
+Entry Wire Line
+	7900 16550 7800 16650
+Wire Wire Line
+	7700 16450 8750 16450
+Wire Wire Line
+	7500 16350 8750 16350
+Entry Wire Line
+	7700 16450 7600 16550
+Entry Wire Line
+	7500 16350 7400 16450
+Wire Wire Line
+	8100 14700 8750 14700
+Entry Wire Line
+	8100 14700 8000 14800
+Wire Wire Line
+	7900 14600 8750 14600
+Entry Wire Line
+	7900 14600 7800 14700
+Wire Wire Line
+	7700 14500 8750 14500
+Wire Wire Line
+	7500 14400 8750 14400
+Entry Wire Line
+	7700 14500 7600 14600
+Entry Wire Line
+	7500 14400 7400 14500
+Wire Wire Line
+	8100 14000 8750 14000
+Entry Wire Line
+	8100 14000 8000 14100
+Wire Wire Line
+	7900 13900 8750 13900
+Entry Wire Line
+	7900 13900 7800 14000
+Wire Wire Line
+	7700 13800 8750 13800
+Wire Wire Line
+	7500 13700 8750 13700
+Entry Wire Line
+	7700 13800 7600 13900
+Entry Wire Line
+	7500 13700 7400 13800
+Entry Wire Line
+	8100 12050 8000 12150
+Entry Wire Line
+	7900 11950 7800 12050
+Entry Wire Line
+	7700 11850 7600 11950
+Entry Wire Line
+	7500 11750 7400 11850
+Entry Wire Line
+	8100 11350 8000 11450
+Entry Wire Line
+	7900 11250 7800 11350
+Entry Wire Line
+	7700 11150 7600 11250
+Entry Wire Line
+	7500 11050 7400 11150
+Wire Wire Line
+	8750 20600 8750 20500
+Text GLabel 8750 20600 0    75   Input ~ 0
+ctrlAluOp1
+Wire Wire Line
+	10900 21950 10900 24500
+Wire Wire Line
+	11000 22350 11000 24350
+Wire Wire Line
+	7900 21950 7900 22250
+Connection ~ 7900 21950
+Wire Wire Line
+	3250 10600 3900 10600
+Entry Wire Line
+	3150 10500 3250 10600
+Entry Wire Line
+	3150 22750 3250 22850
+$Comp
+L 74xx:74LS86 U?
+U 5 1 66262F89
+P 2000 14700
+AR Path="/60248238/66262F89" Ref="U?"  Part="5" 
+AR Path="/60260EB9/66262F89" Ref="U?"  Part="5" 
+AR Path="/600C5001/60248238/66262F89" Ref="U?"  Part="5" 
+AR Path="/600C5001/60260EB9/66262F89" Ref="U?"  Part="5" 
+AR Path="/61EF6542/66262F89" Ref="U?"  Part="5" 
+AR Path="/61EF655B/66262F89" Ref="U?"  Part="5" 
+AR Path="/66262F89" Ref="U?"  Part="5" 
+F 0 "U?" H 2230 14746 50  0000 L CNN
+F 1 "74LS86" H 2230 14655 50  0000 L CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 2000 14700 50  0001 C CNN
+F 3 "74xx/74ls86.pdf" H 2000 14700 50  0001 C CNN
+	5    2000 14700
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS86 U?
+U 5 1 66262F83
+P 2000 16250
+AR Path="/60248238/66262F83" Ref="U?"  Part="5" 
+AR Path="/60260EB9/66262F83" Ref="U?"  Part="5" 
+AR Path="/600C5001/60248238/66262F83" Ref="U?"  Part="5" 
+AR Path="/600C5001/60260EB9/66262F83" Ref="U?"  Part="5" 
+AR Path="/61EF6542/66262F83" Ref="U?"  Part="5" 
+AR Path="/61EF655B/66262F83" Ref="U?"  Part="5" 
+AR Path="/66262F83" Ref="U?"  Part="5" 
+F 0 "U?" H 2230 16296 50  0000 L CNN
+F 1 "74LS86" H 2230 16205 50  0000 L CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 2000 16250 50  0001 C CNN
+F 3 "74xx/74ls86.pdf" H 2000 16250 50  0001 C CNN
+	5    2000 16250
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS08 U?
+U 5 1 66262F7D
+P 1250 16250
+AR Path="/60248238/66262F7D" Ref="U?"  Part="5" 
+AR Path="/60260EB9/66262F7D" Ref="U?"  Part="5" 
+AR Path="/600C5001/60248238/66262F7D" Ref="U?"  Part="5" 
+AR Path="/600C5001/60260EB9/66262F7D" Ref="U?"  Part="5" 
+AR Path="/61EF6542/66262F7D" Ref="U?"  Part="5" 
+AR Path="/61EF655B/66262F7D" Ref="U?"  Part="5" 
+AR Path="/66262F7D" Ref="U?"  Part="5" 
+F 0 "U?" H 1480 16296 50  0000 L CNN
+F 1 "74LS08" H 1480 16205 50  0000 L CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 1250 16250 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 1250 16250 50  0001 C CNN
+	5    1250 16250
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS32 U?
+U 5 1 66262F77
+P 2000 17800
+AR Path="/60248238/66262F77" Ref="U?"  Part="5" 
+AR Path="/60260EB9/66262F77" Ref="U?"  Part="5" 
+AR Path="/600C5001/60248238/66262F77" Ref="U?"  Part="5" 
+AR Path="/600C5001/60260EB9/66262F77" Ref="U?"  Part="5" 
+AR Path="/61EF6542/66262F77" Ref="U?"  Part="5" 
+AR Path="/61EF655B/66262F77" Ref="U?"  Part="5" 
+AR Path="/66262F77" Ref="U?"  Part="5" 
+F 0 "U?" H 2230 17846 50  0000 L CNN
+F 1 "74LS32" H 2230 17755 50  0000 L CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 2000 17800 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 2000 17800 50  0001 C CNN
+	5    2000 17800
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 66262F71
+P 2000 14150
+AR Path="/60248238/66262F71" Ref="#PWR?"  Part="1" 
+AR Path="/60260EB9/66262F71" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/60248238/66262F71" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/60260EB9/66262F71" Ref="#PWR?"  Part="1" 
+AR Path="/61EF6542/66262F71" Ref="#PWR?"  Part="1" 
+AR Path="/61EF655B/66262F71" Ref="#PWR?"  Part="1" 
+AR Path="/66262F71" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 2000 14000 50  0001 C CNN
+F 1 "+5V" H 2015 14323 50  0000 C CNN
+F 2 "" H 2000 14150 50  0001 C CNN
+F 3 "" H 2000 14150 50  0001 C CNN
+	1    2000 14150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 66262F6B
+P 1250 15700
+AR Path="/60248238/66262F6B" Ref="#PWR?"  Part="1" 
+AR Path="/60260EB9/66262F6B" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/60248238/66262F6B" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/60260EB9/66262F6B" Ref="#PWR?"  Part="1" 
+AR Path="/61EF6542/66262F6B" Ref="#PWR?"  Part="1" 
+AR Path="/61EF655B/66262F6B" Ref="#PWR?"  Part="1" 
+AR Path="/66262F6B" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 1250 15550 50  0001 C CNN
+F 1 "+5V" H 1265 15873 50  0000 C CNN
+F 2 "" H 1250 15700 50  0001 C CNN
+F 3 "" H 1250 15700 50  0001 C CNN
+	1    1250 15700
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 66262F65
+P 2000 15700
+AR Path="/60248238/66262F65" Ref="#PWR?"  Part="1" 
+AR Path="/60260EB9/66262F65" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/60248238/66262F65" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/60260EB9/66262F65" Ref="#PWR?"  Part="1" 
+AR Path="/61EF6542/66262F65" Ref="#PWR?"  Part="1" 
+AR Path="/61EF655B/66262F65" Ref="#PWR?"  Part="1" 
+AR Path="/66262F65" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 2000 15550 50  0001 C CNN
+F 1 "+5V" H 2015 15873 50  0000 C CNN
+F 2 "" H 2000 15700 50  0001 C CNN
+F 3 "" H 2000 15700 50  0001 C CNN
+	1    2000 15700
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 66262F5F
+P 2000 18350
+AR Path="/60248238/66262F5F" Ref="#PWR?"  Part="1" 
+AR Path="/60260EB9/66262F5F" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/60248238/66262F5F" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/60260EB9/66262F5F" Ref="#PWR?"  Part="1" 
+AR Path="/61EF6542/66262F5F" Ref="#PWR?"  Part="1" 
+AR Path="/61EF655B/66262F5F" Ref="#PWR?"  Part="1" 
+AR Path="/66262F5F" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 2000 18100 50  0001 C CNN
+F 1 "GND" H 2005 18177 50  0000 C CNN
+F 2 "" H 2000 18350 50  0001 C CNN
+F 3 "" H 2000 18350 50  0001 C CNN
+	1    2000 18350
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 66262F59
+P 1250 18350
+AR Path="/60248238/66262F59" Ref="#PWR?"  Part="1" 
+AR Path="/60260EB9/66262F59" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/60248238/66262F59" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/60260EB9/66262F59" Ref="#PWR?"  Part="1" 
+AR Path="/61EF6542/66262F59" Ref="#PWR?"  Part="1" 
+AR Path="/61EF655B/66262F59" Ref="#PWR?"  Part="1" 
+AR Path="/66262F59" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 1250 18100 50  0001 C CNN
+F 1 "GND" H 1255 18177 50  0000 C CNN
+F 2 "" H 1250 18350 50  0001 C CNN
+F 3 "" H 1250 18350 50  0001 C CNN
+	1    1250 18350
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 66262F53
+P 2000 16800
+AR Path="/60248238/66262F53" Ref="#PWR?"  Part="1" 
+AR Path="/60260EB9/66262F53" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/60248238/66262F53" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/60260EB9/66262F53" Ref="#PWR?"  Part="1" 
+AR Path="/61EF6542/66262F53" Ref="#PWR?"  Part="1" 
+AR Path="/61EF655B/66262F53" Ref="#PWR?"  Part="1" 
+AR Path="/66262F53" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 2000 16550 50  0001 C CNN
+F 1 "GND" H 2005 16627 50  0000 C CNN
+F 2 "" H 2000 16800 50  0001 C CNN
+F 3 "" H 2000 16800 50  0001 C CNN
+	1    2000 16800
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 66262F4D
+P 1250 16800
+AR Path="/60248238/66262F4D" Ref="#PWR?"  Part="1" 
+AR Path="/60260EB9/66262F4D" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/60248238/66262F4D" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/60260EB9/66262F4D" Ref="#PWR?"  Part="1" 
+AR Path="/61EF6542/66262F4D" Ref="#PWR?"  Part="1" 
+AR Path="/61EF655B/66262F4D" Ref="#PWR?"  Part="1" 
+AR Path="/66262F4D" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 1250 16550 50  0001 C CNN
+F 1 "GND" H 1255 16627 50  0000 C CNN
+F 2 "" H 1250 16800 50  0001 C CNN
+F 3 "" H 1250 16800 50  0001 C CNN
+	1    1250 16800
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 66262F47
+P 2000 15250
+AR Path="/60248238/66262F47" Ref="#PWR?"  Part="1" 
+AR Path="/60260EB9/66262F47" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/60248238/66262F47" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/60260EB9/66262F47" Ref="#PWR?"  Part="1" 
+AR Path="/61EF6542/66262F47" Ref="#PWR?"  Part="1" 
+AR Path="/61EF655B/66262F47" Ref="#PWR?"  Part="1" 
+AR Path="/66262F47" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 2000 15000 50  0001 C CNN
+F 1 "GND" H 2005 15077 50  0000 C CNN
+F 2 "" H 2000 15250 50  0001 C CNN
+F 3 "" H 2000 15250 50  0001 C CNN
+	1    2000 15250
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS08 U?
+U 5 1 66262F41
+P 1250 17800
+AR Path="/60248238/66262F41" Ref="U?"  Part="5" 
+AR Path="/60260EB9/66262F41" Ref="U?"  Part="5" 
+AR Path="/600C5001/60248238/66262F41" Ref="U?"  Part="5" 
+AR Path="/600C5001/60260EB9/66262F41" Ref="U?"  Part="5" 
+AR Path="/61EF6542/66262F41" Ref="U?"  Part="5" 
+AR Path="/61EF655B/66262F41" Ref="U?"  Part="5" 
+AR Path="/66262F41" Ref="U?"  Part="5" 
+F 0 "U?" H 1480 17846 50  0000 L CNN
+F 1 "74LS08" H 1480 17755 50  0000 L CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 1250 17800 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 1250 17800 50  0001 C CNN
+	5    1250 17800
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 66262F3B
+P 1250 17250
+AR Path="/60248238/66262F3B" Ref="#PWR?"  Part="1" 
+AR Path="/60260EB9/66262F3B" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/60248238/66262F3B" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/60260EB9/66262F3B" Ref="#PWR?"  Part="1" 
+AR Path="/61EF6542/66262F3B" Ref="#PWR?"  Part="1" 
+AR Path="/61EF655B/66262F3B" Ref="#PWR?"  Part="1" 
+AR Path="/66262F3B" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 1250 17100 50  0001 C CNN
+F 1 "+5V" H 1265 17423 50  0000 C CNN
+F 2 "" H 1250 17250 50  0001 C CNN
+F 3 "" H 1250 17250 50  0001 C CNN
+	1    1250 17250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 66262F35
+P 2000 17250
+AR Path="/60248238/66262F35" Ref="#PWR?"  Part="1" 
+AR Path="/60260EB9/66262F35" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/60248238/66262F35" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/60260EB9/66262F35" Ref="#PWR?"  Part="1" 
+AR Path="/61EF6542/66262F35" Ref="#PWR?"  Part="1" 
+AR Path="/61EF655B/66262F35" Ref="#PWR?"  Part="1" 
+AR Path="/66262F35" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 2000 17100 50  0001 C CNN
+F 1 "+5V" H 2015 17423 50  0000 C CNN
+F 2 "" H 2000 17250 50  0001 C CNN
+F 3 "" H 2000 17250 50  0001 C CNN
+	1    2000 17250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2000 14150 2000 14200
+Wire Wire Line
+	1250 15700 1250 15750
+Wire Wire Line
+	1250 16750 1250 16800
+Wire Wire Line
+	2000 15250 2000 15200
+Wire Wire Line
+	2000 16800 2000 16750
+Wire Wire Line
+	1250 18300 1250 18350
+Wire Wire Line
+	2000 18350 2000 18300
+Wire Wire Line
+	2000 17300 2000 17250
+Wire Wire Line
+	1250 17250 1250 17300
+Wire Wire Line
+	2000 15750 2000 15700
+$Comp
+L 74xx:74LS86 U?
+U 5 1 66262F25
+P 1250 14700
+AR Path="/600C5001/66262F25" Ref="U?"  Part="5" 
+AR Path="/66262F25" Ref="U?"  Part="5" 
+F 0 "U?" H 1480 14746 50  0000 L CNN
+F 1 "74LS86" H 1480 14655 50  0000 L CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 1250 14700 50  0001 C CNN
+F 3 "74xx/74ls86.pdf" H 1250 14700 50  0001 C CNN
+	5    1250 14700
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 66262F1F
+P 1250 14200
+AR Path="/600C5001/66262F1F" Ref="#PWR?"  Part="1" 
+AR Path="/66262F1F" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 1250 14050 50  0001 C CNN
+F 1 "+5V" H 1265 14373 50  0000 C CNN
+F 2 "" H 1250 14200 50  0001 C CNN
+F 3 "" H 1250 14200 50  0001 C CNN
+	1    1250 14200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 66262F19
+P 1250 15200
+AR Path="/600C5001/66262F19" Ref="#PWR?"  Part="1" 
+AR Path="/66262F19" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 1250 14950 50  0001 C CNN
+F 1 "GND" H 1255 15027 50  0000 C CNN
+F 2 "" H 1250 15200 50  0001 C CNN
+F 3 "" H 1250 15200 50  0001 C CNN
+	1    1250 15200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7900 21450 7900 21950
+Connection ~ 7250 21450
+Wire Wire Line
+	7250 21450 7900 21450
+Wire Wire Line
+	7050 22450 8000 22450
+Wire Wire Line
+	8600 22350 11000 22350
+Wire Wire Line
+	7900 22250 8000 22250
+$Comp
+L 74xx:74LS86 U?
+U 1 1 64F66365
+P 8300 22350
+AR Path="/600C5001/64F66365" Ref="U?"  Part="1" 
+AR Path="/64F66365" Ref="U?"  Part="1" 
+F 0 "U?" H 8300 22675 50  0000 C CNN
+F 1 "74LS86" H 8300 22584 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 8300 22350 50  0001 C CNN
+F 3 "74xx/74ls86.pdf" H 8300 22350 50  0001 C CNN
+	1    8300 22350
+	1    0    0    -1  
+$EndComp
+Connection ~ 5600 18350
+Wire Wire Line
+	5600 17850 7250 17850
+Wire Wire Line
+	7050 17200 7250 17200
+Wire Wire Line
+	5600 17850 5600 18350
+Wire Wire Line
+	7250 17200 7250 17850
+Connection ~ 5600 20100
+Wire Wire Line
+	7050 18950 7250 18950
+Wire Wire Line
+	7250 19600 7250 18950
+Wire Wire Line
+	5600 19600 7250 19600
+Wire Wire Line
+	5600 20100 5600 19600
+Connection ~ 5600 21850
+Wire Wire Line
+	7050 20700 7250 20700
+Wire Wire Line
+	7250 21450 7250 20700
+Wire Wire Line
+	5600 21450 7250 21450
+Wire Wire Line
+	5600 21850 5600 21450
+Wire Wire Line
+	7050 15450 7250 15450
+Wire Wire Line
+	5600 16100 5600 16600
+Wire Wire Line
+	7250 16100 5600 16100
+Wire Wire Line
+	7250 15450 7250 16100
+Connection ~ 5600 14850
+Wire Wire Line
+	7050 13700 7250 13700
+Wire Wire Line
+	7250 14350 7250 13700
+Wire Wire Line
+	5600 14350 7250 14350
+Wire Wire Line
+	5600 14850 5600 14350
+Wire Wire Line
+	7050 11950 7250 11950
+Wire Wire Line
+	5600 12600 5600 13100
+Wire Wire Line
+	7250 12600 5600 12600
+Wire Wire Line
+	7250 11950 7250 12600
+Connection ~ 5600 11350
+Wire Wire Line
+	7050 10200 7250 10200
+Wire Wire Line
+	7250 10850 7250 10200
+Wire Wire Line
+	5600 10850 7250 10850
+Wire Wire Line
+	5600 11350 5600 10850
+Wire Wire Line
+	5700 22950 7700 22950
+Text Label 7200 22950 2    75   ~ 0
+xor7
+Text Label 7200 22100 2    75   ~ 0
+and7
+Wire Wire Line
+	6200 22100 7500 22100
+Text Label 7200 21950 2    75   ~ 0
+adder7
+Wire Wire Line
+	6350 21950 7300 21950
+Entry Wire Line
+	7700 22950 7800 23050
+Entry Wire Line
+	7500 22100 7600 22200
+Entry Wire Line
+	7300 21950 7400 22050
+Entry Wire Line
+	4550 22150 4650 22250
+Wire Wire Line
+	4650 22250 4850 22250
+Text Label 4800 22250 2    75   ~ 0
+a7
+Text GLabel 3900 23050 0    75   Input ~ 0
+ctrlAluSub
+$Comp
+L 74xx:74LS86 U?
+U 1 1 6442C4BD
+P 4200 22950
+AR Path="/600C5001/6442C4BD" Ref="U?"  Part="1" 
+AR Path="/6442C4BD" Ref="U?"  Part="1" 
+F 0 "U?" H 4200 23275 50  0000 C CNN
+F 1 "74LS86" H 4200 23184 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 4200 22950 50  0001 C CNN
+F 3 "74xx/74ls86.pdf" H 4200 22950 50  0001 C CNN
+	1    4200 22950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4500 22950 4750 22950
+Connection ~ 6200 22350
+Wire Wire Line
+	6200 22350 6450 22350
+$Comp
+L 74xx:74LS08 U?
+U 1 1 6442C4B4
+P 6050 22750
+AR Path="/600C5001/60248238/6016C9C5/6442C4B4" Ref="U?"  Part="4" 
+AR Path="/600C5001/60248238/6016C700/6442C4B4" Ref="U?"  Part="3" 
+AR Path="/600C5001/60248238/6016C4DC/6442C4B4" Ref="U?"  Part="2" 
+AR Path="/600C5001/60248238/6014201D/6442C4B4" Ref="U?"  Part="1" 
+AR Path="/600C5001/60260EB9/6016C9C5/6442C4B4" Ref="U?"  Part="4" 
+AR Path="/600C5001/60260EB9/6016C700/6442C4B4" Ref="U?"  Part="3" 
+AR Path="/600C5001/60260EB9/6016C4DC/6442C4B4" Ref="U?"  Part="2" 
+AR Path="/600C5001/60260EB9/6014201D/6442C4B4" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C9C5/6442C4B4" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C700/6442C4B4" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C4DC/6442C4B4" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6014201D/6442C4B4" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C9C5/6442C4B4" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C700/6442C4B4" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C4DC/6442C4B4" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6014201D/6442C4B4" Ref="U?"  Part="1" 
+AR Path="/62525FCD/6442C4B4" Ref="U?"  Part="1" 
+AR Path="/62525FD6/6442C4B4" Ref="U?"  Part="1" 
+AR Path="/62525FDF/6442C4B4" Ref="U?"  Part="1" 
+AR Path="/62525FE8/6442C4B4" Ref="U?"  Part="1" 
+AR Path="/6442C4B4" Ref="U?"  Part="1" 
+F 0 "U?" H 6050 23075 50  0000 C CNN
+F 1 "74LS08" H 6050 22984 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 6050 22750 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 6050 22750 50  0001 C CNN
+	1    6050 22750
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS86 U?
+U 1 1 6442C4AE
+P 6050 21950
+AR Path="/600C5001/60248238/6016C9C5/6442C4AE" Ref="U?"  Part="4" 
+AR Path="/600C5001/60248238/6016C700/6442C4AE" Ref="U?"  Part="3" 
+AR Path="/600C5001/60248238/6016C4DC/6442C4AE" Ref="U?"  Part="2" 
+AR Path="/600C5001/60248238/6014201D/6442C4AE" Ref="U?"  Part="1" 
+AR Path="/600C5001/60260EB9/6016C9C5/6442C4AE" Ref="U?"  Part="4" 
+AR Path="/600C5001/60260EB9/6016C700/6442C4AE" Ref="U?"  Part="3" 
+AR Path="/600C5001/60260EB9/6016C4DC/6442C4AE" Ref="U?"  Part="2" 
+AR Path="/600C5001/60260EB9/6014201D/6442C4AE" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C9C5/6442C4AE" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C700/6442C4AE" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C4DC/6442C4AE" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6014201D/6442C4AE" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C9C5/6442C4AE" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C700/6442C4AE" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C4DC/6442C4AE" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6014201D/6442C4AE" Ref="U?"  Part="1" 
+AR Path="/62525FCD/6442C4AE" Ref="U?"  Part="1" 
+AR Path="/62525FD6/6442C4AE" Ref="U?"  Part="1" 
+AR Path="/62525FDF/6442C4AE" Ref="U?"  Part="1" 
+AR Path="/62525FE8/6442C4AE" Ref="U?"  Part="1" 
+AR Path="/6442C4AE" Ref="U?"  Part="1" 
+F 0 "U?" H 6050 22275 50  0000 C CNN
+F 1 "74LS86" H 6050 22184 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 6050 21950 50  0001 C CNN
+F 3 "74xx/74ls86.pdf" H 6050 21950 50  0001 C CNN
+	1    6050 21950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5750 21850 5600 21850
+Wire Wire Line
+	5600 21850 5600 22650
+Wire Wire Line
+	5600 22650 5750 22650
+Wire Wire Line
+	5500 22850 5700 22850
+Wire Wire Line
+	5750 22050 5700 22050
+Wire Wire Line
+	5700 22050 5700 22850
+Connection ~ 5700 22850
+Wire Wire Line
+	5700 22850 5750 22850
+Wire Wire Line
+	5500 22350 6200 22350
+Wire Wire Line
+	6350 22750 6450 22750
+Wire Wire Line
+	6450 22750 6450 22550
+$Comp
+L 74xx:74LS32 U?
+U 1 1 6442C49A
+P 6750 22450
+AR Path="/600C5001/60248238/6016C9C5/6442C49A" Ref="U?"  Part="4" 
+AR Path="/600C5001/60248238/6016C700/6442C49A" Ref="U?"  Part="3" 
+AR Path="/600C5001/60248238/6016C4DC/6442C49A" Ref="U?"  Part="2" 
+AR Path="/600C5001/60248238/6014201D/6442C49A" Ref="U?"  Part="1" 
+AR Path="/600C5001/60260EB9/6016C9C5/6442C49A" Ref="U?"  Part="4" 
+AR Path="/600C5001/60260EB9/6016C700/6442C49A" Ref="U?"  Part="3" 
+AR Path="/600C5001/60260EB9/6016C4DC/6442C49A" Ref="U?"  Part="2" 
+AR Path="/600C5001/60260EB9/6014201D/6442C49A" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C9C5/6442C49A" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C700/6442C49A" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C4DC/6442C49A" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6014201D/6442C49A" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C9C5/6442C49A" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C700/6442C49A" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C4DC/6442C49A" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6014201D/6442C49A" Ref="U?"  Part="1" 
+AR Path="/62525FCD/6442C49A" Ref="U?"  Part="1" 
+AR Path="/62525FD6/6442C49A" Ref="U?"  Part="1" 
+AR Path="/62525FDF/6442C49A" Ref="U?"  Part="1" 
+AR Path="/62525FE8/6442C49A" Ref="U?"  Part="1" 
+AR Path="/6442C49A" Ref="U?"  Part="1" 
+F 0 "U?" H 6750 22775 50  0000 C CNN
+F 1 "74LS32" H 6750 22684 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 6750 22450 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 6750 22450 50  0001 C CNN
+	1    6750 22450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5700 22950 5700 22850
+Wire Wire Line
+	6200 22350 6200 22100
+$Comp
+L 74xx:74LS86 U?
+U 1 1 6442C492
+P 5200 22850
+AR Path="/600C5001/60248238/6016C9C5/6442C492" Ref="U?"  Part="4" 
+AR Path="/600C5001/60248238/6016C700/6442C492" Ref="U?"  Part="3" 
+AR Path="/600C5001/60248238/6016C4DC/6442C492" Ref="U?"  Part="2" 
+AR Path="/600C5001/60248238/6014201D/6442C492" Ref="U?"  Part="1" 
+AR Path="/600C5001/60260EB9/6016C9C5/6442C492" Ref="U?"  Part="4" 
+AR Path="/600C5001/60260EB9/6016C700/6442C492" Ref="U?"  Part="3" 
+AR Path="/600C5001/60260EB9/6016C4DC/6442C492" Ref="U?"  Part="2" 
+AR Path="/600C5001/60260EB9/6014201D/6442C492" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C9C5/6442C492" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C700/6442C492" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C4DC/6442C492" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6014201D/6442C492" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C9C5/6442C492" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C700/6442C492" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C4DC/6442C492" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6014201D/6442C492" Ref="U?"  Part="1" 
+AR Path="/62525FCD/6442C492" Ref="U?"  Part="1" 
+AR Path="/62525FD6/6442C492" Ref="U?"  Part="1" 
+AR Path="/62525FDF/6442C492" Ref="U?"  Part="1" 
+AR Path="/62525FE8/6442C492" Ref="U?"  Part="1" 
+AR Path="/6442C492" Ref="U?"  Part="1" 
+F 0 "U?" H 5200 23175 50  0000 C CNN
+F 1 "74LS86" H 5200 23084 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 5200 22850 50  0001 C CNN
+F 3 "74xx/74ls86.pdf" H 5200 22850 50  0001 C CNN
+	1    5200 22850
+	1    0    0    -1  
+$EndComp
+Connection ~ 4850 22250
+Connection ~ 4750 22950
+Wire Wire Line
+	4750 22950 4900 22950
+Wire Wire Line
+	4750 22450 4750 22950
+Wire Wire Line
+	4900 22450 4750 22450
+Wire Wire Line
+	4850 22750 4900 22750
+Wire Wire Line
+	4850 22250 4850 22750
+Wire Wire Line
+	4900 22250 4850 22250
+$Comp
+L 74xx:74LS08 U?
+U 1 1 6442C484
+P 5200 22350
+AR Path="/600C5001/60248238/6016C9C5/6442C484" Ref="U?"  Part="4" 
+AR Path="/600C5001/60248238/6016C700/6442C484" Ref="U?"  Part="3" 
+AR Path="/600C5001/60248238/6016C4DC/6442C484" Ref="U?"  Part="2" 
+AR Path="/600C5001/60248238/6014201D/6442C484" Ref="U?"  Part="1" 
+AR Path="/600C5001/60260EB9/6016C9C5/6442C484" Ref="U?"  Part="4" 
+AR Path="/600C5001/60260EB9/6016C700/6442C484" Ref="U?"  Part="3" 
+AR Path="/600C5001/60260EB9/6016C4DC/6442C484" Ref="U?"  Part="2" 
+AR Path="/600C5001/60260EB9/6014201D/6442C484" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C9C5/6442C484" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C700/6442C484" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C4DC/6442C484" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6014201D/6442C484" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C9C5/6442C484" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C700/6442C484" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C4DC/6442C484" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6014201D/6442C484" Ref="U?"  Part="1" 
+AR Path="/62525FCD/6442C484" Ref="U?"  Part="1" 
+AR Path="/62525FD6/6442C484" Ref="U?"  Part="1" 
+AR Path="/62525FDF/6442C484" Ref="U?"  Part="1" 
+AR Path="/62525FE8/6442C484" Ref="U?"  Part="1" 
+AR Path="/6442C484" Ref="U?"  Part="1" 
+F 0 "U?" H 5200 22675 50  0000 C CNN
+F 1 "74LS08" H 5200 22584 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 5200 22350 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 5200 22350 50  0001 C CNN
+	1    5200 22350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3250 22850 3900 22850
+Text Label 3850 22850 2    75   ~ 0
+bus7
+Wire Wire Line
+	5700 21200 7700 21200
+Text Label 7200 21200 2    75   ~ 0
+xor6
+Text Label 7200 20350 2    75   ~ 0
+and6
+Wire Wire Line
+	6200 20350 7500 20350
+Text Label 7200 20200 2    75   ~ 0
+adder6
+Wire Wire Line
+	6350 20200 7300 20200
+Entry Wire Line
+	7700 21200 7800 21300
+Entry Wire Line
+	7500 20350 7600 20450
+Entry Wire Line
+	7300 20200 7400 20300
+Entry Wire Line
+	3150 21000 3250 21100
+Entry Wire Line
+	4550 20400 4650 20500
+Wire Wire Line
+	4650 20500 4850 20500
+Text Label 4800 20500 2    75   ~ 0
+a6
+Text GLabel 3900 21300 0    75   Input ~ 0
+ctrlAluSub
+$Comp
+L 74xx:74LS86 U?
+U 1 1 64380C73
+P 4200 21200
+AR Path="/600C5001/64380C73" Ref="U?"  Part="1" 
+AR Path="/64380C73" Ref="U?"  Part="1" 
+F 0 "U?" H 4200 21525 50  0000 C CNN
+F 1 "74LS86" H 4200 21434 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 4200 21200 50  0001 C CNN
+F 3 "74xx/74ls86.pdf" H 4200 21200 50  0001 C CNN
+	1    4200 21200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4500 21200 4750 21200
+Connection ~ 6200 20600
+Wire Wire Line
+	6200 20600 6450 20600
+$Comp
+L 74xx:74LS08 U?
+U 1 1 64380C6A
+P 6050 21000
+AR Path="/600C5001/60248238/6016C9C5/64380C6A" Ref="U?"  Part="4" 
+AR Path="/600C5001/60248238/6016C700/64380C6A" Ref="U?"  Part="3" 
+AR Path="/600C5001/60248238/6016C4DC/64380C6A" Ref="U?"  Part="2" 
+AR Path="/600C5001/60248238/6014201D/64380C6A" Ref="U?"  Part="1" 
+AR Path="/600C5001/60260EB9/6016C9C5/64380C6A" Ref="U?"  Part="4" 
+AR Path="/600C5001/60260EB9/6016C700/64380C6A" Ref="U?"  Part="3" 
+AR Path="/600C5001/60260EB9/6016C4DC/64380C6A" Ref="U?"  Part="2" 
+AR Path="/600C5001/60260EB9/6014201D/64380C6A" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C9C5/64380C6A" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C700/64380C6A" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C4DC/64380C6A" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6014201D/64380C6A" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C9C5/64380C6A" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C700/64380C6A" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C4DC/64380C6A" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6014201D/64380C6A" Ref="U?"  Part="1" 
+AR Path="/62525FCD/64380C6A" Ref="U?"  Part="1" 
+AR Path="/62525FD6/64380C6A" Ref="U?"  Part="1" 
+AR Path="/62525FDF/64380C6A" Ref="U?"  Part="1" 
+AR Path="/62525FE8/64380C6A" Ref="U?"  Part="1" 
+AR Path="/64380C6A" Ref="U?"  Part="1" 
+F 0 "U?" H 6050 21325 50  0000 C CNN
+F 1 "74LS08" H 6050 21234 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 6050 21000 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 6050 21000 50  0001 C CNN
+	1    6050 21000
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS86 U?
+U 1 1 64380C64
+P 6050 20200
+AR Path="/600C5001/60248238/6016C9C5/64380C64" Ref="U?"  Part="4" 
+AR Path="/600C5001/60248238/6016C700/64380C64" Ref="U?"  Part="3" 
+AR Path="/600C5001/60248238/6016C4DC/64380C64" Ref="U?"  Part="2" 
+AR Path="/600C5001/60248238/6014201D/64380C64" Ref="U?"  Part="1" 
+AR Path="/600C5001/60260EB9/6016C9C5/64380C64" Ref="U?"  Part="4" 
+AR Path="/600C5001/60260EB9/6016C700/64380C64" Ref="U?"  Part="3" 
+AR Path="/600C5001/60260EB9/6016C4DC/64380C64" Ref="U?"  Part="2" 
+AR Path="/600C5001/60260EB9/6014201D/64380C64" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C9C5/64380C64" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C700/64380C64" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C4DC/64380C64" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6014201D/64380C64" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C9C5/64380C64" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C700/64380C64" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C4DC/64380C64" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6014201D/64380C64" Ref="U?"  Part="1" 
+AR Path="/62525FCD/64380C64" Ref="U?"  Part="1" 
+AR Path="/62525FD6/64380C64" Ref="U?"  Part="1" 
+AR Path="/62525FDF/64380C64" Ref="U?"  Part="1" 
+AR Path="/62525FE8/64380C64" Ref="U?"  Part="1" 
+AR Path="/64380C64" Ref="U?"  Part="1" 
+F 0 "U?" H 6050 20525 50  0000 C CNN
+F 1 "74LS86" H 6050 20434 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 6050 20200 50  0001 C CNN
+F 3 "74xx/74ls86.pdf" H 6050 20200 50  0001 C CNN
+	1    6050 20200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5750 20100 5600 20100
+Wire Wire Line
+	5600 20100 5600 20900
+Wire Wire Line
+	5600 20900 5750 20900
+Wire Wire Line
+	5500 21100 5700 21100
+Wire Wire Line
+	5750 20300 5700 20300
+Wire Wire Line
+	5700 20300 5700 21100
+Connection ~ 5700 21100
+Wire Wire Line
+	5700 21100 5750 21100
+Wire Wire Line
+	5500 20600 6200 20600
+Wire Wire Line
+	6350 21000 6450 21000
+Wire Wire Line
+	6450 21000 6450 20800
+$Comp
+L 74xx:74LS32 U?
+U 1 1 64380C50
+P 6750 20700
+AR Path="/600C5001/60248238/6016C9C5/64380C50" Ref="U?"  Part="4" 
+AR Path="/600C5001/60248238/6016C700/64380C50" Ref="U?"  Part="3" 
+AR Path="/600C5001/60248238/6016C4DC/64380C50" Ref="U?"  Part="2" 
+AR Path="/600C5001/60248238/6014201D/64380C50" Ref="U?"  Part="1" 
+AR Path="/600C5001/60260EB9/6016C9C5/64380C50" Ref="U?"  Part="4" 
+AR Path="/600C5001/60260EB9/6016C700/64380C50" Ref="U?"  Part="3" 
+AR Path="/600C5001/60260EB9/6016C4DC/64380C50" Ref="U?"  Part="2" 
+AR Path="/600C5001/60260EB9/6014201D/64380C50" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C9C5/64380C50" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C700/64380C50" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C4DC/64380C50" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6014201D/64380C50" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C9C5/64380C50" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C700/64380C50" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C4DC/64380C50" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6014201D/64380C50" Ref="U?"  Part="1" 
+AR Path="/62525FCD/64380C50" Ref="U?"  Part="1" 
+AR Path="/62525FD6/64380C50" Ref="U?"  Part="1" 
+AR Path="/62525FDF/64380C50" Ref="U?"  Part="1" 
+AR Path="/62525FE8/64380C50" Ref="U?"  Part="1" 
+AR Path="/64380C50" Ref="U?"  Part="1" 
+F 0 "U?" H 6750 21025 50  0000 C CNN
+F 1 "74LS32" H 6750 20934 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 6750 20700 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 6750 20700 50  0001 C CNN
+	1    6750 20700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5700 21200 5700 21100
+Wire Wire Line
+	6200 20600 6200 20350
+$Comp
+L 74xx:74LS86 U?
+U 1 1 64380C48
+P 5200 21100
+AR Path="/600C5001/60248238/6016C9C5/64380C48" Ref="U?"  Part="4" 
+AR Path="/600C5001/60248238/6016C700/64380C48" Ref="U?"  Part="3" 
+AR Path="/600C5001/60248238/6016C4DC/64380C48" Ref="U?"  Part="2" 
+AR Path="/600C5001/60248238/6014201D/64380C48" Ref="U?"  Part="1" 
+AR Path="/600C5001/60260EB9/6016C9C5/64380C48" Ref="U?"  Part="4" 
+AR Path="/600C5001/60260EB9/6016C700/64380C48" Ref="U?"  Part="3" 
+AR Path="/600C5001/60260EB9/6016C4DC/64380C48" Ref="U?"  Part="2" 
+AR Path="/600C5001/60260EB9/6014201D/64380C48" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C9C5/64380C48" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C700/64380C48" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C4DC/64380C48" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6014201D/64380C48" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C9C5/64380C48" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C700/64380C48" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C4DC/64380C48" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6014201D/64380C48" Ref="U?"  Part="1" 
+AR Path="/62525FCD/64380C48" Ref="U?"  Part="1" 
+AR Path="/62525FD6/64380C48" Ref="U?"  Part="1" 
+AR Path="/62525FDF/64380C48" Ref="U?"  Part="1" 
+AR Path="/62525FE8/64380C48" Ref="U?"  Part="1" 
+AR Path="/64380C48" Ref="U?"  Part="1" 
+F 0 "U?" H 5200 21425 50  0000 C CNN
+F 1 "74LS86" H 5200 21334 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 5200 21100 50  0001 C CNN
+F 3 "74xx/74ls86.pdf" H 5200 21100 50  0001 C CNN
+	1    5200 21100
+	1    0    0    -1  
+$EndComp
+Connection ~ 4850 20500
+Connection ~ 4750 21200
+Wire Wire Line
+	4750 21200 4900 21200
+Wire Wire Line
+	4750 20700 4750 21200
+Wire Wire Line
+	4900 20700 4750 20700
+Wire Wire Line
+	4850 21000 4900 21000
+Wire Wire Line
+	4850 20500 4850 21000
+Wire Wire Line
+	4900 20500 4850 20500
+$Comp
+L 74xx:74LS08 U?
+U 1 1 64380C3A
+P 5200 20600
+AR Path="/600C5001/60248238/6016C9C5/64380C3A" Ref="U?"  Part="4" 
+AR Path="/600C5001/60248238/6016C700/64380C3A" Ref="U?"  Part="3" 
+AR Path="/600C5001/60248238/6016C4DC/64380C3A" Ref="U?"  Part="2" 
+AR Path="/600C5001/60248238/6014201D/64380C3A" Ref="U?"  Part="1" 
+AR Path="/600C5001/60260EB9/6016C9C5/64380C3A" Ref="U?"  Part="4" 
+AR Path="/600C5001/60260EB9/6016C700/64380C3A" Ref="U?"  Part="3" 
+AR Path="/600C5001/60260EB9/6016C4DC/64380C3A" Ref="U?"  Part="2" 
+AR Path="/600C5001/60260EB9/6014201D/64380C3A" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C9C5/64380C3A" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C700/64380C3A" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C4DC/64380C3A" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6014201D/64380C3A" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C9C5/64380C3A" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C700/64380C3A" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C4DC/64380C3A" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6014201D/64380C3A" Ref="U?"  Part="1" 
+AR Path="/62525FCD/64380C3A" Ref="U?"  Part="1" 
+AR Path="/62525FD6/64380C3A" Ref="U?"  Part="1" 
+AR Path="/62525FDF/64380C3A" Ref="U?"  Part="1" 
+AR Path="/62525FE8/64380C3A" Ref="U?"  Part="1" 
+AR Path="/64380C3A" Ref="U?"  Part="1" 
+F 0 "U?" H 5200 20925 50  0000 C CNN
+F 1 "74LS08" H 5200 20834 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 5200 20600 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 5200 20600 50  0001 C CNN
+	1    5200 20600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3250 21100 3900 21100
+Text Label 3850 21100 2    75   ~ 0
+bus6
+Wire Wire Line
+	5700 19450 7700 19450
+Text Label 7200 19450 2    75   ~ 0
+xor5
+Text Label 7200 18600 2    75   ~ 0
+and5
+Wire Wire Line
+	6200 18600 7500 18600
+Text Label 7200 18450 2    75   ~ 0
+adder5
+Wire Wire Line
+	6350 18450 7300 18450
+Entry Wire Line
+	7700 19450 7800 19550
+Entry Wire Line
+	7500 18600 7600 18700
+Entry Wire Line
+	7300 18450 7400 18550
+Entry Wire Line
+	3150 19250 3250 19350
+Entry Wire Line
+	4550 18650 4650 18750
+Wire Wire Line
+	4650 18750 4850 18750
+Text Label 4800 18750 2    75   ~ 0
+a5
+Text GLabel 3900 19550 0    75   Input ~ 0
+ctrlAluSub
+$Comp
+L 74xx:74LS86 U?
+U 1 1 642DAFA2
+P 4200 19450
+AR Path="/600C5001/642DAFA2" Ref="U?"  Part="1" 
+AR Path="/642DAFA2" Ref="U?"  Part="1" 
+F 0 "U?" H 4200 19775 50  0000 C CNN
+F 1 "74LS86" H 4200 19684 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 4200 19450 50  0001 C CNN
+F 3 "74xx/74ls86.pdf" H 4200 19450 50  0001 C CNN
+	1    4200 19450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4500 19450 4750 19450
+Connection ~ 6200 18850
+Wire Wire Line
+	6200 18850 6450 18850
+$Comp
+L 74xx:74LS08 U?
+U 1 1 642DAF99
+P 6050 19250
+AR Path="/600C5001/60248238/6016C9C5/642DAF99" Ref="U?"  Part="4" 
+AR Path="/600C5001/60248238/6016C700/642DAF99" Ref="U?"  Part="3" 
+AR Path="/600C5001/60248238/6016C4DC/642DAF99" Ref="U?"  Part="2" 
+AR Path="/600C5001/60248238/6014201D/642DAF99" Ref="U?"  Part="1" 
+AR Path="/600C5001/60260EB9/6016C9C5/642DAF99" Ref="U?"  Part="4" 
+AR Path="/600C5001/60260EB9/6016C700/642DAF99" Ref="U?"  Part="3" 
+AR Path="/600C5001/60260EB9/6016C4DC/642DAF99" Ref="U?"  Part="2" 
+AR Path="/600C5001/60260EB9/6014201D/642DAF99" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C9C5/642DAF99" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C700/642DAF99" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C4DC/642DAF99" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6014201D/642DAF99" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C9C5/642DAF99" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C700/642DAF99" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C4DC/642DAF99" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6014201D/642DAF99" Ref="U?"  Part="1" 
+AR Path="/62525FCD/642DAF99" Ref="U?"  Part="1" 
+AR Path="/62525FD6/642DAF99" Ref="U?"  Part="1" 
+AR Path="/62525FDF/642DAF99" Ref="U?"  Part="1" 
+AR Path="/62525FE8/642DAF99" Ref="U?"  Part="1" 
+AR Path="/642DAF99" Ref="U?"  Part="1" 
+F 0 "U?" H 6050 19575 50  0000 C CNN
+F 1 "74LS08" H 6050 19484 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 6050 19250 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 6050 19250 50  0001 C CNN
+	1    6050 19250
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS86 U?
+U 1 1 642DAF93
+P 6050 18450
+AR Path="/600C5001/60248238/6016C9C5/642DAF93" Ref="U?"  Part="4" 
+AR Path="/600C5001/60248238/6016C700/642DAF93" Ref="U?"  Part="3" 
+AR Path="/600C5001/60248238/6016C4DC/642DAF93" Ref="U?"  Part="2" 
+AR Path="/600C5001/60248238/6014201D/642DAF93" Ref="U?"  Part="1" 
+AR Path="/600C5001/60260EB9/6016C9C5/642DAF93" Ref="U?"  Part="4" 
+AR Path="/600C5001/60260EB9/6016C700/642DAF93" Ref="U?"  Part="3" 
+AR Path="/600C5001/60260EB9/6016C4DC/642DAF93" Ref="U?"  Part="2" 
+AR Path="/600C5001/60260EB9/6014201D/642DAF93" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C9C5/642DAF93" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C700/642DAF93" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C4DC/642DAF93" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6014201D/642DAF93" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C9C5/642DAF93" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C700/642DAF93" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C4DC/642DAF93" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6014201D/642DAF93" Ref="U?"  Part="1" 
+AR Path="/62525FCD/642DAF93" Ref="U?"  Part="1" 
+AR Path="/62525FD6/642DAF93" Ref="U?"  Part="1" 
+AR Path="/62525FDF/642DAF93" Ref="U?"  Part="1" 
+AR Path="/62525FE8/642DAF93" Ref="U?"  Part="1" 
+AR Path="/642DAF93" Ref="U?"  Part="1" 
+F 0 "U?" H 6050 18775 50  0000 C CNN
+F 1 "74LS86" H 6050 18684 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 6050 18450 50  0001 C CNN
+F 3 "74xx/74ls86.pdf" H 6050 18450 50  0001 C CNN
+	1    6050 18450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5750 18350 5600 18350
+Wire Wire Line
+	5600 18350 5600 19150
+Wire Wire Line
+	5600 19150 5750 19150
+Wire Wire Line
+	5500 19350 5700 19350
+Wire Wire Line
+	5750 18550 5700 18550
+Wire Wire Line
+	5700 18550 5700 19350
+Connection ~ 5700 19350
+Wire Wire Line
+	5700 19350 5750 19350
+Wire Wire Line
+	5500 18850 6200 18850
+Wire Wire Line
+	6350 19250 6450 19250
+Wire Wire Line
+	6450 19250 6450 19050
+$Comp
+L 74xx:74LS32 U?
+U 1 1 642DAF7F
+P 6750 18950
+AR Path="/600C5001/60248238/6016C9C5/642DAF7F" Ref="U?"  Part="4" 
+AR Path="/600C5001/60248238/6016C700/642DAF7F" Ref="U?"  Part="3" 
+AR Path="/600C5001/60248238/6016C4DC/642DAF7F" Ref="U?"  Part="2" 
+AR Path="/600C5001/60248238/6014201D/642DAF7F" Ref="U?"  Part="1" 
+AR Path="/600C5001/60260EB9/6016C9C5/642DAF7F" Ref="U?"  Part="4" 
+AR Path="/600C5001/60260EB9/6016C700/642DAF7F" Ref="U?"  Part="3" 
+AR Path="/600C5001/60260EB9/6016C4DC/642DAF7F" Ref="U?"  Part="2" 
+AR Path="/600C5001/60260EB9/6014201D/642DAF7F" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C9C5/642DAF7F" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C700/642DAF7F" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C4DC/642DAF7F" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6014201D/642DAF7F" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C9C5/642DAF7F" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C700/642DAF7F" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C4DC/642DAF7F" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6014201D/642DAF7F" Ref="U?"  Part="1" 
+AR Path="/62525FCD/642DAF7F" Ref="U?"  Part="1" 
+AR Path="/62525FD6/642DAF7F" Ref="U?"  Part="1" 
+AR Path="/62525FDF/642DAF7F" Ref="U?"  Part="1" 
+AR Path="/62525FE8/642DAF7F" Ref="U?"  Part="1" 
+AR Path="/642DAF7F" Ref="U?"  Part="1" 
+F 0 "U?" H 6750 19275 50  0000 C CNN
+F 1 "74LS32" H 6750 19184 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 6750 18950 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 6750 18950 50  0001 C CNN
+	1    6750 18950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5700 19450 5700 19350
+Wire Wire Line
+	6200 18850 6200 18600
+$Comp
+L 74xx:74LS86 U?
+U 1 1 642DAF77
+P 5200 19350
+AR Path="/600C5001/60248238/6016C9C5/642DAF77" Ref="U?"  Part="4" 
+AR Path="/600C5001/60248238/6016C700/642DAF77" Ref="U?"  Part="3" 
+AR Path="/600C5001/60248238/6016C4DC/642DAF77" Ref="U?"  Part="2" 
+AR Path="/600C5001/60248238/6014201D/642DAF77" Ref="U?"  Part="1" 
+AR Path="/600C5001/60260EB9/6016C9C5/642DAF77" Ref="U?"  Part="4" 
+AR Path="/600C5001/60260EB9/6016C700/642DAF77" Ref="U?"  Part="3" 
+AR Path="/600C5001/60260EB9/6016C4DC/642DAF77" Ref="U?"  Part="2" 
+AR Path="/600C5001/60260EB9/6014201D/642DAF77" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C9C5/642DAF77" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C700/642DAF77" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C4DC/642DAF77" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6014201D/642DAF77" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C9C5/642DAF77" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C700/642DAF77" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C4DC/642DAF77" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6014201D/642DAF77" Ref="U?"  Part="1" 
+AR Path="/62525FCD/642DAF77" Ref="U?"  Part="1" 
+AR Path="/62525FD6/642DAF77" Ref="U?"  Part="1" 
+AR Path="/62525FDF/642DAF77" Ref="U?"  Part="1" 
+AR Path="/62525FE8/642DAF77" Ref="U?"  Part="1" 
+AR Path="/642DAF77" Ref="U?"  Part="1" 
+F 0 "U?" H 5200 19675 50  0000 C CNN
+F 1 "74LS86" H 5200 19584 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 5200 19350 50  0001 C CNN
+F 3 "74xx/74ls86.pdf" H 5200 19350 50  0001 C CNN
+	1    5200 19350
+	1    0    0    -1  
+$EndComp
+Connection ~ 4850 18750
+Connection ~ 4750 19450
+Wire Wire Line
+	4750 19450 4900 19450
+Wire Wire Line
+	4750 18950 4750 19450
+Wire Wire Line
+	4900 18950 4750 18950
+Wire Wire Line
+	4850 19250 4900 19250
+Wire Wire Line
+	4850 18750 4850 19250
+Wire Wire Line
+	4900 18750 4850 18750
+$Comp
+L 74xx:74LS08 U?
+U 1 1 642DAF69
+P 5200 18850
+AR Path="/600C5001/60248238/6016C9C5/642DAF69" Ref="U?"  Part="4" 
+AR Path="/600C5001/60248238/6016C700/642DAF69" Ref="U?"  Part="3" 
+AR Path="/600C5001/60248238/6016C4DC/642DAF69" Ref="U?"  Part="2" 
+AR Path="/600C5001/60248238/6014201D/642DAF69" Ref="U?"  Part="1" 
+AR Path="/600C5001/60260EB9/6016C9C5/642DAF69" Ref="U?"  Part="4" 
+AR Path="/600C5001/60260EB9/6016C700/642DAF69" Ref="U?"  Part="3" 
+AR Path="/600C5001/60260EB9/6016C4DC/642DAF69" Ref="U?"  Part="2" 
+AR Path="/600C5001/60260EB9/6014201D/642DAF69" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C9C5/642DAF69" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C700/642DAF69" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C4DC/642DAF69" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6014201D/642DAF69" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C9C5/642DAF69" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C700/642DAF69" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C4DC/642DAF69" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6014201D/642DAF69" Ref="U?"  Part="1" 
+AR Path="/62525FCD/642DAF69" Ref="U?"  Part="1" 
+AR Path="/62525FD6/642DAF69" Ref="U?"  Part="1" 
+AR Path="/62525FDF/642DAF69" Ref="U?"  Part="1" 
+AR Path="/62525FE8/642DAF69" Ref="U?"  Part="1" 
+AR Path="/642DAF69" Ref="U?"  Part="1" 
+F 0 "U?" H 5200 19175 50  0000 C CNN
+F 1 "74LS08" H 5200 19084 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 5200 18850 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 5200 18850 50  0001 C CNN
+	1    5200 18850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3250 19350 3900 19350
+Text Label 3850 19350 2    75   ~ 0
+bus5
+Wire Wire Line
+	5700 17700 7700 17700
+Text Label 7200 17700 2    75   ~ 0
+xor4
+Text Label 7200 16850 2    75   ~ 0
+and4
+Wire Wire Line
+	6200 16850 7500 16850
+Text Label 7200 16700 2    75   ~ 0
+adder4
+Wire Wire Line
+	6350 16700 7300 16700
+Entry Wire Line
+	7700 17700 7800 17800
+Entry Wire Line
+	7500 16850 7600 16950
+Entry Wire Line
+	7300 16700 7400 16800
+Entry Wire Line
+	3150 17500 3250 17600
+Entry Wire Line
+	4550 16900 4650 17000
+Wire Wire Line
+	4650 17000 4850 17000
+Text Label 4800 17000 2    75   ~ 0
+a4
+Text GLabel 3900 17800 0    75   Input ~ 0
+ctrlAluSub
+$Comp
+L 74xx:74LS86 U?
+U 1 1 642474FA
+P 4200 17700
+AR Path="/600C5001/642474FA" Ref="U?"  Part="1" 
+AR Path="/642474FA" Ref="U?"  Part="1" 
+F 0 "U?" H 4200 18025 50  0000 C CNN
+F 1 "74LS86" H 4200 17934 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 4200 17700 50  0001 C CNN
+F 3 "74xx/74ls86.pdf" H 4200 17700 50  0001 C CNN
+	1    4200 17700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4500 17700 4750 17700
+Connection ~ 6200 17100
+Wire Wire Line
+	6200 17100 6450 17100
+$Comp
+L 74xx:74LS08 U?
+U 1 1 642474F1
+P 6050 17500
+AR Path="/600C5001/60248238/6016C9C5/642474F1" Ref="U?"  Part="4" 
+AR Path="/600C5001/60248238/6016C700/642474F1" Ref="U?"  Part="3" 
+AR Path="/600C5001/60248238/6016C4DC/642474F1" Ref="U?"  Part="2" 
+AR Path="/600C5001/60248238/6014201D/642474F1" Ref="U?"  Part="1" 
+AR Path="/600C5001/60260EB9/6016C9C5/642474F1" Ref="U?"  Part="4" 
+AR Path="/600C5001/60260EB9/6016C700/642474F1" Ref="U?"  Part="3" 
+AR Path="/600C5001/60260EB9/6016C4DC/642474F1" Ref="U?"  Part="2" 
+AR Path="/600C5001/60260EB9/6014201D/642474F1" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C9C5/642474F1" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C700/642474F1" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C4DC/642474F1" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6014201D/642474F1" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C9C5/642474F1" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C700/642474F1" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C4DC/642474F1" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6014201D/642474F1" Ref="U?"  Part="1" 
+AR Path="/62525FCD/642474F1" Ref="U?"  Part="1" 
+AR Path="/62525FD6/642474F1" Ref="U?"  Part="1" 
+AR Path="/62525FDF/642474F1" Ref="U?"  Part="1" 
+AR Path="/62525FE8/642474F1" Ref="U?"  Part="1" 
+AR Path="/642474F1" Ref="U?"  Part="1" 
+F 0 "U?" H 6050 17825 50  0000 C CNN
+F 1 "74LS08" H 6050 17734 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 6050 17500 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 6050 17500 50  0001 C CNN
+	1    6050 17500
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS86 U?
+U 1 1 642474EB
+P 6050 16700
+AR Path="/600C5001/60248238/6016C9C5/642474EB" Ref="U?"  Part="4" 
+AR Path="/600C5001/60248238/6016C700/642474EB" Ref="U?"  Part="3" 
+AR Path="/600C5001/60248238/6016C4DC/642474EB" Ref="U?"  Part="2" 
+AR Path="/600C5001/60248238/6014201D/642474EB" Ref="U?"  Part="1" 
+AR Path="/600C5001/60260EB9/6016C9C5/642474EB" Ref="U?"  Part="4" 
+AR Path="/600C5001/60260EB9/6016C700/642474EB" Ref="U?"  Part="3" 
+AR Path="/600C5001/60260EB9/6016C4DC/642474EB" Ref="U?"  Part="2" 
+AR Path="/600C5001/60260EB9/6014201D/642474EB" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C9C5/642474EB" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C700/642474EB" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C4DC/642474EB" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6014201D/642474EB" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C9C5/642474EB" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C700/642474EB" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C4DC/642474EB" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6014201D/642474EB" Ref="U?"  Part="1" 
+AR Path="/62525FCD/642474EB" Ref="U?"  Part="1" 
+AR Path="/62525FD6/642474EB" Ref="U?"  Part="1" 
+AR Path="/62525FDF/642474EB" Ref="U?"  Part="1" 
+AR Path="/62525FE8/642474EB" Ref="U?"  Part="1" 
+AR Path="/642474EB" Ref="U?"  Part="1" 
+F 0 "U?" H 6050 17025 50  0000 C CNN
+F 1 "74LS86" H 6050 16934 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 6050 16700 50  0001 C CNN
+F 3 "74xx/74ls86.pdf" H 6050 16700 50  0001 C CNN
+	1    6050 16700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5750 16600 5600 16600
+Wire Wire Line
+	5600 16600 5600 17400
+Wire Wire Line
+	5600 17400 5750 17400
+Connection ~ 5600 16600
+Wire Wire Line
+	5500 17600 5700 17600
+Wire Wire Line
+	5750 16800 5700 16800
+Wire Wire Line
+	5700 16800 5700 17600
+Connection ~ 5700 17600
+Wire Wire Line
+	5700 17600 5750 17600
+Wire Wire Line
+	5500 17100 6200 17100
+Wire Wire Line
+	6350 17500 6450 17500
+Wire Wire Line
+	6450 17500 6450 17300
+$Comp
+L 74xx:74LS32 U?
+U 1 1 642474D7
+P 6750 17200
+AR Path="/600C5001/60248238/6016C9C5/642474D7" Ref="U?"  Part="4" 
+AR Path="/600C5001/60248238/6016C700/642474D7" Ref="U?"  Part="3" 
+AR Path="/600C5001/60248238/6016C4DC/642474D7" Ref="U?"  Part="2" 
+AR Path="/600C5001/60248238/6014201D/642474D7" Ref="U?"  Part="1" 
+AR Path="/600C5001/60260EB9/6016C9C5/642474D7" Ref="U?"  Part="4" 
+AR Path="/600C5001/60260EB9/6016C700/642474D7" Ref="U?"  Part="3" 
+AR Path="/600C5001/60260EB9/6016C4DC/642474D7" Ref="U?"  Part="2" 
+AR Path="/600C5001/60260EB9/6014201D/642474D7" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C9C5/642474D7" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C700/642474D7" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C4DC/642474D7" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6014201D/642474D7" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C9C5/642474D7" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C700/642474D7" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C4DC/642474D7" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6014201D/642474D7" Ref="U?"  Part="1" 
+AR Path="/62525FCD/642474D7" Ref="U?"  Part="1" 
+AR Path="/62525FD6/642474D7" Ref="U?"  Part="1" 
+AR Path="/62525FDF/642474D7" Ref="U?"  Part="1" 
+AR Path="/62525FE8/642474D7" Ref="U?"  Part="1" 
+AR Path="/642474D7" Ref="U?"  Part="1" 
+F 0 "U?" H 6750 17525 50  0000 C CNN
+F 1 "74LS32" H 6750 17434 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 6750 17200 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 6750 17200 50  0001 C CNN
+	1    6750 17200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5700 17700 5700 17600
+Wire Wire Line
+	6200 17100 6200 16850
+$Comp
+L 74xx:74LS86 U?
+U 1 1 642474CF
+P 5200 17600
+AR Path="/600C5001/60248238/6016C9C5/642474CF" Ref="U?"  Part="4" 
+AR Path="/600C5001/60248238/6016C700/642474CF" Ref="U?"  Part="3" 
+AR Path="/600C5001/60248238/6016C4DC/642474CF" Ref="U?"  Part="2" 
+AR Path="/600C5001/60248238/6014201D/642474CF" Ref="U?"  Part="1" 
+AR Path="/600C5001/60260EB9/6016C9C5/642474CF" Ref="U?"  Part="4" 
+AR Path="/600C5001/60260EB9/6016C700/642474CF" Ref="U?"  Part="3" 
+AR Path="/600C5001/60260EB9/6016C4DC/642474CF" Ref="U?"  Part="2" 
+AR Path="/600C5001/60260EB9/6014201D/642474CF" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C9C5/642474CF" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C700/642474CF" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C4DC/642474CF" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6014201D/642474CF" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C9C5/642474CF" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C700/642474CF" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C4DC/642474CF" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6014201D/642474CF" Ref="U?"  Part="1" 
+AR Path="/62525FCD/642474CF" Ref="U?"  Part="1" 
+AR Path="/62525FD6/642474CF" Ref="U?"  Part="1" 
+AR Path="/62525FDF/642474CF" Ref="U?"  Part="1" 
+AR Path="/62525FE8/642474CF" Ref="U?"  Part="1" 
+AR Path="/642474CF" Ref="U?"  Part="1" 
+F 0 "U?" H 5200 17925 50  0000 C CNN
+F 1 "74LS86" H 5200 17834 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 5200 17600 50  0001 C CNN
+F 3 "74xx/74ls86.pdf" H 5200 17600 50  0001 C CNN
+	1    5200 17600
+	1    0    0    -1  
+$EndComp
+Connection ~ 4850 17000
+Connection ~ 4750 17700
+Wire Wire Line
+	4750 17700 4900 17700
+Wire Wire Line
+	4750 17200 4750 17700
+Wire Wire Line
+	4900 17200 4750 17200
+Wire Wire Line
+	4850 17500 4900 17500
+Wire Wire Line
+	4850 17000 4850 17500
+Wire Wire Line
+	4900 17000 4850 17000
+$Comp
+L 74xx:74LS08 U?
+U 1 1 642474C1
+P 5200 17100
+AR Path="/600C5001/60248238/6016C9C5/642474C1" Ref="U?"  Part="4" 
+AR Path="/600C5001/60248238/6016C700/642474C1" Ref="U?"  Part="3" 
+AR Path="/600C5001/60248238/6016C4DC/642474C1" Ref="U?"  Part="2" 
+AR Path="/600C5001/60248238/6014201D/642474C1" Ref="U?"  Part="1" 
+AR Path="/600C5001/60260EB9/6016C9C5/642474C1" Ref="U?"  Part="4" 
+AR Path="/600C5001/60260EB9/6016C700/642474C1" Ref="U?"  Part="3" 
+AR Path="/600C5001/60260EB9/6016C4DC/642474C1" Ref="U?"  Part="2" 
+AR Path="/600C5001/60260EB9/6014201D/642474C1" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C9C5/642474C1" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C700/642474C1" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C4DC/642474C1" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6014201D/642474C1" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C9C5/642474C1" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C700/642474C1" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C4DC/642474C1" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6014201D/642474C1" Ref="U?"  Part="1" 
+AR Path="/62525FCD/642474C1" Ref="U?"  Part="1" 
+AR Path="/62525FD6/642474C1" Ref="U?"  Part="1" 
+AR Path="/62525FDF/642474C1" Ref="U?"  Part="1" 
+AR Path="/62525FE8/642474C1" Ref="U?"  Part="1" 
+AR Path="/642474C1" Ref="U?"  Part="1" 
+F 0 "U?" H 5200 17425 50  0000 C CNN
+F 1 "74LS08" H 5200 17334 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 5200 17100 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 5200 17100 50  0001 C CNN
+	1    5200 17100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3250 17600 3900 17600
+Text Label 3850 17600 2    75   ~ 0
+bus4
+Wire Wire Line
+	5700 15950 7700 15950
+Text Label 7200 15950 2    75   ~ 0
+xor3
+Text Label 7200 15100 2    75   ~ 0
+and3
+Wire Wire Line
+	6200 15100 7500 15100
+Text Label 7200 14950 2    75   ~ 0
+adder3
+Wire Wire Line
+	6350 14950 7300 14950
+Entry Wire Line
+	7700 15950 7800 16050
+Entry Wire Line
+	7500 15100 7600 15200
+Entry Wire Line
+	7300 14950 7400 15050
+Entry Wire Line
+	3150 15750 3250 15850
+Entry Wire Line
+	4550 15150 4650 15250
+Wire Wire Line
+	4650 15250 4850 15250
+Text Label 4800 15250 2    75   ~ 0
+a3
+Text GLabel 3900 16050 0    75   Input ~ 0
+ctrlAluSub
+$Comp
+L 74xx:74LS86 U?
+U 1 1 641BEC98
+P 4200 15950
+AR Path="/600C5001/641BEC98" Ref="U?"  Part="1" 
+AR Path="/641BEC98" Ref="U?"  Part="1" 
+F 0 "U?" H 4200 16275 50  0000 C CNN
+F 1 "74LS86" H 4200 16184 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 4200 15950 50  0001 C CNN
+F 3 "74xx/74ls86.pdf" H 4200 15950 50  0001 C CNN
+	1    4200 15950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4500 15950 4750 15950
+Connection ~ 6200 15350
+Wire Wire Line
+	6200 15350 6450 15350
+$Comp
+L 74xx:74LS08 U?
+U 1 1 641BEC8F
+P 6050 15750
+AR Path="/600C5001/60248238/6016C9C5/641BEC8F" Ref="U?"  Part="4" 
+AR Path="/600C5001/60248238/6016C700/641BEC8F" Ref="U?"  Part="3" 
+AR Path="/600C5001/60248238/6016C4DC/641BEC8F" Ref="U?"  Part="2" 
+AR Path="/600C5001/60248238/6014201D/641BEC8F" Ref="U?"  Part="1" 
+AR Path="/600C5001/60260EB9/6016C9C5/641BEC8F" Ref="U?"  Part="4" 
+AR Path="/600C5001/60260EB9/6016C700/641BEC8F" Ref="U?"  Part="3" 
+AR Path="/600C5001/60260EB9/6016C4DC/641BEC8F" Ref="U?"  Part="2" 
+AR Path="/600C5001/60260EB9/6014201D/641BEC8F" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C9C5/641BEC8F" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C700/641BEC8F" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C4DC/641BEC8F" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6014201D/641BEC8F" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C9C5/641BEC8F" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C700/641BEC8F" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C4DC/641BEC8F" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6014201D/641BEC8F" Ref="U?"  Part="1" 
+AR Path="/62525FCD/641BEC8F" Ref="U?"  Part="1" 
+AR Path="/62525FD6/641BEC8F" Ref="U?"  Part="1" 
+AR Path="/62525FDF/641BEC8F" Ref="U?"  Part="1" 
+AR Path="/62525FE8/641BEC8F" Ref="U?"  Part="1" 
+AR Path="/641BEC8F" Ref="U?"  Part="1" 
+F 0 "U?" H 6050 16075 50  0000 C CNN
+F 1 "74LS08" H 6050 15984 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 6050 15750 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 6050 15750 50  0001 C CNN
+	1    6050 15750
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS86 U?
+U 1 1 641BEC89
+P 6050 14950
+AR Path="/600C5001/60248238/6016C9C5/641BEC89" Ref="U?"  Part="4" 
+AR Path="/600C5001/60248238/6016C700/641BEC89" Ref="U?"  Part="3" 
+AR Path="/600C5001/60248238/6016C4DC/641BEC89" Ref="U?"  Part="2" 
+AR Path="/600C5001/60248238/6014201D/641BEC89" Ref="U?"  Part="1" 
+AR Path="/600C5001/60260EB9/6016C9C5/641BEC89" Ref="U?"  Part="4" 
+AR Path="/600C5001/60260EB9/6016C700/641BEC89" Ref="U?"  Part="3" 
+AR Path="/600C5001/60260EB9/6016C4DC/641BEC89" Ref="U?"  Part="2" 
+AR Path="/600C5001/60260EB9/6014201D/641BEC89" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C9C5/641BEC89" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C700/641BEC89" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C4DC/641BEC89" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6014201D/641BEC89" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C9C5/641BEC89" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C700/641BEC89" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C4DC/641BEC89" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6014201D/641BEC89" Ref="U?"  Part="1" 
+AR Path="/62525FCD/641BEC89" Ref="U?"  Part="1" 
+AR Path="/62525FD6/641BEC89" Ref="U?"  Part="1" 
+AR Path="/62525FDF/641BEC89" Ref="U?"  Part="1" 
+AR Path="/62525FE8/641BEC89" Ref="U?"  Part="1" 
+AR Path="/641BEC89" Ref="U?"  Part="1" 
+F 0 "U?" H 6050 15275 50  0000 C CNN
+F 1 "74LS86" H 6050 15184 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 6050 14950 50  0001 C CNN
+F 3 "74xx/74ls86.pdf" H 6050 14950 50  0001 C CNN
+	1    6050 14950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5750 14850 5600 14850
+Wire Wire Line
+	5600 14850 5600 15650
+Wire Wire Line
+	5600 15650 5750 15650
+Wire Wire Line
+	5500 15850 5700 15850
+Wire Wire Line
+	5750 15050 5700 15050
+Wire Wire Line
+	5700 15050 5700 15850
+Connection ~ 5700 15850
+Wire Wire Line
+	5700 15850 5750 15850
+Wire Wire Line
+	5500 15350 6200 15350
+Wire Wire Line
+	6350 15750 6450 15750
+Wire Wire Line
+	6450 15750 6450 15550
+$Comp
+L 74xx:74LS32 U?
+U 1 1 641BEC75
+P 6750 15450
+AR Path="/600C5001/60248238/6016C9C5/641BEC75" Ref="U?"  Part="4" 
+AR Path="/600C5001/60248238/6016C700/641BEC75" Ref="U?"  Part="3" 
+AR Path="/600C5001/60248238/6016C4DC/641BEC75" Ref="U?"  Part="2" 
+AR Path="/600C5001/60248238/6014201D/641BEC75" Ref="U?"  Part="1" 
+AR Path="/600C5001/60260EB9/6016C9C5/641BEC75" Ref="U?"  Part="4" 
+AR Path="/600C5001/60260EB9/6016C700/641BEC75" Ref="U?"  Part="3" 
+AR Path="/600C5001/60260EB9/6016C4DC/641BEC75" Ref="U?"  Part="2" 
+AR Path="/600C5001/60260EB9/6014201D/641BEC75" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C9C5/641BEC75" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C700/641BEC75" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C4DC/641BEC75" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6014201D/641BEC75" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C9C5/641BEC75" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C700/641BEC75" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C4DC/641BEC75" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6014201D/641BEC75" Ref="U?"  Part="1" 
+AR Path="/62525FCD/641BEC75" Ref="U?"  Part="1" 
+AR Path="/62525FD6/641BEC75" Ref="U?"  Part="1" 
+AR Path="/62525FDF/641BEC75" Ref="U?"  Part="1" 
+AR Path="/62525FE8/641BEC75" Ref="U?"  Part="1" 
+AR Path="/641BEC75" Ref="U?"  Part="1" 
+F 0 "U?" H 6750 15775 50  0000 C CNN
+F 1 "74LS32" H 6750 15684 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 6750 15450 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 6750 15450 50  0001 C CNN
+	1    6750 15450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5700 15950 5700 15850
+Wire Wire Line
+	6200 15350 6200 15100
+$Comp
+L 74xx:74LS86 U?
+U 1 1 641BEC6D
+P 5200 15850
+AR Path="/600C5001/60248238/6016C9C5/641BEC6D" Ref="U?"  Part="4" 
+AR Path="/600C5001/60248238/6016C700/641BEC6D" Ref="U?"  Part="3" 
+AR Path="/600C5001/60248238/6016C4DC/641BEC6D" Ref="U?"  Part="2" 
+AR Path="/600C5001/60248238/6014201D/641BEC6D" Ref="U?"  Part="1" 
+AR Path="/600C5001/60260EB9/6016C9C5/641BEC6D" Ref="U?"  Part="4" 
+AR Path="/600C5001/60260EB9/6016C700/641BEC6D" Ref="U?"  Part="3" 
+AR Path="/600C5001/60260EB9/6016C4DC/641BEC6D" Ref="U?"  Part="2" 
+AR Path="/600C5001/60260EB9/6014201D/641BEC6D" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C9C5/641BEC6D" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C700/641BEC6D" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C4DC/641BEC6D" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6014201D/641BEC6D" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C9C5/641BEC6D" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C700/641BEC6D" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C4DC/641BEC6D" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6014201D/641BEC6D" Ref="U?"  Part="1" 
+AR Path="/62525FCD/641BEC6D" Ref="U?"  Part="1" 
+AR Path="/62525FD6/641BEC6D" Ref="U?"  Part="1" 
+AR Path="/62525FDF/641BEC6D" Ref="U?"  Part="1" 
+AR Path="/62525FE8/641BEC6D" Ref="U?"  Part="1" 
+AR Path="/641BEC6D" Ref="U?"  Part="1" 
+F 0 "U?" H 5200 16175 50  0000 C CNN
+F 1 "74LS86" H 5200 16084 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 5200 15850 50  0001 C CNN
+F 3 "74xx/74ls86.pdf" H 5200 15850 50  0001 C CNN
+	1    5200 15850
+	1    0    0    -1  
+$EndComp
+Connection ~ 4850 15250
+Connection ~ 4750 15950
+Wire Wire Line
+	4750 15950 4900 15950
+Wire Wire Line
+	4750 15450 4750 15950
+Wire Wire Line
+	4900 15450 4750 15450
+Wire Wire Line
+	4850 15750 4900 15750
+Wire Wire Line
+	4850 15250 4850 15750
+Wire Wire Line
+	4900 15250 4850 15250
+$Comp
+L 74xx:74LS08 U?
+U 1 1 641BEC5F
+P 5200 15350
+AR Path="/600C5001/60248238/6016C9C5/641BEC5F" Ref="U?"  Part="4" 
+AR Path="/600C5001/60248238/6016C700/641BEC5F" Ref="U?"  Part="3" 
+AR Path="/600C5001/60248238/6016C4DC/641BEC5F" Ref="U?"  Part="2" 
+AR Path="/600C5001/60248238/6014201D/641BEC5F" Ref="U?"  Part="1" 
+AR Path="/600C5001/60260EB9/6016C9C5/641BEC5F" Ref="U?"  Part="4" 
+AR Path="/600C5001/60260EB9/6016C700/641BEC5F" Ref="U?"  Part="3" 
+AR Path="/600C5001/60260EB9/6016C4DC/641BEC5F" Ref="U?"  Part="2" 
+AR Path="/600C5001/60260EB9/6014201D/641BEC5F" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C9C5/641BEC5F" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C700/641BEC5F" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C4DC/641BEC5F" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6014201D/641BEC5F" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C9C5/641BEC5F" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C700/641BEC5F" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C4DC/641BEC5F" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6014201D/641BEC5F" Ref="U?"  Part="1" 
+AR Path="/62525FCD/641BEC5F" Ref="U?"  Part="1" 
+AR Path="/62525FD6/641BEC5F" Ref="U?"  Part="1" 
+AR Path="/62525FDF/641BEC5F" Ref="U?"  Part="1" 
+AR Path="/62525FE8/641BEC5F" Ref="U?"  Part="1" 
+AR Path="/641BEC5F" Ref="U?"  Part="1" 
+F 0 "U?" H 5200 15675 50  0000 C CNN
+F 1 "74LS08" H 5200 15584 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 5200 15350 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 5200 15350 50  0001 C CNN
+	1    5200 15350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3250 15850 3900 15850
+Text Label 3850 15850 2    75   ~ 0
+bus3
+Wire Wire Line
+	5700 14200 7700 14200
+Text Label 7200 14200 2    75   ~ 0
+xor2
+Text Label 7200 13350 2    75   ~ 0
+and2
+Wire Wire Line
+	6200 13350 7500 13350
+Text Label 7200 13200 2    75   ~ 0
+adder2
+Wire Wire Line
+	6350 13200 7300 13200
+Entry Wire Line
+	7700 14200 7800 14300
+Entry Wire Line
+	7500 13350 7600 13450
+Entry Wire Line
+	7300 13200 7400 13300
+Entry Wire Line
+	3150 14000 3250 14100
+Entry Wire Line
+	4550 13400 4650 13500
+Wire Wire Line
+	4650 13500 4850 13500
+Text Label 4800 13500 2    75   ~ 0
+a2
+Text GLabel 3900 14300 0    75   Input ~ 0
+ctrlAluSub
+$Comp
+L 74xx:74LS86 U?
+U 1 1 64141357
+P 4200 14200
+AR Path="/600C5001/64141357" Ref="U?"  Part="1" 
+AR Path="/64141357" Ref="U?"  Part="1" 
+F 0 "U?" H 4200 14525 50  0000 C CNN
+F 1 "74LS86" H 4200 14434 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 4200 14200 50  0001 C CNN
+F 3 "74xx/74ls86.pdf" H 4200 14200 50  0001 C CNN
+	1    4200 14200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4500 14200 4750 14200
+Connection ~ 6200 13600
+Wire Wire Line
+	6200 13600 6450 13600
+$Comp
+L 74xx:74LS08 U?
+U 1 1 6414134E
+P 6050 14000
+AR Path="/600C5001/60248238/6016C9C5/6414134E" Ref="U?"  Part="4" 
+AR Path="/600C5001/60248238/6016C700/6414134E" Ref="U?"  Part="3" 
+AR Path="/600C5001/60248238/6016C4DC/6414134E" Ref="U?"  Part="2" 
+AR Path="/600C5001/60248238/6014201D/6414134E" Ref="U?"  Part="1" 
+AR Path="/600C5001/60260EB9/6016C9C5/6414134E" Ref="U?"  Part="4" 
+AR Path="/600C5001/60260EB9/6016C700/6414134E" Ref="U?"  Part="3" 
+AR Path="/600C5001/60260EB9/6016C4DC/6414134E" Ref="U?"  Part="2" 
+AR Path="/600C5001/60260EB9/6014201D/6414134E" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C9C5/6414134E" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C700/6414134E" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C4DC/6414134E" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6014201D/6414134E" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C9C5/6414134E" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C700/6414134E" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C4DC/6414134E" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6014201D/6414134E" Ref="U?"  Part="1" 
+AR Path="/62525FCD/6414134E" Ref="U?"  Part="1" 
+AR Path="/62525FD6/6414134E" Ref="U?"  Part="1" 
+AR Path="/62525FDF/6414134E" Ref="U?"  Part="1" 
+AR Path="/62525FE8/6414134E" Ref="U?"  Part="1" 
+AR Path="/6414134E" Ref="U?"  Part="1" 
+F 0 "U?" H 6050 14325 50  0000 C CNN
+F 1 "74LS08" H 6050 14234 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 6050 14000 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 6050 14000 50  0001 C CNN
+	1    6050 14000
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS86 U?
+U 1 1 64141348
+P 6050 13200
+AR Path="/600C5001/60248238/6016C9C5/64141348" Ref="U?"  Part="4" 
+AR Path="/600C5001/60248238/6016C700/64141348" Ref="U?"  Part="3" 
+AR Path="/600C5001/60248238/6016C4DC/64141348" Ref="U?"  Part="2" 
+AR Path="/600C5001/60248238/6014201D/64141348" Ref="U?"  Part="1" 
+AR Path="/600C5001/60260EB9/6016C9C5/64141348" Ref="U?"  Part="4" 
+AR Path="/600C5001/60260EB9/6016C700/64141348" Ref="U?"  Part="3" 
+AR Path="/600C5001/60260EB9/6016C4DC/64141348" Ref="U?"  Part="2" 
+AR Path="/600C5001/60260EB9/6014201D/64141348" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C9C5/64141348" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C700/64141348" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C4DC/64141348" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6014201D/64141348" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C9C5/64141348" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C700/64141348" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C4DC/64141348" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6014201D/64141348" Ref="U?"  Part="1" 
+AR Path="/62525FCD/64141348" Ref="U?"  Part="1" 
+AR Path="/62525FD6/64141348" Ref="U?"  Part="1" 
+AR Path="/62525FDF/64141348" Ref="U?"  Part="1" 
+AR Path="/62525FE8/64141348" Ref="U?"  Part="1" 
+AR Path="/64141348" Ref="U?"  Part="1" 
+F 0 "U?" H 6050 13525 50  0000 C CNN
+F 1 "74LS86" H 6050 13434 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 6050 13200 50  0001 C CNN
+F 3 "74xx/74ls86.pdf" H 6050 13200 50  0001 C CNN
+	1    6050 13200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5750 13100 5600 13100
+Wire Wire Line
+	5600 13100 5600 13900
+Wire Wire Line
+	5600 13900 5750 13900
+Connection ~ 5600 13100
+Wire Wire Line
+	5500 14100 5700 14100
+Wire Wire Line
+	5750 13300 5700 13300
+Wire Wire Line
+	5700 13300 5700 14100
+Connection ~ 5700 14100
+Wire Wire Line
+	5700 14100 5750 14100
+Wire Wire Line
+	5500 13600 6200 13600
+Wire Wire Line
+	6350 14000 6450 14000
+Wire Wire Line
+	6450 14000 6450 13800
+$Comp
+L 74xx:74LS32 U?
+U 1 1 64141334
+P 6750 13700
+AR Path="/600C5001/60248238/6016C9C5/64141334" Ref="U?"  Part="4" 
+AR Path="/600C5001/60248238/6016C700/64141334" Ref="U?"  Part="3" 
+AR Path="/600C5001/60248238/6016C4DC/64141334" Ref="U?"  Part="2" 
+AR Path="/600C5001/60248238/6014201D/64141334" Ref="U?"  Part="1" 
+AR Path="/600C5001/60260EB9/6016C9C5/64141334" Ref="U?"  Part="4" 
+AR Path="/600C5001/60260EB9/6016C700/64141334" Ref="U?"  Part="3" 
+AR Path="/600C5001/60260EB9/6016C4DC/64141334" Ref="U?"  Part="2" 
+AR Path="/600C5001/60260EB9/6014201D/64141334" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C9C5/64141334" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C700/64141334" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C4DC/64141334" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6014201D/64141334" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C9C5/64141334" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C700/64141334" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C4DC/64141334" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6014201D/64141334" Ref="U?"  Part="1" 
+AR Path="/62525FCD/64141334" Ref="U?"  Part="1" 
+AR Path="/62525FD6/64141334" Ref="U?"  Part="1" 
+AR Path="/62525FDF/64141334" Ref="U?"  Part="1" 
+AR Path="/62525FE8/64141334" Ref="U?"  Part="1" 
+AR Path="/64141334" Ref="U?"  Part="1" 
+F 0 "U?" H 6750 14025 50  0000 C CNN
+F 1 "74LS32" H 6750 13934 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 6750 13700 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 6750 13700 50  0001 C CNN
+	1    6750 13700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5700 14200 5700 14100
+Wire Wire Line
+	6200 13600 6200 13350
+$Comp
+L 74xx:74LS86 U?
+U 1 1 6414132C
+P 5200 14100
+AR Path="/600C5001/60248238/6016C9C5/6414132C" Ref="U?"  Part="4" 
+AR Path="/600C5001/60248238/6016C700/6414132C" Ref="U?"  Part="3" 
+AR Path="/600C5001/60248238/6016C4DC/6414132C" Ref="U?"  Part="2" 
+AR Path="/600C5001/60248238/6014201D/6414132C" Ref="U?"  Part="1" 
+AR Path="/600C5001/60260EB9/6016C9C5/6414132C" Ref="U?"  Part="4" 
+AR Path="/600C5001/60260EB9/6016C700/6414132C" Ref="U?"  Part="3" 
+AR Path="/600C5001/60260EB9/6016C4DC/6414132C" Ref="U?"  Part="2" 
+AR Path="/600C5001/60260EB9/6014201D/6414132C" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C9C5/6414132C" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C700/6414132C" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C4DC/6414132C" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6014201D/6414132C" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C9C5/6414132C" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C700/6414132C" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C4DC/6414132C" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6014201D/6414132C" Ref="U?"  Part="1" 
+AR Path="/62525FCD/6414132C" Ref="U?"  Part="1" 
+AR Path="/62525FD6/6414132C" Ref="U?"  Part="1" 
+AR Path="/62525FDF/6414132C" Ref="U?"  Part="1" 
+AR Path="/62525FE8/6414132C" Ref="U?"  Part="1" 
+AR Path="/6414132C" Ref="U?"  Part="1" 
+F 0 "U?" H 5200 14425 50  0000 C CNN
+F 1 "74LS86" H 5200 14334 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 5200 14100 50  0001 C CNN
+F 3 "74xx/74ls86.pdf" H 5200 14100 50  0001 C CNN
+	1    5200 14100
+	1    0    0    -1  
+$EndComp
+Connection ~ 4850 13500
+Connection ~ 4750 14200
+Wire Wire Line
+	4750 14200 4900 14200
+Wire Wire Line
+	4750 13700 4750 14200
+Wire Wire Line
+	4900 13700 4750 13700
+Wire Wire Line
+	4850 14000 4900 14000
+Wire Wire Line
+	4850 13500 4850 14000
+Wire Wire Line
+	4900 13500 4850 13500
+$Comp
+L 74xx:74LS08 U?
+U 1 1 6414131E
+P 5200 13600
+AR Path="/600C5001/60248238/6016C9C5/6414131E" Ref="U?"  Part="4" 
+AR Path="/600C5001/60248238/6016C700/6414131E" Ref="U?"  Part="3" 
+AR Path="/600C5001/60248238/6016C4DC/6414131E" Ref="U?"  Part="2" 
+AR Path="/600C5001/60248238/6014201D/6414131E" Ref="U?"  Part="1" 
+AR Path="/600C5001/60260EB9/6016C9C5/6414131E" Ref="U?"  Part="4" 
+AR Path="/600C5001/60260EB9/6016C700/6414131E" Ref="U?"  Part="3" 
+AR Path="/600C5001/60260EB9/6016C4DC/6414131E" Ref="U?"  Part="2" 
+AR Path="/600C5001/60260EB9/6014201D/6414131E" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C9C5/6414131E" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C700/6414131E" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C4DC/6414131E" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6014201D/6414131E" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C9C5/6414131E" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C700/6414131E" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C4DC/6414131E" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6014201D/6414131E" Ref="U?"  Part="1" 
+AR Path="/62525FCD/6414131E" Ref="U?"  Part="1" 
+AR Path="/62525FD6/6414131E" Ref="U?"  Part="1" 
+AR Path="/62525FDF/6414131E" Ref="U?"  Part="1" 
+AR Path="/62525FE8/6414131E" Ref="U?"  Part="1" 
+AR Path="/6414131E" Ref="U?"  Part="1" 
+F 0 "U?" H 5200 13925 50  0000 C CNN
+F 1 "74LS08" H 5200 13834 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 5200 13600 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 5200 13600 50  0001 C CNN
+	1    5200 13600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3250 14100 3900 14100
+Text Label 3850 14100 2    75   ~ 0
+bus2
+Wire Wire Line
+	5700 12450 7700 12450
+Text Label 7200 12450 2    75   ~ 0
+xor1
+Text Label 7200 11600 2    75   ~ 0
+and1
+Wire Wire Line
+	6200 11600 7500 11600
+Text Label 7200 11450 2    75   ~ 0
+adder1
+Wire Wire Line
+	6350 11450 7300 11450
+Entry Wire Line
+	7700 12450 7800 12550
+Entry Wire Line
+	7500 11600 7600 11700
+Entry Wire Line
+	7300 11450 7400 11550
+Entry Wire Line
+	3150 12250 3250 12350
+Entry Wire Line
+	4600 11650 4700 11750
+Wire Wire Line
+	4700 11750 4850 11750
+Text Label 4800 11750 2    75   ~ 0
+a1
+Text GLabel 3900 12550 0    75   Input ~ 0
+ctrlAluSub
+$Comp
+L 74xx:74LS86 U?
+U 1 1 640CC9D4
+P 4200 12450
+AR Path="/600C5001/640CC9D4" Ref="U?"  Part="1" 
+AR Path="/640CC9D4" Ref="U?"  Part="1" 
+F 0 "U?" H 4200 12775 50  0000 C CNN
+F 1 "74LS86" H 4200 12684 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 4200 12450 50  0001 C CNN
+F 3 "74xx/74ls86.pdf" H 4200 12450 50  0001 C CNN
+	1    4200 12450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4500 12450 4750 12450
+Connection ~ 6200 11850
+Wire Wire Line
+	6200 11850 6450 11850
+$Comp
+L 74xx:74LS08 U?
+U 1 1 640CC9CB
+P 6050 12250
+AR Path="/600C5001/60248238/6016C9C5/640CC9CB" Ref="U?"  Part="4" 
+AR Path="/600C5001/60248238/6016C700/640CC9CB" Ref="U?"  Part="3" 
+AR Path="/600C5001/60248238/6016C4DC/640CC9CB" Ref="U?"  Part="2" 
+AR Path="/600C5001/60248238/6014201D/640CC9CB" Ref="U?"  Part="1" 
+AR Path="/600C5001/60260EB9/6016C9C5/640CC9CB" Ref="U?"  Part="4" 
+AR Path="/600C5001/60260EB9/6016C700/640CC9CB" Ref="U?"  Part="3" 
+AR Path="/600C5001/60260EB9/6016C4DC/640CC9CB" Ref="U?"  Part="2" 
+AR Path="/600C5001/60260EB9/6014201D/640CC9CB" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C9C5/640CC9CB" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C700/640CC9CB" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C4DC/640CC9CB" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6014201D/640CC9CB" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C9C5/640CC9CB" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C700/640CC9CB" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C4DC/640CC9CB" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6014201D/640CC9CB" Ref="U?"  Part="1" 
+AR Path="/62525FCD/640CC9CB" Ref="U?"  Part="1" 
+AR Path="/62525FD6/640CC9CB" Ref="U?"  Part="1" 
+AR Path="/62525FDF/640CC9CB" Ref="U?"  Part="1" 
+AR Path="/62525FE8/640CC9CB" Ref="U?"  Part="1" 
+AR Path="/640CC9CB" Ref="U?"  Part="1" 
+F 0 "U?" H 6050 12575 50  0000 C CNN
+F 1 "74LS08" H 6050 12484 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 6050 12250 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 6050 12250 50  0001 C CNN
+	1    6050 12250
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS86 U?
+U 1 1 640CC9C5
+P 6050 11450
+AR Path="/600C5001/60248238/6016C9C5/640CC9C5" Ref="U?"  Part="4" 
+AR Path="/600C5001/60248238/6016C700/640CC9C5" Ref="U?"  Part="3" 
+AR Path="/600C5001/60248238/6016C4DC/640CC9C5" Ref="U?"  Part="2" 
+AR Path="/600C5001/60248238/6014201D/640CC9C5" Ref="U?"  Part="1" 
+AR Path="/600C5001/60260EB9/6016C9C5/640CC9C5" Ref="U?"  Part="4" 
+AR Path="/600C5001/60260EB9/6016C700/640CC9C5" Ref="U?"  Part="3" 
+AR Path="/600C5001/60260EB9/6016C4DC/640CC9C5" Ref="U?"  Part="2" 
+AR Path="/600C5001/60260EB9/6014201D/640CC9C5" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C9C5/640CC9C5" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C700/640CC9C5" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C4DC/640CC9C5" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6014201D/640CC9C5" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C9C5/640CC9C5" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C700/640CC9C5" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C4DC/640CC9C5" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6014201D/640CC9C5" Ref="U?"  Part="1" 
+AR Path="/62525FCD/640CC9C5" Ref="U?"  Part="1" 
+AR Path="/62525FD6/640CC9C5" Ref="U?"  Part="1" 
+AR Path="/62525FDF/640CC9C5" Ref="U?"  Part="1" 
+AR Path="/62525FE8/640CC9C5" Ref="U?"  Part="1" 
+AR Path="/640CC9C5" Ref="U?"  Part="1" 
+F 0 "U?" H 6050 11775 50  0000 C CNN
+F 1 "74LS86" H 6050 11684 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 6050 11450 50  0001 C CNN
+F 3 "74xx/74ls86.pdf" H 6050 11450 50  0001 C CNN
+	1    6050 11450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5750 11350 5600 11350
+Wire Wire Line
+	5600 11350 5600 12150
+Wire Wire Line
+	5600 12150 5750 12150
+Wire Wire Line
+	5500 12350 5700 12350
+Wire Wire Line
+	5750 11550 5700 11550
+Wire Wire Line
+	5700 11550 5700 12350
+Connection ~ 5700 12350
+Wire Wire Line
+	5700 12350 5750 12350
+Wire Wire Line
+	5500 11850 6200 11850
+Wire Wire Line
+	6350 12250 6450 12250
+Wire Wire Line
+	6450 12250 6450 12050
+$Comp
+L 74xx:74LS32 U?
+U 1 1 640CC9B1
+P 6750 11950
+AR Path="/600C5001/60248238/6016C9C5/640CC9B1" Ref="U?"  Part="4" 
+AR Path="/600C5001/60248238/6016C700/640CC9B1" Ref="U?"  Part="3" 
+AR Path="/600C5001/60248238/6016C4DC/640CC9B1" Ref="U?"  Part="2" 
+AR Path="/600C5001/60248238/6014201D/640CC9B1" Ref="U?"  Part="1" 
+AR Path="/600C5001/60260EB9/6016C9C5/640CC9B1" Ref="U?"  Part="4" 
+AR Path="/600C5001/60260EB9/6016C700/640CC9B1" Ref="U?"  Part="3" 
+AR Path="/600C5001/60260EB9/6016C4DC/640CC9B1" Ref="U?"  Part="2" 
+AR Path="/600C5001/60260EB9/6014201D/640CC9B1" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C9C5/640CC9B1" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C700/640CC9B1" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C4DC/640CC9B1" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6014201D/640CC9B1" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C9C5/640CC9B1" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C700/640CC9B1" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C4DC/640CC9B1" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6014201D/640CC9B1" Ref="U?"  Part="1" 
+AR Path="/62525FCD/640CC9B1" Ref="U?"  Part="1" 
+AR Path="/62525FD6/640CC9B1" Ref="U?"  Part="1" 
+AR Path="/62525FDF/640CC9B1" Ref="U?"  Part="1" 
+AR Path="/62525FE8/640CC9B1" Ref="U?"  Part="1" 
+AR Path="/640CC9B1" Ref="U?"  Part="1" 
+F 0 "U?" H 6750 12275 50  0000 C CNN
+F 1 "74LS32" H 6750 12184 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 6750 11950 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 6750 11950 50  0001 C CNN
+	1    6750 11950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5700 12450 5700 12350
+Wire Wire Line
+	6200 11850 6200 11600
+$Comp
+L 74xx:74LS86 U?
+U 1 1 640CC9A9
+P 5200 12350
+AR Path="/600C5001/60248238/6016C9C5/640CC9A9" Ref="U?"  Part="4" 
+AR Path="/600C5001/60248238/6016C700/640CC9A9" Ref="U?"  Part="3" 
+AR Path="/600C5001/60248238/6016C4DC/640CC9A9" Ref="U?"  Part="2" 
+AR Path="/600C5001/60248238/6014201D/640CC9A9" Ref="U?"  Part="1" 
+AR Path="/600C5001/60260EB9/6016C9C5/640CC9A9" Ref="U?"  Part="4" 
+AR Path="/600C5001/60260EB9/6016C700/640CC9A9" Ref="U?"  Part="3" 
+AR Path="/600C5001/60260EB9/6016C4DC/640CC9A9" Ref="U?"  Part="2" 
+AR Path="/600C5001/60260EB9/6014201D/640CC9A9" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C9C5/640CC9A9" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C700/640CC9A9" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C4DC/640CC9A9" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6014201D/640CC9A9" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C9C5/640CC9A9" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C700/640CC9A9" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C4DC/640CC9A9" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6014201D/640CC9A9" Ref="U?"  Part="1" 
+AR Path="/62525FCD/640CC9A9" Ref="U?"  Part="1" 
+AR Path="/62525FD6/640CC9A9" Ref="U?"  Part="1" 
+AR Path="/62525FDF/640CC9A9" Ref="U?"  Part="1" 
+AR Path="/62525FE8/640CC9A9" Ref="U?"  Part="1" 
+AR Path="/640CC9A9" Ref="U?"  Part="1" 
+F 0 "U?" H 5200 12675 50  0000 C CNN
+F 1 "74LS86" H 5200 12584 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 5200 12350 50  0001 C CNN
+F 3 "74xx/74ls86.pdf" H 5200 12350 50  0001 C CNN
+	1    5200 12350
+	1    0    0    -1  
+$EndComp
+Connection ~ 4850 11750
+Connection ~ 4750 12450
+Wire Wire Line
+	4750 12450 4900 12450
+Wire Wire Line
+	4750 11950 4750 12450
+Wire Wire Line
+	4900 11950 4750 11950
+Wire Wire Line
+	4850 12250 4900 12250
+Wire Wire Line
+	4850 11750 4850 12250
+Wire Wire Line
+	4900 11750 4850 11750
+$Comp
+L 74xx:74LS08 U?
+U 1 1 640CC99B
+P 5200 11850
+AR Path="/600C5001/60248238/6016C9C5/640CC99B" Ref="U?"  Part="4" 
+AR Path="/600C5001/60248238/6016C700/640CC99B" Ref="U?"  Part="3" 
+AR Path="/600C5001/60248238/6016C4DC/640CC99B" Ref="U?"  Part="2" 
+AR Path="/600C5001/60248238/6014201D/640CC99B" Ref="U?"  Part="1" 
+AR Path="/600C5001/60260EB9/6016C9C5/640CC99B" Ref="U?"  Part="4" 
+AR Path="/600C5001/60260EB9/6016C700/640CC99B" Ref="U?"  Part="3" 
+AR Path="/600C5001/60260EB9/6016C4DC/640CC99B" Ref="U?"  Part="2" 
+AR Path="/600C5001/60260EB9/6014201D/640CC99B" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C9C5/640CC99B" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C700/640CC99B" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C4DC/640CC99B" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6014201D/640CC99B" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C9C5/640CC99B" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C700/640CC99B" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C4DC/640CC99B" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6014201D/640CC99B" Ref="U?"  Part="1" 
+AR Path="/62525FCD/640CC99B" Ref="U?"  Part="1" 
+AR Path="/62525FD6/640CC99B" Ref="U?"  Part="1" 
+AR Path="/62525FDF/640CC99B" Ref="U?"  Part="1" 
+AR Path="/62525FE8/640CC99B" Ref="U?"  Part="1" 
+AR Path="/640CC99B" Ref="U?"  Part="1" 
+F 0 "U?" H 5200 12175 50  0000 C CNN
+F 1 "74LS08" H 5200 12084 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 5200 11850 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 5200 11850 50  0001 C CNN
+	1    5200 11850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3250 12350 3900 12350
+Text Label 3850 12350 2    75   ~ 0
+bus1
+Wire Wire Line
+	5700 10700 7700 10700
+Text Label 7200 10700 2    75   ~ 0
+xor0
+Text Label 7200 9850 2    75   ~ 0
+and0
+Wire Wire Line
+	6200 9850 7500 9850
+Text Label 7200 9700 2    75   ~ 0
+adder0
+Wire Wire Line
+	6350 9700 7300 9700
+Entry Wire Line
+	7700 10700 7800 10800
+Entry Wire Line
+	7500 9850 7600 9950
+Entry Wire Line
+	7300 9700 7400 9800
+Entry Wire Line
+	4550 9900 4650 10000
+Wire Wire Line
+	4650 10000 4850 10000
+Text Label 4800 10000 2    75   ~ 0
+a0
+Text GLabel 5350 9600 0    75   Input ~ 0
+ctrlAluSub
+Text GLabel 3900 10800 0    75   Input ~ 0
+ctrlAluSub
+$Comp
+L 74xx:74LS86 U?
+U 1 1 62FA08D2
+P 4200 10700
+AR Path="/600C5001/62FA08D2" Ref="U?"  Part="1" 
+AR Path="/62FA08D2" Ref="U?"  Part="1" 
+F 0 "U?" H 4200 11025 50  0000 C CNN
+F 1 "74LS86" H 4200 10934 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 4200 10700 50  0001 C CNN
+F 3 "74xx/74ls86.pdf" H 4200 10700 50  0001 C CNN
+	1    4200 10700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4500 10700 4750 10700
+Connection ~ 6200 10100
+Wire Wire Line
+	6200 10100 6450 10100
+$Comp
+L 74xx:74LS08 U?
+U 1 1 6258664E
+P 6050 10500
+AR Path="/600C5001/60248238/6016C9C5/6258664E" Ref="U?"  Part="4" 
+AR Path="/600C5001/60248238/6016C700/6258664E" Ref="U?"  Part="3" 
+AR Path="/600C5001/60248238/6016C4DC/6258664E" Ref="U?"  Part="2" 
+AR Path="/600C5001/60248238/6014201D/6258664E" Ref="U?"  Part="1" 
+AR Path="/600C5001/60260EB9/6016C9C5/6258664E" Ref="U?"  Part="4" 
+AR Path="/600C5001/60260EB9/6016C700/6258664E" Ref="U?"  Part="3" 
+AR Path="/600C5001/60260EB9/6016C4DC/6258664E" Ref="U?"  Part="2" 
+AR Path="/600C5001/60260EB9/6014201D/6258664E" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C9C5/6258664E" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C700/6258664E" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C4DC/6258664E" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6014201D/6258664E" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C9C5/6258664E" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C700/6258664E" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C4DC/6258664E" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6014201D/6258664E" Ref="U?"  Part="1" 
+AR Path="/62525FCD/6258664E" Ref="U?"  Part="1" 
+AR Path="/62525FD6/6258664E" Ref="U?"  Part="1" 
+AR Path="/62525FDF/6258664E" Ref="U?"  Part="1" 
+AR Path="/62525FE8/6258664E" Ref="U?"  Part="1" 
+AR Path="/6258664E" Ref="U?"  Part="1" 
+F 0 "U?" H 6050 10825 50  0000 C CNN
+F 1 "74LS08" H 6050 10734 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 6050 10500 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 6050 10500 50  0001 C CNN
+	1    6050 10500
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS86 U?
+U 1 1 62586654
+P 6050 9700
+AR Path="/600C5001/60248238/6016C9C5/62586654" Ref="U?"  Part="4" 
+AR Path="/600C5001/60248238/6016C700/62586654" Ref="U?"  Part="3" 
+AR Path="/600C5001/60248238/6016C4DC/62586654" Ref="U?"  Part="2" 
+AR Path="/600C5001/60248238/6014201D/62586654" Ref="U?"  Part="1" 
+AR Path="/600C5001/60260EB9/6016C9C5/62586654" Ref="U?"  Part="4" 
+AR Path="/600C5001/60260EB9/6016C700/62586654" Ref="U?"  Part="3" 
+AR Path="/600C5001/60260EB9/6016C4DC/62586654" Ref="U?"  Part="2" 
+AR Path="/600C5001/60260EB9/6014201D/62586654" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C9C5/62586654" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C700/62586654" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C4DC/62586654" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6014201D/62586654" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C9C5/62586654" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C700/62586654" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C4DC/62586654" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6014201D/62586654" Ref="U?"  Part="1" 
+AR Path="/62525FCD/62586654" Ref="U?"  Part="1" 
+AR Path="/62525FD6/62586654" Ref="U?"  Part="1" 
+AR Path="/62525FDF/62586654" Ref="U?"  Part="1" 
+AR Path="/62525FE8/62586654" Ref="U?"  Part="1" 
+AR Path="/62586654" Ref="U?"  Part="1" 
+F 0 "U?" H 6050 10025 50  0000 C CNN
+F 1 "74LS86" H 6050 9934 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 6050 9700 50  0001 C CNN
+F 3 "74xx/74ls86.pdf" H 6050 9700 50  0001 C CNN
+	1    6050 9700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5750 9600 5600 9600
+Wire Wire Line
+	5600 9600 5600 10400
+Wire Wire Line
+	5600 10400 5750 10400
+Connection ~ 5600 9600
+Wire Wire Line
+	5600 9600 5350 9600
+Wire Wire Line
+	5500 10600 5700 10600
+Wire Wire Line
+	5750 9800 5700 9800
+Wire Wire Line
+	5700 9800 5700 10600
+Connection ~ 5700 10600
+Wire Wire Line
+	5700 10600 5750 10600
+Wire Wire Line
+	5500 10100 6200 10100
+Wire Wire Line
+	6350 10500 6450 10500
+Wire Wire Line
+	6450 10500 6450 10300
+$Comp
+L 74xx:74LS32 U?
+U 1 1 62586671
+P 6750 10200
+AR Path="/600C5001/60248238/6016C9C5/62586671" Ref="U?"  Part="4" 
+AR Path="/600C5001/60248238/6016C700/62586671" Ref="U?"  Part="3" 
+AR Path="/600C5001/60248238/6016C4DC/62586671" Ref="U?"  Part="2" 
+AR Path="/600C5001/60248238/6014201D/62586671" Ref="U?"  Part="1" 
+AR Path="/600C5001/60260EB9/6016C9C5/62586671" Ref="U?"  Part="4" 
+AR Path="/600C5001/60260EB9/6016C700/62586671" Ref="U?"  Part="3" 
+AR Path="/600C5001/60260EB9/6016C4DC/62586671" Ref="U?"  Part="2" 
+AR Path="/600C5001/60260EB9/6014201D/62586671" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C9C5/62586671" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C700/62586671" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C4DC/62586671" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6014201D/62586671" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C9C5/62586671" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C700/62586671" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C4DC/62586671" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6014201D/62586671" Ref="U?"  Part="1" 
+AR Path="/62525FCD/62586671" Ref="U?"  Part="1" 
+AR Path="/62525FD6/62586671" Ref="U?"  Part="1" 
+AR Path="/62525FDF/62586671" Ref="U?"  Part="1" 
+AR Path="/62525FE8/62586671" Ref="U?"  Part="1" 
+AR Path="/62586671" Ref="U?"  Part="1" 
+F 0 "U?" H 6750 10525 50  0000 C CNN
+F 1 "74LS32" H 6750 10434 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 6750 10200 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 6750 10200 50  0001 C CNN
+	1    6750 10200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5700 10700 5700 10600
+Wire Wire Line
+	6200 10100 6200 9850
+$Comp
+L 74xx:74LS86 U?
+U 1 1 62586677
+P 5200 10600
+AR Path="/600C5001/60248238/6016C9C5/62586677" Ref="U?"  Part="4" 
+AR Path="/600C5001/60248238/6016C700/62586677" Ref="U?"  Part="3" 
+AR Path="/600C5001/60248238/6016C4DC/62586677" Ref="U?"  Part="2" 
+AR Path="/600C5001/60248238/6014201D/62586677" Ref="U?"  Part="1" 
+AR Path="/600C5001/60260EB9/6016C9C5/62586677" Ref="U?"  Part="4" 
+AR Path="/600C5001/60260EB9/6016C700/62586677" Ref="U?"  Part="3" 
+AR Path="/600C5001/60260EB9/6016C4DC/62586677" Ref="U?"  Part="2" 
+AR Path="/600C5001/60260EB9/6014201D/62586677" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C9C5/62586677" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C700/62586677" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C4DC/62586677" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6014201D/62586677" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C9C5/62586677" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C700/62586677" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C4DC/62586677" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6014201D/62586677" Ref="U?"  Part="1" 
+AR Path="/62525FCD/62586677" Ref="U?"  Part="1" 
+AR Path="/62525FD6/62586677" Ref="U?"  Part="1" 
+AR Path="/62525FDF/62586677" Ref="U?"  Part="1" 
+AR Path="/62525FE8/62586677" Ref="U?"  Part="1" 
+AR Path="/62586677" Ref="U?"  Part="1" 
+F 0 "U?" H 5200 10925 50  0000 C CNN
+F 1 "74LS86" H 5200 10834 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 5200 10600 50  0001 C CNN
+F 3 "74xx/74ls86.pdf" H 5200 10600 50  0001 C CNN
+	1    5200 10600
+	1    0    0    -1  
+$EndComp
+Connection ~ 4850 10000
+Connection ~ 4750 10700
+Wire Wire Line
+	4750 10700 4900 10700
+Wire Wire Line
+	4750 10200 4750 10700
+Wire Wire Line
+	4900 10200 4750 10200
+Wire Wire Line
+	4850 10500 4900 10500
+Wire Wire Line
+	4850 10000 4850 10500
+Wire Wire Line
+	4900 10000 4850 10000
+$Comp
+L 74xx:74LS08 U?
+U 1 1 62586640
+P 5200 10100
+AR Path="/600C5001/60248238/6016C9C5/62586640" Ref="U?"  Part="4" 
+AR Path="/600C5001/60248238/6016C700/62586640" Ref="U?"  Part="3" 
+AR Path="/600C5001/60248238/6016C4DC/62586640" Ref="U?"  Part="2" 
+AR Path="/600C5001/60248238/6014201D/62586640" Ref="U?"  Part="1" 
+AR Path="/600C5001/60260EB9/6016C9C5/62586640" Ref="U?"  Part="4" 
+AR Path="/600C5001/60260EB9/6016C700/62586640" Ref="U?"  Part="3" 
+AR Path="/600C5001/60260EB9/6016C4DC/62586640" Ref="U?"  Part="2" 
+AR Path="/600C5001/60260EB9/6014201D/62586640" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C9C5/62586640" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C700/62586640" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6016C4DC/62586640" Ref="U?"  Part="1" 
+AR Path="/61EF6542/6014201D/62586640" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C9C5/62586640" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C700/62586640" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6016C4DC/62586640" Ref="U?"  Part="1" 
+AR Path="/61EF655B/6014201D/62586640" Ref="U?"  Part="1" 
+AR Path="/62525FCD/62586640" Ref="U?"  Part="1" 
+AR Path="/62525FD6/62586640" Ref="U?"  Part="1" 
+AR Path="/62525FDF/62586640" Ref="U?"  Part="1" 
+AR Path="/62525FE8/62586640" Ref="U?"  Part="1" 
+AR Path="/62586640" Ref="U?"  Part="1" 
+F 0 "U?" H 5200 10425 50  0000 C CNN
+F 1 "74LS08" H 5200 10334 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 5200 10100 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 5200 10100 50  0001 C CNN
+	1    5200 10100
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS86 U?
+U 5 1 62525FB1
+P 2000 10000
+AR Path="/60248238/62525FB1" Ref="U?"  Part="5" 
+AR Path="/60260EB9/62525FB1" Ref="U?"  Part="5" 
+AR Path="/600C5001/60248238/62525FB1" Ref="U?"  Part="5" 
+AR Path="/600C5001/60260EB9/62525FB1" Ref="U?"  Part="5" 
+AR Path="/61EF6542/62525FB1" Ref="U?"  Part="5" 
+AR Path="/61EF655B/62525FB1" Ref="U?"  Part="5" 
+AR Path="/62525FB1" Ref="U?"  Part="5" 
+F 0 "U?" H 2230 10046 50  0000 L CNN
+F 1 "74LS86" H 2230 9955 50  0000 L CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 2000 10000 50  0001 C CNN
+F 3 "74xx/74ls86.pdf" H 2000 10000 50  0001 C CNN
+	5    2000 10000
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS86 U?
+U 5 1 62525FAB
+P 2000 11550
+AR Path="/60248238/62525FAB" Ref="U?"  Part="5" 
+AR Path="/60260EB9/62525FAB" Ref="U?"  Part="5" 
+AR Path="/600C5001/60248238/62525FAB" Ref="U?"  Part="5" 
+AR Path="/600C5001/60260EB9/62525FAB" Ref="U?"  Part="5" 
+AR Path="/61EF6542/62525FAB" Ref="U?"  Part="5" 
+AR Path="/61EF655B/62525FAB" Ref="U?"  Part="5" 
+AR Path="/62525FAB" Ref="U?"  Part="5" 
+F 0 "U?" H 2230 11596 50  0000 L CNN
+F 1 "74LS86" H 2230 11505 50  0000 L CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 2000 11550 50  0001 C CNN
+F 3 "74xx/74ls86.pdf" H 2000 11550 50  0001 C CNN
+	5    2000 11550
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS08 U?
+U 5 1 62525FA5
+P 1250 11550
+AR Path="/60248238/62525FA5" Ref="U?"  Part="5" 
+AR Path="/60260EB9/62525FA5" Ref="U?"  Part="5" 
+AR Path="/600C5001/60248238/62525FA5" Ref="U?"  Part="5" 
+AR Path="/600C5001/60260EB9/62525FA5" Ref="U?"  Part="5" 
+AR Path="/61EF6542/62525FA5" Ref="U?"  Part="5" 
+AR Path="/61EF655B/62525FA5" Ref="U?"  Part="5" 
+AR Path="/62525FA5" Ref="U?"  Part="5" 
+F 0 "U?" H 1480 11596 50  0000 L CNN
+F 1 "74LS08" H 1480 11505 50  0000 L CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 1250 11550 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 1250 11550 50  0001 C CNN
+	5    1250 11550
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS32 U?
+U 5 1 62525F9F
+P 2000 13100
+AR Path="/60248238/62525F9F" Ref="U?"  Part="5" 
+AR Path="/60260EB9/62525F9F" Ref="U?"  Part="5" 
+AR Path="/600C5001/60248238/62525F9F" Ref="U?"  Part="5" 
+AR Path="/600C5001/60260EB9/62525F9F" Ref="U?"  Part="5" 
+AR Path="/61EF6542/62525F9F" Ref="U?"  Part="5" 
+AR Path="/61EF655B/62525F9F" Ref="U?"  Part="5" 
+AR Path="/62525F9F" Ref="U?"  Part="5" 
+F 0 "U?" H 2230 13146 50  0000 L CNN
+F 1 "74LS32" H 2230 13055 50  0000 L CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 2000 13100 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 2000 13100 50  0001 C CNN
+	5    2000 13100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 62525F99
+P 2000 9450
+AR Path="/60248238/62525F99" Ref="#PWR?"  Part="1" 
+AR Path="/60260EB9/62525F99" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/60248238/62525F99" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/60260EB9/62525F99" Ref="#PWR?"  Part="1" 
+AR Path="/61EF6542/62525F99" Ref="#PWR?"  Part="1" 
+AR Path="/61EF655B/62525F99" Ref="#PWR?"  Part="1" 
+AR Path="/62525F99" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 2000 9300 50  0001 C CNN
+F 1 "+5V" H 2015 9623 50  0000 C CNN
+F 2 "" H 2000 9450 50  0001 C CNN
+F 3 "" H 2000 9450 50  0001 C CNN
+	1    2000 9450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 62525F93
+P 1250 11000
+AR Path="/60248238/62525F93" Ref="#PWR?"  Part="1" 
+AR Path="/60260EB9/62525F93" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/60248238/62525F93" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/60260EB9/62525F93" Ref="#PWR?"  Part="1" 
+AR Path="/61EF6542/62525F93" Ref="#PWR?"  Part="1" 
+AR Path="/61EF655B/62525F93" Ref="#PWR?"  Part="1" 
+AR Path="/62525F93" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 1250 10850 50  0001 C CNN
+F 1 "+5V" H 1265 11173 50  0000 C CNN
+F 2 "" H 1250 11000 50  0001 C CNN
+F 3 "" H 1250 11000 50  0001 C CNN
+	1    1250 11000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 62525F8D
+P 2000 11000
+AR Path="/60248238/62525F8D" Ref="#PWR?"  Part="1" 
+AR Path="/60260EB9/62525F8D" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/60248238/62525F8D" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/60260EB9/62525F8D" Ref="#PWR?"  Part="1" 
+AR Path="/61EF6542/62525F8D" Ref="#PWR?"  Part="1" 
+AR Path="/61EF655B/62525F8D" Ref="#PWR?"  Part="1" 
+AR Path="/62525F8D" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 2000 10850 50  0001 C CNN
+F 1 "+5V" H 2015 11173 50  0000 C CNN
+F 2 "" H 2000 11000 50  0001 C CNN
+F 3 "" H 2000 11000 50  0001 C CNN
+	1    2000 11000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 62525F87
+P 2000 13650
+AR Path="/60248238/62525F87" Ref="#PWR?"  Part="1" 
+AR Path="/60260EB9/62525F87" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/60248238/62525F87" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/60260EB9/62525F87" Ref="#PWR?"  Part="1" 
+AR Path="/61EF6542/62525F87" Ref="#PWR?"  Part="1" 
+AR Path="/61EF655B/62525F87" Ref="#PWR?"  Part="1" 
+AR Path="/62525F87" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 2000 13400 50  0001 C CNN
+F 1 "GND" H 2005 13477 50  0000 C CNN
+F 2 "" H 2000 13650 50  0001 C CNN
+F 3 "" H 2000 13650 50  0001 C CNN
+	1    2000 13650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 62525F81
+P 1250 13650
+AR Path="/60248238/62525F81" Ref="#PWR?"  Part="1" 
+AR Path="/60260EB9/62525F81" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/60248238/62525F81" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/60260EB9/62525F81" Ref="#PWR?"  Part="1" 
+AR Path="/61EF6542/62525F81" Ref="#PWR?"  Part="1" 
+AR Path="/61EF655B/62525F81" Ref="#PWR?"  Part="1" 
+AR Path="/62525F81" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 1250 13400 50  0001 C CNN
+F 1 "GND" H 1255 13477 50  0000 C CNN
+F 2 "" H 1250 13650 50  0001 C CNN
+F 3 "" H 1250 13650 50  0001 C CNN
+	1    1250 13650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 62525F7B
+P 2000 12100
+AR Path="/60248238/62525F7B" Ref="#PWR?"  Part="1" 
+AR Path="/60260EB9/62525F7B" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/60248238/62525F7B" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/60260EB9/62525F7B" Ref="#PWR?"  Part="1" 
+AR Path="/61EF6542/62525F7B" Ref="#PWR?"  Part="1" 
+AR Path="/61EF655B/62525F7B" Ref="#PWR?"  Part="1" 
+AR Path="/62525F7B" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 2000 11850 50  0001 C CNN
+F 1 "GND" H 2005 11927 50  0000 C CNN
+F 2 "" H 2000 12100 50  0001 C CNN
+F 3 "" H 2000 12100 50  0001 C CNN
+	1    2000 12100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 62525F75
+P 1250 12100
+AR Path="/60248238/62525F75" Ref="#PWR?"  Part="1" 
+AR Path="/60260EB9/62525F75" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/60248238/62525F75" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/60260EB9/62525F75" Ref="#PWR?"  Part="1" 
+AR Path="/61EF6542/62525F75" Ref="#PWR?"  Part="1" 
+AR Path="/61EF655B/62525F75" Ref="#PWR?"  Part="1" 
+AR Path="/62525F75" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 1250 11850 50  0001 C CNN
+F 1 "GND" H 1255 11927 50  0000 C CNN
+F 2 "" H 1250 12100 50  0001 C CNN
+F 3 "" H 1250 12100 50  0001 C CNN
+	1    1250 12100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 62525F6F
+P 2000 10550
+AR Path="/60248238/62525F6F" Ref="#PWR?"  Part="1" 
+AR Path="/60260EB9/62525F6F" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/60248238/62525F6F" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/60260EB9/62525F6F" Ref="#PWR?"  Part="1" 
+AR Path="/61EF6542/62525F6F" Ref="#PWR?"  Part="1" 
+AR Path="/61EF655B/62525F6F" Ref="#PWR?"  Part="1" 
+AR Path="/62525F6F" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 2000 10300 50  0001 C CNN
+F 1 "GND" H 2005 10377 50  0000 C CNN
+F 2 "" H 2000 10550 50  0001 C CNN
+F 3 "" H 2000 10550 50  0001 C CNN
+	1    2000 10550
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS08 U?
+U 5 1 62525F69
+P 1250 13100
+AR Path="/60248238/62525F69" Ref="U?"  Part="5" 
+AR Path="/60260EB9/62525F69" Ref="U?"  Part="5" 
+AR Path="/600C5001/60248238/62525F69" Ref="U?"  Part="5" 
+AR Path="/600C5001/60260EB9/62525F69" Ref="U?"  Part="5" 
+AR Path="/61EF6542/62525F69" Ref="U?"  Part="5" 
+AR Path="/61EF655B/62525F69" Ref="U?"  Part="5" 
+AR Path="/62525F69" Ref="U?"  Part="5" 
+F 0 "U?" H 1480 13146 50  0000 L CNN
+F 1 "74LS08" H 1480 13055 50  0000 L CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 1250 13100 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 1250 13100 50  0001 C CNN
+	5    1250 13100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 62525F63
+P 1250 12550
+AR Path="/60248238/62525F63" Ref="#PWR?"  Part="1" 
+AR Path="/60260EB9/62525F63" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/60248238/62525F63" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/60260EB9/62525F63" Ref="#PWR?"  Part="1" 
+AR Path="/61EF6542/62525F63" Ref="#PWR?"  Part="1" 
+AR Path="/61EF655B/62525F63" Ref="#PWR?"  Part="1" 
+AR Path="/62525F63" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 1250 12400 50  0001 C CNN
+F 1 "+5V" H 1265 12723 50  0000 C CNN
+F 2 "" H 1250 12550 50  0001 C CNN
+F 3 "" H 1250 12550 50  0001 C CNN
+	1    1250 12550
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 62525F5D
+P 2000 12550
+AR Path="/60248238/62525F5D" Ref="#PWR?"  Part="1" 
+AR Path="/60260EB9/62525F5D" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/60248238/62525F5D" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/60260EB9/62525F5D" Ref="#PWR?"  Part="1" 
+AR Path="/61EF6542/62525F5D" Ref="#PWR?"  Part="1" 
+AR Path="/61EF655B/62525F5D" Ref="#PWR?"  Part="1" 
+AR Path="/62525F5D" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 2000 12400 50  0001 C CNN
+F 1 "+5V" H 2015 12723 50  0000 C CNN
+F 2 "" H 2000 12550 50  0001 C CNN
+F 3 "" H 2000 12550 50  0001 C CNN
+	1    2000 12550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2000 9450 2000 9500
+Wire Wire Line
+	1250 11000 1250 11050
+Wire Wire Line
+	1250 12050 1250 12100
+Wire Wire Line
+	2000 10550 2000 10500
+Wire Wire Line
+	2000 12100 2000 12050
+Wire Wire Line
+	1250 13600 1250 13650
+Wire Wire Line
+	2000 13650 2000 13600
+Wire Wire Line
+	2000 12600 2000 12550
+Wire Wire Line
+	1250 12550 1250 12600
+Wire Wire Line
+	2000 11050 2000 11000
+Wire Wire Line
+	12050 18900 13100 18900
+Connection ~ 12050 18900
+Wire Wire Line
+	11950 18800 10900 18800
+Connection ~ 11950 18800
+Wire Wire Line
+	11750 18600 10050 18600
+Connection ~ 11750 18600
+Wire Wire Line
+	11650 18500 13100 18500
+Connection ~ 11650 18500
+Wire Wire Line
+	11550 18400 10250 18400
+Connection ~ 11550 18400
+Wire Wire Line
+	11450 18300 13100 18300
+Connection ~ 11450 18300
+Wire Wire Line
+	11350 18200 10450 18200
+Connection ~ 11350 18200
+Text GLabel 8750 20400 0    75   Input ~ 0
+ctrlAluOp0
+Text GLabel 8750 12700 0    75   Input ~ 0
+ctrlAluOp1
+Text GLabel 8750 12450 0    75   Input ~ 0
+ctrlAluOp0
+Text GLabel 8750 15350 0    75   Input ~ 0
+ctrlAluOp1
+Text GLabel 8750 15100 0    75   Input ~ 0
+ctrlAluOp0
+Wire Wire Line
+	11350 22750 11350 18200
+Wire Wire Line
+	11450 22850 11450 18300
+Wire Wire Line
+	11550 22950 11550 18400
+Wire Wire Line
+	11650 23050 11650 18500
+Wire Wire Line
+	11750 23150 11750 18600
+Wire Wire Line
+	12500 22750 11350 22750
+Wire Wire Line
+	12500 22850 11450 22850
+Wire Wire Line
+	12500 22950 11550 22950
+Wire Wire Line
+	12500 23050 11650 23050
+Wire Wire Line
+	12500 23150 11750 23150
+Wire Wire Line
+	11850 23250 12500 23250
+Wire Wire Line
+	11950 23350 11950 18800
+Wire Wire Line
+	12500 23350 11950 23350
+Wire Wire Line
+	12050 23450 12500 23450
+Wire Wire Line
+	12050 24200 12050 23450
+Wire Wire Line
+	10450 11050 10450 18200
+Wire Wire Line
+	13100 18200 11350 18200
+Wire Wire Line
+	10350 11750 10350 18300
+Wire Wire Line
+	10350 18300 11450 18300
+Wire Wire Line
+	9750 11050 10450 11050
+Wire Wire Line
+	9750 11750 10350 11750
+Wire Wire Line
+	10250 13700 9750 13700
+Wire Wire Line
+	10250 18400 10250 13700
+Wire Wire Line
+	13100 18400 11550 18400
+Wire Wire Line
+	10050 16350 9750 16350
+Wire Wire Line
+	10050 18600 10050 16350
+Wire Wire Line
+	9950 17050 9950 18700
+Wire Wire Line
+	9750 17050 9950 17050
+Wire Wire Line
+	10900 19000 9750 19000
+Wire Wire Line
+	10900 18800 10900 19000
+Wire Wire Line
+	13100 18800 11950 18800
+Wire Wire Line
+	11000 18900 12050 18900
+Wire Wire Line
+	11000 19700 11000 18900
+Wire Wire Line
+	9750 19700 11000 19700
+Text Label 8750 20000 2    75   ~ 0
+shift7
+Text Label 8750 19900 2    75   ~ 0
+xor7
+Text Label 8750 19800 2    75   ~ 0
+and7
+Text Label 8750 19700 2    75   ~ 0
+adder7
+Text Label 8750 19300 2    75   ~ 0
+shift6
+Text Label 8750 19200 2    75   ~ 0
+xor6
+Text Label 8750 19100 2    75   ~ 0
+and6
+Text Label 8750 19000 2    75   ~ 0
+adder6
+Text Label 8750 17350 2    75   ~ 0
+shift5
+Text Label 8750 17250 2    75   ~ 0
+xor5
+Text Label 8750 17150 2    75   ~ 0
+and5
+Text Label 8750 17050 2    75   ~ 0
+adder5
+Text Label 8750 16650 2    75   ~ 0
+shift4
+Text Label 8750 16550 2    75   ~ 0
+xor4
+Text Label 8750 16450 2    75   ~ 0
+and4
+Text Label 8750 16350 2    75   ~ 0
+adder4
+Text Label 8750 14700 2    75   ~ 0
+shift3
+Text Label 8750 14600 2    75   ~ 0
+xor3
+Text Label 8750 14500 2    75   ~ 0
+and3
+Text Label 8750 14400 2    75   ~ 0
+adder3
+Text Label 8750 14000 2    75   ~ 0
+shift2
+Text Label 8750 13900 2    75   ~ 0
+xor2
+Text Label 8750 13800 2    75   ~ 0
+and2
+Text Label 8750 13700 2    75   ~ 0
+adder2
+Text Label 8750 12050 2    75   ~ 0
+shift1
+Text Label 8750 11950 2    75   ~ 0
+xor1
+Text Label 8750 11850 2    75   ~ 0
+and1
+Text Label 8750 11750 2    75   ~ 0
+adder1
+Text Label 8750 11350 2    75   ~ 0
+shift0
+Text Label 8750 11250 2    75   ~ 0
+xor0
+Text Label 8750 11150 2    75   ~ 0
+and0
+Text Label 8750 11050 2    75   ~ 0
+adder0
+$Comp
+L 74xx:74LS153 U?
+U 1 1 61EF6686
+P 9250 11750
+AR Path="/600C5001/61EF6686" Ref="U?"  Part="1" 
+AR Path="/61EF6686" Ref="U?"  Part="1" 
+F 0 "U?" H 9250 12931 50  0000 C CNN
+F 1 "74LS153" H 9250 13000 50  0000 C CNN
+F 2 "" H 9250 11750 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS153" H 9250 11750 50  0001 C CNN
+	1    9250 11750
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 61EF6680
+P 9250 12850
+AR Path="/600C5001/61EF6680" Ref="#PWR?"  Part="1" 
+AR Path="/61EF6680" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 9250 12600 50  0001 C CNN
+F 1 "GND" H 9255 12677 50  0000 C CNN
+F 2 "" H 9250 12850 50  0001 C CNN
+F 3 "" H 9250 12850 50  0001 C CNN
+	1    9250 12850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 61EF667A
+P 8550 11450
+AR Path="/600C5001/61EF667A" Ref="#PWR?"  Part="1" 
+AR Path="/61EF667A" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 8550 11200 50  0001 C CNN
+F 1 "GND" H 8555 11277 50  0000 C CNN
+F 2 "" H 8550 11450 50  0001 C CNN
+F 3 "" H 8550 11450 50  0001 C CNN
+	1    8550 11450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8550 11450 8750 11450
+$Comp
+L power:GND #PWR?
+U 1 1 61EF6673
+P 8550 12150
+AR Path="/600C5001/61EF6673" Ref="#PWR?"  Part="1" 
+AR Path="/61EF6673" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 8550 11900 50  0001 C CNN
+F 1 "GND" H 8555 11977 50  0000 C CNN
+F 2 "" H 8550 12150 50  0001 C CNN
+F 3 "" H 8550 12150 50  0001 C CNN
+	1    8550 12150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8550 12150 8750 12150
+Wire Wire Line
+	8750 12250 8750 12150
+Wire Wire Line
+	8750 11450 8750 11550
+Wire Wire Line
+	8750 19400 8750 19500
+Wire Wire Line
+	8750 20200 8750 20100
+Wire Wire Line
+	8550 20100 8750 20100
+$Comp
+L power:GND #PWR?
+U 1 1 61EF6667
+P 8550 20100
+AR Path="/600C5001/61EF6667" Ref="#PWR?"  Part="1" 
+AR Path="/61EF6667" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 8550 19850 50  0001 C CNN
+F 1 "GND" H 8555 19927 50  0000 C CNN
+F 2 "" H 8550 20100 50  0001 C CNN
+F 3 "" H 8550 20100 50  0001 C CNN
+	1    8550 20100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8550 19400 8750 19400
+$Comp
+L power:GND #PWR?
+U 1 1 61EF6660
+P 8550 19400
+AR Path="/600C5001/61EF6660" Ref="#PWR?"  Part="1" 
+AR Path="/61EF6660" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 8550 19150 50  0001 C CNN
+F 1 "GND" H 8555 19227 50  0000 C CNN
+F 2 "" H 8550 19400 50  0001 C CNN
+F 3 "" H 8550 19400 50  0001 C CNN
+	1    8550 19400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 61EF665A
+P 9250 18700
+AR Path="/600C5001/61EF665A" Ref="#PWR?"  Part="1" 
+AR Path="/61EF665A" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 9250 18550 50  0001 C CNN
+F 1 "+5V" H 9350 18800 50  0000 C CNN
+F 2 "" H 9250 18700 50  0001 C CNN
+F 3 "" H 9250 18700 50  0001 C CNN
+	1    9250 18700
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 61EF6654
+P 9250 20800
+AR Path="/600C5001/61EF6654" Ref="#PWR?"  Part="1" 
+AR Path="/61EF6654" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 9250 20550 50  0001 C CNN
+F 1 "GND" H 9255 20627 50  0000 C CNN
+F 2 "" H 9250 20800 50  0001 C CNN
+F 3 "" H 9250 20800 50  0001 C CNN
+	1    9250 20800
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS153 U?
+U 1 1 61EF664E
+P 9250 19700
+AR Path="/600C5001/61EF664E" Ref="U?"  Part="1" 
+AR Path="/61EF664E" Ref="U?"  Part="1" 
+F 0 "U?" H 9250 20881 50  0000 C CNN
+F 1 "74LS153" H 9250 20950 50  0000 C CNN
+F 2 "" H 9250 19700 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS153" H 9250 19700 50  0001 C CNN
+	1    9250 19700
+	1    0    0    -1  
+$EndComp
+Text GLabel 8750 18000 0    75   Input ~ 0
+ctrlAluOp1
+Text GLabel 8750 17750 0    75   Input ~ 0
+ctrlAluOp0
+Wire Wire Line
+	8750 16750 8750 16850
+Wire Wire Line
+	8750 17550 8750 17450
+Wire Wire Line
+	8550 17450 8750 17450
+$Comp
+L power:GND #PWR?
+U 1 1 61EF6643
+P 8550 17450
+AR Path="/600C5001/61EF6643" Ref="#PWR?"  Part="1" 
+AR Path="/61EF6643" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 8550 17200 50  0001 C CNN
+F 1 "GND" H 8555 17277 50  0000 C CNN
+F 2 "" H 8550 17450 50  0001 C CNN
+F 3 "" H 8550 17450 50  0001 C CNN
+	1    8550 17450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8550 16750 8750 16750
+$Comp
+L power:GND #PWR?
+U 1 1 61EF663C
+P 8550 16750
+AR Path="/600C5001/61EF663C" Ref="#PWR?"  Part="1" 
+AR Path="/61EF663C" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 8550 16500 50  0001 C CNN
+F 1 "GND" H 8555 16577 50  0000 C CNN
+F 2 "" H 8550 16750 50  0001 C CNN
+F 3 "" H 8550 16750 50  0001 C CNN
+	1    8550 16750
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 61EF6636
+P 9250 16050
+AR Path="/600C5001/61EF6636" Ref="#PWR?"  Part="1" 
+AR Path="/61EF6636" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 9250 15900 50  0001 C CNN
+F 1 "+5V" H 9350 16150 50  0000 C CNN
+F 2 "" H 9250 16050 50  0001 C CNN
+F 3 "" H 9250 16050 50  0001 C CNN
+	1    9250 16050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 61EF6630
+P 9250 18150
+AR Path="/600C5001/61EF6630" Ref="#PWR?"  Part="1" 
+AR Path="/61EF6630" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 9250 17900 50  0001 C CNN
+F 1 "GND" H 9255 17977 50  0000 C CNN
+F 2 "" H 9250 18150 50  0001 C CNN
+F 3 "" H 9250 18150 50  0001 C CNN
+	1    9250 18150
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS153 U?
+U 1 1 61EF662A
+P 9250 17050
+AR Path="/600C5001/61EF662A" Ref="U?"  Part="1" 
+AR Path="/61EF662A" Ref="U?"  Part="1" 
+F 0 "U?" H 9250 18231 50  0000 C CNN
+F 1 "74LS153" H 9250 18300 50  0000 C CNN
+F 2 "" H 9250 17050 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS153" H 9250 17050 50  0001 C CNN
+	1    9250 17050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8750 14100 8750 14200
+Wire Wire Line
+	8750 14900 8750 14800
+Wire Wire Line
+	8550 14800 8750 14800
+$Comp
+L power:GND #PWR?
+U 1 1 61EF6621
+P 8550 14800
+AR Path="/600C5001/61EF6621" Ref="#PWR?"  Part="1" 
+AR Path="/61EF6621" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 8550 14550 50  0001 C CNN
+F 1 "GND" H 8555 14627 50  0000 C CNN
+F 2 "" H 8550 14800 50  0001 C CNN
+F 3 "" H 8550 14800 50  0001 C CNN
+	1    8550 14800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8550 14100 8750 14100
+$Comp
+L power:GND #PWR?
+U 1 1 61EF661A
+P 8550 14100
+AR Path="/600C5001/61EF661A" Ref="#PWR?"  Part="1" 
+AR Path="/61EF661A" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 8550 13850 50  0001 C CNN
+F 1 "GND" H 8555 13927 50  0000 C CNN
+F 2 "" H 8550 14100 50  0001 C CNN
+F 3 "" H 8550 14100 50  0001 C CNN
+	1    8550 14100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 61EF6614
+P 9250 13400
+AR Path="/600C5001/61EF6614" Ref="#PWR?"  Part="1" 
+AR Path="/61EF6614" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 9250 13250 50  0001 C CNN
+F 1 "+5V" H 9350 13500 50  0000 C CNN
+F 2 "" H 9250 13400 50  0001 C CNN
+F 3 "" H 9250 13400 50  0001 C CNN
+	1    9250 13400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 61EF660E
+P 9250 15500
+AR Path="/600C5001/61EF660E" Ref="#PWR?"  Part="1" 
+AR Path="/61EF660E" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 9250 15250 50  0001 C CNN
+F 1 "GND" H 9255 15327 50  0000 C CNN
+F 2 "" H 9250 15500 50  0001 C CNN
+F 3 "" H 9250 15500 50  0001 C CNN
+	1    9250 15500
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS153 U?
+U 1 1 61EF6608
+P 9250 14400
+AR Path="/600C5001/61EF6608" Ref="U?"  Part="1" 
+AR Path="/61EF6608" Ref="U?"  Part="1" 
+F 0 "U?" H 9250 15581 50  0000 C CNN
+F 1 "74LS153" H 9250 15650 50  0000 C CNN
+F 2 "" H 9250 14400 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS153" H 9250 14400 50  0001 C CNN
+	1    9250 14400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 61EF6602
+P 9250 10750
+AR Path="/600C5001/61EF6602" Ref="#PWR?"  Part="1" 
+AR Path="/61EF6602" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 9250 10600 50  0001 C CNN
+F 1 "+5V" H 9350 10850 50  0000 C CNN
+F 2 "" H 9250 10750 50  0001 C CNN
+F 3 "" H 9250 10750 50  0001 C CNN
+	1    9250 10750
+	1    0    0    -1  
+$EndComp
+Text GLabel 12800 19200 0    75   Input ~ 0
+~ctrlAluYWE~
+Wire Wire Line
+	12050 18900 12050 23450
+$Comp
+L 74xx:74LS86 U?
+U 5 1 61EF64FF
+P 1250 10000
+AR Path="/600C5001/61EF64FF" Ref="U?"  Part="5" 
+AR Path="/61EF64FF" Ref="U?"  Part="5" 
+F 0 "U?" H 1480 10046 50  0000 L CNN
+F 1 "74LS86" H 1480 9955 50  0000 L CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 1250 10000 50  0001 C CNN
+F 3 "74xx/74ls86.pdf" H 1250 10000 50  0001 C CNN
+	5    1250 10000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 61EF64DB
+P 1250 9500
+AR Path="/600C5001/61EF64DB" Ref="#PWR?"  Part="1" 
+AR Path="/61EF64DB" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 1250 9350 50  0001 C CNN
+F 1 "+5V" H 1265 9673 50  0000 C CNN
+F 2 "" H 1250 9500 50  0001 C CNN
+F 3 "" H 1250 9500 50  0001 C CNN
+	1    1250 9500
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 61EF64CF
+P 1250 10500
+AR Path="/600C5001/61EF64CF" Ref="#PWR?"  Part="1" 
+AR Path="/61EF64CF" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 1250 10250 50  0001 C CNN
+F 1 "GND" H 1255 10327 50  0000 C CNN
+F 2 "" H 1250 10500 50  0001 C CNN
+F 3 "" H 1250 10500 50  0001 C CNN
+	1    1250 10500
+	1    0    0    -1  
+$EndComp
+Text Label 3850 10600 2    75   ~ 0
+bus0
+Connection ~ 3550 1050
+Wire Bus Line
+	3550 1050 5150 1050
+Wire Bus Line
+	3550 1050 2750 1050
+Wire Bus Line
+	4550 8450 6400 8450
+Wire Bus Line
+	2100 8450 3150 8450
+Connection ~ 2100 6200
+Wire Bus Line
+	2100 6200 2100 8450
+Text Label 6100 6550 0    75   ~ 0
+a4
+Text Label 6100 6850 0    75   ~ 0
+a5
+Text Label 6100 7150 0    75   ~ 0
+a6
+Text Label 6100 7450 0    75   ~ 0
+a7
+Text Label 6100 4950 0    75   ~ 0
+a3
+Text Label 6100 4650 0    75   ~ 0
+a2
+Text Label 6100 4350 0    75   ~ 0
+a1
+Text Label 6100 4050 0    75   ~ 0
+a0
+Wire Wire Line
+	6050 6850 6300 6850
+Entry Wire Line
+	6400 6950 6300 6850
+Entry Wire Line
+	6400 7550 6300 7450
+Entry Wire Line
+	6400 6650 6300 6550
+Entry Wire Line
+	6400 4450 6300 4350
+Entry Wire Line
+	6400 4750 6300 4650
+Entry Wire Line
+	6400 4150 6300 4050
+Entry Wire Line
+	6400 7250 6300 7150
+Entry Wire Line
+	6400 5050 6300 4950
+Wire Wire Line
+	6050 6550 6300 6550
+Wire Wire Line
+	6050 4350 6300 4350
+Wire Wire Line
+	6050 7450 6300 7450
+Wire Wire Line
+	6050 4650 6300 4650
+Wire Wire Line
+	6050 4050 6300 4050
+Wire Wire Line
+	6050 7150 6300 7150
+Wire Wire Line
+	6050 4950 6300 4950
+Wire Bus Line
+	2750 3300 9000 3300
+Entry Wire Line
+	9000 6950 8900 7050
+Entry Wire Line
+	9000 6850 8900 6950
+Entry Wire Line
+	9000 6750 8900 6850
+Entry Wire Line
+	9000 6650 8900 6750
+Entry Wire Line
+	9000 6550 8900 6650
+Entry Wire Line
+	9000 6450 8900 6550
+Entry Wire Line
+	9000 6350 8900 6450
+Entry Wire Line
+	9000 6250 8900 6350
+Text Label 8550 6350 0    75   ~ 0
+bus0
+Text Label 8550 6450 0    75   ~ 0
+bus1
+Text Label 8550 6550 0    75   ~ 0
+bus2
+Text Label 8550 6650 0    75   ~ 0
+bus3
+Text Label 8550 6750 0    75   ~ 0
+bus4
+Text Label 8550 6850 0    75   ~ 0
+bus5
+Text Label 8550 6950 0    75   ~ 0
+bus6
+Text Label 8550 7050 0    75   ~ 0
+bus7
+Wire Wire Line
+	8550 7050 8900 7050
+Wire Wire Line
+	8550 6950 8900 6950
+Wire Wire Line
+	8550 6850 8900 6850
+Wire Wire Line
+	8550 6750 8900 6750
+Wire Wire Line
+	8550 6650 8900 6650
+Wire Wire Line
+	8550 6550 8900 6550
+Wire Wire Line
+	8550 6450 8900 6450
+Wire Wire Line
+	8550 6350 8900 6350
+Entry Wire Line
+	9000 4800 8900 4900
+Entry Wire Line
+	9000 4700 8900 4800
+Entry Wire Line
+	9000 4600 8900 4700
+Entry Wire Line
+	9000 4500 8900 4600
+Entry Wire Line
+	9000 4400 8900 4500
+Entry Wire Line
+	9000 4300 8900 4400
+Entry Wire Line
+	9000 4200 8900 4300
+Entry Wire Line
+	9000 4100 8900 4200
+Text Label 8550 4200 0    75   ~ 0
+bus0
+Text Label 8550 4300 0    75   ~ 0
+bus1
+Text Label 8550 4400 0    75   ~ 0
+bus2
+Text Label 8550 4500 0    75   ~ 0
+bus3
+Text Label 8550 4600 0    75   ~ 0
+bus4
+Text Label 8550 4700 0    75   ~ 0
+bus5
+Text Label 8550 4800 0    75   ~ 0
+bus6
+Text Label 8550 4900 0    75   ~ 0
+bus7
+Wire Wire Line
+	8550 4900 8900 4900
+Wire Wire Line
+	8550 4800 8900 4800
+Wire Wire Line
+	8550 4700 8900 4700
+Wire Wire Line
+	8550 4600 8900 4600
+Wire Wire Line
+	8550 4500 8900 4500
+Wire Wire Line
+	8550 4400 8900 4400
+Wire Wire Line
+	8550 4300 8900 4300
+Wire Wire Line
+	8550 4200 8900 4200
+Connection ~ 2750 3300
+Wire Bus Line
+	2750 3300 2750 1050
+Wire Bus Line
+	2100 3300 2750 3300
+Wire Bus Line
+	2100 6200 2100 3300
+Wire Bus Line
+	2750 6200 2100 6200
+Entry Wire Line
+	2750 7150 2850 7250
+Entry Wire Line
+	2750 7050 2850 7150
+Entry Wire Line
+	2750 6950 2850 7050
+Entry Wire Line
+	2750 6850 2850 6950
+Entry Wire Line
+	2750 6750 2850 6850
+Entry Wire Line
+	2750 6650 2850 6750
+Entry Wire Line
+	2750 6550 2850 6650
+Entry Wire Line
+	2750 6450 2850 6550
+Text Label 3100 6550 2    75   ~ 0
+bus0
+Text Label 3100 6650 2    75   ~ 0
+bus1
+Text Label 3100 6750 2    75   ~ 0
+bus2
+Text Label 3100 6850 2    75   ~ 0
+bus3
+Text Label 3100 6950 2    75   ~ 0
+bus4
+Text Label 3100 7050 2    75   ~ 0
+bus5
+Text Label 3100 7150 2    75   ~ 0
+bus6
+Text Label 3100 7250 2    75   ~ 0
+bus7
+Wire Wire Line
+	3100 7250 2850 7250
+Wire Wire Line
+	3100 7150 2850 7150
+Wire Wire Line
+	3100 7050 2850 7050
+Wire Wire Line
+	3100 6950 2850 6950
+Wire Wire Line
+	3100 6850 2850 6850
+Wire Wire Line
+	3100 6750 2850 6750
+Wire Wire Line
+	3100 6650 2850 6650
+Wire Wire Line
+	3100 6550 2850 6550
+Entry Wire Line
+	2750 4650 2850 4750
+Entry Wire Line
+	2750 4550 2850 4650
+Entry Wire Line
+	2750 4450 2850 4550
+Entry Wire Line
+	2750 4350 2850 4450
+Entry Wire Line
+	2750 4250 2850 4350
+Entry Wire Line
+	2750 4150 2850 4250
+Entry Wire Line
+	2750 4050 2850 4150
+Entry Wire Line
+	2750 3950 2850 4050
+Text Label 3100 4050 2    75   ~ 0
+bus0
+Text Label 3100 4150 2    75   ~ 0
+bus1
+Text Label 3100 4250 2    75   ~ 0
+bus2
+Text Label 3100 4350 2    75   ~ 0
+bus3
+Text Label 3100 4450 2    75   ~ 0
+bus4
+Text Label 3100 4550 2    75   ~ 0
+bus5
+Text Label 3100 4650 2    75   ~ 0
+bus6
+Text Label 3100 4750 2    75   ~ 0
+bus7
+Wire Wire Line
+	3100 4750 2850 4750
+Wire Wire Line
+	3100 4650 2850 4650
+Wire Wire Line
+	3100 4550 2850 4550
+Wire Wire Line
+	3100 4450 2850 4450
+Wire Wire Line
+	3100 4350 2850 4350
+Wire Wire Line
+	3100 4250 2850 4250
+Wire Wire Line
+	3100 4150 2850 4150
+Wire Wire Line
+	3100 4050 2850 4050
+Text Label 9800 7050 2    75   ~ 0
+r17
+Text Label 9800 6950 2    75   ~ 0
+r16
+Text Label 9800 6850 2    75   ~ 0
+r15
+Text Label 9800 6750 2    75   ~ 0
+r14
+Text Label 9800 6650 2    75   ~ 0
+r13
+Text Label 9800 6550 2    75   ~ 0
+r12
+Text Label 9800 6450 2    75   ~ 0
+r11
+Text Label 9800 6350 2    75   ~ 0
+r10
+Wire Wire Line
+	11600 7050 11200 7050
+Wire Wire Line
+	11000 7050 10800 7050
+$Comp
+L Device:LED_Small D?
+U 1 1 61AEAA67
+P 11100 7050
+AR Path="/600C5001/61AEAA67" Ref="D?"  Part="1" 
+AR Path="/601B5CAE/61AEAA67" Ref="D?"  Part="1" 
+AR Path="/61AEAA67" Ref="D?"  Part="1" 
+F 0 "D?" H 10900 7100 50  0000 C CNN
+F 1 "LED_Small" H 11350 7100 50  0000 C CNN
+F 2 "" V 11100 7050 50  0001 C CNN
+F 3 "~" V 11100 7050 50  0001 C CNN
+	1    11100 7050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	11600 6950 11200 6950
+Wire Wire Line
+	11000 6950 10800 6950
+$Comp
+L Device:LED_Small D?
+U 1 1 61AEAA5F
+P 11100 6950
+AR Path="/600C5001/61AEAA5F" Ref="D?"  Part="1" 
+AR Path="/601B5CAE/61AEAA5F" Ref="D?"  Part="1" 
+AR Path="/61AEAA5F" Ref="D?"  Part="1" 
+F 0 "D?" H 10900 7000 50  0000 C CNN
+F 1 "LED_Small" H 11350 7000 50  0000 C CNN
+F 2 "" V 11100 6950 50  0001 C CNN
+F 3 "~" V 11100 6950 50  0001 C CNN
+	1    11100 6950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	11600 6850 11200 6850
+Wire Wire Line
+	11000 6850 10800 6850
+$Comp
+L Device:LED_Small D?
+U 1 1 61AEAA57
+P 11100 6850
+AR Path="/600C5001/61AEAA57" Ref="D?"  Part="1" 
+AR Path="/601B5CAE/61AEAA57" Ref="D?"  Part="1" 
+AR Path="/61AEAA57" Ref="D?"  Part="1" 
+F 0 "D?" H 10900 6900 50  0000 C CNN
+F 1 "LED_Small" H 11350 6900 50  0000 C CNN
+F 2 "" V 11100 6850 50  0001 C CNN
+F 3 "~" V 11100 6850 50  0001 C CNN
+	1    11100 6850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	11600 6750 11200 6750
+Wire Wire Line
+	11000 6750 10800 6750
+$Comp
+L Device:LED_Small D?
+U 1 1 61AEAA4F
+P 11100 6750
+AR Path="/600C5001/61AEAA4F" Ref="D?"  Part="1" 
+AR Path="/601B5CAE/61AEAA4F" Ref="D?"  Part="1" 
+AR Path="/61AEAA4F" Ref="D?"  Part="1" 
+F 0 "D?" H 10900 6800 50  0000 C CNN
+F 1 "LED_Small" H 11350 6800 50  0000 C CNN
+F 2 "" V 11100 6750 50  0001 C CNN
+F 3 "~" V 11100 6750 50  0001 C CNN
+	1    11100 6750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	11600 6650 11200 6650
+Wire Wire Line
+	11000 6650 10800 6650
+$Comp
+L Device:LED_Small D?
+U 1 1 61AEAA47
+P 11100 6650
+AR Path="/600C5001/61AEAA47" Ref="D?"  Part="1" 
+AR Path="/601B5CAE/61AEAA47" Ref="D?"  Part="1" 
+AR Path="/61AEAA47" Ref="D?"  Part="1" 
+F 0 "D?" H 10900 6700 50  0000 C CNN
+F 1 "LED_Small" H 11350 6700 50  0000 C CNN
+F 2 "" V 11100 6650 50  0001 C CNN
+F 3 "~" V 11100 6650 50  0001 C CNN
+	1    11100 6650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	11600 6550 11200 6550
+Wire Wire Line
+	11000 6550 10800 6550
+$Comp
+L Device:LED_Small D?
+U 1 1 61AEAA3F
+P 11100 6550
+AR Path="/600C5001/61AEAA3F" Ref="D?"  Part="1" 
+AR Path="/601B5CAE/61AEAA3F" Ref="D?"  Part="1" 
+AR Path="/61AEAA3F" Ref="D?"  Part="1" 
+F 0 "D?" H 10900 6600 50  0000 C CNN
+F 1 "LED_Small" H 11350 6600 50  0000 C CNN
+F 2 "" V 11100 6550 50  0001 C CNN
+F 3 "~" V 11100 6550 50  0001 C CNN
+	1    11100 6550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	11600 6450 11200 6450
+Wire Wire Line
+	11000 6450 10800 6450
+$Comp
+L Device:LED_Small D?
+U 1 1 61AEAA37
+P 11100 6450
+AR Path="/600C5001/61AEAA37" Ref="D?"  Part="1" 
+AR Path="/601B5CAE/61AEAA37" Ref="D?"  Part="1" 
+AR Path="/61AEAA37" Ref="D?"  Part="1" 
+F 0 "D?" H 10900 6500 50  0000 C CNN
+F 1 "LED_Small" H 11350 6500 50  0000 C CNN
+F 2 "" V 11100 6450 50  0001 C CNN
+F 3 "~" V 11100 6450 50  0001 C CNN
+	1    11100 6450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	11600 6350 11200 6350
+Wire Wire Line
+	12100 6350 12000 6350
+Wire Wire Line
+	12100 6250 12100 6350
+$Comp
+L power:+5V #PWR?
+U 1 1 61AEAA2E
+P 12100 6250
+AR Path="/61492876/61AEAA2E" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/61AEAA2E" Ref="#PWR?"  Part="1" 
+AR Path="/601B5CAE/61AEAA2E" Ref="#PWR?"  Part="1" 
+AR Path="/61AEAA2E" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 12100 6100 50  0001 C CNN
+F 1 "+5V" H 12115 6423 50  0000 C CNN
+F 2 "" H 12100 6250 50  0001 C CNN
+F 3 "" H 12100 6250 50  0001 C CNN
+	1    12100 6250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Network08 RN?
+U 1 1 61AEAA28
+P 11800 6750
+AR Path="/61492876/61AEAA28" Ref="RN?"  Part="1" 
+AR Path="/601B5CAE/61AEAA28" Ref="RN?"  Part="1" 
+AR Path="/61AEAA28" Ref="RN?"  Part="1" 
+F 0 "RN?" H 12188 6796 50  0000 L CNN
+F 1 "220" H 12188 6705 50  0000 L CNN
+F 2 "Resistor_THT:R_Array_SIP9" V 12275 6750 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/31509/csc.pdf" H 11800 6750 50  0001 C CNN
+	1    11800 6750
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	11000 6350 10800 6350
+$Comp
+L Device:LED_Small D?
+U 1 1 61AEAA21
+P 11100 6350
+AR Path="/600C5001/61AEAA21" Ref="D?"  Part="1" 
+AR Path="/601B5CAE/61AEAA21" Ref="D?"  Part="1" 
+AR Path="/61AEAA21" Ref="D?"  Part="1" 
+F 0 "D?" H 10900 6400 50  0000 C CNN
+F 1 "LED_Small" H 11350 6400 50  0000 C CNN
+F 2 "" V 11100 6350 50  0001 C CNN
+F 3 "~" V 11100 6350 50  0001 C CNN
+	1    11100 6350
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 61AEAA1B
+P 10300 6050
+AR Path="/600C5001/61AEAA1B" Ref="#PWR?"  Part="1" 
+AR Path="/601B5CAE/61AEAA1B" Ref="#PWR?"  Part="1" 
+AR Path="/61AEAA1B" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 10300 5900 50  0001 C CNN
+F 1 "+5V" H 10400 6150 50  0000 C CNN
+F 2 "" H 10300 6050 50  0001 C CNN
+F 3 "" H 10300 6050 50  0001 C CNN
+	1    10300 6050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 61AEAA15
+P 10300 7650
+AR Path="/600C5001/61AEAA15" Ref="#PWR?"  Part="1" 
+AR Path="/601B5CAE/61AEAA15" Ref="#PWR?"  Part="1" 
+AR Path="/61AEAA15" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 10300 7400 50  0001 C CNN
+F 1 "GND" H 10305 7477 50  0000 C CNN
+F 2 "" H 10300 7650 50  0001 C CNN
+F 3 "" H 10300 7650 50  0001 C CNN
+	1    10300 7650
+	1    0    0    -1  
+$EndComp
+Connection ~ 9700 7350
+Wire Wire Line
+	9700 7250 9700 7350
+Wire Wire Line
+	9800 7250 9700 7250
+Wire Wire Line
+	9700 7350 9800 7350
+$Comp
+L power:GND #PWR?
+U 1 1 61AEAA0B
+P 9700 7350
+AR Path="/600C5001/61AEAA0B" Ref="#PWR?"  Part="1" 
+AR Path="/601B5CAE/61AEAA0B" Ref="#PWR?"  Part="1" 
+AR Path="/61AEAA0B" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 9700 7100 50  0001 C CNN
+F 1 "GND" H 9705 7177 50  0000 C CNN
+F 2 "" H 9700 7350 50  0001 C CNN
+F 3 "" H 9700 7350 50  0001 C CNN
+	1    9700 7350
+	1    0    0    -1  
+$EndComp
+$Comp
+L EDiCPoster-rescue:74ABT540 U?
+U 1 1 61AEAA05
+P 10600 6850
+AR Path="/600C5001/61AEAA05" Ref="U?"  Part="1" 
+AR Path="/601B5CAE/61AEAA05" Ref="U?"  Part="1" 
+AR Path="/61AEAA05" Ref="U?"  Part="1" 
+F 0 "U?" H 10300 7831 50  0000 C CNN
+F 1 "74ABT540" H 10300 7900 50  0000 C CNN
+F 2 "" H 10800 6425 50  0001 C CNN
+F 3 "" H 10800 6425 50  0001 C CNN
+	1    10600 6850
+	1    0    0    -1  
+$EndComp
+Text Label 9800 4900 2    75   ~ 0
+r07
+Text Label 9800 4800 2    75   ~ 0
+r06
+Text Label 9800 4700 2    75   ~ 0
+r05
+Text Label 9800 4600 2    75   ~ 0
+r04
+Text Label 9800 4500 2    75   ~ 0
+r03
+Text Label 9800 4400 2    75   ~ 0
+r02
+Text Label 9800 4300 2    75   ~ 0
+r01
+Text Label 9800 4200 2    75   ~ 0
+r00
+Wire Wire Line
+	11600 4900 11200 4900
+Wire Wire Line
+	11000 4900 10800 4900
+$Comp
+L Device:LED_Small D?
+U 1 1 61AEA9F5
+P 11100 4900
+AR Path="/600C5001/61AEA9F5" Ref="D?"  Part="1" 
+AR Path="/601B5CAE/61AEA9F5" Ref="D?"  Part="1" 
+AR Path="/61AEA9F5" Ref="D?"  Part="1" 
+F 0 "D?" H 10900 4950 50  0000 C CNN
+F 1 "LED_Small" H 11350 4950 50  0000 C CNN
+F 2 "" V 11100 4900 50  0001 C CNN
+F 3 "~" V 11100 4900 50  0001 C CNN
+	1    11100 4900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	11600 4800 11200 4800
+Wire Wire Line
+	11000 4800 10800 4800
+$Comp
+L Device:LED_Small D?
+U 1 1 61AEA9ED
+P 11100 4800
+AR Path="/600C5001/61AEA9ED" Ref="D?"  Part="1" 
+AR Path="/601B5CAE/61AEA9ED" Ref="D?"  Part="1" 
+AR Path="/61AEA9ED" Ref="D?"  Part="1" 
+F 0 "D?" H 10900 4850 50  0000 C CNN
+F 1 "LED_Small" H 11350 4850 50  0000 C CNN
+F 2 "" V 11100 4800 50  0001 C CNN
+F 3 "~" V 11100 4800 50  0001 C CNN
+	1    11100 4800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	11600 4700 11200 4700
+Wire Wire Line
+	11000 4700 10800 4700
+$Comp
+L Device:LED_Small D?
+U 1 1 61AEA9E5
+P 11100 4700
+AR Path="/600C5001/61AEA9E5" Ref="D?"  Part="1" 
+AR Path="/601B5CAE/61AEA9E5" Ref="D?"  Part="1" 
+AR Path="/61AEA9E5" Ref="D?"  Part="1" 
+F 0 "D?" H 10900 4750 50  0000 C CNN
+F 1 "LED_Small" H 11350 4750 50  0000 C CNN
+F 2 "" V 11100 4700 50  0001 C CNN
+F 3 "~" V 11100 4700 50  0001 C CNN
+	1    11100 4700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	11600 4600 11200 4600
+Wire Wire Line
+	11000 4600 10800 4600
+$Comp
+L Device:LED_Small D?
+U 1 1 61AEA9DD
+P 11100 4600
+AR Path="/600C5001/61AEA9DD" Ref="D?"  Part="1" 
+AR Path="/601B5CAE/61AEA9DD" Ref="D?"  Part="1" 
+AR Path="/61AEA9DD" Ref="D?"  Part="1" 
+F 0 "D?" H 10900 4650 50  0000 C CNN
+F 1 "LED_Small" H 11350 4650 50  0000 C CNN
+F 2 "" V 11100 4600 50  0001 C CNN
+F 3 "~" V 11100 4600 50  0001 C CNN
+	1    11100 4600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	11600 4500 11200 4500
+Wire Wire Line
+	11000 4500 10800 4500
+$Comp
+L Device:LED_Small D?
+U 1 1 61AEA9D5
+P 11100 4500
+AR Path="/600C5001/61AEA9D5" Ref="D?"  Part="1" 
+AR Path="/601B5CAE/61AEA9D5" Ref="D?"  Part="1" 
+AR Path="/61AEA9D5" Ref="D?"  Part="1" 
+F 0 "D?" H 10900 4550 50  0000 C CNN
+F 1 "LED_Small" H 11350 4550 50  0000 C CNN
+F 2 "" V 11100 4500 50  0001 C CNN
+F 3 "~" V 11100 4500 50  0001 C CNN
+	1    11100 4500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	11600 4400 11200 4400
+Wire Wire Line
+	11000 4400 10800 4400
+$Comp
+L Device:LED_Small D?
+U 1 1 61AEA9CD
+P 11100 4400
+AR Path="/600C5001/61AEA9CD" Ref="D?"  Part="1" 
+AR Path="/601B5CAE/61AEA9CD" Ref="D?"  Part="1" 
+AR Path="/61AEA9CD" Ref="D?"  Part="1" 
+F 0 "D?" H 10900 4450 50  0000 C CNN
+F 1 "LED_Small" H 11350 4450 50  0000 C CNN
+F 2 "" V 11100 4400 50  0001 C CNN
+F 3 "~" V 11100 4400 50  0001 C CNN
+	1    11100 4400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	11600 4300 11200 4300
+Wire Wire Line
+	11000 4300 10800 4300
+$Comp
+L Device:LED_Small D?
+U 1 1 61AEA9C5
+P 11100 4300
+AR Path="/600C5001/61AEA9C5" Ref="D?"  Part="1" 
+AR Path="/601B5CAE/61AEA9C5" Ref="D?"  Part="1" 
+AR Path="/61AEA9C5" Ref="D?"  Part="1" 
+F 0 "D?" H 10900 4350 50  0000 C CNN
+F 1 "LED_Small" H 11350 4350 50  0000 C CNN
+F 2 "" V 11100 4300 50  0001 C CNN
+F 3 "~" V 11100 4300 50  0001 C CNN
+	1    11100 4300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	11600 4200 11200 4200
+Wire Wire Line
+	12100 4200 12000 4200
+Wire Wire Line
+	12100 4100 12100 4200
+$Comp
+L power:+5V #PWR?
+U 1 1 61AEA9BC
+P 12100 4100
+AR Path="/61492876/61AEA9BC" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/61AEA9BC" Ref="#PWR?"  Part="1" 
+AR Path="/601B5CAE/61AEA9BC" Ref="#PWR?"  Part="1" 
+AR Path="/61AEA9BC" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 12100 3950 50  0001 C CNN
+F 1 "+5V" H 12115 4273 50  0000 C CNN
+F 2 "" H 12100 4100 50  0001 C CNN
+F 3 "" H 12100 4100 50  0001 C CNN
+	1    12100 4100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Network08 RN?
+U 1 1 61AEA9B6
+P 11800 4600
+AR Path="/61492876/61AEA9B6" Ref="RN?"  Part="1" 
+AR Path="/601B5CAE/61AEA9B6" Ref="RN?"  Part="1" 
+AR Path="/61AEA9B6" Ref="RN?"  Part="1" 
+F 0 "RN?" H 12188 4646 50  0000 L CNN
+F 1 "220" H 12188 4555 50  0000 L CNN
+F 2 "Resistor_THT:R_Array_SIP9" V 12275 4600 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/31509/csc.pdf" H 11800 4600 50  0001 C CNN
+	1    11800 4600
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	11000 4200 10800 4200
+$Comp
+L Device:LED_Small D?
+U 1 1 61AEA9AF
+P 11100 4200
+AR Path="/600C5001/61AEA9AF" Ref="D?"  Part="1" 
+AR Path="/601B5CAE/61AEA9AF" Ref="D?"  Part="1" 
+AR Path="/61AEA9AF" Ref="D?"  Part="1" 
+F 0 "D?" H 10900 4250 50  0000 C CNN
+F 1 "LED_Small" H 11350 4250 50  0000 C CNN
+F 2 "" V 11100 4200 50  0001 C CNN
+F 3 "~" V 11100 4200 50  0001 C CNN
+	1    11100 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 61AEA9A9
+P 10300 3900
+AR Path="/600C5001/61AEA9A9" Ref="#PWR?"  Part="1" 
+AR Path="/601B5CAE/61AEA9A9" Ref="#PWR?"  Part="1" 
+AR Path="/61AEA9A9" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 10300 3750 50  0001 C CNN
+F 1 "+5V" H 10300 4150 50  0000 C CNN
+F 2 "" H 10300 3900 50  0001 C CNN
+F 3 "" H 10300 3900 50  0001 C CNN
+	1    10300 3900
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 61AEA9A3
+P 10300 5500
+AR Path="/600C5001/61AEA9A3" Ref="#PWR?"  Part="1" 
+AR Path="/601B5CAE/61AEA9A3" Ref="#PWR?"  Part="1" 
+AR Path="/61AEA9A3" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 10300 5250 50  0001 C CNN
+F 1 "GND" H 10305 5327 50  0000 C CNN
+F 2 "" H 10300 5500 50  0001 C CNN
+F 3 "" H 10300 5500 50  0001 C CNN
+	1    10300 5500
+	1    0    0    -1  
+$EndComp
+Connection ~ 9700 5200
+Wire Wire Line
+	9700 5100 9700 5200
+Wire Wire Line
+	9800 5100 9700 5100
+Wire Wire Line
+	9700 5200 9800 5200
+$Comp
+L power:GND #PWR?
+U 1 1 61AEA999
+P 9700 5200
+AR Path="/600C5001/61AEA999" Ref="#PWR?"  Part="1" 
+AR Path="/601B5CAE/61AEA999" Ref="#PWR?"  Part="1" 
+AR Path="/61AEA999" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 9700 4950 50  0001 C CNN
+F 1 "GND" H 9705 5027 50  0000 C CNN
+F 2 "" H 9700 5200 50  0001 C CNN
+F 3 "" H 9700 5200 50  0001 C CNN
+	1    9700 5200
+	1    0    0    -1  
+$EndComp
+$Comp
+L EDiCPoster-rescue:74ABT540 U?
+U 1 1 61AEA993
+P 10600 4700
+AR Path="/600C5001/61AEA993" Ref="U?"  Part="1" 
+AR Path="/601B5CAE/61AEA993" Ref="U?"  Part="1" 
+AR Path="/61AEA993" Ref="U?"  Part="1" 
+F 0 "U?" H 10300 5681 50  0000 C CNN
+F 1 "74ABT540" H 10300 5590 50  0000 C CNN
+F 2 "" H 10800 4275 50  0001 C CNN
+F 3 "" H 10800 4275 50  0001 C CNN
+	1    10600 4700
+	1    0    0    -1  
+$EndComp
+Text Label 7550 7050 2    75   ~ 0
+r17
+Text Label 7550 6950 2    75   ~ 0
+r16
+Text Label 7550 6850 2    75   ~ 0
+r15
+Text Label 7550 6750 2    75   ~ 0
+r14
+Text Label 7550 6650 2    75   ~ 0
+r13
+Text Label 7550 6550 2    75   ~ 0
+r12
+Text Label 7550 6450 2    75   ~ 0
+r11
+Text Label 7550 6350 2    75   ~ 0
+r10
+Wire Wire Line
+	7350 7350 7550 7350
+Text GLabel 7350 7350 0    75   Input ~ 0
+~ctrlReg1BusOE~
+Wire Wire Line
+	7350 7250 7550 7250
+$Comp
+L power:+5V #PWR?
+U 1 1 61AEA982
+P 7350 7250
+AR Path="/601B5CAE/61AEA982" Ref="#PWR?"  Part="1" 
+AR Path="/61AEA982" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 7350 7100 50  0001 C CNN
+F 1 "+5V" H 7365 7423 50  0000 C CNN
+F 2 "" H 7350 7250 50  0001 C CNN
+F 3 "" H 7350 7250 50  0001 C CNN
+	1    7350 7250
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS245 U?
+U 1 1 61AEA975
+P 8050 6850
+AR Path="/601B5CAE/61AEA975" Ref="U?"  Part="1" 
+AR Path="/61AEA975" Ref="U?"  Part="1" 
+F 0 "U?" H 8050 7831 50  0000 C CNN
+F 1 "74LS245" H 8050 7900 50  0000 C CNN
+F 2 "" H 8050 6850 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS245" H 8050 6850 50  0001 C CNN
+	1    8050 6850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 61AEA96F
+P 8050 7650
+AR Path="/601B5CAE/61AEA96F" Ref="#PWR?"  Part="1" 
+AR Path="/61AEA96F" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 8050 7400 50  0001 C CNN
+F 1 "GND" H 8055 7477 50  0000 C CNN
+F 2 "" H 8050 7650 50  0001 C CNN
+F 3 "" H 8050 7650 50  0001 C CNN
+	1    8050 7650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 61AEA969
+P 8050 6050
+AR Path="/601B5CAE/61AEA969" Ref="#PWR?"  Part="1" 
+AR Path="/61AEA969" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 8050 5900 50  0001 C CNN
+F 1 "+5V" H 8150 6150 50  0000 C CNN
+F 2 "" H 8050 6050 50  0001 C CNN
+F 3 "" H 8050 6050 50  0001 C CNN
+	1    8050 6050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7350 5200 7550 5200
+Text GLabel 7350 5200 0    75   Input ~ 0
+~ctrlReg0BusOE~
+Wire Wire Line
+	7350 5100 7550 5100
+$Comp
+L power:+5V #PWR?
+U 1 1 61AEA95F
+P 7350 5100
+AR Path="/601B5CAE/61AEA95F" Ref="#PWR?"  Part="1" 
+AR Path="/61AEA95F" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 7350 4950 50  0001 C CNN
+F 1 "+5V" H 7365 5273 50  0000 C CNN
+F 2 "" H 7350 5100 50  0001 C CNN
+F 3 "" H 7350 5100 50  0001 C CNN
+	1    7350 5100
+	1    0    0    -1  
+$EndComp
+Text Label 7550 4900 2    75   ~ 0
+r07
+Text Label 7550 4800 2    75   ~ 0
+r06
+Text Label 7550 4700 2    75   ~ 0
+r05
+Text Label 7550 4600 2    75   ~ 0
+r04
+Text Label 7550 4500 2    75   ~ 0
+r03
+Text Label 7550 4400 2    75   ~ 0
+r02
+Text Label 7550 4300 2    75   ~ 0
+r01
+Text Label 7550 4200 2    75   ~ 0
+r00
+Wire Wire Line
+	2850 7550 3100 7550
+Wire Wire Line
+	2850 5050 3100 5050
+$Comp
+L power:GND #PWR?
+U 1 1 61AEA938
+P 4150 7700
+AR Path="/601B5CAE/61AEA938" Ref="#PWR?"  Part="1" 
+AR Path="/61AEA938" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 4150 7450 50  0001 C CNN
+F 1 "GND" H 4155 7527 50  0000 C CNN
+F 2 "" H 4150 7700 50  0001 C CNN
+F 3 "" H 4150 7700 50  0001 C CNN
+	1    4150 7700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4150 7550 4150 7650
+Connection ~ 4150 7550
+Wire Wire Line
+	4100 7550 4150 7550
+Wire Wire Line
+	4150 7650 4150 7700
+Connection ~ 4150 7650
+Wire Wire Line
+	4100 7650 4150 7650
+Wire Wire Line
+	4150 7450 4150 7550
+Wire Wire Line
+	4100 7450 4150 7450
+Wire Wire Line
+	3000 7650 3100 7650
+Wire Wire Line
+	3000 7800 3000 7650
+Wire Wire Line
+	2950 7800 3000 7800
+Text GLabel 2950 7800 0    75   Input ~ 0
+~reset~
+Text GLabel 3100 7450 0    75   Input ~ 0
+clk
+$Comp
+L EDiCPoster-rescue:74AS825-74xx U?
+U 1 1 61AEA925
+P 3600 7050
+AR Path="/601B5CAE/61AEA925" Ref="U?"  Part="1" 
+AR Path="/61AEA925" Ref="U?"  Part="1" 
+F 0 "U?" H 3600 7931 50  0000 C CNN
+F 1 "74AS825" H 3600 8000 50  0000 C CNN
+F 2 "" H 3600 7050 50  0001 C CNN
+F 3 "https://www.ti.com/lit/ds/symlink/sn54as825a.pdf" H 3600 7050 50  0001 C CNN
+	1    3600 7050
+	1    0    0    -1  
+$EndComp
+Text GLabel 2850 7550 0    75   Input ~ 0
+~ctrlReg1WE~
+$Comp
+L power:GND #PWR?
+U 1 1 61AEA91E
+P 3600 7900
+AR Path="/601B5CAE/61AEA91E" Ref="#PWR?"  Part="1" 
+AR Path="/61AEA91E" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 3600 7650 50  0001 C CNN
+F 1 "GND" H 3605 7727 50  0000 C CNN
+F 2 "" H 3600 7900 50  0001 C CNN
+F 3 "" H 3600 7900 50  0001 C CNN
+	1    3600 7900
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 61AEA918
+P 4150 5200
+AR Path="/601B5CAE/61AEA918" Ref="#PWR?"  Part="1" 
+AR Path="/61AEA918" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 4150 4950 50  0001 C CNN
+F 1 "GND" H 4155 5027 50  0000 C CNN
+F 2 "" H 4150 5200 50  0001 C CNN
+F 3 "" H 4150 5200 50  0001 C CNN
+	1    4150 5200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4150 5050 4150 5150
+Connection ~ 4150 5050
+Wire Wire Line
+	4100 5050 4150 5050
+Wire Wire Line
+	4150 5150 4150 5200
+Connection ~ 4150 5150
+Wire Wire Line
+	4100 5150 4150 5150
+Wire Wire Line
+	4150 4950 4150 5050
+Wire Wire Line
+	4100 4950 4150 4950
+Wire Wire Line
+	3000 5150 3100 5150
+Wire Wire Line
+	3000 5300 3000 5150
+Wire Wire Line
+	2950 5300 3000 5300
+Text GLabel 2950 5300 0    75   Input ~ 0
+~reset~
+Text GLabel 3100 4950 0    75   Input ~ 0
+clk
+$Comp
+L 74xx:74LS245 U?
+U 1 1 61AEA905
+P 8050 4700
+AR Path="/601B5CAE/61AEA905" Ref="U?"  Part="1" 
+AR Path="/61AEA905" Ref="U?"  Part="1" 
+F 0 "U?" H 8050 5681 50  0000 C CNN
+F 1 "74LS245" H 8050 5750 50  0000 C CNN
+F 2 "" H 8050 4700 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS245" H 8050 4700 50  0001 C CNN
+	1    8050 4700
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS157 U?
+U 1 1 61AEA8FF
+P 5550 7150
+AR Path="/601B5CAE/61AEA8FF" Ref="U?"  Part="1" 
+AR Path="/61AEA8FF" Ref="U?"  Part="1" 
+F 0 "U?" H 5550 8231 50  0000 C CNN
+F 1 "74LS157" H 5550 8300 50  0000 C CNN
+F 2 "" H 5550 7150 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS157" H 5550 7150 50  0001 C CNN
+	1    5550 7150
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS157 U?
+U 1 1 61AEA8F9
+P 5550 4650
+AR Path="/601B5CAE/61AEA8F9" Ref="U?"  Part="1" 
+AR Path="/61AEA8F9" Ref="U?"  Part="1" 
+F 0 "U?" H 5550 5731 50  0000 C CNN
+F 1 "74LS157" H 5550 5800 50  0000 C CNN
+F 2 "" H 5550 4650 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS157" H 5550 4650 50  0001 C CNN
+	1    5550 4650
+	1    0    0    -1  
+$EndComp
+$Comp
+L EDiCPoster-rescue:74AS825-74xx U?
+U 1 1 61AEA8F3
+P 3600 4550
+AR Path="/601B5CAE/61AEA8F3" Ref="U?"  Part="1" 
+AR Path="/61AEA8F3" Ref="U?"  Part="1" 
+F 0 "U?" H 3600 5431 50  0000 C CNN
+F 1 "74AS825" H 3600 5500 50  0000 C CNN
+F 2 "" H 3600 4550 50  0001 C CNN
+F 3 "https://www.ti.com/lit/ds/symlink/sn54as825a.pdf" H 3600 4550 50  0001 C CNN
+	1    3600 4550
+	1    0    0    -1  
+$EndComp
+Text GLabel 2850 5050 0    75   Input ~ 0
+~ctrlReg0WE~
+$Comp
+L power:GND #PWR?
+U 1 1 61AEA8EC
+P 8050 5500
+AR Path="/601B5CAE/61AEA8EC" Ref="#PWR?"  Part="1" 
+AR Path="/61AEA8EC" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 8050 5250 50  0001 C CNN
+F 1 "GND" H 8055 5327 50  0000 C CNN
+F 2 "" H 8050 5500 50  0001 C CNN
+F 3 "" H 8050 5500 50  0001 C CNN
+	1    8050 5500
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 61AEA8E6
+P 8050 3900
+AR Path="/601B5CAE/61AEA8E6" Ref="#PWR?"  Part="1" 
+AR Path="/61AEA8E6" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 8050 3750 50  0001 C CNN
+F 1 "+5V" H 8150 4000 50  0000 C CNN
+F 2 "" H 8050 3900 50  0001 C CNN
+F 3 "" H 8050 3900 50  0001 C CNN
+	1    8050 3900
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 61AEA8E0
+P 5550 6250
+AR Path="/601B5CAE/61AEA8E0" Ref="#PWR?"  Part="1" 
+AR Path="/61AEA8E0" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 5550 6100 50  0001 C CNN
+F 1 "+5V" H 5650 6350 50  0000 C CNN
+F 2 "" H 5550 6250 50  0001 C CNN
+F 3 "" H 5550 6250 50  0001 C CNN
+	1    5550 6250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 61AEA8DA
+P 5550 3750
+AR Path="/601B5CAE/61AEA8DA" Ref="#PWR?"  Part="1" 
+AR Path="/61AEA8DA" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 5550 3600 50  0001 C CNN
+F 1 "+5V" H 5650 3850 50  0000 C CNN
+F 2 "" H 5550 3750 50  0001 C CNN
+F 3 "" H 5550 3750 50  0001 C CNN
+	1    5550 3750
+	1    0    0    -1  
+$EndComp
+Text GLabel 5050 7750 0    75   Input ~ 0
+ctrlRegAluSel
+Text GLabel 5050 5250 0    75   Input ~ 0
+ctrlRegAluSel
+$Comp
+L power:GND #PWR?
+U 1 1 61AEA8C9
+P 5050 7850
+AR Path="/601B5CAE/61AEA8C9" Ref="#PWR?"  Part="1" 
+AR Path="/61AEA8C9" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 5050 7600 50  0001 C CNN
+F 1 "GND" H 5055 7677 50  0000 C CNN
+F 2 "" H 5050 7850 50  0001 C CNN
+F 3 "" H 5050 7850 50  0001 C CNN
+	1    5050 7850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 61AEA8C3
+P 5050 5350
+AR Path="/601B5CAE/61AEA8C3" Ref="#PWR?"  Part="1" 
+AR Path="/61AEA8C3" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 5050 5100 50  0001 C CNN
+F 1 "GND" H 5055 5177 50  0000 C CNN
+F 2 "" H 5050 5350 50  0001 C CNN
+F 3 "" H 5050 5350 50  0001 C CNN
+	1    5050 5350
+	1    0    0    -1  
+$EndComp
+Text Label 5050 7550 2    75   ~ 0
+r17
+Text Label 5050 7250 2    75   ~ 0
+r16
+Text Label 5050 6950 2    75   ~ 0
+r15
+Text Label 5050 6650 2    75   ~ 0
+r14
+Text Label 5050 5050 2    75   ~ 0
+r13
+Text Label 5050 4750 2    75   ~ 0
+r12
+Text Label 5050 7450 2    75   ~ 0
+r07
+Text Label 5050 7150 2    75   ~ 0
+r06
+Text Label 5050 6850 2    75   ~ 0
+r05
+Text Label 5050 6550 2    75   ~ 0
+r04
+Text Label 5050 4950 2    75   ~ 0
+r03
+Text Label 5050 4650 2    75   ~ 0
+r02
+Text Label 5050 4450 2    75   ~ 0
+r11
+Text Label 5050 4350 2    75   ~ 0
+r01
+Text Label 5050 4150 2    75   ~ 0
+r10
+Text Label 5050 4050 2    75   ~ 0
+r00
+Text Label 4100 7250 0    75   ~ 0
+r17
+Text Label 4100 7150 0    75   ~ 0
+r16
+Text Label 4100 7050 0    75   ~ 0
+r15
+Text Label 4100 6950 0    75   ~ 0
+r14
+Text Label 4100 6850 0    75   ~ 0
+r13
+Text Label 4100 6750 0    75   ~ 0
+r12
+Text Label 4100 6650 0    75   ~ 0
+r11
+Text Label 4100 6550 0    75   ~ 0
+r10
+Text Label 4100 4750 0    75   ~ 0
+r07
+Text Label 4100 4650 0    75   ~ 0
+r06
+Text Label 4100 4550 0    75   ~ 0
+r05
+Text Label 4100 4450 0    75   ~ 0
+r04
+Text Label 4100 4350 0    75   ~ 0
+r03
+Text Label 4100 4250 0    75   ~ 0
+r02
+Text Label 4100 4150 0    75   ~ 0
+r01
+Text Label 4100 4050 0    75   ~ 0
+r00
+$Comp
+L power:GND #PWR?
+U 1 1 61AEA89D
+P 5550 8150
+AR Path="/601B5CAE/61AEA89D" Ref="#PWR?"  Part="1" 
+AR Path="/61AEA89D" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 5550 7900 50  0001 C CNN
+F 1 "GND" H 5555 7977 50  0000 C CNN
+F 2 "" H 5550 8150 50  0001 C CNN
+F 3 "" H 5550 8150 50  0001 C CNN
+	1    5550 8150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 61AEA897
+P 5550 5650
+AR Path="/601B5CAE/61AEA897" Ref="#PWR?"  Part="1" 
+AR Path="/61AEA897" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 5550 5400 50  0001 C CNN
+F 1 "GND" H 5555 5477 50  0000 C CNN
+F 2 "" H 5550 5650 50  0001 C CNN
+F 3 "" H 5550 5650 50  0001 C CNN
+	1    5550 5650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 61AEA891
+P 3600 5400
+AR Path="/601B5CAE/61AEA891" Ref="#PWR?"  Part="1" 
+AR Path="/61AEA891" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 3600 5150 50  0001 C CNN
+F 1 "GND" H 3605 5227 50  0000 C CNN
+F 2 "" H 3600 5400 50  0001 C CNN
+F 3 "" H 3600 5400 50  0001 C CNN
+	1    3600 5400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 61AEA88B
+P 3600 3850
+AR Path="/601B5CAE/61AEA88B" Ref="#PWR?"  Part="1" 
+AR Path="/61AEA88B" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 3600 3700 50  0001 C CNN
+F 1 "+5V" H 3700 3950 50  0000 C CNN
+F 2 "" H 3600 3850 50  0001 C CNN
+F 3 "" H 3600 3850 50  0001 C CNN
+	1    3600 3850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 61AEA885
+P 3600 6350
+AR Path="/601B5CAE/61AEA885" Ref="#PWR?"  Part="1" 
+AR Path="/61AEA885" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 3600 6200 50  0001 C CNN
+F 1 "+5V" H 3700 6450 50  0000 C CNN
+F 2 "" H 3600 6350 50  0001 C CNN
+F 3 "" H 3600 6350 50  0001 C CNN
+	1    3600 6350
+	1    0    0    -1  
+$EndComp
+Entry Wire Line
+	5150 2150 5250 2250
+Entry Wire Line
+	5150 2050 5250 2150
+Entry Wire Line
+	5150 1950 5250 2050
+Entry Wire Line
+	5150 1850 5250 1950
+Entry Wire Line
+	5150 1750 5250 1850
+Entry Wire Line
+	5150 1650 5250 1750
+Entry Wire Line
+	5150 1550 5250 1650
+Entry Wire Line
+	5150 1450 5250 1550
+Entry Wire Line
+	3550 2150 3650 2250
+Entry Wire Line
+	3550 2050 3650 2150
+Entry Wire Line
+	3550 1950 3650 2050
+Entry Wire Line
+	3550 1850 3650 1950
+Entry Wire Line
+	3550 1750 3650 1850
+Entry Wire Line
+	3550 1650 3650 1750
+Entry Wire Line
+	3550 1550 3650 1650
+Entry Wire Line
+	3550 1450 3650 1550
+Wire Wire Line
+	4050 1750 3650 1750
+Wire Wire Line
+	4050 1850 3650 1850
+Wire Wire Line
+	4050 1950 3650 1950
+Wire Wire Line
+	4050 2050 3650 2050
+Wire Wire Line
+	4050 2150 3650 2150
+Wire Wire Line
+	4050 2250 3650 2250
+Text Label 5600 1550 2    75   ~ 0
+bus0
+Text Label 5600 1650 2    75   ~ 0
+bus1
+Text Label 5600 1750 2    75   ~ 0
+bus2
+Text Label 5600 1850 2    75   ~ 0
+bus3
+Text Label 5600 1950 2    75   ~ 0
+bus4
+Text Label 5600 2050 2    75   ~ 0
+bus5
+Text Label 5600 2150 2    75   ~ 0
+bus6
+Text Label 5600 2250 2    75   ~ 0
+bus7
+Wire Wire Line
+	4050 1650 3650 1650
+Wire Wire Line
+	4050 1550 3650 1550
+Text Label 4000 2250 2    75   ~ 0
+bus7
+Text Label 4000 2150 2    75   ~ 0
+bus6
+Text Label 4000 2050 2    75   ~ 0
+bus5
+Text Label 4000 1950 2    75   ~ 0
+bus4
+Text Label 4000 1850 2    75   ~ 0
+bus3
+Text Label 4000 1750 2    75   ~ 0
+bus2
+Text Label 4000 1650 2    75   ~ 0
+bus1
+Text Label 4000 1550 2    75   ~ 0
+bus0
+Wire Wire Line
+	4550 1550 4450 1550
+Wire Wire Line
+	4550 1450 4550 1550
+$Comp
+L power:+5V #PWR?
+U 1 1 63416022
+P 4550 1450
+AR Path="/61492876/63416022" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/63416022" Ref="#PWR?"  Part="1" 
+AR Path="/601B5CAE/63416022" Ref="#PWR?"  Part="1" 
+AR Path="/63416022" Ref="#PWR06"  Part="1" 
+F 0 "#PWR06" H 4550 1300 50  0001 C CNN
+F 1 "+5V" H 4565 1623 50  0000 C CNN
+F 2 "" H 4550 1450 50  0001 C CNN
+F 3 "" H 4550 1450 50  0001 C CNN
+	1    4550 1450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Network08 RN?
+U 1 1 6341601C
+P 4250 1950
+AR Path="/61492876/6341601C" Ref="RN?"  Part="1" 
+AR Path="/601B5CAE/6341601C" Ref="RN?"  Part="1" 
+AR Path="/6341601C" Ref="RN1"  Part="1" 
+F 0 "RN1" H 4638 1996 50  0000 L CNN
+F 1 "10k" H 4638 1905 50  0000 L CNN
+F 2 "Resistor_THT:R_Array_SIP9" V 4725 1950 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/31509/csc.pdf" H 4250 1950 50  0001 C CNN
+	1    4250 1950
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5600 2250 5250 2250
+Wire Wire Line
+	5600 2150 5250 2150
+Wire Wire Line
+	5600 2050 5250 2050
+Wire Wire Line
+	5600 1950 5250 1950
+Wire Wire Line
+	5600 1850 5250 1850
+Wire Wire Line
+	5600 1750 5250 1750
+Wire Wire Line
+	5600 1650 5250 1650
+Wire Wire Line
+	5600 1550 5250 1550
+Wire Wire Line
+	7400 2250 7000 2250
+Wire Wire Line
+	6800 2250 6600 2250
+$Comp
+L Device:LED_Small D?
+U 1 1 63407378
+P 6900 2250
+AR Path="/600C5001/63407378" Ref="D?"  Part="1" 
+AR Path="/601B5CAE/63407378" Ref="D?"  Part="1" 
+AR Path="/63407378" Ref="D8"  Part="1" 
+F 0 "D8" H 6700 2300 50  0000 C CNN
+F 1 "LED_Small" H 7150 2300 50  0000 C CNN
+F 2 "" V 6900 2250 50  0001 C CNN
+F 3 "~" V 6900 2250 50  0001 C CNN
+	1    6900 2250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7400 2150 7000 2150
+Wire Wire Line
+	6800 2150 6600 2150
+$Comp
+L Device:LED_Small D?
+U 1 1 63407370
+P 6900 2150
+AR Path="/600C5001/63407370" Ref="D?"  Part="1" 
+AR Path="/601B5CAE/63407370" Ref="D?"  Part="1" 
+AR Path="/63407370" Ref="D7"  Part="1" 
+F 0 "D7" H 6700 2200 50  0000 C CNN
+F 1 "LED_Small" H 7150 2200 50  0000 C CNN
+F 2 "" V 6900 2150 50  0001 C CNN
+F 3 "~" V 6900 2150 50  0001 C CNN
+	1    6900 2150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7400 2050 7000 2050
+Wire Wire Line
+	6800 2050 6600 2050
+$Comp
+L Device:LED_Small D?
+U 1 1 63407368
+P 6900 2050
+AR Path="/600C5001/63407368" Ref="D?"  Part="1" 
+AR Path="/601B5CAE/63407368" Ref="D?"  Part="1" 
+AR Path="/63407368" Ref="D6"  Part="1" 
+F 0 "D6" H 6700 2100 50  0000 C CNN
+F 1 "LED_Small" H 7150 2100 50  0000 C CNN
+F 2 "" V 6900 2050 50  0001 C CNN
+F 3 "~" V 6900 2050 50  0001 C CNN
+	1    6900 2050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7400 1950 7000 1950
+Wire Wire Line
+	6800 1950 6600 1950
+$Comp
+L Device:LED_Small D?
+U 1 1 63407360
+P 6900 1950
+AR Path="/600C5001/63407360" Ref="D?"  Part="1" 
+AR Path="/601B5CAE/63407360" Ref="D?"  Part="1" 
+AR Path="/63407360" Ref="D5"  Part="1" 
+F 0 "D5" H 6700 2000 50  0000 C CNN
+F 1 "LED_Small" H 7150 2000 50  0000 C CNN
+F 2 "" V 6900 1950 50  0001 C CNN
+F 3 "~" V 6900 1950 50  0001 C CNN
+	1    6900 1950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7400 1850 7000 1850
+Wire Wire Line
+	6800 1850 6600 1850
+$Comp
+L Device:LED_Small D?
+U 1 1 63407358
+P 6900 1850
+AR Path="/600C5001/63407358" Ref="D?"  Part="1" 
+AR Path="/601B5CAE/63407358" Ref="D?"  Part="1" 
+AR Path="/63407358" Ref="D4"  Part="1" 
+F 0 "D4" H 6700 1900 50  0000 C CNN
+F 1 "LED_Small" H 7150 1900 50  0000 C CNN
+F 2 "" V 6900 1850 50  0001 C CNN
+F 3 "~" V 6900 1850 50  0001 C CNN
+	1    6900 1850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7400 1750 7000 1750
+Wire Wire Line
+	6800 1750 6600 1750
+$Comp
+L Device:LED_Small D?
+U 1 1 63407350
+P 6900 1750
+AR Path="/600C5001/63407350" Ref="D?"  Part="1" 
+AR Path="/601B5CAE/63407350" Ref="D?"  Part="1" 
+AR Path="/63407350" Ref="D3"  Part="1" 
+F 0 "D3" H 6700 1800 50  0000 C CNN
+F 1 "LED_Small" H 7150 1800 50  0000 C CNN
+F 2 "" V 6900 1750 50  0001 C CNN
+F 3 "~" V 6900 1750 50  0001 C CNN
+	1    6900 1750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7400 1650 7000 1650
+Wire Wire Line
+	6800 1650 6600 1650
+$Comp
+L Device:LED_Small D?
+U 1 1 63407348
+P 6900 1650
+AR Path="/600C5001/63407348" Ref="D?"  Part="1" 
+AR Path="/601B5CAE/63407348" Ref="D?"  Part="1" 
+AR Path="/63407348" Ref="D2"  Part="1" 
+F 0 "D2" H 6700 1700 50  0000 C CNN
+F 1 "LED_Small" H 7150 1700 50  0000 C CNN
+F 2 "" V 6900 1650 50  0001 C CNN
+F 3 "~" V 6900 1650 50  0001 C CNN
+	1    6900 1650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7400 1550 7000 1550
+Wire Wire Line
+	7900 1550 7800 1550
+Wire Wire Line
+	7900 1450 7900 1550
+$Comp
+L power:+5V #PWR?
+U 1 1 6340733F
+P 7900 1450
+AR Path="/61492876/6340733F" Ref="#PWR?"  Part="1" 
+AR Path="/600C5001/6340733F" Ref="#PWR?"  Part="1" 
+AR Path="/601B5CAE/6340733F" Ref="#PWR?"  Part="1" 
+AR Path="/6340733F" Ref="#PWR07"  Part="1" 
+F 0 "#PWR07" H 7900 1300 50  0001 C CNN
+F 1 "+5V" H 7915 1623 50  0000 C CNN
+F 2 "" H 7900 1450 50  0001 C CNN
+F 3 "" H 7900 1450 50  0001 C CNN
+	1    7900 1450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Network08 RN?
+U 1 1 63407339
+P 7600 1950
+AR Path="/61492876/63407339" Ref="RN?"  Part="1" 
+AR Path="/601B5CAE/63407339" Ref="RN?"  Part="1" 
+AR Path="/63407339" Ref="RN2"  Part="1" 
+F 0 "RN2" H 7988 1996 50  0000 L CNN
+F 1 "220" H 7988 1905 50  0000 L CNN
+F 2 "Resistor_THT:R_Array_SIP9" V 8075 1950 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/31509/csc.pdf" H 7600 1950 50  0001 C CNN
+	1    7600 1950
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6800 1550 6600 1550
+$Comp
+L Device:LED_Small D?
+U 1 1 63407332
+P 6900 1550
+AR Path="/600C5001/63407332" Ref="D?"  Part="1" 
+AR Path="/601B5CAE/63407332" Ref="D?"  Part="1" 
+AR Path="/63407332" Ref="D1"  Part="1" 
+F 0 "D1" H 6700 1600 50  0000 C CNN
+F 1 "LED_Small" H 7150 1600 50  0000 C CNN
+F 2 "" V 6900 1550 50  0001 C CNN
+F 3 "~" V 6900 1550 50  0001 C CNN
+	1    6900 1550
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 6340732C
+P 6100 1250
+AR Path="/600C5001/6340732C" Ref="#PWR?"  Part="1" 
+AR Path="/601B5CAE/6340732C" Ref="#PWR?"  Part="1" 
+AR Path="/6340732C" Ref="#PWR04"  Part="1" 
+F 0 "#PWR04" H 6100 1100 50  0001 C CNN
+F 1 "+5V" H 6200 1300 50  0000 C CNN
+F 2 "" H 6100 1250 50  0001 C CNN
+F 3 "" H 6100 1250 50  0001 C CNN
+	1    6100 1250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 63407326
+P 6100 2850
+AR Path="/600C5001/63407326" Ref="#PWR?"  Part="1" 
+AR Path="/601B5CAE/63407326" Ref="#PWR?"  Part="1" 
+AR Path="/63407326" Ref="#PWR05"  Part="1" 
+F 0 "#PWR05" H 6100 2600 50  0001 C CNN
+F 1 "GND" H 6105 2677 50  0000 C CNN
+F 2 "" H 6100 2850 50  0001 C CNN
+F 3 "" H 6100 2850 50  0001 C CNN
+	1    6100 2850
+	1    0    0    -1  
+$EndComp
+Connection ~ 5500 2550
+Wire Wire Line
+	5500 2450 5500 2550
+Wire Wire Line
+	5600 2450 5500 2450
+Wire Wire Line
+	5500 2550 5600 2550
+$Comp
+L power:GND #PWR?
+U 1 1 6340731C
+P 5500 2550
+AR Path="/600C5001/6340731C" Ref="#PWR?"  Part="1" 
+AR Path="/601B5CAE/6340731C" Ref="#PWR?"  Part="1" 
+AR Path="/6340731C" Ref="#PWR03"  Part="1" 
+F 0 "#PWR03" H 5500 2300 50  0001 C CNN
+F 1 "GND" H 5505 2377 50  0000 C CNN
+F 2 "" H 5500 2550 50  0001 C CNN
+F 3 "" H 5500 2550 50  0001 C CNN
+	1    5500 2550
+	1    0    0    -1  
+$EndComp
+$Comp
+L EDiCPoster-rescue:74ABT540 U?
+U 1 1 63407316
+P 6400 2050
+AR Path="/600C5001/63407316" Ref="U?"  Part="1" 
+AR Path="/601B5CAE/63407316" Ref="U?"  Part="1" 
+AR Path="/63407316" Ref="U1"  Part="1" 
+F 0 "U1" H 6100 3031 50  0000 C CNN
+F 1 "74ABT540" H 6100 3100 50  0000 C CNN
+F 2 "" H 6600 1625 50  0001 C CNN
+F 3 "" H 6600 1625 50  0001 C CNN
+	1    6400 2050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10150 18500 11650 18500
+Wire Wire Line
+	9750 14400 10150 14400
+Wire Wire Line
+	10150 14400 10150 18500
+Wire Wire Line
+	11750 18600 13100 18600
+Wire Wire Line
+	9950 18700 11850 18700
+Wire Wire Line
+	11850 18700 11850 23250
+Connection ~ 11850 18700
+Wire Wire Line
+	11850 18700 13100 18700
+Wire Wire Line
+	12300 22450 12300 22550
+Wire Wire Line
+	12300 22550 12500 22550
+Wire Bus Line
+	8000 22700 10650 22700
+Wire Bus Line
+	10650 22700 10650 24650
+Wire Wire Line
+	3450 26350 3700 26350
+Connection ~ 3700 26350
+Wire Wire Line
+	3450 26650 3750 26650
+Connection ~ 3750 26650
+Wire Wire Line
+	3450 26050 3650 26050
+Connection ~ 3650 26050
+Wire Wire Line
+	3450 25750 3600 25750
+Connection ~ 3600 25750
+Entry Wire Line
+	13400 25750 13500 25650
+Entry Wire Line
+	13400 26050 13500 25950
+Entry Wire Line
+	13400 26350 13500 26250
+Entry Wire Line
+	13400 26650 13500 26550
+Wire Wire Line
+	13000 25750 13400 25750
+Wire Wire Line
+	13000 26050 13400 26050
+Wire Wire Line
+	13000 26350 13400 26350
+Wire Wire Line
+	13000 26650 13400 26650
 Wire Bus Line
 	6650 31600 6650 31800
 Wire Bus Line
-	3150 24800 9350 24800
+	3150 24150 9350 24150
 Wire Bus Line
-	6400 5950 6400 10250
+	13500 24650 13500 29200
+Wire Bus Line
+	3350 23550 3350 29200
+Wire Bus Line
+	3550 1050 3550 2150
+Wire Bus Line
+	5150 1050 5150 2150
+Wire Bus Line
+	2750 3300 2750 4650
+Wire Bus Line
+	2750 6200 2750 7150
+Wire Bus Line
+	6400 4150 6400 8450
+Wire Bus Line
+	4550 8450 4550 23550
+Wire Bus Line
+	15300 15300 15300 17150
+Wire Bus Line
+	30800 17150 30800 18750
+Wire Bus Line
+	30550 11450 30550 12700
 Wire Bus Line
 	32550 11450 32550 12650
 Wire Bus Line
+	31700 14700 31700 16700
+Wire Bus Line
+	30550 13100 30550 14700
+Wire Bus Line
 	34350 14700 34350 16700
+Wire Bus Line
+	32550 13050 32550 14700
 Wire Bus Line
 	33450 24050 33450 26050
 Wire Bus Line
@@ -16692,49 +16727,13 @@ Wire Bus Line
 Wire Bus Line
 	30950 21100 30950 23350
 Wire Bus Line
-	28600 27800 28600 29300
-Wire Bus Line
-	30950 23350 30950 24750
-Wire Bus Line
-	8000 11050 8000 24650
-Wire Bus Line
-	13500 24650 13500 29200
-Wire Bus Line
-	3350 24950 3350 29200
-Wire Bus Line
-	3150 10250 3150 24800
-Wire Bus Line
-	4550 10250 4550 24950
-Wire Bus Line
-	2750 8000 2750 8950
-Wire Bus Line
-	2750 5100 2750 6450
-Wire Bus Line
-	3150 2850 3150 3950
-Wire Bus Line
-	3150 1650 3150 2850
-Wire Bus Line
-	32550 13050 32550 14700
-Wire Bus Line
-	31700 14700 31700 16700
-Wire Bus Line
-	30550 13100 30550 14700
-Wire Bus Line
-	30550 11450 30550 12700
-Wire Bus Line
-	30800 17150 30800 18750
-Wire Bus Line
-	15300 15300 15300 17150
+	23050 25700 23050 29700
 Wire Bus Line
 	23250 27850 23250 29300
 Wire Bus Line
-	23050 25700 23050 29700
+	28600 27800 28600 29300
 Wire Bus Line
-	7800 11050 7800 24400
-Wire Bus Line
-	7400 11050 7400 23400
-Wire Bus Line
-	7600 11050 7600 23550
+	30950 23350 30950 24750
 Wire Bus Line
 	13050 8150 13050 13500
 Wire Bus Line
@@ -16742,9 +16741,19 @@ Wire Bus Line
 Wire Bus Line
 	25700 24850 25700 28350
 Wire Bus Line
-	20200 24150 20200 28450
+	8000 9700 8000 22700
 Wire Bus Line
-	9000 5100 9000 8750
+	3150 8450 3150 24150
+Wire Bus Line
+	7600 9700 7600 22200
+Wire Bus Line
+	7400 9700 7400 22050
+Wire Bus Line
+	7800 9700 7800 23050
+Wire Bus Line
+	9000 3300 9000 6950
+Wire Bus Line
+	20200 24150 20200 28450
 Wire Bus Line
 	23350 20150 23350 24850
 Wire Bus Line
