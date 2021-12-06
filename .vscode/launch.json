@@ -5,6 +5,21 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "node",
+      "request": "launch",
+      "name": "Netlist2Verilog",
+      "program": "${workspaceFolder}/netlist2verilog/netlist2verilog.js",
+      "outFiles": [
+        "${workspaceFolder}/netlist2verilog/**/*.js",
+        "!**/node_modules/**"
+      ],
+      "args": [
+        "${workspaceFolder}/schematic/CPU-Poster/EDiCPosterOrCad.net",
+        "x"
+      ]
+    },
+
+    {
       "name": "Python: Current File",
       "type": "python",
       "request": "launch",

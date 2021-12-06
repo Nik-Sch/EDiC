@@ -439,7 +439,7 @@ F 3 "" H 14050 6000 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text Label 18300 7450 2    50   ~ 0
-selectStackMem
+~selectStackMem~
 Wire Wire Line
 	18300 7450 18600 7450
 Text HLabel 19700 5850 2    50   BiDi ~ 0
@@ -2224,21 +2224,8 @@ F 3 "http://www.ti.com/lit/gpn/sn74LS04" H 19900 10650 50  0001 C CNN
 $EndComp
 Text Label 20250 10650 0    50   ~ 0
 ~instrImm1ToRam~
-Wire Wire Line
-	18500 10750 18600 10750
-$Comp
-L 74xx:74LS04 U48
-U 2 1 62160147
-P 18200 10750
-F 0 "U48" H 18200 11067 50  0000 C CNN
-F 1 "74LS04" H 18200 10976 50  0000 C CNN
-F 2 "" H 18200 10750 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS04" H 18200 10750 50  0001 C CNN
-	2    18200 10750
-	1    0    0    -1  
-$EndComp
 Text Label 17750 10750 2    50   ~ 0
-selectStackMem
+~selectStackMem~
 Wire Wire Line
 	18600 9400 18750 9400
 Text Label 18750 9400 0    50   ~ 0
@@ -2267,7 +2254,7 @@ $EndComp
 Text Notes 17500 9150 0    50   ~ 0
 ~instrImm0ToRam~=~ctrlMemInstrImmToRamAddr~\n\n~instrImm1ToRam~=!(~ctrlMemInstrImmToRam~ and ~selectStackMem~)\n\n~mar1ToRam~=!(ctrlMemInstrImmToRam and ~selectStackMem~)
 Text Notes 17450 8650 0    100  ~ 0
-ramAddress:\n7:0 -> instrImm or mar0 (depending on ctrlMemInstrImmToRamAddr)\n15:0 -> instrImm or mar1 or sp (depending on ctrlMemInstrImmToRam and selectStackMem)
+ramAddress:\n7:0 -> instrImm or mar0 (depending on ctrlMemInstrImmToRamAddr)\n15:0 -> instrImm or mar1 or sp (depending on ctrlMemInstrImmToRam and ~selectStackMem~)
 $Comp
 L 74xx:74LS08 U38
 U 4 1 61584F24
@@ -2285,8 +2272,6 @@ Wire Wire Line
 	9650 10300 9900 10300
 Text Label 18900 11100 0    50   ~ 0
 ~spToRam~
-Wire Wire Line
-	17750 10750 17900 10750
 Wire Wire Line
 	18600 10750 18600 11100
 Wire Wire Line
@@ -3282,7 +3267,7 @@ Wire Wire Line
 Wire Wire Line
 	17700 13800 17850 13800
 Text Label 19000 12000 0    50   ~ 0
-selectStackMem
+~selectStackMem~
 Wire Wire Line
 	19000 12000 18850 12000
 $Comp
@@ -3412,7 +3397,7 @@ Wire Wire Line
 	19850 13550 20000 13550
 Connection ~ 20000 13550
 Text GLabel 22650 11950 2    50   Output ~ 0
-ioSelect
+~ioCE~
 Wire Wire Line
 	21150 11950 21250 11950
 $Comp
@@ -4121,7 +4106,7 @@ F 3 "" H 22100 7850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text Label 21300 7450 2    50   ~ 0
-selectStackMem
+~selectStackMem~
 Wire Wire Line
 	21300 7450 21600 7450
 Wire Wire Line
@@ -4520,4 +4505,46 @@ Wire Notes Line rgb(255, 0, 0)
 	3500 3750 550  3750
 Wire Notes Line rgb(255, 0, 0)
 	550  3750 550  8650
+Wire Wire Line
+	17750 10750 18600 10750
+Wire Notes Line
+	22900 12100 22550 12100
+Wire Notes Line
+	22550 12100 22550 11800
+Wire Notes Line
+	22550 11800 22900 11800
+Wire Notes Line
+	22900 11800 22900 12100
+Wire Notes Line
+	18900 11850 19650 11850
+Wire Notes Line
+	19650 11850 19650 12100
+Wire Notes Line
+	19650 12100 18900 12100
+Wire Notes Line
+	18900 12100 18900 11850
+Wire Notes Line
+	17100 10600 17100 10850
+Wire Notes Line
+	17100 10850 18550 10850
+Wire Notes Line
+	18550 10850 18550 10600
+Wire Notes Line
+	18550 10600 17100 10600
+Wire Notes Line
+	20650 7500 20650 7300
+Wire Notes Line
+	20650 7300 21350 7300
+Wire Notes Line
+	21350 7300 21350 7500
+Wire Notes Line
+	21350 7500 20650 7500
+Wire Notes Line
+	17650 7300 18350 7300
+Wire Notes Line
+	18350 7300 18350 7550
+Wire Notes Line
+	18350 7550 17650 7550
+Wire Notes Line
+	17650 7300 17650 7550
 $EndSCHEMATC

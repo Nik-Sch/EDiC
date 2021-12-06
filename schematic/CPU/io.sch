@@ -102,7 +102,7 @@ F 3 "" H 3550 2600 100 0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text GLabel 2000 3600 0    50   Input ~ 0
-ioSelect
+~ioCE~
 Text GLabel 2100 1800 0    50   Input ~ 0
 ioAddr0
 Text GLabel 2100 1900 0    50   Input ~ 0
@@ -626,4 +626,12 @@ Wire Wire Line
 	7000 2450 7550 2450
 Text Notes 1850 1250 0    100  ~ 0
 ioAddress == 0x00
+Wire Notes Line
+	1650 3700 2050 3700
+Wire Notes Line
+	2050 3700 2050 3500
+Wire Notes Line
+	2050 3500 1650 3500
+Wire Notes Line
+	1650 3500 1650 3700
 $EndSCHEMATC
