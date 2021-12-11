@@ -1,0 +1,20 @@
+{
+  // "extends": "@tsconfig/node12/tsconfig.json",
+  "compilerOptions": {
+    "target": "es2019",
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "sourceMap": true,
+    "inlineSourceMap": false,
+    "alwaysStrict": true,
+    "lib": ["ES2021"]
+  },
+  "files": [
+    "netlist2verilog.ts"
+  ],
+  "include": [
+    "parser.ts"
+  ]
+}

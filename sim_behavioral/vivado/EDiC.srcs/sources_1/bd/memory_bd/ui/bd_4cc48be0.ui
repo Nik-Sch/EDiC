@@ -70,12 +70,12 @@ preplace netloc memory_o_bus 1 1 2 310J -490 690J
 preplace netloc memory_o_busNOE 1 1 2 350J 220 NJ
 preplace netloc memory_o_dbgPc 1 1 2 NJ 150 NJ
 preplace netloc memory_o_ioAddress 1 1 2 340J 170 680J
+preplace netloc memory_o_ioNCE 1 1 2 390J 160 690J
 preplace netloc memory_o_ioNOE 1 1 2 310J 240 NJ
 preplace netloc memory_o_ioNWE 1 1 2 320J 200 NJ
 preplace netloc memory_o_ram2Data 1 1 1 410 -140n
 preplace netloc ram2_douta 1 0 2 -140 -260 430
 preplace netloc ram_douta 1 0 2 -150 -340 NJ
-preplace netloc memory_o_ioNCE 1 1 2 390J 160 690J
 levelinfo -pg 1 -340 90 560 710
 pagesize -pg 1 -db -bbox -sgen -610 -610 890 280
 "
