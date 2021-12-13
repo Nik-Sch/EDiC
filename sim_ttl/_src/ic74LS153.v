@@ -6,9 +6,9 @@ input wire port3,
 input wire port4,
 input wire port5,
 input wire port6,
-output wire port7,
+output reg port7,
 input wire port8,
-output wire port9,
+output reg port9,
 input wire port10,
 input wire port11,
 input wire port12,
@@ -31,7 +31,10 @@ always @* begin
   port7 <= data1[address];
   port9 <= data2[address];
   if (port1) begin
-    port5 <= 0;
+    port7 <= 0;
+  end
+  if (port15) begin
+    port9 <= 0;
   end
 end
 

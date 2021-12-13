@@ -3,18 +3,18 @@ module ic74LS157(
 input wire port1,
 input wire port2,
 input wire port3,
-output wire port4,
+output reg port4,
 input wire port5,
 input wire port6,
-output wire port7,
+output reg port7,
 input wire port8,
-output wire port9,
+output reg port9,
 input wire port10,
 input wire port11,
-output wire port12,
+output reg port12,
 input wire port13,
 input wire port14,
-output wire port15,
+input wire port15,
 input wire port16
 );
 always @* begin

@@ -26,7 +26,7 @@ always @* begin
     end
   end
   if (ones > 1) begin
-    o_data <= {WIDTH{1'bx}};
+    o_data <= 1'bx;
     $display("More than one output enable is high (%m) at %0t.", $time);
     // $stop;
   end

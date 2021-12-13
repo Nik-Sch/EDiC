@@ -1,0 +1,6 @@
+verilog xil_defaultlib  \
+"../../../../EDiC-TTL.gen/sources_1/ip/instructionRom/sim/instructionRom.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+nosort

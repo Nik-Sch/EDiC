@@ -29,4 +29,13 @@ always @* begin
   end
 end
 
+assign port11 = port9;
+assign port12 = port8;
+assign port13 = port7;
+assign port14 = port6;
+assign port15 = port5;
+assign port16 = port4;
+assign port17 = port3;
+assign port18 = port2;
+
 endmodule

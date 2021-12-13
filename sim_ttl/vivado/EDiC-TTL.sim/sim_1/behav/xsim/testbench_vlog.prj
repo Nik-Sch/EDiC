@@ -1,0 +1,36 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../EDiC-TTL.gen/sources_1/ip/as6c4008_55pcn_mem/sim/as6c4008_55pcn_mem.v" \
+"../../../../EDiC-TTL.gen/sources_1/ip/instructionRom/sim/instructionRom.v" \
+"../../../../EDiC-TTL.gen/sources_1/ip/microCodeRom/sim/microCodeRom.v" \
+"../../../../../_src/displayDriver.v" \
+"../../../../../_src/generated.v" \
+"../../../../../_src/ic28C256.v" \
+"../../../../../_src/ic5082_7340.v" \
+"../../../../../_src/ic74ABT540.v" \
+"../../../../../_src/ic74AS825.v" \
+"../../../../../_src/ic74AS867.v" \
+"../../../../../_src/ic74F521.v" \
+"../../../../../_src/ic74LS04.v" \
+"../../../../../_src/ic74LS08.v" \
+"../../../../../_src/ic74LS14.v" \
+"../../../../../_src/ic74LS151.v" \
+"../../../../../_src/ic74LS153.v" \
+"../../../../../_src/ic74LS157.v" \
+"../../../../../_src/ic74LS245.v" \
+"../../../../../_src/ic74LS273.v" \
+"../../../../../_src/ic74LS32.v" \
+"../../../../../_src/ic74LS374.v" \
+"../../../../../_src/ic74LS86.v" \
+"../../../../../_src/icAS6C4008_55PCN.v" \
+"../../../../../_src/icds1813.v" \
+"../../../../../_src/tristatenet.v" \
+
+sv xil_defaultlib  \
+"../../../../../_sim/testbench.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

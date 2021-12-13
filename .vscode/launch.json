@@ -14,8 +14,8 @@
         "!**/node_modules/**"
       ],
       "args": [
-        "${workspaceFolder}/schematic/CPU-Poster/EDiCPosterOrCad.net",
-        "x"
+        "${workspaceFolder}/schematic/CPU/EDiC.net",
+        "sim_ttl/_src/generated.v"
       ]
     },
 
