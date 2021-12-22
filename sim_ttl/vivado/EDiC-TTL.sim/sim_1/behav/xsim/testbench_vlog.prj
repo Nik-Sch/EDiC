@@ -1,8 +1,10 @@
 # compile verilog/system verilog design source files
-verilog xil_defaultlib  \
+verilog xil_defaultlib  --include "../../../../EDiC-TTL.gen/sources_1/ip/clk_wiz_5Mhz" \
 "../../../../EDiC-TTL.gen/sources_1/ip/as6c4008_55pcn_mem/sim/as6c4008_55pcn_mem.v" \
 "../../../../EDiC-TTL.gen/sources_1/ip/instructionRom/sim/instructionRom.v" \
 "../../../../EDiC-TTL.gen/sources_1/ip/microCodeRom/sim/microCodeRom.v" \
+"../../../../EDiC-TTL.gen/sources_1/ip/clk_wiz_5Mhz/clk_wiz_5Mhz_clk_wiz.v" \
+"../../../../EDiC-TTL.gen/sources_1/ip/clk_wiz_5Mhz/clk_wiz_5Mhz.v" \
 "../../../../../_src/displayDriver.v" \
 "../../../../../_src/generated.v" \
 "../../../../../_src/ic28C256.v" \
@@ -26,7 +28,7 @@ verilog xil_defaultlib  \
 "../../../../../_src/icds1813.v" \
 "../../../../../_src/tristatenet.v" \
 
-sv xil_defaultlib  \
+sv xil_defaultlib  --include "../../../../EDiC-TTL.gen/sources_1/ip/clk_wiz_5Mhz" \
 "../../../../../_sim/testbench.sv" \
 
 # compile glbl module

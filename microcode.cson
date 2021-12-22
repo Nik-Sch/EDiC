@@ -129,6 +129,7 @@ instructions: [
         reg0BusNOE: 's'
         reg1BusNOE: '!s'
         memMar0NWE: 0
+        memInstrImmToRamAddr: 0
       }
       { # r x ram into alu
         memInstrImmToRamAddr: 0
@@ -210,6 +211,7 @@ instructions: [
         reg0BusNOE: 's'
         reg1BusNOE: '!s'
         memMar0NWE: 0
+        memInstrImmToRamAddr: 0
       }
       { # ram to r
         memInstrImmToRamAddr: 0
@@ -260,6 +262,7 @@ instructions: [
         reg0BusNOE: 's'
         reg1BusNOE: '!s'
         memMar0NWE: 0
+        memInstrImmToRamAddr: 0
       }
       { # r into ram
         reg0BusNOE: 'r'
@@ -361,6 +364,7 @@ instructions: [
       { # increment sp
         memSPUp: 1
         memSPNEn: 0
+        memInstrImmToRamAddr: 0
       }
       { # store pc in ram[0xffff]
         memPCToRamN: 0
@@ -381,6 +385,7 @@ instructions: [
       { # 0xffff into mar
         memMar0NWE: 0
         memMar1NWE: 0
+        memInstrImmToRamAddr: 0 # only address is needed due to address -> do delay of eeprom + ram
       }
       { # load pc from ram
         memRamNOE: 0

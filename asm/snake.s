@@ -346,7 +346,7 @@ drawBoard:
   str r1, [0xfffd]
 
   // go to home '\033[H'
-  // clear screen '\033[H'
+  // clear screen '\033[2J'
   mov r0, ESCAPE0
   call outputChar
   mov r0, ESCAPE1

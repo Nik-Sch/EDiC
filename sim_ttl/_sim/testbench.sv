@@ -1,10 +1,16 @@
 `timescale 1ns/1ps
 module testbench;
 
+logic s_clk100 = 0;
+always #(10/2) s_clk100 = ~s_clk100; // 5MHz
+logic oszClk;
+logic clkRamN;
+logic clkEEPROM;
+
 logic oszClk = 0;
 logic asyncRamSpecialClock;
 logic asyncEEPROMSpecialClock;
-always #(200/2) oszClk = ~oszClk; // 5MHz
+// always #(200/2) oszClk = ~oszClk; // 5MHz
 // ram has 55ns address -> data
 // eeprom 150ns address -> data
 initial begin
@@ -19,24 +25,31 @@ end
 initial begin
   asyncEEPROMSpecialClock = 0;
   while (1) begin
-    @(posedge oszClk);
+    @(negedge oszClk);
     // 150ns after falling Edge of system clock
     #(150) asyncEEPROMSpecialClock = 1;
     #(40) asyncEEPROMSpecialClock = 0;
   end
 end
+
+clk_wiz_5Mhz inst_clk5Mhz(
+  .clk_in1(s_clk100),
+  .clk5(oszClk),
+  .clkRamN(clkRamN),
+  .clkEEPROM(clkEEPROM)
+);
 // always #(10/2) asyncRamSpecialClock = ~asyncRamSpecialClock; // 100MHz
 
   // 1 is closed, 0 is open
 logic btnStep = 0;
-logic swInstrNCycle = 1;
+logic swInstrNCycle = 0;
 logic swStepNRun = 0;
 logic swEnableBreakpoint = 1;
 logic btnReset = 0;
 
 logic[7:0] cathodes;
 logic[7:0] anodes;
-logic[7:0] switches = 42;
+logic[7:0] switches = 6;
 
 logic [7:0] i_bus;
 logic [7:0]  o_bus;
@@ -53,8 +66,10 @@ assign i_busNOE = (o_ioAddress == 8'h00 || o_ioNOE || o_ioNCE);
 
 generated inst_generated(
   .i_oszClk(oszClk),
-  .i_asyncRamSpecialClock(asyncRamSpecialClock),
-  .i_asyncEEPROMSpecialClock(asyncEEPROMSpecialClock),
+  .i_asyncRamSpecialClock(~clkRamN),
+  .i_asyncEEPROMSpecialClock(clkEEPROM),
+  // .i_asyncRamSpecialClock(asyncRamSpecialClock),
+  // .i_asyncEEPROMSpecialClock(asyncEEPROMSpecialClock),
   .i_resetn(resetn),
 
   // 1 is closed, 0 is open

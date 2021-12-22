@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:47:39 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Mon Dec 13 23:21:31 2021
+# Process ID: 290069
+# Current directory: /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/uart_fifo_rx_synth_1
+# Command line: vivado -log uart_fifo_rx.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source uart_fifo_rx.tcl
+# Log file: /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/uart_fifo_rx_synth_1/uart_fifo_rx.vds
+# Journal file: /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/uart_fifo_rx_synth_1/vivado.jou
+# Running On: niklasPC, OS: Linux, CPU Frequency: 2668.447 MHz, CPU Physical cores: 16, Host memory: 33679 MB
+#-----------------------------------------------------------
+source uart_fifo_rx.tcl -notrace

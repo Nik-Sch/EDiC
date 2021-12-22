@@ -55,12 +55,13 @@ always @(posedge port14, negedge asyncResetN) begin
     if (S == 2'b01) begin
       r_data <= r_data - 1;
     end
-    if (S == 2'b10) begin
-      r_data <= s_data;
-    end
     if (S == 2'b11) begin
       r_data <= r_data + 1;
     end
+  end
+  // loading is independent of enable
+  if (S == 2'b10) begin
+    r_data <= s_data;
   end
 
   // only for AS867
@@ -71,6 +72,7 @@ end
 
 // rcoN
 always @* begin
+  port13 <= 1;
   if (~entN) begin // enable rco
     if (S == 2'b01) begin // counting down
       port13 <= r_data != 0; // low level pulse when data is 0

@@ -1,0 +1,6 @@
+verilog xil_defaultlib  \
+"../../../../EDiC-TTL.gen/sources_1/ip/uart_fifo_rx/sim/uart_fifo_rx.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+nosort

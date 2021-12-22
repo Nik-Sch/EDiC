@@ -1,0 +1,104 @@
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (lin64) Build 3367213 Tue Oct 19 02:47:39 MDT 2021
+| Date         : Wed Dec 22 22:06:03 2021
+| Host         : niklasPC running 64-bit Manjaro Linux
+| Command      : report_control_sets -verbose -file board_top_control_sets_placed.rpt
+| Design       : board_top
+| Device       : xc7a100t
+--------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    26 |
+|    Minimum number of control sets                        |    26 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    53 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    26 |
+| >= 0 to < 4        |     5 |
+| >= 4 to < 6        |     1 |
+| >= 6 to < 8        |     3 |
+| >= 8 to < 10       |    11 |
+| >= 10 to < 12      |     1 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     1 |
+| >= 16              |     4 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              57 |           26 |
+| No           | No                    | Yes                    |              72 |           26 |
+| No           | Yes                   | No                     |               7 |            2 |
+| Yes          | No                    | No                     |              16 |            4 |
+| Yes          | No                    | Yes                    |             115 |           61 |
+| Yes          | Yes                   | No                     |               0 |            0 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++------------------------------+----------------------------------------------+--------------------------------------------------------------------------------------+------------------+----------------+--------------+
+|         Clock Signal         |                 Enable Signal                |                                   Set/Reset Signal                                   | Slice Load Count | Bel Load Count | Bels / Slice |
++------------------------------+----------------------------------------------+--------------------------------------------------------------------------------------+------------------+----------------+--------------+
+|  i_clk100_IBUF_BUFG          | uart/inst_tx/o_serialOut_i_1_n_1             | inst_generated/inst_7seg/i_btnReset                                                  |                1 |              1 |         1.00 |
+| ~inst_clk5Mhz/inst/clk5      |                                              | inst_generated/inst_7seg/i_btnReset                                                  |                1 |              1 |         1.00 |
+|  n_0_304_BUFG                |                                              | uart/inst_fifo_tx/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/wr_rst_reg2 |                1 |              1 |         1.00 |
+|  n_0_304_BUFG                |                                              | uart/inst_fifo_rx/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/rd_rst_reg2 |                1 |              1 |         1.00 |
+| ~inst_clk5Mhz/inst/clkRamN   |                                              |                                                                                      |                2 |              2 |         1.00 |
+|  inst_clk5Mhz/inst/clkRamN   |                                              |                                                                                      |                3 |              4 |         1.33 |
+|  inst_clk5Mhz/inst/clkEEPROM |                                              |                                                                                      |                3 |              6 |         2.00 |
+|  n_0_304_BUFG                |                                              | inst_generated/inst_7seg/cathodesAH0                                                 |                2 |              7 |         3.50 |
+|  n_0_304_BUFG                | inst_generated/inst_U35/port16_reg_0         | inst_generated/inst_7seg/i_btnReset                                                  |                5 |              7 |         1.40 |
+|  n_0_304_BUFG                | inst_generated/inst_U35/E[0]                 | inst_generated/inst_7seg/i_btnReset                                                  |                4 |              8 |         2.00 |
+| ~inst_clk5Mhz/inst/clk5      | p_0_in                                       | inst_generated/inst_7seg/i_btnReset                                                  |                1 |              8 |         8.00 |
+|  n_0_304_BUFG                | inst_generated/inst_U70/port22_reg_0         | inst_generated/inst_7seg/i_btnReset                                                  |                5 |              8 |         1.60 |
+|  n_0_304_BUFG                | inst_generated/inst_U63/port15_i_1__0_n_1    | inst_generated/inst_7seg/i_btnReset                                                  |                3 |              8 |         2.67 |
+|  n_0_304_BUFG                | inst_generated/inst_U40/port15_i_1__3_n_1    | inst_generated/inst_7seg/i_btnReset                                                  |                2 |              8 |         4.00 |
+|  n_0_304_BUFG                | inst_generated/inst_U68/port15_i_1__2_n_1    | inst_generated/inst_7seg/i_btnReset                                                  |                3 |              8 |         2.67 |
+|  n_0_304_BUFG                | inst_generated/inst_U35/port16_reg_1[0]      | inst_generated/inst_7seg/i_btnReset                                                  |                4 |              8 |         2.00 |
+|  n_0_304_BUFG                | inst_generated/inst_U55/r_data[7]_i_1__1_n_1 | inst_generated/inst_7seg/i_btnReset                                                  |                6 |              8 |         1.33 |
+|  n_0_304_BUFG                | inst_generated/inst_U63/E[0]                 |                                                                                      |                2 |              8 |         4.00 |
+|  n_0_304_BUFG                | inst_generated/inst_U41/port15_i_1__4_n_1    | inst_generated/inst_7seg/i_btnReset                                                  |                5 |              8 |         1.60 |
+|  i_clk100_IBUF_BUFG          | uart/inst_tx/r_data_0                        |                                                                                      |                2 |              8 |         4.00 |
+|  n_0_304_BUFG                | inst_generated/inst_U9/bbstub_douta[0]       | inst_generated/inst_7seg/i_btnReset                                                  |                6 |             11 |         1.83 |
+|  i_clk100_IBUF_BUFG          |                                              |                                                                                      |                5 |             14 |         2.80 |
+|  n_0_304_BUFG                | inst_generated/inst_U70/bbstub_douta[10]     | inst_generated/inst_7seg/i_btnReset                                                  |               16 |             24 |         1.50 |
+|  n_0_304_BUFG                |                                              | inst_generated/inst_7seg/i_btnReset                                                  |               10 |             32 |         3.20 |
+|  n_0_304_BUFG                |                                              |                                                                                      |               13 |             33 |         2.54 |
+|  i_clk100_IBUF_BUFG          |                                              | inst_generated/inst_7seg/i_btnReset                                                  |               13 |             37 |         2.85 |
++------------------------------+----------------------------------------------+--------------------------------------------------------------------------------------+------------------+----------------+--------------+
+
+

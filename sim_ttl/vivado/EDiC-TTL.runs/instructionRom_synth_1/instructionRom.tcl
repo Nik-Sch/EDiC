@@ -70,6 +70,8 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "instructionRom_synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 4
+set_param xicom.use_bs_reader 1
 set_msg_config  -id {Synth 8-689}  -new_severity {CRITICAL WARNING} 
 set_msg_config  -id {Synth 8-689}  -new_severity {ERROR} 
 set_msg_config  -id {Synth 8-327}  -new_severity {CRITICAL WARNING} 
@@ -84,7 +86,7 @@ set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
 set_property webtalk.parent_dir /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.cache/wt [current_project]
 set_property parent.project_path /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.xpr [current_project]
-set_property XPM_LIBRARIES XPM_MEMORY [current_project]
+set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part digilentinc.com:nexys-a7-100t:part0:1.0 [current_project]

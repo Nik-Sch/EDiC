@@ -33,7 +33,7 @@ always @(posedge port11, negedge port1) begin
   port19 <= port18;
   port16 <= port17;
 
-  if (port1) begin
+  if (~port1) begin
     port2 <= 0;
     port5 <= 0;
     port6 <= 0;

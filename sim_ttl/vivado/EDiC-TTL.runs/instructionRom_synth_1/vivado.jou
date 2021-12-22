@@ -2,12 +2,12 @@
 # Vivado v2021.2 (64-bit)
 # SW Build 3367213 on Tue Oct 19 02:47:39 MDT 2021
 # IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
-# Start of session at: Sat Dec 11 14:42:15 2021
-# Process ID: 977090
+# Start of session at: Wed Dec 22 21:13:54 2021
+# Process ID: 2041292
 # Current directory: /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/instructionRom_synth_1
 # Command line: vivado -log instructionRom.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source instructionRom.tcl
 # Log file: /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/instructionRom_synth_1/instructionRom.vds
 # Journal file: /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/instructionRom_synth_1/vivado.jou
-# Running On: niklasPC, OS: Linux, CPU Frequency: 4174.563 MHz, CPU Physical cores: 16, Host memory: 33679 MB
+# Running On: niklasPC, OS: Linux, CPU Frequency: 4130.708 MHz, CPU Physical cores: 16, Host memory: 33678 MB
 #-----------------------------------------------------------
 source instructionRom.tcl -notrace

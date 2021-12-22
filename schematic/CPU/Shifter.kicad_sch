@@ -2221,7 +2221,7 @@
     (pin "1" (uuid 719bda63-4195-4c5c-a44b-ca388f59907f))
   )
 
-  (symbol (lib_id "power:GND") (at 124.46 190.5 0)
+  (symbol (lib_id "power:GND") (at 124.46 190.5 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 00000000-0000-0000-0000-000061be49f5)
     (property "Reference" "#PWR0329" (id 0) (at 124.46 196.85 0)
@@ -2237,7 +2237,7 @@
     (pin "1" (uuid c5dbc2f4-347d-4e8b-9dc5-05ae6c8ee4e9))
   )
 
-  (symbol (lib_id "power:+5V") (at 124.46 142.24 0)
+  (symbol (lib_id "power:+5V") (at 124.46 142.24 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 00000000-0000-0000-0000-000061be49fb)
     (property "Reference" "#PWR0328" (id 0) (at 124.46 146.05 0)
@@ -2253,7 +2253,7 @@
     (pin "1" (uuid db892c41-569d-42e1-a645-c40565889acf))
   )
 
-  (symbol (lib_id "74xx:74LS151") (at 124.46 165.1 0)
+  (symbol (lib_id "74xx:74LS151") (at 124.46 165.1 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 00000000-0000-0000-0000-000061be4a01)
     (property "Reference" "U102" (id 0) (at 124.46 137.6426 0))
@@ -2282,7 +2282,7 @@
     (pin "9" (uuid c55dd9e9-196a-454a-bd2c-3ffef9d3bd46))
   )
 
-  (symbol (lib_id "power:GND") (at 111.76 182.88 0)
+  (symbol (lib_id "power:GND") (at 111.76 182.88 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 00000000-0000-0000-0000-000061be4a07)
     (property "Reference" "#PWR0327" (id 0) (at 111.76 189.23 0)
