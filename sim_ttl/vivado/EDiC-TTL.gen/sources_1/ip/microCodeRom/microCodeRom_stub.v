@@ -1,10 +1,10 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2 (lin64) Build 3367213 Tue Oct 19 02:47:39 MDT 2021
-// Date        : Wed Dec 22 20:27:45 2021
+// Date        : Wed Dec 22 20:27:44 2021
 // Host        : niklasPC running 64-bit Manjaro Linux
-// Command     : write_verilog -force -mode synth_stub
-//               /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.gen/sources_1/ip/microCodeRom/microCodeRom_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top microCodeRom -prefix
+//               microCodeRom_ microCodeRom_stub.v
 // Design      : microCodeRom
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a100tcsg324-1

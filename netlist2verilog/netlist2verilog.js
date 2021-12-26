@@ -222,7 +222,7 @@ const addAssignments = () => {
     // i_switches
     for (let i = 0; i < 8; i++) {
         assignments.push({
-            target: `Net_RN10_Pad${9 - i}`,
+            target: `Net_RN10_Pad${2 + i}`,
             origin: `i_switches[${i}]`
         });
     }
