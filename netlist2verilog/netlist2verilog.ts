@@ -255,6 +255,33 @@ const addAssignments = () => {
       origin: `i_switches[${i}]`
     });
   }
+  // o_output
+  assignments.push({
+    target: 'o_output[7]',
+    origin: 'Net_U94_Pad3'
+  }, {
+    target: 'o_output[6]',
+    origin: 'Net_U94_Pad2'
+  }, {
+    target: 'o_output[5]',
+    origin: 'Net_U94_Pad1'
+  }, {
+    target: 'o_output[4]',
+    origin: 'Net_U94_Pad8'
+  }, {
+    target: 'o_output[3]',
+    origin: 'Net_U93_Pad3'
+  }, {
+    target: 'o_output[2]',
+    origin: 'Net_U93_Pad2'
+  }, {
+    target: 'o_output[1]',
+    origin: 'Net_U93_Pad1'
+  }, {
+    target: 'o_output[0]',
+    origin: 'Net_U93_Pad8'
+  }
+  )
   assignments.push(
     {
       target: 'Net_U95_Pad2',
@@ -347,6 +374,7 @@ $ports
   input wire i_swEnableBreakpoint,
   input wire i_btnReset,
   input wire [15:0] i_breakpointAddress,
+  output wire [7:0] o_output,
 
   // io card
   input wire [7:0] i_bus,

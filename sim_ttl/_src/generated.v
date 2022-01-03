@@ -15,6 +15,7 @@ module generated(
   input wire i_swEnableBreakpoint,
   input wire i_btnReset,
   input wire [15:0] i_breakpointAddress,
+  output wire [7:0] o_output,
 
   // io card
   input wire [7:0] i_bus,
@@ -942,6 +943,14 @@ assign Net_RN10_Pad6 = i_switches[4];
 assign Net_RN10_Pad7 = i_switches[5];
 assign Net_RN10_Pad8 = i_switches[6];
 assign Net_RN10_Pad9 = i_switches[7];
+assign o_output[7] = Net_U94_Pad3;
+assign o_output[6] = Net_U94_Pad2;
+assign o_output[5] = Net_U94_Pad1;
+assign o_output[4] = Net_U94_Pad8;
+assign o_output[3] = Net_U93_Pad3;
+assign o_output[2] = Net_U93_Pad2;
+assign o_output[1] = Net_U93_Pad1;
+assign o_output[0] = Net_U93_Pad8;
 assign Net_U95_Pad2 = i_oszClk;
 assign resetN = i_resetn;
 assign Net_C2_Pad1 = ~i_btnStep;

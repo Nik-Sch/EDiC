@@ -56,6 +56,7 @@ logic [7:0]  o_bus;
 logic  i_busNOE;
 logic  o_ioNCE;
 logic [7:0]  o_ioAddress;
+logic [7:0]  o_output;
 logic o_ioNOE;
 logic o_ioNWE;
 logic resetn;
@@ -85,6 +86,8 @@ generated inst_generated(
   .o_bus(o_bus),
   .i_busNOE(i_busNOE),
 
+  .o_output(o_output),
+
   .o_ioNCE(o_ioNCE),
   .o_ioAddress(o_ioAddress),
   .o_ioNOE(o_ioNOE),
@@ -112,6 +115,92 @@ initial begin
   resetn = 0;
   repeat(10) @(negedge oszClk);
   resetn = 1;
+end
+`define ass(val) if (o_output !== val) begin \
+  $display("output expected %d but is %d", val, o_output); \
+  @(posedge oszClk); \
+  @(posedge oszClk); \
+  $finish; \
+end
+
+// verify test code
+initial begin
+  @(posedge resetn);
+  @(edge o_output); `ass(6);
+  @(edge o_output); `ass(7);
+  @(edge o_output); `ass(8);
+  @(edge o_output); `ass(1);
+  @(edge o_output); `ass(7);
+  @(edge o_output); `ass(1);
+  @(edge o_output); `ass(6);
+  @(edge o_output); `ass(254);
+  @(edge o_output); `ass(6);
+  @(edge o_output); `ass(3);
+  @(edge o_output); `ass(192);
+  @(edge o_output); `ass(193);
+
+  @(edge o_output); `ass(199);
+  @(edge o_output); `ass(130);
+  @(edge o_output); `ass(193);
+  @(edge o_output); `ass(194);
+
+  @(edge o_output); `ass(10);
+  @(edge o_output); `ass(5);
+
+  @(edge o_output); `ass(2);
+  @(edge o_output); `ass(3);
+  @(edge o_output); `ass(4);
+  @(edge o_output); `ass(6);
+
+  @(edge o_output); `ass(8);
+  @(edge o_output); `ass(9);
+  @(edge o_output); `ass(8);
+  @(edge o_output); `ass(2);
+
+  // eq
+  @(edge o_output); `ass(1);
+  @(edge o_output); `ass(2);
+  @(edge o_output); `ass(3);
+  @(edge o_output); `ass(1);
+  @(edge o_output); `ass(2);
+  @(edge o_output); `ass(3);
+  @(edge o_output); `ass(1);
+
+  // neq
+  @(edge o_output); `ass(10);
+  @(edge o_output); `ass(2);
+  @(edge o_output); `ass(3);
+
+  // hs
+  @(edge o_output); `ass(10);
+  @(edge o_output); `ass(2);
+  @(edge o_output); `ass(3);
+
+  // lo
+  @(edge o_output); `ass(10);
+  @(edge o_output); `ass(2);
+  @(edge o_output); `ass(3);
+
+  // mi
+  @(edge o_output); `ass(10);
+  @(edge o_output); `ass(2);
+  @(edge o_output); `ass(3);
+
+  // pl
+  @(edge o_output); `ass(10);
+  @(edge o_output); `ass(2);
+  @(edge o_output); `ass(3);
+
+  // overflow
+  @(edge o_output); `ass(10);
+  @(edge o_output); `ass(2);
+  @(edge o_output); `ass(3);
+  @(edge o_output); `ass(10);
+  @(edge o_output); `ass(2);
+  @(edge o_output); `ass(3);
+  @(posedge oszClk);
+  $display("All tests successful.");
+  $finish;
 end
 
 endmodule
