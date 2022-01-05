@@ -1,7 +1,7 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.2 (lin64) Build 3367213 Tue Oct 19 02:47:39 MDT 2021
-| Date         : Wed Dec 22 22:05:21 2021
+| Date         : Wed Jan  5 18:18:27 2022
 | Host         : niklasPC running 64-bit Manjaro Linux
 | Command      : report_utilization -file board_top_utilization_synth.rpt -pb board_top_utilization_synth.pb
 | Design       : board_top
@@ -34,8 +34,8 @@ Table of Contents
 | Slice LUTs*             |  297 |     0 |          0 |     63400 |  0.47 |
 |   LUT as Logic          |  297 |     0 |          0 |     63400 |  0.47 |
 |   LUT as Memory         |    0 |     0 |          0 |     19000 |  0.00 |
-| Slice Registers         |  235 |     0 |          0 |    126800 |  0.19 |
-|   Register as Flip Flop |  235 |     0 |          0 |    126800 |  0.19 |
+| Slice Registers         |  227 |     0 |          0 |    126800 |  0.18 |
+|   Register as Flip Flop |  227 |     0 |          0 |    126800 |  0.18 |
 |   Register as Latch     |    0 |     0 |          0 |    126800 |  0.00 |
 | F7 Muxes                |    0 |     0 |          0 |     31700 |  0.00 |
 | F8 Muxes                |    0 |     0 |          0 |     15850 |  0.00 |
@@ -56,7 +56,7 @@ Table of Contents
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
 | 1     |          Yes |           - |          Set |
-| 180   |          Yes |           - |        Reset |
+| 172   |          Yes |           - |        Reset |
 | 7     |          Yes |         Set |            - |
 | 47    |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
@@ -147,13 +147,13 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDCE     |  180 |        Flop & Latch |
-| LUT6     |  119 |                 LUT |
-| LUT5     |   86 |                 LUT |
-| LUT3     |   72 |                 LUT |
-| LUT4     |   47 |                 LUT |
+| FDCE     |  172 |        Flop & Latch |
+| LUT6     |  112 |                 LUT |
+| LUT5     |  103 |                 LUT |
+| LUT3     |   74 |                 LUT |
 | FDRE     |   47 |        Flop & Latch |
-| LUT2     |   23 |                 LUT |
+| LUT4     |   39 |                 LUT |
+| LUT2     |   25 |                 LUT |
 | OBUF     |   17 |                  IO |
 | OBUFT    |   16 |                  IO |
 | IBUF     |   15 |                  IO |

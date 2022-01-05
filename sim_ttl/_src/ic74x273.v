@@ -1,5 +1,5 @@
 // octal register with clear https://www.ti.com/lit/ds/symlink/sn74ls273.pdf
-module ic74LS273(
+module ic74x273(
 input wire port1,
 output reg port2,
 input wire port3,

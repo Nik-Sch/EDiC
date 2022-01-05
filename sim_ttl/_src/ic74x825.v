@@ -1,5 +1,5 @@
 // octal register 3-state, clear, enable https://www.ti.com/lit/ds/symlink/sn54as825a.pdf
-module ic74AS825(
+module ic74x825(
 input wire port1,
 input wire port2,
 input wire port3,

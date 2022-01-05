@@ -1,5 +1,5 @@
 // octal register with oe https://www.ti.com/lit/ds/symlink/sn74ls374.pdf
-module ic74LS374(
+module ic74x374(
 input wire port1,
 output reg port2,
 input wire port3,

@@ -14,7 +14,8 @@
         "!**/node_modules/**"
       ],
       "args": [
-        "${workspaceFolder}/schematic/CPU/EDiC.net",
+        // "${workspaceFolder}/schematic/CPU/EDiC.net",
+        "${workspaceFolder}/netlist2verilog/netlists_henry/ED-101.EDN",
         "sim_ttl/_src/generated.v"
       ]
     },

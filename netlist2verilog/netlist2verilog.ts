@@ -7,15 +7,19 @@ import { INet as IWire, ITriStateIn, ITriStateNet, IUnit, Parser } from './parse
 
 
 if (argv.length !== 4) {
-  console.error(`${argv[0]} ${argv[1]} <in>.net <out>.v`);
+  console.error(`${argv[0]} ${argv[1]} <in>.[net,edn] <out>.v`);
   exit(1);
 }
 
 const netlist = readFileSync(argv[2]).toString();
+const ednFile = argv[2].toLowerCase().endsWith('edn');
 
-const parser = new Parser(netlist);
+const parser = new Parser(netlist, ednFile);
 parser.parse();
-const unitsForVerilog = parser.units.filter(v => v.id.startsWith('U'));
+const unitsForVerilog = parser.units
+  .filter(v =>
+    (v.id.startsWith('U') && parseInt(v.id.substring(1)) < 1000) // > 1000 is uart board
+  || (v.id.startsWith('JT') && v.id !== 'JT3'));
 
 const transformWire = (wire: IWire): IWire => {
   const newWire: IWire = {
@@ -34,6 +38,8 @@ const transformWire = (wire: IWire): IWire => {
     .replace(/'/g, 'N')
     .replace(/~(\S+)~/g, '$1N')
     .replace(/~{(\S+)}/g, '$1N')
+    .replace(/#(\S+)/g, '$1N')
+    .replace(/bus(\d)/gi, 'Bus$1')
     .replace(/^\+5V$/, '1')
     .replace(/^GND$/, '0')
     .replace(/^(\d)$/, "1'b$1");
@@ -128,10 +134,10 @@ const addEeprom = (unit: IUnit, eepromId: string, dataOffset: number) => {
 }
 
 for (const unit of unitsForVerilog) {
-  if (unit.type == '74LS245') { // tristate transceiver
+  if (unit.type.match(/74\w+245/)) { // tristate transceiver
     addTristatePort(unit, 19, [11, 12, 13, 14, 15, 16, 17, 18], false);
   }
-  if (unit.type == 'AS6C4008_55PCN') { // ram
+  if (unit.type.match(/AS6C4008(?:_55PCN)?/)) { // ram
     const dataPorts = [13, 14, 15, 17, 18, 19, 20, 21];
     const noeOutPortnumber = Math.max(...unit.ports.map(p => p.portNumber)) + 1;
     unit.ports.push({
@@ -175,7 +181,7 @@ for (const unit of unitsForVerilog) {
     }
     addEeprom(unit, eepromId, dataOffset);
   }
-  if (unit.type == '74AS825') { // tristate register
+  if (unit.type.match(/74\w+825/)) { // tristate register
     const noeOutPortnumber = Math.max(...unit.ports.map(p => p.portNumber)) + 1;
     unit.ports.push({
       name: `${unit.id}_noe`,
@@ -235,93 +241,269 @@ const addAssignments = () => {
   }
 
   // breakpointAddress
+  let netName = ednFile ? 'brkpt' : 'MemoryComp';
   for (let i = 0; i < 16; i++) {
     assignments.push({
-      target: `MemoryComp${i}`,
+      target: `${netName}${i}`,
       origin: `i_breakpointAddress[${i}]`
     });
   }
   // ioAddress
+  netName = ednFile ? 'RAMADDRESS' : 'ioAddr';
   for (let i = 0; i < 8; i++) {
     assignments.push({
       target: `o_ioAddress[${i}]`,
-      origin: `ioAddr${i}`
+      origin: `${netName}${i}`
     });
   }
-  // i_switches
-  for (let i = 0; i < 8; i++) {
+
+  if (ednFile) {
+    // i_switches
+    for (let i = 0; i < 8; i++) {
+      assignments.push({
+        target: `in${i}`,
+        origin: `i_switches[${i}]`
+      });
+    }
     assignments.push({
-      target: `Net_RN10_Pad${2+i}`,
-      origin: `i_switches[${i}]`
-    });
+      target: 'o_output[7]',
+      origin: 'N16459739'
+    }, {
+      target: 'o_output[6]',
+      origin: 'N16459679'
+    }, {
+      target: 'o_output[5]',
+      origin: 'N16459595'
+    }, {
+      target: 'o_output[4]',
+      origin: 'N16459511'
+    }, {
+      target: 'o_output[3]',
+      origin: 'N16459427'
+    }, {
+      target: 'o_output[2]',
+      origin: 'N16459367'
+    }, {
+      target: 'o_output[1]',
+      origin: 'N16459283'
+    }, {
+      target: 'o_output[0]',
+      origin: 'N16459199'
+    }
+    )
+    assignments.push(
+      {
+        target: 'CLK_UNBUF',
+        origin: 'i_oszClk',
+      },
+      {
+        target: 'N16449995',
+        origin: 'i_resetn',
+      },
+      {
+        target: 'N16792555',
+        origin: '~i_btnStep',
+      },
+      {
+        target: 'N16925459',
+        origin: '~i_swInstrNCycle',
+      },
+      {
+        target: 'N16923056',
+        origin: '~i_swStepNRun',
+      },
+      {
+        target: 'N16445057',
+        origin: '~i_swEnableBreakpoint',
+      },
+      {
+        target: 'o_ioNCE',
+        origin: 'IOCE',
+      },
+      {
+        target: 'o_ioNOE',
+        origin: 'CTRLMEMRAMOE',
+      },
+      {
+        target: 'o_ioNWE',
+        origin: 'CTRLMEMRAMWE',
+      },
+      );
+  } else {
+    // i_switches
+    for (let i = 0; i < 8; i++) {
+      assignments.push({
+        target: `Net_RN10_Pad${2+i}`,
+        origin: `i_switches[${i}]`
+      });
+    }
+    // o_output
+    assignments.push({
+      target: 'o_output[7]',
+      origin: 'Net_U94_Pad3'
+    }, {
+      target: 'o_output[6]',
+      origin: 'Net_U94_Pad2'
+    }, {
+      target: 'o_output[5]',
+      origin: 'Net_U94_Pad1'
+    }, {
+      target: 'o_output[4]',
+      origin: 'Net_U94_Pad8'
+    }, {
+      target: 'o_output[3]',
+      origin: 'Net_U93_Pad3'
+    }, {
+      target: 'o_output[2]',
+      origin: 'Net_U93_Pad2'
+    }, {
+      target: 'o_output[1]',
+      origin: 'Net_U93_Pad1'
+    }, {
+      target: 'o_output[0]',
+      origin: 'Net_U93_Pad8'
+    }
+    )
+    assignments.push(
+      {
+        target: 'Net_U95_Pad2',
+        origin: 'i_oszClk',
+      },
+      {
+        target: 'resetN',
+        origin: 'i_resetn',
+      },
+      {
+        target: 'Net_C2_Pad1',
+        origin: '~i_btnStep',
+      },
+      {
+        target: 'Net_C3_Pad1',
+        origin: '~i_swInstrNCycle',
+      },
+      {
+        target: 'Net_C4_Pad1',
+        origin: '~i_swStepNRun',
+      },
+      {
+        target: 'Net_C1_Pad1',
+        origin: '~i_swEnableBreakpoint',
+      },
+      {
+        target: 'o_ioNCE',
+        origin: 'ioCEN',
+      },
+      {
+        target: 'o_ioNOE',
+        origin: 'ctrlMemRamOEN',
+      },
+      {
+        target: 'o_ioNWE',
+        origin: 'ctrlMemRamWEN',
+      },
+      );
   }
-  // o_output
-  assignments.push({
-    target: 'o_output[7]',
-    origin: 'Net_U94_Pad3'
-  }, {
-    target: 'o_output[6]',
-    origin: 'Net_U94_Pad2'
-  }, {
-    target: 'o_output[5]',
-    origin: 'Net_U94_Pad1'
-  }, {
-    target: 'o_output[4]',
-    origin: 'Net_U94_Pad8'
-  }, {
-    target: 'o_output[3]',
-    origin: 'Net_U93_Pad3'
-  }, {
-    target: 'o_output[2]',
-    origin: 'Net_U93_Pad2'
-  }, {
-    target: 'o_output[1]',
-    origin: 'Net_U93_Pad1'
-  }, {
-    target: 'o_output[0]',
-    origin: 'Net_U93_Pad8'
-  }
-  )
-  assignments.push(
-    {
-      target: 'Net_U95_Pad2',
-      origin: 'i_oszClk',
-    },
-    {
-      target: 'resetN',
-      origin: 'i_resetn',
-    },
-    {
-      target: 'Net_C2_Pad1',
-      origin: '~i_btnStep',
-    },
-    {
-      target: 'Net_C3_Pad1',
-      origin: '~i_swInstrNCycle',
-    },
-    {
-      target: 'Net_C4_Pad1',
-      origin: '~i_swStepNRun',
-    },
-    {
-      target: 'Net_C1_Pad1',
-      origin: '~i_swEnableBreakpoint',
-    },
-    {
-      target: 'o_ioNCE',
-      origin: 'ioCEN',
-    },
-    {
-      target: 'o_ioNOE',
-      origin: 'ctrlMemRamOEN',
-    },
-    {
-      target: 'o_ioNWE',
-      origin: 'ctrlMemRamWEN',
-    },
-    );
 }
 addAssignments();
+
+const getDisplayDriver = () => {
+  if (ednFile) {
+    return `
+
+displayDriver inst_7seg(
+  .i_clk(CLK1),
+  .i_resetn(RESET1),
+  .data({
+    ${[...Array(12).keys()].reverse().map(i => `PC${i}`).join(',\n    ')},
+    1'b0,
+    MC_A2,
+    MC_A1,
+    MC_A0,
+    8'h00,
+    N16459739,
+    N16459679,
+    N16459595,
+    N16459511,
+    N16459427,
+    N16459367,
+    N16459283,
+    N16459199,
+  }),
+  .enableDigit(HALT ? 8'b11110011: 8'b00000011),
+  .dots(HALT ? 8'b00100000 : 8'h00),
+  .cathodes(o_cathodes),
+  .anodes(o_anodes)
+);`;
+  } else {
+    return `
+
+  displayDriver inst_7seg(
+    .i_clk(clk),
+    .i_resetn(resetN),
+    .data({
+      ${[...Array(12).keys()].reverse().map(i => `MemoryPc${i}`).join(',\n    ')},
+      1'b0,
+      ControlA2,
+      ControlA1,
+      ControlA0,
+      8'h00,
+      Net_U92_Pad15_U92,
+      Net_U92_Pad16_U92,
+      Net_U92_Pad17_U92,
+      Net_U92_Pad18_U92,
+      Net_U92_Pad19_U92,
+      Net_U92_Pad20_U92,
+      Net_U92_Pad21_U92,
+      Net_U92_Pad22_U92
+    }),
+    .enableDigit(halt ? 8'b11110011: 8'b00000011),
+    .dots(halt ? 8'b00100000 : 8'h00),
+    .cathodes(o_cathodes),
+    .anodes(o_anodes)
+  );`
+  }
+}
+
+const typeMap: {[t: string]: string} = {
+  '28C256': 'ic28C256',
+  '5082_7340': 'ic5082_7340',
+  '74ABT540': 'ic74x540',
+  '74AS825': 'ic74x825',
+  '74F825': 'ic74x825',
+  '74AS867': 'ic74x867',
+  '74F521': 'ic74x521',
+  '74LS04': 'ic74x04',
+  '74F04': 'ic74x04',
+  '74LS08': 'ic74x08',
+  '74F08': 'ic74x08',
+  '74LS14': 'ic74x14',
+  '74ACT14': 'ic74x14',
+  '74LS151': 'ic74x151',
+  '74F151': 'ic74x151',
+  '74LS153': 'ic74x153',
+  '74F153': 'ic74x153',
+  '74LS157': 'ic74x157',
+  '74F157': 'ic74x157',
+  '74LS245': 'ic74x245',
+  '74ABT245': 'ic74x245',
+  '74ACT245': 'ic74x245',
+  '74F245': 'ic74x245',
+  '74LS273': 'ic74x273',
+  '74F273': 'ic74x273',
+  '74LS32': 'ic74x32',
+  '74F32': 'ic74x32',
+  '74LS374': 'ic74x374',
+  '74F374': 'ic74x374',
+  '74LS86': 'ic74x86',
+  '74F86': 'ic74x86',
+  'AS6C4008_55PCN': 'icAS6C4008',
+  'AS6C4008': 'icAS6C4008',
+  'ds1813': 'icds1813',
+  'DS1813-10': 'icds1813',
+  'BERG10': 'icBerg10',
+  'BERG26': 'icBerg26',
+  'BERG40': 'icBerg40',
+}
 
 const verilogFile = `
 module generated(
@@ -347,11 +529,11 @@ endmodule`
 .replace(/\$instances/g,
   unitsForVerilog.map(unit => {
     return `
-ic$type inst_$id (
+$type inst_$id (
 $ports
 );`
       .replace(/\$id/g, unit.id)
-      .replace(/\$type/g, unit.type)
+      .replace(/\$type/g, typeMap[unit.type])
       .replace(/\$ports/g, unit.ports
         .filter(wire => wire.name !== '?')
         .map(transformWire)
@@ -415,32 +597,7 @@ ${eeprom.id} inst_${eeprom.id} (
   .douta({${eeprom.data.reverse().join(', ')}})
 );`
 }).join('\n'))
-.replace(/\$displayDriver/g, `
-
-displayDriver inst_7seg(
-  .i_clk(clk),
-  .i_resetn(resetN),
-  .data({
-    ${[...Array(12).keys()].reverse().map(i => `MemoryPc${i}`).join(',\n    ')},
-    1'b0,
-    ControlA2,
-    ControlA1,
-    ControlA0,
-    8'h00,
-    Net_U92_Pad15_U92,
-    Net_U92_Pad16_U92,
-    Net_U92_Pad17_U92,
-    Net_U92_Pad18_U92,
-    Net_U92_Pad19_U92,
-    Net_U92_Pad20_U92,
-    Net_U92_Pad21_U92,
-    Net_U92_Pad22_U92
-  }),
-  .enableDigit(halt ? 8'b11110011: 8'b00000011),
-  .dots(halt ? 8'b00100000 : 8'h00),
-  .cathodes(o_cathodes),
-  .anodes(o_anodes)
-);`);
+.replace(/\$displayDriver/g, getDisplayDriver());
 ;
 
 

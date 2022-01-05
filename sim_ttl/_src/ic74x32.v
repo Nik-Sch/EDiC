@@ -1,5 +1,5 @@
 // quad or https://www.ti.com/lit/ds/symlink/sn74ls32.pdf
-module ic74LS32(
+module ic74x32(
 input wire port1,
 input wire port2,
 output wire port3,

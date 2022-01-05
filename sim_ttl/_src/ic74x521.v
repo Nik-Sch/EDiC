@@ -1,5 +1,5 @@
 // 8bit comperator, inverting https://www.ti.com/lit/ds/symlink/sn54als520.pdf
-module ic74F521(
+module ic74x521(
 input wire port1,
 input wire port2,
 input wire port3,

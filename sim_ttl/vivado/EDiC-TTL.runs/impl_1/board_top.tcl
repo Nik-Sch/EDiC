@@ -141,10 +141,10 @@ OPTRACE "set parameters" START { }
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
   add_files -quiet /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/synth_1/board_top.dcp
-  read_ip -quiet /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.srcs/sources_1/ip/clk_wiz_5Mhz/clk_wiz_5Mhz.xci
-  read_ip -quiet /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.srcs/sources_1/ip/as6c4008_55pcn_mem/as6c4008_55pcn_mem.xci
   read_ip -quiet /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.srcs/sources_1/ip/instructionRom/instructionRom.xci
   read_ip -quiet /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.srcs/sources_1/ip/microCodeRom/microCodeRom.xci
+  read_ip -quiet /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.srcs/sources_1/ip/clk_wiz_5Mhz/clk_wiz_5Mhz.xci
+  read_ip -quiet /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.srcs/sources_1/ip/as6c4008_55pcn_mem/as6c4008_55pcn_mem.xci
   read_ip -quiet /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.srcs/sources_1/ip/uart_fifo_rx/uart_fifo_rx.xci
   read_ip -quiet /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.srcs/sources_1/ip/uart_fifo_tx/uart_fifo_tx.xci
 OPTRACE "read constraints: implementation" START { }

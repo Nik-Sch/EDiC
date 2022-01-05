@@ -1,5 +1,5 @@
 // synchronous 8 bit cascaded counter with loading https://www.ti.com/lit/ds/symlink/sn74als867a.pdf
-module ic74AS867(
+module ic74x867(
 input wire port1,
 input wire port2,
 input wire port3,

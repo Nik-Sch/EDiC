@@ -120,6 +120,12 @@ read_verilog -library xil_defaultlib {
   /home/niklas/dev/EDiC/sim_ttl/_src/expansionCards/UART/uart_tx.v
   /home/niklas/dev/EDiC/sim_ttl/_src/board_top.v
 }
+read_ip -quiet /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.srcs/sources_1/ip/instructionRom/instructionRom.xci
+set_property used_in_implementation false [get_files -all /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.gen/sources_1/ip/instructionRom/instructionRom_ooc.xdc]
+
+read_ip -quiet /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.srcs/sources_1/ip/microCodeRom/microCodeRom.xci
+set_property used_in_implementation false [get_files -all /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.gen/sources_1/ip/microCodeRom/microCodeRom_ooc.xdc]
+
 read_ip -quiet /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.srcs/sources_1/ip/clk_wiz_5Mhz/clk_wiz_5Mhz.xci
 set_property used_in_implementation false [get_files -all /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.gen/sources_1/ip/clk_wiz_5Mhz/clk_wiz_5Mhz_board.xdc]
 set_property used_in_implementation false [get_files -all /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.gen/sources_1/ip/clk_wiz_5Mhz/clk_wiz_5Mhz.xdc]
@@ -127,12 +133,6 @@ set_property used_in_implementation false [get_files -all /home/niklas/dev/EDiC/
 
 read_ip -quiet /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.srcs/sources_1/ip/as6c4008_55pcn_mem/as6c4008_55pcn_mem.xci
 set_property used_in_implementation false [get_files -all /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.gen/sources_1/ip/as6c4008_55pcn_mem/as6c4008_55pcn_mem_ooc.xdc]
-
-read_ip -quiet /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.srcs/sources_1/ip/instructionRom/instructionRom.xci
-set_property used_in_implementation false [get_files -all /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.gen/sources_1/ip/instructionRom/instructionRom_ooc.xdc]
-
-read_ip -quiet /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.srcs/sources_1/ip/microCodeRom/microCodeRom.xci
-set_property used_in_implementation false [get_files -all /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.gen/sources_1/ip/microCodeRom/microCodeRom_ooc.xdc]
 
 read_ip -quiet /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.srcs/sources_1/ip/uart_fifo_rx/uart_fifo_rx.xci
 set_property used_in_implementation false [get_files -all /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.gen/sources_1/ip/uart_fifo_rx/uart_fifo_rx.xdc]

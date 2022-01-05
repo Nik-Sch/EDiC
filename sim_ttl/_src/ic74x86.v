@@ -1,5 +1,5 @@
 // quad xor https://www.ti.com/lit/ds/symlink/sn74ls86a.pdf
-module ic74LS86(
+module ic74x86(
 input wire port1,
 input wire port2,
 output wire port3,

@@ -1,5 +1,5 @@
 // quad and https://www.ti.com/lit/ds/symlink/sn74ls08.pdf
-module ic74LS08(
+module ic74x08(
 input wire port1,
 input wire port2,
 output wire port3,

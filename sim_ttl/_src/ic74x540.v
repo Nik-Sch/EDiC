@@ -1,5 +1,6 @@
-// 3 state octal bus transceiver https://www.ti.com/lit/ds/symlink/sn74ls245.pdf
-module ic74LS245(
+// octal buffer inverting https://www.ti.com/lit/ds/symlink/sn54ls540.pdf
+// used for the leds -> ignoring
+module ic74x540(
 input wire port1,
 input wire port2,
 input wire port3,
@@ -22,20 +23,19 @@ input wire port19,
 input wire port20
 );
 
-// actual 3 state logic is handled by the generator
+assign port11 = ~port9;
+assign port12 = ~port8;
+assign port13 = ~port7;
+assign port14 = ~port6;
+assign port15 = ~port5;
+assign port16 = ~port4;
+assign port17 = ~port3;
+assign port18 = ~port2;
+
 always @* begin
-  if (port1 != 1) begin
-    $fatal("74*245: port1 (A->B) cannot be 0");
+  if (port1 || port19) begin
+    $fatal("74ABT540, noe ist not supported.");
   end
 end
-
-assign port11 = port9;
-assign port12 = port8;
-assign port13 = port7;
-assign port14 = port6;
-assign port15 = port5;
-assign port16 = port4;
-assign port17 = port3;
-assign port18 = port2;
 
 endmodule

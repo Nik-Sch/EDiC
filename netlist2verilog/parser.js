@@ -2,21 +2,105 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Parser = void 0;
 class Parser {
-    constructor(fileContent) {
+    constructor(netlist, ednFile) {
+        this.netlist = netlist;
+        this.ednFile = ednFile;
         this.i = 0;
-        this.netlist = fileContent;
         this.units = [];
     }
     parse() {
-        while (this.i < this.netlist.length) {
-            const newUnit = this.tryParseUnit();
-            if (newUnit) {
-                this.units.push(newUnit);
+        if (this.ednFile) {
+            this.advancePast(/contents/i);
+            try {
+                while (this.i < this.netlist.length) {
+                    this.units.push(this.ednTryParseInstance());
+                }
+            }
+            catch (e) {
+                console.log(e.message);
+                this.i--;
+            }
+            // parsed all instances hopefully, parse the nets
+            try {
+                while (this.i < this.netlist.length) {
+                    this.ednTryParseNet();
+                }
+            }
+            catch (e) {
+                console.log(e.message);
+            }
+            this.units.sort((a, b) => a.id.localeCompare(b.id, undefined, { numeric: true }));
+            for (const unit of this.units) {
+                const max = unit.ports.reduce((p, v) => (p > v.portNumber) ? p : v.portNumber, 0);
+                for (let i = 0; i < max; i++) {
+                    if (!unit.ports.find(p => p.portNumber === i)) {
+                        unit.ports.push({
+                            name: `unconnected-${unit.id}-${i}`,
+                            portNumber: i
+                        });
+                    }
+                }
+                unit.ports.sort((a, b) => a.portNumber - b.portNumber);
             }
         }
-        // console.log(this.units);
+        else {
+            while (this.i < this.netlist.length) {
+                const newUnit = this.netTryParseUnit();
+                if (newUnit) {
+                    this.units.push(newUnit);
+                }
+            }
+        }
     }
-    tryParseUnit() {
+    ednTryParseInstance() {
+        this.expect('(');
+        this.expect('instance');
+        const id = this.getNextWord();
+        const type = this.advancePast(/\(property Value \(string "([^"]*)"\)\)/i);
+        while (this.i < this.netlist.length && this.netlist[this.i] !== ')') {
+            this.advancePast(/\(portInstance &\d+\)/);
+        }
+        this.expect(')');
+        return {
+            id,
+            type: type[1],
+            pack: '',
+            uuid: '',
+            ports: [],
+        };
+    }
+    ednTryParseNet() {
+        this.expect('(');
+        this.expect('net');
+        const name = this.getNextWord();
+        this.expect('(');
+        this.expect('joined');
+        while (this.i < this.netlist.length && this.netlist[this.i] !== ')') {
+            this.expect('(');
+            this.expect('portRef');
+            this.expect('&');
+            const number = parseInt(this.getNextWord({ re: /^\d+/ }));
+            this.expect('(');
+            this.expect('instanceRef');
+            const instance = this.getNextWord({ re: /^[^)]+/ });
+            this.expect(')');
+            this.expect(')');
+            const unit = this.units.find(u => u.id === instance);
+            if (unit) {
+                unit.ports.push({ name, portNumber: number });
+            }
+            else {
+                throw new Error(`Could not find unit ${instance} for net at line ${this.getLine()}`);
+            }
+        }
+        this.expect(')');
+        this.advancePast(/\(property Name \(string "[^"]+"\)\)/i);
+        this.expect(')');
+    }
+    tryParseUnitEdn() {
+        return null;
+    }
+    netTryParseUnit() {
         try {
             this.expect('(');
             const unit = {
@@ -95,6 +179,17 @@ class Parser {
             j++;
         }
         return word;
+    }
+    advancePast(search) {
+        let match = this.netlist.substring(this.i).match(search);
+        if (match !== null && typeof match.index !== 'undefined') {
+            this.i += match.index + match[0].length;
+            this.advanceWhitespace();
+            return match;
+        }
+        else {
+            throw new Error(`could not find ${search}`);
+        }
     }
     getLine(position) {
         if (!position) {

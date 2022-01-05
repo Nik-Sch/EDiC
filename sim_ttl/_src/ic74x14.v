@@ -1,5 +1,6 @@
-// hex inverter https://www.ti.com/lit/ds/symlink/sn74ls04.pdf
-module ic74LS04(
+// hex schmitt inverter https://www.ti.com/lit/ds/symlink/sn74ls14.pdf
+
+module ic74x14(
 input wire port1,
 output wire port2,
 input wire port3,
@@ -22,5 +23,4 @@ assign port6 = ~port5;
 assign port8 = ~port9;
 assign port10 = ~port11;
 assign port12 = ~port13;
-
 endmodule

@@ -1,5 +1,5 @@
 // 4 * 2 to 1 mux https://www.ti.com/lit/ds/symlink/sn74ls153.pdf
-module ic74LS157(
+module ic74x157(
 input wire port1,
 input wire port2,
 input wire port3,
