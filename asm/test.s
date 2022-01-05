@@ -296,3 +296,143 @@ str r0, [IO] # expected 2
 vs_false1:
 mov r0, 3
 str r0, [IO] # expected 3
+
+# no overflow (overflow clear)
+mov r1, 120
+mov r0, 5
+adds r1, r0
+bvc vc_true
+mov r0, 0
+str r0, [IO] # should not happen
+vc_true:
+mov r0, 10
+str r0, [IO] #expected 10
+
+mov r0, 125
+adds r0, r1
+bvc vc_false
+mov r0, 2
+str r0, [IO] # expected 2
+vc_false:
+mov r0, 3
+str r0, [IO] # expected 3
+
+# higher (unsigned >)
+mov r1, 120
+mov r0, 119
+subs r1, r0
+bhi hi_true
+mov r0, 0
+str r0, [IO] # should not happen
+hi_true:
+mov r0, 10
+str r0, [IO] #expected 10
+
+mov r0, 120
+subs r1, r0
+bhi hi_false
+mov r0, 2
+str r0, [IO] # expected 2
+hi_false:
+mov r0, 3
+str r0, [IO] # expected 3
+
+# lower or same (unsigned <=)
+mov r1, 120
+mov r0, 120
+subs r1, r0
+bls ls_true
+mov r0, 0
+str r0, [IO] # should not happen
+ls_true:
+mov r0, 10
+str r0, [IO] #expected 10
+
+mov r0, 119
+subs r1, r0
+bls ls_false
+mov r0, 2
+str r0, [IO] # expected 2
+ls_false:
+mov r0, 3
+str r0, [IO] # expected 3
+
+# greater equals (signed >=)
+mov r1, -5
+mov r0, -5
+subs r1, r0
+bge ge_true
+mov r0, 0
+str r0, [IO] # should not happen
+ge_true:
+mov r0, 10
+str r0, [IO] #expected 10
+
+mov r0, 10
+subs r1, r0
+bge ge_false
+mov r0, 2
+str r0, [IO] # expected 2
+ge_false:
+mov r0, 3
+str r0, [IO] # expected 3
+
+# greater than (signed >)
+mov r1, 121
+mov r0, 120
+subs r1, r0
+bgt gt_true
+mov r0, 0
+str r0, [IO] # should not happen
+gt_true:
+mov r0, 10
+str r0, [IO] #expected 10
+
+mov r0, 121
+subs r1, r0
+bgt gt_false
+mov r0, 2
+str r0, [IO] # expected 2
+gt_false:
+mov r0, 3
+str r0, [IO] # expected 3
+
+# less or equals (signed <=)
+mov r1, -5
+mov r0, -5
+subs r1, r0
+ble le_true
+mov r0, 0
+str r0, [IO] # should not happen
+le_true:
+mov r0, 10
+str r0, [IO] #expected 10
+
+mov r0, -10
+subs r1, r0
+ble le_false
+mov r0, 2
+str r0, [IO] # expected 2
+le_false:
+mov r0, 3
+str r0, [IO] # expected 3
+
+# less than (signed <)
+mov r1, 119
+mov r0, 120
+subs r1, r0
+blt lt_true
+mov r0, 0
+str r0, [IO] # should not happen
+lt_true:
+mov r0, 10
+str r0, [IO] #expected 10
+
+mov r0, 10
+subs r1, r0
+blt lt_false
+mov r0, 2
+str r0, [IO] # expected 2
+lt_false:
+mov r0, 3
+str r0, [IO] # expected 3

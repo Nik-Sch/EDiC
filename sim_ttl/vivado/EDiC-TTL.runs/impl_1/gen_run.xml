@@ -305,9 +305,9 @@
     <Step Id="write_bitstream"/>
     <Step Id="write_device_image"/>
   </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="instructionRom"/>
+  <BlockFileSet Type="BlockSrcs" Name="as6c4008_55pcn_mem"/>
+  <BlockFileSet Type="BlockSrcs" Name="microCodeRom"/>
   <BlockFileSet Type="BlockSrcs" Name="uart_fifo_rx"/>
   <BlockFileSet Type="BlockSrcs" Name="uart_fifo_tx"/>
-  <BlockFileSet Type="BlockSrcs" Name="microCodeRom"/>
-  <BlockFileSet Type="BlockSrcs" Name="as6c4008_55pcn_mem"/>
-  <BlockFileSet Type="BlockSrcs" Name="instructionRom"/>
 </GenRun>

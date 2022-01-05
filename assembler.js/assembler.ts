@@ -34,13 +34,13 @@ const branchOps: { [i: string]: string } = {
   bmi: '0101',//
   bpl: '0110',//
   bvs: '0111',//
-  bvc: '1000',
-  bhi: '1001',
-  bls: '1010',
-  bge: '1011',
-  blt: '1100',
-  bgt: '1101',
-  ble: '1110',
+  bvc: '1000',//
+  bhi: '1001',//
+  bls: '1010',//
+  bge: '1011',//
+  blt: '1100',//
+  bgt: '1101',//
+  ble: '1110',//
 };
 
 const aluOpRegEx = Object.keys(aluOps).reduce((p, c) => `${p}|${c}`);

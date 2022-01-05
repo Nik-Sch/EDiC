@@ -198,6 +198,41 @@ initial begin
   @(edge o_output); `ass(10);
   @(edge o_output); `ass(2);
   @(edge o_output); `ass(3);
+
+  // no overflow
+  @(edge o_output); `ass(10);
+  @(edge o_output); `ass(2);
+  @(edge o_output); `ass(3);
+
+  // higher
+  @(edge o_output); `ass(10);
+  @(edge o_output); `ass(2);
+  @(edge o_output); `ass(3);
+
+  // lower or same
+  @(edge o_output); `ass(10);
+  @(edge o_output); `ass(2);
+  @(edge o_output); `ass(3);
+
+  // greater equals
+  @(edge o_output); `ass(10);
+  @(edge o_output); `ass(2);
+  @(edge o_output); `ass(3);
+
+  // greater than
+  @(edge o_output); `ass(10);
+  @(edge o_output); `ass(2);
+  @(edge o_output); `ass(3);
+
+  // less equal
+  @(edge o_output); `ass(10);
+  @(edge o_output); `ass(2);
+  @(edge o_output); `ass(3);
+
+  // less than
+  @(edge o_output); `ass(10);
+  @(edge o_output); `ass(2);
+  @(edge o_output); `ass(3);
   @(posedge oszClk);
   $display("All tests successful.");
   $finish;

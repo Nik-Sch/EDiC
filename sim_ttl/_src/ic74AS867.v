@@ -77,7 +77,7 @@ always @* begin
     if (S == 2'b01) begin // counting down
       port13 <= r_data != 0; // low level pulse when data is 0
     end
-    if (S == 2'b10) begin // counting down
+    if (S == 2'b11) begin // counting up
       port13 <= r_data != 255; // low level pulse when data is 255
     end
   end

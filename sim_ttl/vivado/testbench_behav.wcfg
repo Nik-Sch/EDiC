@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="126,289.791 ns"></ZoomStartTime>
-      <ZoomEndTime time="130,867.379 ns"></ZoomEndTime>
-      <Cursor1Time time="128,135.450 ns"></Cursor1Time>
+      <ZoomStartTime time="168,001.666 ns"></ZoomStartTime>
+      <ZoomEndTime time="178,361.667 ns"></ZoomEndTime>
+      <Cursor1Time time="176,635.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="305"></NameColumnWidth>
+      <NameColumnWidth column_width="299"></NameColumnWidth>
       <ValueColumnWidth column_width="97"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="28" />
+   <WVObjectSize size="31" />
    <wvobject type="logic" fp_name="/testbench/btnStep">
       <obj_property name="ElementShortName">btnStep</obj_property>
       <obj_property name="ObjectShortName">btnStep</obj_property>
@@ -942,5 +942,17 @@
          <obj_property name="ElementShortName">port22</obj_property>
          <obj_property name="ObjectShortName">port22</obj_property>
       </wvobject>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U54/port13">
+      <obj_property name="ElementShortName">port13</obj_property>
+      <obj_property name="ObjectShortName">port13</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/inst_generated/inst_U54/r_data">
+      <obj_property name="ElementShortName">r_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">r_data[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/inst_generated/inst_U54/S">
+      <obj_property name="ElementShortName">S[1:0]</obj_property>
+      <obj_property name="ObjectShortName">S[1:0]</obj_property>
    </wvobject>
 </wave_config>
