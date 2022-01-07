@@ -29,10 +29,25 @@ class Parser {
             catch (e) {
                 console.log(e.message);
             }
+            // merge wires that are connected through 0R0 resistors
+            for (const resistor of this.units) {
+                if (resistor.id.match(/^R\d/) && resistor.type === '0R0' && resistor.ports.length == 2) {
+                    const wireToReplace = resistor.ports[0];
+                    const newWireName = resistor.ports[1];
+                    for (const unit of this.units) {
+                        unit.ports.map(port => {
+                            if (port.name === wireToReplace.name) {
+                                port.name = newWireName.name;
+                            }
+                            return port;
+                        });
+                    }
+                }
+            }
             this.units.sort((a, b) => a.id.localeCompare(b.id, undefined, { numeric: true }));
             for (const unit of this.units) {
                 const max = unit.ports.reduce((p, v) => (p > v.portNumber) ? p : v.portNumber, 0);
-                for (let i = 0; i < max; i++) {
+                for (let i = 1; i < max; i++) {
                     if (!unit.ports.find(p => p.portNumber === i)) {
                         unit.ports.push({
                             name: `unconnected-${unit.id}-${i}`,

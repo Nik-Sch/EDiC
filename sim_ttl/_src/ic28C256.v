@@ -32,13 +32,13 @@ input wire port28
 
 always @* begin
   if (!port27) begin
-    $fatal("EEPROM: nwe cannot be low");
+    $fatal(1, "EEPROM: nwe cannot be low");
   end
   if (port22) begin
-    $fatal("28C256: noe not supported");
+    $fatal(1, "28C256: noe not supported");
   end
   if (port20) begin
-    $fatal("28C256: nce not supported");
+    $fatal(1, "28C256: nce not supported");
   end
 end
 

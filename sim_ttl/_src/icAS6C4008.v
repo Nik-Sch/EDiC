@@ -1,5 +1,5 @@
 // 512k * 8bit sram https://www.mouser.de/datasheet/2/12/AS6C4008-1265427.pdf
-module icAS6C4008_55PCN(
+module icAS6C4008(
 input wire port1,
 input wire port2,
 input wire port3,
@@ -35,6 +35,7 @@ input wire port32,
 
 input wire port34,
 output wire port33,
+
 input wire port113,
 input wire port114,
 input wire port115,

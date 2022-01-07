@@ -1,5 +1,5 @@
 
-module generated(
+module generated_kicad(
   
   // clocks
   input wire i_oszClk,
@@ -963,11 +963,11 @@ assign o_ioNWE = ctrlMemRamWEN;
 
 
 
-displayDriver inst_7seg(
-  .i_clk(clk),
-  .i_resetn(resetN),
-  .data({
-    MemoryPc11,
+  displayDriver inst_7seg(
+    .i_clk(clk),
+    .i_resetn(resetN),
+    .data({
+      MemoryPc11,
     MemoryPc10,
     MemoryPc9,
     MemoryPc8,
@@ -979,25 +979,25 @@ displayDriver inst_7seg(
     MemoryPc2,
     MemoryPc1,
     MemoryPc0,
-    1'b0,
-    ControlA2,
-    ControlA1,
-    ControlA0,
-    8'h00,
-    Net_U92_Pad15_U92,
-    Net_U92_Pad16_U92,
-    Net_U92_Pad17_U92,
-    Net_U92_Pad18_U92,
-    Net_U92_Pad19_U92,
-    Net_U92_Pad20_U92,
-    Net_U92_Pad21_U92,
-    Net_U92_Pad22_U92
-  }),
-  .enableDigit(halt ? 8'b11110011: 8'b00000011),
-  .dots(halt ? 8'b00100000 : 8'h00),
-  .cathodes(o_cathodes),
-  .anodes(o_anodes)
-);
+      1'b0,
+      ControlA2,
+      ControlA1,
+      ControlA0,
+      8'h00,
+      Net_U92_Pad15_U92,
+      Net_U92_Pad16_U92,
+      Net_U92_Pad17_U92,
+      Net_U92_Pad18_U92,
+      Net_U92_Pad19_U92,
+      Net_U92_Pad20_U92,
+      Net_U92_Pad21_U92,
+      Net_U92_Pad22_U92
+    }),
+    .enableDigit(halt ? 8'b11110011: 8'b00000011),
+    .dots(halt ? 8'b00100000 : 8'h00),
+    .cathodes(o_cathodes),
+    .anodes(o_anodes)
+  );
 
 
 microCodeRom inst_microCodeRom (
@@ -2166,7 +2166,7 @@ tristatenet #(
 );
 
 
-ic74ABT540 inst_U1 (
+ic74x540 inst_U1 (
   .port1(1'b0),
   .port2(Bus0),
   .port3(Bus1),
@@ -2189,7 +2189,7 @@ ic74ABT540 inst_U1 (
   .port20(1'b1)
 );
 
-ic74LS86 inst_U28 (
+ic74x86 inst_U28 (
   .port1(AluA0),
   .port2(AluAdder0B0),
   .port3(AluXor0),
@@ -2206,7 +2206,7 @@ ic74LS86 inst_U28 (
   .port14(1'b1)
 );
 
-ic74LS86 inst_U30 (
+ic74x86 inst_U30 (
   .port1(ctrlAluSub),
   .port2(AluXor0),
   .port3(AluAdder0),
@@ -2223,7 +2223,7 @@ ic74LS86 inst_U30 (
   .port14(1'b1)
 );
 
-ic74LS08 inst_U29 (
+ic74x08 inst_U29 (
   .port1(AluA0),
   .port2(AluAdder0B0),
   .port3(AluAnd0),
@@ -2240,7 +2240,7 @@ ic74LS08 inst_U29 (
   .port14(1'b1)
 );
 
-ic74LS32 inst_U32 (
+ic74x32 inst_U32 (
   .port1(AluAnd0),
   .port2(Net_U31_Pad3),
   .port3(AluAdder0Bit0Cout),
@@ -2257,7 +2257,7 @@ ic74LS32 inst_U32 (
   .port14(1'b1)
 );
 
-ic74LS08 inst_U31 (
+ic74x08 inst_U31 (
   .port1(ctrlAluSub),
   .port2(AluXor0),
   .port3(Net_U31_Pad3),
@@ -2274,7 +2274,7 @@ ic74LS08 inst_U31 (
   .port14(1'b1)
 );
 
-ic74LS86 inst_U23 (
+ic74x86 inst_U23 (
   .port1(AluA4),
   .port2(AluAdder1B0),
   .port3(AluXor4),
@@ -2291,7 +2291,7 @@ ic74LS86 inst_U23 (
   .port14(1'b1)
 );
 
-ic74LS86 inst_U25 (
+ic74x86 inst_U25 (
   .port1(AluAdder0Cout),
   .port2(AluXor4),
   .port3(AluAdder4),
@@ -2308,7 +2308,7 @@ ic74LS86 inst_U25 (
   .port14(1'b1)
 );
 
-ic74LS08 inst_U24 (
+ic74x08 inst_U24 (
   .port1(AluA4),
   .port2(AluAdder1B0),
   .port3(AluAnd4),
@@ -2325,7 +2325,7 @@ ic74LS08 inst_U24 (
   .port14(1'b1)
 );
 
-ic74LS32 inst_U27 (
+ic74x32 inst_U27 (
   .port1(AluAnd4),
   .port2(Net_U26_Pad3),
   .port3(AluAdder1Bit0Cout),
@@ -2342,7 +2342,7 @@ ic74LS32 inst_U27 (
   .port14(1'b1)
 );
 
-ic74LS08 inst_U26 (
+ic74x08 inst_U26 (
   .port1(AluAdder0Cout),
   .port2(AluXor4),
   .port3(Net_U26_Pad3),
@@ -2359,7 +2359,7 @@ ic74LS08 inst_U26 (
   .port14(1'b1)
 );
 
-ic74LS86 inst_U2 (
+ic74x86 inst_U2 (
   .port1(AluFlagC),
   .port2(AluAdder1Cout),
   .port3(AluFlagV),
@@ -2373,7 +2373,7 @@ ic74LS86 inst_U2 (
   .port14(1'b1)
 );
 
-ic74LS86 inst_U3 (
+ic74x86 inst_U3 (
   .port1(Bus0),
   .port2(ctrlAluSub),
   .port3(AluAdder0B0),
@@ -2390,7 +2390,7 @@ ic74LS86 inst_U3 (
   .port14(1'b1)
 );
 
-ic74LS86 inst_U4 (
+ic74x86 inst_U4 (
   .port1(Bus4),
   .port2(ctrlAluSub),
   .port3(AluAdder1B0),
@@ -2407,7 +2407,7 @@ ic74LS86 inst_U4 (
   .port14(1'b1)
 );
 
-ic74AS825 inst_U97 (
+ic74x825 inst_U97 (
   .port1(1'b0),
   .port2(1'b0),
   .port3(AluFlagN),
@@ -2435,7 +2435,7 @@ ic74AS825 inst_U97 (
   .port25(U97_noe)
 );
 
-ic74AS825 inst_U9 (
+ic74x825 inst_U9 (
   .port1(1'b0),
   .port2(1'b0),
   .port3(Net_U12_Pad3),
@@ -2463,12 +2463,12 @@ ic74AS825 inst_U9 (
   .port25(U9_noe)
 );
 
-ic74LS04 inst_U104 (
+ic74x04 inst_U104 (
   .port1(Net_U104_Pad1),
   .port2(AluFlagZ)
 );
 
-ic74F521 inst_U12 (
+ic74x521 inst_U12 (
   .port1(1'b0),
   .port2(1'b0),
   .port3(Net_U12_Pad3),
@@ -2491,7 +2491,7 @@ ic74F521 inst_U12 (
   .port20(1'b1)
 );
 
-ic74LS153 inst_U7 (
+ic74x153 inst_U7 (
   .port1(1'b0),
   .port2(ctrlAluOp1),
   .port3(AluShift4),
@@ -2510,7 +2510,7 @@ ic74LS153 inst_U7 (
   .port16(1'b1)
 );
 
-ic74LS153 inst_U8 (
+ic74x153 inst_U8 (
   .port1(1'b0),
   .port2(ctrlAluOp1),
   .port3(AluShift6),
@@ -2529,7 +2529,7 @@ ic74LS153 inst_U8 (
   .port16(1'b1)
 );
 
-ic74ABT540 inst_U11 (
+ic74x540 inst_U11 (
   .port1(1'b0),
   .port2(Net_U10_Pad2),
   .port3(Net_U10_Pad3),
@@ -2552,7 +2552,7 @@ ic74ABT540 inst_U11 (
   .port20(1'b1)
 );
 
-ic74LS151 inst_U101 (
+ic74x151 inst_U101 (
   .port1(AluFlagCShift),
   .port2(AluFlagC),
   .port3(AluFlagC),
@@ -2571,7 +2571,7 @@ ic74LS151 inst_U101 (
   .port16(1'b1)
 );
 
-ic74LS245 inst_U10 (
+ic74x245 inst_U10 (
   .port1(1'b1),
   .port2(Net_U10_Pad2),
   .port3(Net_U10_Pad3),
@@ -2594,7 +2594,7 @@ ic74LS245 inst_U10 (
   .port20(1'b1)
 );
 
-ic74LS153 inst_U5 (
+ic74x153 inst_U5 (
   .port1(1'b0),
   .port2(ctrlAluOp1),
   .port3(AluShift0),
@@ -2613,7 +2613,7 @@ ic74LS153 inst_U5 (
   .port16(1'b1)
 );
 
-ic74LS153 inst_U6 (
+ic74x153 inst_U6 (
   .port1(1'b0),
   .port2(ctrlAluOp1),
   .port3(AluShift2),
@@ -2632,7 +2632,7 @@ ic74LS153 inst_U6 (
   .port16(1'b1)
 );
 
-ic74ABT540 inst_U95 (
+ic74x540 inst_U95 (
   .port1(1'b0),
   .port2(Net_U95_Pad2),
   .port3(Net_U95_Pad2),
@@ -2655,7 +2655,7 @@ ic74ABT540 inst_U95 (
   .port20(1'b1)
 );
 
-ic74LS14 inst_U33 (
+ic74x14 inst_U33 (
   .port1(Net_C2_Pad1),
   .port2(ClockS0),
   .port3(Net_C3_Pad1),
@@ -2672,7 +2672,7 @@ ic74LS14 inst_U33 (
   .port14(1'b1)
 );
 
-ic74LS08 inst_U36 (
+ic74x08 inst_U36 (
   .port1(ClockS2),
   .port2(Net_U33_Pad10),
   .port3(Net_U36_Pad3),
@@ -2689,7 +2689,7 @@ ic74LS08 inst_U36 (
   .port14(1'b1)
 );
 
-ic74LS273 inst_U35 (
+ic74x273 inst_U35 (
   .port1(resetN),
   .port2(ClockI1),
   .port3(ClockI0),
@@ -2718,7 +2718,7 @@ icds1813 inst_U34 (
   .port3(1'b0)
 );
 
-ic74LS32 inst_U37 (
+ic74x32 inst_U37 (
   .port1(ClockS5),
   .port2(Net_U36_Pad3),
   .port3(Net_U36_Pad4),
@@ -2735,7 +2735,7 @@ ic74LS32 inst_U37 (
   .port14(1'b1)
 );
 
-ic74LS151 inst_U39 (
+ic74x151 inst_U39 (
   .port1(ClockS5),
   .port2(Net_U36_Pad3),
   .port3(breakpointHitN),
@@ -2785,7 +2785,7 @@ ic28C256 inst_U85 (
   .port28(1'b1)
 );
 
-ic74LS08 inst_U59 (
+ic74x08 inst_U59 (
   .port1(Net_U59_Pad1),
   .port2(ctrlInstrFinishedN),
   .port3(Net_U59_Pad3),
@@ -2802,7 +2802,7 @@ ic74LS08 inst_U59 (
   .port14(1'b1)
 );
 
-ic74LS86 inst_U81 (
+ic74x86 inst_U81 (
   .port1(unconnected_U81_Pad1),
   .port2(unconnected_U81_Pad2),
   .port3(unconnected_U81_Pad3),
@@ -2819,7 +2819,7 @@ ic74LS86 inst_U81 (
   .port14(1'b1)
 );
 
-ic74LS374 inst_U84 (
+ic74x374 inst_U84 (
   .port1(1'b0),
   .port2(ctrlAluSub),
   .port3(ControlInstrCode0),
@@ -2842,7 +2842,7 @@ ic74LS374 inst_U84 (
   .port20(1'b1)
 );
 
-ic74AS825 inst_U83 (
+ic74x825 inst_U83 (
   .port1(1'b0),
   .port2(1'b0),
   .port3(flagNegative),
@@ -2932,12 +2932,12 @@ ic28C256 inst_U87 (
   .port28(1'b1)
 );
 
-ic74LS08 inst_U82 (
+ic74x08 inst_U82 (
   .port7(1'b0),
   .port14(1'b1)
 );
 
-ic74ABT540 inst_U96 (
+ic74x540 inst_U96 (
   .port1(1'b0),
   .port2(ControlA0),
   .port3(ControlA1),
@@ -2960,19 +2960,19 @@ ic74ABT540 inst_U96 (
   .port20(1'b1)
 );
 
-ic74LS32 inst_U90 (
+ic74x32 inst_U90 (
   .port1(Net_U88_Pad19),
   .port2(ctrlMemRamOEN),
   .port3(Net_U90_Pad3)
 );
 
-ic74LS32 inst_U89 (
+ic74x32 inst_U89 (
   .port1(Net_U88_Pad19),
   .port2(ctrlMemRamWEN),
   .port3(Net_U92_Pad11)
 );
 
-ic74F521 inst_U88 (
+ic74x521 inst_U88 (
   .port1(ioCEN),
   .port2(ioAddr0),
   .port3(1'b0),
@@ -2995,7 +2995,7 @@ ic74F521 inst_U88 (
   .port20(1'b1)
 );
 
-ic74LS273 inst_U92 (
+ic74x273 inst_U92 (
   .port1(resetN),
   .port2(Net_U93_Pad8),
   .port3(Bus0),
@@ -3040,7 +3040,7 @@ ic5082_7340 inst_U93 (
   .port8(Net_U93_Pad8)
 );
 
-ic74LS245 inst_U91 (
+ic74x245 inst_U91 (
   .port1(1'b1),
   .port2(Net_RN10_Pad9),
   .port3(Net_RN10_Pad8),
@@ -3063,7 +3063,7 @@ ic74LS245 inst_U91 (
   .port20(1'b0)
 );
 
-ic74F521 inst_U79 (
+ic74x521 inst_U79 (
   .port1(1'b0),
   .port2(MemorySelect0),
   .port3(1'b0),
@@ -3086,7 +3086,7 @@ ic74F521 inst_U79 (
   .port20(1'b1)
 );
 
-ic74LS04 inst_U48 (
+ic74x04 inst_U48 (
   .port1(ctrlMemInstrImmToRamAddr),
   .port2(MemoryinstrImm0ToRamN),
   .port5(Net_U38_Pad11),
@@ -3101,14 +3101,14 @@ ic74LS04 inst_U48 (
   .port14(1'b1)
 );
 
-ic74LS04 inst_U80 (
+ic74x04 inst_U80 (
   .port1(ioCEN),
   .port2(MemoryramCEN),
   .port3(ctrlMemPCToRamN),
   .port4(Net_U100_Pad24)
 );
 
-ic74F521 inst_U76 (
+ic74x521 inst_U76 (
   .port1(1'b0),
   .port2(MemorySelect0),
   .port3(1'b1),
@@ -3131,7 +3131,7 @@ ic74F521 inst_U76 (
   .port20(1'b1)
 );
 
-ic74LS08 inst_U38 (
+ic74x08 inst_U38 (
   .port1(ctrlMemSPUp),
   .port2(resetN),
   .port3(MemorySpS1),
@@ -3148,7 +3148,7 @@ ic74LS08 inst_U38 (
   .port14(1'b1)
 );
 
-ic74ABT540 inst_U57 (
+ic74x540 inst_U57 (
   .port1(1'b0),
   .port2(MemoryPc0),
   .port3(MemoryPc1),
@@ -3171,7 +3171,7 @@ ic74ABT540 inst_U57 (
   .port20(1'b1)
 );
 
-ic74ABT540 inst_U58 (
+ic74x540 inst_U58 (
   .port1(1'b0),
   .port2(MemoryPc8),
   .port3(MemoryPc9),
@@ -3194,7 +3194,7 @@ ic74ABT540 inst_U58 (
   .port20(1'b1)
 );
 
-ic74F521 inst_U60 (
+ic74x521 inst_U60 (
   .port1(Net_U53_Pad19),
   .port2(MemoryPc8),
   .port3(MemoryComp8),
@@ -3217,7 +3217,7 @@ ic74F521 inst_U60 (
   .port20(1'b1)
 );
 
-ic74F521 inst_U53 (
+ic74x521 inst_U53 (
   .port1(breakpointEnableN),
   .port2(MemoryPc0),
   .port3(MemoryComp0),
@@ -3271,7 +3271,7 @@ ic28C256 inst_U69 (
   .port28(1'b1)
 );
 
-ic74AS825 inst_U71 (
+ic74x825 inst_U71 (
   .port1(1'b0),
   .port2(1'b0),
   .port3(Net_U69_Pad11),
@@ -3330,7 +3330,7 @@ ic28C256 inst_U67 (
   .port28(1'b1)
 );
 
-ic74AS825 inst_U70 (
+ic74x825 inst_U70 (
   .port1(1'b0),
   .port2(1'b0),
   .port3(Net_U67_Pad11),
@@ -3358,7 +3358,7 @@ ic74AS825 inst_U70 (
   .port25(U70_noe)
 );
 
-ic74LS245 inst_U75 (
+ic74x245 inst_U75 (
   .port1(1'b1),
   .port2(MemoryInstrImm0),
   .port3(MemoryInstrImm1),
@@ -3381,7 +3381,7 @@ ic74LS245 inst_U75 (
   .port20(1'b1)
 );
 
-ic74AS867 inst_U56 (
+ic74x867 inst_U56 (
   .port1(resetN),
   .port2(MemorySpS1),
   .port3(1'b0),
@@ -3408,7 +3408,7 @@ ic74AS867 inst_U56 (
   .port24(1'b1)
 );
 
-ic74LS245 inst_U61 (
+ic74x245 inst_U61 (
   .port1(1'b1),
   .port2(Net_U56_Pad22),
   .port3(Net_U56_Pad21),
@@ -3431,7 +3431,7 @@ ic74LS245 inst_U61 (
   .port20(1'b1)
 );
 
-ic74AS867 inst_U55 (
+ic74x867 inst_U55 (
   .port1(MemoryPcS0),
   .port2(resetN),
   .port3(MemoryPcIn8),
@@ -3458,7 +3458,7 @@ ic74AS867 inst_U55 (
   .port24(1'b1)
 );
 
-ic74AS825 inst_U63 (
+ic74x825 inst_U63 (
   .port1(ctrlMemInstrImmToRamAddr),
   .port2(1'b0),
   .port3(Bus0),
@@ -3486,7 +3486,7 @@ ic74AS825 inst_U63 (
   .port25(U63_noe)
 );
 
-ic74AS867 inst_U54 (
+ic74x867 inst_U54 (
   .port1(MemoryPcS0),
   .port2(resetN),
   .port3(MemoryPcIn0),
@@ -3513,7 +3513,7 @@ ic74AS867 inst_U54 (
   .port24(1'b1)
 );
 
-ic74AS825 inst_U64 (
+ic74x825 inst_U64 (
   .port1(1'b0),
   .port2(1'b0),
   .port3(Net_U62_Pad11),
@@ -3572,7 +3572,7 @@ ic28C256 inst_U62 (
   .port28(1'b1)
 );
 
-ic74AS825 inst_U68 (
+ic74x825 inst_U68 (
   .port1(1'b0),
   .port2(1'b0),
   .port3(Bus0),
@@ -3600,7 +3600,7 @@ ic74AS825 inst_U68 (
   .port25(U68_noe)
 );
 
-ic74LS245 inst_U49 (
+ic74x245 inst_U49 (
   .port1(1'b1),
   .port2(MemoryRam2data0),
   .port3(MemoryRam2data1),
@@ -3623,7 +3623,7 @@ ic74LS245 inst_U49 (
   .port20(1'b1)
 );
 
-ic74LS245 inst_U50 (
+ic74x245 inst_U50 (
   .port1(1'b1),
   .port2(MemoryInstrImm8),
   .port3(MemoryInstrImm9),
@@ -3646,7 +3646,7 @@ ic74LS245 inst_U50 (
   .port20(1'b1)
 );
 
-ic74LS245 inst_U98 (
+ic74x245 inst_U98 (
   .port1(1'b1),
   .port2(MemoryPc8),
   .port3(MemoryPc9),
@@ -3669,13 +3669,13 @@ ic74LS245 inst_U98 (
   .port20(1'b1)
 );
 
-ic74LS08 inst_U105 (
+ic74x08 inst_U105 (
   .port1(Net_U103_Pad6),
   .port2(ctrlMemPCLoadN),
   .port3(MemorypcEnN)
 );
 
-ic74LS32 inst_U103 (
+ic74x32 inst_U103 (
   .port1(ctrlMemSPEnN),
   .port2(halt),
   .port3(MemoryspEnN),
@@ -3684,7 +3684,7 @@ ic74LS32 inst_U103 (
   .port6(Net_U103_Pad6)
 );
 
-ic74LS245 inst_U52 (
+ic74x245 inst_U52 (
   .port1(1'b1),
   .port2(MemoryInstrImm0),
   .port3(MemoryInstrImm1),
@@ -3707,7 +3707,7 @@ ic74LS245 inst_U52 (
   .port20(1'b1)
 );
 
-ic74LS245 inst_U51 (
+ic74x245 inst_U51 (
   .port1(1'b1),
   .port2(Bus0),
   .port3(Bus1),
@@ -3730,7 +3730,7 @@ ic74LS245 inst_U51 (
   .port20(1'b1)
 );
 
-ic74LS245 inst_U99 (
+ic74x245 inst_U99 (
   .port1(1'b1),
   .port2(MemoryPc0),
   .port3(MemoryPc1),
@@ -3753,7 +3753,7 @@ ic74LS245 inst_U99 (
   .port20(1'b1)
 );
 
-icAS6C4008_55PCN inst_U100 (
+icAS6C4008 inst_U100 (
   .port1(unconnected_U100_Pad1),
   .port2(MemoryselectStackMemN),
   .port3(MemoryRamAddress14),
@@ -3798,7 +3798,7 @@ icAS6C4008_55PCN inst_U100 (
   .port121(MemoryRam2data7)
 );
 
-icAS6C4008_55PCN inst_U77 (
+icAS6C4008 inst_U77 (
   .port1(unconnected_U77_Pad1),
   .port2(MemoryselectStackMemN),
   .port3(MemoryRamAddress14),
@@ -3843,7 +3843,7 @@ icAS6C4008_55PCN inst_U77 (
   .port121(Bus7)
 );
 
-ic74LS245 inst_U73 (
+ic74x245 inst_U73 (
   .port1(1'b1),
   .port2(MemoryMar8),
   .port3(MemoryMar9),
@@ -3866,7 +3866,7 @@ ic74LS245 inst_U73 (
   .port20(1'b1)
 );
 
-ic74LS245 inst_U72 (
+ic74x245 inst_U72 (
   .port1(1'b1),
   .port2(MemoryMar8),
   .port3(MemoryMar9),
@@ -3889,7 +3889,7 @@ ic74LS245 inst_U72 (
   .port20(1'b1)
 );
 
-ic74LS245 inst_U74 (
+ic74x245 inst_U74 (
   .port1(1'b1),
   .port2(MemoryInstrImm8),
   .port3(MemoryInstrImm9),
@@ -3912,7 +3912,7 @@ ic74LS245 inst_U74 (
   .port20(1'b1)
 );
 
-ic74LS245 inst_U65 (
+ic74x245 inst_U65 (
   .port1(1'b1),
   .port2(MemoryInstrImm0),
   .port3(MemoryInstrImm1),
@@ -3935,7 +3935,7 @@ ic74LS245 inst_U65 (
   .port20(1'b1)
 );
 
-ic74LS245 inst_U66 (
+ic74x245 inst_U66 (
   .port1(1'b1),
   .port2(MemoryInstrImm8),
   .port3(MemoryInstrImm9),
@@ -3958,7 +3958,7 @@ ic74LS245 inst_U66 (
   .port20(1'b1)
 );
 
-ic74AS825 inst_U40 (
+ic74x825 inst_U40 (
   .port1(1'b0),
   .port2(1'b0),
   .port3(Bus0),
@@ -3986,7 +3986,7 @@ ic74AS825 inst_U40 (
   .port25(U40_noe)
 );
 
-ic74ABT540 inst_U47 (
+ic74x540 inst_U47 (
   .port1(1'b0),
   .port2(RegsetR10),
   .port3(RegsetR11),
@@ -4009,7 +4009,7 @@ ic74ABT540 inst_U47 (
   .port20(1'b1)
 );
 
-ic74ABT540 inst_U46 (
+ic74x540 inst_U46 (
   .port1(1'b0),
   .port2(RegsetR00),
   .port3(RegsetR01),
@@ -4032,7 +4032,7 @@ ic74ABT540 inst_U46 (
   .port20(1'b1)
 );
 
-ic74LS157 inst_U42 (
+ic74x157 inst_U42 (
   .port1(ctrlRegAluSel),
   .port2(RegsetR00),
   .port3(RegsetR10),
@@ -4051,7 +4051,7 @@ ic74LS157 inst_U42 (
   .port16(1'b1)
 );
 
-ic74AS825 inst_U41 (
+ic74x825 inst_U41 (
   .port1(1'b0),
   .port2(1'b0),
   .port3(Bus0),
@@ -4079,7 +4079,7 @@ ic74AS825 inst_U41 (
   .port25(U41_noe)
 );
 
-ic74LS157 inst_U43 (
+ic74x157 inst_U43 (
   .port1(ctrlRegAluSel),
   .port2(RegsetR04),
   .port3(RegsetR14),
@@ -4098,7 +4098,7 @@ ic74LS157 inst_U43 (
   .port16(1'b1)
 );
 
-ic74LS245 inst_U44 (
+ic74x245 inst_U44 (
   .port1(1'b1),
   .port2(RegsetR00),
   .port3(RegsetR01),
@@ -4121,7 +4121,7 @@ ic74LS245 inst_U44 (
   .port20(1'b1)
 );
 
-ic74LS245 inst_U45 (
+ic74x245 inst_U45 (
   .port1(1'b1),
   .port2(RegsetR10),
   .port3(RegsetR11),
@@ -4144,7 +4144,7 @@ ic74LS245 inst_U45 (
   .port20(1'b1)
 );
 
-ic74LS157 inst_U14 (
+ic74x157 inst_U14 (
   .port1(ctrlAluSub),
   .port2(AluA4),
   .port3(AluA3),
@@ -4163,7 +4163,7 @@ ic74LS157 inst_U14 (
   .port16(1'b1)
 );
 
-ic74LS157 inst_U16 (
+ic74x157 inst_U16 (
   .port1(Bus0),
   .port2(Net_U102_Pad14),
   .port3(Net_U102_Pad13),
@@ -4182,7 +4182,7 @@ ic74LS157 inst_U16 (
   .port16(1'b1)
 );
 
-ic74LS151 inst_U102 (
+ic74x151 inst_U102 (
   .port1(Net_U102_Pad1),
   .port2(Net_U102_Pad2),
   .port3(Net_U102_Pad3),
@@ -4201,7 +4201,7 @@ ic74LS151 inst_U102 (
   .port16(1'b1)
 );
 
-ic74LS157 inst_U13 (
+ic74x157 inst_U13 (
   .port1(ctrlAluSub),
   .port2(AluA0),
   .port3(AluA7),
@@ -4220,7 +4220,7 @@ ic74LS157 inst_U13 (
   .port16(1'b1)
 );
 
-ic74LS157 inst_U15 (
+ic74x157 inst_U15 (
   .port1(Bus0),
   .port2(Net_U102_Pad3),
   .port3(Net_U102_Pad2),
@@ -4239,7 +4239,7 @@ ic74LS157 inst_U15 (
   .port16(1'b1)
 );
 
-ic74LS157 inst_U18 (
+ic74x157 inst_U18 (
   .port1(Bus1),
   .port2(Net_U16_Pad4),
   .port3(Net_U16_Pad9),
@@ -4258,7 +4258,7 @@ ic74LS157 inst_U18 (
   .port16(1'b1)
 );
 
-ic74LS157 inst_U20 (
+ic74x157 inst_U20 (
   .port1(Bus2),
   .port2(Net_U18_Pad4),
   .port3(1'b0),
@@ -4277,7 +4277,7 @@ ic74LS157 inst_U20 (
   .port16(1'b1)
 );
 
-ic74LS157 inst_U19 (
+ic74x157 inst_U19 (
   .port1(Bus2),
   .port2(Net_U17_Pad4),
   .port3(Net_U18_Pad4),
@@ -4296,7 +4296,7 @@ ic74LS157 inst_U19 (
   .port16(1'b1)
 );
 
-ic74LS157 inst_U21 (
+ic74x157 inst_U21 (
   .port1(ctrlAluSub),
   .port2(Net_U19_Pad4),
   .port3(Net_U20_Pad12),
@@ -4315,7 +4315,7 @@ ic74LS157 inst_U21 (
   .port16(1'b1)
 );
 
-ic74LS157 inst_U22 (
+ic74x157 inst_U22 (
   .port1(ctrlAluSub),
   .port2(Net_U20_Pad4),
   .port3(Net_U19_Pad12),
@@ -4334,7 +4334,7 @@ ic74LS157 inst_U22 (
   .port16(1'b1)
 );
 
-ic74LS157 inst_U17 (
+ic74x157 inst_U17 (
   .port1(Bus1),
   .port2(Net_U15_Pad4),
   .port3(Net_U15_Pad9),

@@ -135,7 +135,44 @@ const addEeprom = (unit: IUnit, eepromId: string, dataOffset: number) => {
 
 for (const unit of unitsForVerilog) {
   if (unit.type.match(/74\w+245/)) { // tristate transceiver
-    addTristatePort(unit, 19, [11, 12, 13, 14, 15, 16, 17, 18], false);
+    const noeAPortnumber = Math.max(...unit.ports.map(p => p.portNumber)) + 1;
+    unit.ports.push({
+      name: `${unit.id}_a_noe`,
+      portNumber: noeAPortnumber
+    })
+    const noeBPortnumber = Math.max(...unit.ports.map(p => p.portNumber)) + 1;
+    unit.ports.push({
+      name: `${unit.id}_b_noe`,
+      portNumber: noeBPortnumber
+    })
+    const portsA = [ 2,  3,  4,  5,  6,  7,  8,  9];
+    const portsB = [11, 12, 13, 14, 15, 16, 17, 18];
+    const dirPort = unit.ports[0];
+    if (!dirPort) {
+      throw new Error(`Unit ${unit.id} misses port[0]`);
+    }
+    if (dirPort.name.match(/H\d/)) { // only A -> B
+      addTristatePort(unit, noeBPortnumber, portsB, true);
+      // connect inputs to port a
+      unit.ports.map(port => {
+        if (portsA.find(a => a === port.portNumber)) {
+          port.portNumber += 100;
+        }
+        return port
+      })
+    } else if (dirPort.name.match(/L\d/)) { // only B -> A
+      addTristatePort(unit, noeAPortnumber, portsA, true);
+      // connect inputs to port b
+      unit.ports.map(port => {
+        if (portsB.find(b => b === port.portNumber)) {
+        port.portNumber += 100;
+        }
+        return port
+      })
+    } else { // both
+      addTristatePort(unit, noeBPortnumber, portsB, true);
+      addTristatePort(unit, noeAPortnumber, portsA, true);
+    }
   }
   if (unit.type.match(/AS6C4008(?:_55PCN)?/)) { // ram
     const dataPorts = [13, 14, 15, 17, 18, 19, 20, 21];
@@ -241,7 +278,7 @@ const addAssignments = () => {
   }
 
   // breakpointAddress
-  let netName = ednFile ? 'brkpt' : 'MemoryComp';
+  let netName = ednFile ? 'BRKPT' : 'MemoryComp';
   for (let i = 0; i < 16; i++) {
     assignments.push({
       target: `${netName}${i}`,
@@ -258,10 +295,19 @@ const addAssignments = () => {
   }
 
   if (ednFile) {
+    for (let i = 1; i < 5; i++) {
+      assignments.push({
+        target: `L${i}`,
+        origin: `1'b0`
+      }, {
+        target: `H${i}`,
+        origin: `1'b1`
+      });
+    }
     // i_switches
     for (let i = 0; i < 8; i++) {
       assignments.push({
-        target: `in${i}`,
+        target: `IN${i}`,
         origin: `i_switches[${i}]`
       });
     }
@@ -427,7 +473,7 @@ displayDriver inst_7seg(
     N16459427,
     N16459367,
     N16459283,
-    N16459199,
+    N16459199
   }),
   .enableDigit(HALT ? 8'b11110011: 8'b00000011),
   .dots(HALT ? 8'b00100000 : 8'h00),
@@ -506,7 +552,7 @@ const typeMap: {[t: string]: string} = {
 }
 
 const verilogFile = `
-module generated(
+module generated${ednFile ? '' : '_kicad'}(
   $ports
 );
 
@@ -538,6 +584,13 @@ $ports
         .filter(wire => wire.name !== '?')
         .map(transformWire)
         .map(port => {
+          // do not connect ports:
+          //  2, 4, 6, 10 of JT7 etc.
+          if ((unit.id === 'JT7' && [2, 4, 6, 10].find(x => x === port.portNumber))
+          || (unit.id === 'JT9' && [18, 20].find(x => x === port.portNumber))
+          ) {
+            return `  .port${port.portNumber}()`
+          }
         return `  .port${port.portNumber}(${port.name})`;
       }).join(',\n'))
   }).join('\n'))
@@ -579,6 +632,9 @@ $ports
   return `assign ${a.target} = ${a.origin};`
 }).join('\n'))
 .replace(/\$tristates/g, tristateNets.map(net => {
+  if (net.name === 'N16449995' || net.name === 'CLK_UNBUF') {
+    return ''; // is reset or clock
+  }
   return `
 tristatenet #(
   .INPUT_COUNT(${net.inputs.length})

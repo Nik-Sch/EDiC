@@ -34,7 +34,7 @@ assign port18 = ~port2;
 
 always @* begin
   if (port1 || port19) begin
-    $fatal("74ABT540, noe ist not supported.");
+    $fatal(1, "74ABT540, noe ist not supported.");
   end
 end
 

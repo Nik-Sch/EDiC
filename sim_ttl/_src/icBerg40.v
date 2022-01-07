@@ -61,4 +61,4 @@ assign port32 = port31;
 assign port34 = port33;
 assign port36 = port35;
 
-endmodule;
+endmodule

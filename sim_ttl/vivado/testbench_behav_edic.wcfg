@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="testbench_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="testbench" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
+      <ZoomEndTime time="11.253572 us"></ZoomEndTime>
+      <Cursor1Time time="1,000.000000 us"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="293"></NameColumnWidth>
+      <ValueColumnWidth column_width="97"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="29" />
+   <wvobject type="logic" fp_name="/testbench/btnStep">
+      <obj_property name="ElementShortName">btnStep</obj_property>
+      <obj_property name="ObjectShortName">btnStep</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/swInstrNCycle">
+      <obj_property name="ElementShortName">swInstrNCycle</obj_property>
+      <obj_property name="ObjectShortName">swInstrNCycle</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/swStepNRun">
+      <obj_property name="ElementShortName">swStepNRun</obj_property>
+      <obj_property name="ObjectShortName">swStepNRun</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/swEnableBreakpoint">
+      <obj_property name="ElementShortName">swEnableBreakpoint</obj_property>
+      <obj_property name="ObjectShortName">swEnableBreakpoint</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/inst_generated/i_asyncRamSpecialClock">
+      <obj_property name="ElementShortName">i_asyncRamSpecialClock</obj_property>
+      <obj_property name="ObjectShortName">i_asyncRamSpecialClock</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/inst_generated/i_asyncEEPROMSpecialClock">
+      <obj_property name="ElementShortName">i_asyncEEPROMSpecialClock</obj_property>
+      <obj_property name="ObjectShortName">i_asyncEEPROMSpecialClock</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/resetn">
+      <obj_property name="ElementShortName">resetn</obj_property>
+      <obj_property name="ObjectShortName">resetn</obj_property>
+   </wvobject>
+   <wvobject type="vbus" fp_name="vbus196">
+      <obj_property name="label">r_step</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject type="vbus" fp_name="vbus36">
+      <obj_property name="label">pc</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject type="vbus" fp_name="vbus368">
+      <obj_property name="label">r0</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="vbus" fp_name="vbus359">
+      <obj_property name="label">r1</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="vbus" fp_name="vbus140">
+      <obj_property name="label">bus</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/Bus7">
+         <obj_property name="ElementShortName">Bus7</obj_property>
+         <obj_property name="ObjectShortName">Bus7</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/Bus6">
+         <obj_property name="ElementShortName">Bus6</obj_property>
+         <obj_property name="ObjectShortName">Bus6</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/Bus5">
+         <obj_property name="ElementShortName">Bus5</obj_property>
+         <obj_property name="ObjectShortName">Bus5</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/Bus4">
+         <obj_property name="ElementShortName">Bus4</obj_property>
+         <obj_property name="ObjectShortName">Bus4</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/Bus3">
+         <obj_property name="ElementShortName">Bus3</obj_property>
+         <obj_property name="ObjectShortName">Bus3</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/Bus2">
+         <obj_property name="ElementShortName">Bus2</obj_property>
+         <obj_property name="ObjectShortName">Bus2</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/Bus1">
+         <obj_property name="ElementShortName">Bus1</obj_property>
+         <obj_property name="ObjectShortName">Bus1</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/Bus0">
+         <obj_property name="ElementShortName">Bus0</obj_property>
+         <obj_property name="ObjectShortName">Bus0</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/inst_generated/inst_triBusBus0/i_noe">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">i_noe[8:0]</obj_property>
+      <obj_property name="ObjectShortName">i_noe[8:0]</obj_property>
+      <obj_property name="label">bus_noe</obj_property>
+   </wvobject>
+   <wvobject type="vbus" fp_name="vbus405">
+      <obj_property name="label">controlAddress</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject type="vbus" fp_name="vbus534">
+      <obj_property name="label">sp</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U56/port15">
+         <obj_property name="ElementShortName">port15</obj_property>
+         <obj_property name="ObjectShortName">port15</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U56/port16">
+         <obj_property name="ElementShortName">port16</obj_property>
+         <obj_property name="ObjectShortName">port16</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U56/port17">
+         <obj_property name="ElementShortName">port17</obj_property>
+         <obj_property name="ObjectShortName">port17</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U56/port18">
+         <obj_property name="ElementShortName">port18</obj_property>
+         <obj_property name="ObjectShortName">port18</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U56/port19">
+         <obj_property name="ElementShortName">port19</obj_property>
+         <obj_property name="ObjectShortName">port19</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U56/port20">
+         <obj_property name="ElementShortName">port20</obj_property>
+         <obj_property name="ObjectShortName">port20</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U56/port21">
+         <obj_property name="ElementShortName">port21</obj_property>
+         <obj_property name="ObjectShortName">port21</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U56/port22">
+         <obj_property name="ElementShortName">port22</obj_property>
+         <obj_property name="ObjectShortName">port22</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group218">
+      <obj_property name="label">control</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="array" fp_name="/testbench/inst_generated/inst_microCodeRom/addra">
+         <obj_property name="ElementShortName">addra[14:0]</obj_property>
+         <obj_property name="ObjectShortName">addra[14:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="vbus" fp_name="vbus228">
+      <obj_property name="label">r_instr</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U64/port15">
+         <obj_property name="ElementShortName">port15</obj_property>
+         <obj_property name="ObjectShortName">port15</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U64/port16">
+         <obj_property name="ElementShortName">port16</obj_property>
+         <obj_property name="ObjectShortName">port16</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U64/port17">
+         <obj_property name="ElementShortName">port17</obj_property>
+         <obj_property name="ObjectShortName">port17</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U64/port18">
+         <obj_property name="ElementShortName">port18</obj_property>
+         <obj_property name="ObjectShortName">port18</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U64/port19">
+         <obj_property name="ElementShortName">port19</obj_property>
+         <obj_property name="ObjectShortName">port19</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U64/port20">
+         <obj_property name="ElementShortName">port20</obj_property>
+         <obj_property name="ObjectShortName">port20</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U64/port21">
+         <obj_property name="ElementShortName">port21</obj_property>
+         <obj_property name="ObjectShortName">port21</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U64/port22">
+         <obj_property name="ElementShortName">port22</obj_property>
+         <obj_property name="ObjectShortName">port22</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="vbus" fp_name="vbus350">
+      <obj_property name="label">instrImm</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject type="vbus" fp_name="vbus413">
+      <obj_property name="label">flagsOut</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U97/port19">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">port19</obj_property>
+         <obj_property name="ObjectShortName">port19</obj_property>
+         <obj_property name="label">overflow</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U97/port20">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">port20</obj_property>
+         <obj_property name="ObjectShortName">port20</obj_property>
+         <obj_property name="label">carry</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U97/port21">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">port21</obj_property>
+         <obj_property name="ObjectShortName">port21</obj_property>
+         <obj_property name="label">zero</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U97/port22">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">port22</obj_property>
+         <obj_property name="ObjectShortName">port22</obj_property>
+         <obj_property name="label">negative</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="vbus" fp_name="vbus443">
+      <obj_property name="label">output</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U92/port19">
+         <obj_property name="ElementShortName">port19</obj_property>
+         <obj_property name="ObjectShortName">port19</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U92/port16">
+         <obj_property name="ElementShortName">port16</obj_property>
+         <obj_property name="ObjectShortName">port16</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U92/port15">
+         <obj_property name="ElementShortName">port15</obj_property>
+         <obj_property name="ObjectShortName">port15</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U92/port12">
+         <obj_property name="ElementShortName">port12</obj_property>
+         <obj_property name="ObjectShortName">port12</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U92/port9">
+         <obj_property name="ElementShortName">port9</obj_property>
+         <obj_property name="ObjectShortName">port9</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U92/port6">
+         <obj_property name="ElementShortName">port6</obj_property>
+         <obj_property name="ObjectShortName">port6</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U92/port5">
+         <obj_property name="ElementShortName">port5</obj_property>
+         <obj_property name="ObjectShortName">port5</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U92/port2">
+         <obj_property name="ElementShortName">port2</obj_property>
+         <obj_property name="ObjectShortName">port2</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="vbus" fp_name="vbus551">
+      <obj_property name="label">mar</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U68/port15">
+         <obj_property name="ElementShortName">port15</obj_property>
+         <obj_property name="ObjectShortName">port15</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U68/port16">
+         <obj_property name="ElementShortName">port16</obj_property>
+         <obj_property name="ObjectShortName">port16</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U68/port17">
+         <obj_property name="ElementShortName">port17</obj_property>
+         <obj_property name="ObjectShortName">port17</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U68/port18">
+         <obj_property name="ElementShortName">port18</obj_property>
+         <obj_property name="ObjectShortName">port18</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U68/port19">
+         <obj_property name="ElementShortName">port19</obj_property>
+         <obj_property name="ObjectShortName">port19</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U68/port20">
+         <obj_property name="ElementShortName">port20</obj_property>
+         <obj_property name="ObjectShortName">port20</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U68/port21">
+         <obj_property name="ElementShortName">port21</obj_property>
+         <obj_property name="ObjectShortName">port21</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U68/port22">
+         <obj_property name="ElementShortName">port22</obj_property>
+         <obj_property name="ObjectShortName">port22</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U63/port15">
+         <obj_property name="ElementShortName">port15</obj_property>
+         <obj_property name="ObjectShortName">port15</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U63/port16">
+         <obj_property name="ElementShortName">port16</obj_property>
+         <obj_property name="ObjectShortName">port16</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U63/port17">
+         <obj_property name="ElementShortName">port17</obj_property>
+         <obj_property name="ObjectShortName">port17</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U63/port18">
+         <obj_property name="ElementShortName">port18</obj_property>
+         <obj_property name="ObjectShortName">port18</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U63/port19">
+         <obj_property name="ElementShortName">port19</obj_property>
+         <obj_property name="ObjectShortName">port19</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U63/port20">
+         <obj_property name="ElementShortName">port20</obj_property>
+         <obj_property name="ObjectShortName">port20</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U63/port21">
+         <obj_property name="ElementShortName">port21</obj_property>
+         <obj_property name="ObjectShortName">port21</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U63/port22">
+         <obj_property name="ElementShortName">port22</obj_property>
+         <obj_property name="ObjectShortName">port22</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group558">
+      <obj_property name="label">ram</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U77/inst_mem/clka">
+         <obj_property name="ElementShortName">clka</obj_property>
+         <obj_property name="ObjectShortName">clka</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U77/inst_mem/ena">
+         <obj_property name="ElementShortName">ena</obj_property>
+         <obj_property name="ObjectShortName">ena</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U77/inst_mem/wea[0]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[0]</obj_property>
+         <obj_property name="ObjectShortName">[0]</obj_property>
+         <obj_property name="label">wea</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbench/inst_generated/inst_U77/inst_mem/addra">
+         <obj_property name="ElementShortName">addra[16:0]</obj_property>
+         <obj_property name="ObjectShortName">addra[16:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbench/inst_generated/inst_U77/inst_mem/dina">
+         <obj_property name="ElementShortName">dina[7:0]</obj_property>
+         <obj_property name="ObjectShortName">dina[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbench/inst_generated/inst_U77/inst_mem/douta">
+         <obj_property name="ElementShortName">douta[7:0]</obj_property>
+         <obj_property name="ObjectShortName">douta[7:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group565">
+      <obj_property name="label">ram2</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U100/inst_mem/clka">
+         <obj_property name="ElementShortName">clka</obj_property>
+         <obj_property name="ObjectShortName">clka</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U100/inst_mem/ena">
+         <obj_property name="ElementShortName">ena</obj_property>
+         <obj_property name="ObjectShortName">ena</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U100/inst_mem/wea[0]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[0]</obj_property>
+         <obj_property name="ObjectShortName">[0]</obj_property>
+         <obj_property name="label">wea</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbench/inst_generated/inst_U100/inst_mem/addra">
+         <obj_property name="ElementShortName">addra[16:0]</obj_property>
+         <obj_property name="ObjectShortName">addra[16:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbench/inst_generated/inst_U100/inst_mem/dina">
+         <obj_property name="ElementShortName">dina[7:0]</obj_property>
+         <obj_property name="ObjectShortName">dina[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/testbench/inst_generated/inst_U100/inst_mem/douta">
+         <obj_property name="ElementShortName">douta[7:0]</obj_property>
+         <obj_property name="ObjectShortName">douta[7:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group216">
+      <obj_property name="label">pc</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="vbus" fp_name="vbus211">
+         <obj_property name="label">pcIn[15:8]</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U55/port10">
+            <obj_property name="ElementShortName">port10</obj_property>
+            <obj_property name="ObjectShortName">port10</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U55/port9">
+            <obj_property name="ElementShortName">port9</obj_property>
+            <obj_property name="ObjectShortName">port9</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U55/port8">
+            <obj_property name="ElementShortName">port8</obj_property>
+            <obj_property name="ObjectShortName">port8</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U55/port7">
+            <obj_property name="ElementShortName">port7</obj_property>
+            <obj_property name="ObjectShortName">port7</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U55/port6">
+            <obj_property name="ElementShortName">port6</obj_property>
+            <obj_property name="ObjectShortName">port6</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U55/port5">
+            <obj_property name="ElementShortName">port5</obj_property>
+            <obj_property name="ObjectShortName">port5</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U55/port4">
+            <obj_property name="ElementShortName">port4</obj_property>
+            <obj_property name="ObjectShortName">port4</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U55/port3">
+            <obj_property name="ElementShortName">port3</obj_property>
+            <obj_property name="ObjectShortName">port3</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U55/port2">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">port2</obj_property>
+         <obj_property name="ObjectShortName">port2</obj_property>
+         <obj_property name="label">s1</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U55/port1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">port1</obj_property>
+         <obj_property name="ObjectShortName">port1</obj_property>
+         <obj_property name="label">s0</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U55/port11">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">port11</obj_property>
+         <obj_property name="ObjectShortName">port11</obj_property>
+         <obj_property name="label">~ent</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U55/port23">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">port23</obj_property>
+         <obj_property name="ObjectShortName">port23</obj_property>
+         <obj_property name="label">~enp</obj_property>
+      </wvobject>
+      <wvobject type="vbus" fp_name="vbus225">
+         <obj_property name="label">pcIn[7:0]</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U54/port10">
+            <obj_property name="ElementShortName">port10</obj_property>
+            <obj_property name="ObjectShortName">port10</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U54/port9">
+            <obj_property name="ElementShortName">port9</obj_property>
+            <obj_property name="ObjectShortName">port9</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U54/port8">
+            <obj_property name="ElementShortName">port8</obj_property>
+            <obj_property name="ObjectShortName">port8</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U54/port7">
+            <obj_property name="ElementShortName">port7</obj_property>
+            <obj_property name="ObjectShortName">port7</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U54/port6">
+            <obj_property name="ElementShortName">port6</obj_property>
+            <obj_property name="ObjectShortName">port6</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U54/port5">
+            <obj_property name="ElementShortName">port5</obj_property>
+            <obj_property name="ObjectShortName">port5</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U54/port4">
+            <obj_property name="ElementShortName">port4</obj_property>
+            <obj_property name="ObjectShortName">port4</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U54/port3">
+            <obj_property name="ElementShortName">port3</obj_property>
+            <obj_property name="ObjectShortName">port3</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U54/port2">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">port2</obj_property>
+         <obj_property name="ObjectShortName">port2</obj_property>
+         <obj_property name="label">s1</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U54/port1">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">port1</obj_property>
+         <obj_property name="ObjectShortName">port1</obj_property>
+         <obj_property name="label">s0</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U54/port11">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">port11</obj_property>
+         <obj_property name="ObjectShortName">port11</obj_property>
+         <obj_property name="label">~ent</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U54/port23">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">port23</obj_property>
+         <obj_property name="ObjectShortName">port23</obj_property>
+         <obj_property name="label">~enp</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="vbus" fp_name="vbus424">
+      <obj_property name="label">alu_a</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject type="vbus" fp_name="vbus2953">
+      <obj_property name="label">alu_y</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U9/port15">
+         <obj_property name="ElementShortName">port15</obj_property>
+         <obj_property name="ObjectShortName">port15</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U9/port16">
+         <obj_property name="ElementShortName">port16</obj_property>
+         <obj_property name="ObjectShortName">port16</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U9/port17">
+         <obj_property name="ElementShortName">port17</obj_property>
+         <obj_property name="ObjectShortName">port17</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U9/port18">
+         <obj_property name="ElementShortName">port18</obj_property>
+         <obj_property name="ObjectShortName">port18</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U9/port19">
+         <obj_property name="ElementShortName">port19</obj_property>
+         <obj_property name="ObjectShortName">port19</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U9/port20">
+         <obj_property name="ElementShortName">port20</obj_property>
+         <obj_property name="ObjectShortName">port20</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U9/port21">
+         <obj_property name="ElementShortName">port21</obj_property>
+         <obj_property name="ObjectShortName">port21</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U9/port22">
+         <obj_property name="ElementShortName">port22</obj_property>
+         <obj_property name="ObjectShortName">port22</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U54/port13">
+      <obj_property name="ElementShortName">port13</obj_property>
+      <obj_property name="ObjectShortName">port13</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/inst_generated/inst_U54/r_data">
+      <obj_property name="ElementShortName">r_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">r_data[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/inst_generated/inst_U54/S">
+      <obj_property name="ElementShortName">S[1:0]</obj_property>
+      <obj_property name="ObjectShortName">S[1:0]</obj_property>
+   </wvobject>
+</wave_config>

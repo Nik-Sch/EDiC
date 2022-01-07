@@ -14,4 +14,4 @@ input wire port10
 assign port4 = port3;
 assign port6 = port5;
 assign port8 = port7;
-endmodule;
+endmodule

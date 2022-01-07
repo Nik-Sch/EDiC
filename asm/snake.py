@@ -7,7 +7,19 @@ import termios
 import fcntl
 import os
 import random
+class Unbuffered(object):
+   def __init__(self, stream):
+       self.stream = stream
+   def write(self, data):
+       self.stream.write(data)
+       self.stream.flush()
+   def writelines(self, datas):
+       self.stream.writelines(datas)
+       self.stream.flush()
+   def __getattr__(self, attr):
+       return getattr(self.stream, attr)
 
+sys.stdout = Unbuffered(sys.stdout)
 class Snake():
   fd = sys.stdin.fileno()
   old_settings = termios.tcgetattr(fd)
@@ -48,6 +60,8 @@ class Snake():
   def setScreen(self, x: int, y: int, c: str):
     if len(c) == 1:
       self.screen[y * self.COLUMNS + x] = c
+      self.output(f'\033[{y+1};{x+1}H')
+      self.output(c)
 
 
   def getScreen(self, x: int, y: int) -> str:
@@ -56,23 +70,6 @@ class Snake():
   def output(self, s: str):
     print(s, end='')
 
-
-  def printScreen(self, ):
-    # clear screen
-    self.output('\033[2J')
-    # go to home
-    # self.output('\033[H')
-    for y in range(self.LINES):
-      for x in range(self.COLUMNS):
-        # self.output(self.getScreen(x, y))
-      # self.output('\r\n')
-        if (self.getScreen(x, y) != ' ' or (y == self.snakeLeftLine and x == self.snakeLeftColumn)):
-          self.output(f'\033[{y};{x}H')
-          self.output(self.getScreen(x, y))
-    self.output(f'\r\n')
-
-
-  # main loop
   snakeLength: int = 3
   snakeHeadDirection: int = 2
   snakeHeadLine: int = LINES // 2
@@ -83,6 +80,8 @@ class Snake():
   snakeLeftColumn: int = snakeHeadColumn - 4
 
   def __init__(self) -> None:
+    # clear screen
+    self.output('\033[2J')
 
     for y in range(self.LINES):
       for x in range(self.COLUMNS):
@@ -142,7 +141,6 @@ class Snake():
 
 snake = Snake()
 snake.newItem()
-snake.printScreen()
 while 1:
   newDirection = snake.readArrow()
   ateItem = snake.updateHead(snake.snakeHeadDirection if newDirection == -1 else newDirection)
@@ -151,5 +149,4 @@ while 1:
     snake.newItem()
   else:
     snake.updateTail()
-  snake.printScreen()
-  time.sleep(0.1)
+  time.sleep(0.2)

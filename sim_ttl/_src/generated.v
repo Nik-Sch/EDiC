@@ -160,6 +160,7 @@ wire BUS_BUF7_U77;
 wire BUS_BUF7_noe;
 wire Bus0;
 wire Bus0_U10;
+wire Bus0_U201;
 wire Bus0_U44;
 wire Bus0_U45;
 wire Bus0_U75;
@@ -168,6 +169,7 @@ wire Bus0_U99;
 wire Bus0_noe;
 wire Bus1;
 wire Bus1_U10;
+wire Bus1_U201;
 wire Bus1_U44;
 wire Bus1_U45;
 wire Bus1_U75;
@@ -176,6 +178,7 @@ wire Bus1_U99;
 wire Bus1_noe;
 wire Bus2;
 wire Bus2_U10;
+wire Bus2_U201;
 wire Bus2_U44;
 wire Bus2_U45;
 wire Bus2_U75;
@@ -184,6 +187,7 @@ wire Bus2_U99;
 wire Bus2_noe;
 wire Bus3;
 wire Bus3_U10;
+wire Bus3_U201;
 wire Bus3_U44;
 wire Bus3_U45;
 wire Bus3_U75;
@@ -192,6 +196,7 @@ wire Bus3_U99;
 wire Bus3_noe;
 wire Bus4;
 wire Bus4_U10;
+wire Bus4_U201;
 wire Bus4_U44;
 wire Bus4_U45;
 wire Bus4_U75;
@@ -200,6 +205,7 @@ wire Bus4_U99;
 wire Bus4_noe;
 wire Bus5;
 wire Bus5_U10;
+wire Bus5_U201;
 wire Bus5_U44;
 wire Bus5_U45;
 wire Bus5_U75;
@@ -208,6 +214,7 @@ wire Bus5_U99;
 wire Bus5_noe;
 wire Bus6;
 wire Bus6_U10;
+wire Bus6_U201;
 wire Bus6_U44;
 wire Bus6_U45;
 wire Bus6_U75;
@@ -216,6 +223,7 @@ wire Bus6_U99;
 wire Bus6_noe;
 wire Bus7;
 wire Bus7_U10;
+wire Bus7_U201;
 wire Bus7_U44;
 wire Bus7_U45;
 wire Bus7_U75;
@@ -223,6 +231,11 @@ wire Bus7_U91;
 wire Bus7_U99;
 wire Bus7_noe;
 wire CLK1;
+wire CLK1_U95;
+wire CLK1_noe;
+wire CLK_BUF;
+wire CLK_BUF_U204;
+wire CLK_BUF_noe;
 wire CLK_UNBUF;
 wire CLK_UNBUF_SRC;
 wire CTRLALUOE;
@@ -496,9 +509,6 @@ wire MC_A1_noe;
 wire MC_A2;
 wire MC_A2_U83;
 wire MC_A2_noe;
-wire MC_A3;
-wire MC_A4;
-wire MC_A5;
 wire MC_A6;
 wire MC_A7;
 wire MC_A8;
@@ -632,9 +642,6 @@ wire N16547398;
 wire N16547402;
 wire N16547406;
 wire N16547410;
-wire N16745554;
-wire N16745554_U204;
-wire N16745554_noe;
 wire N16792555;
 wire N16823046;
 wire N16843155;
@@ -712,9 +719,6 @@ wire N17642894;
 wire N17643531;
 wire N17643531_U95;
 wire N17643531_noe;
-wire N17645870;
-wire N17645870_U95;
-wire N17645870_noe;
 wire N17646046;
 wire N17646046_U95;
 wire N17646046_noe;
@@ -895,27 +899,35 @@ wire RAM2D7_U100;
 wire RAM2D7_U205;
 wire RAM2D7_noe;
 wire RAM2DATA0;
+wire RAM2DATA0_U205;
 wire RAM2DATA0_U98;
 wire RAM2DATA0_noe;
 wire RAM2DATA1;
+wire RAM2DATA1_U205;
 wire RAM2DATA1_U98;
 wire RAM2DATA1_noe;
 wire RAM2DATA2;
+wire RAM2DATA2_U205;
 wire RAM2DATA2_U98;
 wire RAM2DATA2_noe;
 wire RAM2DATA3;
+wire RAM2DATA3_U205;
 wire RAM2DATA3_U98;
 wire RAM2DATA3_noe;
 wire RAM2DATA4;
+wire RAM2DATA4_U205;
 wire RAM2DATA4_U98;
 wire RAM2DATA4_noe;
 wire RAM2DATA5;
+wire RAM2DATA5_U205;
 wire RAM2DATA5_U98;
 wire RAM2DATA5_noe;
 wire RAM2DATA6;
+wire RAM2DATA6_U205;
 wire RAM2DATA6_U98;
 wire RAM2DATA6_noe;
 wire RAM2DATA7;
+wire RAM2DATA7_U205;
 wire RAM2DATA7_U98;
 wire RAM2DATA7_noe;
 wire RAMADDRESS0;
@@ -1113,16 +1125,62 @@ wire SP6;
 wire SP7;
 wire SPEN;
 wire U100_noe;
+wire U10_a_noe;
+wire U10_b_noe;
+wire U201_a_noe;
+wire U201_b_noe;
+wire U202_a_noe;
+wire U202_b_noe;
+wire U203_a_noe;
+wire U203_b_noe;
+wire U204_a_noe;
+wire U204_b_noe;
+wire U205_a_noe;
+wire U205_b_noe;
 wire U40_noe;
 wire U41_noe;
+wire U44_a_noe;
+wire U44_b_noe;
+wire U45_a_noe;
+wire U45_b_noe;
+wire U49_a_noe;
+wire U49_b_noe;
+wire U50_a_noe;
+wire U50_b_noe;
+wire U51_a_noe;
+wire U51_b_noe;
+wire U52_a_noe;
+wire U52_b_noe;
+wire U61_a_noe;
+wire U61_b_noe;
 wire U63_noe;
 wire U64_noe;
+wire U65_a_noe;
+wire U65_b_noe;
+wire U66_a_noe;
+wire U66_b_noe;
 wire U68_noe;
 wire U70_noe;
 wire U71_noe;
+wire U72_a_noe;
+wire U72_b_noe;
+wire U73_a_noe;
+wire U73_b_noe;
+wire U74_a_noe;
+wire U74_b_noe;
+wire U75_a_noe;
+wire U75_b_noe;
 wire U77_noe;
 wire U83_noe;
+wire U91_a_noe;
+wire U91_b_noe;
+wire U95_a_noe;
+wire U95_b_noe;
 wire U97_noe;
+wire U98_a_noe;
+wire U98_b_noe;
+wire U99_a_noe;
+wire U99_b_noe;
 wire U9_noe;
 wire VCC;
 wire XOR0;
@@ -1133,149 +1191,34 @@ wire XOR4;
 wire XOR5;
 wire XOR6;
 wire XOR7;
-wire unconnected_JT1_0;
-wire unconnected_JT2_0;
 wire unconnected_JT2_21;
 wire unconnected_JT2_22;
-wire unconnected_JT4_0;
-wire unconnected_JT5_0;
-wire unconnected_JT6_0;
 wire unconnected_JT6_21;
 wire unconnected_JT6_22;
-wire unconnected_JT7_0;
-wire unconnected_JT8_0;
-wire unconnected_JT9_0;
 wire unconnected_JT9_13;
 wire unconnected_JT9_14;
 wire unconnected_JT9_15;
 wire unconnected_JT9_16;
-wire unconnected_U100_0;
-wire unconnected_U101_0;
 wire unconnected_U101_6;
-wire unconnected_U102_0;
 wire unconnected_U102_6;
-wire unconnected_U104_0;
 wire unconnected_U104_10;
 wire unconnected_U104_12;
 wire unconnected_U104_4;
 wire unconnected_U104_6;
 wire unconnected_U104_8;
-wire unconnected_U106_0;
-wire unconnected_U107_0;
-wire unconnected_U108_0;
-wire unconnected_U109_0;
-wire unconnected_U10_0;
-wire unconnected_U110_0;
-wire unconnected_U111_0;
-wire unconnected_U112_0;
-wire unconnected_U11_0;
-wire unconnected_U12_0;
-wire unconnected_U13_0;
-wire unconnected_U14_0;
-wire unconnected_U15_0;
-wire unconnected_U16_0;
-wire unconnected_U17_0;
-wire unconnected_U18_0;
-wire unconnected_U19_0;
-wire unconnected_U1_0;
-wire unconnected_U201_0;
-wire unconnected_U202_0;
-wire unconnected_U203_0;
-wire unconnected_U204_0;
-wire unconnected_U205_0;
-wire unconnected_U20_0;
-wire unconnected_U21_0;
-wire unconnected_U22_0;
-wire unconnected_U23_0;
-wire unconnected_U24_0;
-wire unconnected_U25_0;
-wire unconnected_U26_0;
-wire unconnected_U27_0;
-wire unconnected_U28_0;
-wire unconnected_U29_0;
-wire unconnected_U2_0;
-wire unconnected_U30_0;
-wire unconnected_U31_0;
-wire unconnected_U32_0;
-wire unconnected_U33_0;
-wire unconnected_U34_0;
-wire unconnected_U35_0;
-wire unconnected_U36_0;
-wire unconnected_U37_0;
-wire unconnected_U38_0;
 wire unconnected_U38_6;
-wire unconnected_U39_0;
 wire unconnected_U39_5;
-wire unconnected_U3_0;
-wire unconnected_U40_0;
-wire unconnected_U41_0;
-wire unconnected_U42_0;
-wire unconnected_U43_0;
-wire unconnected_U44_0;
-wire unconnected_U45_0;
-wire unconnected_U46_0;
-wire unconnected_U47_0;
-wire unconnected_U48_0;
-wire unconnected_U49_0;
-wire unconnected_U50_0;
-wire unconnected_U51_0;
-wire unconnected_U52_0;
-wire unconnected_U53_0;
-wire unconnected_U54_0;
-wire unconnected_U55_0;
 wire unconnected_U55_13;
-wire unconnected_U56_0;
 wire unconnected_U56_13;
-wire unconnected_U57_0;
-wire unconnected_U58_0;
-wire unconnected_U59_0;
-wire unconnected_U5_0;
-wire unconnected_U60_0;
-wire unconnected_U61_0;
-wire unconnected_U62_0;
-wire unconnected_U63_0;
-wire unconnected_U64_0;
-wire unconnected_U65_0;
-wire unconnected_U66_0;
-wire unconnected_U67_0;
-wire unconnected_U68_0;
-wire unconnected_U69_0;
-wire unconnected_U6_0;
-wire unconnected_U70_0;
-wire unconnected_U71_0;
-wire unconnected_U72_0;
-wire unconnected_U73_0;
-wire unconnected_U74_0;
-wire unconnected_U75_0;
-wire unconnected_U76_0;
-wire unconnected_U77_0;
-wire unconnected_U79_0;
-wire unconnected_U7_0;
-wire unconnected_U81_0;
-wire unconnected_U83_0;
 wire unconnected_U83_18;
 wire unconnected_U83_18_U83;
 wire unconnected_U83_18_noe;
-wire unconnected_U84_0;
-wire unconnected_U85_0;
-wire unconnected_U86_0;
-wire unconnected_U87_0;
 wire unconnected_U87_17;
 wire unconnected_U87_18;
 wire unconnected_U87_19;
-wire unconnected_U88_0;
-wire unconnected_U89_0;
 wire unconnected_U89_11;
 wire unconnected_U89_8;
-wire unconnected_U8_0;
-wire unconnected_U91_0;
-wire unconnected_U92_0;
-wire unconnected_U93_0;
-wire unconnected_U94_0;
-wire unconnected_U95_0;
-wire unconnected_U96_0;
 wire unconnected_U96_14;
-wire unconnected_U97_0;
 wire unconnected_U97_15;
 wire unconnected_U97_15_U97;
 wire unconnected_U97_15_noe;
@@ -1288,9 +1231,6 @@ wire unconnected_U97_17_noe;
 wire unconnected_U97_18;
 wire unconnected_U97_18_U97;
 wire unconnected_U97_18_noe;
-wire unconnected_U98_0;
-wire unconnected_U99_0;
-wire unconnected_U9_0;
 
 assign o_bus[0] = Bus0;
 assign o_bus[1] = Bus1;
@@ -1300,22 +1240,22 @@ assign o_bus[4] = Bus4;
 assign o_bus[5] = Bus5;
 assign o_bus[6] = Bus6;
 assign o_bus[7] = Bus7;
-assign brkpt0 = i_breakpointAddress[0];
-assign brkpt1 = i_breakpointAddress[1];
-assign brkpt2 = i_breakpointAddress[2];
-assign brkpt3 = i_breakpointAddress[3];
-assign brkpt4 = i_breakpointAddress[4];
-assign brkpt5 = i_breakpointAddress[5];
-assign brkpt6 = i_breakpointAddress[6];
-assign brkpt7 = i_breakpointAddress[7];
-assign brkpt8 = i_breakpointAddress[8];
-assign brkpt9 = i_breakpointAddress[9];
-assign brkpt10 = i_breakpointAddress[10];
-assign brkpt11 = i_breakpointAddress[11];
-assign brkpt12 = i_breakpointAddress[12];
-assign brkpt13 = i_breakpointAddress[13];
-assign brkpt14 = i_breakpointAddress[14];
-assign brkpt15 = i_breakpointAddress[15];
+assign BRKPT0 = i_breakpointAddress[0];
+assign BRKPT1 = i_breakpointAddress[1];
+assign BRKPT2 = i_breakpointAddress[2];
+assign BRKPT3 = i_breakpointAddress[3];
+assign BRKPT4 = i_breakpointAddress[4];
+assign BRKPT5 = i_breakpointAddress[5];
+assign BRKPT6 = i_breakpointAddress[6];
+assign BRKPT7 = i_breakpointAddress[7];
+assign BRKPT8 = i_breakpointAddress[8];
+assign BRKPT9 = i_breakpointAddress[9];
+assign BRKPT10 = i_breakpointAddress[10];
+assign BRKPT11 = i_breakpointAddress[11];
+assign BRKPT12 = i_breakpointAddress[12];
+assign BRKPT13 = i_breakpointAddress[13];
+assign BRKPT14 = i_breakpointAddress[14];
+assign BRKPT15 = i_breakpointAddress[15];
 assign o_ioAddress[0] = RAMADDRESS0;
 assign o_ioAddress[1] = RAMADDRESS1;
 assign o_ioAddress[2] = RAMADDRESS2;
@@ -1324,14 +1264,22 @@ assign o_ioAddress[4] = RAMADDRESS4;
 assign o_ioAddress[5] = RAMADDRESS5;
 assign o_ioAddress[6] = RAMADDRESS6;
 assign o_ioAddress[7] = RAMADDRESS7;
-assign in0 = i_switches[0];
-assign in1 = i_switches[1];
-assign in2 = i_switches[2];
-assign in3 = i_switches[3];
-assign in4 = i_switches[4];
-assign in5 = i_switches[5];
-assign in6 = i_switches[6];
-assign in7 = i_switches[7];
+assign L1 = 1'b0;
+assign H1 = 1'b1;
+assign L2 = 1'b0;
+assign H2 = 1'b1;
+assign L3 = 1'b0;
+assign H3 = 1'b1;
+assign L4 = 1'b0;
+assign H4 = 1'b1;
+assign IN0 = i_switches[0];
+assign IN1 = i_switches[1];
+assign IN2 = i_switches[2];
+assign IN3 = i_switches[3];
+assign IN4 = i_switches[4];
+assign IN5 = i_switches[5];
+assign IN6 = i_switches[6];
+assign IN7 = i_switches[7];
 assign o_output[7] = N16459739;
 assign o_output[6] = N16459679;
 assign o_output[5] = N16459595;
@@ -1380,7 +1328,7 @@ displayDriver inst_7seg(
     N16459427,
     N16459367,
     N16459283,
-    N16459199,
+    N16459199
   }),
   .enableDigit(HALT ? 8'b11110011: 8'b00000011),
   .dots(HALT ? 8'b00100000 : 8'h00),
@@ -1397,7 +1345,7 @@ instructionRom inst_instructionRom (
 
 microCodeRom inst_microCodeRom (
   .clka(i_asyncEEPROMSpecialClock),
-  .addra({MC_A14, MC_A13, MC_A12, MC_A11, MC_A10, MC_A9, MC_A8, MC_A7, MC_A6, MC_A5, MC_A4, MC_A3, MC_A2, MC_A1, MC_A0}),
+  .addra({MC_A14, MC_A13, MC_A12, MC_A11, MC_A10, MC_A9, MC_A8, MC_A7, MC_A6, CTRLALUOP1_SRC, CTRLALUOP0_SRC, CTRLALUSUB_SRC, MC_A2, MC_A1, MC_A0}),
   .douta({unconnected_U87_19, unconnected_U87_18, unconnected_U87_17, CTRLINSTRFINISHED_SRC, CTRLMEMPCTORAM_SRC, CTRLMEMPCFROMIMM_SRC, CTRLMEMPCEN_SRC, CTRLMEMRAMOE_SRC, CTRLMEMRAMWE_SRC, CTRLMEMINSTRIMMTORAMADDR_SRC, CTRLMEMMAR1WE_SRC, CTRLMEMMAR0WE_SRC, CTRLMEMINSTROE_SRC, CTRLMEMINSTRWE_SRC, CTRLMEMSPEN_SRC, CTRLMEMSPUP_SRC, CTRLMEMPCLOAD_SRC, CTRLREG1BUSOE_SRC, CTRLREG0BUSOE_SRC, CTRLREGALUSEL_SRC, CTRLREG1WE_SRC, CTRLREG0WE_SRC, CTRLALUOE_SRC, CTRLALUYWE_SRC})
 );
 
@@ -1475,73 +1423,73 @@ tristatenet #(
 );
 
 tristatenet #(
-  .INPUT_COUNT(7)
+  .INPUT_COUNT(8)
 ) inst_triBusBus7 (
-  .i_data({Bus7_U10, Bus7_U44, Bus7_U45, Bus7_U75, Bus7_U91, Bus7_U99, i_bus[7]}),
-  .i_noe({CTRLALUOE, CTRLREG0BUSOE, CTRLREG1BUSOE, CTRLMEMINSTROE, IO_0_RD, CTRLMEMPCTORAM, i_busNOE}),
+  .i_data({Bus7_U10, Bus7_U44, Bus7_U45, Bus7_U75, Bus7_U91, Bus7_U99, Bus7_U201, i_bus[7]}),
+  .i_noe({U10_b_noe, U44_b_noe, U45_b_noe, U75_b_noe, U91_b_noe, U99_b_noe, U201_a_noe, i_busNOE}),
   .o_data(Bus7),
   .o_noe(Bus7_noe)
 );
 
 tristatenet #(
-  .INPUT_COUNT(7)
+  .INPUT_COUNT(8)
 ) inst_triBusBus6 (
-  .i_data({Bus6_U10, Bus6_U44, Bus6_U45, Bus6_U75, Bus6_U91, Bus6_U99, i_bus[6]}),
-  .i_noe({CTRLALUOE, CTRLREG0BUSOE, CTRLREG1BUSOE, CTRLMEMINSTROE, IO_0_RD, CTRLMEMPCTORAM, i_busNOE}),
+  .i_data({Bus6_U10, Bus6_U44, Bus6_U45, Bus6_U75, Bus6_U91, Bus6_U99, Bus6_U201, i_bus[6]}),
+  .i_noe({U10_b_noe, U44_b_noe, U45_b_noe, U75_b_noe, U91_b_noe, U99_b_noe, U201_a_noe, i_busNOE}),
   .o_data(Bus6),
   .o_noe(Bus6_noe)
 );
 
 tristatenet #(
-  .INPUT_COUNT(7)
+  .INPUT_COUNT(8)
 ) inst_triBusBus5 (
-  .i_data({Bus5_U10, Bus5_U44, Bus5_U45, Bus5_U75, Bus5_U91, Bus5_U99, i_bus[5]}),
-  .i_noe({CTRLALUOE, CTRLREG0BUSOE, CTRLREG1BUSOE, CTRLMEMINSTROE, IO_0_RD, CTRLMEMPCTORAM, i_busNOE}),
+  .i_data({Bus5_U10, Bus5_U44, Bus5_U45, Bus5_U75, Bus5_U91, Bus5_U99, Bus5_U201, i_bus[5]}),
+  .i_noe({U10_b_noe, U44_b_noe, U45_b_noe, U75_b_noe, U91_b_noe, U99_b_noe, U201_a_noe, i_busNOE}),
   .o_data(Bus5),
   .o_noe(Bus5_noe)
 );
 
 tristatenet #(
-  .INPUT_COUNT(7)
+  .INPUT_COUNT(8)
 ) inst_triBusBus4 (
-  .i_data({Bus4_U10, Bus4_U44, Bus4_U45, Bus4_U75, Bus4_U91, Bus4_U99, i_bus[4]}),
-  .i_noe({CTRLALUOE, CTRLREG0BUSOE, CTRLREG1BUSOE, CTRLMEMINSTROE, IO_0_RD, CTRLMEMPCTORAM, i_busNOE}),
+  .i_data({Bus4_U10, Bus4_U44, Bus4_U45, Bus4_U75, Bus4_U91, Bus4_U99, Bus4_U201, i_bus[4]}),
+  .i_noe({U10_b_noe, U44_b_noe, U45_b_noe, U75_b_noe, U91_b_noe, U99_b_noe, U201_a_noe, i_busNOE}),
   .o_data(Bus4),
   .o_noe(Bus4_noe)
 );
 
 tristatenet #(
-  .INPUT_COUNT(7)
+  .INPUT_COUNT(8)
 ) inst_triBusBus3 (
-  .i_data({Bus3_U10, Bus3_U44, Bus3_U45, Bus3_U75, Bus3_U91, Bus3_U99, i_bus[3]}),
-  .i_noe({CTRLALUOE, CTRLREG0BUSOE, CTRLREG1BUSOE, CTRLMEMINSTROE, IO_0_RD, CTRLMEMPCTORAM, i_busNOE}),
+  .i_data({Bus3_U10, Bus3_U44, Bus3_U45, Bus3_U75, Bus3_U91, Bus3_U99, Bus3_U201, i_bus[3]}),
+  .i_noe({U10_b_noe, U44_b_noe, U45_b_noe, U75_b_noe, U91_b_noe, U99_b_noe, U201_a_noe, i_busNOE}),
   .o_data(Bus3),
   .o_noe(Bus3_noe)
 );
 
 tristatenet #(
-  .INPUT_COUNT(7)
+  .INPUT_COUNT(8)
 ) inst_triBusBus2 (
-  .i_data({Bus2_U10, Bus2_U44, Bus2_U45, Bus2_U75, Bus2_U91, Bus2_U99, i_bus[2]}),
-  .i_noe({CTRLALUOE, CTRLREG0BUSOE, CTRLREG1BUSOE, CTRLMEMINSTROE, IO_0_RD, CTRLMEMPCTORAM, i_busNOE}),
+  .i_data({Bus2_U10, Bus2_U44, Bus2_U45, Bus2_U75, Bus2_U91, Bus2_U99, Bus2_U201, i_bus[2]}),
+  .i_noe({U10_b_noe, U44_b_noe, U45_b_noe, U75_b_noe, U91_b_noe, U99_b_noe, U201_a_noe, i_busNOE}),
   .o_data(Bus2),
   .o_noe(Bus2_noe)
 );
 
 tristatenet #(
-  .INPUT_COUNT(7)
+  .INPUT_COUNT(8)
 ) inst_triBusBus1 (
-  .i_data({Bus1_U10, Bus1_U44, Bus1_U45, Bus1_U75, Bus1_U91, Bus1_U99, i_bus[1]}),
-  .i_noe({CTRLALUOE, CTRLREG0BUSOE, CTRLREG1BUSOE, CTRLMEMINSTROE, IO_0_RD, CTRLMEMPCTORAM, i_busNOE}),
+  .i_data({Bus1_U10, Bus1_U44, Bus1_U45, Bus1_U75, Bus1_U91, Bus1_U99, Bus1_U201, i_bus[1]}),
+  .i_noe({U10_b_noe, U44_b_noe, U45_b_noe, U75_b_noe, U91_b_noe, U99_b_noe, U201_a_noe, i_busNOE}),
   .o_data(Bus1),
   .o_noe(Bus1_noe)
 );
 
 tristatenet #(
-  .INPUT_COUNT(7)
+  .INPUT_COUNT(8)
 ) inst_triBusBus0 (
-  .i_data({Bus0_U10, Bus0_U44, Bus0_U45, Bus0_U75, Bus0_U91, Bus0_U99, i_bus[0]}),
-  .i_noe({CTRLALUOE, CTRLREG0BUSOE, CTRLREG1BUSOE, CTRLMEMINSTROE, IO_0_RD, CTRLMEMPCTORAM, i_busNOE}),
+  .i_data({Bus0_U10, Bus0_U44, Bus0_U45, Bus0_U75, Bus0_U91, Bus0_U99, Bus0_U201, i_bus[0]}),
+  .i_noe({U10_b_noe, U44_b_noe, U45_b_noe, U75_b_noe, U91_b_noe, U99_b_noe, U201_a_noe, i_busNOE}),
   .o_data(Bus0),
   .o_noe(Bus0_noe)
 );
@@ -1694,7 +1642,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusPCIN15 (
   .i_data({PCIN15_U49, PCIN15_U50}),
-  .i_noe({CTRLMEMPCFROMIMM, N664486}),
+  .i_noe({U49_b_noe, U50_b_noe}),
   .o_data(PCIN15),
   .o_noe(PCIN15_noe)
 );
@@ -1703,7 +1651,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusPCIN14 (
   .i_data({PCIN14_U49, PCIN14_U50}),
-  .i_noe({CTRLMEMPCFROMIMM, N664486}),
+  .i_noe({U49_b_noe, U50_b_noe}),
   .o_data(PCIN14),
   .o_noe(PCIN14_noe)
 );
@@ -1712,7 +1660,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusPCIN13 (
   .i_data({PCIN13_U49, PCIN13_U50}),
-  .i_noe({CTRLMEMPCFROMIMM, N664486}),
+  .i_noe({U49_b_noe, U50_b_noe}),
   .o_data(PCIN13),
   .o_noe(PCIN13_noe)
 );
@@ -1721,7 +1669,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusPCIN12 (
   .i_data({PCIN12_U49, PCIN12_U50}),
-  .i_noe({CTRLMEMPCFROMIMM, N664486}),
+  .i_noe({U49_b_noe, U50_b_noe}),
   .o_data(PCIN12),
   .o_noe(PCIN12_noe)
 );
@@ -1730,7 +1678,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusPCIN11 (
   .i_data({PCIN11_U49, PCIN11_U50}),
-  .i_noe({CTRLMEMPCFROMIMM, N664486}),
+  .i_noe({U49_b_noe, U50_b_noe}),
   .o_data(PCIN11),
   .o_noe(PCIN11_noe)
 );
@@ -1739,7 +1687,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusPCIN10 (
   .i_data({PCIN10_U49, PCIN10_U50}),
-  .i_noe({CTRLMEMPCFROMIMM, N664486}),
+  .i_noe({U49_b_noe, U50_b_noe}),
   .o_data(PCIN10),
   .o_noe(PCIN10_noe)
 );
@@ -1748,7 +1696,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusPCIN9 (
   .i_data({PCIN9_U49, PCIN9_U50}),
-  .i_noe({CTRLMEMPCFROMIMM, N664486}),
+  .i_noe({U49_b_noe, U50_b_noe}),
   .o_data(PCIN9),
   .o_noe(PCIN9_noe)
 );
@@ -1757,7 +1705,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusPCIN8 (
   .i_data({PCIN8_U49, PCIN8_U50}),
-  .i_noe({CTRLMEMPCFROMIMM, N664486}),
+  .i_noe({U49_b_noe, U50_b_noe}),
   .o_data(PCIN8),
   .o_noe(PCIN8_noe)
 );
@@ -1766,7 +1714,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusPCIN7 (
   .i_data({PCIN7_U51, PCIN7_U52}),
-  .i_noe({CTRLMEMPCFROMIMM, N664486}),
+  .i_noe({U51_b_noe, U52_b_noe}),
   .o_data(PCIN7),
   .o_noe(PCIN7_noe)
 );
@@ -1775,7 +1723,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusPCIN6 (
   .i_data({PCIN6_U51, PCIN6_U52}),
-  .i_noe({CTRLMEMPCFROMIMM, N664486}),
+  .i_noe({U51_b_noe, U52_b_noe}),
   .o_data(PCIN6),
   .o_noe(PCIN6_noe)
 );
@@ -1784,7 +1732,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusPCIN5 (
   .i_data({PCIN5_U51, PCIN5_U52}),
-  .i_noe({CTRLMEMPCFROMIMM, N664486}),
+  .i_noe({U51_b_noe, U52_b_noe}),
   .o_data(PCIN5),
   .o_noe(PCIN5_noe)
 );
@@ -1793,7 +1741,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusPCIN4 (
   .i_data({PCIN4_U51, PCIN4_U52}),
-  .i_noe({CTRLMEMPCFROMIMM, N664486}),
+  .i_noe({U51_b_noe, U52_b_noe}),
   .o_data(PCIN4),
   .o_noe(PCIN4_noe)
 );
@@ -1802,7 +1750,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusPCIN3 (
   .i_data({PCIN3_U51, PCIN3_U52}),
-  .i_noe({CTRLMEMPCFROMIMM, N664486}),
+  .i_noe({U51_b_noe, U52_b_noe}),
   .o_data(PCIN3),
   .o_noe(PCIN3_noe)
 );
@@ -1811,7 +1759,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusPCIN2 (
   .i_data({PCIN2_U51, PCIN2_U52}),
-  .i_noe({CTRLMEMPCFROMIMM, N664486}),
+  .i_noe({U51_b_noe, U52_b_noe}),
   .o_data(PCIN2),
   .o_noe(PCIN2_noe)
 );
@@ -1820,7 +1768,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusPCIN1 (
   .i_data({PCIN1_U51, PCIN1_U52}),
-  .i_noe({CTRLMEMPCFROMIMM, N664486}),
+  .i_noe({U51_b_noe, U52_b_noe}),
   .o_data(PCIN1),
   .o_noe(PCIN1_noe)
 );
@@ -1829,7 +1777,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusPCIN0 (
   .i_data({PCIN0_U51, PCIN0_U52}),
-  .i_noe({CTRLMEMPCFROMIMM, N664486}),
+  .i_noe({U51_b_noe, U52_b_noe}),
   .o_data(PCIN0),
   .o_noe(PCIN0_noe)
 );
@@ -1838,7 +1786,7 @@ tristatenet #(
   .INPUT_COUNT(3)
 ) inst_triBusRAMADDRESS15 (
   .i_data({RAMADDRESS15_U61, RAMADDRESS15_U66, RAMADDRESS15_U72}),
-  .i_noe({SELECTSTACKMEM, INSTRIMM1TORAM, MAR1TORAM}),
+  .i_noe({U61_b_noe, U66_b_noe, U72_b_noe}),
   .o_data(RAMADDRESS15),
   .o_noe(RAMADDRESS15_noe)
 );
@@ -1847,7 +1795,7 @@ tristatenet #(
   .INPUT_COUNT(3)
 ) inst_triBusRAMADDRESS14 (
   .i_data({RAMADDRESS14_U61, RAMADDRESS14_U66, RAMADDRESS14_U72}),
-  .i_noe({SELECTSTACKMEM, INSTRIMM1TORAM, MAR1TORAM}),
+  .i_noe({U61_b_noe, U66_b_noe, U72_b_noe}),
   .o_data(RAMADDRESS14),
   .o_noe(RAMADDRESS14_noe)
 );
@@ -1856,7 +1804,7 @@ tristatenet #(
   .INPUT_COUNT(3)
 ) inst_triBusRAMADDRESS13 (
   .i_data({RAMADDRESS13_U61, RAMADDRESS13_U66, RAMADDRESS13_U72}),
-  .i_noe({SELECTSTACKMEM, INSTRIMM1TORAM, MAR1TORAM}),
+  .i_noe({U61_b_noe, U66_b_noe, U72_b_noe}),
   .o_data(RAMADDRESS13),
   .o_noe(RAMADDRESS13_noe)
 );
@@ -1865,7 +1813,7 @@ tristatenet #(
   .INPUT_COUNT(3)
 ) inst_triBusRAMADDRESS12 (
   .i_data({RAMADDRESS12_U61, RAMADDRESS12_U66, RAMADDRESS12_U72}),
-  .i_noe({SELECTSTACKMEM, INSTRIMM1TORAM, MAR1TORAM}),
+  .i_noe({U61_b_noe, U66_b_noe, U72_b_noe}),
   .o_data(RAMADDRESS12),
   .o_noe(RAMADDRESS12_noe)
 );
@@ -1874,7 +1822,7 @@ tristatenet #(
   .INPUT_COUNT(3)
 ) inst_triBusRAMADDRESS11 (
   .i_data({RAMADDRESS11_U61, RAMADDRESS11_U66, RAMADDRESS11_U72}),
-  .i_noe({SELECTSTACKMEM, INSTRIMM1TORAM, MAR1TORAM}),
+  .i_noe({U61_b_noe, U66_b_noe, U72_b_noe}),
   .o_data(RAMADDRESS11),
   .o_noe(RAMADDRESS11_noe)
 );
@@ -1883,7 +1831,7 @@ tristatenet #(
   .INPUT_COUNT(3)
 ) inst_triBusRAMADDRESS10 (
   .i_data({RAMADDRESS10_U61, RAMADDRESS10_U66, RAMADDRESS10_U72}),
-  .i_noe({SELECTSTACKMEM, INSTRIMM1TORAM, MAR1TORAM}),
+  .i_noe({U61_b_noe, U66_b_noe, U72_b_noe}),
   .o_data(RAMADDRESS10),
   .o_noe(RAMADDRESS10_noe)
 );
@@ -1892,7 +1840,7 @@ tristatenet #(
   .INPUT_COUNT(3)
 ) inst_triBusRAMADDRESS9 (
   .i_data({RAMADDRESS9_U61, RAMADDRESS9_U66, RAMADDRESS9_U72}),
-  .i_noe({SELECTSTACKMEM, INSTRIMM1TORAM, MAR1TORAM}),
+  .i_noe({U61_b_noe, U66_b_noe, U72_b_noe}),
   .o_data(RAMADDRESS9),
   .o_noe(RAMADDRESS9_noe)
 );
@@ -1901,7 +1849,7 @@ tristatenet #(
   .INPUT_COUNT(3)
 ) inst_triBusRAMADDRESS8 (
   .i_data({RAMADDRESS8_U61, RAMADDRESS8_U66, RAMADDRESS8_U72}),
-  .i_noe({SELECTSTACKMEM, INSTRIMM1TORAM, MAR1TORAM}),
+  .i_noe({U61_b_noe, U66_b_noe, U72_b_noe}),
   .o_data(RAMADDRESS8),
   .o_noe(RAMADDRESS8_noe)
 );
@@ -1910,7 +1858,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusRAMADDRESS0 (
   .i_data({RAMADDRESS0_U63, RAMADDRESS0_U65}),
-  .i_noe({U63_noe, INSTRIMM1SELECT}),
+  .i_noe({U63_noe, U65_b_noe}),
   .o_data(RAMADDRESS0),
   .o_noe(RAMADDRESS0_noe)
 );
@@ -1919,7 +1867,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusRAMADDRESS1 (
   .i_data({RAMADDRESS1_U63, RAMADDRESS1_U65}),
-  .i_noe({U63_noe, INSTRIMM1SELECT}),
+  .i_noe({U63_noe, U65_b_noe}),
   .o_data(RAMADDRESS1),
   .o_noe(RAMADDRESS1_noe)
 );
@@ -1928,7 +1876,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusRAMADDRESS2 (
   .i_data({RAMADDRESS2_U63, RAMADDRESS2_U65}),
-  .i_noe({U63_noe, INSTRIMM1SELECT}),
+  .i_noe({U63_noe, U65_b_noe}),
   .o_data(RAMADDRESS2),
   .o_noe(RAMADDRESS2_noe)
 );
@@ -1937,7 +1885,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusRAMADDRESS3 (
   .i_data({RAMADDRESS3_U63, RAMADDRESS3_U65}),
-  .i_noe({U63_noe, INSTRIMM1SELECT}),
+  .i_noe({U63_noe, U65_b_noe}),
   .o_data(RAMADDRESS3),
   .o_noe(RAMADDRESS3_noe)
 );
@@ -1946,7 +1894,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusRAMADDRESS4 (
   .i_data({RAMADDRESS4_U63, RAMADDRESS4_U65}),
-  .i_noe({U63_noe, INSTRIMM1SELECT}),
+  .i_noe({U63_noe, U65_b_noe}),
   .o_data(RAMADDRESS4),
   .o_noe(RAMADDRESS4_noe)
 );
@@ -1955,7 +1903,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusRAMADDRESS5 (
   .i_data({RAMADDRESS5_U63, RAMADDRESS5_U65}),
-  .i_noe({U63_noe, INSTRIMM1SELECT}),
+  .i_noe({U63_noe, U65_b_noe}),
   .o_data(RAMADDRESS5),
   .o_noe(RAMADDRESS5_noe)
 );
@@ -1964,7 +1912,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusRAMADDRESS6 (
   .i_data({RAMADDRESS6_U63, RAMADDRESS6_U65}),
-  .i_noe({U63_noe, INSTRIMM1SELECT}),
+  .i_noe({U63_noe, U65_b_noe}),
   .o_data(RAMADDRESS6),
   .o_noe(RAMADDRESS6_noe)
 );
@@ -1973,7 +1921,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusRAMADDRESS7 (
   .i_data({RAMADDRESS7_U63, RAMADDRESS7_U65}),
-  .i_noe({U63_noe, INSTRIMM1SELECT}),
+  .i_noe({U63_noe, U65_b_noe}),
   .o_data(RAMADDRESS7),
   .o_noe(RAMADDRESS7_noe)
 );
@@ -2270,7 +2218,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusSELECT7 (
   .i_data({SELECT7_U73, SELECT7_U74}),
-  .i_noe({CTRLMEMINSTRIMMTORAMADDR, INSTRIMM1SELECT}),
+  .i_noe({U73_b_noe, U74_b_noe}),
   .o_data(SELECT7),
   .o_noe(SELECT7_noe)
 );
@@ -2279,7 +2227,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusSELECT6 (
   .i_data({SELECT6_U73, SELECT6_U74}),
-  .i_noe({CTRLMEMINSTRIMMTORAMADDR, INSTRIMM1SELECT}),
+  .i_noe({U73_b_noe, U74_b_noe}),
   .o_data(SELECT6),
   .o_noe(SELECT6_noe)
 );
@@ -2288,7 +2236,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusSELECT5 (
   .i_data({SELECT5_U73, SELECT5_U74}),
-  .i_noe({CTRLMEMINSTRIMMTORAMADDR, INSTRIMM1SELECT}),
+  .i_noe({U73_b_noe, U74_b_noe}),
   .o_data(SELECT5),
   .o_noe(SELECT5_noe)
 );
@@ -2297,7 +2245,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusSELECT4 (
   .i_data({SELECT4_U73, SELECT4_U74}),
-  .i_noe({CTRLMEMINSTRIMMTORAMADDR, INSTRIMM1SELECT}),
+  .i_noe({U73_b_noe, U74_b_noe}),
   .o_data(SELECT4),
   .o_noe(SELECT4_noe)
 );
@@ -2306,7 +2254,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusSELECT3 (
   .i_data({SELECT3_U73, SELECT3_U74}),
-  .i_noe({CTRLMEMINSTRIMMTORAMADDR, INSTRIMM1SELECT}),
+  .i_noe({U73_b_noe, U74_b_noe}),
   .o_data(SELECT3),
   .o_noe(SELECT3_noe)
 );
@@ -2315,7 +2263,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusSELECT2 (
   .i_data({SELECT2_U73, SELECT2_U74}),
-  .i_noe({CTRLMEMINSTRIMMTORAMADDR, INSTRIMM1SELECT}),
+  .i_noe({U73_b_noe, U74_b_noe}),
   .o_data(SELECT2),
   .o_noe(SELECT2_noe)
 );
@@ -2324,7 +2272,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusSELECT1 (
   .i_data({SELECT1_U73, SELECT1_U74}),
-  .i_noe({CTRLMEMINSTRIMMTORAMADDR, INSTRIMM1SELECT}),
+  .i_noe({U73_b_noe, U74_b_noe}),
   .o_data(SELECT1),
   .o_noe(SELECT1_noe)
 );
@@ -2333,7 +2281,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusSELECT0 (
   .i_data({SELECT0_U73, SELECT0_U74}),
-  .i_noe({CTRLMEMINSTRIMMTORAMADDR, INSTRIMM1SELECT}),
+  .i_noe({U73_b_noe, U74_b_noe}),
   .o_data(SELECT0),
   .o_noe(SELECT0_noe)
 );
@@ -2342,7 +2290,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusBUS_BUF0 (
   .i_data({BUS_BUF0_U77, BUS_BUF0_U201}),
-  .i_noe({U77_noe, L2}),
+  .i_noe({U77_noe, U201_b_noe}),
   .o_data(BUS_BUF0),
   .o_noe(BUS_BUF0_noe)
 );
@@ -2351,7 +2299,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusBUS_BUF1 (
   .i_data({BUS_BUF1_U77, BUS_BUF1_U201}),
-  .i_noe({U77_noe, L2}),
+  .i_noe({U77_noe, U201_b_noe}),
   .o_data(BUS_BUF1),
   .o_noe(BUS_BUF1_noe)
 );
@@ -2360,7 +2308,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusBUS_BUF2 (
   .i_data({BUS_BUF2_U77, BUS_BUF2_U201}),
-  .i_noe({U77_noe, L2}),
+  .i_noe({U77_noe, U201_b_noe}),
   .o_data(BUS_BUF2),
   .o_noe(BUS_BUF2_noe)
 );
@@ -2369,7 +2317,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusBUS_BUF3 (
   .i_data({BUS_BUF3_U77, BUS_BUF3_U201}),
-  .i_noe({U77_noe, L2}),
+  .i_noe({U77_noe, U201_b_noe}),
   .o_data(BUS_BUF3),
   .o_noe(BUS_BUF3_noe)
 );
@@ -2378,7 +2326,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusBUS_BUF4 (
   .i_data({BUS_BUF4_U77, BUS_BUF4_U201}),
-  .i_noe({U77_noe, L2}),
+  .i_noe({U77_noe, U201_b_noe}),
   .o_data(BUS_BUF4),
   .o_noe(BUS_BUF4_noe)
 );
@@ -2387,7 +2335,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusBUS_BUF5 (
   .i_data({BUS_BUF5_U77, BUS_BUF5_U201}),
-  .i_noe({U77_noe, L2}),
+  .i_noe({U77_noe, U201_b_noe}),
   .o_data(BUS_BUF5),
   .o_noe(BUS_BUF5_noe)
 );
@@ -2396,7 +2344,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusBUS_BUF6 (
   .i_data({BUS_BUF6_U77, BUS_BUF6_U201}),
-  .i_noe({U77_noe, L2}),
+  .i_noe({U77_noe, U201_b_noe}),
   .o_data(BUS_BUF6),
   .o_noe(BUS_BUF6_noe)
 );
@@ -2405,7 +2353,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusBUS_BUF7 (
   .i_data({BUS_BUF7_U77, BUS_BUF7_U201}),
-  .i_noe({U77_noe, L2}),
+  .i_noe({U77_noe, U201_b_noe}),
   .o_data(BUS_BUF7),
   .o_noe(BUS_BUF7_noe)
 );
@@ -2486,25 +2434,25 @@ tristatenet #(
   .INPUT_COUNT(1)
 ) inst_triBusRESET1 (
   .i_data({RESET1_U95}),
-  .i_noe({L3}),
+  .i_noe({U95_b_noe}),
   .o_data(RESET1),
   .o_noe(RESET1_noe)
 );
 
 tristatenet #(
   .INPUT_COUNT(1)
-) inst_triBusN17645870 (
-  .i_data({N17645870_U95}),
-  .i_noe({L3}),
-  .o_data(N17645870),
-  .o_noe(N17645870_noe)
+) inst_triBusCLK1 (
+  .i_data({CLK1_U95}),
+  .i_noe({U95_b_noe}),
+  .o_data(CLK1),
+  .o_noe(CLK1_noe)
 );
 
 tristatenet #(
   .INPUT_COUNT(1)
 ) inst_triBusN17649455 (
   .i_data({N17649455_U95}),
-  .i_noe({L3}),
+  .i_noe({U95_b_noe}),
   .o_data(N17649455),
   .o_noe(N17649455_noe)
 );
@@ -2513,7 +2461,7 @@ tristatenet #(
   .INPUT_COUNT(1)
 ) inst_triBusN17647680 (
   .i_data({N17647680_U95}),
-  .i_noe({L3}),
+  .i_noe({U95_b_noe}),
   .o_data(N17647680),
   .o_noe(N17647680_noe)
 );
@@ -2522,7 +2470,7 @@ tristatenet #(
   .INPUT_COUNT(1)
 ) inst_triBusN17646046 (
   .i_data({N17646046_U95}),
-  .i_noe({L3}),
+  .i_noe({U95_b_noe}),
   .o_data(N17646046),
   .o_noe(N17646046_noe)
 );
@@ -2531,7 +2479,7 @@ tristatenet #(
   .INPUT_COUNT(1)
 ) inst_triBusN17642095 (
   .i_data({N17642095_U95}),
-  .i_noe({L3}),
+  .i_noe({U95_b_noe}),
   .o_data(N17642095),
   .o_noe(N17642095_noe)
 );
@@ -2540,7 +2488,7 @@ tristatenet #(
   .INPUT_COUNT(1)
 ) inst_triBusN17643531 (
   .i_data({N17643531_U95}),
-  .i_noe({L3}),
+  .i_noe({U95_b_noe}),
   .o_data(N17643531),
   .o_noe(N17643531_noe)
 );
@@ -2549,7 +2497,7 @@ tristatenet #(
   .INPUT_COUNT(1)
 ) inst_triBusN17646477 (
   .i_data({N17646477_U95}),
-  .i_noe({L3}),
+  .i_noe({U95_b_noe}),
   .o_data(N17646477),
   .o_noe(N17646477_noe)
 );
@@ -2627,73 +2575,73 @@ tristatenet #(
 );
 
 tristatenet #(
-  .INPUT_COUNT(1)
+  .INPUT_COUNT(2)
 ) inst_triBusRAM2DATA7 (
-  .i_data({RAM2DATA7_U98}),
-  .i_noe({CTRLMEMPCTORAM}),
+  .i_data({RAM2DATA7_U98, RAM2DATA7_U205}),
+  .i_noe({U98_b_noe, U205_a_noe}),
   .o_data(RAM2DATA7),
   .o_noe(RAM2DATA7_noe)
 );
 
 tristatenet #(
-  .INPUT_COUNT(1)
+  .INPUT_COUNT(2)
 ) inst_triBusRAM2DATA6 (
-  .i_data({RAM2DATA6_U98}),
-  .i_noe({CTRLMEMPCTORAM}),
+  .i_data({RAM2DATA6_U98, RAM2DATA6_U205}),
+  .i_noe({U98_b_noe, U205_a_noe}),
   .o_data(RAM2DATA6),
   .o_noe(RAM2DATA6_noe)
 );
 
 tristatenet #(
-  .INPUT_COUNT(1)
+  .INPUT_COUNT(2)
 ) inst_triBusRAM2DATA5 (
-  .i_data({RAM2DATA5_U98}),
-  .i_noe({CTRLMEMPCTORAM}),
+  .i_data({RAM2DATA5_U98, RAM2DATA5_U205}),
+  .i_noe({U98_b_noe, U205_a_noe}),
   .o_data(RAM2DATA5),
   .o_noe(RAM2DATA5_noe)
 );
 
 tristatenet #(
-  .INPUT_COUNT(1)
+  .INPUT_COUNT(2)
 ) inst_triBusRAM2DATA4 (
-  .i_data({RAM2DATA4_U98}),
-  .i_noe({CTRLMEMPCTORAM}),
+  .i_data({RAM2DATA4_U98, RAM2DATA4_U205}),
+  .i_noe({U98_b_noe, U205_a_noe}),
   .o_data(RAM2DATA4),
   .o_noe(RAM2DATA4_noe)
 );
 
 tristatenet #(
-  .INPUT_COUNT(1)
+  .INPUT_COUNT(2)
 ) inst_triBusRAM2DATA3 (
-  .i_data({RAM2DATA3_U98}),
-  .i_noe({CTRLMEMPCTORAM}),
+  .i_data({RAM2DATA3_U98, RAM2DATA3_U205}),
+  .i_noe({U98_b_noe, U205_a_noe}),
   .o_data(RAM2DATA3),
   .o_noe(RAM2DATA3_noe)
 );
 
 tristatenet #(
-  .INPUT_COUNT(1)
+  .INPUT_COUNT(2)
 ) inst_triBusRAM2DATA2 (
-  .i_data({RAM2DATA2_U98}),
-  .i_noe({CTRLMEMPCTORAM}),
+  .i_data({RAM2DATA2_U98, RAM2DATA2_U205}),
+  .i_noe({U98_b_noe, U205_a_noe}),
   .o_data(RAM2DATA2),
   .o_noe(RAM2DATA2_noe)
 );
 
 tristatenet #(
-  .INPUT_COUNT(1)
+  .INPUT_COUNT(2)
 ) inst_triBusRAM2DATA1 (
-  .i_data({RAM2DATA1_U98}),
-  .i_noe({CTRLMEMPCTORAM}),
+  .i_data({RAM2DATA1_U98, RAM2DATA1_U205}),
+  .i_noe({U98_b_noe, U205_a_noe}),
   .o_data(RAM2DATA1),
   .o_noe(RAM2DATA1_noe)
 );
 
 tristatenet #(
-  .INPUT_COUNT(1)
+  .INPUT_COUNT(2)
 ) inst_triBusRAM2DATA0 (
-  .i_data({RAM2DATA0_U98}),
-  .i_noe({CTRLMEMPCTORAM}),
+  .i_data({RAM2DATA0_U98, RAM2DATA0_U205}),
+  .i_noe({U98_b_noe, U205_a_noe}),
   .o_data(RAM2DATA0),
   .o_noe(RAM2DATA0_noe)
 );
@@ -2702,7 +2650,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusRAM2D0 (
   .i_data({RAM2D0_U100, RAM2D0_U205}),
-  .i_noe({U100_noe, L2}),
+  .i_noe({U100_noe, U205_b_noe}),
   .o_data(RAM2D0),
   .o_noe(RAM2D0_noe)
 );
@@ -2711,7 +2659,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusRAM2D1 (
   .i_data({RAM2D1_U100, RAM2D1_U205}),
-  .i_noe({U100_noe, L2}),
+  .i_noe({U100_noe, U205_b_noe}),
   .o_data(RAM2D1),
   .o_noe(RAM2D1_noe)
 );
@@ -2720,7 +2668,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusRAM2D2 (
   .i_data({RAM2D2_U100, RAM2D2_U205}),
-  .i_noe({U100_noe, L2}),
+  .i_noe({U100_noe, U205_b_noe}),
   .o_data(RAM2D2),
   .o_noe(RAM2D2_noe)
 );
@@ -2729,7 +2677,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusRAM2D3 (
   .i_data({RAM2D3_U100, RAM2D3_U205}),
-  .i_noe({U100_noe, L2}),
+  .i_noe({U100_noe, U205_b_noe}),
   .o_data(RAM2D3),
   .o_noe(RAM2D3_noe)
 );
@@ -2738,7 +2686,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusRAM2D4 (
   .i_data({RAM2D4_U100, RAM2D4_U205}),
-  .i_noe({U100_noe, L2}),
+  .i_noe({U100_noe, U205_b_noe}),
   .o_data(RAM2D4),
   .o_noe(RAM2D4_noe)
 );
@@ -2747,7 +2695,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusRAM2D5 (
   .i_data({RAM2D5_U100, RAM2D5_U205}),
-  .i_noe({U100_noe, L2}),
+  .i_noe({U100_noe, U205_b_noe}),
   .o_data(RAM2D5),
   .o_noe(RAM2D5_noe)
 );
@@ -2756,7 +2704,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusRAM2D6 (
   .i_data({RAM2D6_U100, RAM2D6_U205}),
-  .i_noe({U100_noe, L2}),
+  .i_noe({U100_noe, U205_b_noe}),
   .o_data(RAM2D6),
   .o_noe(RAM2D6_noe)
 );
@@ -2765,7 +2713,7 @@ tristatenet #(
   .INPUT_COUNT(2)
 ) inst_triBusRAM2D7 (
   .i_data({RAM2D7_U100, RAM2D7_U205}),
-  .i_noe({U100_noe, L2}),
+  .i_noe({U100_noe, U205_b_noe}),
   .o_data(RAM2D7),
   .o_noe(RAM2D7_noe)
 );
@@ -2774,7 +2722,7 @@ tristatenet #(
   .INPUT_COUNT(1)
 ) inst_triBusRAMADDRESS_BUF7 (
   .i_data({RAMADDRESS_BUF7_U202}),
-  .i_noe({L2}),
+  .i_noe({U202_b_noe}),
   .o_data(RAMADDRESS_BUF7),
   .o_noe(RAMADDRESS_BUF7_noe)
 );
@@ -2783,7 +2731,7 @@ tristatenet #(
   .INPUT_COUNT(1)
 ) inst_triBusRAMADDRESS_BUF6 (
   .i_data({RAMADDRESS_BUF6_U202}),
-  .i_noe({L2}),
+  .i_noe({U202_b_noe}),
   .o_data(RAMADDRESS_BUF6),
   .o_noe(RAMADDRESS_BUF6_noe)
 );
@@ -2792,7 +2740,7 @@ tristatenet #(
   .INPUT_COUNT(1)
 ) inst_triBusRAMADDRESS_BUF5 (
   .i_data({RAMADDRESS_BUF5_U202}),
-  .i_noe({L2}),
+  .i_noe({U202_b_noe}),
   .o_data(RAMADDRESS_BUF5),
   .o_noe(RAMADDRESS_BUF5_noe)
 );
@@ -2801,7 +2749,7 @@ tristatenet #(
   .INPUT_COUNT(1)
 ) inst_triBusRAMADDRESS_BUF4 (
   .i_data({RAMADDRESS_BUF4_U202}),
-  .i_noe({L2}),
+  .i_noe({U202_b_noe}),
   .o_data(RAMADDRESS_BUF4),
   .o_noe(RAMADDRESS_BUF4_noe)
 );
@@ -2810,7 +2758,7 @@ tristatenet #(
   .INPUT_COUNT(1)
 ) inst_triBusRAMADDRESS_BUF3 (
   .i_data({RAMADDRESS_BUF3_U202}),
-  .i_noe({L2}),
+  .i_noe({U202_b_noe}),
   .o_data(RAMADDRESS_BUF3),
   .o_noe(RAMADDRESS_BUF3_noe)
 );
@@ -2819,7 +2767,7 @@ tristatenet #(
   .INPUT_COUNT(1)
 ) inst_triBusRAMADDRESS_BUF2 (
   .i_data({RAMADDRESS_BUF2_U202}),
-  .i_noe({L2}),
+  .i_noe({U202_b_noe}),
   .o_data(RAMADDRESS_BUF2),
   .o_noe(RAMADDRESS_BUF2_noe)
 );
@@ -2828,7 +2776,7 @@ tristatenet #(
   .INPUT_COUNT(1)
 ) inst_triBusRAMADDRESS_BUF1 (
   .i_data({RAMADDRESS_BUF1_U202}),
-  .i_noe({L2}),
+  .i_noe({U202_b_noe}),
   .o_data(RAMADDRESS_BUF1),
   .o_noe(RAMADDRESS_BUF1_noe)
 );
@@ -2837,7 +2785,7 @@ tristatenet #(
   .INPUT_COUNT(1)
 ) inst_triBusRAMADDRESS_BUF0 (
   .i_data({RAMADDRESS_BUF0_U202}),
-  .i_noe({L2}),
+  .i_noe({U202_b_noe}),
   .o_data(RAMADDRESS_BUF0),
   .o_noe(RAMADDRESS_BUF0_noe)
 );
@@ -2846,7 +2794,7 @@ tristatenet #(
   .INPUT_COUNT(1)
 ) inst_triBusRAMADDRESS_BUF15 (
   .i_data({RAMADDRESS_BUF15_U203}),
-  .i_noe({L2}),
+  .i_noe({U203_b_noe}),
   .o_data(RAMADDRESS_BUF15),
   .o_noe(RAMADDRESS_BUF15_noe)
 );
@@ -2855,7 +2803,7 @@ tristatenet #(
   .INPUT_COUNT(1)
 ) inst_triBusRAMADDRESS_BUF14 (
   .i_data({RAMADDRESS_BUF14_U203}),
-  .i_noe({L2}),
+  .i_noe({U203_b_noe}),
   .o_data(RAMADDRESS_BUF14),
   .o_noe(RAMADDRESS_BUF14_noe)
 );
@@ -2864,7 +2812,7 @@ tristatenet #(
   .INPUT_COUNT(1)
 ) inst_triBusRAMADDRESS_BUF13 (
   .i_data({RAMADDRESS_BUF13_U203}),
-  .i_noe({L2}),
+  .i_noe({U203_b_noe}),
   .o_data(RAMADDRESS_BUF13),
   .o_noe(RAMADDRESS_BUF13_noe)
 );
@@ -2873,7 +2821,7 @@ tristatenet #(
   .INPUT_COUNT(1)
 ) inst_triBusRAMADDRESS_BUF12 (
   .i_data({RAMADDRESS_BUF12_U203}),
-  .i_noe({L2}),
+  .i_noe({U203_b_noe}),
   .o_data(RAMADDRESS_BUF12),
   .o_noe(RAMADDRESS_BUF12_noe)
 );
@@ -2882,7 +2830,7 @@ tristatenet #(
   .INPUT_COUNT(1)
 ) inst_triBusRAMADDRESS_BUF11 (
   .i_data({RAMADDRESS_BUF11_U203}),
-  .i_noe({L2}),
+  .i_noe({U203_b_noe}),
   .o_data(RAMADDRESS_BUF11),
   .o_noe(RAMADDRESS_BUF11_noe)
 );
@@ -2891,7 +2839,7 @@ tristatenet #(
   .INPUT_COUNT(1)
 ) inst_triBusRAMADDRESS_BUF10 (
   .i_data({RAMADDRESS_BUF10_U203}),
-  .i_noe({L2}),
+  .i_noe({U203_b_noe}),
   .o_data(RAMADDRESS_BUF10),
   .o_noe(RAMADDRESS_BUF10_noe)
 );
@@ -2900,7 +2848,7 @@ tristatenet #(
   .INPUT_COUNT(1)
 ) inst_triBusRAMADDRESS_BUF9 (
   .i_data({RAMADDRESS_BUF9_U203}),
-  .i_noe({L2}),
+  .i_noe({U203_b_noe}),
   .o_data(RAMADDRESS_BUF9),
   .o_noe(RAMADDRESS_BUF9_noe)
 );
@@ -2909,7 +2857,7 @@ tristatenet #(
   .INPUT_COUNT(1)
 ) inst_triBusRAMADDRESS_BUF8 (
   .i_data({RAMADDRESS_BUF8_U203}),
-  .i_noe({L2}),
+  .i_noe({U203_b_noe}),
   .o_data(RAMADDRESS_BUF8),
   .o_noe(RAMADDRESS_BUF8_noe)
 );
@@ -2918,25 +2866,25 @@ tristatenet #(
   .INPUT_COUNT(1)
 ) inst_triBusRESET_BUF (
   .i_data({RESET_BUF_U204}),
-  .i_noe({L2}),
+  .i_noe({U204_b_noe}),
   .o_data(RESET_BUF),
   .o_noe(RESET_BUF_noe)
 );
 
 tristatenet #(
   .INPUT_COUNT(1)
-) inst_triBusN16745554 (
-  .i_data({N16745554_U204}),
-  .i_noe({L2}),
-  .o_data(N16745554),
-  .o_noe(N16745554_noe)
+) inst_triBusCLK_BUF (
+  .i_data({CLK_BUF_U204}),
+  .i_noe({U204_b_noe}),
+  .o_data(CLK_BUF),
+  .o_noe(CLK_BUF_noe)
 );
 
 tristatenet #(
   .INPUT_COUNT(1)
 ) inst_triBusIOCE_BUF (
   .i_data({IOCE_BUF_U204}),
-  .i_noe({L2}),
+  .i_noe({U204_b_noe}),
   .o_data(IOCE_BUF),
   .o_noe(IOCE_BUF_noe)
 );
@@ -2945,7 +2893,7 @@ tristatenet #(
   .INPUT_COUNT(1)
 ) inst_triBusRAMCE_BUF (
   .i_data({RAMCE_BUF_U204}),
-  .i_noe({L2}),
+  .i_noe({U204_b_noe}),
   .o_data(RAMCE_BUF),
   .o_noe(RAMCE_BUF_noe)
 );
@@ -2954,7 +2902,7 @@ tristatenet #(
   .INPUT_COUNT(1)
 ) inst_triBusSELECTSTACKMEM_BUF (
   .i_data({SELECTSTACKMEM_BUF_U204}),
-  .i_noe({L2}),
+  .i_noe({U204_b_noe}),
   .o_data(SELECTSTACKMEM_BUF),
   .o_noe(SELECTSTACKMEM_BUF_noe)
 );
@@ -2963,7 +2911,7 @@ tristatenet #(
   .INPUT_COUNT(1)
 ) inst_triBusCTRLMEMRAMWE_BUF (
   .i_data({CTRLMEMRAMWE_BUF_U204}),
-  .i_noe({L2}),
+  .i_noe({U204_b_noe}),
   .o_data(CTRLMEMRAMWE_BUF),
   .o_noe(CTRLMEMRAMWE_BUF_noe)
 );
@@ -2972,7 +2920,7 @@ tristatenet #(
   .INPUT_COUNT(1)
 ) inst_triBusCTRLMEMRAMOE_BUF (
   .i_data({CTRLMEMRAMOE_BUF_U204}),
-  .i_noe({L2}),
+  .i_noe({U204_b_noe}),
   .o_data(CTRLMEMRAMOE_BUF),
   .o_noe(CTRLMEMRAMOE_BUF_noe)
 );
@@ -2981,14 +2929,13 @@ tristatenet #(
   .INPUT_COUNT(1)
 ) inst_triBusN16843220 (
   .i_data({N16843220_U204}),
-  .i_noe({L2}),
+  .i_noe({U204_b_noe}),
   .o_data(N16843220),
   .o_noe(N16843220_noe)
 );
 
 
 icBerg40 inst_JT1 (
-  .port0(unconnected_JT1_0),
   .port1(1'b0),
   .port2(1'b0),
   .port3(1'b0),
@@ -3032,7 +2979,6 @@ icBerg40 inst_JT1 (
 );
 
 icBerg26 inst_JT2 (
-  .port0(unconnected_JT2_0),
   .port1(1'b0),
   .port2(1'b0),
   .port3(1'b0),
@@ -3062,7 +3008,6 @@ icBerg26 inst_JT2 (
 );
 
 icBerg10 inst_JT4 (
-  .port0(unconnected_JT4_0),
   .port1(1'b0),
   .port2(1'b0),
   .port3(IOCE_SRC),
@@ -3076,7 +3021,6 @@ icBerg10 inst_JT4 (
 );
 
 icBerg40 inst_JT5 (
-  .port0(unconnected_JT5_0),
   .port1(1'b0),
   .port2(1'b0),
   .port3(1'b0),
@@ -3120,7 +3064,6 @@ icBerg40 inst_JT5 (
 );
 
 icBerg26 inst_JT6 (
-  .port0(unconnected_JT6_0),
   .port1(1'b0),
   .port2(1'b0),
   .port3(1'b0),
@@ -3150,21 +3093,19 @@ icBerg26 inst_JT6 (
 );
 
 icBerg10 inst_JT7 (
-  .port0(unconnected_JT7_0),
   .port1(1'b0),
-  .port2(1'b0),
+  .port2(),
   .port3(CLK_UNBUF_SRC),
-  .port4(CLK_UNBUF),
+  .port4(),
   .port5(1'b0),
-  .port6(1'b0),
+  .port6(),
   .port7(HALT_SRC),
   .port8(HALT),
   .port9(1'b0),
-  .port10(1'b0)
+  .port10()
 );
 
 icBerg40 inst_JT8 (
-  .port0(unconnected_JT8_0),
   .port1(1'b0),
   .port2(1'b0),
   .port3(1'b0),
@@ -3208,7 +3149,6 @@ icBerg40 inst_JT8 (
 );
 
 icBerg26 inst_JT9 (
-  .port0(unconnected_JT9_0),
   .port1(1'b0),
   .port2(1'b0),
   .port3(1'b0),
@@ -3226,13 +3166,12 @@ icBerg26 inst_JT9 (
   .port15(unconnected_JT9_15),
   .port16(unconnected_JT9_16),
   .port17(1'b0),
-  .port18(1'b0),
+  .port18(),
   .port19(1'b0),
-  .port20(1'b0)
+  .port20()
 );
 
 ic74x540 inst_U1 (
-  .port0(unconnected_U1_0),
   .port1(L1),
   .port2(Bus0),
   .port3(Bus1),
@@ -3256,7 +3195,6 @@ ic74x540 inst_U1 (
 );
 
 ic74x86 inst_U2 (
-  .port0(unconnected_U2_0),
   .port1(Bus0),
   .port2(CTRLALUSUB),
   .port3(N16503574),
@@ -3274,7 +3212,6 @@ ic74x86 inst_U2 (
 );
 
 ic74x86 inst_U3 (
-  .port0(unconnected_U3_0),
   .port1(Bus4),
   .port2(CTRLALUSUB),
   .port3(N16512311),
@@ -3292,7 +3229,6 @@ ic74x86 inst_U3 (
 );
 
 ic74x153 inst_U5 (
-  .port0(unconnected_U5_0),
   .port1(L4),
   .port2(CTRLALUOP1),
   .port3(SHIFT0),
@@ -3312,7 +3248,6 @@ ic74x153 inst_U5 (
 );
 
 ic74x153 inst_U6 (
-  .port0(unconnected_U6_0),
   .port1(L4),
   .port2(CTRLALUOP1),
   .port3(SHIFT2),
@@ -3332,7 +3267,6 @@ ic74x153 inst_U6 (
 );
 
 ic74x153 inst_U7 (
-  .port0(unconnected_U7_0),
   .port1(L4),
   .port2(CTRLALUOP1),
   .port3(SHIFT4),
@@ -3352,7 +3286,6 @@ ic74x153 inst_U7 (
 );
 
 ic74x153 inst_U8 (
-  .port0(unconnected_U8_0),
   .port1(L4),
   .port2(CTRLALUOP1),
   .port3(SHIFT6),
@@ -3372,7 +3305,6 @@ ic74x153 inst_U8 (
 );
 
 ic74x825 inst_U9 (
-  .port0(unconnected_U9_0),
   .port1(L4),
   .port2(L4),
   .port3(ALU_OUT0),
@@ -3401,16 +3333,15 @@ ic74x825 inst_U9 (
 );
 
 ic74x245 inst_U10 (
-  .port0(unconnected_U10_0),
   .port1(H4),
-  .port2(ALU_OUT_REG0),
-  .port3(ALU_OUT_REG1),
-  .port4(ALU_OUT_REG2),
-  .port5(ALU_OUT_REG3),
-  .port6(ALU_OUT_REG4),
-  .port7(ALU_OUT_REG5),
-  .port8(ALU_OUT_REG6),
-  .port9(ALU_OUT_REG7),
+  .port102(ALU_OUT_REG0),
+  .port103(ALU_OUT_REG1),
+  .port104(ALU_OUT_REG2),
+  .port105(ALU_OUT_REG3),
+  .port106(ALU_OUT_REG4),
+  .port107(ALU_OUT_REG5),
+  .port108(ALU_OUT_REG6),
+  .port109(ALU_OUT_REG7),
   .port10(1'b0),
   .port11(Bus7_U10),
   .port12(Bus6_U10),
@@ -3421,11 +3352,20 @@ ic74x245 inst_U10 (
   .port17(Bus1_U10),
   .port18(Bus0_U10),
   .port19(CTRLALUOE),
-  .port20(VCC)
+  .port20(VCC),
+  .port21(U10_a_noe),
+  .port22(U10_b_noe),
+  .port111(Bus7),
+  .port112(Bus6),
+  .port113(Bus5),
+  .port114(Bus4),
+  .port115(Bus3),
+  .port116(Bus2),
+  .port117(Bus1),
+  .port118(Bus0)
 );
 
 ic74x540 inst_U11 (
-  .port0(unconnected_U11_0),
   .port1(L4),
   .port2(ALU_OUT_REG0),
   .port3(ALU_OUT_REG1),
@@ -3449,7 +3389,6 @@ ic74x540 inst_U11 (
 );
 
 ic74x521 inst_U12 (
-  .port0(unconnected_U12_0),
   .port1(L4),
   .port2(ALU_OUT0),
   .port3(L4),
@@ -3473,7 +3412,6 @@ ic74x521 inst_U12 (
 );
 
 ic74x157 inst_U13 (
-  .port0(unconnected_U13_0),
   .port1(CTRLALUSUB),
   .port2(A0),
   .port3(A7),
@@ -3493,7 +3431,6 @@ ic74x157 inst_U13 (
 );
 
 ic74x157 inst_U14 (
-  .port0(unconnected_U14_0),
   .port1(CTRLALUSUB),
   .port2(A4),
   .port3(A3),
@@ -3513,7 +3450,6 @@ ic74x157 inst_U14 (
 );
 
 ic74x157 inst_U15 (
-  .port0(unconnected_U15_0),
   .port1(Bus0),
   .port2(N16534656),
   .port3(N16534699),
@@ -3533,7 +3469,6 @@ ic74x157 inst_U15 (
 );
 
 ic74x157 inst_U16 (
-  .port0(unconnected_U16_0),
   .port1(Bus0),
   .port2(N16535538),
   .port3(N16535542),
@@ -3553,7 +3488,6 @@ ic74x157 inst_U16 (
 );
 
 ic74x157 inst_U17 (
-  .port0(unconnected_U17_0),
   .port1(Bus1),
   .port2(N16534828),
   .port3(N16534994),
@@ -3573,7 +3507,6 @@ ic74x157 inst_U17 (
 );
 
 ic74x157 inst_U18 (
-  .port0(unconnected_U18_0),
   .port1(Bus1),
   .port2(N16535642),
   .port3(N16535646),
@@ -3593,7 +3526,6 @@ ic74x157 inst_U18 (
 );
 
 ic74x157 inst_U19 (
-  .port0(unconnected_U19_0),
   .port1(Bus2),
   .port2(N16535160),
   .port3(N16535742),
@@ -3613,7 +3545,6 @@ ic74x157 inst_U19 (
 );
 
 ic74x157 inst_U20 (
-  .port0(unconnected_U20_0),
   .port1(Bus2),
   .port2(N16535742),
   .port3(L1),
@@ -3633,7 +3564,6 @@ ic74x157 inst_U20 (
 );
 
 ic74x157 inst_U21 (
-  .port0(unconnected_U21_0),
   .port1(CTRLALUSUB),
   .port2(N16546884),
   .port3(N16547406),
@@ -3653,7 +3583,6 @@ ic74x157 inst_U21 (
 );
 
 ic74x157 inst_U22 (
-  .port0(unconnected_U22_0),
   .port1(CTRLALUSUB),
   .port2(N16547410),
   .port3(N16547133),
@@ -3673,7 +3602,6 @@ ic74x157 inst_U22 (
 );
 
 ic74x86 inst_U23 (
-  .port0(unconnected_U23_0),
   .port1(A3),
   .port2(N16507840),
   .port3(XOR3),
@@ -3691,7 +3619,6 @@ ic74x86 inst_U23 (
 );
 
 ic74x08 inst_U24 (
-  .port0(unconnected_U24_0),
   .port1(A3),
   .port2(N16507840),
   .port3(AND3),
@@ -3709,7 +3636,6 @@ ic74x08 inst_U24 (
 );
 
 ic74x86 inst_U25 (
-  .port0(unconnected_U25_0),
   .port1(N16507032),
   .port2(XOR3),
   .port3(ADDER3),
@@ -3727,7 +3653,6 @@ ic74x86 inst_U25 (
 );
 
 ic74x08 inst_U26 (
-  .port0(unconnected_U26_0),
   .port1(N16507032),
   .port2(XOR3),
   .port3(N16507848),
@@ -3745,7 +3670,6 @@ ic74x08 inst_U26 (
 );
 
 ic74x32 inst_U27 (
-  .port0(unconnected_U27_0),
   .port1(AND3),
   .port2(N16507848),
   .port3(N16508106),
@@ -3763,7 +3687,6 @@ ic74x32 inst_U27 (
 );
 
 ic74x86 inst_U28 (
-  .port0(unconnected_U28_0),
   .port1(A7),
   .port2(N16512013),
   .port3(XOR7),
@@ -3781,7 +3704,6 @@ ic74x86 inst_U28 (
 );
 
 ic74x08 inst_U29 (
-  .port0(unconnected_U29_0),
   .port1(A7),
   .port2(N16512013),
   .port3(AND7),
@@ -3799,7 +3721,6 @@ ic74x08 inst_U29 (
 );
 
 ic74x86 inst_U30 (
-  .port0(unconnected_U30_0),
   .port1(N16512191),
   .port2(XOR7),
   .port3(ADDER7),
@@ -3817,7 +3738,6 @@ ic74x86 inst_U30 (
 );
 
 ic74x08 inst_U31 (
-  .port0(unconnected_U31_0),
   .port1(N16512191),
   .port2(XOR7),
   .port3(N16512151),
@@ -3835,7 +3755,6 @@ ic74x08 inst_U31 (
 );
 
 ic74x32 inst_U32 (
-  .port0(unconnected_U32_0),
   .port1(AND7),
   .port2(N16512151),
   .port3(FLAG_C),
@@ -3853,7 +3772,6 @@ ic74x32 inst_U32 (
 );
 
 ic74x14 inst_U33 (
-  .port0(unconnected_U33_0),
   .port1(N16445057),
   .port2(BREAKPOINTENABLE),
   .port3(N16792555),
@@ -3871,14 +3789,12 @@ ic74x14 inst_U33 (
 );
 
 icds1813 inst_U34 (
-  .port0(unconnected_U34_0),
   .port1(N16449995),
   .port2(VCC),
   .port3(1'b0)
 );
 
 ic74x273 inst_U35 (
-  .port0(unconnected_U35_0),
   .port1(RESET1),
   .port2(RD2),
   .port3(DEBUG_STEP),
@@ -3902,7 +3818,6 @@ ic74x273 inst_U35 (
 );
 
 ic74x08 inst_U36 (
-  .port0(unconnected_U36_0),
   .port1(RD3),
   .port2(N17642894),
   .port3(N17642468),
@@ -3920,7 +3835,6 @@ ic74x08 inst_U36 (
 );
 
 ic74x32 inst_U37 (
-  .port0(unconnected_U37_0),
   .port1(RQ4),
   .port2(N17642468),
   .port3(N17646554),
@@ -3938,7 +3852,6 @@ ic74x32 inst_U37 (
 );
 
 ic74x08 inst_U38 (
-  .port0(unconnected_U38_0),
   .port1(CTRLMEMSPUP),
   .port2(RESET1),
   .port3(N14944613),
@@ -3956,7 +3869,6 @@ ic74x08 inst_U38 (
 );
 
 ic74x151 inst_U39 (
-  .port0(unconnected_U39_0),
   .port1(RQ4),
   .port2(N17642468),
   .port3(BREAKPOINTHIT),
@@ -3976,7 +3888,6 @@ ic74x151 inst_U39 (
 );
 
 ic74x825 inst_U40 (
-  .port0(unconnected_U40_0),
   .port1(L4),
   .port2(L4),
   .port3(Bus0),
@@ -4005,7 +3916,6 @@ ic74x825 inst_U40 (
 );
 
 ic74x825 inst_U41 (
-  .port0(unconnected_U41_0),
   .port1(L4),
   .port2(L4),
   .port3(Bus0),
@@ -4034,7 +3944,6 @@ ic74x825 inst_U41 (
 );
 
 ic74x157 inst_U42 (
-  .port0(unconnected_U42_0),
   .port1(CTRLREGALUSEL),
   .port2(R00),
   .port3(R10),
@@ -4054,7 +3963,6 @@ ic74x157 inst_U42 (
 );
 
 ic74x157 inst_U43 (
-  .port0(unconnected_U43_0),
   .port1(CTRLREGALUSEL),
   .port2(R04),
   .port3(R14),
@@ -4074,16 +3982,15 @@ ic74x157 inst_U43 (
 );
 
 ic74x245 inst_U44 (
-  .port0(unconnected_U44_0),
   .port1(H4),
-  .port2(R00),
-  .port3(R01),
-  .port4(R02),
-  .port5(R03),
-  .port6(R04),
-  .port7(R05),
-  .port8(R06),
-  .port9(R07),
+  .port102(R00),
+  .port103(R01),
+  .port104(R02),
+  .port105(R03),
+  .port106(R04),
+  .port107(R05),
+  .port108(R06),
+  .port109(R07),
   .port10(1'b0),
   .port11(Bus7_U44),
   .port12(Bus6_U44),
@@ -4094,20 +4001,29 @@ ic74x245 inst_U44 (
   .port17(Bus1_U44),
   .port18(Bus0_U44),
   .port19(CTRLREG0BUSOE),
-  .port20(VCC)
+  .port20(VCC),
+  .port21(U44_a_noe),
+  .port22(U44_b_noe),
+  .port111(Bus7),
+  .port112(Bus6),
+  .port113(Bus5),
+  .port114(Bus4),
+  .port115(Bus3),
+  .port116(Bus2),
+  .port117(Bus1),
+  .port118(Bus0)
 );
 
 ic74x245 inst_U45 (
-  .port0(unconnected_U45_0),
   .port1(H4),
-  .port2(R10),
-  .port3(R11),
-  .port4(R12),
-  .port5(R13),
-  .port6(R14),
-  .port7(R15),
-  .port8(R16),
-  .port9(R17),
+  .port102(R10),
+  .port103(R11),
+  .port104(R12),
+  .port105(R13),
+  .port106(R14),
+  .port107(R15),
+  .port108(R16),
+  .port109(R17),
   .port10(1'b0),
   .port11(Bus7_U45),
   .port12(Bus6_U45),
@@ -4118,11 +4034,20 @@ ic74x245 inst_U45 (
   .port17(Bus1_U45),
   .port18(Bus0_U45),
   .port19(CTRLREG1BUSOE),
-  .port20(VCC)
+  .port20(VCC),
+  .port21(U45_a_noe),
+  .port22(U45_b_noe),
+  .port111(Bus7),
+  .port112(Bus6),
+  .port113(Bus5),
+  .port114(Bus4),
+  .port115(Bus3),
+  .port116(Bus2),
+  .port117(Bus1),
+  .port118(Bus0)
 );
 
 ic74x540 inst_U46 (
-  .port0(unconnected_U46_0),
   .port1(L4),
   .port2(R00),
   .port3(R01),
@@ -4146,7 +4071,6 @@ ic74x540 inst_U46 (
 );
 
 ic74x540 inst_U47 (
-  .port0(unconnected_U47_0),
   .port1(L4),
   .port2(R10),
   .port3(R11),
@@ -4170,7 +4094,6 @@ ic74x540 inst_U47 (
 );
 
 ic74x04 inst_U48 (
-  .port0(unconnected_U48_0),
   .port1(CTRLMEMINSTRIMMTORAMADDR),
   .port2(INSTRIMM1SELECT),
   .port3(IOCE_SRC),
@@ -4188,16 +4111,15 @@ ic74x04 inst_U48 (
 );
 
 ic74x245 inst_U49 (
-  .port0(unconnected_U49_0),
   .port1(H1),
-  .port2(RAM2DATA0),
-  .port3(RAM2DATA1),
-  .port4(RAM2DATA2),
-  .port5(RAM2DATA3),
-  .port6(RAM2DATA4),
-  .port7(RAM2DATA5),
-  .port8(RAM2DATA6),
-  .port9(RAM2DATA7),
+  .port102(RAM2DATA0),
+  .port103(RAM2DATA1),
+  .port104(RAM2DATA2),
+  .port105(RAM2DATA3),
+  .port106(RAM2DATA4),
+  .port107(RAM2DATA5),
+  .port108(RAM2DATA6),
+  .port109(RAM2DATA7),
   .port10(1'b0),
   .port11(PCIN15_U49),
   .port12(PCIN14_U49),
@@ -4208,20 +4130,29 @@ ic74x245 inst_U49 (
   .port17(PCIN9_U49),
   .port18(PCIN8_U49),
   .port19(CTRLMEMPCFROMIMM),
-  .port20(VCC)
+  .port20(VCC),
+  .port21(U49_a_noe),
+  .port22(U49_b_noe),
+  .port111(PCIN15),
+  .port112(PCIN14),
+  .port113(PCIN13),
+  .port114(PCIN12),
+  .port115(PCIN11),
+  .port116(PCIN10),
+  .port117(PCIN9),
+  .port118(PCIN8)
 );
 
 ic74x245 inst_U50 (
-  .port0(unconnected_U50_0),
   .port1(H1),
-  .port2(INSTRIMM8),
-  .port3(INSTRIMM9),
-  .port4(INSTRIMM10),
-  .port5(INSTRIMM11),
-  .port6(INSTRIMM12),
-  .port7(INSTRIMM13),
-  .port8(INSTRIMM14),
-  .port9(INSTRIMM15),
+  .port102(INSTRIMM8),
+  .port103(INSTRIMM9),
+  .port104(INSTRIMM10),
+  .port105(INSTRIMM11),
+  .port106(INSTRIMM12),
+  .port107(INSTRIMM13),
+  .port108(INSTRIMM14),
+  .port109(INSTRIMM15),
   .port10(1'b0),
   .port11(PCIN15_U50),
   .port12(PCIN14_U50),
@@ -4232,20 +4163,29 @@ ic74x245 inst_U50 (
   .port17(PCIN9_U50),
   .port18(PCIN8_U50),
   .port19(N664486),
-  .port20(VCC)
+  .port20(VCC),
+  .port21(U50_a_noe),
+  .port22(U50_b_noe),
+  .port111(PCIN15),
+  .port112(PCIN14),
+  .port113(PCIN13),
+  .port114(PCIN12),
+  .port115(PCIN11),
+  .port116(PCIN10),
+  .port117(PCIN9),
+  .port118(PCIN8)
 );
 
 ic74x245 inst_U51 (
-  .port0(unconnected_U51_0),
   .port1(H1),
-  .port2(Bus0),
-  .port3(Bus1),
-  .port4(Bus2),
-  .port5(Bus3),
-  .port6(Bus4),
-  .port7(Bus5),
-  .port8(Bus6),
-  .port9(Bus7),
+  .port102(Bus0),
+  .port103(Bus1),
+  .port104(Bus2),
+  .port105(Bus3),
+  .port106(Bus4),
+  .port107(Bus5),
+  .port108(Bus6),
+  .port109(Bus7),
   .port10(1'b0),
   .port11(PCIN7_U51),
   .port12(PCIN6_U51),
@@ -4256,20 +4196,29 @@ ic74x245 inst_U51 (
   .port17(PCIN1_U51),
   .port18(PCIN0_U51),
   .port19(CTRLMEMPCFROMIMM),
-  .port20(VCC)
+  .port20(VCC),
+  .port21(U51_a_noe),
+  .port22(U51_b_noe),
+  .port111(PCIN7),
+  .port112(PCIN6),
+  .port113(PCIN5),
+  .port114(PCIN4),
+  .port115(PCIN3),
+  .port116(PCIN2),
+  .port117(PCIN1),
+  .port118(PCIN0)
 );
 
 ic74x245 inst_U52 (
-  .port0(unconnected_U52_0),
   .port1(H1),
-  .port2(INSTRIMM0),
-  .port3(INSTRIMM1),
-  .port4(INSTRIMM2),
-  .port5(INSTRIMM3),
-  .port6(INSTRIMM4),
-  .port7(INSTRIMM5),
-  .port8(INSTRIMM6),
-  .port9(INSTRIMM7),
+  .port102(INSTRIMM0),
+  .port103(INSTRIMM1),
+  .port104(INSTRIMM2),
+  .port105(INSTRIMM3),
+  .port106(INSTRIMM4),
+  .port107(INSTRIMM5),
+  .port108(INSTRIMM6),
+  .port109(INSTRIMM7),
   .port10(1'b0),
   .port11(PCIN7_U52),
   .port12(PCIN6_U52),
@@ -4280,11 +4229,20 @@ ic74x245 inst_U52 (
   .port17(PCIN1_U52),
   .port18(PCIN0_U52),
   .port19(N664486),
-  .port20(VCC)
+  .port20(VCC),
+  .port21(U52_a_noe),
+  .port22(U52_b_noe),
+  .port111(PCIN7),
+  .port112(PCIN6),
+  .port113(PCIN5),
+  .port114(PCIN4),
+  .port115(PCIN3),
+  .port116(PCIN2),
+  .port117(PCIN1),
+  .port118(PCIN0)
 );
 
 ic74x521 inst_U53 (
-  .port0(unconnected_U53_0),
   .port1(BREAKPOINTENABLE),
   .port2(PC0),
   .port3(BRKPT0),
@@ -4308,7 +4266,6 @@ ic74x521 inst_U53 (
 );
 
 ic74x867 inst_U54 (
-  .port0(unconnected_U54_0),
   .port1(N659290),
   .port2(RESET1),
   .port3(PCIN0),
@@ -4336,7 +4293,6 @@ ic74x867 inst_U54 (
 );
 
 ic74x867 inst_U55 (
-  .port0(unconnected_U55_0),
   .port1(N659290),
   .port2(RESET1),
   .port3(PCIN8),
@@ -4364,7 +4320,6 @@ ic74x867 inst_U55 (
 );
 
 ic74x867 inst_U56 (
-  .port0(unconnected_U56_0),
   .port1(RESET1),
   .port2(N14944613),
   .port3(L2),
@@ -4392,7 +4347,6 @@ ic74x867 inst_U56 (
 );
 
 ic74x540 inst_U57 (
-  .port0(unconnected_U57_0),
   .port1(L1),
   .port2(PC0),
   .port3(PC1),
@@ -4416,7 +4370,6 @@ ic74x540 inst_U57 (
 );
 
 ic74x540 inst_U58 (
-  .port0(unconnected_U58_0),
   .port1(L1),
   .port2(PC8),
   .port3(PC9),
@@ -4440,7 +4393,6 @@ ic74x540 inst_U58 (
 );
 
 ic74x08 inst_U59 (
-  .port0(unconnected_U59_0),
   .port1(N16861338),
   .port2(CTRLINSTRFINISHED),
   .port3(N16861519),
@@ -4458,7 +4410,6 @@ ic74x08 inst_U59 (
 );
 
 ic74x521 inst_U60 (
-  .port0(unconnected_U60_0),
   .port1(N14931877),
   .port2(PC8),
   .port3(BRKPT8),
@@ -4482,16 +4433,15 @@ ic74x521 inst_U60 (
 );
 
 ic74x245 inst_U61 (
-  .port0(unconnected_U61_0),
   .port1(H2),
-  .port2(SP0),
-  .port3(SP1),
-  .port4(SP2),
-  .port5(SP3),
-  .port6(SP4),
-  .port7(SP5),
-  .port8(SP6),
-  .port9(SP7),
+  .port102(SP0),
+  .port103(SP1),
+  .port104(SP2),
+  .port105(SP3),
+  .port106(SP4),
+  .port107(SP5),
+  .port108(SP6),
+  .port109(SP7),
   .port10(1'b0),
   .port11(RAMADDRESS15_U61),
   .port12(RAMADDRESS14_U61),
@@ -4502,11 +4452,20 @@ ic74x245 inst_U61 (
   .port17(RAMADDRESS9_U61),
   .port18(RAMADDRESS8_U61),
   .port19(SELECTSTACKMEM),
-  .port20(VCC)
+  .port20(VCC),
+  .port21(U61_a_noe),
+  .port22(U61_b_noe),
+  .port111(RAMADDRESS15),
+  .port112(RAMADDRESS14),
+  .port113(RAMADDRESS13),
+  .port114(RAMADDRESS12),
+  .port115(RAMADDRESS11),
+  .port116(RAMADDRESS10),
+  .port117(RAMADDRESS9),
+  .port118(RAMADDRESS8)
 );
 
 ic28C256 inst_U62 (
-  .port0(unconnected_U62_0),
   .port1(PC14),
   .port2(PC12),
   .port3(PC7),
@@ -4538,7 +4497,6 @@ ic28C256 inst_U62 (
 );
 
 ic74x825 inst_U63 (
-  .port0(unconnected_U63_0),
   .port1(CTRLMEMINSTRIMMTORAMADDR),
   .port2(L2),
   .port3(Bus0),
@@ -4567,7 +4525,6 @@ ic74x825 inst_U63 (
 );
 
 ic74x825 inst_U64 (
-  .port0(unconnected_U64_0),
   .port1(L1),
   .port2(L1),
   .port3(INSTR_UNREG0),
@@ -4596,16 +4553,15 @@ ic74x825 inst_U64 (
 );
 
 ic74x245 inst_U65 (
-  .port0(unconnected_U65_0),
   .port1(H2),
-  .port2(INSTRIMM0),
-  .port3(INSTRIMM1),
-  .port4(INSTRIMM2),
-  .port5(INSTRIMM3),
-  .port6(INSTRIMM4),
-  .port7(INSTRIMM5),
-  .port8(INSTRIMM6),
-  .port9(INSTRIMM7),
+  .port102(INSTRIMM0),
+  .port103(INSTRIMM1),
+  .port104(INSTRIMM2),
+  .port105(INSTRIMM3),
+  .port106(INSTRIMM4),
+  .port107(INSTRIMM5),
+  .port108(INSTRIMM6),
+  .port109(INSTRIMM7),
   .port10(1'b0),
   .port11(RAMADDRESS7_U65),
   .port12(RAMADDRESS6_U65),
@@ -4616,20 +4572,29 @@ ic74x245 inst_U65 (
   .port17(RAMADDRESS1_U65),
   .port18(RAMADDRESS0_U65),
   .port19(INSTRIMM1SELECT),
-  .port20(VCC)
+  .port20(VCC),
+  .port21(U65_a_noe),
+  .port22(U65_b_noe),
+  .port111(RAMADDRESS7),
+  .port112(RAMADDRESS6),
+  .port113(RAMADDRESS5),
+  .port114(RAMADDRESS4),
+  .port115(RAMADDRESS3),
+  .port116(RAMADDRESS2),
+  .port117(RAMADDRESS1),
+  .port118(RAMADDRESS0)
 );
 
 ic74x245 inst_U66 (
-  .port0(unconnected_U66_0),
   .port1(H2),
-  .port2(INSTRIMM8),
-  .port3(INSTRIMM9),
-  .port4(INSTRIMM10),
-  .port5(INSTRIMM11),
-  .port6(INSTRIMM12),
-  .port7(INSTRIMM13),
-  .port8(INSTRIMM14),
-  .port9(INSTRIMM15),
+  .port102(INSTRIMM8),
+  .port103(INSTRIMM9),
+  .port104(INSTRIMM10),
+  .port105(INSTRIMM11),
+  .port106(INSTRIMM12),
+  .port107(INSTRIMM13),
+  .port108(INSTRIMM14),
+  .port109(INSTRIMM15),
   .port10(1'b0),
   .port11(RAMADDRESS15_U66),
   .port12(RAMADDRESS14_U66),
@@ -4640,11 +4605,20 @@ ic74x245 inst_U66 (
   .port17(RAMADDRESS9_U66),
   .port18(RAMADDRESS8_U66),
   .port19(INSTRIMM1TORAM),
-  .port20(VCC)
+  .port20(VCC),
+  .port21(U66_a_noe),
+  .port22(U66_b_noe),
+  .port111(RAMADDRESS15),
+  .port112(RAMADDRESS14),
+  .port113(RAMADDRESS13),
+  .port114(RAMADDRESS12),
+  .port115(RAMADDRESS11),
+  .port116(RAMADDRESS10),
+  .port117(RAMADDRESS9),
+  .port118(RAMADDRESS8)
 );
 
 ic28C256 inst_U67 (
-  .port0(unconnected_U67_0),
   .port1(PC14),
   .port2(PC12),
   .port3(PC7),
@@ -4676,7 +4650,6 @@ ic28C256 inst_U67 (
 );
 
 ic74x825 inst_U68 (
-  .port0(unconnected_U68_0),
   .port1(L2),
   .port2(L2),
   .port3(Bus0),
@@ -4705,7 +4678,6 @@ ic74x825 inst_U68 (
 );
 
 ic28C256 inst_U69 (
-  .port0(unconnected_U69_0),
   .port1(PC14),
   .port2(PC12),
   .port3(PC7),
@@ -4737,7 +4709,6 @@ ic28C256 inst_U69 (
 );
 
 ic74x825 inst_U70 (
-  .port0(unconnected_U70_0),
   .port1(L1),
   .port2(L1),
   .port3(INSTRIMM_UNREG0),
@@ -4766,7 +4737,6 @@ ic74x825 inst_U70 (
 );
 
 ic74x825 inst_U71 (
-  .port0(unconnected_U71_0),
   .port1(L1),
   .port2(L1),
   .port3(INSTRIMM_UNREG8),
@@ -4795,16 +4765,15 @@ ic74x825 inst_U71 (
 );
 
 ic74x245 inst_U72 (
-  .port0(unconnected_U72_0),
   .port1(H2),
-  .port2(MAR8),
-  .port3(MAR9),
-  .port4(MAR10),
-  .port5(MAR11),
-  .port6(MAR12),
-  .port7(MAR13),
-  .port8(MAR14),
-  .port9(MAR15),
+  .port102(MAR8),
+  .port103(MAR9),
+  .port104(MAR10),
+  .port105(MAR11),
+  .port106(MAR12),
+  .port107(MAR13),
+  .port108(MAR14),
+  .port109(MAR15),
   .port10(1'b0),
   .port11(RAMADDRESS15_U72),
   .port12(RAMADDRESS14_U72),
@@ -4815,20 +4784,29 @@ ic74x245 inst_U72 (
   .port17(RAMADDRESS9_U72),
   .port18(RAMADDRESS8_U72),
   .port19(MAR1TORAM),
-  .port20(VCC)
+  .port20(VCC),
+  .port21(U72_a_noe),
+  .port22(U72_b_noe),
+  .port111(RAMADDRESS15),
+  .port112(RAMADDRESS14),
+  .port113(RAMADDRESS13),
+  .port114(RAMADDRESS12),
+  .port115(RAMADDRESS11),
+  .port116(RAMADDRESS10),
+  .port117(RAMADDRESS9),
+  .port118(RAMADDRESS8)
 );
 
 ic74x245 inst_U73 (
-  .port0(unconnected_U73_0),
   .port1(H2),
-  .port2(MAR8),
-  .port3(MAR9),
-  .port4(MAR10),
-  .port5(MAR11),
-  .port6(MAR12),
-  .port7(MAR13),
-  .port8(MAR14),
-  .port9(MAR15),
+  .port102(MAR8),
+  .port103(MAR9),
+  .port104(MAR10),
+  .port105(MAR11),
+  .port106(MAR12),
+  .port107(MAR13),
+  .port108(MAR14),
+  .port109(MAR15),
   .port10(1'b0),
   .port11(SELECT7_U73),
   .port12(SELECT6_U73),
@@ -4839,20 +4817,29 @@ ic74x245 inst_U73 (
   .port17(SELECT1_U73),
   .port18(SELECT0_U73),
   .port19(CTRLMEMINSTRIMMTORAMADDR),
-  .port20(VCC)
+  .port20(VCC),
+  .port21(U73_a_noe),
+  .port22(U73_b_noe),
+  .port111(SELECT7),
+  .port112(SELECT6),
+  .port113(SELECT5),
+  .port114(SELECT4),
+  .port115(SELECT3),
+  .port116(SELECT2),
+  .port117(SELECT1),
+  .port118(SELECT0)
 );
 
 ic74x245 inst_U74 (
-  .port0(unconnected_U74_0),
   .port1(H2),
-  .port2(INSTRIMM8),
-  .port3(INSTRIMM9),
-  .port4(INSTRIMM10),
-  .port5(INSTRIMM11),
-  .port6(INSTRIMM12),
-  .port7(INSTRIMM13),
-  .port8(INSTRIMM14),
-  .port9(INSTRIMM15),
+  .port102(INSTRIMM8),
+  .port103(INSTRIMM9),
+  .port104(INSTRIMM10),
+  .port105(INSTRIMM11),
+  .port106(INSTRIMM12),
+  .port107(INSTRIMM13),
+  .port108(INSTRIMM14),
+  .port109(INSTRIMM15),
   .port10(1'b0),
   .port11(SELECT7_U74),
   .port12(SELECT6_U74),
@@ -4863,20 +4850,29 @@ ic74x245 inst_U74 (
   .port17(SELECT1_U74),
   .port18(SELECT0_U74),
   .port19(INSTRIMM1SELECT),
-  .port20(VCC)
+  .port20(VCC),
+  .port21(U74_a_noe),
+  .port22(U74_b_noe),
+  .port111(SELECT7),
+  .port112(SELECT6),
+  .port113(SELECT5),
+  .port114(SELECT4),
+  .port115(SELECT3),
+  .port116(SELECT2),
+  .port117(SELECT1),
+  .port118(SELECT0)
 );
 
 ic74x245 inst_U75 (
-  .port0(unconnected_U75_0),
   .port1(H1),
-  .port2(INSTRIMM0),
-  .port3(INSTRIMM1),
-  .port4(INSTRIMM2),
-  .port5(INSTRIMM3),
-  .port6(INSTRIMM4),
-  .port7(INSTRIMM5),
-  .port8(INSTRIMM6),
-  .port9(INSTRIMM7),
+  .port102(INSTRIMM0),
+  .port103(INSTRIMM1),
+  .port104(INSTRIMM2),
+  .port105(INSTRIMM3),
+  .port106(INSTRIMM4),
+  .port107(INSTRIMM5),
+  .port108(INSTRIMM6),
+  .port109(INSTRIMM7),
   .port10(1'b0),
   .port11(Bus7_U75),
   .port12(Bus6_U75),
@@ -4887,11 +4883,20 @@ ic74x245 inst_U75 (
   .port17(Bus1_U75),
   .port18(Bus0_U75),
   .port19(CTRLMEMINSTROE),
-  .port20(VCC)
+  .port20(VCC),
+  .port21(U75_a_noe),
+  .port22(U75_b_noe),
+  .port111(Bus7),
+  .port112(Bus6),
+  .port113(Bus5),
+  .port114(Bus4),
+  .port115(Bus3),
+  .port116(Bus2),
+  .port117(Bus1),
+  .port118(Bus0)
 );
 
 ic74x521 inst_U76 (
-  .port0(unconnected_U76_0),
   .port1(L2),
   .port2(SELECT0),
   .port3(H2),
@@ -4915,7 +4920,6 @@ ic74x521 inst_U76 (
 );
 
 icAS6C4008 inst_U77 (
-  .port0(unconnected_U77_0),
   .port1(L2),
   .port2(SELECTSTACKMEM_BUF),
   .port3(RAMADDRESS_BUF14),
@@ -4961,7 +4965,6 @@ icAS6C4008 inst_U77 (
 );
 
 ic74x521 inst_U79 (
-  .port0(unconnected_U79_0),
   .port1(L2),
   .port2(SELECT0),
   .port3(L2),
@@ -4985,7 +4988,6 @@ ic74x521 inst_U79 (
 );
 
 ic74x86 inst_U81 (
-  .port0(unconnected_U81_0),
   .port1(N16512191),
   .port2(FLAG_C),
   .port3(FLAG_V),
@@ -5003,7 +5005,6 @@ ic74x86 inst_U81 (
 );
 
 ic74x825 inst_U83 (
-  .port0(unconnected_U83_0),
   .port1(L3),
   .port2(L3),
   .port3(FLAGNEGATIVE),
@@ -5032,13 +5033,12 @@ ic74x825 inst_U83 (
 );
 
 ic74x374 inst_U84 (
-  .port0(unconnected_U84_0),
   .port1(L3),
-  .port2(MC_A3),
+  .port2(CTRLALUSUB_SRC),
   .port3(INSTR0),
   .port4(INSTR1),
-  .port5(MC_A4),
-  .port6(MC_A5),
+  .port5(CTRLALUOP0_SRC),
+  .port6(CTRLALUOP1_SRC),
   .port7(INSTR2),
   .port8(INSTR3),
   .port9(MC_A6),
@@ -5056,14 +5056,13 @@ ic74x374 inst_U84 (
 );
 
 ic28C256 inst_U85 (
-  .port0(unconnected_U85_0),
   .port1(MC_A14),
   .port2(MC_A12),
   .port3(MC_A7),
   .port4(MC_A6),
-  .port5(MC_A5),
-  .port6(MC_A4),
-  .port7(MC_A3),
+  .port5(CTRLALUOP1_SRC),
+  .port6(CTRLALUOP0_SRC),
+  .port7(CTRLALUSUB_SRC),
   .port8(MC_A2),
   .port9(MC_A1),
   .port10(MC_A0),
@@ -5088,14 +5087,13 @@ ic28C256 inst_U85 (
 );
 
 ic28C256 inst_U86 (
-  .port0(unconnected_U86_0),
   .port1(MC_A14),
   .port2(MC_A12),
   .port3(MC_A7),
   .port4(MC_A6),
-  .port5(MC_A5),
-  .port6(MC_A4),
-  .port7(MC_A3),
+  .port5(CTRLALUOP1_SRC),
+  .port6(CTRLALUOP0_SRC),
+  .port7(CTRLALUSUB_SRC),
   .port8(MC_A2),
   .port9(MC_A1),
   .port10(MC_A0),
@@ -5120,14 +5118,13 @@ ic28C256 inst_U86 (
 );
 
 ic28C256 inst_U87 (
-  .port0(unconnected_U87_0),
   .port1(MC_A14),
   .port2(MC_A12),
   .port3(MC_A7),
   .port4(MC_A6),
-  .port5(MC_A5),
-  .port6(MC_A4),
-  .port7(MC_A3),
+  .port5(CTRLALUOP1_SRC),
+  .port6(CTRLALUOP0_SRC),
+  .port7(CTRLALUSUB_SRC),
   .port8(MC_A2),
   .port9(MC_A1),
   .port10(MC_A0),
@@ -5152,7 +5149,6 @@ ic28C256 inst_U87 (
 );
 
 ic74x521 inst_U88 (
-  .port0(unconnected_U88_0),
   .port1(IOCE),
   .port2(RAMADDRESS0),
   .port3(L3),
@@ -5176,7 +5172,6 @@ ic74x521 inst_U88 (
 );
 
 ic74x32 inst_U89 (
-  .port0(unconnected_U89_0),
   .port1(N16454961),
   .port2(CTRLMEMRAMWE),
   .port3(IO_0_WR),
@@ -5194,16 +5189,15 @@ ic74x32 inst_U89 (
 );
 
 ic74x245 inst_U91 (
-  .port0(unconnected_U91_0),
   .port1(H3),
-  .port2(IN0),
-  .port3(IN1),
-  .port4(IN2),
-  .port5(IN3),
-  .port6(IN4),
-  .port7(IN5),
-  .port8(IN6),
-  .port9(IN7),
+  .port102(IN0),
+  .port103(IN1),
+  .port104(IN2),
+  .port105(IN3),
+  .port106(IN4),
+  .port107(IN5),
+  .port108(IN6),
+  .port109(IN7),
   .port10(1'b0),
   .port11(Bus7_U91),
   .port12(Bus6_U91),
@@ -5214,11 +5208,20 @@ ic74x245 inst_U91 (
   .port17(Bus1_U91),
   .port18(Bus0_U91),
   .port19(IO_0_RD),
-  .port20(VCC)
+  .port20(VCC),
+  .port21(U91_a_noe),
+  .port22(U91_b_noe),
+  .port111(Bus7),
+  .port112(Bus6),
+  .port113(Bus5),
+  .port114(Bus4),
+  .port115(Bus3),
+  .port116(Bus2),
+  .port117(Bus1),
+  .port118(Bus0)
 );
 
 ic74x273 inst_U92 (
-  .port0(unconnected_U92_0),
   .port1(RESET1),
   .port2(N16459199),
   .port3(Bus0),
@@ -5242,7 +5245,6 @@ ic74x273 inst_U92 (
 );
 
 ic5082_7340 inst_U93 (
-  .port0(unconnected_U93_0),
   .port1(N16459283),
   .port2(N16459367),
   .port3(N16459427),
@@ -5254,7 +5256,6 @@ ic5082_7340 inst_U93 (
 );
 
 ic5082_7340 inst_U94 (
-  .port0(unconnected_U94_0),
   .port1(N16459595),
   .port2(N16459679),
   .port3(N16459739),
@@ -5266,19 +5267,18 @@ ic5082_7340 inst_U94 (
 );
 
 ic74x245 inst_U95 (
-  .port0(unconnected_U95_0),
   .port1(H3),
-  .port2(CLK_UNBUF),
-  .port3(CLK_UNBUF),
-  .port4(CLK_UNBUF),
-  .port5(CLK_UNBUF),
-  .port6(CLK_UNBUF),
-  .port7(CLK_UNBUF),
-  .port8(CLK_UNBUF),
-  .port9(N16449995),
+  .port102(CLK_UNBUF),
+  .port103(CLK_UNBUF),
+  .port104(CLK_UNBUF),
+  .port105(CLK_UNBUF),
+  .port106(CLK_UNBUF),
+  .port107(CLK_UNBUF),
+  .port108(CLK_UNBUF),
+  .port109(N16449995),
   .port10(1'b0),
   .port11(RESET1_U95),
-  .port12(N17645870_U95),
+  .port12(CLK1_U95),
   .port13(N17649455_U95),
   .port14(N17647680_U95),
   .port15(N17646046_U95),
@@ -5286,11 +5286,20 @@ ic74x245 inst_U95 (
   .port17(N17643531_U95),
   .port18(N17646477_U95),
   .port19(L3),
-  .port20(VCC)
+  .port20(VCC),
+  .port21(U95_a_noe),
+  .port22(U95_b_noe),
+  .port111(RESET1),
+  .port112(CLK1),
+  .port113(N17649455),
+  .port114(N17647680),
+  .port115(N17646046),
+  .port116(N17642095),
+  .port117(N17643531),
+  .port118(N17646477)
 );
 
 ic74x540 inst_U96 (
-  .port0(unconnected_U96_0),
   .port1(L3),
   .port2(MC_A11),
   .port3(MC_A12),
@@ -5314,7 +5323,6 @@ ic74x540 inst_U96 (
 );
 
 ic74x825 inst_U97 (
-  .port0(unconnected_U97_0),
   .port1(L4),
   .port2(L4),
   .port3(ALU_OUT7),
@@ -5343,16 +5351,15 @@ ic74x825 inst_U97 (
 );
 
 ic74x245 inst_U98 (
-  .port0(unconnected_U98_0),
   .port1(H1),
-  .port2(PC8),
-  .port3(PC9),
-  .port4(PC10),
-  .port5(PC11),
-  .port6(PC12),
-  .port7(PC13),
-  .port8(PC14),
-  .port9(PC15),
+  .port102(PC8),
+  .port103(PC9),
+  .port104(PC10),
+  .port105(PC11),
+  .port106(PC12),
+  .port107(PC13),
+  .port108(PC14),
+  .port109(PC15),
   .port10(1'b0),
   .port11(RAM2DATA7_U98),
   .port12(RAM2DATA6_U98),
@@ -5363,20 +5370,29 @@ ic74x245 inst_U98 (
   .port17(RAM2DATA1_U98),
   .port18(RAM2DATA0_U98),
   .port19(CTRLMEMPCTORAM),
-  .port20(VCC)
+  .port20(VCC),
+  .port21(U98_a_noe),
+  .port22(U98_b_noe),
+  .port111(RAM2DATA7),
+  .port112(RAM2DATA6),
+  .port113(RAM2DATA5),
+  .port114(RAM2DATA4),
+  .port115(RAM2DATA3),
+  .port116(RAM2DATA2),
+  .port117(RAM2DATA1),
+  .port118(RAM2DATA0)
 );
 
 ic74x245 inst_U99 (
-  .port0(unconnected_U99_0),
   .port1(H1),
-  .port2(PC0),
-  .port3(PC1),
-  .port4(PC2),
-  .port5(PC3),
-  .port6(PC4),
-  .port7(PC5),
-  .port8(PC6),
-  .port9(PC7),
+  .port102(PC0),
+  .port103(PC1),
+  .port104(PC2),
+  .port105(PC3),
+  .port106(PC4),
+  .port107(PC5),
+  .port108(PC6),
+  .port109(PC7),
   .port10(1'b0),
   .port11(Bus7_U99),
   .port12(Bus6_U99),
@@ -5387,11 +5403,20 @@ ic74x245 inst_U99 (
   .port17(Bus1_U99),
   .port18(Bus0_U99),
   .port19(CTRLMEMPCTORAM),
-  .port20(VCC)
+  .port20(VCC),
+  .port21(U99_a_noe),
+  .port22(U99_b_noe),
+  .port111(Bus7),
+  .port112(Bus6),
+  .port113(Bus5),
+  .port114(Bus4),
+  .port115(Bus3),
+  .port116(Bus2),
+  .port117(Bus1),
+  .port118(Bus0)
 );
 
 icAS6C4008 inst_U100 (
-  .port0(unconnected_U100_0),
   .port1(L2),
   .port2(SELECTSTACKMEM_BUF),
   .port3(RAMADDRESS_BUF14),
@@ -5437,7 +5462,6 @@ icAS6C4008 inst_U100 (
 );
 
 ic74x151 inst_U101 (
-  .port0(unconnected_U101_0),
   .port1(FLAGCSHIFT),
   .port2(FLAG_C),
   .port3(FLAG_C),
@@ -5457,7 +5481,6 @@ ic74x151 inst_U101 (
 );
 
 ic74x151 inst_U102 (
-  .port0(unconnected_U102_0),
   .port1(N16534742),
   .port2(N16534699),
   .port3(N16534656),
@@ -5477,7 +5500,6 @@ ic74x151 inst_U102 (
 );
 
 ic74x04 inst_U104 (
-  .port0(unconnected_U104_0),
   .port1(N16474977),
   .port2(FLAG_Z),
   .port3(H4),
@@ -5495,7 +5517,6 @@ ic74x04 inst_U104 (
 );
 
 ic74x540 inst_U106 (
-  .port0(unconnected_U106_0),
   .port1(L2),
   .port2(SP0),
   .port3(SP1),
@@ -5519,7 +5540,6 @@ ic74x540 inst_U106 (
 );
 
 ic74x540 inst_U107 (
-  .port0(unconnected_U107_0),
   .port1(L2),
   .port2(MAR8),
   .port3(MAR9),
@@ -5543,7 +5563,6 @@ ic74x540 inst_U107 (
 );
 
 ic74x540 inst_U108 (
-  .port0(unconnected_U108_0),
   .port1(L2),
   .port2(RAMADDRESS0),
   .port3(RAMADDRESS1),
@@ -5567,7 +5586,6 @@ ic74x540 inst_U108 (
 );
 
 ic74x540 inst_U109 (
-  .port0(unconnected_U109_0),
   .port1(L2),
   .port2(RAMADDRESS8),
   .port3(RAMADDRESS9),
@@ -5591,7 +5609,6 @@ ic74x540 inst_U109 (
 );
 
 ic74x540 inst_U110 (
-  .port0(unconnected_U110_0),
   .port1(L1),
   .port2(INSTRIMM0),
   .port3(INSTRIMM1),
@@ -5615,7 +5632,6 @@ ic74x540 inst_U110 (
 );
 
 ic74x540 inst_U111 (
-  .port0(unconnected_U111_0),
   .port1(L1),
   .port2(INSTRIMM8),
   .port3(INSTRIMM9),
@@ -5639,7 +5655,6 @@ ic74x540 inst_U111 (
 );
 
 ic74x540 inst_U112 (
-  .port0(unconnected_U112_0),
   .port1(L1),
   .port2(INSTR0),
   .port3(INSTR1),
@@ -5663,16 +5678,15 @@ ic74x540 inst_U112 (
 );
 
 ic74x245 inst_U201 (
-  .port0(unconnected_U201_0),
   .port1(CTRLMEMRAMOE),
-  .port2(Bus0),
-  .port3(Bus1),
-  .port4(Bus2),
-  .port5(Bus3),
-  .port6(Bus4),
-  .port7(Bus5),
-  .port8(Bus6),
-  .port9(Bus7),
+  .port2(Bus0_U201),
+  .port3(Bus1_U201),
+  .port4(Bus2_U201),
+  .port5(Bus3_U201),
+  .port6(Bus4_U201),
+  .port7(Bus5_U201),
+  .port8(Bus6_U201),
+  .port9(Bus7_U201),
   .port10(1'b0),
   .port11(BUS_BUF7_U201),
   .port12(BUS_BUF6_U201),
@@ -5683,20 +5697,37 @@ ic74x245 inst_U201 (
   .port17(BUS_BUF1_U201),
   .port18(BUS_BUF0_U201),
   .port19(L2),
-  .port20(VCC)
+  .port20(VCC),
+  .port21(U201_a_noe),
+  .port22(U201_b_noe),
+  .port111(BUS_BUF7),
+  .port112(BUS_BUF6),
+  .port113(BUS_BUF5),
+  .port114(BUS_BUF4),
+  .port115(BUS_BUF3),
+  .port116(BUS_BUF2),
+  .port117(BUS_BUF1),
+  .port118(BUS_BUF0),
+  .port102(Bus0),
+  .port103(Bus1),
+  .port104(Bus2),
+  .port105(Bus3),
+  .port106(Bus4),
+  .port107(Bus5),
+  .port108(Bus6),
+  .port109(Bus7)
 );
 
 ic74x245 inst_U202 (
-  .port0(unconnected_U202_0),
   .port1(H2),
-  .port2(RAMADDRESS0),
-  .port3(RAMADDRESS1),
-  .port4(RAMADDRESS2),
-  .port5(RAMADDRESS3),
-  .port6(RAMADDRESS4),
-  .port7(RAMADDRESS5),
-  .port8(RAMADDRESS6),
-  .port9(RAMADDRESS7),
+  .port102(RAMADDRESS0),
+  .port103(RAMADDRESS1),
+  .port104(RAMADDRESS2),
+  .port105(RAMADDRESS3),
+  .port106(RAMADDRESS4),
+  .port107(RAMADDRESS5),
+  .port108(RAMADDRESS6),
+  .port109(RAMADDRESS7),
   .port10(1'b0),
   .port11(RAMADDRESS_BUF7_U202),
   .port12(RAMADDRESS_BUF6_U202),
@@ -5707,20 +5738,29 @@ ic74x245 inst_U202 (
   .port17(RAMADDRESS_BUF1_U202),
   .port18(RAMADDRESS_BUF0_U202),
   .port19(L2),
-  .port20(VCC)
+  .port20(VCC),
+  .port21(U202_a_noe),
+  .port22(U202_b_noe),
+  .port111(RAMADDRESS_BUF7),
+  .port112(RAMADDRESS_BUF6),
+  .port113(RAMADDRESS_BUF5),
+  .port114(RAMADDRESS_BUF4),
+  .port115(RAMADDRESS_BUF3),
+  .port116(RAMADDRESS_BUF2),
+  .port117(RAMADDRESS_BUF1),
+  .port118(RAMADDRESS_BUF0)
 );
 
 ic74x245 inst_U203 (
-  .port0(unconnected_U203_0),
   .port1(H2),
-  .port2(RAMADDRESS8),
-  .port3(RAMADDRESS9),
-  .port4(RAMADDRESS10),
-  .port5(RAMADDRESS11),
-  .port6(RAMADDRESS12),
-  .port7(RAMADDRESS13),
-  .port8(RAMADDRESS14),
-  .port9(RAMADDRESS15),
+  .port102(RAMADDRESS8),
+  .port103(RAMADDRESS9),
+  .port104(RAMADDRESS10),
+  .port105(RAMADDRESS11),
+  .port106(RAMADDRESS12),
+  .port107(RAMADDRESS13),
+  .port108(RAMADDRESS14),
+  .port109(RAMADDRESS15),
   .port10(1'b0),
   .port11(RAMADDRESS_BUF15_U203),
   .port12(RAMADDRESS_BUF14_U203),
@@ -5731,23 +5771,32 @@ ic74x245 inst_U203 (
   .port17(RAMADDRESS_BUF9_U203),
   .port18(RAMADDRESS_BUF8_U203),
   .port19(L2),
-  .port20(VCC)
+  .port20(VCC),
+  .port21(U203_a_noe),
+  .port22(U203_b_noe),
+  .port111(RAMADDRESS_BUF15),
+  .port112(RAMADDRESS_BUF14),
+  .port113(RAMADDRESS_BUF13),
+  .port114(RAMADDRESS_BUF12),
+  .port115(RAMADDRESS_BUF11),
+  .port116(RAMADDRESS_BUF10),
+  .port117(RAMADDRESS_BUF9),
+  .port118(RAMADDRESS_BUF8)
 );
 
 ic74x245 inst_U204 (
-  .port0(unconnected_U204_0),
   .port1(H2),
-  .port2(N16843155),
-  .port3(CTRLMEMRAMOE),
-  .port4(CTRLMEMRAMWE),
-  .port5(SELECTSTACKMEM),
-  .port6(RAMCE),
-  .port7(IOCE),
-  .port8(CLK1),
-  .port9(RESET1),
+  .port102(N16843155),
+  .port103(CTRLMEMRAMOE),
+  .port104(CTRLMEMRAMWE),
+  .port105(SELECTSTACKMEM),
+  .port106(RAMCE),
+  .port107(IOCE),
+  .port108(CLK1),
+  .port109(RESET1),
   .port10(1'b0),
   .port11(RESET_BUF_U204),
-  .port12(N16745554_U204),
+  .port12(CLK_BUF_U204),
   .port13(IOCE_BUF_U204),
   .port14(RAMCE_BUF_U204),
   .port15(SELECTSTACKMEM_BUF_U204),
@@ -5755,20 +5804,29 @@ ic74x245 inst_U204 (
   .port17(CTRLMEMRAMOE_BUF_U204),
   .port18(N16843220_U204),
   .port19(L2),
-  .port20(VCC)
+  .port20(VCC),
+  .port21(U204_a_noe),
+  .port22(U204_b_noe),
+  .port111(RESET_BUF),
+  .port112(CLK_BUF),
+  .port113(IOCE_BUF),
+  .port114(RAMCE_BUF),
+  .port115(SELECTSTACKMEM_BUF),
+  .port116(CTRLMEMRAMWE_BUF),
+  .port117(CTRLMEMRAMOE_BUF),
+  .port118(N16843220)
 );
 
 ic74x245 inst_U205 (
-  .port0(unconnected_U205_0),
   .port1(N16843155),
-  .port2(RAM2DATA0),
-  .port3(RAM2DATA1),
-  .port4(RAM2DATA2),
-  .port5(RAM2DATA3),
-  .port6(RAM2DATA4),
-  .port7(RAM2DATA5),
-  .port8(RAM2DATA6),
-  .port9(RAM2DATA7),
+  .port2(RAM2DATA0_U205),
+  .port3(RAM2DATA1_U205),
+  .port4(RAM2DATA2_U205),
+  .port5(RAM2DATA3_U205),
+  .port6(RAM2DATA4_U205),
+  .port7(RAM2DATA5_U205),
+  .port8(RAM2DATA6_U205),
+  .port9(RAM2DATA7_U205),
   .port10(1'b0),
   .port11(RAM2D7_U205),
   .port12(RAM2D6_U205),
@@ -5779,7 +5837,25 @@ ic74x245 inst_U205 (
   .port17(RAM2D1_U205),
   .port18(RAM2D0_U205),
   .port19(L2),
-  .port20(VCC)
+  .port20(VCC),
+  .port21(U205_a_noe),
+  .port22(U205_b_noe),
+  .port111(RAM2D7),
+  .port112(RAM2D6),
+  .port113(RAM2D5),
+  .port114(RAM2D4),
+  .port115(RAM2D3),
+  .port116(RAM2D2),
+  .port117(RAM2D1),
+  .port118(RAM2D0),
+  .port102(RAM2DATA0),
+  .port103(RAM2DATA1),
+  .port104(RAM2DATA2),
+  .port105(RAM2DATA3),
+  .port106(RAM2DATA4),
+  .port107(RAM2DATA5),
+  .port108(RAM2DATA6),
+  .port109(RAM2DATA7)
 );
 
 endmodule
