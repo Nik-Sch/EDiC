@@ -8505,7 +8505,6 @@
        (portRef &1 (instanceRef U109))
        (portRef &19 (instanceRef U109))
        (portRef &1 (instanceRef U76))
-       (portRef &19 (instanceRef U201))
        (portRef &23 (instanceRef U68))
        (portRef &3 (instanceRef U79))
        (portRef &7 (instanceRef U56))
@@ -10931,6 +10930,7 @@
      (net /RAMCE
       (joined
        (portRef &6 (instanceRef U204))
+       (portRef &19 (instanceRef U201))
        (portRef &6 (instanceRef JT4)))
       (property Name (string "/RAMCE")))
      (net /SELECTSTACKMEM

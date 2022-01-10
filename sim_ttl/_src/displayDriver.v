@@ -14,7 +14,8 @@ module displayDriver(
 // e c
 //  d  dot
 
-parameter COUNTER_MAX = 10000; // 2ms
+// 500ns * 4000 = 2ms
+parameter COUNTER_MAX = 4000;
 reg [2:0] r_currentDigit = 0;
 reg [15:0] r_counter = 0;
 reg [7:0] cathodesAH;

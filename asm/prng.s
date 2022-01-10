@@ -19,18 +19,5 @@ start:
   str r0, [SEED]
 loop:
   call prng
-  call output
-  sub r1, 1
-  b loop
-
-
-@ output r0
-output:
-  sts r1, [0xfffd] @ store r1
-  ldr r1, [IO]
   str r0, [IO]
-outLoop:
-  subs r1, [IO]
-  beq outLoop
-  lds r1, [0xfffd] @ restore r1
-  ret
+  b loop

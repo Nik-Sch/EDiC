@@ -50,7 +50,7 @@ const identifierRegEx = '[a-zA-Z]\\w*';
 const stringRegEx = '"(\\\\.|[^"])*"';
 const labelDefRegEx = `\\s*(${identifierRegEx}):\\s*`;
 const constantDefRegEx = `\\s*(${identifierRegEx})\\s*=\\s*(${numericRegEx})\\s*`;
-const stringDefRegEx = `\\s*\\.(${identifierRegEx})\\s* =\\s*(${stringRegEx})\\s*`;
+const stringDefRegEx = `\\s*(${numericRegEx}).(${identifierRegEx})\\s* =\\s*(${stringRegEx})\\s*`;
 const valueRegEx = `(?:${numericRegEx})|(?:${identifierRegEx})`;
 const lineCommentRegex = /^\s*(?:#|@|;|(?:\/\/)).*$/;
 
@@ -302,7 +302,6 @@ const insertInstruction = (line: string): boolean => {
   return false;
 }
 
-let addressMSB = 0; // each new string gets a new 256 block of bytes for ease of use
 // first pass: find strings and create instructions for it
 for (const origLine of code) {
 
@@ -314,30 +313,35 @@ for (const origLine of code) {
   // find string definitions -> the strings are stored in memory and a constant is created that holds the start address
   const stringMatch = line.match(stringDefRegEx);
   if (stringMatch) {
+    const stringAddress = checkImmediate(stringMatch[1]);
+    if (stringAddress === false) {
+      console.error(`string location of constant '${stringMatch[2]}' not valid: '${stringMatch[1]}'`);
+      exit(1);
+    }
     const values = [];
-    const existingConstant = constants.find(c => c.name === stringMatch[1]);
+    const existingConstant = constants.find(c => c.name === stringMatch[2]);
     if (existingConstant) {
-      console.error(`Constant '${stringMatch[1]}' defined multiple times (line ${existingConstant.line} and ${lineCount}).`);
+      console.error(`Constant '${stringMatch[2]}' defined multiple times (line ${existingConstant.line} and ${lineCount}).`);
       exit(1);
     }
     if (stringMatch[2].length > 255) {
-      console.error(`String '${stringMatch[2]}' exceeds the 255 char limit (line ${lineCount}).`)
+      console.error(`String '${stringMatch[3]}' exceeds the 255 char limit (line ${lineCount}).`)
       exit(1);
     }
 
     // ignore quotes of the string
     let stringI = 1;
     let addressI = 0;
-    while (stringI < stringMatch[2].length - 1) {
-      let charCode = stringMatch[2].charCodeAt(stringI);
+    while (stringI < stringMatch[3].length - 1) {
+      let charCode = stringMatch[3].charCodeAt(stringI);
       if (charCode > 256) {
-        console.error(`Char ${stringMatch[2].charAt(stringI)} with the code ${charCode} in string '${stringMatch}' in line ${lineCount} is not supported.`);
+        console.error(`Char ${stringMatch[3].charAt(stringI)} with the code ${charCode} in string '${stringMatch[2]}' in line ${lineCount} is not supported.`);
         exit(1);
       }
       if (charCode == 92) { // backslash
         stringI++;
         let value = -1;
-        const nextChar = stringMatch[2].charAt(stringI);
+        const nextChar = stringMatch[3].charAt(stringI);
         switch (nextChar) {
           case 'n':
             value = 0x0a;
@@ -357,22 +361,22 @@ for (const origLine of code) {
           case 'x':
             stringI++;
             let hexEnd = stringI;
-            let charEndCode = stringMatch[2].charCodeAt(hexEnd);
+            let charEndCode = stringMatch[3].charCodeAt(hexEnd);
             while ((charEndCode >= 0x30 && charEndCode <= 0x39)
               || (charEndCode >= 0x41 && charEndCode <= 0x46)
               || (charEndCode >= 0x61 && charEndCode <= 0x66)) {
                 hexEnd++;
-                charEndCode = stringMatch[2].charCodeAt(hexEnd);
+                charEndCode = stringMatch[3].charCodeAt(hexEnd);
               }
-            value = parseInt(stringMatch[2].substring(stringI, hexEnd), 16);
+            value = parseInt(stringMatch[3].substring(stringI, hexEnd), 16);
             stringI = hexEnd - 1;
             break;
           default:
-            console.error(`Unkown escape code \\${nextChar} in string ${stringMatch[2]} in line ${lineCount}.`);
+            console.error(`Unkown escape code \\${nextChar} in string ${stringMatch[3]} in line ${lineCount}.`);
             exit(1);
         }
         if (value > 255 || value < 0) {
-          console.error(`Cannot store value ${value} in string ${stringMatch[2]} in line ${lineCount}.`);
+          console.error(`Cannot store value ${value} in string ${stringMatch[3]} in line ${lineCount}.`);
           exit(1);
         }
         charCode = value;
@@ -385,19 +389,18 @@ for (const origLine of code) {
     // add constant and instructions
     constants.push({
       line: lineCount,
-      name: stringMatch[1],
-      value: addressMSB
+      name: stringMatch[2],
+      value: stringAddress
     });
-    insertInstruction(`sma 0x${addressMSB.toString(16)}`);
     values.forEach((value, i) => {
       insertInstruction(`mov r0, 0x${value.toString(16)}`);
-      insertInstruction(`str r0, [0x${i.toString(16)}]`);
+      insertInstruction(`str r0, [0x${(i + (stringAddress << 8)).toString(16)}]`);
     });
-    addressMSB++;
+    // zero termination
   }
 }
+// reset mar and r0
 if (instrCount > 0) {
-  insertInstruction('sma 0');
   insertInstruction('mov r0, 0');
 }
 

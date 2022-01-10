@@ -4,41 +4,32 @@ module testbench;
 logic s_clk100 = 0;
 always #(10/2) s_clk100 = ~s_clk100; // 5MHz
 logic oszClk;
-logic clkRamN;
+logic clkRam;
 logic clkEEPROM;
 
 logic oszClk = 0;
-logic asyncRamSpecialClock;
-logic asyncEEPROMSpecialClock;
-// always #(200/2) oszClk = ~oszClk; // 5MHz
-// ram has 55ns address -> data
-// eeprom 150ns address -> data
-initial begin
-  asyncRamSpecialClock = 0;
-  while (1) begin
-    @(negedge oszClk);
-    // 55ns after rising Edge of system clock
-    #(55) asyncRamSpecialClock = 1;
-    #(55) asyncRamSpecialClock = 0;
-  end
-end
-initial begin
-  asyncEEPROMSpecialClock = 0;
-  while (1) begin
-    @(negedge oszClk);
-    // 150ns after falling Edge of system clock
-    #(150) asyncEEPROMSpecialClock = 1;
-    #(40) asyncEEPROMSpecialClock = 0;
-  end
-end
 
 clk_wiz_5Mhz inst_clk5Mhz(
   .clk_in1(s_clk100),
   .clk5(oszClk),
-  .clkRamN(clkRamN),
+  .clkRam(clkRam),
   .clkEEPROM(clkEEPROM)
 );
-// always #(10/2) asyncRamSpecialClock = ~asyncRamSpecialClock; // 100MHz
+
+logic [1:0] oszClkDiv = 0;
+always @(posedge oszClk) begin
+  oszClkDiv <= oszClkDiv + 1;
+end
+
+logic [1:0] clkRamDiv = 2;
+always @(posedge clkRam) begin
+  clkRamDiv <= clkRamDiv + 1;
+end
+
+logic [1:0] clkEEPROMDiv = 3;
+always @(posedge clkEEPROM) begin
+  clkEEPROMDiv <= clkEEPROMDiv + 1;
+end
 
   // 1 is closed, 0 is open
 logic btnStep = 0;
@@ -61,16 +52,13 @@ logic o_ioNOE;
 logic o_ioNWE;
 logic resetn;
 
-// ignore register values and always output 0 (when addres != 0x00)
-assign i_bus = 0;
-assign i_busNOE = (o_ioAddress == 8'h00 || o_ioNOE || o_ioNCE);
+logic i_serialIn;
+logic o_serialOut;
 
 generated inst_generated(
-  .i_oszClk(oszClk),
-  .i_asyncRamSpecialClock(~clkRamN),
-  .i_asyncEEPROMSpecialClock(clkEEPROM),
-  // .i_asyncRamSpecialClock(asyncRamSpecialClock),
-  // .i_asyncEEPROMSpecialClock(asyncEEPROMSpecialClock),
+  .i_oszClk(oszClkDiv[1]),
+  .i_asyncRamSpecialClock(clkRamDiv[1]),
+  .i_asyncEEPROMSpecialClock(clkEEPROMDiv[1]),
   .i_resetn(resetn),
 
   // 1 is closed, 0 is open
@@ -98,6 +86,24 @@ generated inst_generated(
   .i_switches(switches)
 );
 
+expansion_uart uart(
+  .i_clk100(s_clk100),
+  .i_clkDesign(clkRamDiv[1]),
+  .i_resetn(resetn),
+
+  .i_bus(o_bus),
+  .o_bus(i_bus),
+  .o_busNOE(i_busNOE),
+
+  .i_ioNCE(o_ioNCE),
+  .i_ioAddress(o_ioAddress),
+  .i_ioNOE(o_ioNOE),
+  .i_ioNWE(o_ioNWE),
+
+  .i_serialIn(i_serialIn),
+  .o_serialOut(o_serialOut)
+);
+
 initial begin
   while (1) begin
     repeat (300) @(posedge oszClk);
@@ -116,6 +122,7 @@ initial begin
   repeat(10) @(negedge oszClk);
   resetn = 1;
 end
+
 `define ass(val) if (o_output !== val) begin \
   $display("output expected %d but is %d", val, o_output); \
   @(posedge oszClk); \
@@ -126,116 +133,116 @@ end
 // verify test code
 initial begin
   @(posedge resetn);
-  @(edge o_output); `ass(6);
-  @(edge o_output); `ass(7);
-  @(edge o_output); `ass(8);
-  @(edge o_output); `ass(1);
-  @(edge o_output); `ass(7);
-  @(edge o_output); `ass(1);
-  @(edge o_output); `ass(6);
-  @(edge o_output); `ass(254);
-  @(edge o_output); `ass(6);
-  @(edge o_output); `ass(3);
-  @(edge o_output); `ass(192);
-  @(edge o_output); `ass(193);
+  // @(edge o_output); `ass(6);
+  // @(edge o_output); `ass(7);
+  // @(edge o_output); `ass(8);
+  // @(edge o_output); `ass(1);
+  // @(edge o_output); `ass(7);
+  // @(edge o_output); `ass(1);
+  // @(edge o_output); `ass(6);
+  // @(edge o_output); `ass(254);
+  // @(edge o_output); `ass(6);
+  // @(edge o_output); `ass(3);
+  // @(edge o_output); `ass(192);
+  // @(edge o_output); `ass(193);
 
-  @(edge o_output); `ass(199);
-  @(edge o_output); `ass(130);
-  @(edge o_output); `ass(193);
-  @(edge o_output); `ass(194);
+  // @(edge o_output); `ass(199);
+  // @(edge o_output); `ass(130);
+  // @(edge o_output); `ass(193);
+  // @(edge o_output); `ass(194);
 
-  @(edge o_output); `ass(10);
-  @(edge o_output); `ass(5);
+  // @(edge o_output); `ass(10);
+  // @(edge o_output); `ass(5);
 
-  @(edge o_output); `ass(2);
-  @(edge o_output); `ass(3);
-  @(edge o_output); `ass(4);
-  @(edge o_output); `ass(6);
+  // @(edge o_output); `ass(2);
+  // @(edge o_output); `ass(3);
+  // @(edge o_output); `ass(4);
+  // @(edge o_output); `ass(6);
 
-  @(edge o_output); `ass(8);
-  @(edge o_output); `ass(9);
-  @(edge o_output); `ass(8);
-  @(edge o_output); `ass(2);
+  // @(edge o_output); `ass(8);
+  // @(edge o_output); `ass(9);
+  // @(edge o_output); `ass(8);
+  // @(edge o_output); `ass(2);
 
-  // eq
-  @(edge o_output); `ass(1);
-  @(edge o_output); `ass(2);
-  @(edge o_output); `ass(3);
-  @(edge o_output); `ass(1);
-  @(edge o_output); `ass(2);
-  @(edge o_output); `ass(3);
-  @(edge o_output); `ass(1);
+  // // eq
+  // @(edge o_output); `ass(1);
+  // @(edge o_output); `ass(2);
+  // @(edge o_output); `ass(3);
+  // @(edge o_output); `ass(1);
+  // @(edge o_output); `ass(2);
+  // @(edge o_output); `ass(3);
+  // @(edge o_output); `ass(1);
 
-  // neq
-  @(edge o_output); `ass(10);
-  @(edge o_output); `ass(2);
-  @(edge o_output); `ass(3);
+  // // neq
+  // @(edge o_output); `ass(10);
+  // @(edge o_output); `ass(2);
+  // @(edge o_output); `ass(3);
 
-  // hs
-  @(edge o_output); `ass(10);
-  @(edge o_output); `ass(2);
-  @(edge o_output); `ass(3);
+  // // hs
+  // @(edge o_output); `ass(10);
+  // @(edge o_output); `ass(2);
+  // @(edge o_output); `ass(3);
 
-  // lo
-  @(edge o_output); `ass(10);
-  @(edge o_output); `ass(2);
-  @(edge o_output); `ass(3);
+  // // lo
+  // @(edge o_output); `ass(10);
+  // @(edge o_output); `ass(2);
+  // @(edge o_output); `ass(3);
 
-  // mi
-  @(edge o_output); `ass(10);
-  @(edge o_output); `ass(2);
-  @(edge o_output); `ass(3);
+  // // mi
+  // @(edge o_output); `ass(10);
+  // @(edge o_output); `ass(2);
+  // @(edge o_output); `ass(3);
 
-  // pl
-  @(edge o_output); `ass(10);
-  @(edge o_output); `ass(2);
-  @(edge o_output); `ass(3);
+  // // pl
+  // @(edge o_output); `ass(10);
+  // @(edge o_output); `ass(2);
+  // @(edge o_output); `ass(3);
 
-  // overflow
-  @(edge o_output); `ass(10);
-  @(edge o_output); `ass(2);
-  @(edge o_output); `ass(3);
-  @(edge o_output); `ass(10);
-  @(edge o_output); `ass(2);
-  @(edge o_output); `ass(3);
+  // // overflow
+  // @(edge o_output); `ass(10);
+  // @(edge o_output); `ass(2);
+  // @(edge o_output); `ass(3);
+  // @(edge o_output); `ass(10);
+  // @(edge o_output); `ass(2);
+  // @(edge o_output); `ass(3);
 
-  // no overflow
-  @(edge o_output); `ass(10);
-  @(edge o_output); `ass(2);
-  @(edge o_output); `ass(3);
+  // // no overflow
+  // @(edge o_output); `ass(10);
+  // @(edge o_output); `ass(2);
+  // @(edge o_output); `ass(3);
 
-  // higher
-  @(edge o_output); `ass(10);
-  @(edge o_output); `ass(2);
-  @(edge o_output); `ass(3);
+  // // higher
+  // @(edge o_output); `ass(10);
+  // @(edge o_output); `ass(2);
+  // @(edge o_output); `ass(3);
 
-  // lower or same
-  @(edge o_output); `ass(10);
-  @(edge o_output); `ass(2);
-  @(edge o_output); `ass(3);
+  // // lower or same
+  // @(edge o_output); `ass(10);
+  // @(edge o_output); `ass(2);
+  // @(edge o_output); `ass(3);
 
-  // greater equals
-  @(edge o_output); `ass(10);
-  @(edge o_output); `ass(2);
-  @(edge o_output); `ass(3);
+  // // greater equals
+  // @(edge o_output); `ass(10);
+  // @(edge o_output); `ass(2);
+  // @(edge o_output); `ass(3);
 
-  // greater than
-  @(edge o_output); `ass(10);
-  @(edge o_output); `ass(2);
-  @(edge o_output); `ass(3);
+  // // greater than
+  // @(edge o_output); `ass(10);
+  // @(edge o_output); `ass(2);
+  // @(edge o_output); `ass(3);
 
-  // less equal
-  @(edge o_output); `ass(10);
-  @(edge o_output); `ass(2);
-  @(edge o_output); `ass(3);
+  // // less equal
+  // @(edge o_output); `ass(10);
+  // @(edge o_output); `ass(2);
+  // @(edge o_output); `ass(3);
 
-  // less than
-  @(edge o_output); `ass(10);
-  @(edge o_output); `ass(2);
-  @(edge o_output); `ass(3);
-  @(posedge oszClk);
-  $display("All tests successful.");
-  $finish;
+  // // less than
+  // @(edge o_output); `ass(10);
+  // @(edge o_output); `ass(2);
+  // @(edge o_output); `ass(3);
+  // @(posedge oszClk);
+  // $display("All tests successful.");
+  // $finish;
 end
 
 endmodule

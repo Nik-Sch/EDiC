@@ -282,6 +282,16 @@ const addAssignments = () => {
                 origin: `i_switches[${i}]`
             });
         }
+        // r0 and r1
+        for (let i = 0; i < 8; i++) {
+            assignments.push({
+                target: `o_r0[${i}]`,
+                origin: `R0${i}`
+            }, {
+                target: `o_r1[${i}]`,
+                origin: `R1${i}`
+            });
+        }
         assignments.push({
             target: 'o_output[7]',
             origin: 'N16459739'

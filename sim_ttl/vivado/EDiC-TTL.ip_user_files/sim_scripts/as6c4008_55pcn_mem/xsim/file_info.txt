@@ -1,2 +1,0 @@
-as6c4008_55pcn_mem.v,verilog,xil_defaultlib,../../../../EDiC-TTL.gen/sources_1/ip/as6c4008_55pcn_mem/sim/as6c4008_55pcn_mem.v,
-glbl.v,Verilog,xil_defaultlib,glbl.v

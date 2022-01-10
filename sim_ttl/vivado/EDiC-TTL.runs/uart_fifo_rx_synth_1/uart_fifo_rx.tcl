@@ -71,6 +71,8 @@ proc create_report { reportName command } {
 }
 OPTRACE "uart_fifo_rx_synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 4
+set_param xicom.use_bs_reader 1
+set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config  -id {Synth 8-689}  -new_severity {CRITICAL WARNING} 
 set_msg_config  -id {Synth 8-689}  -new_severity {ERROR} 
 set_msg_config  -id {Synth 8-327}  -new_severity {CRITICAL WARNING} 

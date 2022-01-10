@@ -311,6 +311,16 @@ const addAssignments = () => {
         origin: `i_switches[${i}]`
       });
     }
+    // r0 and r1
+    for (let i = 0; i < 8; i++) {
+      assignments.push({
+        target: `o_r0[${i}]`,
+        origin: `R0${i}`
+      },{
+        target: `o_r1[${i}]`,
+        origin: `R1${i}`
+      });
+    }
     assignments.push({
       target: 'o_output[7]',
       origin: 'N16459739'
@@ -666,3 +676,16 @@ console.log(uniqueUnits.map(u => ({
 })).sort((a, b) => a.count - b.count))
 
 writeFileSync(argv[3], verilogFile);
+
+
+/*
+ila_0 your_instance_name (
+	.clk(CLK1), // input wire clk
+
+
+	.probe0({Bus7, Bus6, Bus5, Bus4, Bus3, Bus2, Bus1, Bus0}), // input wire [7:0]  probe0
+	.probe1({N16459739, N16459679, N16459595, N16459511, N16459427, N16459367, N16459283, N16459199}), // input wire [7:0]  probe1
+	.probe2(IO_0_WR), // input wire [0:0]  probe2
+	.probe3(RESET1) // input wire [0:0]  probe3
+);
+*/

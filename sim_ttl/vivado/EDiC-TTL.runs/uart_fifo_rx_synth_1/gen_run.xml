@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="uart_fifo_rx_synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1639434088">
+<GenRun Id="uart_fifo_rx_synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1641731065">
   <File Type="REPORTS-TCL" Name="uart_fifo_rx_reports.tcl"/>
   <File Type="PA-TCL" Name="uart_fifo_rx.tcl"/>
   <File Type="RDS-DCP" Name="uart_fifo_rx.dcp"/>

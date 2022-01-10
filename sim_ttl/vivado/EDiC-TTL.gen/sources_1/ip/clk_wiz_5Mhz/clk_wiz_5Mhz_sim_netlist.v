@@ -1,10 +1,10 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2 (lin64) Build 3367213 Tue Oct 19 02:47:39 MDT 2021
-// Date        : Mon Dec 20 14:52:57 2021
+// Date        : Mon Jan 10 17:24:00 2022
 // Host        : niklasPC running 64-bit Manjaro Linux
-// Command     : write_verilog -force -mode funcsim -rename_top clk_wiz_5Mhz -prefix
-//               clk_wiz_5Mhz_ clk_wiz_5Mhz_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim
+//               /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.gen/sources_1/ip/clk_wiz_5Mhz/clk_wiz_5Mhz_sim_netlist.v
 // Design      : clk_wiz_5Mhz
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -15,33 +15,33 @@
 (* NotValidForBitStream *)
 module clk_wiz_5Mhz
    (clk5,
-    clkRamN,
+    clkRam,
     clkEEPROM,
     clk_in1);
   output clk5;
-  output clkRamN;
+  output clkRam;
   output clkEEPROM;
   input clk_in1;
 
   wire clk5;
   wire clkEEPROM;
-  wire clkRamN;
+  wire clkRam;
   (* IBUF_LOW_PWR *) wire clk_in1;
 
-  clk_wiz_5Mhz_clk_wiz_5Mhz_clk_wiz inst
+  clk_wiz_5Mhz_clk_wiz inst
        (.clk5(clk5),
         .clkEEPROM(clkEEPROM),
-        .clkRamN(clkRamN),
+        .clkRam(clkRam),
         .clk_in1(clk_in1));
 endmodule
 
-module clk_wiz_5Mhz_clk_wiz_5Mhz_clk_wiz
+module clk_wiz_5Mhz_clk_wiz
    (clk5,
-    clkRamN,
+    clkRam,
     clkEEPROM,
     clk_in1);
   output clk5;
-  output clkRamN;
+  output clkRam;
   output clkEEPROM;
   input clk_in1;
 
@@ -49,8 +49,8 @@ module clk_wiz_5Mhz_clk_wiz_5Mhz_clk_wiz
   wire clk5_clk_wiz_5Mhz;
   wire clkEEPROM;
   wire clkEEPROM_clk_wiz_5Mhz;
-  wire clkRamN;
-  wire clkRamN_clk_wiz_5Mhz;
+  wire clkRam;
+  wire clkRam_clk_wiz_5Mhz;
   wire clk_in1;
   wire clk_in1_clk_wiz_5Mhz;
   wire clkfbout_buf_clk_wiz_5Mhz;
@@ -90,8 +90,8 @@ module clk_wiz_5Mhz_clk_wiz_5Mhz_clk_wiz
         .O(clk5));
   (* BOX_TYPE = "PRIMITIVE" *) 
   BUFG clkout2_buf
-       (.I(clkRamN_clk_wiz_5Mhz),
-        .O(clkRamN));
+       (.I(clkRam_clk_wiz_5Mhz),
+        .O(clkRam));
   (* BOX_TYPE = "PRIMITIVE" *) 
   BUFG clkout3_buf
        (.I(clkEEPROM_clk_wiz_5Mhz),
@@ -99,22 +99,22 @@ module clk_wiz_5Mhz_clk_wiz_5Mhz_clk_wiz
   (* BOX_TYPE = "PRIMITIVE" *) 
   MMCME2_ADV #(
     .BANDWIDTH("OPTIMIZED"),
-    .CLKFBOUT_MULT_F(30.250000),
+    .CLKFBOUT_MULT_F(32.000000),
     .CLKFBOUT_PHASE(0.000000),
     .CLKFBOUT_USE_FINE_PS("FALSE"),
     .CLKIN1_PERIOD(10.000000),
     .CLKIN2_PERIOD(0.000000),
-    .CLKOUT0_DIVIDE_F(121.000000),
+    .CLKOUT0_DIVIDE_F(80.000000),
     .CLKOUT0_DUTY_CYCLE(0.500000),
     .CLKOUT0_PHASE(0.000000),
     .CLKOUT0_USE_FINE_PS("FALSE"),
-    .CLKOUT1_DIVIDE(121),
+    .CLKOUT1_DIVIDE(80),
     .CLKOUT1_DUTY_CYCLE(0.500000),
-    .CLKOUT1_PHASE(98.926000),
+    .CLKOUT1_PHASE(89.438000),
     .CLKOUT1_USE_FINE_PS("FALSE"),
-    .CLKOUT2_DIVIDE(121),
+    .CLKOUT2_DIVIDE(80),
     .CLKOUT2_DUTY_CYCLE(0.500000),
-    .CLKOUT2_PHASE(90.000000),
+    .CLKOUT2_PHASE(126.562000),
     .CLKOUT2_USE_FINE_PS("FALSE"),
     .CLKOUT3_DIVIDE(1),
     .CLKOUT3_DUTY_CYCLE(0.500000),
@@ -157,7 +157,7 @@ module clk_wiz_5Mhz_clk_wiz_5Mhz_clk_wiz
         .CLKINSTOPPED(NLW_mmcm_adv_inst_CLKINSTOPPED_UNCONNECTED),
         .CLKOUT0(clk5_clk_wiz_5Mhz),
         .CLKOUT0B(NLW_mmcm_adv_inst_CLKOUT0B_UNCONNECTED),
-        .CLKOUT1(clkRamN_clk_wiz_5Mhz),
+        .CLKOUT1(clkRam_clk_wiz_5Mhz),
         .CLKOUT1B(NLW_mmcm_adv_inst_CLKOUT1B_UNCONNECTED),
         .CLKOUT2(clkEEPROM_clk_wiz_5Mhz),
         .CLKOUT2B(NLW_mmcm_adv_inst_CLKOUT2B_UNCONNECTED),

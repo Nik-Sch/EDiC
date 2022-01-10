@@ -56,9 +56,9 @@
 //  Output     Output      Phase    Duty Cycle   Pk-to-Pk     Phase
 //   Clock     Freq (MHz)  (degrees)    (%)     Jitter (ps)  Error (ps)
 //----------------------------------------------------------------------------
-// ____clk5___5.00000______0.000______50.0______647.508____368.089
-// _clkRamN___5.00000_____98.926______50.0______647.508____368.089
-// clkEEPROM___5.00000_____90.000______50.0______647.508____368.089
+// ____clk5___8.00000______0.000______50.0______581.919____346.848
+// __clkRam___8.00000_____89.438______50.0______581.919____346.848
+// clkEEPROM___8.00000____126.562______50.0______581.919____346.848
 //
 //----------------------------------------------------------------------------
 // Input Clock   Freq (MHz)    Input Jitter (UI)
@@ -73,7 +73,7 @@ module clk_wiz_5Mhz
  (
   // Clock out ports
   output        clk5,
-  output        clkRamN,
+  output        clkRam,
   output        clkEEPROM,
  // Clock in ports
   input         clk_in1
@@ -83,7 +83,7 @@ module clk_wiz_5Mhz
   (
   // Clock out ports  
   .clk5(clk5),
-  .clkRamN(clkRamN),
+  .clkRam(clkRam),
   .clkEEPROM(clkEEPROM),
  // Clock in ports
   .clk_in1(clk_in1)

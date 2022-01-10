@@ -24,7 +24,7 @@ input wire port20
 
 always @(posedge port11) begin
   if (port1) begin
-    $fatal(1, "74*374 tri state cannot be used (port1 low).");
+    $fatal("74*374 tri state cannot be used (port1 low).");
   end
 
   port2 <= port3;

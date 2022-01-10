@@ -1,7 +1,7 @@
 SIMPLE_IO = 0xfe00
-UART_RX_EMPTY = 0xfe01
-UART_TX_FULL = 0xfe02
-UART_DATA = 0xfe03
+UART_RX_EMPTY = 0xfe09
+UART_TX_FULL = 0xfe0a
+UART_DATA = 0xfe0b
 PAR1 = 0xff00
 PAR2 = 0xff01
 PAR3 = 0xff02
@@ -38,6 +38,8 @@ LINES = 24
 COLUMNS = 80
 COLUMNS_1 = 79
 
+0x20.LOST_STRING = "You lost!!! Score: "
+
 start:
   # clear screen
   mov r0, ESCAPE0
@@ -65,34 +67,56 @@ start:
     str r0, [SNAKE_LENGTH]
     call updateItem
   mainUpdateBoard:
-    call drawBoard
     ldr r0, [SNAKE_LENGTH]
-    stf r0, [PAR1]
-    call output
+    str r0, [SIMPLE_IO]
+    # wait 100ms
+    mov r0, 100
+    call delay_ms
+
     call readArrow
     # change direction if != -1
     cmp r0, -1
     beq mainLoop
     str r0, [SNAKE_DIRECTION]
   b mainLoop
+
   lost:
-  b lost
+  // set position to upper center
+  mov r0, 6 # line
+  stf r0, [PAR2]
+  mov r0, 27 # col
+  stf r0, [PAR1]
+  mov r0, SPACE
+  call setScreen
+  mov r0, LOST_STRING
+  call outputString
+  ldr r0, [SNAKE_LENGTH]
+  call outputDecimal
+  lostLoop:
+  b lostLoop
 
 
 updateItem:
   str r1, [0xfffe]
 
-  itemStart:
+  itemColumn:
     call prng
-    mov r1, r0 # column
+    and r0, 0x7f # limit columns
+    cmp r0, COLUMNS
+    bhs itemColumn # if out of scope redo
+    mov r1, r0
+  itemLine:
     call prng
+    and r0, 0x1f # limit lines
+    cmp r0, LINES
+    bgt itemLine # if out of scope redo
+    stf r0, [PAR2]
     sma r0 # line
     ldr r0, [r1]
     cmp r0, SPACE
-  bne itemStart # if there is something at the new item position find a new one
+  bne itemColumn # if there is something at the new item position find a new one
   # store new item
   stf r1, [PAR1]
-  stf r0, [PAR2]
   mov r0, ITEM
   call setScreen
 
@@ -121,64 +145,64 @@ updateHead:
   b headEnd # should not happen
 
   headUp:
-    mov r1, UP
+    mov r0, UP
     call setScreen
-    ldr r1, [SNAKE_HEAD_LINE]
-    sub r1, 1
-    str r1, [SNAKE_HEAD_LINE]
+    ldr r0, [SNAKE_HEAD_LINE]
+    sub r0, 1
+    str r0, [SNAKE_HEAD_LINE]
   b headEnd
 
   headDown:
-    mov r1, DOWN
+    mov r0, DOWN
     call setScreen
-    ldr r1, [SNAKE_HEAD_LINE]
-    add r1, 1
-    str r1, [SNAKE_HEAD_LINE]
+    ldr r0, [SNAKE_HEAD_LINE]
+    add r0, 1
+    str r0, [SNAKE_HEAD_LINE]
   b headEnd
 
   headLeft:
-    mov r1, LEFT
+    mov r0, LEFT
     call setScreen
-    ldr r1, [SNAKE_HEAD_COL]
-    sub r1, 1
-    str r1, [SNAKE_HEAD_COL]
+    ldr r0, [SNAKE_HEAD_COL]
+    sub r0, 1
+    str r0, [SNAKE_HEAD_COL]
   b headEnd
 
   headRight:
-    mov r1, RIGHT
+    mov r0, RIGHT
     call setScreen
-    ldr r1, [SNAKE_HEAD_COL]
-    add r1, 1
-    str r1, [SNAKE_HEAD_COL]
+    ldr r0, [SNAKE_HEAD_COL]
+    add r0, 1
+    str r0, [SNAKE_HEAD_COL]
   b headEnd
 
 headEnd:
   
   ldr r1, [SNAKE_HEAD_LINE]
+  stf r1, [PAR2]
   sma r1
   ldr r1, [SNAKE_HEAD_COL]
-  ldr r0, [r1]
+  stf r1, [PAR1]
+  ldr r1, [r1] # load item at new position
+  sts r1, [0x00]
+  # store & show head
+  mov r0, HEAD
+  call setScreen
   # if new position is not space or item -> lost
+  lds r0, [0x00] # load saved item
   cmp r0, SPACE
-  beq headNotLost
+  beq headSpace
   cmp r0, ITEM
-  beq headNotLost
+  beq headItem
   mov r0, -1
   ldr r1, [0xfffe]
 ret
-headNotLost:
-  cmp r0, ITEM
-  bne headNoItem
-  mov r0, HEAD
-  str r0, [r1]
-  mov r0, 1
+headSpace:
+  mov r0, 0
   ldr r1, [0xfffe]
 ret
-headNoItem:
-  # draw new head
-  mov r0, HEAD
-  str r0, [r1]
-  mov r0, 0
+headItem:
+  mov r0, 1
   ldr r1, [0xfffe]
 ret
 
@@ -187,16 +211,15 @@ updateTail:
 
   ldr r0, [SNAKE_TAIL_LINE]
   str r0, [SNAKE_LEFT_LINE]
+  stf r0, [PAR2]
   sma r0
   ldr r0, [SNAKE_TAIL_COL]
   str r0, [SNAKE_LEFT_COL]
+  stf r0, [PAR1]
   # load direction char
   ldr r1, [r0]
-  # store direction to put space at the location
-  str r1, [PAR1]
-  mov r1, SPACE
-  str r1, [r0]
-  ldr r1, [PAR1]
+  mov r0, SPACE
+  call setScreen
   cmp r1, UP
   beq tailUp
   cmp r1, DOWN
@@ -240,8 +263,7 @@ createBoard:
   str r1, [0xfffd]
 
   # init snake
-  sma 0
-  mov r0, 3
+  mov r0, 4
   str r0, [SNAKE_LENGTH]
   mov r0, 2
   str r0, [SNAKE_DIRECTION]
@@ -297,7 +319,11 @@ createBoard:
     mov r0, SPACE
     # loop through line (1-79) and store space
     createColumnLoop:
+      ldr r0, [LINE_COUNTER]
+      sma r0
+      mov r0, SPACE
       str r0, [r1]
+      call outputChar
       add r1, 1
       cmp r1, COLUMNS_1
     blt createColumnLoop
@@ -336,18 +362,18 @@ createBoard:
   mov r0, HEAD
   call setScreen
 
-  mov r1, 0
+  mov r1, 1
   snakeBody:
     ldr r0, [SNAKE_HEAD_LINE]
     stf r0, [PAR2]
     ldr r0, [SNAKE_HEAD_COL]
-    add r0, r1
+    sub r0, r1
     stf r0, [PAR1]
     mov r0, RIGHT
     call setScreen
     add r1, 1
     cmp r1, 3
-    blt snakeBody
+  ble snakeBody
 
   ldr r0, [0xfffe]
   ldr r1, [0xfffd]
@@ -357,6 +383,7 @@ ret
 // r0: char, PAR1: col, PAR2: line
 setScreen:
   str r0, [0xfffe]
+  str r1, [0xfffd]
 
   # store
   ldr r1, [PAR2]
@@ -382,71 +409,9 @@ setScreen:
   ldr r0, [0xfffe]
   call outputChar
 
+  ldr r1, [0xfffd]
+
 ret
-
-
-
-# drawBoard:
-#   str r0, [0xfffe]
-#   str r1, [0xfffd]
-
-#   // go to home '\033[H'
-#   // clear screen '\033[2J'
-#   mov r0, ESCAPE0
-#   call outputChar
-#   mov r0, ESCAPE1
-#   call outputChar
-#   mov r0, 0x32 # '2'
-#   call outputChar
-#   mov r0, 0x4a # 'J'
-#   call outputChar
-
-#   mov r0, 1
-#   str r0, [LINE_COUNTER]
-#   drawLineLoop:
-#     mov r0, 0
-#     str r0, [COLUMN_COUNTER]
-#     # loop through line (1-70) and store space
-#     drawColumnLoop:
-#       ldr r1, [LINE_COUNTER]
-#       sma r1
-#       subs r0, [SNAKE_LEFT_COL]
-#       stf r0, [PAR1]
-#       stf r1, [PAR2]
-#       bne checkSpace
-#       subs r1, [SNAKE_LEFT_LINE]
-#       bne checkSpace
-#       ldr r0, [r0]
-#       call drawChar
-#       b afterOutput
-
-#     checkSpace:
-#       ldr r0, [r0]
-#       cmp r0, SPACE
-#       beq afterOutput
-#       ldr r0, [r0]
-#       call drawChar
-#     afterOutput:
-#       ldr r0, [COLUMN_COUNTER]
-#       add r0, 1
-#       str r0, [COLUMN_COUNTER]
-#       cmp r0, COLUMNS
-#     blt drawColumnLoop
-
-#     ldr r0, [LINE_COUNTER]
-#     add r0, 1
-#     str r0, [LINE_COUNTER]
-#     cmp r0, LINES
-#   ble drawLineLoop
-
-#   mov r0, 0x0d # cr
-#   call outputChar
-#   mov r0, 0x0a # lf
-#   call outputChar
-
-#   ldr r0, [0xfffe]
-#   ldr r1, [0xfffd]
-# ret
 
 # r0 is parameter
 outputChar:
@@ -484,6 +449,28 @@ outputDecimal:
 
   ldr r1, [0xfffe]
 ret
+
+# r0: address of string
+outputString:
+  str r1, [0xfffe]
+  sts r0, [0x00]
+  mov r1, 0
+  outputStringLoop:
+    lds r0, [0x00]
+    sma r0
+    ldr r0, [r1]
+    cmp r0, 0
+    beq outputStringEnd
+    call outputChar
+    add r1, 1
+    cmp r1, 255
+    bne outputStringLoop
+
+  outputStringEnd:
+
+  ldr r1, [0xfffe]
+ret
+
 
 # r0 / PAR1
 # result: r0 -> div, *PAR1 -> mod
@@ -556,18 +543,25 @@ prngDoEor:
   xor r0, 0x1d
 prngNoEor:
   str r0, [PRNG_SEED]
- 
+ret
 
-# par0 (r0) ignored and preserved, value outputed is p1
-output:
-  sts r0, [0xfffe] # store r0
-  sts r1, [0xfffd] # store r1
-  ldr r0, [SIMPLE_IO]
-  ldr r1, [PAR1] # value to output
-  str r1, [SIMPLE_IO]
-  # outLoop:
-  # subs r0, [SIMPLE_IO]
-  # beq outLoop
-  lds r0, [0xfffe] # restore r0
-  lds r1, [0xfffd] # restore r1
+# r0: delay in ms
+delay_ms:
+  sts r0, [0x00]
+
+  delay_ms_outer_loop:
+
+    # 2MHz clock -> 1ms is 2000cycle
+    # per loop 4+4+3+3=14 cycles (below)
+    # -> 198.6 times 10 cycles per iteration
+    mov r0, 0
+    delay_ms_loop:
+      add r0, 1 # 4 cycles
+      cmp r0, 199 # 3 cycles
+    blo delay_ms_loop # 3 cycles
+
+    lds r0, [0x00] # 4 cycles
+    sub r0, 1 # 4 cycles
+    sts r0, [0x00] # 3 cycles
+  bhi delay_ms_outer_loop # 3 cycles
 ret

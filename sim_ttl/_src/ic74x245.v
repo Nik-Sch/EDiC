@@ -21,8 +21,8 @@ output wire port18,
 input wire port19,
 input wire port20,
 
-input wire port21, // noe a
-input wire port22, // noa b
+output wire port21, // noe a
+output wire port22, // noa b
 
 input wire port102,
 input wire port103,

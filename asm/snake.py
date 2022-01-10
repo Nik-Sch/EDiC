@@ -149,4 +149,4 @@ while 1:
     snake.newItem()
   else:
     snake.updateTail()
-  time.sleep(0.2)
+  time.sleep(0.101)

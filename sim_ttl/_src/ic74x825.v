@@ -25,7 +25,7 @@ output reg port22,
 input wire port23,
 input wire port24,
 
-input wire port25
+output wire port25
 );
 
 assign port25 = port1 | port2 | port23;

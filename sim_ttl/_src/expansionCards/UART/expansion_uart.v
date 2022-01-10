@@ -5,7 +5,7 @@ module expansion_uart (
 
   input wire [7:0] i_bus,
   output reg [7:0] o_bus,
-  output reg o_busNOE,
+  output wire o_busNOE,
 
   input wire i_ioNCE,
   input wire [7:0] i_ioAddress,
@@ -15,10 +15,11 @@ module expansion_uart (
   input wire i_serialIn,
   output wire o_serialOut
 );
+wire s_selUartN;
 
 wire [7:0] s_dataRx;
 wire s_validRx;
-reg s_rxRdEn;
+reg r_rxRdEn;
 wire [7:0] s_fifoRxData;
 wire s_fifoRxEmpty;
 
@@ -28,50 +29,48 @@ wire [7:0] s_dataTx;
 reg r_fifoTxWrEn;
 wire s_fifoTxFull;
 
+assign s_selUartN = i_ioNCE | (i_ioAddress[7:3] != 1);
+assign o_busNOE = i_ioNOE | s_selUartN;
+
 always @(posedge i_clkDesign, negedge i_resetn) begin
   r_fifoTxWrEn <= 0;
+  r_rxRdEn <= 0;
 
-  if (~(i_ioNCE || i_ioNWE)) begin
-    case (i_ioAddress)
-      8'h03: begin // write txFifo data
-        r_fifoTxWrEn <= 1;
-        r_fifoTxData <= i_bus;
-      end
-      default: begin
-        $display("uart: writing unknown address %x. @%01t", i_ioAddress, $time);
-      end
-    endcase
+  if (~s_selUartN) begin
+    // write
+    if (~i_ioNWE) begin
+      case (i_ioAddress[2:0])
+        3'h3: begin // write txFifo data
+          r_fifoTxWrEn <= 1;
+          r_fifoTxData <= i_bus;
+        end
+        default: begin
+          $display("uart: writing unknown address %x. @%01t", i_ioAddress, $time);
+        end
+      endcase
+    end
+    // read
+    if (~i_ioNOE) begin
+      case (i_ioAddress[2:0])
+        3'h1: begin // read rxFifo empty
+          o_bus <= {7'h0, s_fifoRxEmpty};
+        end
+        3'h2: begin // read txFifo full
+          o_bus <= {7'h0, s_fifoTxFull};
+        end
+        3'h3: begin // read rxFifo data
+          r_rxRdEn <= 1;
+          o_bus <= s_fifoRxData;
+        end
+        default: begin
+          $display("uart: reading unknown address %x. @%01t", i_ioAddress, $time);
+        end
+      endcase
+    end
   end
   if (~i_resetn) begin
     r_fifoTxWrEn <= 0;
-  end
-end
-
-always @* begin
-  o_busNOE <= 1;
-  s_rxRdEn <= 0;
-  o_bus <= 0;
-
-  if (~(i_ioNCE || i_ioNOE)) begin
-    case (i_ioAddress)
-      // 00 is built in io
-      8'h01: begin // read rxFifo empty
-        o_busNOE <= 0;
-        o_bus <= {7'h0, s_fifoRxEmpty};
-      end
-      8'h02: begin // read txFifo full
-        o_busNOE <= 0;
-        o_bus <= {7'h0, s_fifoTxFull};
-      end
-      8'h03: begin // read rxFifo data
-        o_busNOE <= 0;
-        s_rxRdEn <= 1;
-        o_bus <= s_fifoRxData;
-      end
-      default: begin
-        $display("uart: reading unknown address %x. @%01t", i_ioAddress, $time);
-      end
-    endcase
+    r_rxRdEn <= 0;
   end
 end
 
@@ -83,7 +82,7 @@ uart_fifo_rx inst_fifo_rx (
   .full(),
 
   .rd_clk(i_clkDesign),
-  .rd_en(s_rxRdEn),
+  .rd_en(r_rxRdEn),
   .dout(s_fifoRxData),
   .empty(s_fifoRxEmpty)
 );

@@ -13,24 +13,24 @@ initial begin
   $timeformat(-9, 2, "ns", 20);
 end
 
-integer i;
-reg [INPUT_COUNT-1:0] ones;
 
-always @* begin
+always @* begin : block
+  // reg [INPUT_COUNT-1:0] ones;
+  integer i;
   o_data <= 1'b1;
-  ones = 0;
+  // ones = 0;
   for (i = 0; i < INPUT_COUNT; i = i + 1) begin
     if (i_noe[i] === 0) begin
       o_data <= i_data[i];
-      ones = ones + 1;
+      // ones = ones + 1;
     end
   end
-  if (ones > 1) begin
-    o_data <= 1'bx;
-    $display("More than one output enable is high (%m) at %0t.", $time);
-    // $stop;
-  end
-  o_noe <= !(ones == 1);
+  // if (ones > 1) begin
+  //   o_data <= 1'bx;
+  //   $display("More than one output enable is high (%m) at %0t.", $time);
+  //   // $stop;
+  // end
+  // o_noe <= !(ones == 1);
 end
 
 endmodule

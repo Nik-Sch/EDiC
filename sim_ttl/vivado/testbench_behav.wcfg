@@ -11,15 +11,27 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="168,001.666 ns"></ZoomStartTime>
-      <ZoomEndTime time="178,361.667 ns"></ZoomEndTime>
-      <Cursor1Time time="176,635.000 ns"></Cursor1Time>
+      <ZoomStartTime time="10,178.334 ns"></ZoomStartTime>
+      <ZoomEndTime time="20,718.335 ns"></ZoomEndTime>
+      <Cursor1Time time="13,104.045 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="299"></NameColumnWidth>
+      <NameColumnWidth column_width="263"></NameColumnWidth>
       <ValueColumnWidth column_width="97"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="31" />
+   <WVObjectSize size="39" />
+   <wvobject type="array" fp_name="/testbench/oszClkDiv">
+      <obj_property name="ElementShortName">oszClkDiv[1:0]</obj_property>
+      <obj_property name="ObjectShortName">oszClkDiv[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/clkRamDiv">
+      <obj_property name="ElementShortName">clkRamDiv[1:0]</obj_property>
+      <obj_property name="ObjectShortName">clkRamDiv[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/clkEEPROMDiv">
+      <obj_property name="ElementShortName">clkEEPROMDiv[1:0]</obj_property>
+      <obj_property name="ObjectShortName">clkEEPROMDiv[1:0]</obj_property>
+   </wvobject>
    <wvobject type="logic" fp_name="/testbench/btnStep">
       <obj_property name="ElementShortName">btnStep</obj_property>
       <obj_property name="ObjectShortName">btnStep</obj_property>
@@ -36,182 +48,182 @@
       <obj_property name="ElementShortName">swEnableBreakpoint</obj_property>
       <obj_property name="ObjectShortName">swEnableBreakpoint</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/testbench/inst_generated/i_asyncRamSpecialClock">
-      <obj_property name="ElementShortName">i_asyncRamSpecialClock</obj_property>
-      <obj_property name="ObjectShortName">i_asyncRamSpecialClock</obj_property>
+   <wvobject type="logic" fp_name="/testbench/resetn">
+      <obj_property name="ElementShortName">resetn</obj_property>
+      <obj_property name="ObjectShortName">resetn</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/inst_generated/CLK1">
+      <obj_property name="ElementShortName">CLK1</obj_property>
+      <obj_property name="ObjectShortName">CLK1</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="/testbench/inst_generated/i_asyncEEPROMSpecialClock">
       <obj_property name="ElementShortName">i_asyncEEPROMSpecialClock</obj_property>
       <obj_property name="ObjectShortName">i_asyncEEPROMSpecialClock</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/testbench/resetn">
-      <obj_property name="ElementShortName">resetn</obj_property>
-      <obj_property name="ObjectShortName">resetn</obj_property>
+   <wvobject type="logic" fp_name="/testbench/inst_generated/i_asyncRamSpecialClock">
+      <obj_property name="ElementShortName">i_asyncRamSpecialClock</obj_property>
+      <obj_property name="ObjectShortName">i_asyncRamSpecialClock</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/testbench/inst_generated/clk">
-      <obj_property name="ElementShortName">clk</obj_property>
-      <obj_property name="ObjectShortName">clk</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/testbench/inst_generated/halt">
-      <obj_property name="ElementShortName">halt</obj_property>
-      <obj_property name="ObjectShortName">halt</obj_property>
+   <wvobject type="logic" fp_name="/testbench/inst_generated/RESET1">
+      <obj_property name="ElementShortName">RESET1</obj_property>
+      <obj_property name="ObjectShortName">RESET1</obj_property>
    </wvobject>
    <wvobject type="vbus" fp_name="vbus196">
       <obj_property name="label">r_step</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/ControlA2">
-         <obj_property name="ElementShortName">ControlA2</obj_property>
-         <obj_property name="ObjectShortName">ControlA2</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/MC_A2">
+         <obj_property name="ElementShortName">MC_A2</obj_property>
+         <obj_property name="ObjectShortName">MC_A2</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/ControlA1">
-         <obj_property name="ElementShortName">ControlA1</obj_property>
-         <obj_property name="ObjectShortName">ControlA1</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/MC_A1">
+         <obj_property name="ElementShortName">MC_A1</obj_property>
+         <obj_property name="ObjectShortName">MC_A1</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/ControlA0">
-         <obj_property name="ElementShortName">ControlA0</obj_property>
-         <obj_property name="ObjectShortName">ControlA0</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/MC_A0">
+         <obj_property name="ElementShortName">MC_A0</obj_property>
+         <obj_property name="ObjectShortName">MC_A0</obj_property>
       </wvobject>
    </wvobject>
    <wvobject type="vbus" fp_name="vbus36">
       <obj_property name="label">pc</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/MemoryPc15">
-         <obj_property name="ElementShortName">MemoryPc15</obj_property>
-         <obj_property name="ObjectShortName">MemoryPc15</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/PC15">
+         <obj_property name="ElementShortName">PC15</obj_property>
+         <obj_property name="ObjectShortName">PC15</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/MemoryPc14">
-         <obj_property name="ElementShortName">MemoryPc14</obj_property>
-         <obj_property name="ObjectShortName">MemoryPc14</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/PC14">
+         <obj_property name="ElementShortName">PC14</obj_property>
+         <obj_property name="ObjectShortName">PC14</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/MemoryPc13">
-         <obj_property name="ElementShortName">MemoryPc13</obj_property>
-         <obj_property name="ObjectShortName">MemoryPc13</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/PC13">
+         <obj_property name="ElementShortName">PC13</obj_property>
+         <obj_property name="ObjectShortName">PC13</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/MemoryPc12">
-         <obj_property name="ElementShortName">MemoryPc12</obj_property>
-         <obj_property name="ObjectShortName">MemoryPc12</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/PC12">
+         <obj_property name="ElementShortName">PC12</obj_property>
+         <obj_property name="ObjectShortName">PC12</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/MemoryPc11">
-         <obj_property name="ElementShortName">MemoryPc11</obj_property>
-         <obj_property name="ObjectShortName">MemoryPc11</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/PC11">
+         <obj_property name="ElementShortName">PC11</obj_property>
+         <obj_property name="ObjectShortName">PC11</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/MemoryPc10">
-         <obj_property name="ElementShortName">MemoryPc10</obj_property>
-         <obj_property name="ObjectShortName">MemoryPc10</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/PC10">
+         <obj_property name="ElementShortName">PC10</obj_property>
+         <obj_property name="ObjectShortName">PC10</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/MemoryPc9">
-         <obj_property name="ElementShortName">MemoryPc9</obj_property>
-         <obj_property name="ObjectShortName">MemoryPc9</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/PC9">
+         <obj_property name="ElementShortName">PC9</obj_property>
+         <obj_property name="ObjectShortName">PC9</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/MemoryPc8">
-         <obj_property name="ElementShortName">MemoryPc8</obj_property>
-         <obj_property name="ObjectShortName">MemoryPc8</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/PC8">
+         <obj_property name="ElementShortName">PC8</obj_property>
+         <obj_property name="ObjectShortName">PC8</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/MemoryPc7">
-         <obj_property name="ElementShortName">MemoryPc7</obj_property>
-         <obj_property name="ObjectShortName">MemoryPc7</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/PC7">
+         <obj_property name="ElementShortName">PC7</obj_property>
+         <obj_property name="ObjectShortName">PC7</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/MemoryPc6">
-         <obj_property name="ElementShortName">MemoryPc6</obj_property>
-         <obj_property name="ObjectShortName">MemoryPc6</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/PC6">
+         <obj_property name="ElementShortName">PC6</obj_property>
+         <obj_property name="ObjectShortName">PC6</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/MemoryPc5">
-         <obj_property name="ElementShortName">MemoryPc5</obj_property>
-         <obj_property name="ObjectShortName">MemoryPc5</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/PC5">
+         <obj_property name="ElementShortName">PC5</obj_property>
+         <obj_property name="ObjectShortName">PC5</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/MemoryPc4">
-         <obj_property name="ElementShortName">MemoryPc4</obj_property>
-         <obj_property name="ObjectShortName">MemoryPc4</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/PC4">
+         <obj_property name="ElementShortName">PC4</obj_property>
+         <obj_property name="ObjectShortName">PC4</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/MemoryPc3">
-         <obj_property name="ElementShortName">MemoryPc3</obj_property>
-         <obj_property name="ObjectShortName">MemoryPc3</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/PC3">
+         <obj_property name="ElementShortName">PC3</obj_property>
+         <obj_property name="ObjectShortName">PC3</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/MemoryPc2">
-         <obj_property name="ElementShortName">MemoryPc2</obj_property>
-         <obj_property name="ObjectShortName">MemoryPc2</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/PC2">
+         <obj_property name="ElementShortName">PC2</obj_property>
+         <obj_property name="ObjectShortName">PC2</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/MemoryPc1">
-         <obj_property name="ElementShortName">MemoryPc1</obj_property>
-         <obj_property name="ObjectShortName">MemoryPc1</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/PC1">
+         <obj_property name="ElementShortName">PC1</obj_property>
+         <obj_property name="ObjectShortName">PC1</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/MemoryPc0">
-         <obj_property name="ElementShortName">MemoryPc0</obj_property>
-         <obj_property name="ObjectShortName">MemoryPc0</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/PC0">
+         <obj_property name="ElementShortName">PC0</obj_property>
+         <obj_property name="ObjectShortName">PC0</obj_property>
       </wvobject>
    </wvobject>
    <wvobject type="vbus" fp_name="vbus368">
       <obj_property name="label">r0</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/RegsetR07">
-         <obj_property name="ElementShortName">RegsetR07</obj_property>
-         <obj_property name="ObjectShortName">RegsetR07</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/R07">
+         <obj_property name="ElementShortName">R07</obj_property>
+         <obj_property name="ObjectShortName">R07</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/RegsetR06">
-         <obj_property name="ElementShortName">RegsetR06</obj_property>
-         <obj_property name="ObjectShortName">RegsetR06</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/R06">
+         <obj_property name="ElementShortName">R06</obj_property>
+         <obj_property name="ObjectShortName">R06</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/RegsetR05">
-         <obj_property name="ElementShortName">RegsetR05</obj_property>
-         <obj_property name="ObjectShortName">RegsetR05</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/R05">
+         <obj_property name="ElementShortName">R05</obj_property>
+         <obj_property name="ObjectShortName">R05</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/RegsetR04">
-         <obj_property name="ElementShortName">RegsetR04</obj_property>
-         <obj_property name="ObjectShortName">RegsetR04</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/R04">
+         <obj_property name="ElementShortName">R04</obj_property>
+         <obj_property name="ObjectShortName">R04</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/RegsetR03">
-         <obj_property name="ElementShortName">RegsetR03</obj_property>
-         <obj_property name="ObjectShortName">RegsetR03</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/R03">
+         <obj_property name="ElementShortName">R03</obj_property>
+         <obj_property name="ObjectShortName">R03</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/RegsetR02">
-         <obj_property name="ElementShortName">RegsetR02</obj_property>
-         <obj_property name="ObjectShortName">RegsetR02</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/R02">
+         <obj_property name="ElementShortName">R02</obj_property>
+         <obj_property name="ObjectShortName">R02</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/RegsetR01">
-         <obj_property name="ElementShortName">RegsetR01</obj_property>
-         <obj_property name="ObjectShortName">RegsetR01</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/R01">
+         <obj_property name="ElementShortName">R01</obj_property>
+         <obj_property name="ObjectShortName">R01</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/RegsetR00">
-         <obj_property name="ElementShortName">RegsetR00</obj_property>
-         <obj_property name="ObjectShortName">RegsetR00</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/R00">
+         <obj_property name="ElementShortName">R00</obj_property>
+         <obj_property name="ObjectShortName">R00</obj_property>
       </wvobject>
    </wvobject>
    <wvobject type="vbus" fp_name="vbus359">
       <obj_property name="label">r1</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/RegsetR17">
-         <obj_property name="ElementShortName">RegsetR17</obj_property>
-         <obj_property name="ObjectShortName">RegsetR17</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/R17">
+         <obj_property name="ElementShortName">R17</obj_property>
+         <obj_property name="ObjectShortName">R17</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/RegsetR16">
-         <obj_property name="ElementShortName">RegsetR16</obj_property>
-         <obj_property name="ObjectShortName">RegsetR16</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/R16">
+         <obj_property name="ElementShortName">R16</obj_property>
+         <obj_property name="ObjectShortName">R16</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/RegsetR15">
-         <obj_property name="ElementShortName">RegsetR15</obj_property>
-         <obj_property name="ObjectShortName">RegsetR15</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/R15">
+         <obj_property name="ElementShortName">R15</obj_property>
+         <obj_property name="ObjectShortName">R15</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/RegsetR14">
-         <obj_property name="ElementShortName">RegsetR14</obj_property>
-         <obj_property name="ObjectShortName">RegsetR14</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/R14">
+         <obj_property name="ElementShortName">R14</obj_property>
+         <obj_property name="ObjectShortName">R14</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/RegsetR13">
-         <obj_property name="ElementShortName">RegsetR13</obj_property>
-         <obj_property name="ObjectShortName">RegsetR13</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/R13">
+         <obj_property name="ElementShortName">R13</obj_property>
+         <obj_property name="ObjectShortName">R13</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/RegsetR12">
-         <obj_property name="ElementShortName">RegsetR12</obj_property>
-         <obj_property name="ObjectShortName">RegsetR12</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/R12">
+         <obj_property name="ElementShortName">R12</obj_property>
+         <obj_property name="ObjectShortName">R12</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/RegsetR11">
-         <obj_property name="ElementShortName">RegsetR11</obj_property>
-         <obj_property name="ObjectShortName">RegsetR11</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/R11">
+         <obj_property name="ElementShortName">R11</obj_property>
+         <obj_property name="ObjectShortName">R11</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/RegsetR10">
-         <obj_property name="ElementShortName">RegsetR10</obj_property>
-         <obj_property name="ObjectShortName">RegsetR10</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/R10">
+         <obj_property name="ElementShortName">R10</obj_property>
+         <obj_property name="ObjectShortName">R10</obj_property>
       </wvobject>
    </wvobject>
    <wvobject type="vbus" fp_name="vbus140">
@@ -256,58 +268,6 @@
       <obj_property name="ObjectShortName">i_noe[7:0]</obj_property>
       <obj_property name="label">bus_noe</obj_property>
    </wvobject>
-   <wvobject type="vbus" fp_name="vbus405">
-      <obj_property name="label">controlAddress</obj_property>
-      <obj_property name="DisplayName">label</obj_property>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/ControlA14">
-         <obj_property name="ElementShortName">ControlA14</obj_property>
-         <obj_property name="ObjectShortName">ControlA14</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/ControlA13">
-         <obj_property name="ElementShortName">ControlA13</obj_property>
-         <obj_property name="ObjectShortName">ControlA13</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/ControlA12">
-         <obj_property name="ElementShortName">ControlA12</obj_property>
-         <obj_property name="ObjectShortName">ControlA12</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/ControlA11">
-         <obj_property name="ElementShortName">ControlA11</obj_property>
-         <obj_property name="ObjectShortName">ControlA11</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/ControlA10">
-         <obj_property name="ElementShortName">ControlA10</obj_property>
-         <obj_property name="ObjectShortName">ControlA10</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/ControlA9">
-         <obj_property name="ElementShortName">ControlA9</obj_property>
-         <obj_property name="ObjectShortName">ControlA9</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/ControlA8">
-         <obj_property name="ElementShortName">ControlA8</obj_property>
-         <obj_property name="ObjectShortName">ControlA8</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/ControlA7">
-         <obj_property name="ElementShortName">ControlA7</obj_property>
-         <obj_property name="ObjectShortName">ControlA7</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/ControlA6">
-         <obj_property name="ElementShortName">ControlA6</obj_property>
-         <obj_property name="ObjectShortName">ControlA6</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/ControlA2">
-         <obj_property name="ElementShortName">ControlA2</obj_property>
-         <obj_property name="ObjectShortName">ControlA2</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/ControlA1">
-         <obj_property name="ElementShortName">ControlA1</obj_property>
-         <obj_property name="ObjectShortName">ControlA1</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/ControlA0">
-         <obj_property name="ElementShortName">ControlA0</obj_property>
-         <obj_property name="ObjectShortName">ControlA0</obj_property>
-      </wvobject>
-   </wvobject>
    <wvobject type="vbus" fp_name="vbus534">
       <obj_property name="label">sp</obj_property>
       <obj_property name="DisplayName">label</obj_property>
@@ -347,105 +307,73 @@
    <wvobject type="group" fp_name="group218">
       <obj_property name="label">control</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/ctrlAluYWEN">
-         <obj_property name="ElementShortName">ctrlAluYWEN</obj_property>
-         <obj_property name="ObjectShortName">ctrlAluYWEN</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/ctrlAluOEN">
-         <obj_property name="ElementShortName">ctrlAluOEN</obj_property>
-         <obj_property name="ObjectShortName">ctrlAluOEN</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/ctrlReg0WEN">
-         <obj_property name="ElementShortName">ctrlReg0WEN</obj_property>
-         <obj_property name="ObjectShortName">ctrlReg0WEN</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/ctrlReg1WEN">
-         <obj_property name="ElementShortName">ctrlReg1WEN</obj_property>
-         <obj_property name="ObjectShortName">ctrlReg1WEN</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/ctrlRegAluSel">
-         <obj_property name="ElementShortName">ctrlRegAluSel</obj_property>
-         <obj_property name="ObjectShortName">ctrlRegAluSel</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/ctrlReg0BusOEN">
-         <obj_property name="ElementShortName">ctrlReg0BusOEN</obj_property>
-         <obj_property name="ObjectShortName">ctrlReg0BusOEN</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/ctrlReg1BusOEN">
-         <obj_property name="ElementShortName">ctrlReg1BusOEN</obj_property>
-         <obj_property name="ObjectShortName">ctrlReg1BusOEN</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/ctrlMemPCLoadN">
-         <obj_property name="ElementShortName">ctrlMemPCLoadN</obj_property>
-         <obj_property name="ObjectShortName">ctrlMemPCLoadN</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/ctrlMemSPUp">
-         <obj_property name="ElementShortName">ctrlMemSPUp</obj_property>
-         <obj_property name="ObjectShortName">ctrlMemSPUp</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/ctrlMemSPEnN">
-         <obj_property name="ElementShortName">ctrlMemSPEnN</obj_property>
-         <obj_property name="ObjectShortName">ctrlMemSPEnN</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/ctrlMemInstrWEN">
-         <obj_property name="ElementShortName">ctrlMemInstrWEN</obj_property>
-         <obj_property name="ObjectShortName">ctrlMemInstrWEN</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/ctrlMemInstrOEN">
-         <obj_property name="ElementShortName">ctrlMemInstrOEN</obj_property>
-         <obj_property name="ObjectShortName">ctrlMemInstrOEN</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/ctrlMemMar0WEN">
-         <obj_property name="ElementShortName">ctrlMemMar0WEN</obj_property>
-         <obj_property name="ObjectShortName">ctrlMemMar0WEN</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/ctrlMemMar1WEN">
-         <obj_property name="ElementShortName">ctrlMemMar1WEN</obj_property>
-         <obj_property name="ObjectShortName">ctrlMemMar1WEN</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/ctrlMemInstrImmToRamAddr">
-         <obj_property name="ElementShortName">ctrlMemInstrImmToRamAddr</obj_property>
-         <obj_property name="ObjectShortName">ctrlMemInstrImmToRamAddr</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/ctrlMemRamWEN">
-         <obj_property name="ElementShortName">ctrlMemRamWEN</obj_property>
-         <obj_property name="ObjectShortName">ctrlMemRamWEN</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/ctrlMemRamOEN">
-         <obj_property name="ElementShortName">ctrlMemRamOEN</obj_property>
-         <obj_property name="ObjectShortName">ctrlMemRamOEN</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/ctrlMemPCEnN">
-         <obj_property name="ElementShortName">ctrlMemPCEnN</obj_property>
-         <obj_property name="ObjectShortName">ctrlMemPCEnN</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/ctrlMemPCFromImm">
-         <obj_property name="ElementShortName">ctrlMemPCFromImm</obj_property>
-         <obj_property name="ObjectShortName">ctrlMemPCFromImm</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/ctrlMemPCToRamN">
-         <obj_property name="ElementShortName">ctrlMemPCToRamN</obj_property>
-         <obj_property name="ObjectShortName">ctrlMemPCToRamN</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/ctrlInstrFinishedN">
-         <obj_property name="ElementShortName">ctrlInstrFinishedN</obj_property>
-         <obj_property name="ObjectShortName">ctrlInstrFinishedN</obj_property>
-      </wvobject>
       <wvobject type="array" fp_name="/testbench/inst_generated/inst_microCodeRom/addra">
          <obj_property name="ElementShortName">addra[14:0]</obj_property>
          <obj_property name="ObjectShortName">addra[14:0]</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/ctrlAluOp0">
-         <obj_property name="ElementShortName">ctrlAluOp0</obj_property>
-         <obj_property name="ObjectShortName">ctrlAluOp0</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLMEMINSTRWE">
+         <obj_property name="ElementShortName">CTRLMEMINSTRWE</obj_property>
+         <obj_property name="ObjectShortName">CTRLMEMINSTRWE</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/ctrlAluOp1">
-         <obj_property name="ElementShortName">ctrlAluOp1</obj_property>
-         <obj_property name="ObjectShortName">ctrlAluOp1</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLMEMMAR0WE">
+         <obj_property name="ElementShortName">CTRLMEMMAR0WE</obj_property>
+         <obj_property name="ObjectShortName">CTRLMEMMAR0WE</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/ctrlAluSub">
-         <obj_property name="ElementShortName">ctrlAluSub</obj_property>
-         <obj_property name="ObjectShortName">ctrlAluSub</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLMEMMAR1WE">
+         <obj_property name="ElementShortName">CTRLMEMMAR1WE</obj_property>
+         <obj_property name="ObjectShortName">CTRLMEMMAR1WE</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLMEMPCEN">
+         <obj_property name="ElementShortName">CTRLMEMPCEN</obj_property>
+         <obj_property name="ObjectShortName">CTRLMEMPCEN</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLMEMPCFROMIMM">
+         <obj_property name="ElementShortName">CTRLMEMPCFROMIMM</obj_property>
+         <obj_property name="ObjectShortName">CTRLMEMPCFROMIMM</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLMEMPCLOAD">
+         <obj_property name="ElementShortName">CTRLMEMPCLOAD</obj_property>
+         <obj_property name="ObjectShortName">CTRLMEMPCLOAD</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLMEMPCTORAM">
+         <obj_property name="ElementShortName">CTRLMEMPCTORAM</obj_property>
+         <obj_property name="ObjectShortName">CTRLMEMPCTORAM</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLMEMRAMOE">
+         <obj_property name="ElementShortName">CTRLMEMRAMOE</obj_property>
+         <obj_property name="ObjectShortName">CTRLMEMRAMOE</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLMEMRAMWE">
+         <obj_property name="ElementShortName">CTRLMEMRAMWE</obj_property>
+         <obj_property name="ObjectShortName">CTRLMEMRAMWE</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLMEMSPEN">
+         <obj_property name="ElementShortName">CTRLMEMSPEN</obj_property>
+         <obj_property name="ObjectShortName">CTRLMEMSPEN</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLMEMSPUP">
+         <obj_property name="ElementShortName">CTRLMEMSPUP</obj_property>
+         <obj_property name="ObjectShortName">CTRLMEMSPUP</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLREG0BUSOE">
+         <obj_property name="ElementShortName">CTRLREG0BUSOE</obj_property>
+         <obj_property name="ObjectShortName">CTRLREG0BUSOE</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLREG0WE">
+         <obj_property name="ElementShortName">CTRLREG0WE</obj_property>
+         <obj_property name="ObjectShortName">CTRLREG0WE</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLREG1BUSOE">
+         <obj_property name="ElementShortName">CTRLREG1BUSOE</obj_property>
+         <obj_property name="ObjectShortName">CTRLREG1BUSOE</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLREG1WE">
+         <obj_property name="ElementShortName">CTRLREG1WE</obj_property>
+         <obj_property name="ObjectShortName">CTRLREG1WE</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLREGALUSEL">
+         <obj_property name="ElementShortName">CTRLREGALUSEL</obj_property>
+         <obj_property name="ObjectShortName">CTRLREGALUSEL</obj_property>
       </wvobject>
    </wvobject>
    <wvobject type="vbus" fp_name="vbus228">
@@ -487,75 +415,10 @@
    <wvobject type="vbus" fp_name="vbus350">
       <obj_property name="label">instrImm</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/MemoryInstrImm15">
-         <obj_property name="ElementShortName">MemoryInstrImm15</obj_property>
-         <obj_property name="ObjectShortName">MemoryInstrImm15</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/MemoryInstrImm14">
-         <obj_property name="ElementShortName">MemoryInstrImm14</obj_property>
-         <obj_property name="ObjectShortName">MemoryInstrImm14</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/MemoryInstrImm13">
-         <obj_property name="ElementShortName">MemoryInstrImm13</obj_property>
-         <obj_property name="ObjectShortName">MemoryInstrImm13</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/MemoryInstrImm12">
-         <obj_property name="ElementShortName">MemoryInstrImm12</obj_property>
-         <obj_property name="ObjectShortName">MemoryInstrImm12</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/MemoryInstrImm11">
-         <obj_property name="ElementShortName">MemoryInstrImm11</obj_property>
-         <obj_property name="ObjectShortName">MemoryInstrImm11</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/MemoryInstrImm10">
-         <obj_property name="ElementShortName">MemoryInstrImm10</obj_property>
-         <obj_property name="ObjectShortName">MemoryInstrImm10</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/MemoryInstrImm9">
-         <obj_property name="ElementShortName">MemoryInstrImm9</obj_property>
-         <obj_property name="ObjectShortName">MemoryInstrImm9</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/MemoryInstrImm8">
-         <obj_property name="ElementShortName">MemoryInstrImm8</obj_property>
-         <obj_property name="ObjectShortName">MemoryInstrImm8</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/MemoryInstrImm7">
-         <obj_property name="ElementShortName">MemoryInstrImm7</obj_property>
-         <obj_property name="ObjectShortName">MemoryInstrImm7</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/MemoryInstrImm6">
-         <obj_property name="ElementShortName">MemoryInstrImm6</obj_property>
-         <obj_property name="ObjectShortName">MemoryInstrImm6</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/MemoryInstrImm5">
-         <obj_property name="ElementShortName">MemoryInstrImm5</obj_property>
-         <obj_property name="ObjectShortName">MemoryInstrImm5</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/MemoryInstrImm4">
-         <obj_property name="ElementShortName">MemoryInstrImm4</obj_property>
-         <obj_property name="ObjectShortName">MemoryInstrImm4</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/MemoryInstrImm3">
-         <obj_property name="ElementShortName">MemoryInstrImm3</obj_property>
-         <obj_property name="ObjectShortName">MemoryInstrImm3</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/MemoryInstrImm2">
-         <obj_property name="ElementShortName">MemoryInstrImm2</obj_property>
-         <obj_property name="ObjectShortName">MemoryInstrImm2</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/MemoryInstrImm1">
-         <obj_property name="ElementShortName">MemoryInstrImm1</obj_property>
-         <obj_property name="ObjectShortName">MemoryInstrImm1</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/MemoryInstrImm0">
-         <obj_property name="ElementShortName">MemoryInstrImm0</obj_property>
-         <obj_property name="ObjectShortName">MemoryInstrImm0</obj_property>
-      </wvobject>
    </wvobject>
    <wvobject type="vbus" fp_name="vbus413">
       <obj_property name="label">flagsOut</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U97/port19">
          <obj_property name="DisplayName">label</obj_property>
          <obj_property name="ElementShortName">port19</obj_property>
@@ -584,7 +447,7 @@
    <wvobject type="vbus" fp_name="vbus443">
       <obj_property name="label">output</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
       <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U92/port19">
          <obj_property name="ElementShortName">port19</obj_property>
          <obj_property name="ObjectShortName">port19</obj_property>
@@ -870,40 +733,44 @@
          <obj_property name="label">~enp</obj_property>
       </wvobject>
    </wvobject>
+   <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U92/port11">
+      <obj_property name="ElementShortName">port11</obj_property>
+      <obj_property name="ObjectShortName">port11</obj_property>
+   </wvobject>
    <wvobject type="vbus" fp_name="vbus424">
       <obj_property name="label">alu_a</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/AluA7">
-         <obj_property name="ElementShortName">AluA7</obj_property>
-         <obj_property name="ObjectShortName">AluA7</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/A7">
+         <obj_property name="ElementShortName">A7</obj_property>
+         <obj_property name="ObjectShortName">A7</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/AluA6">
-         <obj_property name="ElementShortName">AluA6</obj_property>
-         <obj_property name="ObjectShortName">AluA6</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/A6">
+         <obj_property name="ElementShortName">A6</obj_property>
+         <obj_property name="ObjectShortName">A6</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/AluA5">
-         <obj_property name="ElementShortName">AluA5</obj_property>
-         <obj_property name="ObjectShortName">AluA5</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/A5">
+         <obj_property name="ElementShortName">A5</obj_property>
+         <obj_property name="ObjectShortName">A5</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/AluA4">
-         <obj_property name="ElementShortName">AluA4</obj_property>
-         <obj_property name="ObjectShortName">AluA4</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/A4">
+         <obj_property name="ElementShortName">A4</obj_property>
+         <obj_property name="ObjectShortName">A4</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/AluA3">
-         <obj_property name="ElementShortName">AluA3</obj_property>
-         <obj_property name="ObjectShortName">AluA3</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/A3">
+         <obj_property name="ElementShortName">A3</obj_property>
+         <obj_property name="ObjectShortName">A3</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/AluA2">
-         <obj_property name="ElementShortName">AluA2</obj_property>
-         <obj_property name="ObjectShortName">AluA2</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/A2">
+         <obj_property name="ElementShortName">A2</obj_property>
+         <obj_property name="ObjectShortName">A2</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/AluA1">
-         <obj_property name="ElementShortName">AluA1</obj_property>
-         <obj_property name="ObjectShortName">AluA1</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/A1">
+         <obj_property name="ElementShortName">A1</obj_property>
+         <obj_property name="ObjectShortName">A1</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/AluA0">
-         <obj_property name="ElementShortName">AluA0</obj_property>
-         <obj_property name="ObjectShortName">AluA0</obj_property>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/A0">
+         <obj_property name="ElementShortName">A0</obj_property>
+         <obj_property name="ObjectShortName">A0</obj_property>
       </wvobject>
    </wvobject>
    <wvobject type="vbus" fp_name="vbus2953">
@@ -943,16 +810,40 @@
          <obj_property name="ObjectShortName">port22</obj_property>
       </wvobject>
    </wvobject>
-   <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U54/port13">
-      <obj_property name="ElementShortName">port13</obj_property>
-      <obj_property name="ObjectShortName">port13</obj_property>
+   <wvobject type="logic" fp_name="/testbench/uart/i_ioNCE">
+      <obj_property name="ElementShortName">i_ioNCE</obj_property>
+      <obj_property name="ObjectShortName">i_ioNCE</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/testbench/inst_generated/inst_U54/r_data">
-      <obj_property name="ElementShortName">r_data[7:0]</obj_property>
-      <obj_property name="ObjectShortName">r_data[7:0]</obj_property>
+   <wvobject type="array" fp_name="/testbench/uart/i_ioAddress">
+      <obj_property name="ElementShortName">i_ioAddress[7:0]</obj_property>
+      <obj_property name="ObjectShortName">i_ioAddress[7:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/testbench/inst_generated/inst_U54/S">
-      <obj_property name="ElementShortName">S[1:0]</obj_property>
-      <obj_property name="ObjectShortName">S[1:0]</obj_property>
+   <wvobject type="vbus" fp_name="vbus192">
+      <obj_property name="label">uartAddr</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="logic" fp_name="/testbench/uart/i_ioAddress[1]">
+         <obj_property name="ElementShortName">[1]</obj_property>
+         <obj_property name="ObjectShortName">[1]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/uart/i_ioNOE">
+      <obj_property name="ElementShortName">i_ioNOE</obj_property>
+      <obj_property name="ObjectShortName">i_ioNOE</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/uart/i_ioNWE">
+      <obj_property name="ElementShortName">i_ioNWE</obj_property>
+      <obj_property name="ObjectShortName">i_ioNWE</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/uart/s_selUartN">
+      <obj_property name="ElementShortName">s_selUartN</obj_property>
+      <obj_property name="ObjectShortName">s_selUartN</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/uart/o_bus">
+      <obj_property name="ElementShortName">o_bus[7:0]</obj_property>
+      <obj_property name="ObjectShortName">o_bus[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/uart/o_busNOE">
+      <obj_property name="ElementShortName">o_busNOE</obj_property>
+      <obj_property name="ObjectShortName">o_busNOE</obj_property>
    </wvobject>
 </wave_config>

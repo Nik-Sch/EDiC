@@ -1280,6 +1280,22 @@ assign IN4 = i_switches[4];
 assign IN5 = i_switches[5];
 assign IN6 = i_switches[6];
 assign IN7 = i_switches[7];
+assign o_r0[0] = R00;
+assign o_r1[0] = R10;
+assign o_r0[1] = R01;
+assign o_r1[1] = R11;
+assign o_r0[2] = R02;
+assign o_r1[2] = R12;
+assign o_r0[3] = R03;
+assign o_r1[3] = R13;
+assign o_r0[4] = R04;
+assign o_r1[4] = R14;
+assign o_r0[5] = R05;
+assign o_r1[5] = R15;
+assign o_r0[6] = R06;
+assign o_r1[6] = R16;
+assign o_r0[7] = R07;
+assign o_r1[7] = R17;
 assign o_output[7] = N16459739;
 assign o_output[6] = N16459679;
 assign o_output[5] = N16459595;
@@ -5696,7 +5712,7 @@ ic74x245 inst_U201 (
   .port16(BUS_BUF2_U201),
   .port17(BUS_BUF1_U201),
   .port18(BUS_BUF0_U201),
-  .port19(L2),
+  .port19(RAMCE),
   .port20(VCC),
   .port21(U201_a_noe),
   .port22(U201_b_noe),
