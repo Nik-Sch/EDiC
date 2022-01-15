@@ -1,7 +1,7 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.2 (lin64) Build 3367213 Tue Oct 19 02:47:39 MDT 2021
-| Date         : Mon Jan 10 20:38:43 2022
+| Date         : Fri Jan 14 18:51:18 2022
 | Host         : niklasPC running 64-bit Manjaro Linux
 | Command      : report_clock_utilization -file board_top_clock_utilization_routed.rpt
 | Design       : board_top
@@ -58,11 +58,11 @@ Table of Contents
 +-----------+-----------+-----------------+------------+----------------+--------------+-------------------+-------------+-----------------+--------------+------------------------+---------------------------------+---------------------------------------------+
 | Global Id | Source Id | Driver Type/Pin | Constraint | Site           | Clock Region | Load Clock Region | Clock Loads | Non-Clock Loads | Clock Period | Clock                  | Driver Pin                      | Net                                         |
 +-----------+-----------+-----------------+------------+----------------+--------------+-------------------+-------------+-----------------+--------------+------------------------+---------------------------------+---------------------------------------------+
-| g0        | src0      | BUFG/O          | None       | BUFGCTRL_X0Y1  | n/a          |                 7 |         176 |               1 |              |                        | r_clkRamDiv[1]_BUFG_inst/O      | r_clkRamDiv_BUFG[1]                         |
-| g1        | src1      | BUFG/O          | None       | BUFGCTRL_X0Y0  | n/a          |                 4 |         149 |               0 |              |                        | r_oszClkDiv_BUFG[1]_inst/O      | r_oszClkDiv_BUFG[1]                         |
-| g2        | src2      | BUFG/O          | None       | BUFGCTRL_X0Y2  | n/a          |                 6 |          94 |               1 |              |                        | r_clkEEPROMDiv[1]_BUFG_inst/O   | r_clkEEPROMDiv_BUFG[1]                      |
-| g3        | src3      | BUFG/O          | None       | BUFGCTRL_X0Y16 | n/a          |                 2 |          63 |               0 |       10.000 | i_clk100               | i_clk100_IBUF_BUFG_inst/O       | i_clk100_IBUF_BUFG                          |
-| g4        | src4      | BUFG/O          | None       | BUFGCTRL_X0Y3  | n/a          |                 1 |          11 |               0 |      125.000 | clk5_clk_wiz_5Mhz      | inst_clk5Mhz/inst/clkout1_buf/O | inst_clk5Mhz/inst/clk5                      |
+| g0        | src0      | BUFG/O          | None       | BUFGCTRL_X0Y1  | n/a          |                 6 |         176 |               1 |              |                        | r_clkRamDiv[1]_BUFG_inst/O      | r_clkRamDiv_BUFG[1]                         |
+| g1        | src1      | BUFG/O          | None       | BUFGCTRL_X0Y0  | n/a          |                 3 |         149 |               0 |              |                        | r_oszClkDiv_BUFG[1]_inst/O      | r_oszClkDiv_BUFG[1]                         |
+| g2        | src2      | BUFG/O          | None       | BUFGCTRL_X0Y2  | n/a          |                 7 |          94 |               1 |              |                        | r_clkEEPROMDiv[1]_BUFG_inst/O   | r_clkEEPROMDiv_BUFG[1]                      |
+| g3        | src3      | BUFG/O          | None       | BUFGCTRL_X0Y16 | n/a          |                 3 |          63 |               0 |       10.000 | i_clk100               | i_clk100_IBUF_BUFG_inst/O       | i_clk100_IBUF_BUFG                          |
+| g4        | src4      | BUFG/O          | None       | BUFGCTRL_X0Y3  | n/a          |                 2 |          11 |               0 |      125.000 | clk5_clk_wiz_5Mhz      | inst_clk5Mhz/inst/clkout1_buf/O | inst_clk5Mhz/inst/clk5                      |
 | g5        | src5      | BUFG/O          | None       | BUFGCTRL_X0Y5  | n/a          |                 1 |           2 |               0 |      125.000 | clkEEPROM_clk_wiz_5Mhz | inst_clk5Mhz/inst/clkout3_buf/O | inst_clk5Mhz/inst/clkEEPROM                 |
 | g6        | src6      | BUFG/O          | None       | BUFGCTRL_X0Y4  | n/a          |                 1 |           2 |               0 |      125.000 | clkRam_clk_wiz_5Mhz    | inst_clk5Mhz/inst/clkout2_buf/O | inst_clk5Mhz/inst/clkRam                    |
 | g7        | src7      | BUFG/O          | None       | BUFGCTRL_X0Y6  | n/a          |                 1 |           1 |               0 |       50.000 | clkfbout_clk_wiz_5Mhz  | inst_clk5Mhz/inst/clkf_buf/O    | inst_clk5Mhz/inst/clkfbout_buf_clk_wiz_5Mhz |
@@ -78,8 +78,8 @@ Table of Contents
 | Source Id | Global Id | Driver Type/Pin     | Constraint | Site            | Clock Region | Clock Loads | Non-Clock Loads | Source Clock Period | Source Clock           | Driver Pin                               | Net                                      |
 +-----------+-----------+---------------------+------------+-----------------+--------------+-------------+-----------------+---------------------+------------------------+------------------------------------------+------------------------------------------+
 | src0      | g0        | FDRE/Q              | None       | SLICE_X51Y96    | X0Y1         |           1 |               0 |                     |                        | r_clkRamDiv_reg[1]/Q                     | r_clkRamDiv[1]                           |
-| src1      | g1        | FDRE/Q              | None       | SLICE_X52Y95    | X1Y1         |           1 |               1 |                     |                        | r_oszClkDiv_reg[1]/Q                     | r_oszClkDiv[1]                           |
-| src2      | g2        | FDRE/Q              | None       | SLICE_X52Y96    | X1Y1         |           1 |               0 |                     |                        | r_clkEEPROMDiv_reg[1]/Q                  | r_clkEEPROMDiv[1]                        |
+| src1      | g1        | FDRE/Q              | None       | SLICE_X51Y95    | X0Y1         |           1 |               1 |                     |                        | r_oszClkDiv_reg[1]/Q                     | r_oszClkDiv[1]                           |
+| src2      | g2        | FDRE/Q              | None       | SLICE_X52Y97    | X1Y1         |           1 |               0 |                     |                        | r_clkEEPROMDiv_reg[1]/Q                  | r_clkEEPROMDiv[1]                        |
 | src3      | g3        | IBUF/O              | IOB_X1Y126 | IOB_X1Y126      | X1Y2         |           1 |               0 |              10.000 | i_clk100               | i_clk100_IBUF_inst/O                     | i_clk100_IBUF                            |
 | src4      | g4        | MMCME2_ADV/CLKOUT0  | None       | MMCME2_ADV_X0Y0 | X0Y0         |           1 |               0 |             125.000 | clk5_clk_wiz_5Mhz      | inst_clk5Mhz/inst/mmcm_adv_inst/CLKOUT0  | inst_clk5Mhz/inst/clk5_clk_wiz_5Mhz      |
 | src5      | g5        | MMCME2_ADV/CLKOUT2  | None       | MMCME2_ADV_X0Y0 | X0Y0         |           1 |               0 |             125.000 | clkEEPROM_clk_wiz_5Mhz | inst_clk5Mhz/inst/mmcm_adv_inst/CLKOUT2  | inst_clk5Mhz/inst/clkEEPROM_clk_wiz_5Mhz |
@@ -99,13 +99,13 @@ Table of Contents
 | Clock Region Name | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail |
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
 | X0Y0              |    3 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    1 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  2600 |    0 |   600 |    0 |    20 |    8 |    10 |    0 |    20 |
-| X1Y0              |    1 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     4 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |  1500 |    0 |   550 |    0 |    40 |   13 |    20 |    0 |    40 |
-| X0Y1              |    4 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |   26 |  2000 |   12 |   600 |    0 |    20 |   10 |    10 |    0 |    20 |
-| X1Y1              |    6 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |  212 |  1900 |   69 |   650 |    0 |    60 |   28 |    30 |    0 |    40 |
-| X0Y2              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    5 |  2000 |    5 |   600 |    0 |    20 |   10 |    10 |    0 |    20 |
-| X1Y2              |    3 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |   31 |  1900 |    3 |   650 |    0 |    60 |   30 |    30 |    0 |    40 |
+| X1Y0              |    2 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     4 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |  1500 |    0 |   550 |    0 |    40 |   14 |    20 |    0 |    40 |
+| X0Y1              |    5 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |   20 |  2000 |    9 |   600 |    0 |    20 |   10 |    10 |    0 |    20 |
+| X1Y1              |    6 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |  183 |  1900 |   65 |   650 |    0 |    60 |   29 |    30 |    0 |    40 |
+| X0Y2              |    1 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    3 |  2000 |    3 |   600 |    0 |    20 |   10 |    10 |    0 |    20 |
+| X1Y2              |    4 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |   68 |  1900 |   27 |   650 |    0 |    60 |   29 |    30 |    0 |    40 |
 | X0Y3              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  2600 |    0 |   600 |    0 |    20 |    6 |    10 |    0 |    20 |
-| X1Y3              |    2 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     4 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |  1350 |    0 |   500 |    0 |    30 |    3 |    15 |    0 |    40 |
+| X1Y3              |    1 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     4 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |  1350 |    0 |   500 |    0 |    30 |    2 |    15 |    0 |    40 |
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
 * Global Clock column represents track count; while other columns represents cell counts
 
@@ -117,10 +117,10 @@ All Modules
 +----+----+----+
 |    | X0 | X1 |
 +----+----+----+
-| Y3 |  2 |  2 |
-| Y2 |  2 |  3 |
-| Y1 |  4 |  6 |
-| Y0 |  3 |  1 |
+| Y3 |  2 |  1 |
+| Y2 |  1 |  4 |
+| Y1 |  5 |  6 |
+| Y0 |  3 |  2 |
 +----+----+----+
 
 
@@ -141,9 +141,9 @@ All Modules
 +----+----+-----+-----------------------+
 |    | X0 | X1  | HORIZONTAL PROG DELAY |
 +----+----+-----+-----------------------+
-| Y3 |  4 |   1 |                     0 |
-| Y2 |  0 |  13 |                     0 |
-| Y1 |  8 |  66 |                     0 |
+| Y3 |  2 |   0 |                     0 |
+| Y2 |  0 |  22 |                     0 |
+| Y1 |  9 |  59 |                     0 |
 | Y0 |  8 |  13 |                     0 |
 +----+----+-----+-----------------------+
 
@@ -162,14 +162,14 @@ All Modules
 **** GT Loads column represents load cell count of GT types
 
 
-+----+-----+-----+-----------------------+
-|    | X0  | X1  | HORIZONTAL PROG DELAY |
-+----+-----+-----+-----------------------+
-| Y3 |   0 |   0 |                     - |
-| Y2 |   2 |  29 |                     0 |
-| Y1 |  23 |  95 |                     0 |
-| Y0 |   0 |   0 |                     - |
-+----+-----+-----+-----------------------+
++----+-----+------+-----------------------+
+|    | X0  | X1   | HORIZONTAL PROG DELAY |
++----+-----+------+-----------------------+
+| Y3 |   0 |    0 |                     - |
+| Y2 |   0 |   23 |                     0 |
+| Y1 |  16 |  110 |                     0 |
+| Y0 |   0 |    0 |                     - |
++----+-----+------+-----------------------+
 
 
 8. Device Cell Placement Summary for Global Clock g2
@@ -189,10 +189,10 @@ All Modules
 +----+-----+-----+-----------------------+
 |    | X0  | X1  | HORIZONTAL PROG DELAY |
 +----+-----+-----+-----------------------+
-| Y3 |   2 |   2 |                     0 |
-| Y2 |  13 |  19 |                     0 |
-| Y1 |   4 |  11 |                     0 |
-| Y0 |   0 |   0 |                     - |
+| Y3 |   4 |   2 |                     0 |
+| Y2 |  13 |  22 |                     0 |
+| Y1 |   2 |   7 |                     0 |
+| Y0 |   0 |   1 |                     0 |
 +----+-----+-----+-----------------------+
 
 
@@ -214,8 +214,8 @@ All Modules
 |    | X0 | X1  | HORIZONTAL PROG DELAY |
 +----+----+-----+-----------------------+
 | Y3 |  0 |   0 |                     - |
-| Y2 |  0 |   0 |                     - |
-| Y1 |  0 |  62 |                     0 |
+| Y2 |  0 |  33 |                     0 |
+| Y1 |  0 |  29 |                     0 |
 | Y0 |  1 |   0 |                     0 |
 +----+----+-----+-----------------------+
 
@@ -234,14 +234,14 @@ All Modules
 **** GT Loads column represents load cell count of GT types
 
 
-+----+----+-----+-----------------------+
-|    | X0 | X1  | HORIZONTAL PROG DELAY |
-+----+----+-----+-----------------------+
-| Y3 |  0 |   0 |                     - |
-| Y2 |  0 |   0 |                     - |
-| Y1 |  0 |  11 |                     0 |
-| Y0 |  0 |   0 |                     - |
-+----+----+-----+-----------------------+
++----+----+----+-----------------------+
+|    | X0 | X1 | HORIZONTAL PROG DELAY |
++----+----+----+-----------------------+
+| Y3 |  0 |  0 |                     - |
+| Y2 |  0 |  0 |                     - |
+| Y1 |  2 |  9 |                     0 |
+| Y0 |  0 |  0 |                     - |
++----+----+----+-----------------------+
 
 
 11. Device Cell Placement Summary for Global Clock g5
@@ -334,11 +334,12 @@ All Modules
 15. Clock Region Cell Placement per Global Clock: Region X1Y0
 -------------------------------------------------------------
 
-+-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+---------------------+
-| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                 |
-+-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+---------------------+
-| g0        | n/a   | BUFG/O          | None       |          13 |               0 |  0 |           0 |   13 |   0 |  0 |    0 |   0 |       0 | r_clkRamDiv_BUFG[1] |
-+-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+---------------------+
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+------------------------+
+| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                    |
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+------------------------+
+| g0        | n/a   | BUFG/O          | None       |          13 |               0 |  0 |           0 |   13 |   0 |  0 |    0 |   0 |       0 | r_clkRamDiv_BUFG[1]    |
+| g2        | n/a   | BUFG/O          | None       |           1 |               0 |  0 |           0 |    1 |   0 |  0 |    0 |   0 |       0 | r_clkEEPROMDiv_BUFG[1] |
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+------------------------+
 * Clock Loads column represents the clock pin loads (pin count)
 ** Non-Clock Loads column represents the non-clock pin loads (pin count)
 *** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
@@ -350,9 +351,10 @@ All Modules
 +-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+--------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                      |
 +-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+--------------------------+
-| g0        | n/a   | BUFG/O          | None       |           7 |               1 |  1 |           0 |    6 |   0 |  0 |    0 |   0 |       0 | r_clkRamDiv_BUFG[1]      |
-| g1        | n/a   | BUFG/O          | None       |          23 |               0 | 23 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | r_oszClkDiv_BUFG[1]      |
-| g2        | n/a   | BUFG/O          | None       |           4 |               0 |  0 |           0 |    4 |   0 |  0 |    0 |   0 |       0 | r_clkEEPROMDiv_BUFG[1]   |
+| g0        | n/a   | BUFG/O          | None       |           8 |               1 |  0 |           0 |    8 |   0 |  0 |    0 |   0 |       0 | r_clkRamDiv_BUFG[1]      |
+| g1        | n/a   | BUFG/O          | None       |          16 |               0 | 16 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | r_oszClkDiv_BUFG[1]      |
+| g2        | n/a   | BUFG/O          | None       |           2 |               0 |  0 |           0 |    2 |   0 |  0 |    0 |   0 |       0 | r_clkEEPROMDiv_BUFG[1]   |
+| g4        | n/a   | BUFG/O          | None       |           2 |               0 |  2 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | inst_clk5Mhz/inst/clk5   |
 | g6        | n/a   | BUFG/O          | None       |           2 |               0 |  2 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | inst_clk5Mhz/inst/clkRam |
 +-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+--------------------------+
 * Clock Loads column represents the clock pin loads (pin count)
@@ -363,16 +365,16 @@ All Modules
 17. Clock Region Cell Placement per Global Clock: Region X1Y1
 -------------------------------------------------------------
 
-+-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+-----------------------------+
-| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                         |
-+-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+-----------------------------+
-| g0        | n/a   | BUFG/O          | None       |          66 |               0 | 43 |           2 |   19 |   0 |  0 |    0 |   0 |       0 | r_clkRamDiv_BUFG[1]         |
-| g1        | n/a   | BUFG/O          | None       |          95 |               0 | 95 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | r_oszClkDiv_BUFG[1]         |
-| g2        | n/a   | BUFG/O          | None       |          10 |               1 |  1 |           0 |    9 |   0 |  0 |    0 |   0 |       0 | r_clkEEPROMDiv_BUFG[1]      |
-| g3        | n/a   | BUFG/O          | None       |          62 |               0 | 60 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | i_clk100_IBUF_BUFG          |
-| g4        | n/a   | BUFG/O          | None       |          11 |               0 | 11 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | inst_clk5Mhz/inst/clk5      |
-| g5        | n/a   | BUFG/O          | None       |           2 |               0 |  2 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | inst_clk5Mhz/inst/clkEEPROM |
-+-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+-----------------------------+
++-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+-----+----+------+-----+---------+-----------------------------+
+| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF  | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                         |
++-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+-----+----+------+-----+---------+-----------------------------+
+| g0        | n/a   | BUFG/O          | None       |          59 |               0 |  34 |           1 |   23 |   0 |  0 |    0 |   0 |       0 | r_clkRamDiv_BUFG[1]         |
+| g1        | n/a   | BUFG/O          | None       |         110 |               0 | 110 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | r_oszClkDiv_BUFG[1]         |
+| g2        | n/a   | BUFG/O          | None       |           6 |               1 |   0 |           0 |    6 |   0 |  0 |    0 |   0 |       0 | r_clkEEPROMDiv_BUFG[1]      |
+| g3        | n/a   | BUFG/O          | None       |          29 |               0 |  28 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | i_clk100_IBUF_BUFG          |
+| g4        | n/a   | BUFG/O          | None       |           9 |               0 |   9 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | inst_clk5Mhz/inst/clk5      |
+| g5        | n/a   | BUFG/O          | None       |           2 |               0 |   2 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | inst_clk5Mhz/inst/clkEEPROM |
++-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+-----+----+------+-----+---------+-----------------------------+
 * Clock Loads column represents the clock pin loads (pin count)
 ** Non-Clock Loads column represents the non-clock pin loads (pin count)
 *** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
@@ -384,7 +386,6 @@ All Modules
 +-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                    |
 +-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+------------------------+
-| g1        | n/a   | BUFG/O          | None       |           2 |               0 |  2 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | r_oszClkDiv_BUFG[1]    |
 | g2        | n/a   | BUFG/O          | None       |          13 |               0 |  3 |           0 |   10 |   0 |  0 |    0 |   0 |       0 | r_clkEEPROMDiv_BUFG[1] |
 +-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+------------------------+
 * Clock Loads column represents the clock pin loads (pin count)
@@ -398,9 +399,10 @@ All Modules
 +-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                    |
 +-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+------------------------+
-| g0        | n/a   | BUFG/O          | None       |          13 |               0 |  0 |           0 |   13 |   0 |  0 |    0 |   0 |       0 | r_clkRamDiv_BUFG[1]    |
-| g1        | n/a   | BUFG/O          | None       |          29 |               0 | 29 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | r_oszClkDiv_BUFG[1]    |
-| g2        | n/a   | BUFG/O          | None       |          19 |               0 |  2 |           0 |   17 |   0 |  0 |    0 |   0 |       0 | r_clkEEPROMDiv_BUFG[1] |
+| g0        | n/a   | BUFG/O          | None       |          22 |               0 | 10 |           1 |   10 |   0 |  0 |    0 |   0 |       0 | r_clkRamDiv_BUFG[1]    |
+| g1        | n/a   | BUFG/O          | None       |          23 |               0 | 23 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | r_oszClkDiv_BUFG[1]    |
+| g2        | n/a   | BUFG/O          | None       |          22 |               0 |  3 |           0 |   19 |   0 |  0 |    0 |   0 |       0 | r_clkEEPROMDiv_BUFG[1] |
+| g3        | n/a   | BUFG/O          | None       |          33 |               0 | 32 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | i_clk100_IBUF_BUFG     |
 +-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+------------------------+
 * Clock Loads column represents the clock pin loads (pin count)
 ** Non-Clock Loads column represents the non-clock pin loads (pin count)
@@ -413,8 +415,8 @@ All Modules
 +-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                    |
 +-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+------------------------+
-| g0        | n/a   | BUFG/O          | None       |           4 |               0 |  0 |           0 |    4 |   0 |  0 |    0 |   0 |       0 | r_clkRamDiv_BUFG[1]    |
-| g2        | n/a   | BUFG/O          | None       |           2 |               0 |  0 |           0 |    2 |   0 |  0 |    0 |   0 |       0 | r_clkEEPROMDiv_BUFG[1] |
+| g0        | n/a   | BUFG/O          | None       |           2 |               0 |  0 |           0 |    2 |   0 |  0 |    0 |   0 |       0 | r_clkRamDiv_BUFG[1]    |
+| g2        | n/a   | BUFG/O          | None       |           4 |               0 |  0 |           0 |    4 |   0 |  0 |    0 |   0 |       0 | r_clkEEPROMDiv_BUFG[1] |
 +-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+------------------------+
 * Clock Loads column represents the clock pin loads (pin count)
 ** Non-Clock Loads column represents the non-clock pin loads (pin count)
@@ -427,7 +429,6 @@ All Modules
 +-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                    |
 +-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+------------------------+
-| g0        | n/a   | BUFG/O          | None       |           1 |               0 |  0 |           0 |    1 |   0 |  0 |    0 |   0 |       0 | r_clkRamDiv_BUFG[1]    |
 | g2        | n/a   | BUFG/O          | None       |           2 |               0 |  0 |           0 |    2 |   0 |  0 |    0 |   0 |       0 | r_clkEEPROMDiv_BUFG[1] |
 +-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+------------------------+
 * Clock Loads column represents the clock pin loads (pin count)
@@ -455,21 +456,21 @@ set_property LOC IOB_X1Y126 [get_ports i_clk100]
 #startgroup
 create_pblock {CLKAG_r_oszClkDiv_BUFG[1]}
 add_cells_to_pblock [get_pblocks  {CLKAG_r_oszClkDiv_BUFG[1]}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="r_oszClkDiv_BUFG[1]"}]]]
-resize_pblock [get_pblocks {CLKAG_r_oszClkDiv_BUFG[1]}] -add {CLOCKREGION_X0Y1:CLOCKREGION_X0Y1 CLOCKREGION_X0Y2:CLOCKREGION_X0Y2 CLOCKREGION_X1Y1:CLOCKREGION_X1Y1 CLOCKREGION_X1Y2:CLOCKREGION_X1Y2}
+resize_pblock [get_pblocks {CLKAG_r_oszClkDiv_BUFG[1]}] -add {CLOCKREGION_X0Y1:CLOCKREGION_X0Y1 CLOCKREGION_X1Y1:CLOCKREGION_X1Y1 CLOCKREGION_X1Y2:CLOCKREGION_X1Y2}
 #endgroup
 
 # Clock net "r_clkRamDiv_BUFG[1]" driven by instance "r_clkRamDiv[1]_BUFG_inst" located at site "BUFGCTRL_X0Y1"
 #startgroup
 create_pblock {CLKAG_r_clkRamDiv_BUFG[1]}
 add_cells_to_pblock [get_pblocks  {CLKAG_r_clkRamDiv_BUFG[1]}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="r_clkRamDiv_BUFG[1]"}]]]
-resize_pblock [get_pblocks {CLKAG_r_clkRamDiv_BUFG[1]}] -add {CLOCKREGION_X0Y0:CLOCKREGION_X0Y0 CLOCKREGION_X0Y1:CLOCKREGION_X0Y1 CLOCKREGION_X0Y3:CLOCKREGION_X0Y3 CLOCKREGION_X1Y0:CLOCKREGION_X1Y0 CLOCKREGION_X1Y1:CLOCKREGION_X1Y1 CLOCKREGION_X1Y2:CLOCKREGION_X1Y2 CLOCKREGION_X1Y3:CLOCKREGION_X1Y3}
+resize_pblock [get_pblocks {CLKAG_r_clkRamDiv_BUFG[1]}] -add {CLOCKREGION_X0Y0:CLOCKREGION_X0Y0 CLOCKREGION_X0Y1:CLOCKREGION_X0Y1 CLOCKREGION_X0Y3:CLOCKREGION_X0Y3 CLOCKREGION_X1Y0:CLOCKREGION_X1Y0 CLOCKREGION_X1Y1:CLOCKREGION_X1Y1 CLOCKREGION_X1Y2:CLOCKREGION_X1Y2}
 #endgroup
 
 # Clock net "r_clkEEPROMDiv_BUFG[1]" driven by instance "r_clkEEPROMDiv[1]_BUFG_inst" located at site "BUFGCTRL_X0Y2"
 #startgroup
 create_pblock {CLKAG_r_clkEEPROMDiv_BUFG[1]}
 add_cells_to_pblock [get_pblocks  {CLKAG_r_clkEEPROMDiv_BUFG[1]}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="r_clkEEPROMDiv_BUFG[1]"}]]]
-resize_pblock [get_pblocks {CLKAG_r_clkEEPROMDiv_BUFG[1]}] -add {CLOCKREGION_X0Y1:CLOCKREGION_X0Y1 CLOCKREGION_X0Y2:CLOCKREGION_X0Y2 CLOCKREGION_X0Y3:CLOCKREGION_X0Y3 CLOCKREGION_X1Y1:CLOCKREGION_X1Y1 CLOCKREGION_X1Y2:CLOCKREGION_X1Y2 CLOCKREGION_X1Y3:CLOCKREGION_X1Y3}
+resize_pblock [get_pblocks {CLKAG_r_clkEEPROMDiv_BUFG[1]}] -add {CLOCKREGION_X0Y1:CLOCKREGION_X0Y1 CLOCKREGION_X0Y2:CLOCKREGION_X0Y2 CLOCKREGION_X0Y3:CLOCKREGION_X0Y3 CLOCKREGION_X1Y0:CLOCKREGION_X1Y0 CLOCKREGION_X1Y1:CLOCKREGION_X1Y1 CLOCKREGION_X1Y2:CLOCKREGION_X1Y2 CLOCKREGION_X1Y3:CLOCKREGION_X1Y3}
 #endgroup
 
 # Clock net "inst_clk5Mhz/inst/clkRam" driven by instance "inst_clk5Mhz/inst/clkout2_buf" located at site "BUFGCTRL_X0Y4"
@@ -490,12 +491,12 @@ resize_pblock [get_pblocks {CLKAG_inst_clk5Mhz/inst/clkEEPROM}] -add {CLOCKREGIO
 #startgroup
 create_pblock {CLKAG_inst_clk5Mhz/inst/clk5}
 add_cells_to_pblock [get_pblocks  {CLKAG_inst_clk5Mhz/inst/clk5}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="inst_clk5Mhz/inst/clk5"}]]]
-resize_pblock [get_pblocks {CLKAG_inst_clk5Mhz/inst/clk5}] -add {CLOCKREGION_X1Y1:CLOCKREGION_X1Y1}
+resize_pblock [get_pblocks {CLKAG_inst_clk5Mhz/inst/clk5}] -add {CLOCKREGION_X0Y1:CLOCKREGION_X0Y1 CLOCKREGION_X1Y1:CLOCKREGION_X1Y1}
 #endgroup
 
 # Clock net "i_clk100_IBUF_BUFG" driven by instance "i_clk100_IBUF_BUFG_inst" located at site "BUFGCTRL_X0Y16"
 #startgroup
 create_pblock {CLKAG_i_clk100_IBUF_BUFG}
 add_cells_to_pblock [get_pblocks  {CLKAG_i_clk100_IBUF_BUFG}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL && NAME!=inst_clk5Mhz/inst/mmcm_adv_inst} -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="i_clk100_IBUF_BUFG"}]]]
-resize_pblock [get_pblocks {CLKAG_i_clk100_IBUF_BUFG}] -add {CLOCKREGION_X1Y1:CLOCKREGION_X1Y1}
+resize_pblock [get_pblocks {CLKAG_i_clk100_IBUF_BUFG}] -add {CLOCKREGION_X1Y1:CLOCKREGION_X1Y1 CLOCKREGION_X1Y2:CLOCKREGION_X1Y2}
 #endgroup

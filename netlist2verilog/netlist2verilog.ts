@@ -260,22 +260,6 @@ interface IAssign {
 const assignments: IAssign[] = [];
 
 const addAssignments = () => {
-  // bus
-  for (let i = 0; i < 8; i++) {
-    assignments.push({
-      target: `o_bus[${i}]`,
-      origin: `Bus${i}`,
-    });
-    // addTristatePort
-    const triStateNet = tristateNets.find(net => net.name === `Bus${i}`);
-    if (!triStateNet) {
-      throw new Error(`Tristate net Bus${i} not found. Should have existed by now`);
-    }
-    triStateNet.inputs.push({
-      dataName: `i_bus[${i}]`,
-      noeName: `i_busNOE`
-    });
-  }
 
   // breakpointAddress
   let netName = ednFile ? 'BRKPT' : 'MemoryComp';
@@ -295,6 +279,22 @@ const addAssignments = () => {
   }
 
   if (ednFile) {
+    // bus
+    for (let i = 0; i < 8; i++) {
+      assignments.push({
+        target: `o_bus[${i}]`,
+        origin: `BUS_BUF${i}`,
+      });
+      // addTristatePort
+      const triStateNet = tristateNets.find(net => net.name === `BUS_BUF${i}`);
+      if (!triStateNet) {
+        throw new Error(`Tristate net BUS_BUF${i} not found. Should have existed by now`);
+      }
+      triStateNet.inputs.push({
+        dataName: `i_bus[${i}]`,
+        noeName: `i_busNOE`
+      });
+    }
     for (let i = 1; i < 5; i++) {
       assignments.push({
         target: `L${i}`,
@@ -386,6 +386,22 @@ const addAssignments = () => {
       },
       );
   } else {
+    // bus
+    for (let i = 0; i < 8; i++) {
+      assignments.push({
+        target: `o_bus[${i}]`,
+        origin: `Bus${i}`,
+      });
+      // addTristatePort
+      const triStateNet = tristateNets.find(net => net.name === `Bus${i}`);
+      if (!triStateNet) {
+        throw new Error(`Tristate net Bus${i} not found. Should have existed by now`);
+      }
+      triStateNet.inputs.push({
+        dataName: `i_bus[${i}]`,
+        noeName: `i_busNOE`
+      });
+    }
     // i_switches
     for (let i = 0; i < 8; i++) {
       assignments.push({

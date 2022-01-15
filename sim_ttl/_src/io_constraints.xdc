@@ -112,3 +112,14 @@ set_property IOSTANDARD LVCMOS33 [get_ports i_serialIn]
 set_property PACKAGE_PIN C4 [get_ports i_serialIn]
 
 set_false_path -from [get_clocks -of_objects [get_pins inst_clk5Mhz/inst/mmcm_adv_inst/CLKOUT2]] -to [get_clocks -of_objects [get_pins inst_clk5Mhz/inst/mmcm_adv_inst/CLKOUT1]]
+
+
+# I don't get it...
+set_property ALLOW_COMBINATORIAL_LOOPS TRUE [get_nets inst_generated/inst_U41/port21_reg_1]
+set_property ALLOW_COMBINATORIAL_LOOPS TRUE [get_nets inst_generated/inst_U41/port22_reg_1]
+set_property ALLOW_COMBINATORIAL_LOOPS TRUE [get_nets inst_generated/inst_U41/port15_reg_1]
+set_property ALLOW_COMBINATORIAL_LOOPS TRUE [get_nets inst_generated/inst_U41/port16_reg_1]
+set_property ALLOW_COMBINATORIAL_LOOPS TRUE [get_nets inst_generated/inst_U41/port17_reg_1]
+set_property ALLOW_COMBINATORIAL_LOOPS TRUE [get_nets inst_generated/inst_U41/port18_reg_1]
+set_property ALLOW_COMBINATORIAL_LOOPS TRUE [get_nets inst_generated/inst_U41/port19_reg_1]
+set_property ALLOW_COMBINATORIAL_LOOPS TRUE [get_nets inst_generated/inst_U70/inst_mem_i_38_n_0]

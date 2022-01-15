@@ -4,11 +4,11 @@
  (keywordMap (keywordLevel 0))
  (status
   (written
-   (timeStamp 2022 01 05 13 14 34)
+   (timeStamp 2022 01 11 15 17 14)
    (program "CAPTURE.EXE" (Version "9.2.1.148"))
    (comment "Original data from OrCAD/CAPTURE schematic"))
   (comment "EDIC")
-  (comment "Thursday, December 30, 2021")
+  (comment "Tuesday, January 11, 2022")
   (comment "TIGRIS Artikel-Nummer: ED101-1")
   (comment "see title")
   (comment "TIGRIS Elektronik GmbH")
@@ -7266,8 +7266,6 @@
        (portRef &10 (instanceRef U41))
        (portRef &11 (instanceRef U44))
        (portRef &11 (instanceRef U45))
-       (portRef &18 (instanceRef U92))
-       (portRef &11 (instanceRef U91))
        (portRef &10 (instanceRef U68))
        (portRef &10 (instanceRef U63))
        (portRef &9 (instanceRef U201))
@@ -7291,8 +7289,6 @@
        (portRef &9 (instanceRef U41))
        (portRef &12 (instanceRef U44))
        (portRef &12 (instanceRef U45))
-       (portRef &17 (instanceRef U92))
-       (portRef &12 (instanceRef U91))
        (portRef &9 (instanceRef U68))
        (portRef &9 (instanceRef U63))
        (portRef &8 (instanceRef U201))
@@ -7311,8 +7307,6 @@
        (portRef &8 (instanceRef U41))
        (portRef &13 (instanceRef U44))
        (portRef &13 (instanceRef U45))
-       (portRef &14 (instanceRef U92))
-       (portRef &13 (instanceRef U91))
        (portRef &8 (instanceRef U68))
        (portRef &8 (instanceRef U63))
        (portRef &7 (instanceRef U201))
@@ -7331,8 +7325,6 @@
        (portRef &6 (instanceRef U41))
        (portRef &15 (instanceRef U44))
        (portRef &15 (instanceRef U45))
-       (portRef &8 (instanceRef U92))
-       (portRef &15 (instanceRef U91))
        (portRef &6 (instanceRef U68))
        (portRef &6 (instanceRef U63))
        (portRef &5 (instanceRef U201))
@@ -7357,8 +7349,6 @@
        (portRef &7 (instanceRef U41))
        (portRef &14 (instanceRef U44))
        (portRef &14 (instanceRef U45))
-       (portRef &13 (instanceRef U92))
-       (portRef &14 (instanceRef U91))
        (portRef &7 (instanceRef U68))
        (portRef &7 (instanceRef U63))
        (portRef &6 (instanceRef U201))
@@ -7888,8 +7878,6 @@
        (portRef &3 (instanceRef U41))
        (portRef &18 (instanceRef U44))
        (portRef &18 (instanceRef U45))
-       (portRef &3 (instanceRef U92))
-       (portRef &18 (instanceRef U91))
        (portRef &3 (instanceRef U68))
        (portRef &3 (instanceRef U63))
        (portRef &2 (instanceRef U201))
@@ -7975,8 +7963,6 @@
        (portRef &4 (instanceRef U41))
        (portRef &17 (instanceRef U44))
        (portRef &17 (instanceRef U45))
-       (portRef &4 (instanceRef U92))
-       (portRef &17 (instanceRef U91))
        (portRef &4 (instanceRef U68))
        (portRef &4 (instanceRef U63))
        (portRef &3 (instanceRef U201))
@@ -8048,8 +8034,6 @@
        (portRef &5 (instanceRef U41))
        (portRef &16 (instanceRef U44))
        (portRef &16 (instanceRef U45))
-       (portRef &7 (instanceRef U92))
-       (portRef &16 (instanceRef U91))
        (portRef &5 (instanceRef U68))
        (portRef &5 (instanceRef U63))
        (portRef &4 (instanceRef U201))
@@ -8505,6 +8489,7 @@
        (portRef &1 (instanceRef U109))
        (portRef &19 (instanceRef U109))
        (portRef &1 (instanceRef U76))
+       (portRef &19 (instanceRef U201))
        (portRef &23 (instanceRef U68))
        (portRef &3 (instanceRef U79))
        (portRef &7 (instanceRef U56))
@@ -10930,7 +10915,6 @@
      (net /RAMCE
       (joined
        (portRef &6 (instanceRef U204))
-       (portRef &19 (instanceRef U201))
        (portRef &6 (instanceRef JT4)))
       (property Name (string "/RAMCE")))
      (net /SELECTSTACKMEM
@@ -11873,6 +11857,8 @@
      (net BUS_BUF6
       (joined
        (portRef &29 (instanceRef J2))
+       (portRef &17 (instanceRef U92))
+       (portRef &12 (instanceRef U91))
        (portRef &20 (instanceRef U77))
        (portRef &12 (instanceRef U201))
        (portRef &8 (instanceRef RN24)))
@@ -11880,6 +11866,8 @@
      (net BUS_BUF2
       (joined
        (portRef &21 (instanceRef J2))
+       (portRef &7 (instanceRef U92))
+       (portRef &16 (instanceRef U91))
        (portRef &16 (instanceRef U201))
        (portRef &15 (instanceRef U77))
        (portRef &4 (instanceRef RN24)))
@@ -11892,6 +11880,8 @@
      (net BUS_BUF4
       (joined
        (portRef &25 (instanceRef J2))
+       (portRef &14 (instanceRef U91))
+       (portRef &13 (instanceRef U92))
        (portRef &6 (instanceRef RN24))
        (portRef &18 (instanceRef U77))
        (portRef &14 (instanceRef U201)))
@@ -11899,6 +11889,8 @@
      (net BUS_BUF5
       (joined
        (portRef &27 (instanceRef J2))
+       (portRef &13 (instanceRef U91))
+       (portRef &14 (instanceRef U92))
        (portRef &7 (instanceRef RN24))
        (portRef &19 (instanceRef U77))
        (portRef &13 (instanceRef U201)))
@@ -11911,6 +11903,8 @@
      (net BUS_BUF3
       (joined
        (portRef &23 (instanceRef J2))
+       (portRef &15 (instanceRef U91))
+       (portRef &8 (instanceRef U92))
        (portRef &17 (instanceRef U77))
        (portRef &5 (instanceRef RN24))
        (portRef &15 (instanceRef U201)))
@@ -11918,6 +11912,8 @@
      (net BUS_BUF7
       (joined
        (portRef &31 (instanceRef J2))
+       (portRef &11 (instanceRef U91))
+       (portRef &18 (instanceRef U92))
        (portRef &11 (instanceRef U201))
        (portRef &21 (instanceRef U77))
        (portRef &9 (instanceRef RN24)))
@@ -11939,6 +11935,8 @@
      (net BUS_BUF0
       (joined
        (portRef &17 (instanceRef J2))
+       (portRef &18 (instanceRef U91))
+       (portRef &3 (instanceRef U92))
        (portRef &18 (instanceRef U201))
        (portRef &2 (instanceRef RN24))
        (portRef &13 (instanceRef U77)))
@@ -11946,6 +11944,8 @@
      (net BUS_BUF1
       (joined
        (portRef &19 (instanceRef J2))
+       (portRef &4 (instanceRef U92))
+       (portRef &17 (instanceRef U91))
        (portRef &3 (instanceRef RN24))
        (portRef &14 (instanceRef U77))
        (portRef &17 (instanceRef U201)))

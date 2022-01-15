@@ -2,13 +2,13 @@
 # Vivado v2021.2 (64-bit)
 # SW Build 3367213 on Tue Oct 19 02:47:39 MDT 2021
 # IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
-# Start of session at: Mon Jan 10 20:37:01 2022
-# Process ID: 470867
+# Start of session at: Fri Jan 14 18:49:31 2022
+# Process ID: 2211706
 # Current directory: /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/synth_1
 # Command line: vivado -log board_top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source board_top.tcl
 # Log file: /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/synth_1/board_top.vds
 # Journal file: /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/synth_1/vivado.jou
-# Running On: niklasPC, OS: Linux, CPU Frequency: 3268.611 MHz, CPU Physical cores: 16, Host memory: 33678 MB
+# Running On: niklasPC, OS: Linux, CPU Frequency: 3758.281 MHz, CPU Physical cores: 16, Host memory: 33678 MB
 #-----------------------------------------------------------
 source board_top.tcl -notrace
 Command: read_checkpoint -auto_incremental -incremental /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.srcs/utils_1/imports/synth_1/generated.dcp
@@ -23,29 +23,27 @@ WARNING: [Designutils 20-4072] Reference run did not run incremental synthesis b
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 472049
+INFO: [Synth 8-7075] Helper process launched with PID 2213078
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2590.992 ; gain = 0.000 ; free physical = 5324 ; free virtual = 22820
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2586.055 ; gain = 0.000 ; free physical = 8455 ; free virtual = 20898
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'board_top' [/home/niklas/dev/EDiC/sim_ttl/_src/board_top.v:1]
-INFO: [Synth 8-6157] synthesizing module 'clk_wiz_5Mhz' [/home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/synth_1/.Xil/Vivado-470867-niklasPC/realtime/clk_wiz_5Mhz_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_5Mhz' (1#1) [/home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/synth_1/.Xil/Vivado-470867-niklasPC/realtime/clk_wiz_5Mhz_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'clk_wiz_5Mhz' [/home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/synth_1/.Xil/Vivado-2211706-niklasPC/realtime/clk_wiz_5Mhz_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_5Mhz' (1#1) [/home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/synth_1/.Xil/Vivado-2211706-niklasPC/realtime/clk_wiz_5Mhz_stub.v:5]
 INFO: [Synth 8-6157] synthesizing module 'generated' [/home/niklas/dev/EDiC/sim_ttl/_src/generated.v:2]
 INFO: [Synth 8-6157] synthesizing module 'displayDriver' [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:1]
 INFO: [Synth 8-6155] done synthesizing module 'displayDriver' (2#1) [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:1]
-INFO: [Synth 8-6157] synthesizing module 'instructionRom' [/home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/synth_1/.Xil/Vivado-470867-niklasPC/realtime/instructionRom_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'instructionRom' (3#1) [/home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/synth_1/.Xil/Vivado-470867-niklasPC/realtime/instructionRom_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'microCodeRom' [/home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/synth_1/.Xil/Vivado-470867-niklasPC/realtime/microCodeRom_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'microCodeRom' (4#1) [/home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/synth_1/.Xil/Vivado-470867-niklasPC/realtime/microCodeRom_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'instructionRom' [/home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/synth_1/.Xil/Vivado-2211706-niklasPC/realtime/instructionRom_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'instructionRom' (3#1) [/home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/synth_1/.Xil/Vivado-2211706-niklasPC/realtime/instructionRom_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'microCodeRom' [/home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/synth_1/.Xil/Vivado-2211706-niklasPC/realtime/microCodeRom_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'microCodeRom' (4#1) [/home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/synth_1/.Xil/Vivado-2211706-niklasPC/realtime/microCodeRom_stub.v:6]
 INFO: [Synth 8-6157] synthesizing module 'tristatenet' [/home/niklas/dev/EDiC/sim_ttl/_src/tristatenet.v:1]
 	Parameter INPUT_COUNT bound to: 1 - type: integer 
 WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/niklas/dev/EDiC/sim_ttl/_src/tristatenet.v:23]
 WARNING: [Synth 8-3848] Net o_noe in module/entity tristatenet does not have driver. [/home/niklas/dev/EDiC/sim_ttl/_src/tristatenet.v:8]
 INFO: [Synth 8-6155] done synthesizing module 'tristatenet' (5#1) [/home/niklas/dev/EDiC/sim_ttl/_src/tristatenet.v:1]
 INFO: [Synth 8-6157] synthesizing module 'tristatenet__parameterized0' [/home/niklas/dev/EDiC/sim_ttl/_src/tristatenet.v:1]
-	Parameter INPUT_COUNT bound to: 8 - type: integer 
-WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/niklas/dev/EDiC/sim_ttl/_src/tristatenet.v:23]
-WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/niklas/dev/EDiC/sim_ttl/_src/tristatenet.v:23]
+	Parameter INPUT_COUNT bound to: 6 - type: integer 
 WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/niklas/dev/EDiC/sim_ttl/_src/tristatenet.v:23]
 WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/niklas/dev/EDiC/sim_ttl/_src/tristatenet.v:23]
 WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/niklas/dev/EDiC/sim_ttl/_src/tristatenet.v:23]
@@ -67,6 +65,14 @@ WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logica
 WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/niklas/dev/EDiC/sim_ttl/_src/tristatenet.v:23]
 WARNING: [Synth 8-3848] Net o_noe in module/entity tristatenet__parameterized2 does not have driver. [/home/niklas/dev/EDiC/sim_ttl/_src/tristatenet.v:8]
 INFO: [Synth 8-6155] done synthesizing module 'tristatenet__parameterized2' (5#1) [/home/niklas/dev/EDiC/sim_ttl/_src/tristatenet.v:1]
+INFO: [Synth 8-6157] synthesizing module 'tristatenet__parameterized3' [/home/niklas/dev/EDiC/sim_ttl/_src/tristatenet.v:1]
+	Parameter INPUT_COUNT bound to: 4 - type: integer 
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/niklas/dev/EDiC/sim_ttl/_src/tristatenet.v:23]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/niklas/dev/EDiC/sim_ttl/_src/tristatenet.v:23]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/niklas/dev/EDiC/sim_ttl/_src/tristatenet.v:23]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/niklas/dev/EDiC/sim_ttl/_src/tristatenet.v:23]
+WARNING: [Synth 8-3848] Net o_noe in module/entity tristatenet__parameterized3 does not have driver. [/home/niklas/dev/EDiC/sim_ttl/_src/tristatenet.v:8]
+INFO: [Synth 8-6155] done synthesizing module 'tristatenet__parameterized3' (5#1) [/home/niklas/dev/EDiC/sim_ttl/_src/tristatenet.v:1]
 INFO: [Synth 8-6157] synthesizing module 'icBerg40' [/home/niklas/dev/EDiC/sim_ttl/_src/icBerg40.v:1]
 INFO: [Synth 8-6155] done synthesizing module 'icBerg40' (6#1) [/home/niklas/dev/EDiC/sim_ttl/_src/icBerg40.v:1]
 INFO: [Synth 8-6157] synthesizing module 'icBerg26' [/home/niklas/dev/EDiC/sim_ttl/_src/icBerg26.v:1]
@@ -226,8 +232,8 @@ WARNING: [Synth 8-7023] instance 'inst_U73' of module 'ic74x245' has 38 connecti
 WARNING: [Synth 8-7023] instance 'inst_U74' of module 'ic74x245' has 38 connections declared, but only 30 given [/home/niklas/dev/EDiC/sim_ttl/_src/generated.v:4849]
 WARNING: [Synth 8-7023] instance 'inst_U75' of module 'ic74x245' has 38 connections declared, but only 30 given [/home/niklas/dev/EDiC/sim_ttl/_src/generated.v:4882]
 INFO: [Synth 8-6157] synthesizing module 'icAS6C4008' [/home/niklas/dev/EDiC/sim_ttl/_src/icAS6C4008.v:2]
-INFO: [Synth 8-6157] synthesizing module 'as6c4008_55pcn_mem' [/home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/synth_1/.Xil/Vivado-470867-niklasPC/realtime/as6c4008_55pcn_mem_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'as6c4008_55pcn_mem' (25#1) [/home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/synth_1/.Xil/Vivado-470867-niklasPC/realtime/as6c4008_55pcn_mem_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'as6c4008_55pcn_mem' [/home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/synth_1/.Xil/Vivado-2211706-niklasPC/realtime/as6c4008_55pcn_mem_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'as6c4008_55pcn_mem' (25#1) [/home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/synth_1/.Xil/Vivado-2211706-niklasPC/realtime/as6c4008_55pcn_mem_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'icAS6C4008' (26#1) [/home/niklas/dev/EDiC/sim_ttl/_src/icAS6C4008.v:2]
 INFO: [Synth 8-6157] synthesizing module 'ic74x374' [/home/niklas/dev/EDiC/sim_ttl/_src/ic74x374.v:2]
 INFO: [Synth 8-6155] done synthesizing module 'ic74x374' (27#1) [/home/niklas/dev/EDiC/sim_ttl/_src/ic74x374.v:2]
@@ -258,12 +264,12 @@ WARNING: [Synth 8-639] system function call 'time' not supported [/home/niklas/d
 INFO: [Synth 8-251] uart: writing unknown address xx. @1'b0 [/home/niklas/dev/EDiC/sim_ttl/_src/expansionCards/UART/expansion_uart.v:48]
 WARNING: [Synth 8-639] system function call 'time' not supported [/home/niklas/dev/EDiC/sim_ttl/_src/expansionCards/UART/expansion_uart.v:66]
 INFO: [Synth 8-251] uart: reading unknown address xx. @1'b0 [/home/niklas/dev/EDiC/sim_ttl/_src/expansionCards/UART/expansion_uart.v:66]
-INFO: [Synth 8-6157] synthesizing module 'uart_fifo_rx' [/home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/synth_1/.Xil/Vivado-470867-niklasPC/realtime/uart_fifo_rx_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'uart_fifo_rx' (30#1) [/home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/synth_1/.Xil/Vivado-470867-niklasPC/realtime/uart_fifo_rx_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'uart_fifo_rx' [/home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/synth_1/.Xil/Vivado-2211706-niklasPC/realtime/uart_fifo_rx_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'uart_fifo_rx' (30#1) [/home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/synth_1/.Xil/Vivado-2211706-niklasPC/realtime/uart_fifo_rx_stub.v:6]
 INFO: [Synth 8-6157] synthesizing module 'uart_rx' [/home/niklas/dev/EDiC/sim_ttl/_src/expansionCards/UART/uart_rx.v:1]
 INFO: [Synth 8-6155] done synthesizing module 'uart_rx' (31#1) [/home/niklas/dev/EDiC/sim_ttl/_src/expansionCards/UART/uart_rx.v:1]
-INFO: [Synth 8-6157] synthesizing module 'uart_fifo_tx' [/home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/synth_1/.Xil/Vivado-470867-niklasPC/realtime/uart_fifo_tx_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'uart_fifo_tx' (32#1) [/home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/synth_1/.Xil/Vivado-470867-niklasPC/realtime/uart_fifo_tx_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'uart_fifo_tx' [/home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/synth_1/.Xil/Vivado-2211706-niklasPC/realtime/uart_fifo_tx_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'uart_fifo_tx' (32#1) [/home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/synth_1/.Xil/Vivado-2211706-niklasPC/realtime/uart_fifo_tx_stub.v:6]
 INFO: [Synth 8-6157] synthesizing module 'uart_tx' [/home/niklas/dev/EDiC/sim_ttl/_src/expansionCards/UART/uart_tx.v:1]
 INFO: [Synth 8-6155] done synthesizing module 'uart_tx' (33#1) [/home/niklas/dev/EDiC/sim_ttl/_src/expansionCards/UART/uart_tx.v:1]
 INFO: [Synth 8-6155] done synthesizing module 'expansion_uart' (34#1) [/home/niklas/dev/EDiC/sim_ttl/_src/expansionCards/UART/expansion_uart.v:1]
@@ -355,22 +361,23 @@ WARNING: [Synth 8-7129] Port port9 in module icBerg10 is either unconnected or h
 WARNING: [Synth 8-7129] Port port10 in module icBerg10 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port o_noe in module tristatenet is either unconnected or has no load
 WARNING: [Synth 8-7129] Port o_noe in module tristatenet__parameterized1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port o_noe in module tristatenet__parameterized3 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port o_noe in module tristatenet__parameterized2 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port o_noe in module tristatenet__parameterized0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port i_btnReset in module generated is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2590.992 ; gain = 0.000 ; free physical = 6197 ; free virtual = 23695
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2586.055 ; gain = 0.000 ; free physical = 9291 ; free virtual = 21732
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2590.992 ; gain = 0.000 ; free physical = 6260 ; free virtual = 23757
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2586.055 ; gain = 0.000 ; free physical = 9292 ; free virtual = 21734
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2590.992 ; gain = 0.000 ; free physical = 6260 ; free virtual = 23757
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2586.055 ; gain = 0.000 ; free physical = 9292 ; free virtual = 21734
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2590.992 ; gain = 0.000 ; free physical = 6253 ; free virtual = 23750
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2586.055 ; gain = 0.000 ; free physical = 9285 ; free virtual = 21727
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -394,6 +401,14 @@ WARNING: [Constraints 18-619] A clock with name 'i_clk100' already exists, overw
 WARNING: [Vivado 12-508] No pins matched 'inst_clk5Mhz/inst/mmcm_adv_inst/CLKOUT0'. [/home/niklas/dev/EDiC/sim_ttl/_src/io_constraints.xdc:103]
 WARNING: [Vivado 12-508] No pins matched 'inst_clk5Mhz/inst/mmcm_adv_inst/CLKOUT0'. [/home/niklas/dev/EDiC/sim_ttl/_src/io_constraints.xdc:104]
 WARNING: [Vivado 12-508] No pins matched 'inst_clk5Mhz/inst/mmcm_adv_inst/CLKOUT2'. [/home/niklas/dev/EDiC/sim_ttl/_src/io_constraints.xdc:114]
+WARNING: [Vivado 12-507] No nets matched 'inst_generated/inst_U41/port21_reg_1'. [/home/niklas/dev/EDiC/sim_ttl/_src/io_constraints.xdc:118]
+WARNING: [Vivado 12-507] No nets matched 'inst_generated/inst_U41/port22_reg_1'. [/home/niklas/dev/EDiC/sim_ttl/_src/io_constraints.xdc:119]
+WARNING: [Vivado 12-507] No nets matched 'inst_generated/inst_U41/port15_reg_1'. [/home/niklas/dev/EDiC/sim_ttl/_src/io_constraints.xdc:120]
+WARNING: [Vivado 12-507] No nets matched 'inst_generated/inst_U41/port16_reg_1'. [/home/niklas/dev/EDiC/sim_ttl/_src/io_constraints.xdc:121]
+WARNING: [Vivado 12-507] No nets matched 'inst_generated/inst_U41/port17_reg_1'. [/home/niklas/dev/EDiC/sim_ttl/_src/io_constraints.xdc:122]
+WARNING: [Vivado 12-507] No nets matched 'inst_generated/inst_U41/port18_reg_1'. [/home/niklas/dev/EDiC/sim_ttl/_src/io_constraints.xdc:123]
+WARNING: [Vivado 12-507] No nets matched 'inst_generated/inst_U41/port19_reg_1'. [/home/niklas/dev/EDiC/sim_ttl/_src/io_constraints.xdc:124]
+WARNING: [Vivado 12-507] No nets matched 'inst_generated/inst_U70/inst_mem_i_38_n_0'. [/home/niklas/dev/EDiC/sim_ttl/_src/io_constraints.xdc:125]
 Finished Parsing XDC File [/home/niklas/dev/EDiC/sim_ttl/_src/io_constraints.xdc]
 WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [/home/niklas/dev/EDiC/sim_ttl/_src/io_constraints.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/board_top_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/niklas/dev/EDiC/sim_ttl/_src/io_constraints.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/board_top_propImpl.xdc].
@@ -402,22 +417,22 @@ Parsing XDC File [/home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/synth_1/don
 Finished Parsing XDC File [/home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2654.789 ; gain = 0.000 ; free physical = 6159 ; free virtual = 23655
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2649.852 ; gain = 0.000 ; free physical = 9159 ; free virtual = 21605
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2654.789 ; gain = 0.000 ; free physical = 6159 ; free virtual = 23655
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2649.852 ; gain = 0.000 ; free physical = 9157 ; free virtual = 21604
 WARNING: [Designutils 20-4072] Reference run did not run incremental synthesis because the design is too small; reverting to default synthesis
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2654.789 ; gain = 63.797 ; free physical = 6227 ; free virtual = 23723
+Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2649.852 ; gain = 63.797 ; free physical = 9263 ; free virtual = 21706
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2654.789 ; gain = 63.797 ; free physical = 6226 ; free virtual = 23722
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2649.852 ; gain = 63.797 ; free physical = 9263 ; free virtual = 21706
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -432,7 +447,7 @@ Applied set_property KEEP_HIERARCHY = SOFT for uart/inst_fifo_tx. (constraint fi
 Applied set_property KEEP_HIERARCHY = SOFT for inst_clk5Mhz. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for inst_generated/inst_microCodeRom. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2654.789 ; gain = 63.797 ; free physical = 6245 ; free virtual = 23741
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2649.852 ; gain = 63.797 ; free physical = 9264 ; free virtual = 21706
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'uart_rx'
 INFO: [Synth 8-802] inferred FSM for state register 'r_state_reg' in module 'uart_tx'
@@ -455,7 +470,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'r_state_reg' using encoding 'sequential' in module 'uart_tx'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2654.789 ; gain = 63.797 ; free physical = 6237 ; free virtual = 23734
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 2649.852 ; gain = 63.797 ; free physical = 9248 ; free virtual = 21695
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -508,26 +523,177 @@ Start Cross Boundary and Area Optimization
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 WARNING: [Synth 8-7129] Port i_btnReset in module generated is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 2654.789 ; gain = 63.797 ; free physical = 6187 ; free virtual = 23693
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 2649.852 ; gain = 63.797 ; free physical = 9232 ; free virtual = 21686
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-565] redefining clock 'i_clk100'
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 2654.789 ; gain = 63.797 ; free physical = 6063 ; free virtual = 23573
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 2649.852 ; gain = 63.797 ; free physical = 9130 ; free virtual = 21576
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 2654.789 ; gain = 63.797 ; free physical = 6062 ; free virtual = 23569
+Finished Timing Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 2649.852 ; gain = 63.797 ; free physical = 9127 ; free virtual = 21573
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
+Found timing loop:
+     0: i_74/O (LUT3)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+     1: i_74/I0 (LUT3)
+     2: i_75/O (LUT6)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+     3: i_75/I0 (LUT6)
+     4: i_279/O (LUT2)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+     5: i_279/I0 (LUT2)
+     6: i_73/O (LUT6)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+     7: i_73/I2 (LUT6)
+     8: i_74/O (LUT3)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+CRITICAL WARNING: [Synth 8-295] found timing loop. [/home/niklas/dev/EDiC/sim_ttl/_src/board_top.v:1]
+Inferred a: "set_disable_timing -from I0 -to O i_74"
+Found timing loop:
+     0: i_78/O (LUT3)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+     1: i_78/I0 (LUT3)
+     2: i_79/O (LUT6)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+     3: i_79/I0 (LUT6)
+     4: i_280/O (LUT2)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+     5: i_280/I1 (LUT2)
+     6: i_76/O (LUT6)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+     7: i_76/I2 (LUT6)
+     8: i_78/O (LUT3)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+CRITICAL WARNING: [Synth 8-295] found timing loop. [/home/niklas/dev/EDiC/sim_ttl/_src/board_top.v:1]
+Inferred a: "set_disable_timing -from I0 -to O i_78"
+Found timing loop:
+     0: i_81/O (LUT6)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+     1: i_81/I2 (LUT6)
+     2: i_84/O (LUT6)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+     3: i_84/I0 (LUT6)
+     4: i_281/O (LUT2)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+     5: i_281/I1 (LUT2)
+     6: i_80/O (LUT6)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+     7: i_80/I1 (LUT6)
+     8: i_81/O (LUT6)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+CRITICAL WARNING: [Synth 8-295] found timing loop. [/home/niklas/dev/EDiC/sim_ttl/_src/board_top.v:1]
+Inferred a: "set_disable_timing -from I2 -to O i_81"
+Found timing loop:
+     0: i_86/O (LUT6)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+     1: i_86/I1 (LUT6)
+     2: i_88/O (LUT6)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+     3: i_88/I3 (LUT6)
+     4: i_143/O (LUT2)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+     5: i_143/I1 (LUT2)
+     6: i_285/O (LUT3)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+     7: i_285/I2 (LUT3)
+     8: i_85/O (LUT5)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+     9: i_85/I0 (LUT5)
+    10: i_86/O (LUT6)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+CRITICAL WARNING: [Synth 8-295] found timing loop. [/home/niklas/dev/EDiC/sim_ttl/_src/board_top.v:1]
+Inferred a: "set_disable_timing -from I1 -to O i_86"
+Found timing loop:
+     0: i_92/O (LUT6)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+     1: i_92/I1 (LUT6)
+     2: i_94/O (LUT6)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+     3: i_94/I3 (LUT6)
+     4: i_142/O (LUT2)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+     5: i_142/I1 (LUT2)
+     6: i_286/O (LUT3)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+     7: i_286/I2 (LUT3)
+     8: i_91/O (LUT5)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+     9: i_91/I0 (LUT5)
+    10: i_92/O (LUT6)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+CRITICAL WARNING: [Synth 8-295] found timing loop. [/home/niklas/dev/EDiC/sim_ttl/_src/board_top.v:1]
+Inferred a: "set_disable_timing -from I1 -to O i_92"
+Found timing loop:
+     0: i_98/O (LUT6)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+     1: i_98/I1 (LUT6)
+     2: i_100/O (LUT6)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+     3: i_100/I1 (LUT6)
+     4: i_141/O (LUT2)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+     5: i_141/I1 (LUT2)
+     6: i_284/O (LUT3)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+     7: i_284/I2 (LUT3)
+     8: i_97/O (LUT5)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+     9: i_97/I0 (LUT5)
+    10: i_98/O (LUT6)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+CRITICAL WARNING: [Synth 8-295] found timing loop. [/home/niklas/dev/EDiC/sim_ttl/_src/board_top.v:1]
+Inferred a: "set_disable_timing -from I1 -to O i_98"
+Found timing loop:
+     0: i_104/O (LUT6)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+     1: i_104/I1 (LUT6)
+     2: i_106/O (LUT6)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+     3: i_106/I3 (LUT6)
+     4: i_140/O (LUT2)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+     5: i_140/I1 (LUT2)
+     6: i_283/O (LUT3)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+     7: i_283/I2 (LUT3)
+     8: i_103/O (LUT5)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+     9: i_103/I0 (LUT5)
+    10: i_104/O (LUT6)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+CRITICAL WARNING: [Synth 8-295] found timing loop. [/home/niklas/dev/EDiC/sim_ttl/_src/board_top.v:1]
+Inferred a: "set_disable_timing -from I1 -to O i_104"
+Found timing loop:
+     0: i_110/O (LUT6)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+     1: i_110/I1 (LUT6)
+     2: i_112/O (LUT6)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+     3: i_112/I1 (LUT6)
+     4: i_127/O (LUT2)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+     5: i_127/I1 (LUT2)
+     6: i_282/O (LUT3)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+     7: i_282/I2 (LUT3)
+     8: i_109/O (LUT5)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+     9: i_109/I0 (LUT5)
+    10: i_110/O (LUT6)
+      [/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v:34]
+CRITICAL WARNING: [Synth 8-295] found timing loop. [/home/niklas/dev/EDiC/sim_ttl/_src/board_top.v:1]
+Inferred a: "set_disable_timing -from I1 -to O i_110"
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 2654.789 ; gain = 63.797 ; free physical = 6056 ; free virtual = 23563
+Finished Technology Mapping : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 2649.852 ; gain = 63.797 ; free physical = 9126 ; free virtual = 21573
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -548,37 +714,37 @@ INFO: [Synth 8-4649] Removing BlackBox instance \inst_generated/inst_U94  of mod
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 2654.789 ; gain = 63.797 ; free physical = 6060 ; free virtual = 23567
+Finished IO Insertion : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2649.852 ; gain = 63.797 ; free physical = 9122 ; free virtual = 21570
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 2654.789 ; gain = 63.797 ; free physical = 6060 ; free virtual = 23567
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2649.852 ; gain = 63.797 ; free physical = 9122 ; free virtual = 21570
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 2654.789 ; gain = 63.797 ; free physical = 6060 ; free virtual = 23567
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2649.852 ; gain = 63.797 ; free physical = 9122 ; free virtual = 21570
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 2654.789 ; gain = 63.797 ; free physical = 6060 ; free virtual = 23567
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2649.852 ; gain = 63.797 ; free physical = 9122 ; free virtual = 21570
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 2654.789 ; gain = 63.797 ; free physical = 6060 ; free virtual = 23567
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2649.852 ; gain = 63.797 ; free physical = 9122 ; free virtual = 21570
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 2654.789 ; gain = 63.797 ; free physical = 6060 ; free virtual = 23567
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2649.852 ; gain = 63.797 ; free physical = 9122 ; free virtual = 21570
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -608,12 +774,12 @@ Report Cell Usage:
 |7     |uart_fifo_tx       |     1|
 |8     |BUFG               |     1|
 |9     |CARRY4             |     8|
-|10    |LUT1               |    15|
-|11    |LUT2               |    24|
-|12    |LUT3               |    76|
-|13    |LUT4               |    51|
-|14    |LUT5               |    93|
-|15    |LUT6               |   121|
+|10    |LUT1               |    16|
+|11    |LUT2               |    26|
+|12    |LUT3               |    86|
+|13    |LUT4               |    40|
+|14    |LUT5               |    98|
+|15    |LUT6               |   129|
 |16    |FDCE               |   181|
 |17    |FDPE               |     1|
 |18    |FDRE               |    61|
@@ -622,27 +788,28 @@ Report Cell Usage:
 |21    |OBUF               |    33|
 +------+-------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 2654.789 ; gain = 63.797 ; free physical = 6060 ; free virtual = 23567
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2649.852 ; gain = 63.797 ; free physical = 9122 ; free virtual = 21570
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 3 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 2654.789 ; gain = 0.000 ; free physical = 6112 ; free virtual = 23620
-Synthesis Optimization Complete : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 2654.789 ; gain = 63.797 ; free physical = 6112 ; free virtual = 23620
+Synthesis finished with 0 errors, 8 critical warnings and 3 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 2649.852 ; gain = 0.000 ; free physical = 9162 ; free virtual = 21610
+Synthesis Optimization Complete : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2649.852 ; gain = 63.797 ; free physical = 9161 ; free virtual = 21609
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2654.789 ; gain = 0.000 ; free physical = 6201 ; free virtual = 23709
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2649.852 ; gain = 0.000 ; free physical = 9265 ; free virtual = 21715
 INFO: [Netlist 29-17] Analyzing 8 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-140] Inserted 1 IBUFs to IO ports without IO buffers.
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2654.789 ; gain = 0.000 ; free physical = 6141 ; free virtual = 23649
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2649.852 ; gain = 0.000 ; free physical = 9204 ; free virtual = 21654
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete, checksum: 93119e71
+Synth Design complete, checksum: fa107215
 INFO: [Common 17-83] Releasing license: Synthesis
-106 Infos, 258 Warnings, 0 Critical Warnings and 0 Errors encountered.
+108 Infos, 270 Warnings, 8 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:30 ; elapsed = 00:00:27 . Memory (MB): peak = 2654.789 ; gain = 64.031 ; free physical = 6336 ; free virtual = 23843
+synth_design: Time (s): cpu = 00:00:32 ; elapsed = 00:00:29 . Memory (MB): peak = 2649.852 ; gain = 64.031 ; free physical = 9412 ; free virtual = 21861
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
 INFO: [Common 17-1381] The checkpoint '/home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/synth_1/board_top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file board_top_utilization_synth.rpt -pb board_top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Jan 10 20:37:38 2022...
+INFO: [Common 17-206] Exiting Vivado at Fri Jan 14 18:50:11 2022...

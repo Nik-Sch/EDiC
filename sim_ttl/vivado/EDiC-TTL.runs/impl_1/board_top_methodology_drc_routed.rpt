@@ -1,7 +1,7 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.2 (lin64) Build 3367213 Tue Oct 19 02:47:39 MDT 2021
-| Date         : Mon Jan 10 20:38:42 2022
+| Date         : Fri Jan 14 18:51:17 2022
 | Host         : niklasPC running 64-bit Manjaro Linux
 | Command      : report_methodology -file board_top_methodology_drc_routed.rpt -pb board_top_methodology_drc_routed.pb -rpx board_top_methodology_drc_routed.rpx
 | Design       : board_top
@@ -23,7 +23,7 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 327
+             Violations found: 335
 +-----------+------------------+-------------------------------------------------------------------+------------+
 | Rule      | Severity         | Description                                                       | Violations |
 +-----------+------------------+-------------------------------------------------------------------+------------+
@@ -32,6 +32,7 @@ Table of Contents
 | TIMING-27 | Critical Warning | Invalid primary clock on hierarchical pin                         | 1          |
 | LUTAR-1   | Warning          | LUT drives async reset alert                                      | 2          |
 | TIMING-18 | Warning          | Missing input or output delay                                     | 3          |
+| TIMING-23 | Warning          | Combinational loop found                                          | 8          |
 | TIMING-47 | Warning          | False path or asynchronous clock group between synchronous clocks | 1          |
 +-----------+------------------+-------------------------------------------------------------------+------------+
 
@@ -1665,6 +1666,46 @@ Related violations: <none>
 TIMING-18#3 Warning
 Missing input or output delay  
 An output delay is missing on o_serialOut relative to clock(s) i_clk100
+Related violations: <none>
+
+TIMING-23#1 Warning
+Combinational loop found  
+A timing loop has been detected on a combinational path. A timing arc has been disabled between inst_generated/inst_U70/inst_mem_i_27/I0 and inst_generated/inst_U70/inst_mem_i_27/O to disable the timing loop
+Related violations: <none>
+
+TIMING-23#2 Warning
+Combinational loop found  
+A timing loop has been detected on a combinational path. A timing arc has been disabled between inst_generated/inst_U70/inst_mem_i_39/I0 and inst_generated/inst_U70/inst_mem_i_39/O to disable the timing loop
+Related violations: <none>
+
+TIMING-23#3 Warning
+Combinational loop found  
+A timing loop has been detected on a combinational path. A timing arc has been disabled between inst_generated/inst_U70/port15_i_4/I1 and inst_generated/inst_U70/port15_i_4/O to disable the timing loop
+Related violations: <none>
+
+TIMING-23#4 Warning
+Combinational loop found  
+A timing loop has been detected on a combinational path. A timing arc has been disabled between inst_generated/inst_U70/port16_i_4/I3 and inst_generated/inst_U70/port16_i_4/O to disable the timing loop
+Related violations: <none>
+
+TIMING-23#5 Warning
+Combinational loop found  
+A timing loop has been detected on a combinational path. A timing arc has been disabled between inst_generated/inst_U70/port17_i_4/I1 and inst_generated/inst_U70/port17_i_4/O to disable the timing loop
+Related violations: <none>
+
+TIMING-23#6 Warning
+Combinational loop found  
+A timing loop has been detected on a combinational path. A timing arc has been disabled between inst_generated/inst_U70/port18_i_4/I3 and inst_generated/inst_U70/port18_i_4/O to disable the timing loop
+Related violations: <none>
+
+TIMING-23#7 Warning
+Combinational loop found  
+A timing loop has been detected on a combinational path. A timing arc has been disabled between inst_generated/inst_U70/port19_i_4/I3 and inst_generated/inst_U70/port19_i_4/O to disable the timing loop
+Related violations: <none>
+
+TIMING-23#8 Warning
+Combinational loop found  
+A timing loop has been detected on a combinational path. A timing arc has been disabled between inst_generated/inst_U70/port20_i_4/I2 and inst_generated/inst_U70/port20_i_4/O to disable the timing loop
 Related violations: <none>
 
 TIMING-47#1 Warning

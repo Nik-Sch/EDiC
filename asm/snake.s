@@ -68,9 +68,18 @@ start:
     call updateItem
   mainUpdateBoard:
     ldr r0, [SNAKE_LENGTH]
+
+    # move cursor to the top
+    mov r0, 1 # line
+    stf r0, [PAR2]
+    mov r0, 0 # col
+    stf r0, [PAR1]
+    mov r0, BORDER
+    call setScreen
+    ldr r0, [SNAKE_LENGTH]
     str r0, [SIMPLE_IO]
-    # wait 100ms
-    mov r0, 100
+    # wait 111ms
+    mov r0, 111
     call delay_ms
 
     call readArrow

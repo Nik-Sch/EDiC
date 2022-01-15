@@ -1,7 +1,7 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.2 (lin64) Build 3367213 Tue Oct 19 02:47:39 MDT 2021
-| Date         : Mon Jan 10 20:38:18 2022
+| Date         : Fri Jan 14 18:50:52 2022
 | Host         : niklasPC running 64-bit Manjaro Linux
 | Command      : report_control_sets -verbose -file board_top_control_sets_placed.rpt
 | Design       : board_top
@@ -58,51 +58,51 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              64 |           31 |
-| No           | No                    | Yes                    |              81 |           29 |
-| No           | Yes                   | No                     |               7 |            2 |
+| No           | No                    | No                     |              64 |           30 |
+| No           | No                    | Yes                    |              81 |           35 |
+| No           | Yes                   | No                     |               7 |            1 |
 | Yes          | No                    | No                     |              16 |            4 |
-| Yes          | No                    | Yes                    |             107 |           59 |
-| Yes          | Yes                   | No                     |               7 |            3 |
+| Yes          | No                    | Yes                    |             107 |           55 |
+| Yes          | Yes                   | No                     |               7 |            1 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+----------------------------------+-------------------------------------------+--------------------------------------------------------------------------------------+------------------+----------------+--------------+
-|           Clock Signal           |               Enable Signal               |                                   Set/Reset Signal                                   | Slice Load Count | Bel Load Count | Bels / Slice |
-+----------------------------------+-------------------------------------------+--------------------------------------------------------------------------------------+------------------+----------------+--------------+
-| ~inst_clk5Mhz/inst/clk5          |                                           | inst_generated/inst_7seg/i_btnReset                                                  |                1 |              1 |         1.00 |
-|  i_clk100_IBUF_BUFG              | uart/inst_tx/o_serialOut_i_1_n_0          | inst_generated/inst_7seg/i_btnReset                                                  |                1 |              1 |         1.00 |
-|  r_clkRamDiv_BUFG[1]             |                                           | uart/inst_fifo_rx/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/rd_rst_reg2 |                1 |              1 |         1.00 |
-|  r_clkRamDiv_BUFG[1]             |                                           | uart/inst_fifo_tx/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/wr_rst_reg2 |                1 |              1 |         1.00 |
-|  inst_clk5Mhz/inst/clkEEPROM     |                                           |                                                                                      |                1 |              2 |         2.00 |
-|  inst_clk5Mhz/inst/clkRam        |                                           |                                                                                      |                1 |              2 |         2.00 |
-|  inst_clk5Mhz/inst/clk5          |                                           |                                                                                      |                1 |              2 |         2.00 |
-|  r_clkEEPROMDiv_BUFG[1]          |                                           |                                                                                      |                4 |              6 |         1.50 |
-|  r_clkRamDiv_BUFG[1]             |                                           | inst_generated/inst_7seg/i_btnReset                                                  |                4 |              6 |         1.50 |
-|  r_oszClkDiv_BUFG[1]             |                                           | inst_generated/inst_7seg/cathodesAH[0]_inv_i_1_n_0                                   |                2 |              7 |         3.50 |
-|  r_oszClkDiv_BUFG[1]             | inst_generated/inst_U35/port9_reg_0       | inst_generated/inst_7seg/i_btnReset                                                  |                5 |              7 |         1.40 |
-|  r_clkRamDiv_BUFG[1]             | inst_generated/inst_U70/port22_reg_1      | inst_generated/inst_U70/port22_reg_0                                                 |                3 |              7 |         2.33 |
-|  r_oszClkDiv_BUFG[1]             | inst_generated/inst_U41/port15_i_1__3_n_0 | inst_generated/inst_7seg/i_btnReset                                                  |                4 |              8 |         2.00 |
-|  r_clkRamDiv_BUFG[1]             | inst_generated/inst_U63/E[0]              |                                                                                      |                3 |              8 |         2.67 |
-|  r_oszClkDiv_BUFG[1]             | inst_generated/inst_U54/E[0]              | inst_generated/inst_7seg/i_btnReset                                                  |                7 |              8 |         1.14 |
-|  r_oszClkDiv_BUFG[1]             | inst_generated/inst_U35/port9_reg_1[0]    | inst_generated/inst_7seg/i_btnReset                                                  |                3 |              8 |         2.67 |
-|  r_oszClkDiv_BUFG[1]             | inst_generated/inst_U68/port15_i_1__5_n_0 | inst_generated/inst_7seg/i_btnReset                                                  |                3 |              8 |         2.67 |
-|  r_oszClkDiv_BUFG[1]             | inst_generated/inst_U40/port15_i_1__2_n_0 | inst_generated/inst_7seg/i_btnReset                                                  |                4 |              8 |         2.00 |
-|  r_oszClkDiv_BUFG[1]             | inst_generated/inst_U35/E[0]              | inst_generated/inst_7seg/i_btnReset                                                  |                4 |              8 |         2.00 |
-|  r_oszClkDiv_BUFG[1]             | inst_generated/inst_U63/port22_i_1__0_n_0 | inst_generated/inst_7seg/i_btnReset                                                  |                4 |              8 |         2.00 |
-|  inst_generated/inst_U70/IO_0_WR |                                           | inst_generated/inst_7seg/i_btnReset                                                  |                1 |              8 |         8.00 |
-|  i_clk100_IBUF_BUFG              | uart/inst_tx/r_data_0                     |                                                                                      |                1 |              8 |         8.00 |
-| ~inst_clk5Mhz/inst/clk5          | r_breakpoint[7]_i_1_n_0                   | inst_generated/inst_7seg/i_btnReset                                                  |                3 |              8 |         2.67 |
-|  r_oszClkDiv_BUFG[1]             | inst_generated/inst_U9/bbstub_douta[0]    | inst_generated/inst_7seg/i_btnReset                                                  |                5 |             11 |         2.20 |
-|  i_clk100_IBUF_BUFG              |                                           |                                                                                      |                5 |             14 |         2.80 |
-|  r_oszClkDiv_BUFG[1]             |                                           |                                                                                      |                8 |             17 |         2.12 |
-|  r_clkRamDiv_BUFG[1]             |                                           |                                                                                      |               11 |             23 |         2.09 |
-|  r_oszClkDiv_BUFG[1]             | inst_generated/inst_U71/bbstub_douta[10]  | inst_generated/inst_7seg/i_btnReset                                                  |               16 |             24 |         1.50 |
-|  r_oszClkDiv_BUFG[1]             |                                           | inst_generated/inst_7seg/i_btnReset                                                  |                8 |             27 |         3.38 |
-|  i_clk100_IBUF_BUFG              |                                           | inst_generated/inst_7seg/i_btnReset                                                  |               13 |             37 |         2.85 |
-+----------------------------------+-------------------------------------------+--------------------------------------------------------------------------------------+------------------+----------------+--------------+
++--------------------------------------+-------------------------------------------+--------------------------------------------------------------------------------------+------------------+----------------+--------------+
+|             Clock Signal             |               Enable Signal               |                                   Set/Reset Signal                                   | Slice Load Count | Bel Load Count | Bels / Slice |
++--------------------------------------+-------------------------------------------+--------------------------------------------------------------------------------------+------------------+----------------+--------------+
+| ~inst_clk5Mhz/inst/clk5              |                                           | inst_generated/inst_7seg/i_btnReset                                                  |                1 |              1 |         1.00 |
+|  i_clk100_IBUF_BUFG                  | uart/inst_tx/o_serialOut_i_1_n_0          | inst_generated/inst_7seg/i_btnReset                                                  |                1 |              1 |         1.00 |
+|  r_clkRamDiv_BUFG[1]                 |                                           | uart/inst_fifo_tx/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/wr_rst_reg2 |                1 |              1 |         1.00 |
+|  r_clkRamDiv_BUFG[1]                 |                                           | uart/inst_fifo_rx/U0/inst_fifo_gen/gconvfifo.rf/gbi.bi/g7ser_birst.rstbt/rd_rst_reg2 |                1 |              1 |         1.00 |
+|  inst_clk5Mhz/inst/clkEEPROM         |                                           |                                                                                      |                1 |              2 |         2.00 |
+|  inst_clk5Mhz/inst/clkRam            |                                           |                                                                                      |                1 |              2 |         2.00 |
+|  inst_clk5Mhz/inst/clk5              |                                           |                                                                                      |                1 |              2 |         2.00 |
+|  r_clkEEPROMDiv_BUFG[1]              |                                           |                                                                                      |                4 |              6 |         1.50 |
+|  r_clkRamDiv_BUFG[1]                 |                                           | inst_generated/inst_7seg/i_btnReset                                                  |                4 |              6 |         1.50 |
+|  r_clkRamDiv_BUFG[1]                 | inst_generated/inst_U70/port22_reg_1      | inst_generated/inst_U70/port22_reg_0                                                 |                1 |              7 |         7.00 |
+|  r_oszClkDiv_BUFG[1]                 | inst_generated/inst_U35/port6_reg_0       | inst_generated/inst_7seg/i_btnReset                                                  |                4 |              7 |         1.75 |
+|  r_oszClkDiv_BUFG[1]                 |                                           | inst_generated/inst_7seg/cathodesAH[0]_inv_i_1_n_0                                   |                1 |              7 |         7.00 |
+|  r_oszClkDiv_BUFG[1]                 | inst_generated/inst_U41/port15_i_1__3_n_0 | inst_generated/inst_7seg/i_btnReset                                                  |                3 |              8 |         2.67 |
+|  r_oszClkDiv_BUFG[1]                 | inst_generated/inst_U40/port15_i_1__2_n_0 | inst_generated/inst_7seg/i_btnReset                                                  |                5 |              8 |         1.60 |
+|  r_oszClkDiv_BUFG[1]                 | inst_generated/inst_U35/port6_reg_1[0]    | inst_generated/inst_7seg/i_btnReset                                                  |                4 |              8 |         2.00 |
+|  r_oszClkDiv_BUFG[1]                 | inst_generated/inst_U35/E[0]              | inst_generated/inst_7seg/i_btnReset                                                  |                3 |              8 |         2.67 |
+| ~inst_clk5Mhz/inst/clk5              | r_breakpoint[7]_i_1_n_0                   | inst_generated/inst_7seg/i_btnReset                                                  |                2 |              8 |         4.00 |
+|  r_oszClkDiv_BUFG[1]                 | inst_generated/inst_U54/E[0]              | inst_generated/inst_7seg/i_btnReset                                                  |                6 |              8 |         1.33 |
+|  r_oszClkDiv_BUFG[1]                 | inst_generated/inst_U68/port15_i_1__5_n_0 | inst_generated/inst_7seg/i_btnReset                                                  |                3 |              8 |         2.67 |
+|  r_oszClkDiv_BUFG[1]                 | inst_generated/inst_U63/port22_i_1__0_n_0 | inst_generated/inst_7seg/i_btnReset                                                  |                4 |              8 |         2.00 |
+|  i_clk100_IBUF_BUFG                  | uart/inst_tx/r_data_0                     |                                                                                      |                2 |              8 |         4.00 |
+|  r_clkRamDiv_BUFG[1]                 | inst_generated/inst_U63/E[0]              |                                                                                      |                2 |              8 |         4.00 |
+|  inst_generated/inst_U70/port2_i_3_0 |                                           | inst_generated/inst_7seg/i_btnReset                                                  |                3 |              8 |         2.67 |
+|  r_oszClkDiv_BUFG[1]                 | inst_generated/inst_U9/bbstub_douta[0]    | inst_generated/inst_7seg/i_btnReset                                                  |                4 |             11 |         2.75 |
+|  i_clk100_IBUF_BUFG                  |                                           |                                                                                      |                5 |             14 |         2.80 |
+|  r_oszClkDiv_BUFG[1]                 |                                           |                                                                                      |                7 |             17 |         2.43 |
+|  r_clkRamDiv_BUFG[1]                 |                                           |                                                                                      |               11 |             23 |         2.09 |
+|  r_oszClkDiv_BUFG[1]                 | inst_generated/inst_U71/bbstub_douta[10]  | inst_generated/inst_7seg/i_btnReset                                                  |               16 |             24 |         1.50 |
+|  r_oszClkDiv_BUFG[1]                 |                                           | inst_generated/inst_7seg/i_btnReset                                                  |               11 |             27 |         2.45 |
+|  i_clk100_IBUF_BUFG                  |                                           | inst_generated/inst_7seg/i_btnReset                                                  |               14 |             37 |         2.64 |
++--------------------------------------+-------------------------------------------+--------------------------------------------------------------------------------------+------------------+----------------+--------------+
 
 

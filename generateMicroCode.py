@@ -52,6 +52,10 @@ class CsonParser:
 
       instructions: List[CsonInstruction] = []
       for instruction in data['instructions']:
+        if len(instruction['cycles']) + self.fetchLen > 8:
+          print(f"instruction {instruction['op']} has too many cycles.")
+          exit(1)
+
         if 'alu' in instruction['op']:
           for i in range(8):
             newInstr = deepcopy(instruction)

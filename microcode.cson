@@ -129,13 +129,16 @@ instructions: [
         reg0BusNOE: 's'
         reg1BusNOE: '!s'
         memMar0NWE: 0
+      }
+      { # ram address setup
         memInstrImmToRamAddr: 0
+        regAluSel: 'r'
       }
       { # r x ram into alu
         memInstrImmToRamAddr: 0
+        regAluSel: 'r'
         memRamNOE: 0
         aluYNWE: 0
-        regAluSel: 'r'
       }
       { # alu into r
         aluNOE: 0
@@ -150,11 +153,15 @@ instructions: [
       { # immediate -> ram
         memInstrImmToRamAddr: 1
       }
+      { # ram address setup
+        memInstrImmToRamAddr: 1
+        regAluSel: 'r'
+      }
       { # r x ram into alu
         memInstrImmToRamAddr: 1
+        regAluSel: 'r'
         memRamNOE: 0
         aluYNWE: 0
-        regAluSel: 'r'
       }
       { # alu into r
         aluNOE: 0
@@ -169,11 +176,15 @@ instructions: [
       { # immediate -> ram
         memInstrImmToRamAddr: 1
       }
+      { # ram address setup
+        memInstrImmToRamAddr: 1
+        regAluSel: 'r'
+      }
       { # r x ram into alu
         memInstrImmToRamAddr: 1
+        regAluSel: 'r'
         memRamNOE: 0
         aluYNWE: 0
-        regAluSel: 'r'
       }
     ]
   }
@@ -213,6 +224,9 @@ instructions: [
         memMar0NWE: 0
         memInstrImmToRamAddr: 0
       }
+      { # ram address setup
+        memInstrImmToRamAddr: 0
+      }
       { # ram to r
         memInstrImmToRamAddr: 0
         memRamNOE: 0
@@ -224,10 +238,11 @@ instructions: [
   {
     op: '1111000r' # r = [imm] (ldr)
     cycles: [
-      { # immediate -> ram
+      { # ram address setup
         memInstrImmToRamAddr: 1
       }
       { # ram to r
+        memInstrImmToRamAddr: 1
         memRamNOE: 0
         reg0NWE: 'r'
         reg1NWE: '!r'
@@ -241,10 +256,11 @@ instructions: [
         memSPUp: 1
         memSPNEn: 0
       }
-      { # immediate -> ram
+      { # ram address setup
         memInstrImmToRamAddr: 1
       }
       { # ram to r
+        memInstrImmToRamAddr: 1
         memRamNOE: 0
         reg0NWE: 'r'
         reg1NWE: '!r'
@@ -262,13 +278,22 @@ instructions: [
         reg0BusNOE: 's'
         reg1BusNOE: '!s'
         memMar0NWE: 0
-        memInstrImmToRamAddr: 0
       }
       { # r into ram
         reg0BusNOE: 'r'
         reg1BusNOE: '!r'
         memInstrImmToRamAddr: 0
+      }
+      { # ram write
+        reg0BusNOE: 'r'
+        reg1BusNOE: '!r'
+        memInstrImmToRamAddr: 0
         memRamNWE: 0
+      }
+      { # hold ram inputs
+        reg0BusNOE: 'r'
+        reg1BusNOE: '!r'
+        memInstrImmToRamAddr: 0
       }
     ]
   }
@@ -298,7 +323,17 @@ instructions: [
         reg0BusNOE: 'r'
         reg1BusNOE: '!r'
         memInstrImmToRamAddr: 1
+      }
+      { # r write
+        reg0BusNOE: 'r'
+        reg1BusNOE: '!r'
+        memInstrImmToRamAddr: 1
         memRamNWE: 0
+      }
+      { # hold ram inputs
+        reg0BusNOE: 'r'
+        reg1BusNOE: '!r'
+        memInstrImmToRamAddr: 1
       }
     ]
   }
@@ -313,7 +348,17 @@ instructions: [
         reg0BusNOE: 'r'
         reg1BusNOE: '!r'
         memInstrImmToRamAddr: 1
+      }
+      { # ram write
+        reg0BusNOE: 'r'
+        reg1BusNOE: '!r'
+        memInstrImmToRamAddr: 1
         memRamNWE: 0
+      }
+      { # hold ram inputs
+        reg0BusNOE: 'r'
+        reg1BusNOE: '!r'
+        memInstrImmToRamAddr: 1
       }
       { # decrement sp
         memSPUp: 0
@@ -364,13 +409,16 @@ instructions: [
       { # increment sp
         memSPUp: 1
         memSPNEn: 0
+      }
+      { # address + data setup
+        memPCToRamN: 0
         memInstrImmToRamAddr: 0
       }
       { # store pc in ram[0xffff]
         memPCToRamN: 0
         memInstrImmToRamAddr: 0
         memRamNWE: 0
-      }
+      } # no hold cycle required because only AS6C4008 timings are important here (no IO)
       { # load pc from instrImm
         memPCLoadN: 0
         memPCNEn: 0
@@ -385,11 +433,13 @@ instructions: [
       { # 0xffff into mar
         memMar0NWE: 0
         memMar1NWE: 0
-        memInstrImmToRamAddr: 0 # only address is needed due to address -> do delay of eeprom + ram
+      }
+      { # ram address setup
+        memInstrImmToRamAddr: 0
       }
       { # load pc from ram
-        memRamNOE: 0
         memInstrImmToRamAddr: 0
+        memRamNOE: 0
         memPCLoadN: 0
         memPCNEn: 0
         memPCFromImm: 0
