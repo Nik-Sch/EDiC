@@ -1,4 +1,4 @@
-#!/usr/bin/node
+#!/usr/bin/env node
 
 'use strict';
 import { readFileSync, writeFileSync } from 'fs';
@@ -52,7 +52,7 @@ const labelDefRegEx = `\\s*(${identifierRegEx}):\\s*`;
 const constantDefRegEx = `\\s*(${identifierRegEx})\\s*=\\s*(${numericRegEx})\\s*`;
 const stringDefRegEx = `\\s*(${numericRegEx}).(${identifierRegEx})\\s* =\\s*(${stringRegEx})\\s*`;
 const valueRegEx = `(?:${numericRegEx})|(?:${identifierRegEx})`;
-const lineCommentRegex = /^\s*(?:#|@|;|(?:\/\/)).*$/;
+const lineCommentRegex = /^\s*(?:#|@|;|(?:\/\/)).*$/m;
 
 interface ILabel {
   name: string;
@@ -258,7 +258,7 @@ const instructions: IInstruction[] = [
 ];
 
 if (argv.length !== 4) {
-  console.error(`${argv[0]} ${argv[1]} <in>.cson <out>.coe`);
+  console.error(`${argv[0]} ${argv[1]} <in>.s <out>.coe`);
   exit(1);
 }
 

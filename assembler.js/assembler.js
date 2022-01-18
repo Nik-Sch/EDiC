@@ -1,4 +1,4 @@
-#!/usr/bin/node
+#!/usr/bin/env node
 'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = require("fs");
@@ -43,7 +43,7 @@ const labelDefRegEx = `\\s*(${identifierRegEx}):\\s*`;
 const constantDefRegEx = `\\s*(${identifierRegEx})\\s*=\\s*(${numericRegEx})\\s*`;
 const stringDefRegEx = `\\s*(${numericRegEx}).(${identifierRegEx})\\s* =\\s*(${stringRegEx})\\s*`;
 const valueRegEx = `(?:${numericRegEx})|(?:${identifierRegEx})`;
-const lineCommentRegex = /^\s*(?:#|@|;|(?:\/\/)).*$/;
+const lineCommentRegex = /^\s*(?:#|@|;|(?:\/\/)).*$/m;
 ;
 ;
 const labels = [];
@@ -240,7 +240,7 @@ const instructions = [
     },
 ];
 if (process_1.argv.length !== 4) {
-    console.error(`${process_1.argv[0]} ${process_1.argv[1]} <in>.cson <out>.coe`);
+    console.error(`${process_1.argv[0]} ${process_1.argv[1]} <in>.s <out>.coe`);
     process_1.exit(1);
 }
 const coeFile = process_1.argv[3].endsWith('.coe');
