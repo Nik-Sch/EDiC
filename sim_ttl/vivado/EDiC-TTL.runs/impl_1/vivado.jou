@@ -2,12 +2,12 @@
 # Vivado v2021.2 (64-bit)
 # SW Build 3367213 on Tue Oct 19 02:47:39 MDT 2021
 # IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
-# Start of session at: Fri Jan 14 18:50:15 2022
-# Process ID: 2216054
+# Start of session at: Sat Jan 15 15:08:26 2022
+# Process ID: 403481
 # Current directory: /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/impl_1
-# Command line: vivado -log board_top.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source board_top.tcl -notrace
-# Log file: /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/impl_1/board_top.vdi
+# Command line: vivado -log board_top_signal_test.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source board_top_signal_test.tcl -notrace
+# Log file: /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/impl_1/board_top_signal_test.vdi
 # Journal file: /home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.runs/impl_1/vivado.jou
-# Running On: niklasPC, OS: Linux, CPU Frequency: 4105.675 MHz, CPU Physical cores: 16, Host memory: 33678 MB
+# Running On: niklasPC, OS: Linux, CPU Frequency: 3363.741 MHz, CPU Physical cores: 16, Host memory: 33678 MB
 #-----------------------------------------------------------
-source board_top.tcl -notrace
+source board_top_signal_test.tcl -notrace

@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1642182569" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/generated.dcp">
-  <File Type="VDS-TIMING-PB" Name="board_top_timing_summary_synth.pb"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="board_top_timing_summary_synth.rpt"/>
-  <File Type="RDS-DCP" Name="board_top.dcp"/>
-  <File Type="RDS-UTIL-PB" Name="board_top_utilization_synth.pb"/>
-  <File Type="RDS-UTIL" Name="board_top_utilization_synth.rpt"/>
-  <File Type="RDS-PROPCONSTRS" Name="board_top_drc_synth.rpt"/>
-  <File Type="RDS-RDS" Name="board_top.vds"/>
-  <File Type="REPORTS-TCL" Name="board_top_reports.tcl"/>
-  <File Type="PA-TCL" Name="board_top.tcl"/>
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1642255701" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/generated.dcp">
+  <File Type="REPORTS-TCL" Name="board_top_signal_test_reports.tcl"/>
+  <File Type="PA-TCL" Name="board_top_signal_test.tcl"/>
+  <File Type="RDS-DCP" Name="board_top_signal_test.dcp"/>
+  <File Type="RDS-RDS" Name="board_top_signal_test.vds"/>
+  <File Type="RDS-UTIL" Name="board_top_signal_test_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="board_top_signal_test_utilization_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
+    <File Path="$PPRDIR/../_src/board_top_signal_test.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/ip/instructionRom/instructionRom.xci">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -20,6 +25,7 @@
     </File>
     <File Path="$PPRDIR/../_src/displayDriver.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -27,6 +33,7 @@
     </File>
     <File Path="$PPRDIR/../_src/expansionCards/UART/expansion_uart.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -34,6 +41,7 @@
     </File>
     <File Path="$PPRDIR/../_src/generated.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -41,6 +49,7 @@
     </File>
     <File Path="$PPRDIR/../_src/ic28C256.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -48,6 +57,7 @@
     </File>
     <File Path="$PPRDIR/../_src/ic5082_7340.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -55,6 +65,7 @@
     </File>
     <File Path="$PPRDIR/../_src/ic74x04.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -62,6 +73,7 @@
     </File>
     <File Path="$PPRDIR/../_src/ic74x08.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -69,6 +81,7 @@
     </File>
     <File Path="$PPRDIR/../_src/ic74x14.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -76,6 +89,7 @@
     </File>
     <File Path="$PPRDIR/../_src/ic74x151.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -83,6 +97,7 @@
     </File>
     <File Path="$PPRDIR/../_src/ic74x153.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -90,6 +105,7 @@
     </File>
     <File Path="$PPRDIR/../_src/ic74x157.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -97,6 +113,7 @@
     </File>
     <File Path="$PPRDIR/../_src/ic74x245.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -104,6 +121,7 @@
     </File>
     <File Path="$PPRDIR/../_src/ic74x273.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -111,6 +129,7 @@
     </File>
     <File Path="$PPRDIR/../_src/ic74x32.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -118,6 +137,7 @@
     </File>
     <File Path="$PPRDIR/../_src/ic74x374.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -125,6 +145,7 @@
     </File>
     <File Path="$PPRDIR/../_src/ic74x521.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -132,6 +153,7 @@
     </File>
     <File Path="$PPRDIR/../_src/ic74x540.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -139,6 +161,7 @@
     </File>
     <File Path="$PPRDIR/../_src/ic74x825.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -146,6 +169,7 @@
     </File>
     <File Path="$PPRDIR/../_src/ic74x86.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -153,6 +177,7 @@
     </File>
     <File Path="$PPRDIR/../_src/ic74x867.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -160,6 +185,7 @@
     </File>
     <File Path="$PPRDIR/../_src/icAS6C4008.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -167,6 +193,7 @@
     </File>
     <File Path="$PPRDIR/../_src/icBerg10.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -174,6 +201,7 @@
     </File>
     <File Path="$PPRDIR/../_src/icBerg26.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -181,6 +209,7 @@
     </File>
     <File Path="$PPRDIR/../_src/icBerg40.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -188,6 +217,7 @@
     </File>
     <File Path="$PPRDIR/../_src/icds1813.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -195,6 +225,7 @@
     </File>
     <File Path="$PPRDIR/../_src/tristatenet.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -202,6 +233,7 @@
     </File>
     <File Path="$PPRDIR/../_src/expansionCards/UART/uart_rx.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -209,6 +241,7 @@
     </File>
     <File Path="$PPRDIR/../_src/expansionCards/UART/uart_tx.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -216,6 +249,7 @@
     </File>
     <File Path="$PPRDIR/../_src/board_top.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -251,7 +285,7 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="board_top"/>
+      <Option Name="TopModule" Val="board_top_signal_test"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
@@ -285,9 +319,4 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="microCodeRom"/>
-  <BlockFileSet Type="BlockSrcs" Name="uart_fifo_tx"/>
-  <BlockFileSet Type="BlockSrcs" Name="clk_wiz_5Mhz"/>
-  <BlockFileSet Type="BlockSrcs" Name="uart_fifo_rx"/>
-  <BlockFileSet Type="BlockSrcs" Name="as6c4008_55pcn_mem"/>
 </GenRun>

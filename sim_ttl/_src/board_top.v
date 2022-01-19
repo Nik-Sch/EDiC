@@ -1,18 +1,37 @@
 module board_top(
   input wire i_clk100,
 
+  // fpga buttons/switches
   input wire i_btnStep,
   input wire i_swInstrNCycle,
   input wire i_swStepNRun,
   input wire i_swEnableBreakpoint,
   input wire i_btnReset, // active low
 
+  // included IO at 0xfe00
   output wire [7:0] o_cathodes, // dot + gfedcba
   output wire [7:0] o_anodes,
   input wire [7:0] i_switches,
+
+  // expansion connector
+  output wire [7:0] o_ramAddress,
+  inout wire [7:0] io_bus,
+  output wire o_ioNCE,
+  output wire o_ctrlMemRamNOE,
+  output wire o_nreset,
+  output wire o_ctrlMemRamNWE,
+  output wire o_clk,
+
+  // tri-color led
+  output reg o_ld17_r,
+  output reg o_ld17_g,
+  output reg o_ld17_b,
+
+  // fpga debug
   output wire [7:0] o_r0,
   output wire [7:0] o_r1,
 
+  // for included uart
   input wire i_serialIn,
   output wire o_serialOut
 );
@@ -35,6 +54,7 @@ assign s_resetn = i_btnReset;
 wire s_oszClk;
 wire s_clkRam;
 wire s_clkEEPROM;
+
 clk_wiz_5Mhz inst_clk5Mhz(
   .clk_in1(i_clk100),
   .clk5(s_oszClk),
@@ -119,5 +139,15 @@ expansion_uart uart(
   .i_serialIn(i_serialIn),
   .o_serialOut(o_serialOut)
 );
+
+// wire external expansion:
+assign o_ramAddress = s_expansionIoAddress;
+assign io_bus = (s_expansionIoNCE | s_expansionIoNOE) ? 8'hzz : s_expansionBusIn;
+// assign s_expansionBusOut = (s_expansionIoNCE | s_expansionIoNOE) ? io_bus : 8'hff;
+assign o_ioNCE = s_expansionIoNCE;
+assign o_ctrlMemRamNOE = s_expansionIoNOE;
+assign o_nreset = s_resetn;
+assign o_ctrlMemRamNWE = s_expansionIoNWE;
+assign o_clk = ~r_oszClkDiv[1];
 
 endmodule
