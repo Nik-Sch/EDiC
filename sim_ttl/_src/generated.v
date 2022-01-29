@@ -1,6 +1,8 @@
 
 module generated(
   
+  input wire i_clk100,
+
   // clocks
   input wire i_oszClk,
   input wire i_asyncRamSpecialClock,
@@ -3830,7 +3832,8 @@ ic74x273 inst_U35 (
   .port17(DEBUG_STEPRUNN),
   .port18(RD8),
   .port19(RQ8),
-  .port20(VCC)
+  .port20(VCC),
+  .port111(L1)
 );
 
 ic74x08 inst_U36 (
@@ -5248,7 +5251,7 @@ ic74x273 inst_U92 (
   .port8(BUS_BUF3),
   .port9(N16459427),
   .port10(1'b0),
-  .port11(IO_0_WR),
+  .port11(i_clk100),
   .port12(N16459511),
   .port13(BUS_BUF4),
   .port14(BUS_BUF5),
@@ -5257,7 +5260,8 @@ ic74x273 inst_U92 (
   .port17(BUS_BUF6),
   .port18(BUS_BUF7),
   .port19(N16459739),
-  .port20(VCC)
+  .port20(VCC),
+  .port111(IO_0_WR)
 );
 
 ic5082_7340 inst_U93 (

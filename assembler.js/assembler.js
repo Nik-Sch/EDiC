@@ -3,6 +3,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = require("fs");
 const process_1 = require("process");
+const path_1 = require("path");
 const aluOps = {
     add: '000',
     sub: '001',
@@ -44,6 +45,7 @@ const constantDefRegEx = `\\s*(${identifierRegEx})\\s*=\\s*(${numericRegEx})\\s*
 const stringDefRegEx = `\\s*(${numericRegEx}).(${identifierRegEx})\\s* =\\s*(${stringRegEx})\\s*`;
 const valueRegEx = `(?:${numericRegEx})|(?:${identifierRegEx})`;
 const lineCommentRegex = /^\s*(?:#|@|;|(?:\/\/)).*$/m;
+const lineToString = (c) => `${c.filename}:${c.lineNumber}`;
 ;
 ;
 const labels = [];
@@ -144,7 +146,7 @@ const instructions = [
             const label = labels.find(l => l.name === match[2]);
             let imm = false;
             if (typeof label === 'undefined') {
-                console.error(`${match[0]}: Could not find label '${match[2]}' in ${labels.map(l => ` ${l.name} @ ${l.instruction}`)}.`);
+                console.error(`${match[0]}: Could not find label '${match[2]}' in the existing labels:\n${labels.map(l => ` ${l.name} @ ${lineToString(l.line)}`).join('\n')}.`);
             }
             else {
                 imm = checkImmediate(label.instruction.toString());
@@ -158,7 +160,7 @@ const instructions = [
             const label = labels.find(l => l.name === match[1]);
             let imm = false;
             if (typeof label === 'undefined') {
-                console.error(`${match[0]}: Could not find label '${match[1]}' in ${labels.map(l => ` ${l.name} @ ${l.instruction}`)}.`);
+                console.error(`${match[0]}: Could not find label '${match[1]}' in the existing labels:\n${labels.map(l => ` ${l.name} @ ${lineToString(l.line)}`).join('\n')}.`);
             }
             else {
                 imm = checkImmediate(label.instruction.toString());
@@ -243,8 +245,17 @@ if (process_1.argv.length !== 4) {
     console.error(`${process_1.argv[0]} ${process_1.argv[1]} <in>.s <out>.coe`);
     process_1.exit(1);
 }
+const readFile = (filename) => {
+    return fs_1.readFileSync(filename).toString().replace('\r', '').split('\n').map((v, i) => {
+        return {
+            text: v,
+            filename: filename,
+            lineNumber: i + 1
+        };
+    });
+};
 const coeFile = process_1.argv[3].endsWith('.coe');
-const code = fs_1.readFileSync(process_1.argv[2]).toString().replace('\r', '').split('\n');
+const code = readFile(process_1.argv[2]);
 let fileContent = coeFile
     ? 'MEMORY_INITIALIZATION_RADIX=16;\nMEMORY_INITIALIZATION_VECTOR=\n'
     : `#ifndef DATA_H
@@ -254,25 +265,24 @@ let fileContent = coeFile
 
 const uint16_t length = 512;
 const uint8_t data[] PROGMEM = {\n`;
-let lineCount = 0;
 let instrCount = 0;
 const data = [];
 const insertInstruction = (line) => {
     for (const instr of instructions) {
-        const match = line.match(instr.regex);
+        const match = line.text.match(instr.regex);
         if (match) {
             const result = instr.result(match);
             if (result.imm === false) {
-                console.error(`Error in line ${lineCount}.`);
+                console.error(`Error in ${lineToString(line)}.`);
                 process_1.exit(1);
             }
             data[instrCount] = parseInt(result.instr, 2) << 16;
             if (typeof result.imm === 'number') {
                 data[instrCount] |= result.imm;
-                console.log(`${instrCount.toString(16).padStart(2, '0')}: ${result.instr.trim()} - ${line.trim()} (imm: 0x${result.imm.toString(16).padStart(2, '0')})`);
+                console.log(`${instrCount.toString(16).padStart(2, '0')}: ${result.instr.trim()} - ${line.text.trim()} (imm: 0x${result.imm.toString(16).padStart(2, '0')})`);
             }
             else {
-                console.log(`${instrCount.toString(16).padStart(2, '0')}: ${result.instr.trim()} - ${line.trim()}`);
+                console.log(`${instrCount.toString(16).padStart(2, '0')}: ${result.instr.trim()} - ${line.text.trim()}`);
             }
             instrCount++;
             return true;
@@ -280,10 +290,16 @@ const insertInstruction = (line) => {
     }
     return false;
 };
+for (const [i, origLine] of code.entries()) {
+    const match = origLine.text.match(/[ \t]*include\s+\"(\S+)\"$/i);
+    if (match) {
+        const include = readFile(path_1.dirname(process_1.argv[2]) + "/" + match[1]);
+        code.splice(i, 1, ...include);
+    }
+}
 // first pass: find strings and create instructions for it
 for (const origLine of code) {
-    lineCount++;
-    const line = origLine.replace(lineCommentRegex, '');
+    const line = origLine.text.replace(lineCommentRegex, '');
     if (line.match(/^\s*$/)) {
         continue;
     }
@@ -298,11 +314,11 @@ for (const origLine of code) {
         const values = [];
         const existingConstant = constants.find(c => c.name === stringMatch[2]);
         if (existingConstant) {
-            console.error(`Constant '${stringMatch[2]}' defined multiple times (line ${existingConstant.line} and ${lineCount}).`);
+            console.error(`Constant '${stringMatch[2]}' defined multiple times (${lineToString(existingConstant.line)} and ${lineToString(origLine)}).`);
             process_1.exit(1);
         }
         if (stringMatch[2].length > 255) {
-            console.error(`String '${stringMatch[3]}' exceeds the 255 char limit (line ${lineCount}).`);
+            console.error(`String '${stringMatch[3]}' exceeds the 255 char limit (${lineToString(origLine)}).`);
             process_1.exit(1);
         }
         // ignore quotes of the string
@@ -311,7 +327,7 @@ for (const origLine of code) {
         while (stringI < stringMatch[3].length - 1) {
             let charCode = stringMatch[3].charCodeAt(stringI);
             if (charCode > 256) {
-                console.error(`Char ${stringMatch[3].charAt(stringI)} with the code ${charCode} in string '${stringMatch[2]}' in line ${lineCount} is not supported.`);
+                console.error(`Char ${stringMatch[3].charAt(stringI)} with the code ${charCode} in string '${stringMatch[2]}' in ${lineToString(origLine)} is not supported.`);
                 process_1.exit(1);
             }
             if (charCode == 92) { // backslash
@@ -348,11 +364,11 @@ for (const origLine of code) {
                         stringI = hexEnd - 1;
                         break;
                     default:
-                        console.error(`Unkown escape code \\${nextChar} in string ${stringMatch[3]} in line ${lineCount}.`);
+                        console.error(`Unkown escape code \\${nextChar} in string ${stringMatch[3]} in ${lineToString(origLine)}.`);
                         process_1.exit(1);
                 }
                 if (value > 255 || value < 0) {
-                    console.error(`Cannot store value ${value} in string ${stringMatch[3]} in line ${lineCount}.`);
+                    console.error(`Cannot store value ${value} in string ${stringMatch[3]} in ${lineToString(origLine)}.`);
                     process_1.exit(1);
                 }
                 charCode = value;
@@ -364,27 +380,32 @@ for (const origLine of code) {
         values[addressI] = 0;
         // add constant and instructions
         constants.push({
-            line: lineCount,
+            line: origLine,
             name: stringMatch[2],
             value: stringAddress
         });
         values.forEach((value, i) => {
-            insertInstruction(`mov r0, 0x${value.toString(16)}`);
-            insertInstruction(`str r0, [0x${(i + (stringAddress << 8)).toString(16)}]`);
+            insertInstruction({ ...origLine, text: `mov r0, 0x${value.toString(16)}` });
+            insertInstruction({ ...origLine, text: `str r0, [0x${(i + (stringAddress << 8)).toString(16)}]` });
         });
         // zero termination
     }
 }
 // reset mar and r0
 if (instrCount > 0) {
-    insertInstruction('mov r0, 0');
+    insertInstruction({ text: 'mov r0, 0', lineNumber: -1, filename: process_1.argv[2] });
 }
 const startOfProgramInstr = instrCount;
-lineCount = 0;
+const mainHasStart = code.filter(line => { var _a; return line.filename === process_1.argv[2] && ((_a = line.text.match(labelDefRegEx)) === null || _a === void 0 ? void 0 : _a[1]) === 'start'; });
+const filesIncluded = [...new Set(code.map(l => l.filename))].length > 1;
+// check that main file has a start label if files are included
+if (filesIncluded && !mainHasStart) {
+    console.error(`When including files the main file must specify a start label.`);
+    process_1.exit(1);
+}
 // second pass: find labels and constants
 for (const origLine of code) {
-    lineCount++;
-    const line = origLine.replace(lineCommentRegex, '');
+    const line = origLine.text.replace(lineCommentRegex, '');
     if (line.match(/^\s*$/) || line.match(stringDefRegEx)) {
         continue;
     }
@@ -393,21 +414,37 @@ for (const origLine of code) {
     if (labelMatch) {
         const existingLabel = labels.find(l => l.name === labelMatch[1]);
         if (existingLabel) {
-            console.error(`Label '${labelMatch[1]}' defined multiple times (line ${existingLabel.line} and ${lineCount}).`);
+            console.error(`Label '${labelMatch[1]}' defined multiple times (${lineToString(existingLabel.line)} and ${lineToString(origLine)}).`);
             process_1.exit(1);
         }
-        labels.push({ name: labelMatch[1], instruction: instrCount, line: lineCount });
-        continue;
+        // ignore start labels of not main files
+        if (origLine.filename !== process_1.argv[2] && labelMatch[1] === 'start') {
+            console.error(`Ignoring start label from ${lineToString(origLine)}.`);
+            continue;
+        }
+        else {
+            labels.push({ name: labelMatch[1], instruction: instrCount, line: origLine });
+            continue;
+        }
     }
     // find constant definitions
     const constantMatch = line.match(constantDefRegEx);
     if (constantMatch) {
         const existingConstant = constants.find(c => c.name === constantMatch[1]);
         if (existingConstant) {
-            console.error(`Constant '${constantMatch[1]}' defined multiple times (line ${existingConstant.line} and ${lineCount}).`);
-            process_1.exit(1);
+            if (origLine.filename === process_1.argv[2] && existingConstant.line.filename !== process_1.argv[2]) {
+                // main file overwrites all constants
+                console.error(`Overwriting constant '${constantMatch[1]}' from ${lineToString(existingConstant.line)} with value of ${lineToString(origLine)}.`);
+                existingConstant.value = parseInt(constantMatch[2]);
+                existingConstant.line = origLine;
+                continue;
+            }
+            else {
+                console.error(`Constant '${constantMatch[1]}' defined multiple times (${lineToString(existingConstant.line)} and ${lineToString(origLine)}).`);
+                process_1.exit(1);
+            }
         }
-        constants.push({ name: constantMatch[1], value: parseInt(constantMatch[2]), line: lineCount });
+        constants.push({ name: constantMatch[1], value: parseInt(constantMatch[2]), line: origLine });
         continue;
     }
     let success = false;
@@ -420,30 +457,42 @@ for (const origLine of code) {
         }
     }
     if (!success) {
-        console.error(`Unrecognized instruction in line ${lineCount}:\n'${line.trim()}'`);
+        console.error(`Unrecognized instruction in line ${lineToString(origLine)}:\n'${line.trim()}'`);
         process_1.exit(1);
     }
 }
+// print constants
+for (const constant of constants) {
+    console.log(constant.line.text.trim());
+}
 // third pass: find instructions
 instrCount = startOfProgramInstr;
-lineCount = 0;
 if (labels.find(l => l.name === 'start')) {
     labels.forEach(l => l.instruction++);
-    insertInstruction('b start');
+    insertInstruction({ text: 'b start', filename: process_1.argv[2], lineNumber: -1 });
 }
 for (const origLine of code) {
-    lineCount++;
-    const line = origLine.replace(lineCommentRegex, '');
-    if (line.match(/^\s*$/)) {
+    const line = origLine.text.replace(lineCommentRegex, '');
+    if (line.match(/^\s*$/) || line.match(constantDefRegEx)) {
         continue;
     }
-    if (line.match(labelDefRegEx) || line.match(constantDefRegEx) || line.match(stringDefRegEx)) {
+    if (line.match(stringDefRegEx)) {
         console.log(line.trim());
         continue;
     }
-    let success = insertInstruction(line);
+    if (line.match(labelDefRegEx)) {
+        // only print labels that are not overwritten
+        if (labels.find(l => l.line.filename === origLine.filename && l.line.lineNumber === origLine.lineNumber)) {
+            console.log(line.trim());
+        }
+        else {
+            console.log(`#overwritten: ${line.trim()}`);
+        }
+        continue;
+    }
+    let success = insertInstruction(origLine);
     if (!success) {
-        console.error(`Unrecognized instruction in line ${lineCount}:\n'${line.trim()}'`);
+        console.error(`Unrecognized instruction in ${lineToString(origLine)}:\n'${line.trim()}'`);
         process_1.exit(1);
     }
 }

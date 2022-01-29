@@ -19,19 +19,21 @@ output reg port16,
 input wire port17,
 input wire port18,
 output reg port19,
-input wire port20
+input wire port20,
+input wire port111
 );
 
 always @(posedge port11, negedge port1) begin
-
-  port2 <= port3;
-  port5 <= port4;
-  port6 <= port7;
-  port9 <= port8;
-  port12 <= port13;
-  port15 <= port14;
-  port19 <= port18;
-  port16 <= port17;
+  if (~port111) begin
+    port2 <= port3;
+    port5 <= port4;
+    port6 <= port7;
+    port9 <= port8;
+    port12 <= port13;
+    port15 <= port14;
+    port16 <= port17;
+    port19 <= port18;
+  end
 
   if (~port1) begin
     port2 <= 0;
@@ -40,8 +42,8 @@ always @(posedge port11, negedge port1) begin
     port9 <= 0;
     port12 <= 0;
     port15 <= 0;
-    port19 <= 0;
     port16 <= 0;
+    port19 <= 0;
 
   end
 end

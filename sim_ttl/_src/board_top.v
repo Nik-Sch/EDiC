@@ -14,13 +14,13 @@ module board_top(
   input wire [7:0] i_switches,
 
   // expansion connector
-  output wire [7:0] o_ramAddress,
+  output reg [7:0] o_ramAddress,
   inout wire [7:0] io_bus,
-  output wire o_ioNCE,
-  output wire o_ctrlMemRamNOE,
-  output wire o_nreset,
-  output wire o_ctrlMemRamNWE,
-  output wire o_clk,
+  output reg o_ioNCE,
+  output reg o_ctrlMemRamNOE,
+  output reg o_nreset,
+  output reg o_ctrlMemRamNWE,
+  output reg o_clk,
 
   // tri-color led
   output reg o_ld17_r,
@@ -37,7 +37,7 @@ module board_top(
 );
 
 wire [7:0] s_expansionBusIn;
-wire [7:0] s_expansionBusOut;
+reg [7:0] s_expansionBusOut;
 wire s_expansionBusNOE;
 wire s_expansionIoNCE;
 wire [7:0] s_expansionIoAddress;
@@ -90,6 +90,8 @@ always @(negedge s_oszClk, negedge s_resetn) begin
 end
 
 generated inst_generated(
+  .i_clk100(i_clk100),
+
   .i_oszClk(r_oszClkDiv[1]),
   .i_asyncRamSpecialClock(r_clkRamDiv[1]),
   .i_asyncEEPROMSpecialClock(r_clkEEPROMDiv[1]),
@@ -122,32 +124,40 @@ generated inst_generated(
   .o_r1(o_r1)
 );
 
-expansion_uart uart(
-  .i_clk100(i_clk100),
-  .i_clkDesign(r_clkRamDiv[1]),
-  .i_resetn(s_resetn),
+// expansion_uart uart(
+//   .i_clk100(i_clk100),
+//   .i_clkDesign(r_clkRamDiv[1]),
+//   .i_resetn(s_resetn),
 
-  .i_bus(s_expansionBusIn),
-  .o_bus(s_expansionBusOut),
-  .o_busNOE(s_expansionBusNOE),
+//   .i_bus(s_expansionBusIn),
+//   .o_bus(s_expansionBusOut),
+//   .o_busNOE(s_expansionBusNOE),
 
-  .i_ioNCE(s_expansionIoNCE),
-  .i_ioAddress(s_expansionIoAddress),
-  .i_ioNOE(s_expansionIoNOE),
-  .i_ioNWE(s_expansionIoNWE),
+//   .i_ioNCE(s_expansionIoNCE),
+//   .i_ioAddress(s_expansionIoAddress),
+//   .i_ioNOE(s_expansionIoNOE),
+//   .i_ioNWE(s_expansionIoNWE),
 
-  .i_serialIn(i_serialIn),
-  .o_serialOut(o_serialOut)
-);
+//   .i_serialIn(i_serialIn),
+//   .o_serialOut(o_serialOut)
+// );
+reg [7:0] io_bus_reg_out;
+reg [7:0] io_bus_reg_in;
+
+assign io_bus = (s_expansionIoNCE | s_expansionIoNOE) ? io_bus_reg_out : 8'hzz;
+// assign s_expansionBusOut = (s_expansionIoNCE | s_expansionIoNOE) ? 8'hff : io_bus_reg_in;
 
 // wire external expansion:
-assign o_ramAddress = s_expansionIoAddress;
-assign io_bus = (s_expansionIoNCE | s_expansionIoNOE) ? 8'hzz : s_expansionBusIn;
-// assign s_expansionBusOut = (s_expansionIoNCE | s_expansionIoNOE) ? io_bus : 8'hff;
-assign o_ioNCE = s_expansionIoNCE;
-assign o_ctrlMemRamNOE = s_expansionIoNOE;
-assign o_nreset = s_resetn;
-assign o_ctrlMemRamNWE = s_expansionIoNWE;
-assign o_clk = ~r_oszClkDiv[1];
+always @(posedge i_clk100) begin
+  o_ramAddress <= s_expansionIoAddress;
+  io_bus_reg_out <= s_expansionBusIn;
+  io_bus_reg_in <= io_bus;
+  s_expansionBusOut <= (s_expansionIoNCE | s_expansionIoNOE) ? 8'hff : io_bus_reg_in;
+  o_ioNCE <= s_expansionIoNCE;
+  o_ctrlMemRamNOE <= s_expansionIoNOE;
+  o_nreset <= s_resetn;
+  o_ctrlMemRamNWE <= s_expansionIoNWE;
+  o_clk <= ~r_oszClkDiv[1];
+end
 
 endmodule

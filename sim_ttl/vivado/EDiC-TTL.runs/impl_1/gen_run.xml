@@ -1,108 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1642255704">
+<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1643470401">
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
-  <File Type="BITSTR-SYSDEF" Name="board_top_signal_test.sysdef"/>
+  <File Type="BITSTR-SYSDEF" Name="board_top.sysdef"/>
   <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
-  <File Type="BITSTR-LTX" Name="board_top_signal_test.ltx"/>
-  <File Type="BG-BGN" Name="board_top_signal_test.bgn"/>
-  <File Type="RNPI_FILE" Name="board_top_signal_test.rnpi"/>
-  <File Type="BG-DRC" Name="board_top_signal_test.drc"/>
-  <File Type="CFI_FILE" Name="board_top_signal_test.cfi"/>
-  <File Type="RCFI_FILE" Name="board_top_signal_test.rcfi"/>
-  <File Type="BITSTR-MMI" Name="board_top_signal_test.mmi"/>
-  <File Type="BITSTR-BMM" Name="board_top_signal_test_bd.bmm"/>
-  <File Type="BITSTR-NKY" Name="board_top_signal_test.nky"/>
-  <File Type="BITSTR-RBT" Name="board_top_signal_test.rbt"/>
-  <File Type="RBD_FILE" Name="board_top_signal_test.rbd"/>
-  <File Type="BITSTR-MSK" Name="board_top_signal_test.msk"/>
-  <File Type="NPI_FILE" Name="board_top_signal_test.npi"/>
-  <File Type="BG-BIN" Name="board_top_signal_test.bin"/>
-  <File Type="PDI-FILE" Name="board_top_signal_test.pdi"/>
-  <File Type="BG-BIT" Name="board_top_signal_test.bit"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="board_top_signal_test_bus_skew_postroute_physopted.rpx"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="board_top_signal_test_bus_skew_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="board_top_signal_test_bus_skew_postroute_physopted.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="board_top_signal_test_timing_summary_postroute_physopted.rpx"/>
-  <File Type="RDI-RDI" Name="board_top_signal_test.vdi"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="board_top_signal_test_timing_summary_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="board_top_signal_test_timing_summary_postroute_physopted.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="board_top_signal_test_postroute_physopt_bb.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-DCP" Name="board_top_signal_test_postroute_physopt.dcp"/>
-  <File Type="ROUTE-BUS-SKEW" Name="board_top_signal_test_bus_skew_routed.rpt"/>
-  <File Type="ROUTE-CLK" Name="board_top_signal_test_clock_utilization_routed.rpt"/>
-  <File Type="ROUTE-SIMILARITY" Name="board_top_signal_test_incremental_reuse_routed.rpt"/>
-  <File Type="ROUTE-TIMING-RPX" Name="board_top_signal_test_timing_summary_routed.rpx"/>
-  <File Type="ROUTE-TIMING-PB" Name="board_top_signal_test_timing_summary_routed.pb"/>
-  <File Type="ROUTE-TIMINGSUMMARY" Name="board_top_signal_test_timing_summary_routed.rpt"/>
-  <File Type="ROUTE-STATUS-PB" Name="board_top_signal_test_route_status.pb"/>
-  <File Type="ROUTE-STATUS" Name="board_top_signal_test_route_status.rpt"/>
-  <File Type="ROUTE-PWR-RPX" Name="board_top_signal_test_power_routed.rpx"/>
-  <File Type="ROUTE-PWR-SUM" Name="board_top_signal_test_power_summary_routed.pb"/>
-  <File Type="ROUTE-PWR" Name="board_top_signal_test_power_routed.rpt"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="board_top_signal_test_methodology_drc_routed.pb"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="board_top_signal_test_methodology_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="board_top_signal_test_methodology_drc_routed.rpt"/>
-  <File Type="ROUTE-DRC-RPX" Name="board_top_signal_test_drc_routed.rpx"/>
-  <File Type="ROUTE-DRC-PB" Name="board_top_signal_test_drc_routed.pb"/>
-  <File Type="ROUTE-DRC" Name="board_top_signal_test_drc_routed.rpt"/>
-  <File Type="ROUTE-BLACKBOX-DCP" Name="board_top_signal_test_routed_bb.dcp"/>
-  <File Type="ROUTE-DCP" Name="board_top_signal_test_routed.dcp"/>
-  <File Type="ROUTE-ERROR-DCP" Name="board_top_signal_test_routed_error.dcp"/>
-  <File Type="PHYSOPT-TIMING" Name="board_top_signal_test_timing_summary_physopted.rpt"/>
-  <File Type="PHYSOPT-DRC" Name="board_top_signal_test_drc_physopted.rpt"/>
-  <File Type="PHYSOPT-DCP" Name="board_top_signal_test_physopt.dcp"/>
-  <File Type="POSTPLACE-PWROPT-TIMING" Name="board_top_signal_test_timing_summary_postplace_pwropted.rpt"/>
-  <File Type="POSTPLACE-PWROPT-DCP" Name="board_top_signal_test_postplace_pwropt.dcp"/>
-  <File Type="PLACE-TIMING" Name="board_top_signal_test_timing_summary_placed.rpt"/>
-  <File Type="PLACE-PRE-SIMILARITY" Name="board_top_signal_test_incremental_reuse_pre_placed.rpt"/>
-  <File Type="PLACE-SIMILARITY" Name="board_top_signal_test_incremental_reuse_placed.rpt"/>
-  <File Type="PLACE-CTRL" Name="board_top_signal_test_control_sets_placed.rpt"/>
-  <File Type="PLACE-UTIL-PB" Name="board_top_signal_test_utilization_placed.pb"/>
-  <File Type="PLACE-UTIL" Name="board_top_signal_test_utilization_placed.rpt"/>
-  <File Type="PLACE-CLK" Name="board_top_signal_test_clock_utilization_placed.rpt"/>
-  <File Type="PLACE-IO" Name="board_top_signal_test_io_placed.rpt"/>
-  <File Type="PLACE-DCP" Name="board_top_signal_test_placed.dcp"/>
-  <File Type="PWROPT-TIMING" Name="board_top_signal_test_timing_summary_pwropted.rpt"/>
-  <File Type="PWROPT-DRC" Name="board_top_signal_test_drc_pwropted.rpt"/>
-  <File Type="PWROPT-DCP" Name="board_top_signal_test_pwropt.dcp"/>
-  <File Type="OPT-TIMING" Name="board_top_signal_test_timing_summary_opted.rpt"/>
-  <File Type="OPT-HWDEF" Name="board_top_signal_test.hwdef"/>
-  <File Type="OPT-METHODOLOGY-DRC" Name="board_top_signal_test_methodology_drc_opted.rpt"/>
-  <File Type="OPT-DRC" Name="board_top_signal_test_drc_opted.rpt"/>
-  <File Type="OPT-DCP" Name="board_top_signal_test_opt.dcp"/>
-  <File Type="INIT-TIMING" Name="board_top_signal_test_timing_summary_init.rpt"/>
-  <File Type="ROUTE-BUS-SKEW-RPX" Name="board_top_signal_test_bus_skew_routed.rpx"/>
-  <File Type="REPORTS-TCL" Name="board_top_signal_test_reports.tcl"/>
-  <File Type="ROUTE-BUS-SKEW-PB" Name="board_top_signal_test_bus_skew_routed.pb"/>
-  <File Type="PA-TCL" Name="board_top_signal_test.tcl"/>
+  <File Type="BITSTR-LTX" Name="board_top.ltx"/>
+  <File Type="BG-BGN" Name="board_top.bgn"/>
+  <File Type="RNPI_FILE" Name="board_top.rnpi"/>
+  <File Type="BG-DRC" Name="board_top.drc"/>
+  <File Type="CFI_FILE" Name="board_top.cfi"/>
+  <File Type="RCFI_FILE" Name="board_top.rcfi"/>
+  <File Type="BITSTR-MMI" Name="board_top.mmi"/>
+  <File Type="BITSTR-BMM" Name="board_top_bd.bmm"/>
+  <File Type="BITSTR-NKY" Name="board_top.nky"/>
+  <File Type="BITSTR-RBT" Name="board_top.rbt"/>
+  <File Type="RBD_FILE" Name="board_top.rbd"/>
+  <File Type="BITSTR-MSK" Name="board_top.msk"/>
+  <File Type="NPI_FILE" Name="board_top.npi"/>
+  <File Type="BG-BIN" Name="board_top.bin"/>
+  <File Type="PDI-FILE" Name="board_top.pdi"/>
+  <File Type="BG-BIT" Name="board_top.bit"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="board_top_bus_skew_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="board_top_bus_skew_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="board_top_bus_skew_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="board_top_timing_summary_postroute_physopted.rpx"/>
+  <File Type="RDI-RDI" Name="board_top.vdi"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="board_top_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="board_top_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="board_top_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="board_top_postroute_physopt.dcp"/>
+  <File Type="ROUTE-BUS-SKEW" Name="board_top_bus_skew_routed.rpt"/>
+  <File Type="ROUTE-CLK" Name="board_top_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-SIMILARITY" Name="board_top_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-TIMING-RPX" Name="board_top_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-TIMING-PB" Name="board_top_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="board_top_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="board_top_route_status.pb"/>
+  <File Type="ROUTE-STATUS" Name="board_top_route_status.rpt"/>
+  <File Type="ROUTE-PWR-RPX" Name="board_top_power_routed.rpx"/>
+  <File Type="ROUTE-PWR-SUM" Name="board_top_power_summary_routed.pb"/>
+  <File Type="ROUTE-PWR" Name="board_top_power_routed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="board_top_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="board_top_methodology_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="board_top_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-RPX" Name="board_top_drc_routed.rpx"/>
+  <File Type="ROUTE-DRC-PB" Name="board_top_drc_routed.pb"/>
+  <File Type="ROUTE-DRC" Name="board_top_drc_routed.rpt"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="board_top_routed_bb.dcp"/>
+  <File Type="ROUTE-DCP" Name="board_top_routed.dcp"/>
+  <File Type="ROUTE-ERROR-DCP" Name="board_top_routed_error.dcp"/>
+  <File Type="PHYSOPT-TIMING" Name="board_top_timing_summary_physopted.rpt"/>
+  <File Type="PHYSOPT-DRC" Name="board_top_drc_physopted.rpt"/>
+  <File Type="PHYSOPT-DCP" Name="board_top_physopt.dcp"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="board_top_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="board_top_postplace_pwropt.dcp"/>
+  <File Type="PLACE-TIMING" Name="board_top_timing_summary_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="board_top_incremental_reuse_pre_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="board_top_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-CTRL" Name="board_top_control_sets_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="board_top_utilization_placed.pb"/>
+  <File Type="PLACE-UTIL" Name="board_top_utilization_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="board_top_clock_utilization_placed.rpt"/>
+  <File Type="PLACE-IO" Name="board_top_io_placed.rpt"/>
+  <File Type="PLACE-DCP" Name="board_top_placed.dcp"/>
+  <File Type="PWROPT-TIMING" Name="board_top_timing_summary_pwropted.rpt"/>
+  <File Type="PWROPT-DRC" Name="board_top_drc_pwropted.rpt"/>
+  <File Type="PWROPT-DCP" Name="board_top_pwropt.dcp"/>
+  <File Type="OPT-TIMING" Name="board_top_timing_summary_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="board_top.hwdef"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="board_top_methodology_drc_opted.rpt"/>
+  <File Type="OPT-DRC" Name="board_top_drc_opted.rpt"/>
+  <File Type="OPT-DCP" Name="board_top_opt.dcp"/>
+  <File Type="INIT-TIMING" Name="board_top_timing_summary_init.rpt"/>
+  <File Type="ROUTE-BUS-SKEW-RPX" Name="board_top_bus_skew_routed.rpx"/>
+  <File Type="REPORTS-TCL" Name="board_top_reports.tcl"/>
+  <File Type="ROUTE-BUS-SKEW-PB" Name="board_top_bus_skew_routed.pb"/>
+  <File Type="PA-TCL" Name="board_top.tcl"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PPRDIR/../_src/board_top_signal_test.v">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/ip/instructionRom/instructionRom.xci">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PPRDIR/../_src/displayDriver.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../_src/expansionCards/UART/expansion_uart.v">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -110,7 +86,6 @@
     </File>
     <File Path="$PPRDIR/../_src/generated.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -118,7 +93,6 @@
     </File>
     <File Path="$PPRDIR/../_src/ic28C256.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -126,7 +100,6 @@
     </File>
     <File Path="$PPRDIR/../_src/ic5082_7340.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -134,7 +107,6 @@
     </File>
     <File Path="$PPRDIR/../_src/ic74x04.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -142,7 +114,6 @@
     </File>
     <File Path="$PPRDIR/../_src/ic74x08.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -150,7 +121,6 @@
     </File>
     <File Path="$PPRDIR/../_src/ic74x14.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -158,7 +128,6 @@
     </File>
     <File Path="$PPRDIR/../_src/ic74x151.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -166,7 +135,6 @@
     </File>
     <File Path="$PPRDIR/../_src/ic74x153.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -174,7 +142,6 @@
     </File>
     <File Path="$PPRDIR/../_src/ic74x157.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -182,7 +149,6 @@
     </File>
     <File Path="$PPRDIR/../_src/ic74x245.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -190,7 +156,6 @@
     </File>
     <File Path="$PPRDIR/../_src/ic74x273.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -198,7 +163,6 @@
     </File>
     <File Path="$PPRDIR/../_src/ic74x32.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -206,7 +170,6 @@
     </File>
     <File Path="$PPRDIR/../_src/ic74x374.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -214,7 +177,6 @@
     </File>
     <File Path="$PPRDIR/../_src/ic74x521.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -222,7 +184,6 @@
     </File>
     <File Path="$PPRDIR/../_src/ic74x540.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -230,7 +191,6 @@
     </File>
     <File Path="$PPRDIR/../_src/ic74x825.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -238,7 +198,6 @@
     </File>
     <File Path="$PPRDIR/../_src/ic74x86.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -246,7 +205,6 @@
     </File>
     <File Path="$PPRDIR/../_src/ic74x867.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -254,7 +212,6 @@
     </File>
     <File Path="$PPRDIR/../_src/icAS6C4008.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -262,7 +219,6 @@
     </File>
     <File Path="$PPRDIR/../_src/icBerg10.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -270,7 +226,6 @@
     </File>
     <File Path="$PPRDIR/../_src/icBerg26.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -278,7 +233,6 @@
     </File>
     <File Path="$PPRDIR/../_src/icBerg40.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -286,13 +240,33 @@
     </File>
     <File Path="$PPRDIR/../_src/icds1813.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../_src/tristatenet.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../_src/board_top.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../_src/ic74x825.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../_src/expansionCards/UART/expansion_uart.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -316,15 +290,7 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../_src/board_top.v">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/ip/ila_0/ila_0.xci">
+    <File Path="$PPRDIR/../_src/board_top_signal_test.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -354,7 +320,7 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="board_top_signal_test"/>
+      <Option Name="TopModule" Val="board_top"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
@@ -396,4 +362,8 @@
     <Step Id="post_route_phys_opt_design"/>
     <Step Id="write_bitstream"/>
   </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="microCodeRom"/>
+  <BlockFileSet Type="BlockSrcs" Name="clk_wiz_5Mhz"/>
+  <BlockFileSet Type="BlockSrcs" Name="instructionRom"/>
+  <BlockFileSet Type="BlockSrcs" Name="as6c4008_55pcn_mem"/>
 </GenRun>

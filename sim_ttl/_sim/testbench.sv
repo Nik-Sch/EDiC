@@ -56,6 +56,7 @@ logic i_serialIn;
 logic o_serialOut;
 
 generated inst_generated(
+  .i_clk100(s_clk100),
   .i_oszClk(oszClkDiv[1]),
   .i_asyncRamSpecialClock(clkRamDiv[1]),
   .i_asyncEEPROMSpecialClock(clkEEPROMDiv[1]),

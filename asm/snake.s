@@ -1,3 +1,6 @@
+include "prng.s"
+include "uart_16c550.s"
+
 SIMPLE_IO = 0xfe00
 UART_RX_EMPTY = 0xfe09
 UART_TX_FULL = 0xfe0a
@@ -41,15 +44,16 @@ COLUMNS_1 = 79
 0x20.LOST_STRING = "You lost!!! Score: "
 
 start:
+  call uart_init
   # clear screen
   mov r0, ESCAPE0
-  call outputChar
+  call uart_write
   mov r0, ESCAPE1
-  call outputChar
+  call uart_write
   mov r0, 0x32 # '2'
-  call outputChar
+  call uart_write
   mov r0, 0x4a # 'J'
-  call outputChar
+  call uart_write
 
   call createBoard
   call updateItem
@@ -291,11 +295,11 @@ createBoard:
 
   # move to home position
   mov r0, ESCAPE0
-  call outputChar
+  call uart_write
   mov r0, ESCAPE1
-  call outputChar
+  call uart_write
   mov r0, 0x48 # 'H'
-  call outputChar
+  call uart_write
 
 
   # first and last line is full border
@@ -304,15 +308,15 @@ createBoard:
     sma 1
     mov r0, BORDER
     str r0, [r1]
-    call outputChar
+    call uart_write
     add r1, 1
     cmp r1, COLUMNS
   blt createLine0Loop
 
   mov r0, 0x0a # LF
-  call outputChar
+  call uart_write
   mov r0, 0x0d # CR
-  call outputChar
+  call uart_write
 
   // line 2 to 23 have first and last column border
   mov r1, 2 # skip first line
@@ -323,7 +327,7 @@ createBoard:
     mov r1, 0
     mov r0, BORDER
     str r0, [r1]
-    call outputChar
+    call uart_write
     add r1, 1
     mov r0, SPACE
     # loop through line (1-79) and store space
@@ -332,19 +336,19 @@ createBoard:
       sma r0
       mov r0, SPACE
       str r0, [r1]
-      call outputChar
+      call uart_write
       add r1, 1
       cmp r1, COLUMNS_1
     blt createColumnLoop
     # store end border
     mov r0, BORDER
     str r0, [r1]
-    call outputChar
+    call uart_write
 
     mov r0, 0x0a # LF
-    call outputChar
+    call uart_write
     mov r0, 0x0d # CR
-    call outputChar
+    call uart_write
 
     ldr r1, [LINE_COUNTER]
     add r1, 1
@@ -358,7 +362,7 @@ createBoard:
     sma LINES
     mov r0, BORDER
     str r0, [r1]
-    call outputChar
+    call uart_write
     add r1, 1
     cmp r1, COLUMNS
   blt createLineLastLoop
@@ -402,37 +406,24 @@ setScreen:
 
   # decimal needs to be one based
   mov r0, ESCAPE0
-  call outputChar
+  call uart_write
   mov r0, ESCAPE1
-  call outputChar
+  call uart_write
   ldr r0, [PAR2] # line is already one based
   call outputDecimal
   mov r0, 0x3b # ';'
-  call outputChar
+  call uart_write
   ldr r0, [PAR1]
   add r0, 1 # column is not one based
   call outputDecimal
   mov r0, 0x48 # 'H'
-  call outputChar
+  call uart_write
 
   ldr r0, [0xfffe]
-  call outputChar
+  call uart_write
 
   ldr r1, [0xfffd]
 
-ret
-
-# r0 is parameter
-outputChar:
-  str r1, [0xfffe]
-
-  outputCharLoop:
-    ldr r1, [UART_TX_FULL]
-    cmp r1, 1
-    beq outputCharLoop # no capacity to send
-  str r0, [UART_DATA]
-
-  ldr r1, [0xfffe]
 ret
 
 # r0 is parameter
@@ -444,17 +435,17 @@ outputDecimal:
   call divMod # r0 / 100
   ldf r1, [PAR1] # mod result
   add r0, 0x30 # make to char
-  call outputChar
+  call uart_write
   mov r0, r1 # remainder is parameter for next divMod
   mov r1, 10
   stf r1, [PAR1]
   call divMod
   ldf r1, [PAR1]
   add r0, 0x30 # make to char
-  call outputChar
+  call uart_write
   mov r0, r1 # last char to output
   add r0, 0x30 # make to char
-  call outputChar
+  call uart_write
 
   ldr r1, [0xfffe]
 ret
@@ -470,7 +461,7 @@ outputString:
     ldr r0, [r1]
     cmp r0, 0
     beq outputStringEnd
-    call outputChar
+    call uart_write
     add r1, 1
     cmp r1, 255
     bne outputStringLoop
@@ -500,35 +491,23 @@ divMod:
 ret
 
 # r0 is return value:
-# 0 if no char was read
-readChar:
-  ldr r0, [UART_RX_EMPTY]
-  cmp r0, 1
-  beq readChar0
-  ldr r0, [UART_DATA]
-  ret
-  readChar0:
-  mov r0, 0
-ret
-
-# r0 is return value:
 # -1 for nothing, 0 for up, 1 for down, 2 for right, 3 for left
 readArrow:
   str r1, [0xfffe]
 readArrowLoop:
-  call readChar
+  call uart_read
   cmp r0, 0
   beq readArrowRet # no char received
   cmp r0, ESCAPE0
   bne readArrowLoop # make sure to empty the fifo
 
-  call readChar
+  call uart_read
   cmp r0, 0
   beq readArrowRet
   cmp r0, ESCAPE1
   bne readArrowLoop
 
-  call readChar
+  call uart_read
   cmp r0, 0x41 # A
   blt readArrowLoop
   cmp r0, 0x44 # D
@@ -541,18 +520,6 @@ ret
   mov r0, -1 # return -1 if nothing was found
 ret
 
-prng:
-  ldr r0, [PRNG_SEED]
-  subs r0, 0
-  beq prngDoEor
-  lsl r0, 1
-  beq prngNoEor
-  bcc prngNoEor
-prngDoEor:
-  xor r0, 0x1d
-prngNoEor:
-  str r0, [PRNG_SEED]
-ret
 
 # r0: delay in ms
 delay_ms:

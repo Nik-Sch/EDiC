@@ -11,30 +11,22 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="10,178.334 ns"></ZoomStartTime>
-      <ZoomEndTime time="20,718.335 ns"></ZoomEndTime>
-      <Cursor1Time time="13,104.045 ns"></Cursor1Time>
+      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
+      <ZoomEndTime time="1,000.000000 us"></ZoomEndTime>
+      <Cursor1Time time="1,000.000000 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="263"></NameColumnWidth>
+      <NameColumnWidth column_width="239"></NameColumnWidth>
       <ValueColumnWidth column_width="97"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="39" />
-   <wvobject type="array" fp_name="/testbench/oszClkDiv">
-      <obj_property name="ElementShortName">oszClkDiv[1:0]</obj_property>
-      <obj_property name="ObjectShortName">oszClkDiv[1:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/testbench/clkRamDiv">
-      <obj_property name="ElementShortName">clkRamDiv[1:0]</obj_property>
-      <obj_property name="ObjectShortName">clkRamDiv[1:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/testbench/clkEEPROMDiv">
-      <obj_property name="ElementShortName">clkEEPROMDiv[1:0]</obj_property>
-      <obj_property name="ObjectShortName">clkEEPROMDiv[1:0]</obj_property>
-   </wvobject>
+   <WVObjectSize size="28" />
    <wvobject type="logic" fp_name="/testbench/btnStep">
       <obj_property name="ElementShortName">btnStep</obj_property>
       <obj_property name="ObjectShortName">btnStep</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/inst_generated/HALT">
+      <obj_property name="ElementShortName">HALT</obj_property>
+      <obj_property name="ObjectShortName">HALT</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="/testbench/swInstrNCycle">
       <obj_property name="ElementShortName">swInstrNCycle</obj_property>
@@ -264,8 +256,8 @@
    </wvobject>
    <wvobject type="array" fp_name="/testbench/inst_generated/inst_triBusBus0/i_noe">
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">i_noe[7:0]</obj_property>
-      <obj_property name="ObjectShortName">i_noe[7:0]</obj_property>
+      <obj_property name="ElementShortName">i_noe[5:0]</obj_property>
+      <obj_property name="ObjectShortName">i_noe[5:0]</obj_property>
       <obj_property name="label">bus_noe</obj_property>
    </wvobject>
    <wvobject type="vbus" fp_name="vbus534">
@@ -733,10 +725,6 @@
          <obj_property name="label">~enp</obj_property>
       </wvobject>
    </wvobject>
-   <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U92/port11">
-      <obj_property name="ElementShortName">port11</obj_property>
-      <obj_property name="ObjectShortName">port11</obj_property>
-   </wvobject>
    <wvobject type="vbus" fp_name="vbus424">
       <obj_property name="label">alu_a</obj_property>
       <obj_property name="DisplayName">label</obj_property>
@@ -809,41 +797,5 @@
          <obj_property name="ElementShortName">port22</obj_property>
          <obj_property name="ObjectShortName">port22</obj_property>
       </wvobject>
-   </wvobject>
-   <wvobject type="logic" fp_name="/testbench/uart/i_ioNCE">
-      <obj_property name="ElementShortName">i_ioNCE</obj_property>
-      <obj_property name="ObjectShortName">i_ioNCE</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/testbench/uart/i_ioAddress">
-      <obj_property name="ElementShortName">i_ioAddress[7:0]</obj_property>
-      <obj_property name="ObjectShortName">i_ioAddress[7:0]</obj_property>
-   </wvobject>
-   <wvobject type="vbus" fp_name="vbus192">
-      <obj_property name="label">uartAddr</obj_property>
-      <obj_property name="DisplayName">label</obj_property>
-      <wvobject type="logic" fp_name="/testbench/uart/i_ioAddress[1]">
-         <obj_property name="ElementShortName">[1]</obj_property>
-         <obj_property name="ObjectShortName">[1]</obj_property>
-      </wvobject>
-   </wvobject>
-   <wvobject type="logic" fp_name="/testbench/uart/i_ioNOE">
-      <obj_property name="ElementShortName">i_ioNOE</obj_property>
-      <obj_property name="ObjectShortName">i_ioNOE</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/testbench/uart/i_ioNWE">
-      <obj_property name="ElementShortName">i_ioNWE</obj_property>
-      <obj_property name="ObjectShortName">i_ioNWE</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/testbench/uart/s_selUartN">
-      <obj_property name="ElementShortName">s_selUartN</obj_property>
-      <obj_property name="ObjectShortName">s_selUartN</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/testbench/uart/o_bus">
-      <obj_property name="ElementShortName">o_bus[7:0]</obj_property>
-      <obj_property name="ObjectShortName">o_bus[7:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/testbench/uart/o_busNOE">
-      <obj_property name="ElementShortName">o_busNOE</obj_property>
-      <obj_property name="ObjectShortName">o_busNOE</obj_property>
    </wvobject>
 </wave_config>

@@ -69,6 +69,7 @@ class Snake():
 
   def output(self, s: str):
     print(s, end='')
+    time.sleep(1/19200 * 11) # simulate 19200 baud
 
   snakeLength: int = 3
   snakeHeadDirection: int = 2

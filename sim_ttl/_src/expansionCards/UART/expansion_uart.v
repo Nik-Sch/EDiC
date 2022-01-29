@@ -29,12 +29,13 @@ wire [7:0] s_dataTx;
 reg r_fifoTxWrEn;
 wire s_fifoTxFull;
 
-assign s_selUartN = i_ioNCE | (i_ioAddress[7:3] != 1);
+assign s_selUartN = i_ioNCE | (i_ioAddress[7:3] == 0);
 assign o_busNOE = i_ioNOE | s_selUartN;
 
 always @(posedge i_clkDesign, negedge i_resetn) begin
   r_fifoTxWrEn <= 0;
   r_rxRdEn <= 0;
+  o_bus <= 8'hff;
 
   if (~s_selUartN) begin
     // write

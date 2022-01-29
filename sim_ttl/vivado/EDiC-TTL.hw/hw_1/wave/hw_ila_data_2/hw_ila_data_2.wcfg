@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/niklas/dev/EDiC/sim_ttl/vivado/EDiC-TTL.hw/hw_1/wave/hw_ila_data_2/hw_ila_data_2.wdb" id="1">
+         <top_modules>
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0"></ZoomStartTime>
+      <ZoomEndTime time="1,025"></ZoomEndTime>
+      <Cursor1Time time="0"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="251"></NameColumnWidth>
+      <ValueColumnWidth column_width="97"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="6" />
+   <wave_markers>
+   </wave_markers>
+   <wvobject type="logic" fp_name="inst_generated/RQ6">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">inst_generated/RQ6</obj_property>
+      <obj_property name="ObjectShortName">RQ6</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="label">sel_a</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="inst_generated/RQ8">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">inst_generated/RQ8</obj_property>
+      <obj_property name="ObjectShortName">RQ8</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="label">sel_b</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="inst_generated/RQ4">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">inst_generated/RQ4</obj_property>
+      <obj_property name="ObjectShortName">RQ4</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="label">instr_halt</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="inst_generated/N17642468">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">inst_generated/N17642468</obj_property>
+      <obj_property name="ObjectShortName">N17642468</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="label">cycle_halt</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="inst_generated/HALT_SRC">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">inst_generated/HALT_SRC</obj_property>
+      <obj_property name="ObjectShortName">HALT_SRC</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="label">halt_res</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="inst_generated/RD3">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">inst_generated/RD3</obj_property>
+      <obj_property name="ObjectShortName">RD3</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="label">step</obj_property>
+   </wvobject>
+</wave_config>

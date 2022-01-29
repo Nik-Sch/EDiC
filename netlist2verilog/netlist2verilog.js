@@ -525,6 +525,40 @@ const typeMap = {
     'BERG26': 'icBerg26',
     'BERG40': 'icBerg40',
 };
+// special case for U92 & U35
+// the 273 needs a clkEn
+if (ednFile) {
+    for (const unit of unitsForVerilog) {
+        if (unit.id === "U92") {
+            const p11 = unit.ports.find(p => p.portNumber === 11);
+            if (p11) {
+                p11.name = 'i_clk100';
+            }
+            else {
+                console.error(`U92 has no port 11`);
+                (0, process_1.exit)(1);
+            }
+            unit.ports.push({
+                portNumber: 111,
+                name: 'IO_0_WR'
+            });
+        }
+        if (unit.id === "U35") {
+            const p11 = unit.ports.find(p => p.portNumber === 11);
+            if (p11) {
+                p11.name = 'CLK1';
+            }
+            else {
+                console.error(`U35 has no port 11`);
+                (0, process_1.exit)(1);
+            }
+            unit.ports.push({
+                portNumber: 111,
+                name: 'L1'
+            });
+        }
+    }
+}
 const verilogFile = `
 module generated${ednFile ? '' : '_kicad'}(
   $ports
@@ -565,6 +599,8 @@ $ports
     }).join(',\n'));
 }).join('\n'))
     .replace(/\$ports/g, `
+  input wire i_clk100,
+
   // clocks
   input wire i_oszClk,
   input wire i_asyncRamSpecialClock,

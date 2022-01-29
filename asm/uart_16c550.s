@@ -55,8 +55,8 @@ uart_write:
 
   uart_write_loop:
     ldr r1, [UART_LSR]
-    and r1, 0x20 # bit 5, fifo not empty (not not full?) -> if 0, can accept new data
-  bne uart_write_loop
+    and r1, 0x20 # bit 5, fifo empty (not full?) -> if 1, can accept new data
+  beq uart_write_loop
 
   str r0, [UART_DAT]
 
@@ -93,10 +93,11 @@ ret
 
 
 start:
-  loop:
+  call uart_init
+  uart_loop:
     call uart_read
     str r0, [0xfe00]
     cmp r0, 0
-    beq loop
+    beq uart_loop
     call uart_write
-  b loop
+  b uart_loop
