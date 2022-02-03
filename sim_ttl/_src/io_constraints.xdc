@@ -17,6 +17,8 @@ set_property PACKAGE_PIN J18 [get_ports {o_anodes[1]}]
 set_property PACKAGE_PIN J17 [get_ports {o_anodes[0]}]
 
 # 8bit input
+set_property PACKAGE_PIN U8  [get_ports {i_switches[9]}]
+set_property PACKAGE_PIN T8  [get_ports {i_switches[8]}]
 set_property PACKAGE_PIN R13 [get_ports {i_switches[7]}]
 set_property PACKAGE_PIN U18 [get_ports {i_switches[6]}]
 set_property PACKAGE_PIN T18 [get_ports {i_switches[5]}]
@@ -108,6 +110,8 @@ set_property IOSTANDARD LVCMOS33 [get_ports {o_anodes[1]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {o_anodes[0]}]
 
 # 8bit input
+set_property IOSTANDARD LVCMOS33 [get_ports {i_switches[9]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {i_switches[8]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {i_switches[7]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {i_switches[6]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {i_switches[5]}]

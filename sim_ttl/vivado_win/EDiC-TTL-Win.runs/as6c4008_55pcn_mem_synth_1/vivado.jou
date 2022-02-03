@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Wed Feb  2 20:03:36 2022
+# Process ID: 2932
+# Current directory: C:/Users/niklas/dev/Tigris/EDiC/sim_ttl/vivado_win/EDiC-TTL-Win.runs/as6c4008_55pcn_mem_synth_1
+# Command line: vivado.exe -log as6c4008_55pcn_mem.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source as6c4008_55pcn_mem.tcl
+# Log file: C:/Users/niklas/dev/Tigris/EDiC/sim_ttl/vivado_win/EDiC-TTL-Win.runs/as6c4008_55pcn_mem_synth_1/as6c4008_55pcn_mem.vds
+# Journal file: C:/Users/niklas/dev/Tigris/EDiC/sim_ttl/vivado_win/EDiC-TTL-Win.runs/as6c4008_55pcn_mem_synth_1\vivado.jou
+# Running On: PC-163041020001, OS: Windows, CPU Frequency: 3200 MHz, CPU Physical cores: 4, Host memory: 34220 MB
+#-----------------------------------------------------------
+source as6c4008_55pcn_mem.tcl -notrace

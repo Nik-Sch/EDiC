@@ -1,0 +1,568 @@
+00: 11111000 - mov r0, 0x59 (imm: 0x59)
+01: 11110010 - str r0, [0x2000] (imm: 0x2000)
+02: 11111000 - mov r0, 0x6f (imm: 0x6f)
+03: 11110010 - str r0, [0x2001] (imm: 0x2001)
+04: 11111000 - mov r0, 0x75 (imm: 0x75)
+05: 11110010 - str r0, [0x2002] (imm: 0x2002)
+06: 11111000 - mov r0, 0x20 (imm: 0x20)
+07: 11110010 - str r0, [0x2003] (imm: 0x2003)
+08: 11111000 - mov r0, 0x6c (imm: 0x6c)
+09: 11110010 - str r0, [0x2004] (imm: 0x2004)
+0a: 11111000 - mov r0, 0x6f (imm: 0x6f)
+0b: 11110010 - str r0, [0x2005] (imm: 0x2005)
+0c: 11111000 - mov r0, 0x73 (imm: 0x73)
+0d: 11110010 - str r0, [0x2006] (imm: 0x2006)
+0e: 11111000 - mov r0, 0x74 (imm: 0x74)
+0f: 11110010 - str r0, [0x2007] (imm: 0x2007)
+10: 11111000 - mov r0, 0x21 (imm: 0x21)
+11: 11110010 - str r0, [0x2008] (imm: 0x2008)
+12: 11111000 - mov r0, 0x21 (imm: 0x21)
+13: 11110010 - str r0, [0x2009] (imm: 0x2009)
+14: 11111000 - mov r0, 0x21 (imm: 0x21)
+15: 11110010 - str r0, [0x200a] (imm: 0x200a)
+16: 11111000 - mov r0, 0x20 (imm: 0x20)
+17: 11110010 - str r0, [0x200b] (imm: 0x200b)
+18: 11111000 - mov r0, 0x53 (imm: 0x53)
+19: 11110010 - str r0, [0x200c] (imm: 0x200c)
+1a: 11111000 - mov r0, 0x63 (imm: 0x63)
+1b: 11110010 - str r0, [0x200d] (imm: 0x200d)
+1c: 11111000 - mov r0, 0x6f (imm: 0x6f)
+1d: 11110010 - str r0, [0x200e] (imm: 0x200e)
+1e: 11111000 - mov r0, 0x72 (imm: 0x72)
+1f: 11110010 - str r0, [0x200f] (imm: 0x200f)
+20: 11111000 - mov r0, 0x65 (imm: 0x65)
+21: 11110010 - str r0, [0x2010] (imm: 0x2010)
+22: 11111000 - mov r0, 0x3a (imm: 0x3a)
+23: 11110010 - str r0, [0x2011] (imm: 0x2011)
+24: 11111000 - mov r0, 0x20 (imm: 0x20)
+25: 11110010 - str r0, [0x2012] (imm: 0x2012)
+26: 11111000 - mov r0, 0x0 (imm: 0x00)
+27: 11110010 - str r0, [0x2013] (imm: 0x2013)
+28: 11111000 - mov r0, 0 (imm: 0x00)
+0x20.LOST_STRING = "You lost!!! Score: "
+PRNG_SEED       = 0x0008 # do not init for extra randomness
+SIMPLE_IO = 0xfe00
+UART_DAT = 0xfe08
+UART_IER = 0xfe09
+UART_IIR = 0xfe0a
+UART_FCR = 0xfe0a
+UART_LCR = 0xfe0b
+UART_MCR = 0xfe0c
+UART_LSR = 0xfe0d
+UART_MSR = 0xfe0e
+UART_SCR = 0xfe0f
+UART_DLL_DLAB = 0xfe08
+UART_DLM_DLAB = 0xfe09
+UART_DIV = 10 # 19200 baud
+UART_FILL_AMOUNT = 60 # 19200 baud
+UART_RX_EMPTY = 0xfe09
+UART_TX_FULL = 0xfe0a
+UART_DATA = 0xfe0b
+PAR1 = 0xff00
+PAR2 = 0xff01
+PAR3 = 0xff02
+ESCAPE0 = 0x1b # \033
+ESCAPE1 = 0x5b # '['
+BORDER = 0x23 # '#'
+SPACE = 0x20 # ' '
+HEAD = 0x40 # '@'
+LEFT = 0x3c # '<'
+RIGHT = 0x3e # '>'
+UP = 0x5e # '^'
+DOWN = 0x76 # 'v'
+ITEM = 0x58 # 'X'
+SNAKE_LENGTH    = 0x0000
+SNAKE_DIRECTION = 0x0001
+SNAKE_HEAD_LINE = 0x0002
+SNAKE_HEAD_COL  = 0x0003
+SNAKE_TAIL_LINE = 0x0004
+SNAKE_TAIL_COL  = 0x0005
+SNAKE_LEFT_LINE = 0x0006
+SNAKE_LEFT_COL  = 0x0007
+LINE_COUNTER = 0xff00
+COLUMN_COUNTER = 0xff01
+LINES = 24
+COLUMNS = 80
+COLUMNS_1 = 79
+29: 10100000 - b start (imm: 0x6f)
+prng:
+2a: 11110000 - ldr r0, [PRNG_SEED] (imm: 0x08)
+2b: 10010001 - subs r0, 0 (imm: 0x00)
+2c: 10100001 - beq prngDoEor (imm: 0x30)
+2d: 10000111 - lsl r0, 1 (imm: 0x01)
+2e: 10100001 - beq prngNoEor (imm: 0x31)
+2f: 10100100 - bcc prngNoEor (imm: 0x31)
+prngDoEor:
+30: 10000100 - xor r0, 0x1d (imm: 0x1d)
+prngNoEor:
+31: 11110010 - str r0, [PRNG_SEED] (imm: 0x08)
+32: 10110001 - ret
+#overwritten: start:
+33: 11111000 - mov r0, 0 (imm: 0x00)
+34: 11110010 - str r0, [PRNG_SEED] (imm: 0x08)
+prng_loop:
+35: 10110000 - call prng (imm: 0x2a)
+36: 11110010 - str r0, [SIMPLE_IO] (imm: 0xfe00)
+37: 10100000 - b prng_loop (imm: 0x35)
+uart_init:
+38: 11111000 - mov r0, 0x87 (imm: 0x87)
+39: 11110010 - str r0, [UART_LCR] (imm: 0xfe0b)
+3a: 11111000 - mov r0, 0x00 (imm: 0x00)
+3b: 11110010 - str r0, [UART_DLM_DLAB] (imm: 0xfe09)
+3c: 11111000 - mov r0, UART_DIV (imm: 0x0a)
+3d: 11110010 - str r0, [UART_DLL_DLAB] (imm: 0xfe08)
+3e: 11111000 - mov r0, 0x07 (imm: 0x07)
+3f: 11110010 - str r0, [UART_LCR] (imm: 0xfe0b)
+40: 11111000 - mov r0, 0x07 (imm: 0x07)
+41: 11110010 - str r0, [UART_FCR] (imm: 0xfe0a)
+42: 11111000 - mov r0, 0x00 (imm: 0x00)
+43: 11110010 - str r0, [UART_IER] (imm: 0xfe09)
+44: 11111000 - mov r0, 0x01 (imm: 0x01)
+45: 11110010 - str r0, [UART_MCR] (imm: 0xfe0c)
+46: 10110001 - ret
+uart_write_inner:
+47: 11110011 - sts r1, [0x00] (imm: 0xff00)
+uart_write_loop:
+48: 11110001 - ldr r1, [UART_LSR] (imm: 0xfe0d)
+49: 10001010 - and r1, 0x20 # bit 5, fifo empty (not full?) -> if 1, can accept new data (imm: 0x20)
+4a: 10100001 - beq uart_write_loop (imm: 0x48)
+4b: 11110010 - str r0, [UART_DAT] (imm: 0xfe08)
+4c: 11110001 - lds r1, [0x00] (imm: 0xff00)
+4d: 10110001 - ret
+uart_write:
+4e: 11110011 - sts r1, [0x00] (imm: 0xff00)
+4f: 10110000 - call uart_write_inner (imm: 0x47)
+50: 10010001 - cmp r0, 0x20 # if less than 0x20 -> send fill null bytes (imm: 0x20)
+51: 10101011 - bge uart_write_end (imm: 0x58)
+52: 11111000 - mov r0, 0x00 (imm: 0x00)
+53: 11111001 - mov r1, UART_FILL_AMOUNT (imm: 0x3c)
+uart_write_fill_loop:
+54: 10110000 - call uart_write_inner (imm: 0x47)
+55: 10001001 - sub r1, 1 (imm: 0x01)
+56: 10011001 - cmp r1, 0 (imm: 0x00)
+57: 10101001 - bhi uart_write_fill_loop (imm: 0x54)
+uart_write_end:
+58: 11110001 - lds r1, [0x00] (imm: 0xff00)
+59: 10110001 - ret
+uart_read:
+5a: 11110000 - ldr r0, [UART_LSR] (imm: 0xfe0d)
+5b: 10000010 - and r0, 0x01 # bit 0, fifo not empty -> 1 if data exists (imm: 0x01)
+5c: 10100001 - beq uart_read_0 (imm: 0x5f)
+5d: 11110000 - ldr r0, [UART_DAT] (imm: 0xfe08)
+5e: 10110001 - ret
+uart_read_0:
+5f: 11111000 - mov r0, 0 (imm: 0x00)
+60: 10110001 - ret
+uart_read_busy:
+61: 11110011 - sts r1, [0x00] (imm: 0xff00)
+uart_read_busy_loop:
+62: 11110001 - ldr r1, [UART_LSR] (imm: 0xfe0d)
+63: 10001010 - and r1, 0x01 # bit 0, fifo not empty -> 1 if data exists (imm: 0x01)
+64: 10100001 - beq uart_read_busy_loop (imm: 0x62)
+65: 11110000 - ldr r0, [UART_DAT] (imm: 0xfe08)
+66: 11110001 - lds r1, [0x00] (imm: 0xff00)
+67: 10110001 - ret
+#overwritten: start:
+68: 10110000 - call uart_init (imm: 0x38)
+uart_loop:
+69: 10110000 - call uart_read (imm: 0x5a)
+6a: 11110010 - str r0, [0xfe00] (imm: 0xfe00)
+6b: 10010001 - cmp r0, 0 (imm: 0x00)
+6c: 10100001 - beq uart_loop (imm: 0x69)
+6d: 10110000 - call uart_write (imm: 0x4e)
+6e: 10100000 - b uart_loop (imm: 0x69)
+0x20.LOST_STRING = "You lost!!! Score: "
+start:
+6f: 10110000 - call uart_init (imm: 0x38)
+70: 11111000 - mov r0, ESCAPE0 (imm: 0x1b)
+71: 10110000 - call uart_write (imm: 0x4e)
+72: 11111000 - mov r0, ESCAPE1 (imm: 0x5b)
+73: 10110000 - call uart_write (imm: 0x4e)
+74: 11111000 - mov r0, 0x32 # '2' (imm: 0x32)
+75: 10110000 - call uart_write (imm: 0x4e)
+76: 11111000 - mov r0, 0x4a # 'J' (imm: 0x4a)
+77: 10110000 - call uart_write (imm: 0x4e)
+78: 10110000 - call createBoard (imm: 0x111)
+79: 10110000 - call updateItem (imm: 0x98)
+mainLoop:
+7a: 10110000 - call updateHead (imm: 0xac)
+7b: 10010001 - cmp r0, -1 (imm: 0xff)
+7c: 10100001 - beq lost (imm: 0x8d)
+7d: 10010001 - cmp r0, 1 (imm: 0x01)
+7e: 10100001 - beq mainAteItem (imm: 0x81)
+7f: 10110000 - call updateTail (imm: 0xeb)
+80: 10100000 - b mainUpdateBoard (imm: 0x85)
+mainAteItem:
+81: 11110000 - ldr r0, [SNAKE_LENGTH] (imm: 0x00)
+82: 10000000 - add r0, 1 (imm: 0x01)
+83: 11110010 - str r0, [SNAKE_LENGTH] (imm: 0x00)
+84: 10110000 - call updateItem (imm: 0x98)
+mainUpdateBoard:
+85: 11110000 - ldr r0, [SNAKE_LENGTH] (imm: 0x00)
+86: 11110000 - ldr r0, [SNAKE_LENGTH] (imm: 0x00)
+87: 11110010 - str r0, [SIMPLE_IO] (imm: 0xfe00)
+88: 10110000 - call readArrow (imm: 0x1b0)
+89: 10010001 - cmp r0, -1 (imm: 0xff)
+8a: 10100001 - beq mainLoop (imm: 0x7a)
+8b: 11110010 - str r0, [SNAKE_DIRECTION] (imm: 0x01)
+8c: 10100000 - b mainLoop (imm: 0x7a)
+lost:
+8d: 11111000 - mov r0, 6 # line (imm: 0x06)
+8e: 11110110 - stf r0, [PAR2] (imm: 0xff01)
+8f: 11111000 - mov r0, 27 # col (imm: 0x1b)
+90: 11110110 - stf r0, [PAR1] (imm: 0xff00)
+91: 11111000 - mov r0, SPACE (imm: 0x20)
+92: 10110000 - call setScreen (imm: 0x16d)
+93: 11111000 - mov r0, LOST_STRING (imm: 0x20)
+94: 10110000 - call outputString (imm: 0x197)
+95: 11110000 - ldr r0, [SNAKE_LENGTH] (imm: 0x00)
+96: 10110000 - call outputDecimal (imm: 0x184)
+lostLoop:
+97: 10100000 - b lostLoop (imm: 0x97)
+updateItem:
+98: 11110011 - str r1, [0xfffe] (imm: 0xfffe)
+itemColumn:
+99: 10110000 - call prng (imm: 0x2a)
+9a: 10000010 - and r0, 0x7f # limit columns (imm: 0x7f)
+9b: 10010001 - cmp r0, COLUMNS (imm: 0x50)
+9c: 10100011 - bhs itemColumn # if out of scope redo (imm: 0x99)
+9d: 01001010 - mov r1, r0
+itemLine:
+9e: 10110000 - call prng (imm: 0x2a)
+9f: 10000010 - and r0, 0x1f # limit lines (imm: 0x1f)
+a0: 10010001 - cmp r0, LINES (imm: 0x18)
+a1: 10101101 - bgt itemLine # if out of scope redo (imm: 0x9e)
+a2: 11110110 - stf r0, [PAR2] (imm: 0xff01)
+a3: 01001100 - sma r0 # line
+a4: 01000001 - ldr r0, [r1]
+a5: 10010001 - cmp r0, SPACE (imm: 0x20)
+a6: 10100010 - bne itemColumn # if there is something at the new item position find a new one (imm: 0x99)
+a7: 11110111 - stf r1, [PAR1] (imm: 0xff00)
+a8: 11111000 - mov r0, ITEM (imm: 0x58)
+a9: 10110000 - call setScreen (imm: 0x16d)
+aa: 11110001 - ldr r1, [0xfffe] (imm: 0xfffe)
+ab: 10110001 - ret
+updateHead:
+ac: 11110011 - str r1, [0xfffe] (imm: 0xfffe)
+ad: 11110000 - ldr r0, [SNAKE_HEAD_LINE] (imm: 0x02)
+ae: 11110110 - stf r0, [PAR2] (imm: 0xff01)
+af: 01001100 - sma r0
+b0: 11110000 - ldr r0, [SNAKE_HEAD_COL] (imm: 0x03)
+b1: 11110110 - stf r0, [PAR1] (imm: 0xff00)
+b2: 11110001 - ldr r1, [SNAKE_DIRECTION] (imm: 0x01)
+b3: 10011001 - cmp r1, 0 (imm: 0x00)
+b4: 10100001 - beq headUp (imm: 0xbc)
+b5: 10011001 - cmp r1, 1 (imm: 0x01)
+b6: 10100001 - beq headDown (imm: 0xc2)
+b7: 10011001 - cmp r1, 2 (imm: 0x02)
+b8: 10100001 - beq headRight (imm: 0xce)
+b9: 10011001 - cmp r1, 3 (imm: 0x03)
+ba: 10100001 - beq headLeft (imm: 0xc8)
+bb: 10100000 - b headEnd # should not happen (imm: 0xd4)
+headUp:
+bc: 11111000 - mov r0, UP (imm: 0x5e)
+bd: 10110000 - call setScreen (imm: 0x16d)
+be: 11110000 - ldr r0, [SNAKE_HEAD_LINE] (imm: 0x02)
+bf: 10000001 - sub r0, 1 (imm: 0x01)
+c0: 11110010 - str r0, [SNAKE_HEAD_LINE] (imm: 0x02)
+c1: 10100000 - b headEnd (imm: 0xd4)
+headDown:
+c2: 11111000 - mov r0, DOWN (imm: 0x76)
+c3: 10110000 - call setScreen (imm: 0x16d)
+c4: 11110000 - ldr r0, [SNAKE_HEAD_LINE] (imm: 0x02)
+c5: 10000000 - add r0, 1 (imm: 0x01)
+c6: 11110010 - str r0, [SNAKE_HEAD_LINE] (imm: 0x02)
+c7: 10100000 - b headEnd (imm: 0xd4)
+headLeft:
+c8: 11111000 - mov r0, LEFT (imm: 0x3c)
+c9: 10110000 - call setScreen (imm: 0x16d)
+ca: 11110000 - ldr r0, [SNAKE_HEAD_COL] (imm: 0x03)
+cb: 10000001 - sub r0, 1 (imm: 0x01)
+cc: 11110010 - str r0, [SNAKE_HEAD_COL] (imm: 0x03)
+cd: 10100000 - b headEnd (imm: 0xd4)
+headRight:
+ce: 11111000 - mov r0, RIGHT (imm: 0x3e)
+cf: 10110000 - call setScreen (imm: 0x16d)
+d0: 11110000 - ldr r0, [SNAKE_HEAD_COL] (imm: 0x03)
+d1: 10000000 - add r0, 1 (imm: 0x01)
+d2: 11110010 - str r0, [SNAKE_HEAD_COL] (imm: 0x03)
+d3: 10100000 - b headEnd (imm: 0xd4)
+headEnd:
+d4: 11110001 - ldr r1, [SNAKE_HEAD_LINE] (imm: 0x02)
+d5: 11110111 - stf r1, [PAR2] (imm: 0xff01)
+d6: 01001101 - sma r1
+d7: 11110001 - ldr r1, [SNAKE_HEAD_COL] (imm: 0x03)
+d8: 11110111 - stf r1, [PAR1] (imm: 0xff00)
+d9: 01000011 - ldr r1, [r1] # load item at new position
+da: 11110011 - sts r1, [0x00] (imm: 0xff00)
+db: 11111000 - mov r0, HEAD (imm: 0x40)
+dc: 10110000 - call setScreen (imm: 0x16d)
+dd: 11110000 - lds r0, [0x00] # load saved item (imm: 0xff00)
+de: 10010001 - cmp r0, SPACE (imm: 0x20)
+df: 10100001 - beq headSpace (imm: 0xe5)
+e0: 10010001 - cmp r0, ITEM (imm: 0x58)
+e1: 10100001 - beq headItem (imm: 0xe8)
+e2: 11111000 - mov r0, -1 (imm: 0xff)
+e3: 11110001 - ldr r1, [0xfffe] (imm: 0xfffe)
+e4: 10110001 - ret
+headSpace:
+e5: 11111000 - mov r0, 0 (imm: 0x00)
+e6: 11110001 - ldr r1, [0xfffe] (imm: 0xfffe)
+e7: 10110001 - ret
+headItem:
+e8: 11111000 - mov r0, 1 (imm: 0x01)
+e9: 11110001 - ldr r1, [0xfffe] (imm: 0xfffe)
+ea: 10110001 - ret
+updateTail:
+eb: 11110011 - str r1, [0xfffe] (imm: 0xfffe)
+ec: 11110000 - ldr r0, [SNAKE_TAIL_LINE] (imm: 0x04)
+ed: 11110010 - str r0, [SNAKE_LEFT_LINE] (imm: 0x06)
+ee: 11110110 - stf r0, [PAR2] (imm: 0xff01)
+ef: 01001100 - sma r0
+f0: 11110000 - ldr r0, [SNAKE_TAIL_COL] (imm: 0x05)
+f1: 11110010 - str r0, [SNAKE_LEFT_COL] (imm: 0x07)
+f2: 11110110 - stf r0, [PAR1] (imm: 0xff00)
+f3: 01000010 - ldr r1, [r0]
+f4: 11111000 - mov r0, SPACE (imm: 0x20)
+f5: 10110000 - call setScreen (imm: 0x16d)
+f6: 10011001 - cmp r1, UP (imm: 0x5e)
+f7: 10100001 - beq tailUp (imm: 0xff)
+f8: 10011001 - cmp r1, DOWN (imm: 0x76)
+f9: 10100001 - beq tailDown (imm: 0x103)
+fa: 10011001 - cmp r1, RIGHT (imm: 0x3e)
+fb: 10100001 - beq tailRight (imm: 0x10b)
+fc: 10011001 - cmp r1, LEFT (imm: 0x3c)
+fd: 10100001 - beq tailLeft (imm: 0x107)
+fe: 10100000 - b tailEnd # should not happen (imm: 0x10f)
+tailUp:
+ff: 11110001 - ldr r1, [SNAKE_TAIL_LINE] (imm: 0x04)
+100: 10001001 - sub r1, 1 (imm: 0x01)
+101: 11110011 - str r1, [SNAKE_TAIL_LINE] (imm: 0x04)
+102: 10100000 - b tailEnd (imm: 0x10f)
+tailDown:
+103: 11110001 - ldr r1, [SNAKE_TAIL_LINE] (imm: 0x04)
+104: 10001000 - add r1, 1 (imm: 0x01)
+105: 11110011 - str r1, [SNAKE_TAIL_LINE] (imm: 0x04)
+106: 10100000 - b tailEnd (imm: 0x10f)
+tailLeft:
+107: 11110001 - ldr r1, [SNAKE_TAIL_COL] (imm: 0x05)
+108: 10001001 - sub r1, 1 (imm: 0x01)
+109: 11110011 - str r1, [SNAKE_TAIL_COL] (imm: 0x05)
+10a: 10100000 - b tailEnd (imm: 0x10f)
+tailRight:
+10b: 11110001 - ldr r1, [SNAKE_TAIL_COL] (imm: 0x05)
+10c: 10001000 - add r1, 1 (imm: 0x01)
+10d: 11110011 - str r1, [SNAKE_TAIL_COL] (imm: 0x05)
+10e: 10100000 - b tailEnd (imm: 0x10f)
+tailEnd:
+10f: 11110001 - ldr r1, [0xfffe] (imm: 0xfffe)
+110: 10110001 - ret
+createBoard:
+111: 11110010 - str r0, [0xfffe] (imm: 0xfffe)
+112: 11110011 - str r1, [0xfffd] (imm: 0xfffd)
+113: 11111000 - mov r0, 4 (imm: 0x04)
+114: 11110010 - str r0, [SNAKE_LENGTH] (imm: 0x00)
+115: 11111000 - mov r0, 2 (imm: 0x02)
+116: 11110010 - str r0, [SNAKE_DIRECTION] (imm: 0x01)
+117: 11111000 - mov r0, 12 # center (imm: 0x0c)
+118: 11110010 - str r0, [SNAKE_HEAD_LINE] (imm: 0x02)
+119: 11111000 - mov r0, 40 #center (imm: 0x28)
+11a: 11110010 - str r0, [SNAKE_HEAD_COL] (imm: 0x03)
+11b: 11111000 - mov r0, 12 (imm: 0x0c)
+11c: 11110010 - str r0, [SNAKE_TAIL_LINE] (imm: 0x04)
+11d: 11111000 - mov r0, 37 (imm: 0x25)
+11e: 11110010 - str r0, [SNAKE_TAIL_COL] (imm: 0x05)
+11f: 11111000 - mov r0, 12 (imm: 0x0c)
+120: 11110010 - str r0, [SNAKE_LEFT_LINE] (imm: 0x06)
+121: 11111000 - mov r0, 36 (imm: 0x24)
+122: 11110010 - str r0, [SNAKE_LEFT_COL] (imm: 0x07)
+123: 11111000 - mov r0, ESCAPE0 (imm: 0x1b)
+124: 10110000 - call uart_write (imm: 0x4e)
+125: 11111000 - mov r0, ESCAPE1 (imm: 0x5b)
+126: 10110000 - call uart_write (imm: 0x4e)
+127: 11111000 - mov r0, 0x48 # 'H' (imm: 0x48)
+128: 10110000 - call uart_write (imm: 0x4e)
+129: 11111001 - mov r1, 0 (imm: 0x00)
+createLine0Loop:
+12a: 01001110 - sma 1 (imm: 0x01)
+12b: 11111000 - mov r0, BORDER (imm: 0x23)
+12c: 01000101 - str r0, [r1]
+12d: 10110000 - call uart_write (imm: 0x4e)
+12e: 10001000 - add r1, 1 (imm: 0x01)
+12f: 10011001 - cmp r1, COLUMNS (imm: 0x50)
+130: 10101100 - blt createLine0Loop (imm: 0x12a)
+131: 11111000 - mov r0, 0x0a # LF (imm: 0x0a)
+132: 10110000 - call uart_write (imm: 0x4e)
+133: 11111000 - mov r0, 0x0d # CR (imm: 0x0d)
+134: 10110000 - call uart_write (imm: 0x4e)
+135: 11111001 - mov r1, 2 # skip first line (imm: 0x02)
+136: 11110011 - str r1, [LINE_COUNTER] (imm: 0xff00)
+createLineLoop:
+137: 01001101 - sma r1
+138: 11111001 - mov r1, 0 (imm: 0x00)
+139: 11111000 - mov r0, BORDER (imm: 0x23)
+13a: 01000101 - str r0, [r1]
+13b: 10110000 - call uart_write (imm: 0x4e)
+13c: 10001000 - add r1, 1 (imm: 0x01)
+createColumnLoop:
+13d: 11110000 - ldr r0, [LINE_COUNTER] (imm: 0xff00)
+13e: 01001100 - sma r0
+13f: 11111000 - mov r0, SPACE (imm: 0x20)
+140: 01000101 - str r0, [r1]
+141: 10110000 - call uart_write (imm: 0x4e)
+142: 10001000 - add r1, 1 (imm: 0x01)
+143: 10011001 - cmp r1, COLUMNS_1 (imm: 0x4f)
+144: 10101100 - blt createColumnLoop (imm: 0x13d)
+145: 11111000 - mov r0, BORDER (imm: 0x23)
+146: 01000101 - str r0, [r1]
+147: 10110000 - call uart_write (imm: 0x4e)
+148: 11111000 - mov r0, 0x0a # LF (imm: 0x0a)
+149: 10110000 - call uart_write (imm: 0x4e)
+14a: 11111000 - mov r0, 0x0d # CR (imm: 0x0d)
+14b: 10110000 - call uart_write (imm: 0x4e)
+14c: 11110001 - ldr r1, [LINE_COUNTER] (imm: 0xff00)
+14d: 10001000 - add r1, 1 (imm: 0x01)
+14e: 11110011 - str r1, [LINE_COUNTER] (imm: 0xff00)
+14f: 10011001 - cmp r1, LINES (imm: 0x18)
+150: 10101100 - blt createLineLoop # skip last line (imm: 0x137)
+151: 11111001 - mov r1, 0 (imm: 0x00)
+createLineLastLoop:
+152: 01001110 - sma LINES (imm: 0x18)
+153: 11111000 - mov r0, BORDER (imm: 0x23)
+154: 01000101 - str r0, [r1]
+155: 10110000 - call uart_write (imm: 0x4e)
+156: 10001000 - add r1, 1 (imm: 0x01)
+157: 10011001 - cmp r1, COLUMNS (imm: 0x50)
+158: 10101100 - blt createLineLastLoop (imm: 0x152)
+159: 11110000 - ldr r0, [SNAKE_HEAD_LINE] (imm: 0x02)
+15a: 11110110 - stf r0, [PAR2] (imm: 0xff01)
+15b: 11110000 - ldr r0, [SNAKE_HEAD_COL] (imm: 0x03)
+15c: 11110110 - stf r0, [PAR1] (imm: 0xff00)
+15d: 11111000 - mov r0, HEAD (imm: 0x40)
+15e: 10110000 - call setScreen (imm: 0x16d)
+15f: 11111001 - mov r1, 1 (imm: 0x01)
+snakeBody:
+160: 11110000 - ldr r0, [SNAKE_HEAD_LINE] (imm: 0x02)
+161: 11110110 - stf r0, [PAR2] (imm: 0xff01)
+162: 11110000 - ldr r0, [SNAKE_HEAD_COL] (imm: 0x03)
+163: 00001001 - sub r0, r1
+164: 11110110 - stf r0, [PAR1] (imm: 0xff00)
+165: 11111000 - mov r0, RIGHT (imm: 0x3e)
+166: 10110000 - call setScreen (imm: 0x16d)
+167: 10001000 - add r1, 1 (imm: 0x01)
+168: 10011001 - cmp r1, 3 (imm: 0x03)
+169: 10101110 - ble snakeBody (imm: 0x160)
+16a: 11110000 - ldr r0, [0xfffe] (imm: 0xfffe)
+16b: 11110001 - ldr r1, [0xfffd] (imm: 0xfffd)
+16c: 10110001 - ret
+setScreen:
+16d: 11110010 - str r0, [0xfffe] (imm: 0xfffe)
+16e: 11110011 - str r1, [0xfffd] (imm: 0xfffd)
+16f: 11110001 - ldr r1, [PAR2] (imm: 0xff01)
+170: 01001101 - sma r1
+171: 11110001 - ldr r1, [PAR1] (imm: 0xff00)
+172: 01000101 - str r0, [r1]
+173: 11111000 - mov r0, ESCAPE0 (imm: 0x1b)
+174: 10110000 - call uart_write (imm: 0x4e)
+175: 11111000 - mov r0, ESCAPE1 (imm: 0x5b)
+176: 10110000 - call uart_write (imm: 0x4e)
+177: 11110000 - ldr r0, [PAR2] # line is already one based (imm: 0xff01)
+178: 10110000 - call outputDecimal (imm: 0x184)
+179: 11111000 - mov r0, 0x3b # ';' (imm: 0x3b)
+17a: 10110000 - call uart_write (imm: 0x4e)
+17b: 11110000 - ldr r0, [PAR1] (imm: 0xff00)
+17c: 10000000 - add r0, 1 # column is not one based (imm: 0x01)
+17d: 10110000 - call outputDecimal (imm: 0x184)
+17e: 11111000 - mov r0, 0x48 # 'H' (imm: 0x48)
+17f: 10110000 - call uart_write (imm: 0x4e)
+180: 11110000 - ldr r0, [0xfffe] (imm: 0xfffe)
+181: 10110000 - call uart_write (imm: 0x4e)
+182: 11110001 - ldr r1, [0xfffd] (imm: 0xfffd)
+183: 10110001 - ret
+outputDecimal:
+184: 11110011 - str r1, [0xfffe] (imm: 0xfffe)
+185: 11111001 - mov r1, 100 (imm: 0x64)
+186: 11110111 - stf r1, [PAR1] (imm: 0xff00)
+187: 10110000 - call divMod # r0 / 100 (imm: 0x1a5)
+188: 11110101 - ldf r1, [PAR1] # mod result (imm: 0xff00)
+189: 10000000 - add r0, 0x30 # make to char (imm: 0x30)
+18a: 10110000 - call uart_write (imm: 0x4e)
+18b: 01001001 - mov r0, r1 # remainder is parameter for next divMod
+18c: 11111001 - mov r1, 10 (imm: 0x0a)
+18d: 11110111 - stf r1, [PAR1] (imm: 0xff00)
+18e: 10110000 - call divMod (imm: 0x1a5)
+18f: 11110101 - ldf r1, [PAR1] (imm: 0xff00)
+190: 10000000 - add r0, 0x30 # make to char (imm: 0x30)
+191: 10110000 - call uart_write (imm: 0x4e)
+192: 01001001 - mov r0, r1 # last char to output
+193: 10000000 - add r0, 0x30 # make to char (imm: 0x30)
+194: 10110000 - call uart_write (imm: 0x4e)
+195: 11110001 - ldr r1, [0xfffe] (imm: 0xfffe)
+196: 10110001 - ret
+outputString:
+197: 11110011 - str r1, [0xfffe] (imm: 0xfffe)
+198: 11110010 - sts r0, [0x00] (imm: 0xff00)
+199: 11111001 - mov r1, 0 (imm: 0x00)
+outputStringLoop:
+19a: 11110000 - lds r0, [0x00] (imm: 0xff00)
+19b: 01001100 - sma r0
+19c: 01000001 - ldr r0, [r1]
+19d: 10010001 - cmp r0, 0 (imm: 0x00)
+19e: 10100001 - beq outputStringEnd (imm: 0x1a3)
+19f: 10110000 - call uart_write (imm: 0x4e)
+1a0: 10001000 - add r1, 1 (imm: 0x01)
+1a1: 10011001 - cmp r1, 255 (imm: 0xff)
+1a2: 10100010 - bne outputStringLoop (imm: 0x19a)
+outputStringEnd:
+1a3: 11110001 - ldr r1, [0xfffe] (imm: 0xfffe)
+1a4: 10110001 - ret
+divMod:
+1a5: 11110011 - str r1, [0xfffe] (imm: 0xfffe)
+1a6: 11111001 - mov r1, 0 (imm: 0x00)
+divLoop:
+1a7: 10001000 - add r1, 1 (imm: 0x01)
+1a8: 11000001 - sub r0, [PAR1] (imm: 0xff00)
+1a9: 10100110 - bpl divLoop # positive or zero (N Clear) (imm: 0x1a7)
+1aa: 11000000 - add r0, [PAR1] (imm: 0xff00)
+1ab: 10001001 - sub r1, 1 (imm: 0x01)
+1ac: 11110010 - str r0, [PAR1] (imm: 0xff00)
+1ad: 01001001 - mov r0, r1
+1ae: 11110001 - ldr r1, [0xfffe] (imm: 0xfffe)
+1af: 10110001 - ret
+readArrow:
+1b0: 11110011 - str r1, [0xfffe] (imm: 0xfffe)
+readArrowLoop:
+1b1: 10110000 - call uart_read (imm: 0x5a)
+1b2: 10010001 - cmp r0, 0 (imm: 0x00)
+1b3: 10100001 - beq readArrowRet # no char received (imm: 0x1c2)
+1b4: 10010001 - cmp r0, ESCAPE0 (imm: 0x1b)
+1b5: 10100010 - bne readArrowLoop # make sure to empty the fifo (imm: 0x1b1)
+1b6: 10110000 - call uart_read (imm: 0x5a)
+1b7: 10010001 - cmp r0, 0 (imm: 0x00)
+1b8: 10100001 - beq readArrowRet (imm: 0x1c2)
+1b9: 10010001 - cmp r0, ESCAPE1 (imm: 0x5b)
+1ba: 10100010 - bne readArrowLoop (imm: 0x1b1)
+1bb: 10110000 - call uart_read (imm: 0x5a)
+1bc: 10010001 - cmp r0, 0x41 # A (imm: 0x41)
+1bd: 10101100 - blt readArrowLoop (imm: 0x1b1)
+1be: 10010001 - cmp r0, 0x44 # D (imm: 0x44)
+1bf: 10101101 - bgt readArrowLoop (imm: 0x1b1)
+1c0: 10000001 - sub r0, 0x41 # return 0-4 (imm: 0x41)
+1c1: 10110001 - ret
+readArrowRet:
+1c2: 11110001 - ldr r1, [0xfffe] (imm: 0xfffe)
+1c3: 11111000 - mov r0, -1 # return -1 if nothing was found (imm: 0xff)
+1c4: 10110001 - ret
+delay_ms:
+1c5: 11110010 - sts r0, [0x00] (imm: 0xff00)
+delay_ms_outer_loop:
+1c6: 11111000 - mov r0, 0 (imm: 0x00)
+delay_ms_loop:
+1c7: 10000000 - add r0, 1 # 4 cycles (imm: 0x01)
+1c8: 10010001 - cmp r0, 199 # 3 cycles (imm: 0xc7)
+1c9: 10100100 - blo delay_ms_loop # 3 cycles (imm: 0x1c7)
+1ca: 11110000 - lds r0, [0x00] # 4 cycles (imm: 0xff00)
+1cb: 10000001 - sub r0, 1 # 4 cycles (imm: 0x01)
+1cc: 11110010 - sts r0, [0x00] # 3 cycles (imm: 0xff00)
+1cd: 10101001 - bhi delay_ms_outer_loop # 3 cycles (imm: 0x1c6)
+1ce: 10110001 - ret

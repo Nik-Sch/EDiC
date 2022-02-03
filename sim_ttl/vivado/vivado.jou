@@ -1,0 +1,15 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Wed Feb  2 19:50:07 2022
+# Process ID: 7332
+# Current directory: C:/Users/niklas/dev/Tigris/EDiC/sim_ttl/vivado
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent2612 C:\Users\niklas\dev\Tigris\EDiC\sim_ttl\vivado\EDiC-TTL.xpr
+# Log file: C:/Users/niklas/dev/Tigris/EDiC/sim_ttl/vivado/vivado.log
+# Journal file: C:/Users/niklas/dev/Tigris/EDiC/sim_ttl/vivado\vivado.jou
+# Running On: PC-163041020001, OS: Windows, CPU Frequency: 3200 MHz, CPU Physical cores: 4, Host memory: 34220 MB
+#-----------------------------------------------------------
+start_gui
+opopen_project C:/Users/niklas/dev/Tigris/EDiC/sim_ttl/vivado/EDiC-TTL.xpupupdate_compile_order -fileset sources_write_project_tcl -all_properties -no_copy_sources -use_bd_files {C:/Users/niklas/dev/Tigris/EDiC/sim_ttl/EDiC-TTL.tcl}
+nstructionRom]

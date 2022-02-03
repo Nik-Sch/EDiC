@@ -74,17 +74,17 @@ start:
     ldr r0, [SNAKE_LENGTH]
 
     # move cursor to the top
-    mov r0, 1 # line
-    stf r0, [PAR2]
-    mov r0, 0 # col
-    stf r0, [PAR1]
-    mov r0, BORDER
-    call setScreen
+    # mov r0, 1 # line
+    # stf r0, [PAR2]
+    # mov r0, 0 # col
+    # stf r0, [PAR1]
+    # mov r0, BORDER
+    # call setScreen
     ldr r0, [SNAKE_LENGTH]
     str r0, [SIMPLE_IO]
-    # wait 111ms
-    mov r0, 111
-    call delay_ms
+    # wait x ms
+    # mov r0, 90
+    # call delay_ms
 
     call readArrow
     # change direction if != -1
@@ -329,7 +329,6 @@ createBoard:
     str r0, [r1]
     call uart_write
     add r1, 1
-    mov r0, SPACE
     # loop through line (1-79) and store space
     createColumnLoop:
       ldr r0, [LINE_COUNTER]

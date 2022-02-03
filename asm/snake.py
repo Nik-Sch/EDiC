@@ -69,7 +69,10 @@ class Snake():
 
   def output(self, s: str):
     print(s, end='')
-    time.sleep(1/19200 * 11) # simulate 19200 baud
+    for c in s:
+      time.sleep(10/19200) # simulate 19200 baud
+      if ord(c) < 0x20:
+        time.sleep(60*10/19200)
 
   snakeLength: int = 3
   snakeHeadDirection: int = 2
@@ -83,11 +86,18 @@ class Snake():
   def __init__(self) -> None:
     # clear screen
     self.output('\033[2J')
+    # move to home
+    self.output('\033[H')
 
     for y in range(self.LINES):
       for x in range(self.COLUMNS):
         if (y == 0 or y == self.LINES - 1 or x == 0 or x == self.COLUMNS - 1):
-          self.setScreen(x, y, '#')
+          self.screen[y * self.COLUMNS + x] = '#'
+          self.output('#')
+        else:
+          self.screen[y * self.COLUMNS + x] = ' '
+          self.output(' ')
+      self.output('\r\n')
     self.setScreen(self.snakeHeadColumn, self.snakeHeadLine, '@')
     self.setScreen(self.snakeHeadColumn - 1, self.snakeHeadLine, '>')
     self.setScreen(self.snakeHeadColumn - 2, self.snakeHeadLine, '>')
@@ -150,4 +160,4 @@ while 1:
     snake.newItem()
   else:
     snake.updateTail()
-  time.sleep(0.101)
+  # time.sleep(0.101)

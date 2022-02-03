@@ -11,7 +11,7 @@ module board_top(
   // included IO at 0xfe00
   output wire [7:0] o_cathodes, // dot + gfedcba
   output wire [7:0] o_anodes,
-  input wire [7:0] i_switches,
+  input wire [9:0] i_switches,
 
   // expansion connector
   output reg [7:0] o_ramAddress,
@@ -80,7 +80,7 @@ end
 always @(negedge s_oszClk, negedge s_resetn) begin
   r_breakpointSet <= 1;
   if (~r_breakpointSet) begin
-    r_breakpoint <= {8'h00, i_switches};
+    r_breakpoint <= {6'h00, i_switches};
   end
 
   if (~s_resetn) begin
@@ -119,7 +119,7 @@ generated inst_generated(
   // fpga specific ports
   .o_cathodes(o_cathodes),
   .o_anodes(o_anodes),
-  .i_switches(i_switches),
+  .i_switches(i_switches[7:0]),
   .o_r0(o_r0),
   .o_r1(o_r1)
 );

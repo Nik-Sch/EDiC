@@ -10,21 +10,24 @@ UART_SCR = 0xfe0f
 UART_DLL_DLAB = 0xfe08
 UART_DLM_DLAB = 0xfe09
 
-UART_DIV_19200 = 10
+UART_DIV = 10 # 19200 baud
+# UART_DIV = 20 # 9600 baud
+UART_FILL_AMOUNT = 60 # 19200 baud
+# UART_FILL_AMOUNT = 30 # 9600 baud
 
 uart_init:
   # line control register
-  # 8bit, 2 stopbits, no parity, dlab active
+  # 8bit, 2 stopbits, no parity, dlab active:
   # 0b10xx_0111
+  # 8bit, 1 stopbit, no parity, dlab active:
+  # 0b10xx_0011
   mov r0, 0x87
   str r0, [UART_LCR]
 
   # divisor latch access
-  # 3MHz 19200 baud
-  # -> divisor = 10
   mov r0, 0x00
   str r0, [UART_DLM_DLAB]
-  mov r0, 0x0a
+  mov r0, UART_DIV
   str r0, [UART_DLL_DLAB]
 
   # lcr as above but dlab inactive
@@ -50,7 +53,7 @@ uart_init:
 ret
 
 # r0 is byte to write
-uart_write:
+uart_write_inner:
   sts r1, [0x00]
 
   uart_write_loop:
@@ -60,6 +63,25 @@ uart_write:
 
   str r0, [UART_DAT]
 
+  lds r1, [0x00]
+ret
+
+uart_write:
+  sts r1, [0x00]
+  call uart_write_inner
+
+  cmp r0, 0x20 # if less than 0x20 -> send fill null bytes
+  bge uart_write_end
+
+  mov r0, 0x00
+  mov r1, UART_FILL_AMOUNT
+  uart_write_fill_loop:
+    call uart_write_inner
+    sub r1, 1
+    cmp r1, 0
+  bhi uart_write_fill_loop
+
+uart_write_end:
   lds r1, [0x00]
 ret
 

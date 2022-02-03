@@ -1,5 +1,0 @@
-xpm_cdc.sv,systemverilog,xpm,../../../../../opt/Xilinx/Vivado/2021.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv,incdir="../../../../EDiC-TTL.gen/sources_1/ip/ila_U39/hdl/verilog"
-xpm_memory.sv,systemverilog,xpm,../../../../../opt/Xilinx/Vivado/2021.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv,incdir="../../../../EDiC-TTL.gen/sources_1/ip/ila_U39/hdl/verilog"
-xpm_VCOMP.vhd,vhdl,xpm,../../../../../opt/Xilinx/Vivado/2021.2/data/ip/xpm/xpm_VCOMP.vhd,incdir="../../../../EDiC-TTL.gen/sources_1/ip/ila_U39/hdl/verilog"
-ila_U39.v,verilog,xil_defaultlib,../../../../EDiC-TTL.gen/sources_1/ip/ila_U39/sim/ila_U39.v,incdir="../../../../EDiC-TTL.gen/sources_1/ip/ila_U39/hdl/verilog"
-glbl.v,Verilog,xil_defaultlib,glbl.v
