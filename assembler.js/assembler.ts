@@ -265,7 +265,7 @@ const instructions: IInstruction[] = [
 ];
 
 if (argv.length !== 4) {
-  console.error(`${argv[0]} ${argv[1]} <in>.s <out>.coe`);
+  console.error(`${argv[0]} ${argv[1]} <in>.s <out>.coe|bin`);
   exit(1);
 }
 
@@ -282,15 +282,7 @@ const readFile = (filename: string): CodeLine[] => {
 
 const coeFile = argv[3].endsWith('.coe');
 const code = readFile(argv[2]);
-let fileContent = coeFile
-  ? 'MEMORY_INITIALIZATION_RADIX=16;\nMEMORY_INITIALIZATION_VECTOR=\n'
-  : `#ifndef DATA_H
-#define DATA_H
-
-#include <Arduino.h>
-
-const uint16_t length = 512;
-const uint8_t data[] PROGMEM = {\n`;
+let fileContent = 'MEMORY_INITIALIZATION_RADIX=16;\nMEMORY_INITIALIZATION_VECTOR=\n'
 
 let instrCount = 0;
 
@@ -536,11 +528,14 @@ if (coeFile) {
     fileContent += `${word.toString(16).padStart(6, '0')}\n`;
   }
   fileContent += ';';
+  writeFileSync(argv[3], fileContent);
 } else {
-  for (let i = 0; i < 512; i++) {
-    fileContent += data[i] ? `0x${data[i].toString(16).padStart(2, '0')},\n` : '0xff,\n';
+  for (let i = 0; i < 3; i++) {
+    const uintArray = Uint8Array.from(data.map(d => (d >> (8 * i)) & 0xff));
+    writeFileSync(`${argv[3]}.${i}`, uintArray);
   }
-  fileContent += '};\n#endif';
+  // for (let i = 0; i < 512; i++) {
+  //   fileContent += data[i] ? `0x${data[i].toString(16).padStart(2, '0')},\n` : '0xff,\n';
+  // }
+  // fileContent += '};\n#endif';
 }
-
-writeFileSync(argv[3], fileContent);
