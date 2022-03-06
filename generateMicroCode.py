@@ -6,7 +6,7 @@ from typing import Dict, List, Optional, TypedDict, cast
 import cson
 
 if (len(sys.argv) != 3 and len(sys.argv) != 4):
-  print(sys.argv[0] + ' <in>.cson <out>.coe|h [0|1]')
+  print(sys.argv[0] + ' <in>.cson <out>.coe|bin [0|1]')
   exit(1)
 
 @dataclass
@@ -170,37 +170,39 @@ class CsonParser:
           cycle[key] = (value + 1) % 2
     return result
 
-  def writeToFile(self, outFile: str, only: Optional[int]):
+  def writeToFile(self, outFile: str, coeFile: bool):
+    if coeFile:
+      fout = open(outFile, 'w+')
+    else:
+      f1 = open(f"{outFile}.0", 'wb+')
+      f2 = open(f"{outFile}.1", 'wb+')
+      f3 = open(f"{outFile}.2", 'wb+')
 
     def output(d: int):
-      if not only:
+      if coeFile:
         fout.write(f"{d:06x}\n")
       else:
-        fout.write(f"0x{(d >> (8 * only)) & 0xff:02x},\n")
+        f1.write(bytearray([(d >>  0) & 0xff]))
+        f2.write(bytearray([(d >>  8) & 0xff]))
+        f3.write(bytearray([(d >> 16) & 0xff]))
 
-    with open(outFile, 'w+') as fout:
-      if coeFile:
-        fout.write("MEMORY_INITIALIZATION_RADIX=16;\nMEMORY_INITIALIZATION_VECTOR=\n")
+    if coeFile:
+      fout.write("MEMORY_INITIALIZATION_RADIX=16;\nMEMORY_INITIALIZATION_VECTOR=\n")
+    
+    for i in range(2**15):
+      if i % 8 < self.fetchLen:
+        output(self.fetchRomData[i % 8])
+      elif i in self.rom.keys():
+        output(self.rom[i])
       else:
-        fout.write(f"""#ifndef DATA_H
-    #define DATA_H
-
-    #include <Arduino.h>
-
-    const uint16_t length = {2**15};
-    const uint8_t data[] PROGMEM = {{
-    """)
-      for i in range(2**15):
-        if i % 8 < self.fetchLen:
-          output(self.fetchRomData[i % 8])
-        elif i in self.rom.keys():
-          output(self.rom[i])
-        else:
-          output(self.cycleToRomData())
-      if coeFile:
-        fout.write(";")
-      else:
-        fout.write("};\n#endif")
+        output(self.cycleToRomData())
+    if coeFile:
+      fout.write(";")
+      fout.close()
+    else:
+      f1.close()
+      f2.close()
+      f3.close()
 
     print("Successfully written file.")
 
@@ -210,10 +212,4 @@ class CsonParser:
 parser = CsonParser()
 parser.parse(sys.argv[1])
 coeFile = sys.argv[2].endswith('.coe')
-only = None
-if len(sys.argv) == 4:
-  only = int(sys.argv[3])
-elif not coeFile:
-  print('when not writing to coe, you need to specify if upper or lower byte')
-  exit(1)
-parser.writeToFile(sys.argv[2], only)
+parser.writeToFile(sys.argv[2], coeFile)
