@@ -18,7 +18,7 @@
 !timing/*.drawio.svg
 !netlist2verilog/netlists_henry/*
 !memory_files/*
-!Inbetriebnahme/*
+!Inbetriebnahme/**/*
 ###########################################################################
 ##	VIVADO
 ###########################################################################

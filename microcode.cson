@@ -133,12 +133,18 @@ instructions: [
       { # ram address setup
         memInstrImmToRamAddr: 0
         regAluSel: 'r'
+        memRamNOE: 0
       }
       { # r x ram into alu
         memInstrImmToRamAddr: 0
         regAluSel: 'r'
         memRamNOE: 0
         aluYNWE: 0
+      }
+      { # r x ram into alu (hold)
+        memInstrImmToRamAddr: 0
+        regAluSel: 'r'
+        memRamNOE: 0
       }
       { # alu into r
         aluNOE: 0
@@ -155,6 +161,7 @@ instructions: [
       }
       { # ram address setup
         memInstrImmToRamAddr: 1
+        memRamNOE: 0
         regAluSel: 'r'
       }
       { # r x ram into alu
@@ -162,6 +169,11 @@ instructions: [
         regAluSel: 'r'
         memRamNOE: 0
         aluYNWE: 0
+      }
+      { # r x ram into alu (hold)
+        memInstrImmToRamAddr: 1
+        regAluSel: 'r'
+        memRamNOE: 0
       }
       { # alu into r
         aluNOE: 0
@@ -178,6 +190,7 @@ instructions: [
       }
       { # ram address setup
         memInstrImmToRamAddr: 1
+        memRamNOE: 0
         regAluSel: 'r'
       }
       { # r x ram into alu
@@ -185,6 +198,11 @@ instructions: [
         regAluSel: 'r'
         memRamNOE: 0
         aluYNWE: 0
+      }
+      { # r x ram into alu (hold)
+        memInstrImmToRamAddr: 1
+        regAluSel: 'r'
+        memRamNOE: 0
       }
     ]
   }
@@ -226,12 +244,17 @@ instructions: [
       }
       { # ram address setup
         memInstrImmToRamAddr: 0
+        memRamNOE: 0
       }
       { # ram to r
         memInstrImmToRamAddr: 0
         memRamNOE: 0
         reg0NWE: 'r'
         reg1NWE: '!r'
+      }
+      { # ram address hold
+        memInstrImmToRamAddr: 0
+        memRamNOE: 0
       }
     ]
   }
@@ -240,12 +263,17 @@ instructions: [
     cycles: [
       { # ram address setup
         memInstrImmToRamAddr: 1
+        memRamNOE: 0
       }
       { # ram to r
         memInstrImmToRamAddr: 1
         memRamNOE: 0
         reg0NWE: 'r'
         reg1NWE: '!r'
+      }
+      { # ram address hold
+        memInstrImmToRamAddr: 1
+        memRamNOE: 0
       }
     ]
   }
@@ -258,12 +286,17 @@ instructions: [
       }
       { # ram address setup
         memInstrImmToRamAddr: 1
+        memRamNOE: 0
       }
       { # ram to r
         memInstrImmToRamAddr: 1
         memRamNOE: 0
         reg0NWE: 'r'
         reg1NWE: '!r'
+      }
+      { # ram address setup
+        memInstrImmToRamAddr: 0
+        memRamNOE: 0
       }
       { # decrement sp
         memSPUp: 0
@@ -402,11 +435,9 @@ instructions: [
   {
     op: '10110000' # call
     cycles: [
-      { # 0xffff into mar
+      { # 0xffff into mar & increment sp
         memMar0NWE: 0
         memMar1NWE: 0
-      }
-      { # increment sp
         memSPUp: 1
         memSPNEn: 0
       }
@@ -417,8 +448,13 @@ instructions: [
       { # store pc in ram[0xffff]
         memPCToRamN: 0
         memInstrImmToRamAddr: 0
+
         memRamNWE: 0
-      } # no hold cycle required because only AS6C4008 timings are important here (no IO)
+      }
+      { # address + data hold
+        memPCToRamN: 0
+        memInstrImmToRamAddr: 0
+      }
       { # load pc from instrImm
         memPCLoadN: 0
         memPCNEn: 0
@@ -426,7 +462,6 @@ instructions: [
       }
     ]
   }
-
   {
     op: '10110001' # return
     cycles: [
@@ -436,13 +471,21 @@ instructions: [
       }
       { # ram address setup
         memInstrImmToRamAddr: 0
+        memPCFromImm: 0
+        memRamNOE: 0
       }
       { # load pc from ram
         memInstrImmToRamAddr: 0
+        memPCFromImm: 0
         memRamNOE: 0
+
         memPCLoadN: 0
         memPCNEn: 0
+      }
+      { # ram address hold
+        memInstrImmToRamAddr: 0
         memPCFromImm: 0
+        memRamNOE: 0
       }
       { # decrement sp
         memSPUp: 0
