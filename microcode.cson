@@ -133,22 +133,22 @@ instructions: [
         reg0BusNOE: 's'
         reg1BusNOE: '!s'
         memMar0NWE: 0
+        memRamNOE: 0 # register
       }
       { # ram address setup
         memInstrImmToRamAddr: 0
         regAluSel: 'r'
-        memRamNOE: 0
+        memRamNOE: 0 # register
       }
       { # r x ram into alu
         memInstrImmToRamAddr: 0
         regAluSel: 'r'
-        memRamNOE: 0
+        memRamNOE: 0 # register
         aluYNWE: 0
       }
       { # r x ram into alu (hold)
         memInstrImmToRamAddr: 0
         regAluSel: 'r'
-        memRamNOE: 0
       }
       { # alu into r
         aluNOE: 0
@@ -162,22 +162,22 @@ instructions: [
     cycles: [
       { # immediate -> ram
         memInstrImmToRamAddr: 1
+        memRamNOE: 0 # register
       }
       { # ram address setup
         memInstrImmToRamAddr: 1
-        memRamNOE: 0
+        memRamNOE: 0 # register
         regAluSel: 'r'
       }
       { # r x ram into alu
         memInstrImmToRamAddr: 1
         regAluSel: 'r'
-        memRamNOE: 0
+        memRamNOE: 0 # register
         aluYNWE: 0
       }
       { # r x ram into alu (hold)
         memInstrImmToRamAddr: 1
         regAluSel: 'r'
-        memRamNOE: 0
       }
       { # alu into r
         aluNOE: 0
@@ -191,22 +191,22 @@ instructions: [
     cycles: [
       { # immediate -> ram
         memInstrImmToRamAddr: 1
+        memRamNOE: 0 # register
       }
       { # ram address setup
         memInstrImmToRamAddr: 1
-        memRamNOE: 0
+        memRamNOE: 0 # register
         regAluSel: 'r'
       }
       { # r x ram into alu
         memInstrImmToRamAddr: 1
         regAluSel: 'r'
-        memRamNOE: 0
+        memRamNOE: 0 # register
         aluYNWE: 0
       }
       { # r x ram into alu (hold)
         memInstrImmToRamAddr: 1
         regAluSel: 'r'
-        memRamNOE: 0
       }
     ]
   }
@@ -245,39 +245,41 @@ instructions: [
         reg1BusNOE: '!s'
         memMar0NWE: 0
         memInstrImmToRamAddr: 0
+        memRamNOE: 0 # register
       }
       { # ram address setup
         memInstrImmToRamAddr: 0
-        memRamNOE: 0
+        memRamNOE: 0 # register
       }
       { # ram to r
         memInstrImmToRamAddr: 0
-        memRamNOE: 0
+        memRamNOE: 0 # register
         reg0NWE: 'r'
         reg1NWE: '!r'
       }
       { # ram address hold
         memInstrImmToRamAddr: 0
-        memRamNOE: 0
       }
     ]
   }
   {
     op: '1111000r' # r = [imm] (ldr)
     cycles: [
+      {
+        memRamNOE: 0 # register
+      }
       { # ram address setup
         memInstrImmToRamAddr: 1
-        memRamNOE: 0
+        memRamNOE: 0 # register
       }
       { # ram to r
         memInstrImmToRamAddr: 1
-        memRamNOE: 0
+        memRamNOE: 0 # register
         reg0NWE: 'r'
         reg1NWE: '!r'
       }
       { # ram address hold
         memInstrImmToRamAddr: 1
-        memRamNOE: 0
       }
     ]
   }
@@ -287,20 +289,20 @@ instructions: [
       { # increment sp
         memSPUp: 1
         memSPNEn: 0
+        memRamNOE: 0 # register
       }
       { # ram address setup
         memInstrImmToRamAddr: 1
-        memRamNOE: 0
+        memRamNOE: 0 # register
       }
       { # ram to r
         memInstrImmToRamAddr: 1
-        memRamNOE: 0
+        memRamNOE: 0 # register
         reg0NWE: 'r'
         reg1NWE: '!r'
       }
       { # ram address setup
         memInstrImmToRamAddr: 0
-        memRamNOE: 0
       }
       { # decrement sp
         memSPUp: 0
@@ -320,12 +322,12 @@ instructions: [
         reg0BusNOE: 'r'
         reg1BusNOE: '!r'
         memInstrImmToRamAddr: 0
+        memRamNWE: 0 # register
       }
       { # ram write
         reg0BusNOE: 'r'
         reg1BusNOE: '!r'
         memInstrImmToRamAddr: 0
-        memRamNWE: 0
       }
       { # hold ram inputs
         reg0BusNOE: 'r'
@@ -360,12 +362,12 @@ instructions: [
         reg0BusNOE: 'r'
         reg1BusNOE: '!r'
         memInstrImmToRamAddr: 1
+        memRamNWE: 0 # register
       }
       { # r write
         reg0BusNOE: 'r'
         reg1BusNOE: '!r'
         memInstrImmToRamAddr: 1
-        memRamNWE: 0
       }
       { # hold ram inputs
         reg0BusNOE: 'r'
@@ -385,12 +387,12 @@ instructions: [
         reg0BusNOE: 'r'
         reg1BusNOE: '!r'
         memInstrImmToRamAddr: 1
+        memRamNWE: 0 # register
       }
       { # ram write
         reg0BusNOE: 'r'
         reg1BusNOE: '!r'
         memInstrImmToRamAddr: 1
-        memRamNWE: 0
       }
       { # hold ram inputs
         reg0BusNOE: 'r'
@@ -449,12 +451,12 @@ instructions: [
       { # address + data setup
         memPCToRamN: 0
         memInstrImmToRamAddr: 0
+        
+        memRamNWE: 0 # register
       }
       { # store pc in ram[0xffff]
         memPCToRamN: 0
         memInstrImmToRamAddr: 0
-
-        memRamNWE: 0
       }
       { # address + data hold
         memPCToRamN: 0
@@ -474,16 +476,17 @@ instructions: [
         memMar0NWE: 0
         memMar1NWE: 0
         busFFNOE: 0
+        memRamNOE: 0 # register
       }
       { # ram address setup
         memInstrImmToRamAddr: 0
         memPCFromImm: 0
-        memRamNOE: 0
+        memRamNOE: 0 # register
       }
       { # load pc from ram
         memInstrImmToRamAddr: 0
         memPCFromImm: 0
-        memRamNOE: 0
+        memRamNOE: 0 # register
 
         memPCLoadN: 0
         memPCNEn: 0
@@ -491,7 +494,6 @@ instructions: [
       { # ram address hold
         memInstrImmToRamAddr: 0
         memPCFromImm: 0
-        memRamNOE: 0
       }
       { # decrement sp
         memSPUp: 0
