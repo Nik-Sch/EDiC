@@ -18,6 +18,14 @@ RIGHT = 0x3e # '>'
 UP = 0x5e # '^'
 DOWN = 0x76 # 'v'
 ITEM = 0x58 # 'X'
+ASCII_W = 0x77
+ASCII_A = 0x61
+ASCII_S = 0x73
+ASCII_D = 0x64
+ASCII_CAPITAL_W = 0x57
+ASCII_CAPITAL_A = 0x41
+ASCII_CAPITAL_S = 0x53
+ASCII_CAPITAL_D = 0x44
 
 # global variables
 SNAKE_LENGTH    = 0x0000
@@ -496,13 +504,34 @@ readArrow:
 readArrowLoop:
   call uart_read
   cmp r0, 0
-  beq readArrowRet # no char received
+  beq readArrowNothing # no char received
+  # up
+  cmp r0, ASCII_W
+  beq readArrowUp
+  cmp r0, ASCII_CAPITAL_W
+  beq readArrowUp
+  # left
+  cmp r0, ASCII_A
+  beq readArrowLeft
+  cmp r0, ASCII_CAPITAL_A
+  beq readArrowLeft
+  # down
+  cmp r0, ASCII_S
+  beq readArrowDown
+  cmp r0, ASCII_CAPITAL_S
+  beq readArrowDown
+  # right
+  cmp r0, ASCII_D
+  beq readArrowRight
+  cmp r0, ASCII_CAPITAL_D
+  beq readArrowRight
+  
   cmp r0, ESCAPE0
   bne readArrowLoop # make sure to empty the fifo
 
   call uart_read
   cmp r0, 0
-  beq readArrowRet
+  beq readArrowNothing
   cmp r0, ESCAPE1
   bne readArrowLoop
 
@@ -513,12 +542,27 @@ readArrowLoop:
   bgt readArrowLoop
   sub r0, 0x41 # return 0-4
 ret
-
-  readArrowRet:
+# -1 for nothing, 0 for up, 1 for down, 2 for right, 3 for left
+  readArrowNothing:
   ldr r1, [0xfffe]
-  mov r0, -1 # return -1 if nothing was found
+  mov r0, -1
 ret
-
+  readArrowUp:
+  ldr r1, [0xfffe]
+  mov r0, 0
+ret
+  readArrowLeft:
+  ldr r1, [0xfffe]
+  mov r0, 3
+ret
+  readArrowDown:
+  ldr r1, [0xfffe]
+  mov r0, 1
+ret
+  readArrowRight:
+  ldr r1, [0xfffe]
+  mov r0, 2
+ret
 
 # r0: delay in ms
 delay_ms:

@@ -83,6 +83,10 @@ signals: [
     name: 'instrFinishedN' # automatically in script
     noOp: 1
   }
+  {
+    name: 'busFFNOE'
+    noOp: 1
+  }
 ]
 instructionFetch: [
   {
@@ -438,6 +442,7 @@ instructions: [
       { # 0xffff into mar & increment sp
         memMar0NWE: 0
         memMar1NWE: 0
+        busFFNOE: 0
         memSPUp: 1
         memSPNEn: 0
       }
@@ -468,6 +473,7 @@ instructions: [
       { # 0xffff into mar
         memMar0NWE: 0
         memMar1NWE: 0
+        busFFNOE: 0
       }
       { # ram address setup
         memInstrImmToRamAddr: 0
