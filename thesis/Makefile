@@ -19,7 +19,7 @@ watch:
 
 all: thesis.pdf
 
-thesis.pdf: $(drawio_obj) $(plots_obj) $(paper_src) bib.bib
+thesis.pdf: $(drawio_obj) $(plots_obj) $(thesis_src) bib.bib
 	$(tex_cmd) thesis
 	cp out/thesis.pdf .
 
