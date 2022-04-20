@@ -114,7 +114,7 @@
 
 % preamble
 \cleardoublepage
-\printglossary[type=\acronymtype,nonumberlist]
+\printglossary[type=\acronymtype]
 \cleardoublepage
 % \input{./Vorspann/Danksagung}                  % Danksagung (optional) / acknowledgement
 \include{content/abstract}
@@ -122,7 +122,13 @@
 \cleardoublepage
 \pagenumbering{arabic}
 \glsresetall
-\include{content/introduction}
+\include{content/01_introduction}
+\include{content/02_previousWork}
+\include{content/03_design}
+\include{content/04_software}
+\include{content/05_fpga}
+\include{content/06_hardware}
+\include{content/07_conclusion}
 
 
 

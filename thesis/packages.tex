@@ -57,10 +57,10 @@
 
 \usepackage[
     acronym,
-    % counter=section,
-    style=longheader,
-    indexonlyfirst,
-    nopostdot]{glossaries-extra}
+    style=long3colheader,
+    % indexonlyfirst,
+    % nopostdot
+    ]{glossaries-extra}
 \setabbreviationstyle[acronym]{long-short} % first occurence long, rest short
 \renewcommand*{\acrshort}[1][]{\glsxtrshort[noindex,#1]} % acrshort -> no index
 
@@ -112,60 +112,9 @@
 \usepackage[bottom]{footmisc}
 \usepackage{csquotes}
 \usepackage{etoolbox}
+\usepackage{framed}
 
-\preto\chapter{
-  % \glsreset{RDMA}
-  % \glsreset{RoCEv2}
-  % \glsreset{FPGA}
-  % \glsreset{ASIC}
-  % \glsreset{UDP}
-  % \glsreset{TCP}
-  \glsreset{AXI}
-  \glsreset{CPU}
-  \glsreset{SIFT}
-  \glsreset{PCB}
-  % \glsreset{DMA}
-  % \glsreset{RAM}
-  \glsreset{SRAM}
-  \glsreset{IB}
-  \glsreset{IP}
-  \glsreset{DSP}
-  \glsreset{BRAM}
-  \glsreset{EPROM}
-  \glsreset{CLB}
-  \glsreset{LUT}
-  \glsreset{MUX}
-  \glsreset{MTU}
-  \glsreset{PSN}
-  \glsreset{CM}
-  \glsreset{RC}
-  \glsreset{UD}
-  \glsreset{ICRC}
-  \glsreset{CRC}
-  \glsreset{IANA}
-  \glsreset{TTL}
-  \glsreset{QP}
-  \glsreset{BTH}
-  \glsreset{DETH}
-  \glsreset{MAD}
-  \glsreset{RNR}
-  \glsreset{ARI}
-  \glsreset{MSB}
-  \glsreset{LSB}
-  \glsreset{LRH}
-  \glsreset{GRH}
-  \glsreset{AETH}
-  \glsreset{RETH}
-  \glsreset{NAK}
-  \glsreset{MAC}
-  \glsreset{DDR}
-  % \glsreset{FIFO}
-  % \glsreset{VHDL}
-  % \glsreset{VHSIC}
-  \glsreset{LFSR}
-  \glsreset{DUT}
-  \glsreset{ALM}
-  \glsreset{LAB}
-  \glsreset{MLAB}
-  \glsreset{OS}
+\newcommand{\TODO}[1]{\begin{framed}%
+  {\textcolor{red}{\Large TODO: #1}}%
+\end{framed}%
 }
