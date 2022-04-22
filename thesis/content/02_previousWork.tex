@@ -6,10 +6,10 @@ This chapter provides an overview of what my workings on the initial \gls{CPU} i
 \section{Design Goal}
 My initial goal was to design a \gls{CPU} from scratch without explicitly looking at how other architectures had solved occurring problems.
 This meant I was to rely on the knowledge I had achieved until then and came up with the following specifications I wanted my \gls{CPU} to fulfill:
-\paragraph{8-bit bus width}
-Most current era \glspl{CPU} employ a 32-bit or 64-bit bus to handle large numbers and large amounts of data.
+\paragraph{8 bit bus width}
+Most current era \glspl{CPU} employ a 32 bit or 64 bit bus to handle large numbers and large amounts of data.
 It was clear to me that I needed to settle for a smaller bus when building a \gls{CPU} by hand.
-Some early \glspl{CPU} worked with only 4-bits but to not be as limited I finally chose to use an 8-bit bus.
+Some early \glspl{CPU} worked with only 4 bits but to not be as limited I finally chose to use an 8 bit bus.
 \paragraph{Datapath Architecture - Multicycle CISC}
 In most \glspl{CPU} an instruction is not done in one clock cycle but it is divided into several steps that are done in sequence.
 There are two general approaches that are called \emph{Multicycle} and \emph{Pipelining} \cite{PattersonDavid2016RuRD}.
@@ -81,21 +81,35 @@ Therefore, there are three control signals which control the operation: two alu-
 The $B$ input is XORed with the aluSub bit which results in the $B$ input being inverted when aluSub is `1' and otherwise $B$ remains the same.
 The aluSub bit is also connected to the carry input of the adder and with that, results in a two's complement subtraction.
 All possible operations are shown in \cref{tab:aluOp}.
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{full_adder.pdf}
+  \caption{1 bit full adder with the usual A, B and Carry inputs and Y and Carry outputs as well as the XOR and AND outputs.}
+  \label{fig:full_adder}
+\end{figure}
 The adder is a simple ripple carry adder for its simplicity and the XOR and AND operation from the half-adders are also used as the logic operations.
+A complete 1 bit full-adder is shown in \cref{fig:full_adder}.
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\textheight, angle=90]{barrel_shifter.pdf}
+  \caption{8 bit bidirectional barrel shifter.}
+  \label{fig:barrel_shifter}
+\end{figure}
 It was desirable to include a barrel shifter to have the possibility to improve multiply operation with a shift and add approach instead of repeated addition.
 The barrel shifter works by 3 consecutive multiplexers to shift by 1, 2 or 4 bit to the right that are controlled by the first 3 bit of the (not inverted) $B$ input.
 To also allow shifting to the left there is one multiplexer before the three shift multiplexers to invert the order of bits and another one after the shifting to reorder the bits.
+In \cref{fig:barrel_shifter} a bidirectional barrel shifter implemented with the \texttt{74F157} is visualized. The \texttt{74F157} implements four 2 to 1 multiplexer and, therefore, 2 chips are needed for a full 8 bit 2 to 1 multiplexer.
 
 The multiplexed result is stored in an 8 bit \gls{ALU} result register.
 For conditional execution the \gls{ALU} includes two flags: Not Zero (at least one bit is one) and negative (the \gls{MSB}).
-\TODO{include schematics for barrel shifter and full adder}
 
 \subsubsection{Register File}
 As is typical with \glspl{CISC} the \gls{CPU} does not need many general purpose registers and the register file can be kept simple with only two registers.
 The register file has one write port (from the bus) and two read ports of which one reads to the bus and the other is directly connected to the $A$ input of the \gls{ALU}.
-\subsubsection{Control Logic}
+\subsubsection{Control Logic}\label{ssec:cl}
 The control logic's job is to decode the current instruction and provide all the control signals for each cycle for any instruction.
-For keeping track which cycle of each instruction is currently executing a 3-bit synchronous counter is needed.
+For keeping track which cycle of each instruction is currently executing a 3 bit synchronous counter is needed.
 Each control signal could be derived by a logical circuitry with 13 inputs: 8 bits instruction, 2 bits \gls{ALU} flags and 3 bits cycle counter.
 However, designing these logic circuits is a lot of work, takes up a lot of space and cannot be changed easily later on. (For example when finding a bug in one instruction)
 Therefore, an \gls{EEPROM} is used where the 13 bits that define one cycle of one specific instruction are used as addresses.
@@ -104,9 +118,28 @@ The control signals then are the data bits of the word that is stored at the spe
 The first two cycles of each instruction need to be taken in special consideration because the instruction register is not yet loaded with the next instruction, because it is still being fetched and decoded.
 However, the instruction fetch and decode are always the same for each instruction, which means that all memory locations where the cycle counter is equal to 0 or 1 (the first two instructions) are filled with the control signals for an instruction fetch and decode.
 \subsubsection{Memory}
+The memory module contains the main memory of the \gls{CPU} in form of an asynchronous \gls{SRAM} and the instruction memory as an \gls{EEPROM}.
+This way a new program can be loaded into the \gls{CPU} by reprogramming the \gls{EEPROM}.
+Both the \gls{SRAM} and the \gls{EEPROM} have their data lanes connected to the bus for reading from and writing to the memory.
+The address is controlled via an \gls{MAR} from the bus.
 \subsubsection{Program Counter}
+The program counter is a special register with two main functionalities:\\
+Usually it increments by one after each instruction.
+However, when a branch is executed it needs to load the branch address from the bus.
+For this an 8 bit increment similar to the cycle counter from the Control Logic \cref{ssec:cl} is multiplexed with the bus and used as the input data for the register.
 \subsubsection{Input \& Output}
-\subsubsection{Clock}
-
+This first version of the \gls{CPU} included very rudimentary I/O logic.
+For input it provides an 8 bit DIP-Switch connected to the bus and for output there is a register with a 2 digit 7-segment display.
+\subsubsection{Clock \& Reset}
+The function of the clock module is threefold:\\
+It provides a clock for the whole \gls{CPU} while also providing an active-low reset for some of the registers to provide a defined starting condition.
+The clock has two modes. One to run continuously and another where the clock can be manually advanced.
+Additionally, there is a halt instruction which stops the \gls{CPU} clock until a button is pressed.
 \subsection{FPGA Simulation}
+The goal of the \gls{FPGA} simulation is to proof the general workings of the \gls{CPU} architecture.
+There was no attempt made to provide a chip-level simulation of the hardware build but rather to provide a top-level behavioral model.
+The chosen development environment is the AMD - Xilinx Vivado \cite{vivado} as it is freely available and provides an advanced simulation environment while providing the possibility to synthesize for relatively cheap \glspl{FPGA}.
+
 \subsection{Hardware Build}
+
+The clock circuit is heavily inspired by the clock module of the above mentioned YouTube series by Ben Eater \cite{eater_clock}.
