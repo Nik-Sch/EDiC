@@ -18,7 +18,12 @@
 %% tables
 \usepackage{multicol}                          % multiple columns in tables
 \usepackage{multirow}                          % multiple rows in tables
-\usepackage[margin=10pt,labelfont=bf]{caption} % table headers
+\usepackage[
+  margin=10pt,
+  labelfont=bf,
+  figurewithin=chapter,
+  tablewithin=chapter
+]{caption} % table headers
 \usepackage{hhline}                            % horizontal lines
 \usepackage{longtable}                         % pagebreak tables
 \usepackage{booktabs}                          % bold table lines, e.g. \toprule
@@ -53,7 +58,15 @@
 \usepackage{subcaption}  % subcaptions
 
 \usepackage{lipsum} % blind text
+
+% code
+\usepackage[cachedir=out/_minted-\jobname, chapter]{minted}
+\usemintedstyle{colorful}
+\renewcommand{\listingscaption}{Code Example}
+\renewcommand{\listoflistingscaption}{List of Code Examples}
+
 \usepackage[noabbrev]{cleveref} % references
+\crefname{listing}{Code Example}{Code Examples}
 
 \usepackage[
     acronym,
@@ -64,9 +77,6 @@
 \setabbreviationstyle[acronym]{long-short} % first occurence long, rest short
 \renewcommand*{\acrshort}[1][]{\glsxtrshort[noindex,#1]} % acrshort -> no index
 
-% code
-\usepackage[cachedir=out/_minted-\jobname]{minted}
-\usemintedstyle{colorful}
 
 \usepackage{bytefield}
 

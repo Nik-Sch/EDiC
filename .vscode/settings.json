@@ -3,5 +3,5 @@
   "VhdlLinter.ports.enablePortStyle": false,
   "editor.wordWrap": "on",
   "latex-workshop.docker.image.latex": "n1ksch/latexbloat",
-  "latex-workshop.docker.enabled": true
+  "latex-workshop.docker.enabled": false
 }

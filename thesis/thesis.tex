@@ -114,8 +114,6 @@
 
 % preamble
 \cleardoublepage
-\printglossary[type=\acronymtype]
-\cleardoublepage
 % \input{./Vorspann/Danksagung}                  % Danksagung (optional) / acknowledgement
 \include{content/abstract}
 
@@ -140,6 +138,9 @@
 % \include{./Anhang/Teilb}
 % \include{./Anhang/Teilc}
 
+\cleardoublepage
+\printglossary[type=\acronymtype]
+
 % das Abbildungsverzeichnis
 \listoffigures
 \addcontentsline{toc}{chapter}{List of Figures}
@@ -147,6 +148,10 @@
 % das Tabellenverzeichnis
 \listoftables
 \addcontentsline{toc}{chapter}{List of Tables}
+
+% list of listing
+\listoflistings
+\addcontentsline{toc}{chapter}{\listoflistingscaption}
 
 % Literaturverzeichnis
 \printbibliography
