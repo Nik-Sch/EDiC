@@ -2,11 +2,9 @@
 
 %% \usepackage{cmbright}                          % serifenlose computer modern fonts
 
-\usepackage[quiet]{fontspec}
-\setmonofont[Contextuals={Alternate}]{Fira Code}
-\usepackage[T1]{fontenc}                       % T1 fonts für gute pdf-Ausgabe
+% \usepackage{fontenc}                       % T1 fonts für gute pdf-Ausgabe
 % \usepackage[utf8]{inputenc}                    % wegen deutschen Umlauten
-\usepackage[automark]{scrpage2}                % Koma Headers
+\usepackage[automark]{scrlayer-scrpage}                % Koma Headers
 
 % \usepackage[english]{babel}
 
@@ -128,3 +126,8 @@
   {\textcolor{red}{\Large TODO: #1}}%
 \end{framed}%
 }
+
+% has to be at the end for some weird reason (https://tex.stackexchange.com/a/450540/104727)
+\usepackage{fontspec}
+% \setmainfont{Latin Modern Roman}
+% \setmonofont[Contextuals={Alternate}]{Fira Code}

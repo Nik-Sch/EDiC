@@ -1,12 +1,25 @@
 % !TEX root = ../thesis.tex
 \chapter{Introduction} \label{cha:intro}
-The foundation of this thesis started at the end of 2020 where I decided to design and build a \gls{CPU} from scratch.
+This thesis covers the development and engineering process of the \gls{EDiC} pictured in \cref{fig:EDiCSnake}.
+It is a completely novel \gls{CPU} architecture built to visualize and show the fundamental workings of any \gls{CPU}.
+The \gls{EDiC} can execute over half a million instructions per second but also features step-by-step, instruction-by-instruction as well as breakpoint capabilities for better understanding of how \glspl{CPU} work.
+All components can be tested individually with the help of dedicated test adapters and, therefore, \gls{IC} failures can be tracked down and fixed easily.
+Additionally to the hardware built, the project includes an open source development environment including an assembler, tools to modify the micro-code and also \gls{FPGA} simulation and emulation of the hardware \cite{EDiCGitHub}.
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{IMG20220308163628_resize.jpg}
+  \caption{The final version of the \gls{EDiC} playing Snake on a VT-100 over an RS-232 I/O card.}
+  \label{fig:EDiCSnake}
+\end{figure}
+
+\section{The Beginning}
+The foundation of this project started at the end of 2020 where I decided to design and build a \gls{CPU} from scratch.
 In many university courses we would discuss some parts of a \gls{CPU} like different approaches to binary adders or pipelining concepts but never would we build a complete \gls{CPU} including the control logic.
 Due to a Covid-19 lockdown I had enough time at my hands and after 6 years of study, I felt like I had the expertise to complete this project.
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=\textwidth]{update20210121_crop.jpg}
+  \includegraphics[width=\textwidth]{update20210121_crop_res.jpg}
   \caption{The first version of the \gls{CPU} in its final state.}
   \label{fig:initialCPU}
 \end{figure}
