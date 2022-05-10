@@ -31,7 +31,7 @@ A typically 5-step pipeline would consist of the following steps \cite{Patterson
 \end{enumerate}
 However good the performance of a pipelined \gls{CPU} is, it also comes with challenges.
 Those include a greater resource usage because all intermediate results need to be stored in pipeline registers.
-Additionally, branch instructions\footnote{Branch Instructions change the program counter and with that the location from which the next instruction is to be fetched. This is required for conditional and looped execution.} pose a great challenge because at the moment, the \gls{CPU} execute the branch the next instructions have already been dispatched.
+Additionally, branch instructions\footnote{Branch Instructions change the \gls{PC} and with that the location from which the next instruction is to be fetched. This is required for conditional and looped execution.} pose a great challenge because at the moment, the \gls{CPU} execute the branch the next instructions have already been dispatched.
 This means that the pipeline needs to be flushed (i.e. cleared), performance is lost and more logic is required.
 It also noteworthy that branch prediction and pipeline flushes can be quite vulnerable as recently shown in CVE-2017-5753 with the Spectre bug \cite{CVE-2017-5753}.
 
@@ -122,8 +122,8 @@ The memory module contains the main memory of the \gls{CPU} in form of an asynch
 This way a new program can be loaded into the \gls{CPU} by reprogramming the \gls{EEPROM}.
 Both the \gls{SRAM} and the \gls{EEPROM} have their data lanes connected to the bus for reading from and writing to the memory.
 The address is controlled via an \gls{MAR} from the bus.
-\subsubsection{Program Counter}
-The program counter is a special register with two main functionalities:\\
+\subsubsection{\glsxtrfull{PC}}
+The \gls{PC} is a special register with two main functionalities:\\
 Usually it increments by one after each instruction.
 However, when a branch is executed it needs to load the branch address from the bus.
 For this an 8 bit increment similar to the cycle counter from the Control Logic \cref{ssec:cl} is multiplexed with the bus and used as the input data for the register.
