@@ -74,18 +74,15 @@ interface IConstants {
 const labels: ILabel[] = [];
 const constants: IConstants[] = [];
 
-const checkImmediate = (match: string, options: { stack?: boolean, memory?: boolean, regValue ?: boolean } = {}) => {
+const checkImmediate = (match: string, options: { stack?: boolean, regValue ?: boolean } = {}) => {
   if (typeof options.stack === 'undefined') {
     options.stack = false;
-  }
-  if (typeof options.memory === 'undefined') {
-    options.memory = true;
   }
   if (typeof options.regValue === 'undefined') {
     options.regValue = false;
   }
   // [0xffff] is used for return address and register can only hold 8bit
-  const maxImm = options.memory ? 0xfffe : options.regValue ? 127 : 0xffff;
+  const maxImm = options.regValue ? 255 : 0xfffe;
   const minImm = options.regValue ? -128 : 0;
   let imm = parseInt(match);
   if (isNaN(imm)) {

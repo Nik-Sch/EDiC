@@ -206,24 +206,101 @@ Especially for a \gls{CPU} with only 8 bits it is important to support unsigned 
   \begin{tabularx}{\textwidth}{ |c|l|l|X| }
     \hline
     \texttt{flag} (OP-Code) & Assembler Instruction                & \gls{ALU} flags                 & Interpretation   \\\hline\hline
-    \texttt{0000} & \texttt{jmp}/\texttt{bal}/\texttt{b} & Any                             & Always           \\\hline
-    \texttt{0001} & \texttt{beq}                         & \texttt{Z==1}                   & Equal            \\\hline
-    \texttt{0010} & \texttt{bne}                         & \texttt{Z==0}                   & Not Equal        \\\hline
-    \texttt{0011} & \texttt{bcs}/\texttt{bhs}            & \texttt{C==1}                   & Unsigned $\geq$  \\\hline
-    \texttt{0100} & \texttt{bcc}/\texttt{blo}            & \texttt{C==0}                   & Unsigned $<$     \\\hline
-    \texttt{0101} & \texttt{bmi}                         & \texttt{N==1}                   & Negative         \\\hline
-    \texttt{0110} & \texttt{bpl}                         & \texttt{N==0}                   & Positive or Zero \\\hline
-    \texttt{0111} & \texttt{bvs}                         & \texttt{V==1}                   & Overflow         \\\hline
-    \texttt{1000} & \texttt{bvc}                         & \texttt{V==0}                   & No overflow      \\\hline
-    \texttt{1001} & \texttt{bhi}                         & \texttt{C==1} and \texttt{Z==0} & Unsigned $>$     \\\hline
-    \texttt{1010} & \texttt{bls}                         & \texttt{C==0} or \texttt{Z==1}  & Unsigned $\leq$  \\\hline
-    \texttt{1011} & \texttt{bge}                         & \texttt{N==V}                   & Signed $\geq$    \\\hline
-    \texttt{1100} & \texttt{blt}                         & \texttt{N!=V}                   & Signed $<$       \\\hline
-    \texttt{1101} & \texttt{bgt}                         & \texttt{Z==0} and \texttt{N==V} & Signed $>$       \\\hline
-    \texttt{1110} & \texttt{ble}                         & \texttt{Z==0} or \texttt{N!=V}  & Signed $\leq$    \\\hline
-    \texttt{1111} & -                                    & Any                             & Never (Not used) \\\hline
+    \texttt{0000}           & \texttt{jmp}/\texttt{bal}/\texttt{b} & Any                             & Always           \\\hline
+    \texttt{0001}           & \texttt{beq}                         & \texttt{Z==1}                   & Equal            \\\hline
+    \texttt{0010}           & \texttt{bne}                         & \texttt{Z==0}                   & Not Equal        \\\hline
+    \texttt{0011}           & \texttt{bcs}/\texttt{bhs}            & \texttt{C==1}                   & Unsigned $\geq$  \\\hline
+    \texttt{0100}           & \texttt{bcc}/\texttt{blo}            & \texttt{C==0}                   & Unsigned $<$     \\\hline
+    \texttt{0101}           & \texttt{bmi}                         & \texttt{N==1}                   & Negative         \\\hline
+    \texttt{0110}           & \texttt{bpl}                         & \texttt{N==0}                   & Positive or Zero \\\hline
+    \texttt{0111}           & \texttt{bvs}                         & \texttt{V==1}                   & Overflow         \\\hline
+    \texttt{1000}           & \texttt{bvc}                         & \texttt{V==0}                   & No overflow      \\\hline
+    \texttt{1001}           & \texttt{bhi}                         & \texttt{C==1} and \texttt{Z==0} & Unsigned $>$     \\\hline
+    \texttt{1010}           & \texttt{bls}                         & \texttt{C==0} or \texttt{Z==1}  & Unsigned $\leq$  \\\hline
+    \texttt{1011}           & \texttt{bge}                         & \texttt{N==V}                   & Signed $\geq$    \\\hline
+    \texttt{1100}           & \texttt{blt}                         & \texttt{N!=V}                   & Signed $<$       \\\hline
+    \texttt{1101}           & \texttt{bgt}                         & \texttt{Z==0} and \texttt{N==V} & Signed $>$       \\\hline
+    \texttt{1110}           & \texttt{ble}                         & \texttt{Z==0} or \texttt{N!=V}  & Signed $\leq$    \\\hline
+    \texttt{1111}           & -                                    & Any                             & Never (Not used) \\\hline
   \end{tabularx}
 \end{table}
 
 \section{Assembler}
+The second software that is probably even more important is the assembler.
+An assembler translates human readable instructions into the machine code, i.e. the bits that are stored in the instruction \glspl{EEPROM}.
+For the \gls{EDiC} each instruction is 24 bits wide, with 8 bits instruction op code and 8 or 16 bits immediate value.
+Even though assemblers usually only translate instructions one for one, they can have quite advanced features.
+With an assembler, the programmer is no longer required to know the specific op codes for all instructions and set individual bits of the instructions which is very error prone.
+The assembler for the \gls{EDiC}, therefore, allows easier programming with a simple text-based assembly syntax similar to the well-known ARM syntax.
+\begin{listing}
+  \inputminted[linenos,
+    breaklines,
+    frame=leftline,
+    xleftmargin=20pt,
+  ]{ARM}{src/prng.s}
+  \caption{\gls{PRNG} written in the \gls{EDiC} Assembler.}
+  \label{lst:asm_prng}
+\end{listing}
+
+\begin{listing}
+  \inputminted[linenos,
+    breaklines,
+    frame=leftline,
+    xleftmargin=20pt,
+  ]{ARM}{src/prng_out.s}
+  \caption{The output of the \gls{PRNG} of \cref{lst:asm_prng}. The first 16 bits are the memory address, then 8 bits for the instruction op-code and 16 bits for the instruction immediate and for reference the original instruction with variables replaced.}
+  \label{lst:asm_prng_out}
+\end{listing}
+
+\Cref{lst:asm_prng,lst:asm_prng_out} show the translation that the assembler does where \cref{lst:asm_prng} shows the assembler program that is written by any programmer and \cref{lst:asm_prng_out} summarizes what values are stored in the program \gls{EEPROM}.
+
+\subsection{Available Instructions}
+First of all, this section summarizes all available instructions and which parameters they take.
+All instructions start with the operation and then up two parameters separated by a comma.
+
+There are four different parameter types.
+It can either be a register specified as \texttt{r0} or \texttt{r1}.
+The register value can also be passed as the address to a memory operation with \texttt{[r0]}.
+
+Immediate values can also be specified as value or as address with brackets around the immediate value.
+However, the syntax for immediate values is more complex, as the assembler can parse decimal (positive and negative) as well as hexadecimal numbers.
+Additionally, variables can be used which are further explained in \cref{sec:variables}.
+When specifying a value, the immediate can range between -127 and 255 (two's complement and unsigned) and when used as an address it can range between 0 and 0xfffe (65534). The upper limit is not 0xffff because that address is reserved for the return address and should not be overwritten.
+\paragraph{\gls{ALU} Instructions} The following \gls{ALU} instructions are available:
+\begin{multicols}{4}
+  \begin{itemize}
+    \item add
+    \item sub
+    \item and
+    \item eor
+    \item xor
+    \item xnor
+    \item lsr
+    \item lsl
+  \end{itemize}
+\end{multicols}
+\gls{ALU} instructions always take two parameters. The first parameter is the left hand side operand and the register where the result is stored in and the second parameter is the right hand side operand.
+\begin{itemize}
+  \item Two registers
+
+  \qquad\texttt{sub r0, r1} does: $r_0:=r_0-r_1$
+  \item One register and one register as memory address
+
+  \qquad\texttt{lsr r1, [r0]} does: $r_1:=r_1\gg\text{mem}[r_0]$
+  \item One register and an immediate value
+
+  \qquad\texttt{and r0, 0x0f} does: $r_0:=r_0\xor 15$
+  \item One register and an immediate value as memory address
+
+  \qquad\texttt{add r1, [0x0542]} does: $r_1:=r_1+\text{mem}[1346]$
+\end{itemize}
+All of the \gls{ALU} instructions can have an `s' as suffix which has the effect that the result of the operation is not written to the first operand.
+This is useful when a calculation is only performed to update the \gls{ALU} flags but the register value is used later on.
+This results in a special \gls{ALU} instruction: \texttt{cmp} which is an alias to \texttt{subs} which is typically used to compare to values and perform a branch instruction based on the result.
+\begin{minted}{ARM}
+cmp r0, 10
+blt 0x42
+\end{minted}
+compares the \texttt{r0} register with the value 10 and if $r0 < 10\nicefrac{12}{13\pi}$ branches to instruction at address 66 and preserves the content of \texttt{r0}.
+\subsection{Variables}\label{sec:variables}
 \subsection{Syntax Definition for VS Code}
