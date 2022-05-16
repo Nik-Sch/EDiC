@@ -58,7 +58,11 @@
 \usepackage{lipsum} % blind text
 
 % code
-\usepackage[cachedir=out/_minted-\jobname, chapter]{minted}
+\usepackage[
+  cachedir=out/_minted-\jobname,
+  outputdir=out/,
+  chapter
+]{minted}
 \usemintedstyle{colorful}
 \renewcommand{\listingscaption}{Code Example}
 \renewcommand{\listoflistingscaption}{List of Code Examples}
@@ -68,9 +72,9 @@
 
 \usepackage[
     acronym,
-    style=long3colheader,
-    % indexonlyfirst,
-    % nopostdot
+    style=longheader,
+    indexonlyfirst,
+    nopostdot
     ]{glossaries-extra}
 \setabbreviationstyle[acronym]{long-short} % first occurence long, rest short
 \renewcommand*{\acrshort}[1][]{\glsxtrshort[noindex,#1]} % acrshort -> no index

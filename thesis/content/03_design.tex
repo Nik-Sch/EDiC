@@ -59,6 +59,26 @@ The third feature that may be important is a three-state output which allows the
 It is accomplished by adding a tri-state output driver to the outputs of the flip-flops.
 
 The logic \gls{IC} that was chosen for the \gls{EDiC} is the \emph{74F825} because it has all three features and is 8 bits wide.
+
+\section{\gls{ALU} flags}\label{sec:aluFlags}
+The original version had only two very basic flags: The zero flag and negative flag.
+They are both very easy to derive and enable basic conditional execution.
+However, when programming more complex applications it is desireable to be able to work with more advanced \gls{ALU} flags.
+Having only Zero and Negative Flags, for example, does not allow unsigned operations which is especially important with only 8 data bits.
+It limits unsigned operations to only 0-127 even though the \gls{ALU} would be capable of calculations with 0-256.
+
+A lot of modern \glspl{CPU} feature many different flags with the Intel 64\textsuperscript{\textregistered} and IA-32 \gls{CPU} having about 20 different flags \cite[Section~3.4.3]{intelx86}.
+However, the popular ARM Architecture has a rather unique but very capable system for conditional execution which relies on only the four most used \gls{ALU} flags.
+The \gls{EDiC} uses the same flags and their functions are as follows:
+\begin{itemize}
+  \item \textbf{N} The \emph{Negative} flag indicates that the result is negative and is set if the 8th bit of the \gls{ALU} result is \texttt{'1'}.
+  \item \textbf{Z} The \emph{Zero} flag indicates that the result is 0 and is set if all 8 result bits are 0.
+  \item \textbf{V} The \emph{Overflow} flag indicates that an overflow occurred and is set if the carry in and carry out of the 8th full-adder are different.
+  This detects arithmetic overflows for signed two's-complement calculations.
+  \item \textbf{C} The \emph{Carry} flag is the carry out bit of the adder for adding and subtracting.
+  For logical operations (\texttt{XOR} and \texttt{AND}) the carry flag has no meaning and for shifting operations it equals the last bit that was ``carried out'' (or is unchanged if shifting by 0 bits).
+\end{itemize}
+
 \section{16bit Addresses}
 One of the major limitation of the 8 bit \gls{CPU} is the addressable memory space.
 With only 8 bit for the memory address, the maximum amount of memory addressable is 256 bytes.
@@ -197,7 +217,7 @@ Each \gls{ALU} operation modifies the status flags.
 \end{itemize}
 
 \paragraph{Memory operations} Some \gls{ALU} operations also include reading values from memory.
-The \gls{EDiC} features a lot more memory operations which are detailed below.
+However, the \gls{EDiC} features a lot more memory operations which are detailed below.
 As all memory operations may perform memory mapped I/O operations, special care must be taken to allow asynchronous I/O devices to function as well.
 This means that for each memory access, the address setup and hold must be an individual cycle, resulting in a 3 cycle memory access.
 \begin{itemize}

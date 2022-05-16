@@ -108,6 +108,7 @@ For conditional execution the \gls{ALU} includes two flags: Not Zero (at least o
 As is typical with \glspl{CISC} the \gls{CPU} does not need many general purpose registers and the register file can be kept simple with only two registers.
 The register file has one write port (from the bus) and two read ports of which one reads to the bus and the other is directly connected to the $A$ input of the \gls{ALU}.
 \subsubsection{Control Logic}\label{ssec:cl}
+\TODO{ALU operations -> not decoded}
 The control logic's job is to decode the current instruction and provide all the control signals for each cycle for any instruction.
 For keeping track which cycle of each instruction is currently executing a 3 bit synchronous counter is needed.
 Each control signal could be derived by a logical circuitry with 13 inputs: 8 bits instruction, 2 bits \gls{ALU} flags and 3 bits cycle counter.
