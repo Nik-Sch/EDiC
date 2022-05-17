@@ -1,64 +1,147 @@
 % !TEX root = ../thesis.tex
-\chapter{Design Adaptations}\label{cha:designChanges}
-For building the \gls{EDiC} the goal was to keep to the same basic infrastructure of the first version \gls{CPU}.
-However, many bugs and problems that occurred in the building of it should be addressed and avoided.
-Furthermore, the \gls{CPU} should be extended with some important features that were not implemented in the first version.
+\chapter{\gls{Architecture}}\label{cha:architecture}
+% For building the \gls{EDiC} the goal was to keep to the same basic infrastructure of the first version \gls{CPU}.
+% However, many bugs and problems that occurred in the building of it should be addressed and avoided.
+% Furthermore, the \gls{CPU} should be extended with some important features that were not implemented in the first version.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Design Decisions}
+
+\subsection{8 bit bus width}
+Most current era \glspl{CPU} employ a 32 bit or 64 bit bus to handle large numbers and large amounts of data.
+It was clear to me that I needed to settle for a smaller bus when building a \gls{CPU} by hand.
+Some early \glspl{CPU} worked with only 4 bits but to not be as limited I finally chose to use an 8 bit bus.
+\subsection{Datapath Architecture - Multicycle CISC}
+In most \glspl{CPU} an instruction is not done in one clock cycle but it is divided into several steps that are done in sequence.
+There are two general approaches that are called \emph{Multicycle} and \emph{Pipelining} \cite{PattersonDavid2016RuRD}.
+Multicycle means that all the steps of one instruction are performed sequentially and a new instruction is only dispatched after the previous instruction is finished.
+This is usually used when implementing \glspl{CISC}, where one instruction can be very capable \cite{chen_novick_shimano_2000}.
+For example a add instruction in \gls{CISC} could fetch operands from memory, execute the add and write the result back to memory.
+\glspl{RISC} on the other hand would need independent instruction to load operands from memory into registers, do the addition and write the result back to memory.
+
+In Pipelining there a fixed steps each instruction goes through in a defined order and the intermediate results are stored in so called pipeline registers.
+Each pipeline step is constructed in such a way that it does not intervene with the others.
+Therefore, it is possible to dispatch a new instruction each cycle even though the previous instruction is not yet finished.
+A typically 5-step pipeline would consist of the following steps \cite{PattersonDavid2016RuRD}:
+\begin{enumerate}
+  \item \textbf{Instruction Fetch}: The instruction is retrieved from memory and stored in a register.
+  \item \textbf{Instruction Decode}: The fetched instruction is decoded into control signals (and instruction specific data) for all the components of the \gls{CPU}.
+  \item \textbf{Execute}: If arithmetic or logical operations are part of the instruction, they are performed.
+  \item \textbf{Memory Access}: Results are written to the memory and/or data is read from memory.
+  \item \textbf{Writeback}: The results are written back to the registers.
+\end{enumerate}
+However good the performance of a pipelined \gls{CPU} is, it also comes with challenges.
+Those include a greater resource usage because all intermediate results need to be stored in pipeline registers.
+Additionally, branch instructions\footnote{Branch Instructions change the \gls{PC} and with that the location from which the next instruction is to be fetched. This is required for conditional and looped execution.} pose a great challenge because at the moment, the \gls{CPU} execute the branch the next instructions have already been dispatched.
+This means that the pipeline needs to be flushed (i.e. cleared), performance is lost and more logic is required.
+It also noteworthy that branch prediction and pipeline flushes can be quite vulnerable as recently shown in CVE-2017-5753 with the Spectre bug \cite{CVE-2017-5753}.
+
+Therefore, I decided to build my \gls{CPU} as a Multicycle \gls{CISC}.
+
+\subsection{Single-Bus Oriented}
+The decision for a Multicycle \gls{CPU} also enabled the architecture to be single-bus oriented.
+This means that all modules (e.g. the \gls{ALU} and the memory) are connected to a central bus for data transfer.
+The central bus is then used as a multi-directional data communication.
+To allow this in hardware, all components that drive the bus (i.e. ``send'' data) need to have a tri-state driver.
+A tri-state driver can either drive the bus with a defined `0' or `1' or high impedance which allows other tri-state drivers on the same bus to drive it.
+That way an instruction which fetches a word from the memory from an address stored in a register and stores it in a register could consist of the following steps:
+\begin{enumerate}
+  \item Instruction Fetch
+  \item Instruction Decode
+  \item Memory Address from register over \emph{bus} to memory module
+  \item Memory Access
+  \item Data from memory module over \emph{bus} to register
+\end{enumerate}
+With such an architecture it is possible to avoid large multiplexers and keep the overall architecture simple.
+
+
+\section{Modules}
+The original design was split into 7 independent modules of varying complexity.
+\subsection{\glsxtrfull{ALU}}
+\begin{table}
+  \centering
+  \renewcommand{\arraystretch}{1.25}
+  \caption{Summary of the available alu operations.}
+  \label{tab:aluOp}
+  \begin{tabularx}{.8\textwidth}{ |c|c|c||X| }
+    \hline
+    aluOp[1] & aluOp[0] & aluSub & Resulting Operation             \\\hline\hline
+    0        & 0        & 0      & ($A + B$) Addition              \\\hline
+    0        & 0        & 1      & ($A - B$) Subtraction           \\\hline
+    0        & 1        & 0      & ($A \land B$) AND               \\\hline
+    0        & 1        & 1      & ($A \land \overline{B}$)        \\\hline
+    1        & 0        & 0      & ($A \veebar B$) XOR             \\\hline
+    1        & 0        & 1      & ($\overline{A \veebar B}$) XNOR \\\hline
+    1        & 1        & 0      & ($A \gg B$) logical shift right \\\hline
+    1        & 1        & 1      & ($A \ll B$) logical shift left  \\\hline
+  \end{tabularx}
+\end{table}
+The \gls{ALU} is capable of 4 different operations plus inverting the $B$ input for two's complement subtraction.
+Therefore, there are three control signals which control the operation: two alu-operation bits plus one subtract bit.
+The $B$ input is XORed with the aluSub bit which results in the $B$ input being inverted when aluSub is `1' and otherwise $B$ remains the same.
+The aluSub bit is also connected to the carry input of the adder and with that, results in a two's complement subtraction.
+All possible operations are shown in \cref{tab:aluOp}.
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{full_adder.pdf}
+  \caption{1 bit full adder with the usual A, B and Carry inputs and Y and Carry outputs as well as the XOR and AND outputs.}
+  \label{fig:full_adder}
+\end{figure}
+The adder is a simple ripple carry adder for its simplicity and the XOR and AND operation from the half-adders are also used as the logic operations.
+A complete 1 bit full-adder is shown in \cref{fig:full_adder}.
+
+\begin{sidewaysfigure}[p]
+  \centering
+  \includegraphics[width=\linewidth]{barrel_shifter.pdf}
+  \caption{8 bit bidirectional barrel shifter.}
+  \label{fig:barrel_shifter}
+\end{sidewaysfigure}
+It was desirable to include a barrel shifter to have the possibility to improve multiply operation with a shift and add approach instead of repeated addition.
+The barrel shifter works by 3 consecutive multiplexers to shift by 1, 2 or 4 bit to the right that are controlled by the first 3 bit of the (not inverted) $B$ input.
+To also allow shifting to the left there is one multiplexer before the three shift multiplexers to invert the order of bits and another one after the shifting to reorder the bits.
+In \cref{fig:barrel_shifter} a bidirectional barrel shifter implemented with the \texttt{74F157} is visualized. The \texttt{74F157} implements four 2 to 1 multiplexer and, therefore, 2 chips are needed for a full 8 bit 2 to 1 multiplexer.
+
+The multiplexed result is stored in an 8 bit \gls{ALU} result register.
+For conditional execution the \gls{ALU} includes two flags: Not Zero (at least one bit is one) and negative (the \gls{MSB}).
+
+\subsection{Register File}
+As is typical with \glspl{CISC} the \gls{CPU} does not need many general purpose registers and the register file can be kept simple with only two registers.
+The register file has one write port (from the bus) and two read ports of which one reads to the bus and the other is directly connected to the $A$ input of the \gls{ALU}.
+\subsection{Control Logic}\label{ssec:cl}
+\TODO{ALU operations -> not decoded}
+The control logic's job is to decode the current instruction and provide all the control signals for each cycle for any instruction.
+For keeping track which cycle of each instruction is currently executing a 3 bit synchronous counter is needed.
+Each control signal could be derived by a logical circuitry with 13 inputs: 8 bits instruction, 2 bits \gls{ALU} flags and 3 bits cycle counter.
+However, designing these logic circuits is a lot of work, takes up a lot of space and cannot be changed easily later on. (For example when finding a bug in one instruction)
+Therefore, an \gls{EEPROM} is used where the 13 bits that define one cycle of one specific instruction are used as addresses.
+The control signals then are the data bits of the word that is stored at the specific address in the \gls{EEPROM}.
+
+The first two cycles of each instruction need to be taken in special consideration because the instruction register is not yet loaded with the next instruction, because it is still being fetched and decoded.
+However, the instruction fetch and decode are always the same for each instruction, which means that all memory locations where the cycle counter is equal to 0 or 1 (the first two instructions) are filled with the control signals for an instruction fetch and decode.
+\subsection{Memory}
+The memory module contains the main memory of the \gls{CPU} in form of an asynchronous \gls{SRAM} and the instruction memory as an \gls{EEPROM}.
+This way a new program can be loaded into the \gls{CPU} by reprogramming the \gls{EEPROM}.
+Both the \gls{SRAM} and the \gls{EEPROM} have their data lanes connected to the bus for reading from and writing to the memory.
+The address is controlled via an \gls{MAR} from the bus.
+\subsection{\glsxtrfull{PC}}
+The \gls{PC} is a special register with two main functionalities:\\
+Usually it increments by one after each instruction.
+However, when a branch is executed it needs to load the branch address from the bus.
+For this an 8 bit increment similar to the cycle counter from the Control Logic \cref{ssec:cl} is multiplexed with the bus and used as the input data for the register.
+\subsection{Input \& Output}
+This first version of the \gls{CPU} included very rudimentary I/O logic.
+For input it provides an 8 bit DIP-Switch connected to the bus and for output there is a register with a 2 digit 7-segment display.
+\subsection{Clock \& Reset}
+The function of the clock module is threefold:\\
+It provides a clock for the whole \gls{CPU} while also providing an active-low reset for some of the registers to provide a defined starting condition.
+The clock has two modes. One to run continuously and another where the clock can be manually advanced.
+Additionally, there is a halt instruction which stops the \gls{CPU} clock until a button is pressed.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{General Improvements}\label{sec:improvements}
+\TODO{Merge with the modules above}
 There are several design decisions, especially in the hardware built, which caused problems or could have caused problems in certain circumstances.
-\paragraph{LED Driver}
-First of all, all \glspl{LED} were directly connected to the logic wires.
-This does work but the outputs of all logic \glspl{IC} have a limited current they can provide.
-For example, the \emph{74LS245} is rated for maximum \qty{20}{\uA} for high-level output and \qty{-200}{\micro\ampere} for an low-level output \cite{74ls245}.
-The way the \glspl{LED} were connected in the first \gls{CPU} they use only current when the logic \gls{IC} outputs a high-level voltage which is rated for \nicefrac{1}{10} the output current.
-When connecting more \glspl{IC} and one \gls{LED} the maximum current can easily be exceeded.
-Therefore, all \glspl{LED} of the \gls{EDiC} are powered with an additional inverting driver, the \emph{74ABT540} which is rated for \qty{50}{\uA} in both directions \cite{74abt540}.
-\paragraph{Register \gls{IC}}
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=.6\textwidth]{ce.png}
-  \caption{Clock Enable circuit of the \emph{74F825} \gls{IC} \cite{74f825}.}
-  \label{fig:clockEnable}
-\end{figure}
-% A basic 1 bit register
-The 74 series of logic \glspl{IC} feature many different registers.
-The most basic register \gls{IC} has $n$ D-type flip-flops with respective data inputs and outputs plus one common clock input.
-On each rising edge of the clock the flip-flops capture the input values and hold them until the next rising edge of the clock.
-However, often it is required that a register does not capture on every rising edge of the clock.
-This is done with an additional input, called clock enable.
-In the first version of the \gls{CPU} the clock inputs of the registers that needed clock enable were connected to the output of an AND gate of the clock and a control bit.
-This has the major drawback that glitches of the enable control signal can propagate to the clock input of the register when the clock is currently high.
-There are two widely used alternatives to the simple AND gate:
-The enable input can be used as the select input for an multiplexer to the data input of the flip flop, where it multiplexes between the actual input and the current output.
-This allows the flip-flop to always capture data but when the enable input is inactive, it recaptures the current output.
-The drawbacks are that each bit of the register needs a multiplexer at the input and secondly that the flip-flops draw power on every clock pulse, even though no data is captured.
-The \emph{74F825} logic \gls{IC} solves this with the circuit shown in \cref{fig:clockEnable}.
-When the $\overline{\text{EN}}$ input is low, the CP input is NAND gate on the right passed the negated CP through\footnote{The internal flip-flops of the \emph{74F825} are negative edge triggered}.
-When the $\overline{\text{EN}}$ input is high, on the other hand, the output does not change.
-This circuit prevents the $\overline{\text{EN}}$ to trigger a falling edge (which would trigger the flip-flops) on the CP output.
-However, when the $\overline{\text{EN}}$ goes high while the CP input is high, then the output also goes high.
-This is not directly a problem because the flip-flops only trigger on falling edges but is the reason for timing requirements on the $\overline{\text{EN}}$ input which are discussed in more detail in \cref{sec:timing}.
-\begin{figure}[t]
-  \centering
-  \begin{subfigure}[b]{.45\textwidth}
-    \includegraphics[height=7.5cm]{DFlipFlop.pdf}
-    \subcaption{Classical D-type flip-flop built out of three $\overline{\text{SR}}$ NAND latches \cite{DFlipFlop}.}
-  \end{subfigure}%
-  \hspace{.05\textwidth}
-  \begin{subfigure}[b]{.45\textwidth}
-    \includegraphics[height=7.5cm]{DFlipFlopClearSet.pdf}
-    \subcaption{D-type flip-flop modified to support $\overline{\text{Clear}}$ and $\overline{\text{Set}}$ \cite{DFlipFlopClearSet}.}
-  \end{subfigure}
-  \caption{Comparison of D-type flip-flops with and without $\overline{\text{Clear}}$ and $\overline{\text{Set}}$.}
-  \label{fig:clearSet}
-\end{figure}
-As the registers store the current state of execution, it is required that the registers start up to a known state.
-Therefore, some registers feature a clear input (or set input) which forces all flip-flops to 0 (or 1).
-This is usually accomplished by modifying the classical D-type flip-flop to allow for setting and resetting the internal $\overline{\text{SR}}$ NAND latches as shown in \cref{fig:clearSet}.
-
-The third feature that may be important is a three-state output which allows the register to be directly connected to a bus.
-It is accomplished by adding a tri-state output driver to the outputs of the flip-flops.
-
-The logic \gls{IC} that was chosen for the \gls{EDiC} is the \emph{74F825} because it has all three features and is 8 bits wide.
 
 \section{\gls{ALU} flags}\label{sec:aluFlags}
 The original version had only two very basic flags: The zero flag and negative flag.

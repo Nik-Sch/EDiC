@@ -1,0 +1,40 @@
+% !TEX root = ../thesis.tex
+\chapter{FPGA Model}\label{cha:fpga}
+The goal of the \gls{FPGA} simulation is to proof the general workings of the \gls{CPU} architecture.
+There was no attempt made to provide a chip-level simulation of the hardware build but rather to provide a top-level behavioral model.
+The chosen development environment is the AMD - Xilinx Vivado \cite{vivado} as it is freely available and provides an advanced simulation environment while providing the possibility to synthesize for relatively cheap \glspl{FPGA}.
+
+One major problem with tri-state bus logic for \glspl{FPGA} is that most current era \glspl{FPGA} do not feature tri-state bus drivers in the logic.
+Most \glspl{FPGA} do have bidirectional tri-state transceiver for I/O logic but not for internal logic routing.
+However, the \glspl{HDL} (both \gls{VHDL} and Verilog) support tri-state logic and the Xilinx Simulation tool also does.
+As the first \gls{CPU} was only simulated, this was not a problem and the tri-state logic could be used the same way as in the hardware build.
+\Cref{cha:fpga} describes how tri-state logic is solved for the synthesis of the \gls{EDiC}.
+
+\subsection{Language Choice}
+There are two main \glspl{HDL}: Verilog and \gls{VHDL}.
+Both are widely supported and used and can also be used in parallel in the same design.
+At the \gls{TUB} \gls{VHDL} is taught and in Germany it also used more often.
+However, in general both are used about equally often \cite{vhdlVerilog}.
+
+As I only knew \gls{VHDL} and very basic concepts of Verilog, I decided to start in Verilog to get to know the differences.
+\begin{listing}
+  \inputminted[linenos,
+    breaklines,
+    firstline=24,
+    lastline=61,
+    % firstnumber=1,
+    frame=leftline,
+    xleftmargin=20pt,
+  ]{verilog}{src/alu_proto.sv}
+  \caption{(System)-Verilog Code for the \gls{ALU} of the first \gls{CPU} version.}
+  \label{lst:alu_proto}
+\end{listing}
+\Cref{lst:alu_proto} shows the Verilog Code for the \gls{ALU} module (without the module definition to fit on one page).
+Lines 24-28 describe the synchronous, positive-edge-triggered alu output register with a write enable.
+The 8 XOR for the B input are described by lines 39-42 and lines 44-61 show an combinatorial process for the alu operation and multiplexing.
+The lines 50-58 describe the bidirectional barrel shifter with 3 shift steps (by 1, 2, and 4) and the reverse \glspl{MUX} in front and at the end.
+
+\section{Behavioral Simulation}
+\section{Behavioral Implementation}
+\section{Chip-level Implementation}
+\subsection{Conversation Script}
