@@ -201,7 +201,7 @@ Especially for a \gls{CPU} with only 8 bits it is important to support unsigned 
 \begin{table}
   \centering
   \renewcommand{\arraystretch}{1.25}
-  \caption{All available branch instructions with their op-code and microcode translation based on the \gls{ALU} flags explained in \cref{sec:aluFlags}.}
+  \caption{All available branch instructions with their op-code and microcode translation based on the \gls{ALU} flags explained in \cref{sec:alu}.}
   \label{tab:mc_flagMeanings}
   \begin{tabularx}{\textwidth}{ |c|l|l|X| }
     \hline
@@ -264,9 +264,11 @@ The register value can also be passed as the address to a memory operation with 
 
 Immediate values can also be specified as value or as address with brackets around the immediate value.
 However, the syntax for immediate values is more complex, as the assembler can parse decimal (positive and negative) as well as hexadecimal numbers.
-Additionally, variables can be used which are further explained in \cref{sec:variables}.
+Additionally, variables can be used which are further explained in \cref{sec:constants}.
+
 When specifying a value, the immediate can range between -127 and 255 (two's complement and unsigned) and when used as an address it can range between 0 and 0xfffe (65534). The upper limit is not 0xffff because that address is reserved for the return address and should not be overwritten.
-\paragraph{\gls{ALU} Instructions} The following \gls{ALU} instructions are available:
+\subsubsection{\gls{ALU} Instructions}
+The following \gls{ALU} instructions are available:
 \begin{multicols}{4}
   \begin{itemize}
     \item add
@@ -283,24 +285,197 @@ When specifying a value, the immediate can range between -127 and 255 (two's com
 \begin{itemize}
   \item Two registers
 
-  \qquad\texttt{sub r0, r1} does: $r_0:=r_0-r_1$
+        \qquad\mintinline{ARM}{sub r0, r1} does: $r_0:=r_0-r_1$
   \item One register and one register as memory address
 
-  \qquad\texttt{lsr r1, [r0]} does: $r_1:=r_1\gg\text{mem}[r_0]$
+        \qquad\mintinline{ARM}{lsr r1, [r0]} does: $r_1:=r_1\gg\text{mem}[r_0]$ (\cref{sec:memInstr})
   \item One register and an immediate value
 
-  \qquad\texttt{and r0, 0x0f} does: $r_0:=r_0\xor 15$
+        \qquad\mintinline{ARM}{and r0, 0x0f} does: $r_0:=r_0\xor 15$
   \item One register and an immediate value as memory address
 
-  \qquad\texttt{add r1, [0x0542]} does: $r_1:=r_1+\text{mem}[1346]$
+        \qquad\mintinline{ARM}{add r1, [0x0542]} does: $r_1:=r_1+\text{mem}[1346]$
 \end{itemize}
 All of the \gls{ALU} instructions can have an `s' as suffix which has the effect that the result of the operation is not written to the first operand.
 This is useful when a calculation is only performed to update the \gls{ALU} flags but the register value is used later on.
-This results in a special \gls{ALU} instruction: \texttt{cmp} which is an alias to \texttt{subs} which is typically used to compare to values and perform a branch instruction based on the result.
+This results in a special \gls{ALU} instruction: \mintinline{ARM}{cmp} which is an alias to \mintinline{ARM}{subs} which is typically used to compare to values and perform a branch instruction based on the result.
 \begin{minted}{ARM}
-cmp r0, 10
+cmp r0, 10 // equal to subs r0, 10
 blt 0x42
 \end{minted}
-compares the \texttt{r0} register with the value 10 and if $r0 < 10\nicefrac{12}{13\pi}$ branches to instruction at address 66 and preserves the content of \texttt{r0}.
-\subsection{Variables}\label{sec:variables}
+compares the \texttt{r0} register with the value 10 and if $r0 < 10$ branches to instruction at address 66 and preserves the content of \texttt{r0}.
+
+\subsubsection{Memory Instructions}\label{sec:memInstr}
+The following memory instructions are supported:
+\begin{multicols}{4}
+  \begin{itemize}
+    \item str
+    \item ldr
+    \item sts
+    \item lds
+    \item stf
+    \item ldf
+    \item sma
+  \end{itemize}
+\end{multicols}
+
+The two common instructions are \mintinline{ARM}{str} and \mintinline{ARM}{ldr} which are \emph{store} and \emph{load} operations.
+These two instructions take two parameters:
+Th first is the register used in the store or load operation and the second is the memory address.
+They either take an 16bit immediate address which is used as the full address for the access or a register as address.
+As the registers are only 8 bits, the register value is only used for the lower 8 bits of the address and the upper 8 bits are the value of the \gls{MAR}.
+The upper 8 bits of the \gls{MAR} can be set with the \mintinline{ARM}{sma} instruction which takes either a register or an 8 bit immediate value.
+
+The \mintinline{ARM}{lds} and \mintinline{ARM}{sts} instructions are used for accessing the stack.
+They only take immediate addresses and the compile makes sure that the addresses upper 8 bits are \texttt{0xff} to always access the stack.
+
+The \mintinline{ARM}{ldf} and \mintinline{ARM}{stf} functions work very similar in only accessing the stack.
+However, before the memory access, the \gls{SP} is incremented and after the access, it is restored.
+This way, it is possible to access parameters of a function that is called.
+
+Some examples:
+
+\begin{tabular}{m{.3\textwidth}m{.65\textwidth}}
+  \mintinline{ARM}{ldr r0, [0xabba]} & Loads the value from address \texttt{0xabba} into \texttt{r0}                                                                       \\
+  \mintinline{ARM}{str r1, [0xc0de]} & Stores the value in \texttt{r1} to address \texttt{0xc0de}                                                                          \\
+  \begin{minted}{ARM}
+sma 0xca
+mov r0, 0xfe
+ldr r0, [r0]
+  \end{minted}
+                                     & Loads the value from address \texttt{0xcafe} into \texttt{r0}                                                                       \\
+  \mintinline{ARM}{lds r1, [0x42]}   & Loads the value fromm address \texttt{0xff42} which is translated into \texttt{0x\{sp\}42} into \texttt{r1}                         \\
+  \mintinline{ARM}{stf r0, [0xab]}   & Stores the value in \texttt{r0} to address \texttt{0xffab} with incremented \gls{SP} which is translated into \texttt{0x\{sp+1\}ab} \\
+\end{tabular}
+
+\subsubsection{Miscellaneous Instructions}
+There are four more instructions that are essential:
+
+\begin{multicols}{4}
+  \begin{itemize}
+    \item mov
+    \item b
+    \item call
+    \item ret
+  \end{itemize}
+\end{multicols}
+The \mintinline{ARM}{mov} instruction either takes two registers or one register and an 8 bit immediate value as parameters.
+When specifying two registers, the content of the second register is copied to the first register.
+Otherwise, the immediate value is stored in the register.
+The branch (\mintinline{ARM}{b}) instruction takes a 16 bit immediate value which is used as the new \gls{PC} content.
+It is the only conditional instruction that is available in the \gls{EDiC} instruction set.
+The second column of \cref{tab:mc_flagMeanings} lists all the possible suffixes for conditional branches and their meanings.
+If the condition is met, the branch is executed, otherwise the instruction has no effect.
+
+The \mintinline{ARM}{call} instruction also takes a 16 bit immediate address which is the destination address for the call.
+In contrast to the branch instruction, the call is not conditional (i.e. it is always executed) and has the side effect of incrementing the \gls{SP} and storing the current \gls{PC} on the stack at address \texttt{0x\{sp\}ff}.
+
+The \mintinline{ARM}{ret} instruction is used at the end of a function without any parameters to restore the \gls{PC} from the stack at address \texttt{0x\{sp\}ff} and decrement the \gls{SP} again.
+
+Some examples:
+
+\begin{tabular}{m{.3\textwidth}m{.65\textwidth}}
+  \mintinline{ARM}{mov r0, 0xda} & Sets \texttt{r0} to \texttt{0xda}                                                                       \\
+  \mintinline{ARM}{mov r1, r0}   & Copies the value of \texttt{r0} to \texttt{r1}                                                          \\
+  \begin{minted}{ARM}
+cmp r0, 10
+blt 0x42
+  \end{minted}
+                                 & Branches to address (sets the \gls{PC} to) \texttt{0x42} if the value of \texttt{r0} is smaller than 10 \\
+  \mintinline{ARM}{call 0x100}   & Calls a function at address \texttt{0x100}                                                              \\
+  \mintinline{ARM}{ret}          & Returns from a function to the caller
+\end{tabular}
+
+\subsection{Constants}\label{sec:constants}
+One main improvement that an assembler allows over manually setting the instruction bits is the use of constants in the code.
+They can be declared to represent a value and then used similarly to variables of higher level languages instead of hard coded numbers.
+The \gls{EDiC} assembler supports three kinds of constants: Value constants, labels and string constants.
+\subsubsection{Value constants}\label{sec:vconstants}
+Value constants are the easiest kind of constants available.
+The first two lines of \cref{lst:asm_prng,lst:asm_prng_cmp} both declare a common constant that is used exactly like in higher level languages.
+Each instruction, taken an immediate value can instead specify the name of the constant and the value of the constant is then used instead.
+In \cref{lst:asm_prng_cmp} line 5 (\mintinline{ARM}{ldr r0, [PRNG_SEED]}) is assembled into the same instruction as \mintinline{ARM}{ldr r0, [0x00]}.
+Constant declarations have the format \texttt{<name> = <value>}.
+
+These value constants can be used to make the code easier to understand.
+For example \mintinline{ARM}{str r0, [SIMPLE_IO]} makes it clearer that the value of r0 is not stored in some memory location but rather send to some I/O device (in this case the internal I/O register from \cref{sec:IO}).
+It also prevents errors where a typo in an address causes unintended behavior of the code.
+
+\subsubsection{Labels}
+\begin{listing}
+  \begin{multicols}{2}
+    \inputminted[linenos,
+      breaklines,
+      frame=leftline,
+      xleftmargin=20pt,
+    ]{ARM}{src/prng.s}
+    \inputminted[breaklines]{ARM}{src/prng_cmp.s}
+
+  \end{multicols}
+  \caption{The \gls{PRNG} of \cref{lst:asm_prng} with the constants and labels resolved.}
+  \label{lst:asm_prng_cmp}
+\end{listing}
+Instruction labels are often used in assemblers are a huge convenience.
+They are declared by specifying a label name followed by a colon and hold the address of the next instruction.
+Then, they can be used as immediate values for branch and call instructions to jump to the instruction followed by the label declarations.
+As seen in \cref{lst:asm_prng} the line 21 (\mintinline{ARM}{call prng}) is assembled into the instruction \mintinline{ARM}{call 0x01} which is the location of the instruction after the declarations of the \texttt{prng} label (\mintinline{ARM}{ldr r0, [PRNG_SEED]}).
+
+The load instruction from line 5 is actually the first instruction of the \gls{PRNG} algorithm, however, it is not assembled as the first instruction.
+This is due to a special label being declared in the code at line 17.
+When the \texttt{start} label is declared, then a new instruction is inserted at the beginning which unconditionally branches to the instruction after the start label.
+This can be seen in \cref{lst:asm_prng_out} where the first instruction is a \mintinline{ARM}{b 0x0a} because the first instruction after the start label got assembled to the address \texttt{0x0a}.
+The use of the start label comes especially clear in the \cref{sec:imports}.
+
+\subsubsection{String constants}
+\begin{listing}
+  \inputminted[linenos,
+    breaklines,
+    frame=leftline,
+    xleftmargin=20pt,
+  ]{ARM}{src/snake_excerpt.s}
+  \caption{Excerpts of the Snake assembler program used in the demo in \cref{fig:EDiCSnake}.}
+  \label{lst:asm_snake_excerpt}
+\end{listing}
+
+
+\begin{listing}
+  \begin{multicols}{2}
+    \inputminted[linenos,
+      breaklines,
+      % firstline=1,
+      lastline=21,
+      frame=leftline,
+      xleftmargin=20pt,
+    ]{ARM}{src/snake_excerpt_str.s}
+    \inputminted[linenos,
+      breaklines,
+      firstline=22,
+      % lastline=21,
+      frame=leftline,
+      xleftmargin=20pt,
+    ]{ARM}{src/snake_excerpt_str.s}
+
+  \end{multicols}
+  \caption{The instructions resulting from the string definition of \cref{lst:asm_snake_excerpt} line 4.}
+  \label{lst:asm_string_out}
+\end{listing}
+The third constant is rather advanced and uses very \gls{EDiC} specific features.
+It allows the definition of character strings with a maximum length of 255 chars which can later be used.
+Differently to the value constants of \cref{sec:vconstants} strings cannot be used as parameters to instructions directly, because a string is a rather complex data structured in the context of assemblers.
+In the \gls{EDiC} assembler a string can be defined as shown in \cref{lst:asm_snake_excerpt} line 4 with the syntax \texttt{<address>.<name> = "<value>"}.
+In the example a string constant with the name ``LOST\_STRING'' is defined to have the content ``You lost!!! Score: '' at the address \texttt{0x20}.
+The \gls{EDiC} assembler treats a string as an NULL-terminated array of characters which are characters stored consecutively and after the last character a NULL-byte is stored to signal the end of the string.
+The address of a string constant actually defines the upper 8 bits of the address where the string is stored and is also the value of the constant itself.
+This means that the string in the example is actually stored at addresses \texttt{0x2000} to \texttt{0x2013} (18 characters plus 1 NULL-byte) and \mintinline{ARM}{mov r0, LOST_STRING} in line 9 is equivalent to \mintinline{ARM}{mov r0, 0x20}.
+As the assembler has no direct control over the memory contents as for example the ARM assembler, each string declarations results in two instructions per character that are inserted at the start of the program\footnote{Before the \mintinline{ARM}{b start} instruction that is inserted when a start label exists.} as shown in \cref{lst:asm_string_out}.
+
+\Cref*{lst:asm_snake_excerpt} lines 15 to 31 show a function that gets the upper 8 bits of the string address as a parameter in \texttt{r0}.
+It outputs the characters one by one in a loop until the NULL-byte is reached.
+To retrieve each character, firstly the \mintinline{ARM}{sma} instruction is called with the \glspl{MSB} of the address and then the \mintinline{ARM}{ldr} instruction with the loop register \texttt{r1} as an address argument is called.
+The character (in \texttt{r0}) is then passed as an argument to the \texttt{uart\_write} function.
+
+\subsection{File imports}\label{sec:imports}
+
+
+
 \subsection{Syntax Definition for VS Code}

@@ -76,7 +76,7 @@ With such an architecture it is possible to avoid large multiplexers and keep th
 
 \section{Modules}
 The design has been split into 7 rather independent modules of varying complexity which mainly interface with the bus and control signals.
-\subsection{\glsxtrfull{ALU}}
+\subsection{\glsxtrfull{ALU}}\label{sec:alu}
 \begin{table}
   \centering
   \renewcommand{\arraystretch}{1.25}
@@ -157,7 +157,7 @@ The value of the \gls{PC} is used as address for the instruction \glspl{EEPROM} 
 
 Each instruction of the \gls{EDiC} is stored in a 24 bit register of which 8 bits are the instruction and 16 bits represent an optional instruction immediate which can be used as an address for the memory/\gls{PC} (16 bit) or as data (8 bit) driven to the bus.
 The instruction is directly forwarded to the control logic (\cref{sec:control}).
-\subsection{Control Logic}\label{ssec:cl}
+\subsection{Control Logic}\label{sec:control}
 The control logic's job is to decode the current instruction and provide all the control signals for each cycle for any instruction.
 For keeping track which cycle of each instruction is currently executing a 3 bit synchronous counter is needed.
 Each control signal could be derived by a logical circuitry with 13 inputs: 8 bits instruction, 4 bits \gls{ALU} flags and 3 bits cycle counter.
@@ -205,7 +205,7 @@ For example: The \gls{SP}  is currently \texttt{0x21} and a memory access to the
 Then the actual address at the memory \gls{IC} is \texttt{0x1\_2142}.
 
 This allows each function (which has a unique \gls{SP} value on the current call stack) to have 256 bytes of function local memory.
-In the \emph{call} instruction, the \gls{EDiC} automatically stores the return address (next \gls{PC} value) at address \texttt{0xffff}, which is \texttt{0x1\_spff} after translation.
+In the \emph{call} instruction, the \gls{EDiC} automatically stores the return address (next \gls{PC} value) at address \texttt{0xffff}, which is \texttt{0x1\_\{sp\}ff} after translation.
 To store the whole 16 bit return address, a second memory \gls{IC} is used in parallel which only needs 256 bytes of storage.
 In the hardware build of the \gls{EDiC} the same \gls{SRAM} \gls{IC} as for the main memory is used because it is cheaply available and the built is simplified by not using more different components.
 The call and return instructions are further described in \cref{sec:instructionSet}.
@@ -223,7 +223,7 @@ These two sources of addresses are then decoded to either select the stack (uppe
 The chip enable of the main memory is only asserted when performing stack and regular memory accesses while the I/O chip enable is only asserted when the upper 8 bits are \texttt{0xfe}.
 Additionally, the 17th address bit is asserted when stack access is performed and the upper 8 bits of the address are replaced with the \gls{SP} in this case.
 
-\subsection{Input \& Output}
+\subsection{Input \& Output}\label{sec:IO}
 The \gls{EDiC} can interface with different I/O devices connected to it via the memory mapped I/O.
 For evaluation and debugging, the \gls{EDiC} includes one I/O device at address \texttt{0x00} which can be read from and written to.
 The values to be read can be selected by the user with a hexadecimal 8 bit switch and the values written to the address \texttt{0x00} are displayed with a 2 digit display.
