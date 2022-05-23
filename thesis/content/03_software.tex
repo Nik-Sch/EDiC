@@ -254,6 +254,21 @@ The assembler for the \gls{EDiC}, therefore, allows easier programming with a si
 
 \Cref{lst:asm_prng,lst:asm_prng_out} show the translation that the assembler does where \cref{lst:asm_prng} shows the assembler program that is written by any programmer and \cref{lst:asm_prng_out} summarizes what values are stored in the program \gls{EEPROM}.
 
+\subsection{Calling conventions}
+Even though calling conventions are strictly speaking not a feature of the assembler, it is an important factor to keep in mind with functional programming.
+Calling conventions are a set of rules which caller (the instructions calling a subroutine) and callee (the subroutine that is called) should usually follow.
+\paragraph{Parameters}
+Usually the first parameters from the caller to the callee are passed in registers, which avoids long memory operations for storing and loading the parameters.
+In the \gls{EDiC} memory operations cannot stall and are, therefore, not slower than register operation and the \gls{EDiC} has only 2 registers.
+Therefore, only the very first argument is passed in \texttt{r0} and all further arguments are passed in the memory.
+The parameters are stored on the stack of the callee starting at stack address \texttt{0x00} (\texttt{0xff00} as memory address).
+\paragraph{Return value}
+The return value is to be place in \texttt{r0}.
+If a return value larger than 8 bit (or multiple 8 bit values) are to be returned, the caller may pass a pointer to a memory location as a parameter and the callee works on the memory content pointed to.
+\paragraph{Preservation}
+The register \texttt{r1} can to be used as a function local variable and, therefore, has to be preserved by any callee.
+This is usually done by storing the content on the stack at the beginning of the function and restoring them from the stack at the end of the function.
+
 \subsection{Available Instructions}
 First of all, this section summarizes all available instructions and which parameters they take.
 All instructions start with the operation and then up two parameters separated by a comma.
@@ -409,7 +424,7 @@ It also prevents errors where a typo in an address causes unintended behavior of
       frame=leftline,
       xleftmargin=20pt,
     ]{ARM}{src/prng.s}
-    \inputminted[breaklines]{ARM}{src/prng_cmp.s}
+    \inputminted[breaklines, frame=leftline]{ARM}{src/prng_cmp.s}
 
   \end{multicols}
   \caption{The \gls{PRNG} of \cref{lst:asm_prng} with the constants and labels resolved.}
@@ -438,7 +453,17 @@ The use of the start label comes especially clear in the \cref{sec:imports}.
 \end{listing}
 
 
-\begin{listing}
+The third constant is rather advanced and uses very \gls{EDiC} specific features.
+It allows the definition of character strings with a maximum length of 255 chars which can later be used.
+Differently to the value constants of \cref{sec:vconstants} strings cannot be used as parameters to instructions directly, because a string is a rather complex data structured in the context of assemblers.
+In the \gls{EDiC} assembler a string can be defined as shown in \cref{lst:asm_snake_excerpt} line 4 with the syntax \texttt{<address>.<name> = "<value>"}.
+In the example a string constant with the name ``LOST\_STRING'' is defined to have the content ``You lost!!! Score: '' at the address \texttt{0x20}.
+The \gls{EDiC} assembler treats a string as an NULL-terminated array of characters which are characters stored consecutively and after the last character a NULL-byte is stored to signal the end of the string.
+The address of a string constant actually defines the upper 8 bits of the address where the string is stored and is also the value of the constant itself.
+This means that the string in the example is actually stored at addresses \texttt{0x2000} to \texttt{0x2013} (18 characters plus 1 NULL-byte) and \mintinline{ARM}{mov r0, LOST_STRING} in line 9 is equivalent to \mintinline{ARM}{mov r0, 0x20}.
+As the assembler has no direct control over the memory contents as for example the ARM assembler, each string declarations results in two instructions per character that are inserted at the start of the program\footnote{Before the \mintinline{ARM}{b start} instruction that is inserted when a start label exists.} as shown in \cref{lst:asm_string_out}.
+
+\begin{listing}[t]
   \begin{multicols}{2}
     \inputminted[linenos,
       breaklines,
@@ -459,23 +484,45 @@ The use of the start label comes especially clear in the \cref{sec:imports}.
   \caption{The instructions resulting from the string definition of \cref{lst:asm_snake_excerpt} line 4.}
   \label{lst:asm_string_out}
 \end{listing}
-The third constant is rather advanced and uses very \gls{EDiC} specific features.
-It allows the definition of character strings with a maximum length of 255 chars which can later be used.
-Differently to the value constants of \cref{sec:vconstants} strings cannot be used as parameters to instructions directly, because a string is a rather complex data structured in the context of assemblers.
-In the \gls{EDiC} assembler a string can be defined as shown in \cref{lst:asm_snake_excerpt} line 4 with the syntax \texttt{<address>.<name> = "<value>"}.
-In the example a string constant with the name ``LOST\_STRING'' is defined to have the content ``You lost!!! Score: '' at the address \texttt{0x20}.
-The \gls{EDiC} assembler treats a string as an NULL-terminated array of characters which are characters stored consecutively and after the last character a NULL-byte is stored to signal the end of the string.
-The address of a string constant actually defines the upper 8 bits of the address where the string is stored and is also the value of the constant itself.
-This means that the string in the example is actually stored at addresses \texttt{0x2000} to \texttt{0x2013} (18 characters plus 1 NULL-byte) and \mintinline{ARM}{mov r0, LOST_STRING} in line 9 is equivalent to \mintinline{ARM}{mov r0, 0x20}.
-As the assembler has no direct control over the memory contents as for example the ARM assembler, each string declarations results in two instructions per character that are inserted at the start of the program\footnote{Before the \mintinline{ARM}{b start} instruction that is inserted when a start label exists.} as shown in \cref{lst:asm_string_out}.
-
 \Cref*{lst:asm_snake_excerpt} lines 15 to 31 show a function that gets the upper 8 bits of the string address as a parameter in \texttt{r0}.
 It outputs the characters one by one in a loop until the NULL-byte is reached.
 To retrieve each character, firstly the \mintinline{ARM}{sma} instruction is called with the \glspl{MSB} of the address and then the \mintinline{ARM}{ldr} instruction with the loop register \texttt{r1} as an address argument is called.
 The character (in \texttt{r0}) is then passed as an argument to the \texttt{uart\_write} function.
 
 \subsection{File imports}\label{sec:imports}
+An important factor of software development is reusability.
+This also holds for assembler development and is the reason why the \gls{EDiC} assembler supports including other assembler files.
+This can for example be used to write a library utility and then importing its functions for multiple projects.
+This way, a bug fix in the utility library will be fixed across all projects at the same time.
 
+As can be seen in \cref{lst:asm_snake_excerpt} lines 1 and 2, the \gls{EDiC} assembler supports the \texttt{include} keyword followed by a relative filename in double quotes.
+Before assembling a file, all the include statements are replaced with the content of the file specified.
+All the constants and labels are used as is with some exceptions:
+\begin{itemize}
+  \item The start label of all included files are discarded and the main file is required to provide a start label.
+  Otherwise, the starting point is ambiguous and probably not where the programmer expects it.
+  \item Constants from included files can be overwritten in the main file.
+  This can be useful when value constants hold memory locations of global variables that need to be repositioned in the main file.
+\end{itemize}
 
 
 \subsection{Syntax Definition for VS Code}
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=.7\textwidth]{syntax_snake_excerpt.png}
+  \caption{The syntax highlighting with the \gls{EDiC} Visual Studio Code Extension and the Atom One Light Theme \cite{VSCodeLight}.}
+  \label{fig:SyntaxEDiC}
+\end{figure}
+Syntax Highlighting has become a very important factor for software development as \glspl{IDE} grow more capable.
+The highlighting is usually done by firstly, parsing the syntax and associating parts of the text file with specific categories and, secondly, assigning styles like font color to these categories.
+This way, a programmer can select a global color scheme which will define colors for different categories for all programming languages.
+When applied correctly, code in different languages becomes easier to recognize because variables are always colored the same way, no matter the language.
+The syntax parser, however, needs to be selected correctly for each file type and categorize the file content correctly.
+
+Even though the \gls{EDiC} syntax is similar to the ARM syntax, it is not syntactically identical which makes syntax highlighting in editors difficult.
+As can be seen in \cref{lst:asm_snake_excerpt} line 3, the ARM syntax definition used for the highlighting in this document is not perfect (The leading 0 is red and the string is not colored correctly).
+
+As Visual Studio Code \cite{VSCode} is one of the leading extensible code editors, an extension for \gls{EDiC} assembler has been developed and published \cite{VSCodeEDiC}.
+The code of the \cref{lst:asm_snake_excerpt} is shown again in \cref{fig:SyntaxEDiC} as it is highlighting using the developed extension.
+The extension itself mainly consists of a TextMate language definition \cite{TextMate} and configuration files to work correctly with Visual Studio Code.
+TextMate is a tokenization engine which works with a structured collection of regular expressions as language definitions.

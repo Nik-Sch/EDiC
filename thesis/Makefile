@@ -7,7 +7,7 @@ svg_obj=$(svg_src:figures/%.svg=figures/%.pdf)
 plots_src=$(shell find plots/ -type f -name "*.py")
 plots_obj=$(plots_src:plots/%.py=plots/%.pdf)
 
-thesis_src=$(shell find content/ -type f -name "*.tex") thesis.tex eidesstatt.tex packages.tex titlepage.tex
+thesis_src=$(shell find . -type f -name "*.tex")
 
 tex_cmd=latexmk --shell-escape -pdf -xelatex -g -halt-on-error
 
