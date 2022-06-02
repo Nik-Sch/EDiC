@@ -1,0 +1,58 @@
+% !TEX root = ../thesis.tex
+\chapter{Hardware Design}\label{cha:hardware}
+\paragraph{LED Driver}
+First of all, all \glspl{LED} were directly connected to the logic wires.
+This does work but the outputs of all logic \glspl{IC} have a limited current they can provide.
+For example, the \emph{74LS245} is rated for maximum \qty{20}{\uA} for high-level output and \qty{-200}{\micro\ampere} for an low-level output \cite{74ls245}.
+The way the \glspl{LED} were connected in the first \gls{CPU} they use only current when the logic \gls{IC} outputs a high-level voltage which is rated for \nicefrac{1}{10} the output current.
+When connecting more \glspl{IC} and one \gls{LED} the maximum current can easily be exceeded.
+Therefore, all \glspl{LED} of the \gls{EDiC} are powered with an additional inverting driver, the \emph{74ABT540} which is rated for \qty{50}{\uA} in both directions \cite{74abt540}.
+\paragraph{Register \gls{IC}}
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=.6\textwidth]{ce.png}
+  \caption{Clock Enable circuit of the \emph{74F825} \gls{IC} \cite{74f825}.}
+  \label{fig:clockEnable}
+\end{figure}
+% A basic 1 bit register
+The 74 series of logic \glspl{IC} feature many different registers.
+The most basic register \gls{IC} has $n$ D-type flip-flops with respective data inputs and outputs plus one common clock input.
+On each rising edge of the clock the flip-flops capture the input values and hold them until the next rising edge of the clock.
+However, often it is required that a register does not capture on every rising edge of the clock.
+This is done with an additional input, called clock enable.
+In the first version of the \gls{CPU} the clock inputs of the registers that needed clock enable were connected to the output of an AND gate of the clock and a control bit.
+This has the major drawback that glitches of the enable control signal can propagate to the clock input of the register when the clock is currently high.
+There are two widely used alternatives to the simple AND gate:
+The enable input can be used as the select input for an multiplexer to the data input of the flip flop, where it multiplexes between the actual input and the current output.
+This allows the flip-flop to always capture data but when the enable input is inactive, it recaptures the current output.
+The drawbacks are that each bit of the register needs a multiplexer at the input and secondly that the flip-flops draw power on every clock pulse, even though no data is captured.
+The \emph{74F825} logic \gls{IC} solves this with the circuit shown in \cref{fig:clockEnable}.
+When the $\overline{\text{EN}}$ input is low, the CP input is NAND gate on the right passed the negated CP through\footnote{The internal flip-flops of the \emph{74F825} are negative edge triggered}.
+When the $\overline{\text{EN}}$ input is high, on the other hand, the output does not change.
+This circuit prevents the $\overline{\text{EN}}$ to trigger a falling edge (which would trigger the flip-flops) on the CP output.
+However, when the $\overline{\text{EN}}$ goes high while the CP input is high, then the output also goes high.
+This is not directly a problem because the flip-flops only trigger on falling edges but is the reason for timing requirements on the $\overline{\text{EN}}$ input which are discussed in more detail in \cref{sec:timing}.
+\begin{figure}[t]
+  \centering
+  \begin{subfigure}[b]{.45\textwidth}
+    \includegraphics[height=7.5cm]{DFlipFlop.pdf}
+    \subcaption{Classical D-type flip-flop built out of three $\overline{\text{SR}}$ NAND latches \cite{DFlipFlop}.}
+  \end{subfigure}%
+  \hspace{.05\textwidth}
+  \begin{subfigure}[b]{.45\textwidth}
+    \includegraphics[height=7.5cm]{DFlipFlopClearSet.pdf}
+    \subcaption{D-type flip-flop modified to support $\overline{\text{Clear}}$ and $\overline{\text{Set}}$ \cite{DFlipFlopClearSet}.}
+  \end{subfigure}
+  \caption{Comparison of D-type flip-flops with and without $\overline{\text{Clear}}$ and $\overline{\text{Set}}$.}
+  \label{fig:clearSet}
+\end{figure}
+As the registers store the current state of execution, it is required that the registers start up to a known state.
+Therefore, some registers feature a clear input (or set input) which forces all flip-flops to 0 (or 1).
+This is usually accomplished by modifying the classical D-type flip-flop to allow for setting and resetting the internal $\overline{\text{SR}}$ NAND latches as shown in \cref{fig:clearSet}.
+
+The third feature that may be important is a three-state output which allows the register to be directly connected to a bus.
+It is accomplished by adding a tri-state output driver to the outputs of the flip-flops.
+
+The logic \gls{IC} that was chosen for the \gls{EDiC} is the \emph{74F825} because it has all three features and is 8 bits wide.
+
+\section{Timing Analysis}\label{sec:timing}

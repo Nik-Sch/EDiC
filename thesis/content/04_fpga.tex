@@ -1,0 +1,72 @@
+% !TEX root = ../thesis.tex
+\chapter{\gls{FPGA} Model}\label{cha:fpga}
+The goal of the \gls{FPGA} simulation is to proof the general workings of the \gls{CPU} architecture before finalizing the hardware layout and \gls{PCB} design.
+
+
+\section{\glspl{FPGA} Background}
+An \gls{FPGA} can be seen as an intermediary between \glspl{ASIC} and general purpose \glspl{CPU}.
+It allows for a lot more design flexibility in contrast to \glspl{ASIC} by being reprogrammable but at the same time has similar applications.
+The first \gls{FPGA} was released by Altera in 1984 which featured a quartz window to erase the \gls{EPROM} cells that hold the configuration.
+It only had eight macrocells and a maximum frequency of about 30MHz \cite{ref:altera_databook}.
+Today's \glspl{FPGA} can have several million logic elements with several hundred MBs of \gls{BRAM}, more than thousand floating-point \glspl{DSP} and usual frequencies of more than 200MHz.
+However, the general idea of how \glspl{FPGA} work stayed the same:
+
+\emph{Field Programmable} means that the \gls{FPGA} can programmed in the application field, even though configure is the better word to be used.\\
+\emph{Gate Array} stands for an array of logic gates which make up the \gls{FPGA}.
+These logic gates can then be freely routed by the developer and with that different logic functions can be implemented.
+
+\glspl{FPGA} are built out of so called \glspl{CLB} which can be connected with each other to create larger designs.
+Such a \gls{CLB} contains several different elements like \glspl{LUT}, registers and \glspl{MUX} which allows one \gls{CLB} to provide different functionality as needed.
+\begin{figure}
+  \centering
+  \includegraphics[width=.8\textwidth]{lut.pdf}
+  \caption{Internal structure of a 2-bit \gls{LUT}}
+  \label{fig:lut}
+\end{figure}
+Each \gls{LUT} can encode any kind of multi-bit boolean functionality.
+\Cref{fig:lut} shows how a 2-bit \gls{LUT} is built out of three 2-to-1 \glspl{MUX}.
+Depending on the input values of the \gls{SRAM} into the \glspl{MUX}, a different logic function can be implemented.
+For example: For a \texttt{NAND} function, the \gls{SRAM} is loaded with the bits \texttt{0111}.
+In \glspl{FPGA} these \glspl{LUT} usually take 4-6 bit inputs and can, therefore, implement more complex logic functions.
+
+Combining these \glspl{LUT} with registers, complex hardware \glspl{DSP} and a lot more advanced hardware, modern \glspl{FPGA} are very capable and complex devices that are increasingly used in prototyping and low to medium quantity products.
+There are several cheaply available \glspl{FPGA} development boards available that are very well suited for a prototype for the \gls{EDiC}.
+
+\section{\gls{FPGA} choices}
+For the \gls{EDiC} the Nexys A7 development board \cite{nexysA7} with the AMD-Xilinx Artix 7 XC7A100T-1CSG324C \gls{FPGA} has been chosen.
+Its synthesis tool is the AMD-Xilinx Vivado \cite{vivado} which is available as a free version and includes an advanced simulation environment.
+
+\subsection{Language Choice}
+There are two main \glspl{HDL}: Verilog and \gls{VHDL}.
+Both are widely supported and used and can also be used in the same project with the help of mixed-language compilation.
+At the \gls{TUB} \gls{VHDL} is taught, however, in general both are used about equally often \cite{vhdlVerilog}.
+
+% As I only knew \gls{VHDL} and very basic concepts of Verilog, I decided to start in Verilog to get to know the differences.
+% \begin{listing}
+%   \inputminted[linenos,
+%     breaklines,
+%     firstline=24,
+%     lastline=61,
+%     % firstnumber=1,
+%     frame=leftline,
+%     xleftmargin=20pt,
+%   ]{verilog}{src/alu_proto.sv}
+%   \caption{(System)-Verilog Code for the \gls{ALU} of the first \gls{CPU} version.}
+%   \label{lst:alu_proto}
+% \end{listing}
+% \Cref{lst:alu_proto} shows the Verilog Code for the \gls{ALU} module (without the module definition to fit on one page).
+% Lines 24-28 describe the synchronous, positive-edge-triggered alu output register with a write enable.
+% The 8 XOR for the B input are described by lines 39-42 and lines 44-61 show an combinatorial process for the alu operation and multiplexing.
+% The lines 50-58 describe the bidirectional barrel shifter with 3 shift steps (by 1, 2, and 4) and the reverse \glspl{MUX} in front and at the end.
+
+
+% One major problem with tri-state bus logic for \glspl{FPGA} is that most current era \glspl{FPGA} do not feature tri-state bus drivers in the logic.
+% Most \glspl{FPGA} do have bidirectional tri-state transceiver for I/O logic but not for internal logic routing.
+% However, the \glspl{HDL} (both \gls{VHDL} and Verilog) support tri-state logic and the Xilinx Simulation tool also does.
+% As the first \gls{CPU} was only simulated, this was not a problem and the tri-state logic could be used the same way as in the hardware build.
+% \Cref{cha:fpga} describes how tri-state logic is solved for the synthesis of the \gls{EDiC}.
+
+
+\section{Behavioral Implementation}
+\section{Chip-level Implementation}
+\subsection{Conversation Script}

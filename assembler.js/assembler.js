@@ -60,8 +60,11 @@ const checkImmediate = (match, options = {}) => {
     if (typeof options.regValue === 'undefined') {
         options.regValue = false;
     }
+    if (options.regValue) {
+        options.memory = false;
+    }
     // [0xffff] is used for return address and register can only hold 8bit
-    const maxImm = options.memory ? 0xfffe : options.regValue ? 127 : 0xffff;
+    const maxImm = options.memory ? 0xfffe : options.regValue ? 255 : 0xffff;
     const minImm = options.regValue ? -128 : 0;
     let imm = parseInt(match);
     if (isNaN(imm)) {

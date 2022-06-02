@@ -1,0 +1,140 @@
+% !TEX root = thesis.tex
+
+%% \usepackage{cmbright}                          % serifenlose computer modern fonts
+
+% \usepackage{fontenc}                       % T1 fonts für gute pdf-Ausgabe
+% \usepackage[utf8]{inputenc}                    % wegen deutschen Umlauten
+\usepackage[automark]{scrlayer-scrpage}                % Koma Headers
+
+% \usepackage[english]{babel}
+
+\usepackage{nag}                               % warn user on outdated packages
+\usepackage[linktocpage, hidelinks]{hyperref}  % links in pdf, thumbnails
+\usepackage{soul}                              % emphasizing text, underlining
+\usepackage[onehalfspacing]{setspace}          % 1.5, change line spaces by \singlespacing \doublespacing
+
+%% tables
+\usepackage{multicol}                          % multiple columns in tables
+\usepackage{multirow}                          % multiple rows in tables
+\usepackage[
+  margin=10pt,
+  labelfont=bf,
+  figurewithin=chapter,
+  tablewithin=chapter
+]{caption} % table headers
+\usepackage{hhline}                            % horizontal lines
+\usepackage{longtable}                         % pagebreak tables
+\usepackage{booktabs}                          % bold table lines, e.g. \toprule
+\usepackage{tabularx}                          % neue Tabular-Umgebung
+
+%% math, symbols
+\usepackage{amsmath}                           % AMS Math like brackets, integrals...
+\usepackage{amssymb}                           % AMS-Symbols v2.0
+\usepackage{fixmath}                           % big greek letters italic in math mode
+\usepackage{array}                             % matrices
+\usepackage[per-mode=symbol]{siunitx}                           % includes nicefrac, nicer fracs for one line, SI-Units
+\DeclareSIUnit{\bits}{bits}
+\usepackage[integrals]{wasysym}                % for integrals like \oiint
+
+
+\usepackage{microtype}                         % character protruding, font expansion - instead of pdfcprot
+\usepackage{graphicx}                          % include graphics
+\usepackage{wrapfig}                           % graphics in text
+\usepackage{floatflt}                          % graphics/tables in text
+\usepackage{rotating}                          % rotating elements
+
+\usepackage[svgnames]{xcolor}                  % colors for listings
+\usepackage{psfrag}                            % Text in .eps Grafiken ersetzen
+\usepackage{float}
+\usepackage[european]{circuitikz}
+\usepackage{pgfplots}
+ \pgfplotsset{compat=1.5}
+\renewcommand{\rmdefault}{pplx}
+\usepackage{eulervm}                           % math font
+
+
+\usepackage{subcaption}  % subcaptions
+
+\usepackage{lipsum} % blind text
+
+% code
+\usepackage[
+  cachedir=out/_minted-\jobname,
+  outputdir=out/,
+  chapter
+]{minted}
+\usemintedstyle{paraiso-light}
+\renewcommand{\listingscaption}{Code Example}
+\renewcommand{\listoflistingscaption}{List of Code Examples}
+
+\usepackage[noabbrev]{cleveref} % references
+\crefname{listing}{Code Example}{Code Examples}
+
+\usepackage[
+    acronym,
+    style=longheader,
+    indexonlyfirst,
+    nopostdot
+    ]{glossaries-extra}
+\setabbreviationstyle[acronym]{long-short} % first occurence long, rest short
+\renewcommand*{\acrshort}[1][]{\glsxtrshort[noindex,#1]} % acrshort -> no index
+
+
+\usepackage{bytefield}
+
+\newcommand{\xor}{\ensuremath \veebar}
+
+\usepackage{nicefrac}
+\usepackage{xcolor}
+
+\usetikzlibrary{external}
+\tikzexternalize[prefix=tikz_out/]
+
+\makeatletter
+\DeclareRobustCommand{\skippedwords}[1][1ex]{%
+  \setlength{\units@wide}{\bf@bitwidth * \bits@wide}%
+  \setlength{\units@high}{1pt * \ratio{\units@wide}{9.0pt}}%
+  \setlength{\units@tall}{#1 + \units@high}%
+  \edef\num@wide{\strip@pt\units@wide}%
+  \edef\num@tall{\strip@pt\units@tall}%
+  \edef\num@high{\strip@pt\units@high}%
+  \begin{tikzpicture}
+    \draw (\linewidth,0) -- (0,0.5) -- (0,0);
+    \draw (0,0.7) -- (\linewidth,0.2) -- (\linewidth,0.7);
+  \end{tikzpicture}
+  \ifcounting@words
+    \inc@bytefield@height{\unitlength * \real{\num@tall}}%
+    \global\counting@wordsfalse
+  \fi}
+  \makeatother
+
+% \usepackage[datesep=., style=ddmmyyyy]{datetime2}
+\newcommand{\leadingzero}[1]{\ifnum #1<10 0\the#1\else\the#1\fi}
+\renewcommand{\today}{\leadingzero{\day}.\leadingzero{\month}.\the\year}
+
+
+\usepackage[
+    backend=biber,
+    style=numeric,
+  ]{biblatex}
+
+ \addbibresource{bib.bib}
+
+% \usepackage[all]{nowidow}
+\usepackage[bottom]{footmisc}
+\usepackage{csquotes}
+\usepackage{etoolbox}
+\usepackage{framed}
+
+\newenvironment{multipagecode}{\captionsetup{type=listing}\vspace{1cm}}{}
+
+
+\newcommand{\TODO}[1]{\begin{framed}%
+  {\textcolor{red}{\Large TODO: #1}}%
+\end{framed}%
+}
+
+% has to be at the end for some weird reason (https://tex.stackexchange.com/a/450540/104727)
+\usepackage{fontspec}
+% \setmainfont{Latin Modern Roman}
+% \setmonofont[Contextuals={Alternate}]{Fira Code}

@@ -1,0 +1,4 @@
+**/out/
+tikz_out/
+*.synctex.gz
+core

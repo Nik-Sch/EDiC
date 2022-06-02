@@ -337,25 +337,6 @@ instructions: [
     ]
   }
   {
-    op: '0100110r' # mar1 = r
-    cycles: [
-      { # r to mar1
-        reg0BusNOE: 'r'
-        reg1BusNOE: '!r'
-        memMar1NWE: 0
-      }
-    ]
-  }
-  {
-    op: '01001110' # mar1 = imm
-    cycles: [
-      { # imm to mar1
-        memInstrNOE: 0
-        memMar1NWE: 0
-      }
-    ]
-  }
-  {
     op: '1111001r' # [imm] = r (str)
     cycles: [
       { # r into ram
@@ -402,6 +383,25 @@ instructions: [
       { # decrement sp
         memSPUp: 0
         memSPNEn: 0
+      }
+    ]
+  }
+  {
+    op: '0100110r' # mar1 = r
+    cycles: [
+      { # r to mar1
+        reg0BusNOE: 'r'
+        reg1BusNOE: '!r'
+        memMar1NWE: 0
+      }
+    ]
+  }
+  {
+    op: '01001110' # mar1 = imm
+    cycles: [
+      { # imm to mar1
+        memInstrNOE: 0
+        memMar1NWE: 0
       }
     ]
   }

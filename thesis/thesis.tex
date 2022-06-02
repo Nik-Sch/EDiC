@@ -1,0 +1,163 @@
+% !TeX spellcheck = de_DE
+% !TeX encoding = UTF-8
+% Vorlage Studien- und Diplomarbeiten, Bachelor- Masterarbeiten
+%
+% author: FG EMSP TU Berlin, Dipl.-Ing. Alexander Vorwerk
+%
+% last updated: 11.01.2011, by FG EMSP TU Berlin, Dipl.-Ing. Dennis lerch
+
+% PREAMBLE, for use with pdfTex
+% before documentclass
+% disable pdfoutput to be able to include eps graphics and use packages like pstricks
+% conversion dvi2ps and ps2pdf needed afterwards, pdftex specials like hyperref are still possible
+%\pdfoutput=0                            % dvi output - use with pdfcprot (character protruding)
+
+% \RequirePackage{fix-cm}                       % error correction for standard fonts
+
+%% define CLASS
+\documentclass[12pt, a4paper, parskip=half*, bibliography=totoc, cleardoublepage=empty, final,numbers=noenddot]{scrbook}                       % begin every chapter one left page
+% \documentclass[11pt, a4paper, parskip=half*, bibliography=totoc, cleardoublepage=empty, final,
+% numbers=noenddot]{scrreprt}                    % ongoing pages, no page break after chapter
+
+%% misc
+\input{packages.tex}
+
+\makeatletter
+\usepackage{pdfpages}
+\usetikzlibrary{external}
+\tikzexternalize[prefix=figures/,shell escape=-enable-write18,optimize command away=\includepdf]
+
+\graphicspath{{figures/}{logos/}{diagrams/}{plots/}}
+% \makeatletter
+% \def\input@path{{bytefields/}}
+% \makeatother
+
+%\ctikzset{voltage=german}
+
+\makeatother
+%% layout
+\usepackage[top=2.5cm,left=3.5cm,right=2.5cm,bottom=3cm]{geometry}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% document definitions, do not change
+% Allgemeine Schalter - Änderung von Standardeinstellungen
+\frenchspacing                                       % keine längeren Leerzeichen nach Satzende/Abkürzungen mit Punkt
+\setlength{\parindent}{0pt}                          % kein Einzug bei neuem Absatz
+\setlength{\parskip}{1.5ex plus0.5ex minus 0.5ex}    % Abstand zwischen 2 Absätzen
+
+% verwende das paket setspace statt baselinestretch, Vorteil: Abstände in Fußzeilen und
+% listenumgebungen etc. bleiben erhalten
+\tolerance 1414
+\hbadness 1414
+\emergencystretch 1.5em
+\hfuzz 0.3pt
+\widowpenalty=10000
+\vfuzz \hfuzz
+\raggedbottom
+\brokenpenalty=10000                                 % Trennung bei Seitenumbruch
+
+\setlength{\headheight}{1cm}                         % Höhe der Kopfzeile
+\addtolength{\footnotesep}{2pt}                      % abstand der Fußnote zur Trennlinie
+
+% Setze Überschriftentiefe
+\setcounter{secnumdepth}{3}                          % Nummerierung der Kapitel
+\setcounter{figure}{4}                               % Bilder
+\setcounter{tocdepth}{3}                             % Gliederungsebene für Inhaltsverzeichnis
+\pagestyle{plain}
+\clearscrheadings
+\setheadsepline{.0pt}
+% Einstellungen für Kopf- und Fußzeilen
+\pagestyle{scrheadings}                              % nutze scrheader
+\clearscrheadings                                    % lösche alle vorhandenen header
+
+\setheadsepline{.05pt}                               % trennlinie oben
+\setfootsepline{.05pt}                               % trennlinie unten
+
+\automark[section]{chapter}   % links chapter, rechts section
+
+
+\newcommand*{\Title}{Design and Implementation of a Model CPU with Basic Logic Chips and related Development Environment for Educational Purposes}
+\newcommand*{\Author}{Niklas Schelten}
+\newcommand*{\Date}{\today}
+\title{\Title}
+\author{\Author}
+\date{\Date}
+
+% variere nach ein-/zweiseitig
+\makeatletter
+\if@twoside                     % bei zweiseitig
+  \lehead{\leftmark}            % setze Kapitel linke Seite oben
+  \rohead{\rightmark}           % setze Abschnitt rechte Seite oben
+  \lefoot{\pagemark}            % Seitennummer unten links
+  \rofoot{\pagemark}            % Seitennummer unten rechts
+  \lofoot{\Author}              % Name des Verfassers nur linke Seite
+\else                           % einseitig
+  \ihead{\leftmark}             % setze linke kopfzeile
+  \ohead{\rightmark}            % setze rechte kopfzeile
+  \ofoot{\pagemark}             % seitennummer unten rechts
+  \ifoot{\Author}               % Name des Verfassers unten links
+\fi
+\makeatother
+
+\input{content/_acronyms}
+%%%%%%%%%%%%%%% THESIS START %%%%%%%%%%%%%%
+\begin{document}
+
+\input{./titlepage}
+
+\cleardoublepage
+\input{eidesstatt}
+\cleardoublepage
+
+\pagenumbering{roman}
+\tableofcontents
+
+% preamble
+\cleardoublepage
+% \input{./Vorspann/Danksagung}                  % Danksagung (optional) / acknowledgement
+\include{content/abstract}
+
+\cleardoublepage
+\pagenumbering{arabic}
+\glsresetall
+\include{content/01_introduction}
+\include{content/02_architecture}
+\include{content/03_software}
+\include{content/04_fpga}
+\include{content/05_hardware}
+\include{content/06_evaluation}
+\include{content/07_conclusion}
+
+
+
+
+
+% Anhang
+\appendix
+\include{./appendix/a}
+% \include{./Anhang/Teilb}
+% \include{./Anhang/Teilc}
+
+\cleardoublepage
+\printglossary[type=\acronymtype]
+
+% das Abbildungsverzeichnis
+\listoffigures
+\addcontentsline{toc}{chapter}{List of Figures}
+
+% das Tabellenverzeichnis
+\listoftables
+\addcontentsline{toc}{chapter}{List of Tables}
+
+% list of listing
+\listoflistings
+\addcontentsline{toc}{chapter}{\listoflistingscaption}
+
+% Literaturverzeichnis
+\printbibliography
+% \raggedright
+% \bibliography{bib.bib}{}
+% \bibliographystyle{numeric}
+
+\end{document}
+%%%%%%%%%%%%%%% END %%%%%%%%%%%%%%%
