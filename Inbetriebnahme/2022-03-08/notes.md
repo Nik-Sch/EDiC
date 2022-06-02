@@ -10,3 +10,7 @@
 ## integrating into main pcb
 - adding register to ramNOE and ramNWE
 - -> microcode needs to be adjusted, such that ramNOE and ramNWE are one cycle earlier than supposed
+
+### scope images
+- 14: yellow clock, green persistence: input and output
+- 15,16: yellow input, green output: inhibited glitch + correct pulse
