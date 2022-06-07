@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2021 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2022 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -55,7 +55,7 @@
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module control_bd_control_0_0 (
-  i_nclk,
+  i_clk,
   i_reset,
   i_instrCode,
   o_decodeAddr,
@@ -91,7 +91,9 @@ module control_bd_control_0_0 (
   o_dbgStep
 );
 
-input wire i_nclk;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME i_clk, ASSOCIATED_RESET i_reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN control_bd_i_nclk, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 i_clk CLK" *)
+input wire i_clk;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME i_reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 i_reset RST" *)
 input wire i_reset;
@@ -129,7 +131,7 @@ output wire o_ctrlInstrFinishedN;
 output wire [2 : 0] o_dbgStep;
 
   control inst (
-    .i_nclk(i_nclk),
+    .i_clk(i_clk),
     .i_reset(i_reset),
     .i_instrCode(i_instrCode),
     .o_decodeAddr(o_decodeAddr),

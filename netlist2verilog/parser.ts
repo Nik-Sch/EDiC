@@ -71,6 +71,7 @@ export class Parser {
       }
 
       this.units.sort((a, b) => a.id.localeCompare(b.id, undefined, {numeric: true}));
+      // add unconnected ports
       for (const unit of this.units) {
         const max = unit.ports.reduce((p, v) => (p > v.portNumber) ? p : v.portNumber, 0);
         for (let i = 1; i < max; i++) {

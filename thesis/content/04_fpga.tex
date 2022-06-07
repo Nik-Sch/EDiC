@@ -1,6 +1,7 @@
 % !TEX root = ../thesis.tex
 \chapter{\gls{FPGA} Model}\label{cha:fpga}
-The goal of the \gls{FPGA} simulation is to proof the general workings of the \gls{CPU} architecture before finalizing the hardware layout and \gls{PCB} design.
+The goal of the \gls{FPGA} model is to proof the general workings of the \gls{CPU} architecture before finalizing the hardware layout and \gls{PCB} design.
+With the design running on an actual \gls{FPGA} it is also possible to debug and test extension cards without the actual hardware of the \gls{EDiC}.
 
 
 \section{\glspl{FPGA} Background}
@@ -40,33 +41,165 @@ Its synthesis tool is the AMD-Xilinx Vivado \cite{vivado} which is available as 
 There are two main \glspl{HDL}: Verilog and \gls{VHDL}.
 Both are widely supported and used and can also be used in the same project with the help of mixed-language compilation.
 At the \gls{TUB} \gls{VHDL} is taught, however, in general both are used about equally often \cite{vhdlVerilog}.
+As Verilog is often cited as being less verbose and, therefore, easier to write and understand it was chosen as the hardware description language.
 
-% As I only knew \gls{VHDL} and very basic concepts of Verilog, I decided to start in Verilog to get to know the differences.
-% \begin{listing}
-%   \inputminted[linenos,
-%     breaklines,
-%     firstline=24,
-%     lastline=61,
-%     % firstnumber=1,
-%     frame=leftline,
-%     xleftmargin=20pt,
-%   ]{verilog}{src/alu_proto.sv}
-%   \caption{(System)-Verilog Code for the \gls{ALU} of the first \gls{CPU} version.}
-%   \label{lst:alu_proto}
-% \end{listing}
-% \Cref{lst:alu_proto} shows the Verilog Code for the \gls{ALU} module (without the module definition to fit on one page).
-% Lines 24-28 describe the synchronous, positive-edge-triggered alu output register with a write enable.
-% The 8 XOR for the B input are described by lines 39-42 and lines 44-61 show an combinatorial process for the alu operation and multiplexing.
-% The lines 50-58 describe the bidirectional barrel shifter with 3 shift steps (by 1, 2, and 4) and the reverse \glspl{MUX} in front and at the end.
+\begin{listing}
+  \inputminted[linenos,
+    breaklines,
+    firstline=65,
+    lastline=71,
+    frame=leftline,
+    xleftmargin=20pt,
+  ]{verilog}{src/alu.v}
+  \caption{Behavioral Verilog Description of the Adder (including XOR and AND) of the \gls{ALU} module.}
+  \label{lst:alu}
+\end{listing}
+\Cref{lst:alu} shows the Adder described in Verilog as an example.
+It iterates over all 8 bits, calculates the XOR and AND results and based on these and the carry input, the bit result and the carry output is calculated.
 
+\subsection{Tri-State Logic in \glspl{FPGA}}
+One major problem with tri-state bus logic for \glspl{FPGA} is that most current era \glspl{FPGA} do not feature tri-state bus drivers in the logic slices.
+Most \glspl{FPGA} do have bidirectional tri-state transceiver for I/O but not for internal logic routing.
+However, the \glspl{HDL} (both \gls{VHDL} and Verilog) support tri-state logic and the Xilinx Simulation tool also does.
+Therefore, a simulation with tri-state logic would work but it cannot be synthesized.
 
-% One major problem with tri-state bus logic for \glspl{FPGA} is that most current era \glspl{FPGA} do not feature tri-state bus drivers in the logic.
-% Most \glspl{FPGA} do have bidirectional tri-state transceiver for I/O logic but not for internal logic routing.
-% However, the \glspl{HDL} (both \gls{VHDL} and Verilog) support tri-state logic and the Xilinx Simulation tool also does.
-% As the first \gls{CPU} was only simulated, this was not a problem and the tri-state logic could be used the same way as in the hardware build.
-% \Cref{cha:fpga} describes how tri-state logic is solved for the synthesis of the \gls{EDiC}.
-
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{tristatenet.png}
+  \caption{The elaborated Tri-State module with two 8 bit inputs.}
+  \label{fig:tristatenet}
+\end{figure}
+This is solved with a custom module for each Tri-State network ``tristatenet.v''.
+Each tri-state driver exposes the current data and output enable signal to the tristate module which then has only one output which represents the value of the net.
+If none of the driver have an active output enable, the output is \texttt{0xff}; if one of the driver has an active output enable, the output represents its value and if more than one driver have an active output enable, an error is raised.
+The modules logic representation for a Tri-State net with two inputs is shown in \cref{fig:tristatenet}.
+The \texttt{o\_noe} is only active (low) if exactly one input \texttt{i\_noe} is active (low) and depending it, the data output is selected.
+For this \gls{FPGA} it is implemented with one \texttt{LUT4} primitive per output data bit.
 
 \section{Behavioral Implementation}
+Two kinds of \gls{FPGA} were developed in the process.
+The first is a behavioral description of the whole \gls{CPU} and, therefore, only models the general workings of a module but does not describe the individual chips that are used in the final hardware assembly.
+The description in \cref{lst:alu}, for example, is a behavioral description because it only describes the logical level of what should happen.
+This is quite useful for development, because it is quickly changed and bugs are fixed more efficiently as opposed to a chip-level model.
+
+To visualize how a behavioral simulation looks like, a simulation of the code in \cref{lst:add_wave} is shown in \cref{fig:add_wave}.
+The first instruction (\mintinline{ARM}{mov r1, 0x12}) starts at \qty{1}{\micro\second} where the instruction step counter is 0 and the instruction fetch is executed.
+Step 1 increments the program counter and starts the instruction decoding.
+The \mintinline{ARM}{mov} instruction only consists of one step and, therefore, the \texttt{ctrInstrFinishedN} signal is asserted in step 2 together with the control signals of the actual instruction.
+Due to \texttt{ctrInstrFinishedN}, the step counter is reset to 0 and the second instruction (\texttt{pc==1}) is executed.
+After the instruction fetch steps, the \gls{ALU} adds \texttt{0x12} and \texttt{0x42} at \qty{2}{\micro\second} and writes the result into \texttt{r1} at \texttt{step==3}.
+The third instruction then just branches to itself, resulting in an infinite loop.
+\begin{sidewaysfigure}[p]
+  \centering
+  \includegraphics[width=\textwidth]{behav_add_wave.png}
+  \caption{Waveform of the relevant signals for setting a register to \texttt{0x12} and adding \texttt{0x2f} to it (Assembler code is shown in \cref{lst:add_wave}).}
+  \label{fig:add_wave}
+\end{sidewaysfigure}
+\begin{listing}
+  \inputminted[linenos,
+    breaklines,
+    frame=leftline,
+    xleftmargin=20pt,
+  ]{ARM}{src/sim_test.s}
+  \caption{The code for the waveform example of \cref{fig:add_wave}.}
+  \label{lst:add_wave}
+\end{listing}
+
 \section{Chip-level Implementation}
+With the behavioral simulation working, the hardware schematic can be developed.
+The schematic and then the placing and routing for the \gls{PCB} is described in \cref{cha:hardware}.
+However, for the \gls{EDiC} it was decided to add another verification step after developing the schematic.
+From the schematic a netlist is generated which is usually used to summarize all the components and connections in a machine readable format for the software that does placing and routing.
+Here, a tool was written which converts a given netlist into a Verilog file which can be compiled and synthesized by Vivado.
 \subsection{Conversation Script}
+\begin{listing}
+  \inputminted[linenos,
+    breaklines,
+    frame=leftline,
+    xleftmargin=20pt,
+  ]{clojure}{src/edifInstance.edn}
+  \caption{An \gls{EDIF} definition of an instance as exported by OrCAD/CAPTURE.}
+  \label{lst:edifInstance}
+\end{listing}
+\begin{listing}
+  \inputminted[linenos,
+    breaklines,
+    frame=leftline,
+    xleftmargin=20pt,
+  ]{clojure}{src/edifNet.edn}
+  \caption{An \gls{EDIF} definition of a net as exported by OrCAD/CAPTURE.}
+  \label{lst:edifNet}
+\end{listing}
+The netlist file used is an \texttt{*.edn} which is exported by OrCAD/CAPTURE version 9.2.1.148.
+It follows the \gls{EDIF} and contains a list of all instances (i.e. \glspl{IC} and other components) with port numbers and a second list of all nets (connections between ports).
+The conversion script consists of a parser which analyzes such a netlist.
+The parsed netlist is then further processed until a verilog file can be created.
+The generated verilog file only consists of wire definitions and module instantiations.
+Each of the instantiated modules has its own, manually written implementation.
+The implementation for an \texttt{74F08} (quad AND gate) is, for example, shown in \cref{lst:74x08}.
+\begin{listing}[t]
+  \inputminted[linenos,
+    breaklines,
+    frame=leftline,
+    xleftmargin=20pt,
+  ]{Verilog}{src/ic74x08.v}
+  \caption{Verilog implementation for the 74F08 \gls{IC}.}
+  \label{lst:74x08}
+\end{listing}
+
+\Cref{lst:edifInstance} specifies the instance U54 which is an \texttt{74AS867}.
+The format also specifies the port numbers but they are not processed by the parser because they are not required.
+\Cref{lst:edifNet} then specifies a net with the name \texttt{PCIN0} which connects U52 port 18 with U51 port 18 and U54 port 3.
+In this case U52 and U51 are both \texttt{74F245} octal bus transceivers where port 18 is the B0 port and U54 is a \texttt{74AS867} (synchronous up/down counter with load) where port 3 is the D0 input port.
+Depending on the control signals of U51 and U52 this net connects the 0th bit of the bus or the instruction immediate with the 0th bit of the load input of the \gls{PC}.
+Internally the list of instances and list of nets is combined into a list of instances where each instance contains a mapping of port numbers to connected nets.
+
+The parser discards all components except logic \glspl{IC} (id starting with `U') save for \qty{0}{\ohm} resistors.
+The schematic includes some \qty{0}{\ohm} resistors between control signals to be able to rewire them more easily on the \gls{PCB} if needed.
+As they essentially behave as direct connections, the nets on either side of one \qty{0}{\ohm} resistor are merged.
+
+The basic instances are easily converted to verilog instantiations.
+However, there are some obstacles that need to be taken with more advanced instances.
+\subsubsection{\glspl{EEPROM}}
+\begin{listing}[t]
+  \inputminted[linenos,
+    breaklines,
+    firstline=1364,
+    lastline=1368,
+    frame=leftline,
+    xleftmargin=20pt,
+  ]{Verilog}{src/generated.v}
+  \caption{Verilog instantiation of the microcode ROM generated out of three \gls{EEPROM} instantiations.}
+  \label{lst:rom_inst}
+\end{listing}
+The 6 \glspl{EEPROM} (3 for the instructionROM and 3 for the microcode) need to be instantiated with the correct data loaded into them.
+Those six instantiations are identified by the unit id and the wires are then connected to one of the custom Xilinx ROM IP Cores which are configured with the respective initial values.
+The addresses for one ROM instantiations are used and then all 24 data ports from the 3 \glspl{EEPROM} are connected resulting in a verilog instantiation as shown in \cref{lst:rom_inst}.
+\subsubsection{Tri-State Ports}
+\begin{listing}[t]
+  \inputminted[linenos,
+    breaklines,
+    firstline=1794,
+    lastline=1801,
+    frame=leftline,
+    xleftmargin=20pt,
+  ]{Verilog}{src/generated.v}
+\caption{Verilog instantiation for the Tri-State Net \texttt{PCIN0}.}
+  \label{lst:tristate_inst}
+\end{listing}
+Some \glspl{IC} provide Tri-State ports.
+As discussed above, they cannot be implemented on \glspl{FPGA} and, therefore, need to be converted.
+The same tristatenet component as in the behavioral implementation is used.
+However, for this to work, each bidirectional port of the \glspl{IC} needs to be replaced by one input and one output port.
+Also, one output enable port needs to be added.
+Then the output port that replaced the bidirectional port is an input to the tristatenet instance and a new net is created for each tristatenet which is the actual value of the net (the output of the tristatenet module).
+The tristatenet for the \texttt{PCIN0} signal (\cref{lst:edifNet}) is represented by the instantiation shown in \cref{lst:tristate_inst}.
+
+\subsubsection{\glspl{RAM} and \glspl{EEPROM} clock}
+Another problem with the \gls{FPGA} implementation in general is that both, the \gls{SRAM} and \gls{EEPROM} chips used are asynchronous and the \gls{FPGA} only has synchronous logic elements.
+In the behavioral implementation, exact timings were no requirement and, therefore, the memory and \glspl{ROM} were clocked with the inverse clock, mimicking an asynchronous behavior.
+However, for the exact netlist \gls{FPGA} implementation this is not a good way to mimick the behavior.
+Therefore, the exact delay of both chips were calculated with the help of the datasheets and they are both clocked with a custom clock that is out of phase with the global logic clock by the exact amount of the delay.
+\TODO{insert waveform}
+
+This means, that the clock inputs of the memory and \gls{EEPROM} instantiations are replaced with the corrosponding custom clock as can be seen in \cref{lst:rom_inst}.

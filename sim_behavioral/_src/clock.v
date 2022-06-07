@@ -25,7 +25,7 @@ assign o_clkn = ~o_clk;
 reg resetn_init = 0;
 initial begin
   resetn_init = 0;
-  #(1000) resetn_init = 1; // 5 clock cycled (5MHz)
+  #(900) resetn_init = 1; // 4.5 clock cycled (5MHz)
 end
 assign o_resetn = i_btnReset ? 0 : resetn_init;
 

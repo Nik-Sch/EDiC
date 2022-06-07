@@ -243,7 +243,7 @@ To step whole instructions, the halt signal is de-asserted until the instruction
 In breakpoint mode, the halt signal is controlled from a comparator that compares the \gls{PC} and a 16 bit user input, asserting the halt signal when those two equal.
 As soon as the \gls{CPU} halts, the user can then switch to stepping mode and debug the specific instruction of the program.
 The user can freely switch between these modes with switches and buttons.
-
+\TODO{explain control signals}
 \section{Final Instruction Set}\label{sec:instructionSet}
 This section describes all available instructions, what they do and which instruction cycle performs which steps of the instruction.
 Each instruction starts with the same two cycles for instruction fetching.

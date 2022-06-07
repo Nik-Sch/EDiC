@@ -1,0 +1,7 @@
+
+(net PCIN0
+ (joined
+  (portRef &18 (instanceRef U52))
+  (portRef &18 (instanceRef U51))
+  (portRef &3 (instanceRef U54)))
+ (property Name (string "PCIN0")))

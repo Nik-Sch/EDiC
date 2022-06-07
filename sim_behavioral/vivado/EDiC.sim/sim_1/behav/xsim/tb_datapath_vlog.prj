@@ -12,7 +12,6 @@ verilog xil_defaultlib  \
 "../../../../EDiC.ip_user_files/bd/control_bd/ip/control_bd_instrRom_0/sim/control_bd_instrRom_0.v" \
 "../../../../EDiC.ip_user_files/bd/control_bd/ip/control_bd_control_0_0/sim/control_bd_control_0_0.v" \
 "../../../../EDiC.ip_user_files/bd/control_bd/sim/control_bd.v" \
-"../../../../EDiC.gen/sources_1/ip/dbgIla/sim/dbgIla.v" \
 "../../../../../_src/alu.v" \
 "../../../../../_src/clock.v" \
 "../../../../../_src/datapath.v" \

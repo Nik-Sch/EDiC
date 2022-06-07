@@ -1,0 +1,4 @@
+mov r1, 0x12
+add r1, 0x2f
+end:
+b end

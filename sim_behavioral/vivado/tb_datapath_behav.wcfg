@@ -11,80 +11,172 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="1,270.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="11,330.001 ns"></ZoomEndTime>
-      <Cursor1Time time="11,300.000 ns"></Cursor1Time>
+      <ZoomStartTime time="860.500 ns"></ZoomStartTime>
+      <ZoomEndTime time="2,897.501 ns"></ZoomEndTime>
+      <Cursor1Time time="1,000.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="359"></NameColumnWidth>
-      <ValueColumnWidth column_width="97"></ValueColumnWidth>
+      <NameColumnWidth column_width="320"></NameColumnWidth>
+      <ValueColumnWidth column_width="148"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="28" />
-   <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/i_oszClk">
-      <obj_property name="ElementShortName">i_oszClk</obj_property>
-      <obj_property name="ObjectShortName">i_oszClk</obj_property>
+   <WVObjectSize size="11" />
+   <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_regset/i_clk">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">i_clk</obj_property>
+      <obj_property name="ObjectShortName">i_clk</obj_property>
+      <obj_property name="label">clk</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_io/r_output">
-      <obj_property name="ElementShortName">r_output[7:0]</obj_property>
-      <obj_property name="ObjectShortName">r_output[7:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_io/i_switches">
-      <obj_property name="ElementShortName">i_switches[7:0]</obj_property>
-      <obj_property name="ObjectShortName">i_switches[7:0]</obj_property>
+   <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_regset/i_reset">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">i_reset</obj_property>
+      <obj_property name="ObjectShortName">i_reset</obj_property>
+      <obj_property name="label">reset</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_memory/memory/inst/r_pc">
+      <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">r_pc[15:0]</obj_property>
       <obj_property name="ObjectShortName">r_pc[15:0]</obj_property>
+      <obj_property name="label">pc</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_datapath/inst_datapath/control_bd_i/control_0/inst/r_step">
+      <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">r_step[2:0]</obj_property>
       <obj_property name="ObjectShortName">r_step[2:0]</obj_property>
+      <obj_property name="label">step</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/s_bus">
-      <obj_property name="ElementShortName">s_bus[7:0]</obj_property>
-      <obj_property name="ObjectShortName">s_bus[7:0]</obj_property>
+   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/control_bd_i/i_instrCode">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">i_instrCode[7:0]</obj_property>
+      <obj_property name="ObjectShortName">i_instrCode[7:0]</obj_property>
+      <obj_property name="label">instrCode</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_regset/r_0">
-      <obj_property name="ElementShortName">r_0[7:0]</obj_property>
-      <obj_property name="ObjectShortName">r_0[7:0]</obj_property>
+   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_memory/memory/inst/r_instrImm">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">r_instrImm[15:0]</obj_property>
+      <obj_property name="ObjectShortName">r_instrImm[15:0]</obj_property>
+      <obj_property name="label">instrImm</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_regset/r_1">
+      <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">r_1[7:0]</obj_property>
       <obj_property name="ObjectShortName">r_1[7:0]</obj_property>
+      <obj_property name="label">r1</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_memory/memory/inst/r_mar">
-      <obj_property name="ElementShortName">r_mar[15:0]</obj_property>
-      <obj_property name="ObjectShortName">r_mar[15:0]</obj_property>
+   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_alu/r_y">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">r_y[7:0]</obj_property>
+      <obj_property name="ObjectShortName">r_y[7:0]</obj_property>
+      <obj_property name="label">aluResultReg</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/control_bd_i/control_0/inst/r_instructionFallingEdge">
-      <obj_property name="ElementShortName">r_instructionFallingEdge[7:0]</obj_property>
-      <obj_property name="ObjectShortName">r_instructionFallingEdge[7:0]</obj_property>
-      <obj_property name="Radix">BINARYRADIX</obj_property>
+   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/s_bus">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">s_bus[7:0]</obj_property>
+      <obj_property name="ObjectShortName">s_bus[7:0]</obj_property>
+      <obj_property name="label">bus</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_memory/memory/inst/r_sp">
-      <obj_property name="ElementShortName">r_sp[7:0]</obj_property>
-      <obj_property name="ObjectShortName">r_sp[7:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_memory/memory/inst/o_ramAddress">
-      <obj_property name="ElementShortName">o_ramAddress[16:0]</obj_property>
-      <obj_property name="ObjectShortName">o_ramAddress[16:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_memory/memory/inst/i_ramData">
-      <obj_property name="ElementShortName">i_ramData[7:0]</obj_property>
-      <obj_property name="ObjectShortName">i_ramData[7:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_memory/memory/inst/o_ramData">
-      <obj_property name="ElementShortName">o_ramData[7:0]</obj_property>
-      <obj_property name="ObjectShortName">o_ramData[7:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_memory/memory/inst/o_ramWE">
-      <obj_property name="ElementShortName">o_ramWE</obj_property>
-      <obj_property name="ObjectShortName">o_ramWE</obj_property>
+   <wvobject type="group" fp_name="group22">
+      <obj_property name="label">tristateBus</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="vbus" fp_name="vbus109">
+         <obj_property name="label">i_data[alu]</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_triBus/i_data[39]">
+            <obj_property name="ElementShortName">[39]</obj_property>
+            <obj_property name="ObjectShortName">[39]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_triBus/i_data[38]">
+            <obj_property name="ElementShortName">[38]</obj_property>
+            <obj_property name="ObjectShortName">[38]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_triBus/i_data[37]">
+            <obj_property name="ElementShortName">[37]</obj_property>
+            <obj_property name="ObjectShortName">[37]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_triBus/i_data[36]">
+            <obj_property name="ElementShortName">[36]</obj_property>
+            <obj_property name="ObjectShortName">[36]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_triBus/i_data[35]">
+            <obj_property name="ElementShortName">[35]</obj_property>
+            <obj_property name="ObjectShortName">[35]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_triBus/i_data[34]">
+            <obj_property name="ElementShortName">[34]</obj_property>
+            <obj_property name="ObjectShortName">[34]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_triBus/i_data[33]">
+            <obj_property name="ElementShortName">[33]</obj_property>
+            <obj_property name="ObjectShortName">[33]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_triBus/i_data[32]">
+            <obj_property name="ElementShortName">[32]</obj_property>
+            <obj_property name="ObjectShortName">[32]</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_triBus/i_noe[4]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[4]</obj_property>
+         <obj_property name="ObjectShortName">[4]</obj_property>
+         <obj_property name="label">i_noe[alu]</obj_property>
+      </wvobject>
+      <wvobject type="vbus" fp_name="vbus91">
+         <obj_property name="label">i_data[imm]</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_triBus/i_data[23]">
+            <obj_property name="ElementShortName">[23]</obj_property>
+            <obj_property name="ObjectShortName">[23]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_triBus/i_data[22]">
+            <obj_property name="ElementShortName">[22]</obj_property>
+            <obj_property name="ObjectShortName">[22]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_triBus/i_data[21]">
+            <obj_property name="ElementShortName">[21]</obj_property>
+            <obj_property name="ObjectShortName">[21]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_triBus/i_data[20]">
+            <obj_property name="ElementShortName">[20]</obj_property>
+            <obj_property name="ObjectShortName">[20]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_triBus/i_data[19]">
+            <obj_property name="ElementShortName">[19]</obj_property>
+            <obj_property name="ObjectShortName">[19]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_triBus/i_data[18]">
+            <obj_property name="ElementShortName">[18]</obj_property>
+            <obj_property name="ObjectShortName">[18]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_triBus/i_data[17]">
+            <obj_property name="ElementShortName">[17]</obj_property>
+            <obj_property name="ObjectShortName">[17]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_triBus/i_data[16]">
+            <obj_property name="ElementShortName">[16]</obj_property>
+            <obj_property name="ObjectShortName">[16]</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_triBus/i_noe[2]">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">[2]</obj_property>
+         <obj_property name="ObjectShortName">[2]</obj_property>
+         <obj_property name="label">i_noe[imm]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_triBus/o_data">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">o_data[7:0]</obj_property>
+         <obj_property name="ObjectShortName">o_data[7:0]</obj_property>
+         <obj_property name="label">o_data</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_triBus/o_noe">
+         <obj_property name="ElementShortName">o_noe</obj_property>
+         <obj_property name="ObjectShortName">o_noe</obj_property>
+      </wvobject>
    </wvobject>
    <wvobject type="group" fp_name="group40">
       <obj_property name="label">control</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
       <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/control_bd_i/o_ctrlAluNOE">
          <obj_property name="ElementShortName">o_ctrlAluNOE</obj_property>
          <obj_property name="ObjectShortName">o_ctrlAluNOE</obj_property>
@@ -105,10 +197,6 @@
          <obj_property name="ElementShortName">o_ctrlInstrFinishedN</obj_property>
          <obj_property name="ObjectShortName">o_ctrlInstrFinishedN</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/control_bd_i/o_ctrlMemInstrImmToRamAddr">
-         <obj_property name="ElementShortName">o_ctrlMemInstrImmToRamAddr</obj_property>
-         <obj_property name="ObjectShortName">o_ctrlMemInstrImmToRamAddr</obj_property>
-      </wvobject>
       <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/control_bd_i/o_ctrlMemInstrNOE">
          <obj_property name="ElementShortName">o_ctrlMemInstrNOE</obj_property>
          <obj_property name="ObjectShortName">o_ctrlMemInstrNOE</obj_property>
@@ -117,57 +205,9 @@
          <obj_property name="ElementShortName">o_ctrlMemInstrNWE</obj_property>
          <obj_property name="ObjectShortName">o_ctrlMemInstrNWE</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/control_bd_i/o_ctrlMemMar0NWE">
-         <obj_property name="ElementShortName">o_ctrlMemMar0NWE</obj_property>
-         <obj_property name="ObjectShortName">o_ctrlMemMar0NWE</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/control_bd_i/o_ctrlMemMar1NWE">
-         <obj_property name="ElementShortName">o_ctrlMemMar1NWE</obj_property>
-         <obj_property name="ObjectShortName">o_ctrlMemMar1NWE</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/control_bd_i/o_ctrlMemPCFromImm">
-         <obj_property name="ElementShortName">o_ctrlMemPCFromImm</obj_property>
-         <obj_property name="ObjectShortName">o_ctrlMemPCFromImm</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/control_bd_i/o_ctrlMemPCLoadN">
-         <obj_property name="ElementShortName">o_ctrlMemPCLoadN</obj_property>
-         <obj_property name="ObjectShortName">o_ctrlMemPCLoadN</obj_property>
-      </wvobject>
       <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/control_bd_i/o_ctrlMemPCNEn">
          <obj_property name="ElementShortName">o_ctrlMemPCNEn</obj_property>
          <obj_property name="ObjectShortName">o_ctrlMemPCNEn</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/control_bd_i/o_ctrlMemPCToRamN">
-         <obj_property name="ElementShortName">o_ctrlMemPCToRamN</obj_property>
-         <obj_property name="ObjectShortName">o_ctrlMemPCToRamN</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/control_bd_i/o_ctrlMemRamNOE">
-         <obj_property name="ElementShortName">o_ctrlMemRamNOE</obj_property>
-         <obj_property name="ObjectShortName">o_ctrlMemRamNOE</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/control_bd_i/o_ctrlMemRamNWE">
-         <obj_property name="ElementShortName">o_ctrlMemRamNWE</obj_property>
-         <obj_property name="ObjectShortName">o_ctrlMemRamNWE</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/control_bd_i/o_ctrlMemSPNEn">
-         <obj_property name="ElementShortName">o_ctrlMemSPNEn</obj_property>
-         <obj_property name="ObjectShortName">o_ctrlMemSPNEn</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/control_bd_i/o_ctrlMemSPUp">
-         <obj_property name="ElementShortName">o_ctrlMemSPUp</obj_property>
-         <obj_property name="ObjectShortName">o_ctrlMemSPUp</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/control_bd_i/o_ctrlReg0BusNOE">
-         <obj_property name="ElementShortName">o_ctrlReg0BusNOE</obj_property>
-         <obj_property name="ObjectShortName">o_ctrlReg0BusNOE</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/control_bd_i/o_ctrlReg0NWE">
-         <obj_property name="ElementShortName">o_ctrlReg0NWE</obj_property>
-         <obj_property name="ObjectShortName">o_ctrlReg0NWE</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/control_bd_i/o_ctrlReg1BusNOE">
-         <obj_property name="ElementShortName">o_ctrlReg1BusNOE</obj_property>
-         <obj_property name="ObjectShortName">o_ctrlReg1BusNOE</obj_property>
       </wvobject>
       <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/control_bd_i/o_ctrlReg1NWE">
          <obj_property name="ElementShortName">o_ctrlReg1NWE</obj_property>
@@ -177,54 +217,5 @@
          <obj_property name="ElementShortName">o_ctrlRegAluSel</obj_property>
          <obj_property name="ObjectShortName">o_ctrlRegAluSel</obj_property>
       </wvobject>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/o_cathodes">
-      <obj_property name="ElementShortName">o_cathodes[7:0]</obj_property>
-      <obj_property name="ObjectShortName">o_cathodes[7:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/o_anodes">
-      <obj_property name="ElementShortName">o_anodes[7:0]</obj_property>
-      <obj_property name="ObjectShortName">o_anodes[7:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_alu/r_y">
-      <obj_property name="ElementShortName">r_y[7:0]</obj_property>
-      <obj_property name="ObjectShortName">r_y[7:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_alu/o_flagNegative">
-      <obj_property name="ElementShortName">o_flagNegative</obj_property>
-      <obj_property name="ObjectShortName">o_flagNegative</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_alu/o_flagZero">
-      <obj_property name="ElementShortName">o_flagZero</obj_property>
-      <obj_property name="ObjectShortName">o_flagZero</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_alu/o_flagOverflow">
-      <obj_property name="ElementShortName">o_flagOverflow</obj_property>
-      <obj_property name="ObjectShortName">o_flagOverflow</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_alu/o_flagCarry">
-      <obj_property name="ElementShortName">o_flagCarry</obj_property>
-      <obj_property name="ObjectShortName">o_flagCarry</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/inst_alu/s_flagCShift">
-      <obj_property name="ElementShortName">s_flagCShift</obj_property>
-      <obj_property name="ObjectShortName">s_flagCShift</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/o_bus">
-      <obj_property name="ElementShortName">o_bus[7:0]</obj_property>
-      <obj_property name="ObjectShortName">o_bus[7:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/o_ioAddress">
-      <obj_property name="ElementShortName">o_ioAddress[7:0]</obj_property>
-      <obj_property name="ObjectShortName">o_ioAddress[7:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/tb_datapath/inst_datapath/o_ioNWE">
-      <obj_property name="ElementShortName">o_ioNWE</obj_property>
-      <obj_property name="ObjectShortName">o_ioNWE</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_datapath/inst_datapath/inst_triBus/i_noe">
-      <obj_property name="ElementShortName">i_noe[4:0]</obj_property>
-      <obj_property name="ObjectShortName">i_noe[4:0]</obj_property>
    </wvobject>
 </wave_config>

@@ -96,32 +96,32 @@ assign o_ioNOE = ioNOE;
 assign o_ioNWE = ioNWE;
 assign o_bus = s_bus;
 
-dbgIla inst_ila (
-  .clk(i_asyncRamSpecialClock),
+// dbgIla inst_ila (
+//   .clk(i_asyncRamSpecialClock),
 
-  .probe0(s_busAlu),
-  .probe1(s_busNOEAlu),
-  .probe2(s_busRegset),
-  .probe3(s_busNOERegset),
-  .probe4(s_busMemory),
-  .probe5(s_busNOEMemory),
-  .probe6(s_busIO),
-  .probe7(s_busNOEIO),
-  .probe8(s_bus),
-  .probe9(i_switches),
-  .probe10(ioNCE),
-  .probe11(ioNOE),
-  .probe12(ioNWE),
-  .probe13(ioAddress),
-  .probe14(dbgPc),
-  .probe15(dbgStep),
-  .probe16(resetn),
-  .probe17(i_btnStep),
-  .probe18(i_swInstrNCycle),
-  .probe19(i_swStepNRun),
-  .probe20(i_swEnableBreakpoint),
-  .probe21(breakpointHitN)
-);
+//   .probe0(s_busAlu),
+//   .probe1(s_busNOEAlu),
+//   .probe2(s_busRegset),
+//   .probe3(s_busNOERegset),
+//   .probe4(s_busMemory),
+//   .probe5(s_busNOEMemory),
+//   .probe6(s_busIO),
+//   .probe7(s_busNOEIO),
+//   .probe8(s_bus),
+//   .probe9(i_switches),
+//   .probe10(ioNCE),
+//   .probe11(ioNOE),
+//   .probe12(ioNWE),
+//   .probe13(ioAddress),
+//   .probe14(dbgPc),
+//   .probe15(dbgStep),
+//   .probe16(resetn),
+//   .probe17(i_btnStep),
+//   .probe18(i_swInstrNCycle),
+//   .probe19(i_swStepNRun),
+//   .probe20(i_swEnableBreakpoint),
+//   .probe21(breakpointHitN)
+// );
 
 tristatenet #(
   .INPUT_COUNT(5)
@@ -133,7 +133,8 @@ tristatenet #(
 );
 
 control_bd control_bd_i (
-  .i_nclk(clkn),
+  .i_clk(clk),
+  .i_clkn(clkn),
   .i_reset(~resetn),
 
   .i_halt(halt),

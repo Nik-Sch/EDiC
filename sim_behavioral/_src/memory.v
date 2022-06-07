@@ -156,6 +156,8 @@ always @(posedge i_clk, posedge i_reset) begin
   if (i_reset) begin
     r_pc <= 0;
     r_sp <= 0;
+    o_instrCode <= 0;
+    r_instrImm <= 0;
   end
 end
 

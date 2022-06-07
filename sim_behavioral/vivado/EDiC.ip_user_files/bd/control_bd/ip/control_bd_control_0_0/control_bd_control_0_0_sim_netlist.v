@@ -1,10 +1,10 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2 (lin64) Build 3367213 Tue Oct 19 02:47:39 MDT 2021
-// Date        : Mon Nov 29 17:49:26 2021
-// Host        : niklas-manj running 64-bit Manjaro Linux
+// Date        : Tue Jun  7 12:29:34 2022
+// Host        : niklasPC running 64-bit Manjaro Linux
 // Command     : write_verilog -force -mode funcsim
-//               /home/niklas/dev/EDiC/vivado/EDiC.gen/sources_1/bd/control_bd/ip/control_bd_control_0_0/control_bd_control_0_0_sim_netlist.v
+//               /home/niklas/dev/EDiC/sim_behavioral/vivado/EDiC.gen/sources_1/bd/control_bd/ip/control_bd_control_0_0/control_bd_control_0_0_sim_netlist.v
 // Design      : control_bd_control_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -16,7 +16,7 @@
 (* X_CORE_INFO = "control,Vivado 2021.2" *) 
 (* NotValidForBitStream *)
 module control_bd_control_0_0
-   (i_nclk,
+   (i_clk,
     i_reset,
     i_instrCode,
     o_decodeAddr,
@@ -50,7 +50,7 @@ module control_bd_control_0_0
     o_ctrlMemPCToRamN,
     o_ctrlInstrFinishedN,
     o_dbgStep);
-  input i_nclk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 i_clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME i_clk, ASSOCIATED_RESET i_reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN control_bd_i_nclk, INSERT_VIP 0" *) input i_clk;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 i_reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME i_reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input i_reset;
   input [7:0]i_instrCode;
   output [14:0]o_decodeAddr;
@@ -85,6 +85,7 @@ module control_bd_control_0_0
   output o_ctrlInstrFinishedN;
   output [2:0]o_dbgStep;
 
+  wire i_clk;
   wire [23:0]i_decodeData;
   wire i_flagCarry;
   wire i_flagNegative;
@@ -92,7 +93,6 @@ module control_bd_control_0_0
   wire i_flagZero;
   wire i_halt;
   wire [7:0]i_instrCode;
-  wire i_nclk;
   wire i_reset;
   wire [1:0]o_ctrlAluOp;
   wire o_ctrlAluSub;
@@ -126,6 +126,7 @@ module control_bd_control_0_0
   assign o_decodeAddr[2:0] = \^o_decodeAddr [2:0];
   control_bd_control_0_0_control inst
        (.Q(\^o_decodeAddr [2:0]),
+        .i_clk(i_clk),
         .i_decodeData(i_decodeData[20]),
         .i_flagCarry(i_flagCarry),
         .i_flagNegative(i_flagNegative),
@@ -133,7 +134,6 @@ module control_bd_control_0_0
         .i_flagZero(i_flagZero),
         .i_halt(i_halt),
         .i_instrCode(i_instrCode),
-        .i_nclk(i_nclk),
         .i_reset(i_reset),
         .o_decodeAddr({\^o_decodeAddr [14:6],o_ctrlAluOp,o_ctrlAluSub}));
 endmodule
@@ -144,7 +144,7 @@ module control_bd_control_0_0_control
     o_decodeAddr,
     i_decodeData,
     i_halt,
-    i_nclk,
+    i_clk,
     i_reset,
     i_instrCode,
     i_flagOverflow,
@@ -155,7 +155,7 @@ module control_bd_control_0_0_control
   output [11:0]o_decodeAddr;
   input [0:0]i_decodeData;
   input i_halt;
-  input i_nclk;
+  input i_clk;
   input i_reset;
   input [7:0]i_instrCode;
   input i_flagOverflow;
@@ -164,6 +164,7 @@ module control_bd_control_0_0_control
   input i_flagNegative;
 
   wire [2:0]Q;
+  wire i_clk;
   wire [0:0]i_decodeData;
   wire i_flagCarry;
   wire i_flagNegative;
@@ -171,7 +172,6 @@ module control_bd_control_0_0_control
   wire i_flagZero;
   wire i_halt;
   wire [7:0]i_instrCode;
-  wire i_nclk;
   wire i_reset;
   wire [11:0]o_decodeAddr;
   wire \r_flags[0]_i_1_n_0 ;
@@ -219,7 +219,7 @@ module control_bd_control_0_0_control
   FDCE #(
     .INIT(1'b0)) 
     \r_flags_reg[0] 
-       (.C(i_nclk),
+       (.C(i_clk),
         .CE(\r_flags[3]_i_1_n_0 ),
         .CLR(i_reset),
         .D(\r_flags[0]_i_1_n_0 ),
@@ -227,7 +227,7 @@ module control_bd_control_0_0_control
   FDCE #(
     .INIT(1'b0)) 
     \r_flags_reg[1] 
-       (.C(i_nclk),
+       (.C(i_clk),
         .CE(\r_flags[3]_i_1_n_0 ),
         .CLR(i_reset),
         .D(\r_flags[1]_i_1_n_0 ),
@@ -235,7 +235,7 @@ module control_bd_control_0_0_control
   FDCE #(
     .INIT(1'b0)) 
     \r_flags_reg[2] 
-       (.C(i_nclk),
+       (.C(i_clk),
         .CE(\r_flags[3]_i_1_n_0 ),
         .CLR(i_reset),
         .D(\r_flags[2]_i_1_n_0 ),
@@ -243,7 +243,7 @@ module control_bd_control_0_0_control
   FDCE #(
     .INIT(1'b0)) 
     \r_flags_reg[3] 
-       (.C(i_nclk),
+       (.C(i_clk),
         .CE(\r_flags[3]_i_1_n_0 ),
         .CLR(i_reset),
         .D(\r_flags[3]_i_2_n_0 ),
@@ -256,7 +256,7 @@ module control_bd_control_0_0_control
   FDCE #(
     .INIT(1'b0)) 
     \r_instructionFallingEdge_reg[0] 
-       (.C(i_nclk),
+       (.C(i_clk),
         .CE(\r_instructionFallingEdge[7]_i_1_n_0 ),
         .CLR(i_reset),
         .D(i_instrCode[0]),
@@ -264,7 +264,7 @@ module control_bd_control_0_0_control
   FDCE #(
     .INIT(1'b0)) 
     \r_instructionFallingEdge_reg[1] 
-       (.C(i_nclk),
+       (.C(i_clk),
         .CE(\r_instructionFallingEdge[7]_i_1_n_0 ),
         .CLR(i_reset),
         .D(i_instrCode[1]),
@@ -272,7 +272,7 @@ module control_bd_control_0_0_control
   FDCE #(
     .INIT(1'b0)) 
     \r_instructionFallingEdge_reg[2] 
-       (.C(i_nclk),
+       (.C(i_clk),
         .CE(\r_instructionFallingEdge[7]_i_1_n_0 ),
         .CLR(i_reset),
         .D(i_instrCode[2]),
@@ -280,7 +280,7 @@ module control_bd_control_0_0_control
   FDCE #(
     .INIT(1'b0)) 
     \r_instructionFallingEdge_reg[3] 
-       (.C(i_nclk),
+       (.C(i_clk),
         .CE(\r_instructionFallingEdge[7]_i_1_n_0 ),
         .CLR(i_reset),
         .D(i_instrCode[3]),
@@ -288,7 +288,7 @@ module control_bd_control_0_0_control
   FDCE #(
     .INIT(1'b0)) 
     \r_instructionFallingEdge_reg[4] 
-       (.C(i_nclk),
+       (.C(i_clk),
         .CE(\r_instructionFallingEdge[7]_i_1_n_0 ),
         .CLR(i_reset),
         .D(i_instrCode[4]),
@@ -296,7 +296,7 @@ module control_bd_control_0_0_control
   FDCE #(
     .INIT(1'b0)) 
     \r_instructionFallingEdge_reg[5] 
-       (.C(i_nclk),
+       (.C(i_clk),
         .CE(\r_instructionFallingEdge[7]_i_1_n_0 ),
         .CLR(i_reset),
         .D(i_instrCode[5]),
@@ -304,7 +304,7 @@ module control_bd_control_0_0_control
   FDCE #(
     .INIT(1'b0)) 
     \r_instructionFallingEdge_reg[6] 
-       (.C(i_nclk),
+       (.C(i_clk),
         .CE(\r_instructionFallingEdge[7]_i_1_n_0 ),
         .CLR(i_reset),
         .D(i_instrCode[6]),
@@ -312,7 +312,7 @@ module control_bd_control_0_0_control
   FDCE #(
     .INIT(1'b0)) 
     \r_instructionFallingEdge_reg[7] 
-       (.C(i_nclk),
+       (.C(i_clk),
         .CE(\r_instructionFallingEdge[7]_i_1_n_0 ),
         .CLR(i_reset),
         .D(i_instrCode[7]),
@@ -344,7 +344,7 @@ module control_bd_control_0_0_control
   FDCE #(
     .INIT(1'b0)) 
     \r_step_reg[0] 
-       (.C(i_nclk),
+       (.C(i_clk),
         .CE(\r_flags[3]_i_1_n_0 ),
         .CLR(i_reset),
         .D(\r_step[0]_i_1_n_0 ),
@@ -352,7 +352,7 @@ module control_bd_control_0_0_control
   FDCE #(
     .INIT(1'b0)) 
     \r_step_reg[1] 
-       (.C(i_nclk),
+       (.C(i_clk),
         .CE(\r_flags[3]_i_1_n_0 ),
         .CLR(i_reset),
         .D(\r_step[1]_i_1_n_0 ),
@@ -360,7 +360,7 @@ module control_bd_control_0_0_control
   FDCE #(
     .INIT(1'b0)) 
     \r_step_reg[2] 
-       (.C(i_nclk),
+       (.C(i_clk),
         .CE(\r_flags[3]_i_1_n_0 ),
         .CLR(i_reset),
         .D(\r_step[2]_i_1_n_0 ),

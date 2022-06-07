@@ -35,9 +35,9 @@ reg[7:0] s_y;
 
 always @(posedge i_clk) begin
   if (!i_ctrlAluYNWE) begin
-    r_y <= s_y;
+    r_y            <= s_y;
     o_flagNegative <= s_y[7];
-    o_flagZero <= s_y == 8'h00;
+    o_flagZero     <= s_y == 8'h00;
     o_flagOverflow <= s_cin[7] ^ s_cin[8];
     if (i_ctrlAluOp == 2'b11) begin
       o_flagCarry <= s_flagCShift;
@@ -46,10 +46,10 @@ always @(posedge i_clk) begin
     end
   end
   if (i_reset) begin
-    r_y <= 0;
+    r_y            <= 0;
     o_flagNegative <= 0;
-    o_flagZero <= 0;
-    o_flagCarry <= 0;
+    o_flagZero     <= 0;
+    o_flagCarry    <= 0;
     o_flagOverflow <= 0;
   end
 end

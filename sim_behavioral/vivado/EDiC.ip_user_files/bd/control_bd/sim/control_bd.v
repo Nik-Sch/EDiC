@@ -1,23 +1,24 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2 (lin64) Build 3367213 Tue Oct 19 02:47:39 MDT 2021
-//Date        : Mon Nov 29 17:45:39 2021
-//Host        : niklas-manj running 64-bit Manjaro Linux
+//Date        : Tue Jun  7 12:36:17 2022
+//Host        : niklasPC running 64-bit Manjaro Linux
 //Command     : generate_target control_bd.bd
 //Design      : control_bd
 //Purpose     : IP block netlist
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "control_bd,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=control_bd,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=3,numReposBlks=3,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "control_bd.hwdef" *) 
+(* CORE_GENERATION_INFO = "control_bd,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=control_bd,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=3,numReposBlks=3,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "control_bd.hwdef" *) 
 module control_bd
-   (i_flagCarry,
+   (i_clk,
+    i_clkn,
+    i_flagCarry,
     i_flagNegative,
     i_flagOverflow,
     i_flagZero,
     i_halt,
     i_instrCode,
-    i_nclk,
     i_reset,
     o_ctrlAluNOE,
     o_ctrlAluOp,
@@ -43,13 +44,14 @@ module control_bd
     o_ctrlReg1NWE,
     o_ctrlRegAluSel,
     o_dbgStep);
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.I_CLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.I_CLK, ASSOCIATED_RESET i_reset, CLK_DOMAIN control_bd_i_nclk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input i_clk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.I_CLKN CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.I_CLKN, CLK_DOMAIN control_bd_clka_0, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input i_clkn;
   input i_flagCarry;
   input i_flagNegative;
   input i_flagOverflow;
   input i_flagZero;
   input i_halt;
   input [7:0]i_instrCode;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.I_NCLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.I_NCLK, CLK_DOMAIN control_bd_i_nclk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input i_nclk;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.I_RESET RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.I_RESET, INSERT_VIP 0, POLARITY ACTIVE_LOW" *) input i_reset;
   output o_ctrlAluNOE;
   output [1:0]o_ctrlAluOp;
@@ -76,6 +78,7 @@ module control_bd
   output o_ctrlRegAluSel;
   output [2:0]o_dbgStep;
 
+  wire clka_0_1;
   wire control_0_o_ctrlAluNOE;
   wire [1:0]control_0_o_ctrlAluOp;
   wire control_0_o_ctrlAluSub;
@@ -112,13 +115,14 @@ module control_bd
   wire [23:0]instrDecode_douta;
   wire [0:0]xlconstant_0_dout;
 
+  assign clka_0_1 = i_clkn;
   assign i_flagCarry_0_1 = i_flagCarry;
   assign i_flagNegative_0_1 = i_flagNegative;
   assign i_flagOverflow_0_1 = i_flagOverflow;
   assign i_flagZero_0_1 = i_flagZero;
   assign i_halt_0_1 = i_halt;
   assign i_instrCode_0_1 = i_instrCode[7:0];
-  assign i_nclk_1 = i_nclk;
+  assign i_nclk_1 = i_clk;
   assign i_reset_0_1 = i_reset;
   assign o_ctrlAluNOE = control_0_o_ctrlAluNOE;
   assign o_ctrlAluOp[1:0] = control_0_o_ctrlAluOp;
@@ -145,14 +149,14 @@ module control_bd
   assign o_ctrlRegAluSel = control_0_o_ctrlRegAluSel;
   assign o_dbgStep[2:0] = control_0_o_dbgStep;
   control_bd_control_0_0 control_0
-       (.i_decodeData(instrDecode_douta),
+       (.i_clk(i_nclk_1),
+        .i_decodeData(instrDecode_douta),
         .i_flagCarry(i_flagCarry_0_1),
         .i_flagNegative(i_flagNegative_0_1),
         .i_flagOverflow(i_flagOverflow_0_1),
         .i_flagZero(i_flagZero_0_1),
         .i_halt(i_halt_0_1),
         .i_instrCode(i_instrCode_0_1),
-        .i_nclk(i_nclk_1),
         .i_reset(i_reset_0_1),
         .o_ctrlAluNOE(control_0_o_ctrlAluNOE),
         .o_ctrlAluOp(control_0_o_ctrlAluOp),
@@ -181,7 +185,7 @@ module control_bd
         .o_decodeAddr(control_0_o_decodeAddr));
   control_bd_instrRom_0 instrDecode
        (.addra(control_0_o_decodeAddr),
-        .clka(i_nclk_1),
+        .clka(clka_0_1),
         .douta(instrDecode_douta),
         .ena(xlconstant_0_dout));
   control_bd_xlconstant_0_0 xlconstant_0

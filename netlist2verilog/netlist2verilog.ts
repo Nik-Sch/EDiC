@@ -19,7 +19,7 @@ parser.parse();
 const unitsForVerilog = parser.units
   .filter(v =>
     (v.id.startsWith('U') && parseInt(v.id.substring(1)) < 1000) // > 1000 is uart board
-  || (v.id.startsWith('JT') && v.id !== 'JT3'));
+    || (v.id.startsWith('JT') && v.id !== 'JT3'));
 
 const transformWire = (wire: IWire): IWire => {
   const newWire: IWire = {
@@ -28,7 +28,7 @@ const transformWire = (wire: IWire): IWire => {
   }
   return newWire;
 }
-  const transformWireStr = (wire: string): string => {
+const transformWireStr = (wire: string): string => {
   wire = wire
     .replace(/\/([a-z])/g, v => v.toUpperCase()) // make letter after / to uppercase
     .replace(/\//g, '')
@@ -99,7 +99,7 @@ const eeproms: IEEPROM[] = [];
 let tmpWireCount: number = 0;
 
 const addEeprom = (unit: IUnit, eepromId: string, dataOffset: number) => {
-  let eeprom: IEEPROM|undefined = eeproms.find(e => e.id === eepromId);
+  let eeprom: IEEPROM | undefined = eeproms.find(e => e.id === eepromId);
   if (!eeprom) {
     eeprom = {
       address: [],
@@ -145,7 +145,7 @@ for (const unit of unitsForVerilog) {
       name: `${unit.id}_b_noe`,
       portNumber: noeBPortnumber
     })
-    const portsA = [ 2,  3,  4,  5,  6,  7,  8,  9];
+    const portsA = [2, 3, 4, 5, 6, 7, 8, 9];
     const portsB = [11, 12, 13, 14, 15, 16, 17, 18];
     const dirPort = unit.ports[0];
     if (!dirPort) {
@@ -165,7 +165,7 @@ for (const unit of unitsForVerilog) {
       // connect inputs to port b
       unit.ports.map(port => {
         if (portsB.find(b => b === port.portNumber)) {
-        port.portNumber += 100;
+          port.portNumber += 100;
         }
         return port
       })
@@ -204,7 +204,7 @@ for (const unit of unitsForVerilog) {
         dataOffset = 16;
         break;
       case 'U85':
-        eepromId =  'microCodeRom';
+        eepromId = 'microCodeRom';
         dataOffset = 0;
         break;
       case 'U86':
@@ -234,8 +234,8 @@ for (const unit of unitsForVerilog) {
 const ignoreWire = (wire: IWire): boolean => {
   // return wire.name !== 'GND' && wire.name !== '+5V' && wire.name !== '?';
   return wire.name !== '?'
-  && wire.name.match(/^1'b\d$/) === null
-  && wire.name.match(/^i_.*$/) === null;
+    && wire.name.match(/^1'b\d$/) === null
+    && wire.name.match(/^i_.*$/) === null;
 }
 
 wires.push(
@@ -246,7 +246,7 @@ wires.push(
     .map(transformWire)
     .filter(ignoreWire)
     .map(w => w.name)
-  );
+);
 if (wires.filter((v, i, self) => self.indexOf(v) !== i).length > 0) {
   console.log('the naming transformation removed uniqueness of the wire names.');
   console.log(wires.filter((v, i, self) => self.indexOf(v) !== i));
@@ -316,7 +316,7 @@ const addAssignments = () => {
       assignments.push({
         target: `o_r0[${i}]`,
         origin: `R0${i}`
-      },{
+      }, {
         target: `o_r1[${i}]`,
         origin: `R1${i}`
       });
@@ -384,7 +384,7 @@ const addAssignments = () => {
         target: 'o_ioNWE',
         origin: 'CTRLMEMRAMWE',
       },
-      );
+    );
   } else {
     // bus
     for (let i = 0; i < 8; i++) {
@@ -405,7 +405,7 @@ const addAssignments = () => {
     // i_switches
     for (let i = 0; i < 8; i++) {
       assignments.push({
-        target: `Net_RN10_Pad${2+i}`,
+        target: `Net_RN10_Pad${2 + i}`,
         origin: `i_switches[${i}]`
       });
     }
@@ -473,7 +473,7 @@ const addAssignments = () => {
         target: 'o_ioNWE',
         origin: 'ctrlMemRamWEN',
       },
-      );
+    );
   }
 }
 addAssignments();
@@ -536,7 +536,7 @@ displayDriver inst_7seg(
   }
 }
 
-const typeMap: {[t: string]: string} = {
+const typeMap: { [t: string]: string } = {
   '28C256': 'ic28C256',
   '5082_7340': 'ic5082_7340',
   '74ABT540': 'ic74x540',
@@ -628,32 +628,32 @@ $tristates
 $instances
 
 endmodule`
-.replace(/\$wires/g,
-  wires.sort().map(w => `wire ${w};`).join('\n')
+  .replace(/\$wires/g,
+    wires.sort().map(w => `wire ${w};`).join('\n')
   )
-.replace(/\$instances/g,
-  unitsForVerilog.map(unit => {
-    return `
+  .replace(/\$instances/g,
+    unitsForVerilog.map(unit => {
+      return `
 $type inst_$id (
 $ports
 );`
-      .replace(/\$id/g, unit.id)
-      .replace(/\$type/g, typeMap[unit.type])
-      .replace(/\$ports/g, unit.ports
-        .filter(wire => wire.name !== '?')
-        .map(transformWire)
-        .map(port => {
-          // do not connect ports:
-          //  2, 4, 6, 10 of JT7 etc.
-          if ((unit.id === 'JT7' && [2, 4, 6, 10].find(x => x === port.portNumber))
-          || (unit.id === 'JT9' && [18, 20].find(x => x === port.portNumber))
-          ) {
-            return `  .port${port.portNumber}()`
-          }
-        return `  .port${port.portNumber}(${port.name})`;
-      }).join(',\n'))
-  }).join('\n'))
-.replace(/\$ports/g, `
+        .replace(/\$id/g, unit.id)
+        .replace(/\$type/g, typeMap[unit.type])
+        .replace(/\$ports/g, unit.ports
+          .filter(wire => wire.name !== '?')
+          .map(transformWire)
+          .map(port => {
+            // do not connect ports:
+            //  2, 4, 6, 10 of JT7 etc.
+            if ((unit.id === 'JT7' && [2, 4, 6, 10].find(x => x === port.portNumber))
+              || (unit.id === 'JT9' && [18, 20].find(x => x === port.portNumber))
+            ) {
+              return `  .port${port.portNumber}()`
+            }
+            return `  .port${port.portNumber}(${port.name})`;
+          }).join(',\n'))
+    }).join('\n'))
+  .replace(/\$ports/g, `
   input wire i_clk100,
 
   // clocks
@@ -689,14 +689,14 @@ $ports
   output wire [7:0] o_r0,
   output wire [7:0] o_r1
 `)
-.replace(/\$assigns/g, assignments.map(a => {
-  return `assign ${a.target} = ${a.origin};`
-}).join('\n'))
-.replace(/\$tristates/g, tristateNets.map(net => {
-  if (net.name === 'N16449995' || net.name === 'CLK_UNBUF') {
-    return ''; // is reset or clock
-  }
-  return `
+  .replace(/\$assigns/g, assignments.map(a => {
+    return `assign ${a.target} = ${a.origin};`
+  }).join('\n'))
+  .replace(/\$tristates/g, tristateNets.map(net => {
+    if (net.name === 'N16449995' || net.name === 'CLK_UNBUF') {
+      return ''; // is reset or clock
+    }
+    return `
 tristatenet #(
   .INPUT_COUNT(${net.inputs.length})
 ) inst_triBus${net.name} (
@@ -705,16 +705,16 @@ tristatenet #(
   .o_data(${net.name}),
   .o_noe(${net.noe})
 );`
-}).join('\n'))
-.replace(/\$eeproms/g, eeproms.map(eeprom => {
-  return `
+  }).join('\n'))
+  .replace(/\$eeproms/g, eeproms.map(eeprom => {
+    return `
 ${eeprom.id} inst_${eeprom.id} (
   .clka(i_asyncEEPROMSpecialClock),
   .addra({${eeprom.address.reverse().join(', ')}}),
   .douta({${eeprom.data.reverse().join(', ')}})
 );`
-}).join('\n'))
-.replace(/\$displayDriver/g, getDisplayDriver());
+  }).join('\n'))
+  .replace(/\$displayDriver/g, getDisplayDriver());
 ;
 
 
@@ -727,16 +727,3 @@ console.log(uniqueUnits.map(u => ({
 })).sort((a, b) => a.count - b.count))
 
 writeFileSync(argv[3], verilogFile);
-
-
-/*
-ila_0 your_instance_name (
-	.clk(CLK1), // input wire clk
-
-
-	.probe0({Bus7, Bus6, Bus5, Bus4, Bus3, Bus2, Bus1, Bus0}), // input wire [7:0]  probe0
-	.probe1({N16459739, N16459679, N16459595, N16459511, N16459427, N16459367, N16459283, N16459199}), // input wire [7:0]  probe1
-	.probe2(IO_0_WR), // input wire [0:0]  probe2
-	.probe3(RESET1) // input wire [0:0]  probe3
-);
-*/

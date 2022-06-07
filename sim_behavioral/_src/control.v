@@ -1,5 +1,5 @@
 module control(
-  input wire i_nclk,
+  input wire i_clk,
   input wire i_reset,
 
   input wire[7:0] i_instrCode,
@@ -79,7 +79,7 @@ assign o_ctrlInstrFinishedN = i_decodeData[20];
 
 assign o_dbgStep = r_step;
 
-always @(posedge i_nclk, posedge i_reset) begin
+always @(posedge i_clk, posedge i_reset) begin
   if (!i_halt) begin
     r_step <= r_step + 1;
     r_instructionFallingEdge <= i_instrCode;
