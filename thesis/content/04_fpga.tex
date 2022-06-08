@@ -198,8 +198,45 @@ The tristatenet for the \texttt{PCIN0} signal (\cref{lst:edifNet}) is represente
 \subsubsection{\glspl{RAM} and \glspl{EEPROM} clock}
 Another problem with the \gls{FPGA} implementation in general is that both, the \gls{SRAM} and \gls{EEPROM} chips used are asynchronous and the \gls{FPGA} only has synchronous logic elements.
 In the behavioral implementation, exact timings were no requirement and, therefore, the memory and \glspl{ROM} were clocked with the inverse clock, mimicking an asynchronous behavior.
-However, for the exact netlist \gls{FPGA} implementation this is not a good way to mimick the behavior.
+However, for the exact netlist \gls{FPGA} implementation this is not a good way to mimic the behavior.
 Therefore, the exact delay of both chips were calculated with the help of the datasheets and they are both clocked with a custom clock that is out of phase with the global logic clock by the exact amount of the delay.
-\TODO{insert waveform}
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{asyncClockWave.png}
+  \caption{Waveform showing the clock used for the \gls{FPGA} \gls{ROM} to mimic the asynchronous behavior of the \glspl{EEPROM}.}
+  \label{fig:asyncClockWave}
+\end{figure}
 
-This means, that the clock inputs of the memory and \gls{EEPROM} instantiations are replaced with the corrosponding custom clock as can be seen in \cref{lst:rom_inst}.
+This means, that the clock inputs of the memory and \gls{EEPROM} instantiations are replaced with the corresponding custom clock as can be seen in \cref{lst:rom_inst}.
+
+\Cref{fig:asyncClockWave} visualizes how the main clock (\texttt{CLK1} in the waveform) and the clock for the \gls{ROM} (\texttt{asyncEEPROMSpecialClock} in the waveform) differ in phase.
+Consequently, the step register and with it the address for the microcode \gls{ROM} change with a rising edge of the main clock but all the control signals which are outputs of the \gls{ROM} change with the rising edge of the phase shifted clock.
+
+\subsubsection{Assignments}
+There are some connections which are unique to the \gls{FPGA} implementation and, therefore, are not contained in the netlist.
+These are mainly the inputs and outputs of the \gls{CPU} for the I/O extensions, the user buttons (reset, step etc.), clock oscillator, breakpoint addresses and so on.
+However, one exception are the \texttt{L1-L4} and \texttt{H1-H4} nets which are static nets connected to ground or 5V through resistors.
+They are used for logic inputs of \glspl{IC} instead of directly using GND or 5V to ease the error fixing on the \gls{PCB}.
+If one would connect the pins directly to the GND or 5V planes, it would be hard to heat up the solder on the pin for removal because the whole plane needs to be heated.
+Additionally, when connected to the plane, there is no trace that can be scratched through if the pin needs to be connected to another net.
+
+In the \gls{FPGA} design they are, therefore, assigned to 0 or 1 respectively.
+
+\subsubsection{Display Driver}
+\begin{figure}
+  \centering
+  \includegraphics[width=.8\textwidth]{7segmentNexysA7.png}
+  \caption{Overview of the 8 7-segment displays of the Nexys A7 development board \cite{7segNexys}.}
+  \label{fig:7segNexys}
+\end{figure}
+The hardware build will feature 2 displays for the built-in I/O which can be directly addressed with 4 bits to display hexadecimal digits.
+The \gls{FPGA} development board on the other hand, features simpler and more common 7-segment displays.
+In total, there are 8 7-segment displays of which two are used as the built-in I/O and the others are used for debugging when the \gls{CPU} is halted.
+The wiring of the displays is shown in \cref{fig:7segNexys}.
+For this purpose, a custom displayDriver has been developed which has 32 data inputs plus 8 inputs for the dots between the digits and 8 bits to encode which 7-segment display should be illuminated.
+It loops through the digits by setting each anode to 0 individually and setting the cathodes according the corresponding input bits.
+This way, each display is illuminated for 2ms which makes it look like all displays are illuminated all the time.
+
+\subsection{RS232 I/O Extension Debugging}
+One goal of creating a logical replication of the \gls{CPU} on a \gls{FPGA} was to verify the I/O extension cards before ordering the large \gls{PCB} for the \gls{CPU}.
+\TODO{insert schematic of adapter}
