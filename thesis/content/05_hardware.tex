@@ -1,5 +1,7 @@
 % !TEX root = ../thesis.tex
 \chapter{Hardware Design}\label{cha:hardware}
+The final hardware build \TODO{}
+
 \paragraph{LED Driver}
 First of all, all \glspl{LED} were directly connected to the logic wires.
 This does work but the outputs of all logic \glspl{IC} have a limited current they can provide.
@@ -56,3 +58,41 @@ It is accomplished by adding a tri-state output driver to the outputs of the fli
 The logic \gls{IC} that was chosen for the \gls{EDiC} is the \emph{74F825} because it has all three features and is 8 bits wide.
 
 \section{Timing Analysis}\label{sec:timing}
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{timingExample.pdf}
+  \caption{Timing relations for a combinatorial datapath between two registers.}
+  \label{fig:timingExample}
+\end{figure}
+To figure out what the maximum frequency is at which the \gls{EDiC} can operate on, a detailed timing analysis was performed.
+The timing analysis computes the path with the longest propagation delay which called the critical path.
+The delay of the critical path can then be used as a baseline for choosing the correct frequency.
+
+\Cref{fig:timingExample} visualizes how the propagation delays work:
+Each \gls{IC} has delays which are specified in the datasheet.
+In the example of \cref{fig:timingExample}, a value of register $r_0$ goes through a combinatorial path and is then stored in register $r_1$.
+The registers have a propagation delay $t_p$ which specifies the time from a rising edge of the clock to the output (Q).
+In theory it is also important to hold the input data of a register for the specified hold delay $t_h$, however, in the \gls{EDiC} this is no problem.
+Then the combinatorial path also has propagation delays from inputs to outputs which need to be added up ($t_c$).
+At the next register, a setup time $t_s$ has to be met which specifies the amount of time the input data needs to be stable before the rising edge.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=.5\textwidth]{all_cycles.pdf}
+  \caption{Timing analysis for the control signals.}
+  \label{fig:timingControl}
+\end{figure}
+The \cref{fig:timingControl,fig:timingRam,fig:timingAlu} show three timing analysis for the \gls{EDiC}.
+Each block represents one \gls{IC} with the corresponding delay.
+The first column shows the unit number of the schematic, the second line the type of \gls{IC} and the third shows the kind of delay with the fourth showing the time.
+The kind of delay of a buffer can for example be d$\rightarrow$ q which means input data to output data delay or oe$\rightarrow$ q which is the time from asserting output enable until the data is valid.
+The delay time is always the worst case time as specified in the datasheet\footnote{Propagation typically vary with the temperature and age of the \gls{IC} and by taking the worst case time (maximum) it is assured that no timings bugs occur due to e.g. weather changes.}.
+A vertical double line represents a point where multiple delay paths must be met until the execution can continue.
+In \cref{fig:timingControl} for example, the propagation delay of register U83 (flags and step register) and register U84 (instruction) must both be over until the address for the \glspl{EEPROM} U85, U86 and U87 are valid.
+At these points the maximum of the merging delay paths is used as the starting point for the next path.
+The maximum delay up to this point is also added at the top.
+Additionally, some paths are labeled for clarity.
+All the times of the critical path (the path that takes the longest from one starting point to one end point) are marked in red.
+
+\twopagepicture{t}{p}{ram.pdf}{Timing analysis for the memory latency.}{fig:timingRam}
+\twopagepicture{t}{p}{alu.pdf}{Timing analysis for the \gls{ALU} latency.}{fig:timingAlu}

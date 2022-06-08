@@ -77,7 +77,7 @@ The \texttt{o\_noe} is only active (low) if exactly one input \texttt{i\_noe} is
 For this \gls{FPGA} it is implemented with one \texttt{LUT4} primitive per output data bit.
 
 \section{Behavioral Implementation}
-Two kinds of \gls{FPGA} were developed in the process.
+Two kinds of \gls{FPGA} designs were developed in the process.
 The first is a behavioral description of the whole \gls{CPU} and, therefore, only models the general workings of a module but does not describe the individual chips that are used in the final hardware assembly.
 The description in \cref{lst:alu}, for example, is a behavioral description because it only describes the logical level of what should happen.
 This is quite useful for development, because it is quickly changed and bugs are fixed more efficiently as opposed to a chip-level model.
@@ -238,5 +238,30 @@ It loops through the digits by setting each anode to 0 individually and setting 
 This way, each display is illuminated for 2ms which makes it look like all displays are illuminated all the time.
 
 \subsection{RS232 I/O Extension Debugging}
+\begin{sidewaysfigure}[p]
+  \centering
+  \includegraphics[width=\textwidth]{uartTestSch.png}
+  \caption{The Schematic for the 3V3 to 5V conversion to use extension cards with the \gls{FPGA} development board.}
+  \label{fig:3v3to5vSch}
+\end{sidewaysfigure}
 One goal of creating a logical replication of the \gls{CPU} on a \gls{FPGA} was to verify the I/O extension cards before ordering the large \gls{PCB} for the \gls{CPU}.
-\TODO{insert schematic of adapter}
+All extension cards will be daughterboards and sit on top of the main \gls{PCB} in a smaller form factor.
+The following logical connections are passed through pin headers:
+\begin{itemize}
+  \item Bus (8 bits, bidirectional)
+  \item IO Address (lower 8 bits, to I/O)
+  \item Control Signals:
+  \begin{itemize}
+    \item \texttt{\textoverline{ioCE}}: active when the upper 8 \gls{RAM} address bits equal \texttt{0xfe}.
+    \item \texttt{\textoverline{ctrlMemRamWE}}: write enable signal. Write should only happen when \texttt{\textoverline{ioCE}} is active.
+    \item \texttt{\textoverline{ctrlMemRamOE}}: output enable signal. Read should only happen when \texttt{\textoverline{ioCE}} is active.
+    \item \texttt{clk}: Clock signal.
+    \item \texttt{\textoverline{reset}}: Reset signal.
+  \end{itemize}
+\end{itemize}
+Additionally, ground and 5V is passed through the connector.
+However, the Nexys A7 \gls{FPGA} development board only features digital 3V3 connections on the side.
+Thus, an adapter board is required which converts the 3V3 voltages to 5V and the other way around while providing the correct pin locations for the Nexys A7 board and the daughterboard.
+Its schematic is shown in \cref{fig:3v3to5vSch} where the \texttt{74LVC8T245} is used as a voltage converting buffer.
+For the control signals and addresses, its direction is always from the A port (3V3) to the B port.
+On the other hand, the direction pin of the bus buffer is low (from B to A) when both, output enable and chip enable, signals are active.

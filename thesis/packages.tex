@@ -85,7 +85,6 @@
 \newcommand{\xor}{\ensuremath \veebar}
 
 \usepackage{nicefrac}
-\usepackage{xcolor}
 
 \usetikzlibrary{external}
 \tikzexternalize[prefix=tikz_out/]
@@ -128,6 +127,87 @@
 
 \newenvironment{multipagecode}{\captionsetup{type=listing}\vspace{1cm}}{}
 
+\makeatletter
+\newcommand*{\textoverline}[1]{$\overline{\hbox{#1}}\m@th$}
+\makeatother
+
+% twosided figure https://tex.stackexchange.com/a/23865/104727
+
+% This class already provide the functionality of both
+\usepackage[strict]{changepage}
+\usepackage{adjustbox}
+\usepackage{afterpage}
+\usepackage{placeins}
+
+\setcounter{totalnumber}{1}
+\setcounter{topnumber}{1}
+\setcounter{bottomnumber}{1}
+\renewcommand{\topfraction}{.99}
+\renewcommand{\bottomfraction}{.99}
+\renewcommand{\textfraction}{.01}
+
+\makeatletter
+\newcommand*{\twopagepicture}[5]{%
+    \checkoddpage
+    \ifoddpage
+        \expandafter\@firstofone
+    \else
+        \expandafter\afterpage
+    \fi
+    {\afterpage{%
+    \begin{figure}[#1]
+        \if #2p%
+            \if #1t%
+                \vspace*{-\dimexpr0.65in+\voffset+\topmargin+\headheight+\headsep\relax}%
+            \fi
+        \fi
+        \if #1b%
+            \caption{#4}%
+            \label{#5}%
+        \fi
+        \makebox[\textwidth][l]{%
+        \if #2p\relax
+            \let\mywidth\paperwidth
+            \hskip-\dimexpr1in+\hoffset+\evensidemargin\relax
+        \else
+            \let\mywidth\linewidth
+        \fi
+        \hspace*{.05\mywidth}
+        \adjustbox{trim=0 0 {.5\width} 0,clip}{\includegraphics[width=1.8\mywidth]{#3}}}%
+        \if #1b\else
+            \caption{#4}%
+            \label{#5}%
+        \fi
+        \if #2p%
+            \if #1b%
+                \vspace*{-\dimexpr\paperheight-\textheight-1in-\voffset-\topmargin-\headheight-\headsep\relax}%
+            \fi
+        \fi
+    \end{figure}%
+    \begin{figure}[#1]
+        \if #2p%
+            \if #1t%
+                \vspace*{-\dimexpr1in+\voffset+\topmargin+\headheight+\headsep\relax}%
+            \fi
+        \fi
+        \makebox[\textwidth][l]{%
+        \if #2p%
+            \let\mywidth\paperwidth
+            \hskip-\dimexpr1in+\hoffset+\oddsidemargin\relax
+        \else
+            \let\mywidth\linewidth
+        \fi
+        \hspace*{.05\mywidth}
+        \adjustbox{trim={.5\width} 0 0 0,clip}{\includegraphics[width=1.8\mywidth]{#3}}}%
+        \if #2p%
+            \if #1b%
+                \vspace*{-\dimexpr\paperheight-\textheight-1in-\voffset-\topmargin-\headheight-\headsep\relax}%
+            \fi
+        \fi
+    \end{figure}%
+    }}%
+}
+\makeatother
 
 \newcommand{\TODO}[1]{\begin{framed}%
   {\textcolor{red}{\Large TODO: #1}}%
@@ -136,5 +216,3 @@
 
 % has to be at the end for some weird reason (https://tex.stackexchange.com/a/450540/104727)
 \usepackage{fontspec}
-% \setmainfont{Latin Modern Roman}
-% \setmonofont[Contextuals={Alternate}]{Fira Code}
