@@ -160,7 +160,6 @@
         \if #1p\relax
             \let\mywidth\paperwidth
             \hskip-\dimexpr1in+\hoffset+\evensidemargin\relax
-            \vspace*{-\dimexpr0.65in+\voffset+\topmargin+\headheight+\headsep\relax}%
             \hspace*{.05\mywidth}
             \adjustbox{trim=0 0 {.5\width} 0,clip}{\includegraphics[width=1.8\mywidth]{#2}}%
         \else
@@ -178,7 +177,6 @@
         \if #1p%
             \let\mywidth\paperwidth
             \hskip-\dimexpr1in+\hoffset+\oddsidemargin\relax
-            \vspace*{-\dimexpr1in+\voffset+\topmargin+\headheight+\headsep\relax}%
             \hspace*{.05\mywidth}
             \adjustbox{trim={.5\width} 0 0 0,clip}{\includegraphics[width=1.8\mywidth]{#2}}%
         \else

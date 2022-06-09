@@ -724,6 +724,7 @@ const uniqueUnits = unitsForVerilog.map(u => u.type)
 console.log(uniqueUnits.map(u => ({
   name: u,
   count: unitsForVerilog.filter(v => v.type === u).length
-})).sort((b, a) => a.count - b.count))
+})).sort((b, a) => a.count - b.count));
+console.log(`total: ${unitsForVerilog.length}`);
 
 writeFileSync(argv[3], verilogFile);
