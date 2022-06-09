@@ -666,6 +666,6 @@ const uniqueUnits = unitsForVerilog.map(u => u.type)
 console.log(uniqueUnits.map(u => ({
     name: u,
     count: unitsForVerilog.filter(v => v.type === u).length
-})).sort((a, b) => a.count - b.count));
+})).sort((b, a) => a.count - b.count));
 (0, fs_1.writeFileSync)(process_1.argv[3], verilogFile);
 //# sourceMappingURL=netlist2verilog.js.map

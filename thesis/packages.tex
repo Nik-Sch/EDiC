@@ -147,7 +147,7 @@
 \renewcommand{\textfraction}{.01}
 
 \makeatletter
-\newcommand*{\twopagepicture}[5]{%
+\newcommand*{\twopagepicture}[4]{%
     \checkoddpage
     \ifoddpage
         \expandafter\@firstofone
@@ -155,55 +155,39 @@
         \expandafter\afterpage
     \fi
     {\afterpage{%
-    \begin{figure}[#1]
-        \if #2p%
-            \if #1t%
-                \vspace*{-\dimexpr0.65in+\voffset+\topmargin+\headheight+\headsep\relax}%
-            \fi
-        \fi
-        \if #1b%
-            \caption{#4}%
-            \label{#5}%
-        \fi
+    \begin{figure}[t]
         \makebox[\textwidth][l]{%
-        \if #2p\relax
+        \if #1p\relax
             \let\mywidth\paperwidth
             \hskip-\dimexpr1in+\hoffset+\evensidemargin\relax
+            \vspace*{-\dimexpr0.65in+\voffset+\topmargin+\headheight+\headsep\relax}%
+            \hspace*{.05\mywidth}
+            \adjustbox{trim=0 0 {.5\width} 0,clip}{\includegraphics[width=1.8\mywidth]{#2}}%
         \else
-            \let\mywidth\linewidth
+            \let\mywidth\paperwidth
+            \hskip-\dimexpr1in+\hoffset+\evensidemargin\relax
+            \hspace*{.1\mywidth}
+            \adjustbox{trim=0 0 {.5\width} 0,clip}{\includegraphics[width=1.65\mywidth]{#2}}%
         \fi
-        \hspace*{.05\mywidth}
-        \adjustbox{trim=0 0 {.5\width} 0,clip}{\includegraphics[width=1.8\mywidth]{#3}}}%
-        \if #1b\else
-            \caption{#4}%
-            \label{#5}%
-        \fi
-        \if #2p%
-            \if #1b%
-                \vspace*{-\dimexpr\paperheight-\textheight-1in-\voffset-\topmargin-\headheight-\headsep\relax}%
-            \fi
-        \fi
+        }
+        \caption{#3}%
+        \label{#4}%
     \end{figure}%
-    \begin{figure}[#1]
-        \if #2p%
-            \if #1t%
-                \vspace*{-\dimexpr1in+\voffset+\topmargin+\headheight+\headsep\relax}%
-            \fi
-        \fi
+    \begin{figure}[t]
         \makebox[\textwidth][l]{%
-        \if #2p%
+        \if #1p%
             \let\mywidth\paperwidth
             \hskip-\dimexpr1in+\hoffset+\oddsidemargin\relax
+            \vspace*{-\dimexpr1in+\voffset+\topmargin+\headheight+\headsep\relax}%
+            \hspace*{.05\mywidth}
+            \adjustbox{trim={.5\width} 0 0 0,clip}{\includegraphics[width=1.8\mywidth]{#2}}%
         \else
-            \let\mywidth\linewidth
+            \let\mywidth\paperwidth
+            \hskip-\dimexpr1in+\hoffset+\oddsidemargin\relax
+            \hspace*{.1\mywidth}
+            \adjustbox{trim={.5\width} 0 0 0,clip}{\includegraphics[width=1.65\mywidth]{#2}}%
         \fi
-        \hspace*{.05\mywidth}
-        \adjustbox{trim={.5\width} 0 0 0,clip}{\includegraphics[width=1.8\mywidth]{#3}}}%
-        \if #2p%
-            \if #1b%
-                \vspace*{-\dimexpr\paperheight-\textheight-1in-\voffset-\topmargin-\headheight-\headsep\relax}%
-            \fi
-        \fi
+        }
     \end{figure}%
     }}%
 }

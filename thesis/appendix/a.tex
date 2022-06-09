@@ -1,34 +1,9 @@
-\chapter[Collection of assembler programs]{Collection of assembler programs for the \gls{EDiC}}
-\begin{multipagecode}
-  \caption{The full snake assembler program.}
-  \begin{multicols}{2}
-    \inputminted[linenos,
-      breaklines,
-      frame=leftline,
-      xleftmargin=20pt,
-    ]{ARM}{src/snake.s}
-  \end{multicols}
-  \label{lst:app_asm_snake}
-\end{multipagecode}
+\chapter{Full Schematics of the \gls{EDiC}}\label{cha:schem}
 
-\begin{multipagecode}
-  \caption{The \gls{PRNG} assembler program ``prng.s'' used in the snake program in \cref{lst:app_asm_snake}.}
-  \inputminted[linenos,
-    breaklines,
-    frame=leftline,
-    xleftmargin=20pt,
-  ]{ARM}{src/prng.s}
-  \label{lst:app_asm_prng}
-\end{multipagecode}
-
-\begin{multipagecode}
-  \caption{The utility library for the \gls{UART} extension card of the \gls{EDiC} with the \texttt{16c550} \gls{UART} Transceiver.}
-  \begin{multicols}{2}
-    \inputminted[linenos,
-      breaklines,
-      frame=leftline,
-      xleftmargin=20pt,
-    ]{ARM}{src/uart_16c550.s}
-  \end{multicols}
-  \label{lst:app_asm_uart}
-\end{multipagecode}
+\twopagepicture{l}{schematic_2.pdf}{Schematic: Program Counter / Instruction ROM.}{fig:schPC}
+\twopagepicture{l}{schematic_3.pdf}{Schematic: RAM.}{fig:schRAM}
+\twopagepicture{l}{schematic_4.pdf}{Schematic: Microcode.}{fig:schMC}
+\twopagepicture{l}{schematic_5.pdf}{Schematic: Clock and Reset.}{fig:schClk}
+\twopagepicture{l}{schematic_6.pdf}{Schematic: Built-In I/O.}{fig:schIO}
+\twopagepicture{l}{schematic_7.pdf}{Schematic: Register Set + ALU output.}{fig:schReg}
+\twopagepicture{l}{schematic_8.pdf}{Schematic: combinatorial ALU.}{fig:schAlu}
