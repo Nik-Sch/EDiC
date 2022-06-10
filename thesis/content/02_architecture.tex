@@ -247,28 +247,28 @@ The user can freely switch between these modes with switches and buttons.
 \section{Control Signals}\label{sec:controlSignals}
 The \gls{EDiC} has 24 control signals which define what the current cycle does:
 \begin{itemize}
-  \item \textbf{aluYNWE} - \gls{ALU} output register write enable (active low): Connects to the clock enable input of the \gls{ALU} output register.
-  \item \textbf{aluNOE} - \gls{ALU} output enable (active low): Enables the Three State buffer to drive the bus with the value of the \gls{ALU} output register.
-  \item \textbf{reg0NWE} - Register 0 write enable (active low): Connects to the clock enable input of the register 0.
-  \item \textbf{reg1NWE} - Register 1 write enable (active low): Connects to the clock enable input of the register 1.
-  \item \textbf{regAluSel} - Register Select for the \gls{ALU} A input: When 0 sets register 0 as A input to the \gls{ALU}, otherwise, register 1.
-  \item \textbf{reg0BusNOE} - Register 0 bus output enable (active low): Drives the bus with the value of register 0.
-  \item \textbf{reg1BusNOE} - Register 1 bus output enable (active low): Drives the bus with the value of register 1.
-  \item \textbf{memPCFromImm} - load data for \gls{PC} from instruction immediate: Selects the load input of the \gls{PC} to be from the instruction immediate instead of from the memory.
-  \item \textbf{memPCNEn} - \gls{PC} enable (active low): enables the \gls{PC} to load data or increment by one depending on the next control signal.
-  \item \textbf{memPCLoadN} - \gls{PC} load and not increment (active low): When 0 load the \gls{PC} with the data specified by \textbf{memPCFromImm}, otherwise, increment the \gls{PC} by one.
-  \item \textbf{memPCToRamN} - \gls{PC} output enable (active low): Drives the bus and ram2data with the value of the \gls{PC}.
-  \item \textbf{memSPNEn} - \gls{SP} enable (active low): enable the \gls{SP} to be incremented or decremented depending on the next control signal.
-  \item \textbf{memSPUp} - \gls{SP} increment not decrement: When 1 increment the \gls{SP}, otherwise, decrement.
-  \item \textbf{memInstrNWE} - Instruction write enable (active low): Connects to the clock enable input of the instruction register.
-  \item \textbf{memInstrNOE} - Instruction output enable (active low): Drives the bus with the lower 8 bits of the instruction immediate.
-  \item \textbf{memMar0NWE} - \gls{MAR} bits 7..0 write enable (active low): Connects to the clock enable input of the lower 8 bits of the \gls{MAR}.
-  \item \textbf{memMar1NWE} - \gls{MAR} bits 15..8 write enable (active low): Connects to the clock enable input of the upper 8 bits of the \gls{MAR}.
-  \item \textbf{memInstrImmToRamAddr} - \gls{RAM} address from instruction immediate and not \gls{MAR}: When 1 use the instruction immediate as address for the memory, otherwise, use the \gls{MAR} content.
-  \item \textbf{memRamNWE} - Memory write enable (active low): Connects to the write enable input of the \gls{SRAM} and I/O.
-  \item \textbf{memRamNOE} - Memory output enable (active low): Drives the bus with the value of the \gls{SRAM} or I/O depending on the memory address (\cref{sec:memory}).
-  \item \textbf{instrFinishedN} - Instruction finished (active low): Is asserted at the last active cycle of the instruction to reset the step counter to 0\footnote{the instruction finished signal is also used for the debugger to detect the end of an instruction and halt when stepping through instructions and not single cycles.}.
-  \item \textbf{busFFNOE}\footnote{Was added in the component verification and is explained in \cref{cha:eval}.} - Drive \texttt{0xff} to the bus (active low): Connects to the output enable input of the constant \texttt{0xff} driver.
+  \item \texttt{aluYNWE} - \gls{ALU} output register write enable (active low): Connects to the clock enable input of the \gls{ALU} output register.
+  \item \texttt{aluNOE} - \gls{ALU} output enable (active low): Enables the Three State buffer to drive the bus with the value of the \gls{ALU} output register.
+  \item \texttt{reg0NWE} - Register 0 write enable (active low): Connects to the clock enable input of the register 0.
+  \item \texttt{reg1NWE} - Register 1 write enable (active low): Connects to the clock enable input of the register 1.
+  \item \texttt{regAluSel} - Register Select for the \gls{ALU} A input: When 0 sets register 0 as A input to the \gls{ALU}, otherwise, register 1.
+  \item \texttt{reg0BusNOE} - Register 0 bus output enable (active low): Drives the bus with the value of register 0.
+  \item \texttt{reg1BusNOE} - Register 1 bus output enable (active low): Drives the bus with the value of register 1.
+  \item \texttt{memPCFromImm} - load data for \gls{PC} from instruction immediate: Selects the load input of the \gls{PC} to be from the instruction immediate instead of from the memory.
+  \item \texttt{memPCNEn} - \gls{PC} enable (active low): enables the \gls{PC} to load data or increment by one depending on the next control signal.
+  \item \texttt{memPCLoadN} - \gls{PC} load and not increment (active low): When 0 load the \gls{PC} with the data specified by \texttt{memPCFromImm}, otherwise, increment the \gls{PC} by one.
+  \item \texttt{memPCToRamN} - \gls{PC} output enable (active low): Drives the bus and ram2data with the value of the \gls{PC}.
+  \item \texttt{memSPNEn} - \gls{SP} enable (active low): enable the \gls{SP} to be incremented or decremented depending on the next control signal.
+  \item \texttt{memSPUp} - \gls{SP} increment not decrement: When 1 increment the \gls{SP}, otherwise, decrement.
+  \item \texttt{memInstrNWE} - Instruction write enable (active low): Connects to the clock enable input of the instruction register.
+  \item \texttt{memInstrNOE} - Instruction output enable (active low): Drives the bus with the lower 8 bits of the instruction immediate.
+  \item \texttt{memMar0NWE} - \gls{MAR} bits 7..0 write enable (active low): Connects to the clock enable input of the lower 8 bits of the \gls{MAR}.
+  \item \texttt{memMar1NWE} - \gls{MAR} bits 15..8 write enable (active low): Connects to the clock enable input of the upper 8 bits of the \gls{MAR}.
+  \item \texttt{memInstrImmToRamAddr} - \gls{RAM} address from instruction immediate and not \gls{MAR}: When 1 use the instruction immediate as address for the memory, otherwise, use the \gls{MAR} content.
+  \item \texttt{memRamNWE} - Memory write enable (active low): Connects to the write enable input of the \gls{SRAM} and I/O.
+  \item \texttt{memRamNOE} - Memory output enable (active low): Drives the bus with the value of the \gls{SRAM} or I/O depending on the memory address (\cref{sec:memory}).
+  \item \texttt{instrFinishedN} - Instruction finished (active low): Is asserted at the last active cycle of the instruction to reset the step counter to 0\footnote{the instruction finished signal is also used for the debugger to detect the end of an instruction and halt when stepping through instructions and not single cycles.}.
+  \item \texttt{busFFNOE}\footnote{Was added in the component verification and is explained in \cref{cha:eval}.} - Drive \texttt{0xff} to the bus (active low): Connects to the output enable input of the constant \texttt{0xff} driver.
 \end{itemize}
 
 \section{Final Instruction Set}\label{sec:instructionSet}

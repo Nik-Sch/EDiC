@@ -53,7 +53,6 @@
 \usepackage{eulervm}                           % math font
 
 
-\usepackage{subcaption}  % subcaptions
 
 \usepackage{lipsum} % blind text
 
@@ -64,11 +63,16 @@
   chapter
 ]{minted}
 \usemintedstyle{paraiso-light}
+\AtBeginDocument{\DeclareCaptionSubType{listing}}
 \renewcommand{\listingscaption}{Code Example}
 \renewcommand{\listoflistingscaption}{List of Code Examples}
 
+\usepackage{subcaption}  % subcaptions
+
 \usepackage[noabbrev]{cleveref} % references
-\crefname{listing}{Code Example}{Code Examples}
+\crefname{sublisting}{code example}{code examples}
+\Crefname{sublisting}{Code Example}{Code Examples}
+\crefname{listing}{code example}{code examples}
 
 \usepackage[
     acronym,
