@@ -1,10 +1,10 @@
 % !TEX root = ../thesis.tex
-\chapter{\gls{FPGA} Model}\label{cha:fpga}
+\chapter{\glsxtrshort{FPGA} Model}\label{cha:fpga}
 The goal of the \gls{FPGA} model is to proof the general workings of the \gls{CPU} architecture before finalizing the hardware layout and \gls{PCB} design.
 With the design running on an actual \gls{FPGA} it is also possible to debug and test extension cards without the actual hardware of the \gls{EDiC}.
 
 
-\section{\glspl{FPGA} Background}
+\section{\glsxtrshort{FPGA} Background}
 An \gls{FPGA} can be seen as an intermediary between \glspl{ASIC} and general purpose \glspl{CPU}.
 It allows for a lot more design flexibility in contrast to \glspl{ASIC} by being reprogrammable but at the same time has similar applications.
 The first \gls{FPGA} was released by Altera in 1984 which featured a quartz window to erase the \gls{EPROM} cells that hold the configuration.
@@ -33,7 +33,7 @@ In \glspl{FPGA} these \glspl{LUT} usually take 4-6 bit inputs and can, therefore
 Combining these \glspl{LUT} with registers, complex hardware \glspl{DSP} and a lot more advanced hardware, modern \glspl{FPGA} are very capable and complex devices that are increasingly used in prototyping and low to medium quantity products.
 There are several cheaply available \glspl{FPGA} development boards available that are very well suited for a prototype for the \gls{EDiC}.
 
-\section{\gls{FPGA} choices}
+\section{\glsxtrshort{FPGA} choices}
 For the \gls{EDiC} the Nexys A7 development board \cite{nexysA7} with the AMD-Xilinx Artix 7 XC7A100T-1CSG324C \gls{FPGA} has been chosen.
 Its synthesis tool is the AMD-Xilinx Vivado \cite{vivado} which is available as a free version and includes an advanced simulation environment.
 
@@ -57,7 +57,7 @@ As Verilog is often cited as being less verbose and, therefore, easier to write 
 \Cref{lst:alu} shows the Adder described in Verilog as an example.
 It iterates over all 8 bits, calculates the XOR and AND results and based on these and the carry input, the bit result and the carry output is calculated.
 
-\subsection{Tri-State Logic in \glspl{FPGA}}
+\subsection{Tri-State Logic in \glsxtrshortpl{FPGA}}
 One major problem with tri-state bus logic for \glspl{FPGA} is that most current era \glspl{FPGA} do not feature tri-state bus drivers in the logic slices.
 Most \glspl{FPGA} do have bidirectional tri-state transceiver for I/O but not for internal logic routing.
 However, the \glspl{HDL} (both \gls{VHDL} and Verilog) support tri-state logic and the Xilinx Simulation tool also does.
@@ -160,7 +160,7 @@ As they essentially behave as direct connections, the nets on either side of one
 
 The basic instances are easily converted to verilog instantiations.
 However, there are some obstacles that need to be taken with more advanced instances.
-\subsubsection{\glspl{EEPROM}}
+\subsubsection{\glsxtrshort{EEPROM}}
 \begin{listing}[t]
   \inputminted[linenos,
     breaklines,
@@ -195,7 +195,7 @@ Also, one output enable port needs to be added.
 Then the output port that replaced the bidirectional port is an input to the tristatenet instance and a new net is created for each tristatenet which is the actual value of the net (the output of the tristatenet module).
 The tristatenet for the \texttt{PCIN0} signal (\cref{lst:edifNet}) is represented by the instantiation shown in \cref{lst:tristate_inst}.
 
-\subsubsection{\glspl{RAM} and \glspl{EEPROM} clock}
+\subsubsection{\glsxtrshort{RAM} and \glsxtrshort{EEPROM} clock}
 Another problem with the \gls{FPGA} implementation in general is that both, the \gls{SRAM} and \gls{EEPROM} chips used are asynchronous and the \gls{FPGA} only has synchronous logic elements.
 In the behavioral implementation, exact timings were no requirement and, therefore, the memory and \glspl{ROM} were clocked with the inverse clock, mimicking an asynchronous behavior.
 However, for the exact netlist \gls{FPGA} implementation this is not a good way to mimic the behavior.

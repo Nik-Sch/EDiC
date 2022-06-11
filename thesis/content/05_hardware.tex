@@ -109,7 +109,7 @@ To be able to draw more current from the buffer and thus having brighter \glspl{
 The \emph{74ABT540} is the \gls{IC} used as \gls{LED} buffer in the \gls{EDiC} with the a low-level current rating of \qty{64}{\milli\ampere} \cite{74abt540}.
 The cathodes of the \glspl{LED} are then connected to the \emph{74ABT540} and the anodes are connected through current limiting resistors to $V_{cc}$.
 
-\subsection{Program Counter \& Instruction \glspl{EEPROM}}
+\subsection{Program Counter \& Instruction \glsxtrshortpl{EEPROM}}
 \Cref{fig:schPC} contains the \gls{PC} (U54 and U55) with the instruction \glspl{EEPROM} (U62, U67, U69) and the registers to store the instruction.
 The \gls{PC} can be incremented or loaded from either an instruction immediate (U50 and U52) for branching or the \gls{SRAM} (U49 and U51) for returning from a function call.
 To facilitate these operations, the \emph{74AS867} is used which is an 8 bit synchronous counter with loading and asynchronous clear capabilities that can be cascaded with a ripple carry output.
@@ -156,7 +156,7 @@ The built-in I/O (\cref{fig:schIO}) consists of one register to hold the output 
 For input two hexadecimal switches (SW10 and SW11) are used with a bus driver (U91).
 To control the register clock pulse and the output enable of the bus driver, the I/O \gls{CE} is combined with the I/O write enable and I/O output enable and the I/O address is compared with \texttt{0x00} (U88).
 
-\subsection{Register Set and \gls{ALU} output}
+\subsection{Register Set and \glsxtrshort{ALU} output}
 The register set in \cref{fig:schReg} consists of two registers (U40 and U41) which can be loaded from the bus.
 The register outputs can drive the bus (U44 and U45) and are multiplexed for the A input of the \gls{ALU} (U42 and U43).
 After the combinatorial \gls{ALU} (\cref{sec:schALU}), the four operation results are multiplexed (U5, U6, U7 and U8) and stored in the \gls{ALU} output register (U9).
@@ -164,7 +164,7 @@ Even though the \gls{ALU} output register features output enable inputs, an indi
 The carry flags are also multiplexed (U101) as the carry flag from the shift operation is generated independently.
 The overflow flag is generated in the combinatorial schematic of the \gls{ALU}, the negative flag is just the \gls{MSB} of the output and the zero flag is deduced from a comparison with zero (U12).
 All four flags are then stored in a register (U97).
-\subsection{Combinatorial \gls{ALU}}\label{sec:schALU}
+\subsection{Combinatorial \glsxtrshort{ALU}}\label{sec:schALU}
 \Cref{fig:schAlu} shows the ripple carry adder on the left composed out of 8 full adder and with subtracting capabilities.
 The barrel shifter on the right side is explained in depth in \cref{sec:alu}.
 The carry flag resulting from a shift operation should always represent the last bit which was shifted out of the 8 bits and should be unchanged when shifting by 0.
