@@ -65,7 +65,7 @@ These kind of bugs can go undetected for a very long time and are very hard to p
     \subcaption{Latency}
     \label{fig:clkLatency}
   \end{subfigure}
-  \caption[Comparison of the clock rising edge in different configurations.]{Comparison of the rising edge of the clock in different configurations. Yellow is measured close to the clock buffer and green in \cref{fig:clkLatency} is measured at the end of a clock lane (U204 pin 8).}
+  \caption[Comparison of the clock rising edge in different configurations.]{Comparison of the rising edge of the clock in different configurations. Measured close to the clock buffer (yellow) and in \cref{fig:clkLatency} at the end of a clock lane (U204 pin 8) (green).}
 \end{sidewaysfigure}
 Especially with larger \glspl{PCB} a good clock distribution is a must-have.
 Long clock lanes with a large load (i.e. many connected components) may induce several unwanted effects:
@@ -133,12 +133,12 @@ The clock frequency was chosen in \cref{sec:timing} to have a safety margin of a
 \end{listing}
 \begin{figure}[t]
   \includegraphics[width=\textwidth]{scope_9.png}
-  \caption{Green: Write Enable of \gls{MAR} register, Yellow: One bus lane without \texttt{0xff} driver.}
+  \caption{Write Enable of \gls{MAR} register (green) and one bus lane without \texttt{0xff} driver (yellow).}
   \label{fig:busPullup}
 \end{figure}
 \begin{figure}[t]
   \includegraphics[width=\textwidth]{scope_10.png}
-  \caption{Green: Write Enable of \gls{MAR} register, Yellow: One bus lane with \texttt{0xff} driver.}
+  \caption{Write Enable of \gls{MAR} register (green) and one bus lane with \texttt{0xff} driver (yellow).}
   \label{fig:busPullupFix}
 \end{figure}
 Until now, no program was programmed into the \glspl{EEPROM} and it was time for the first real integration test of the \gls{EDiC}.
@@ -160,3 +160,35 @@ The fix is quite easy as soon as the problem is detected:
 A new bus driver (\emph{74F245}) is added in one of the spare slots whose A input is connected to \texttt{H1}, the B input to the bus and the output enable signal is connected to a new control signal.
 For this case it is always important to plan for many possibilities as this fix would have been very difficult if no output of the microcode \glspl{EEPROM} would be free to use or if no place for spare \glspl{IC} was left on the \gls{PCB}.
 The result of the fix can be seen in \cref{fig:busPullupFix} where the bus line is raised to about \qty{3.8}{\volt} as soon as the write enable pulse starts\footnote{The even higher level on the bus line after the write enable pulse is driven by the \gls{SRAM} driver (outputs the return address in the return instruction) which is an \emph{ACT} type for compliance with the \gls{SRAM} specification. It is not seen in \cref{fig:busPullup} because it was a call instruction where the \gls{SRAM} does not drive the bus on the next cycle.}.
+
+\subsection{\gls{UART} Transceiver lost data}
+The final bug was only observed with the test adapter and never while running the \gls{EDiC} on its own.
+One of the integration tests was to manually write a value from the test adapter to the scratch register of the \gls{UART} \gls{IC} (TL16C550AN) on the RS232 extension card and then read it out repeatedly.
+The observed result was that the data was read back successfully for a couple of times but often the data would be read back incorrectly after several reads.
+However, the automated test with the program from \cref{lst:test1} the data was still correctly displayed at the built-in I/O after half an hour which results in about 300 million reads without errors\footnote{\qty{2.4}{\mega\hertz}, 14 cycles per loop iteration and 1800 seconds run time}:
+\begin{equation}
+  \frac{\qty{2.4}{\mega\hertz}}{14}\cdot\qty{1800}{\second}\approx 309\cdot 10^6
+\end{equation}
+
+\begin{figure}[t]
+  \includegraphics[width=\textwidth]{scope_12.png}
+  \caption{DIP Switch output on switching (yellow).}
+  \label{fig:bounce}
+\end{figure}
+The only notable difference between the two tests is that in the manual test, the output enable signal to the \gls{UART} \gls{IC} was set by hand with a DIP Switch and in the automated test, it was controlled by the output of the \gls{EEPROM}.
+When looking at the waveforms of the signal coming from the DIP switch a bouncing of the trigger can sometimes be observed as shown in \cref{fig:bounce}.
+In theory this should not have an effect on the content of the scratch register of the \gls{UART} \gls{IC} as the glitch happens on the output enable input of the \gls{IC}.
+However, the datasheet explicitly states a minimum time for a read strobe pulse duration of \qty{80}{\nano\second}.
+For this reason, the test adapter was altered to include a low pass filter and schmitt trigger on the \texttt{memRamNOE} and \texttt{memRamNWE} control signals because those are the only control signals which are used asynchronously.
+All other control signal are only used in components which do not state a minimum pulse duration for it (only setup and hold times in relation to the rising edge of the clock).
+After implementing this fix, the manual test worked perfectly for many read cycles which means that the minimum read pulse durations for the \gls{UART} \gls{IC} need to be respected.
+
+\begin{figure}[t]
+  \includegraphics[width=\textwidth]{scope_15.png}
+  \caption{Output of the \texttt{memRamNOE} control signal from the \gls{EEPROM} (yellow).}
+  \label{fig:EEPROMGlitch}
+\end{figure}
+Even though, the problem never occurred with the control signals coming from the microcode \gls{EEPROM}, we looked into the specifications for the \gls{EEPROM} and found it also has a period after the address inputs change where the data output is undefined.
+When observing the output with the oscilloscope, it was observed that there sometimes are glitches on the \texttt{memRamNOE} control signal as shown in \cref{fig:EEPROMGlitch}.
+Therefore, it was decided to add a register to the \texttt{memRamNOE} and \texttt{memRamNWE} control signals.
+This results in the microcode needing adjustment to assert these two signals one cycle earlier but was easy to implement and circumvent the problem completely.
