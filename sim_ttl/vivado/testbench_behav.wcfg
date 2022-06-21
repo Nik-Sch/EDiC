@@ -7,17 +7,18 @@
          <top_modules>
             <top_module name="glbl" />
             <top_module name="testbench" />
+            <top_module name="vcomponents" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
-      <ZoomEndTime time="1,000.000000 us"></ZoomEndTime>
-      <Cursor1Time time="1,000.000000 us"></Cursor1Time>
+      <ZoomStartTime time="3,314.712 ns"></ZoomStartTime>
+      <ZoomEndTime time="7,450.713 ns"></ZoomEndTime>
+      <Cursor1Time time="2,102.712 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="239"></NameColumnWidth>
-      <ValueColumnWidth column_width="97"></ValueColumnWidth>
+      <NameColumnWidth column_width="309"></NameColumnWidth>
+      <ValueColumnWidth column_width="128"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="28" />
    <wvobject type="logic" fp_name="/testbench/btnStep">
@@ -44,14 +45,6 @@
       <obj_property name="ElementShortName">resetn</obj_property>
       <obj_property name="ObjectShortName">resetn</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/testbench/inst_generated/CLK1">
-      <obj_property name="ElementShortName">CLK1</obj_property>
-      <obj_property name="ObjectShortName">CLK1</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/testbench/inst_generated/i_asyncEEPROMSpecialClock">
-      <obj_property name="ElementShortName">i_asyncEEPROMSpecialClock</obj_property>
-      <obj_property name="ObjectShortName">i_asyncEEPROMSpecialClock</obj_property>
-   </wvobject>
    <wvobject type="logic" fp_name="/testbench/inst_generated/i_asyncRamSpecialClock">
       <obj_property name="ElementShortName">i_asyncRamSpecialClock</obj_property>
       <obj_property name="ObjectShortName">i_asyncRamSpecialClock</obj_property>
@@ -59,6 +52,14 @@
    <wvobject type="logic" fp_name="/testbench/inst_generated/RESET1">
       <obj_property name="ElementShortName">RESET1</obj_property>
       <obj_property name="ObjectShortName">RESET1</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/inst_generated/CLK1">
+      <obj_property name="ElementShortName">CLK1</obj_property>
+      <obj_property name="ObjectShortName">CLK1</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/inst_generated/i_asyncEEPROMSpecialClock">
+      <obj_property name="ElementShortName">i_asyncEEPROMSpecialClock</obj_property>
+      <obj_property name="ObjectShortName">i_asyncEEPROMSpecialClock</obj_property>
    </wvobject>
    <wvobject type="vbus" fp_name="vbus196">
       <obj_property name="label">r_step</obj_property>
@@ -74,6 +75,81 @@
       <wvobject type="logic" fp_name="/testbench/inst_generated/MC_A0">
          <obj_property name="ElementShortName">MC_A0</obj_property>
          <obj_property name="ObjectShortName">MC_A0</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group218">
+      <obj_property name="label">control</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="array" fp_name="/testbench/inst_generated/inst_microCodeRom/addra">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">addra[14:0]</obj_property>
+         <obj_property name="ObjectShortName">addra[14:0]</obj_property>
+         <obj_property name="label">microRomAddr</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLMEMINSTRWE">
+         <obj_property name="ElementShortName">CTRLMEMINSTRWE</obj_property>
+         <obj_property name="ObjectShortName">CTRLMEMINSTRWE</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLMEMMAR0WE">
+         <obj_property name="ElementShortName">CTRLMEMMAR0WE</obj_property>
+         <obj_property name="ObjectShortName">CTRLMEMMAR0WE</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLMEMMAR1WE">
+         <obj_property name="ElementShortName">CTRLMEMMAR1WE</obj_property>
+         <obj_property name="ObjectShortName">CTRLMEMMAR1WE</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLMEMPCEN">
+         <obj_property name="ElementShortName">CTRLMEMPCEN</obj_property>
+         <obj_property name="ObjectShortName">CTRLMEMPCEN</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLMEMPCFROMIMM">
+         <obj_property name="ElementShortName">CTRLMEMPCFROMIMM</obj_property>
+         <obj_property name="ObjectShortName">CTRLMEMPCFROMIMM</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLMEMPCLOAD">
+         <obj_property name="ElementShortName">CTRLMEMPCLOAD</obj_property>
+         <obj_property name="ObjectShortName">CTRLMEMPCLOAD</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLMEMPCTORAM">
+         <obj_property name="ElementShortName">CTRLMEMPCTORAM</obj_property>
+         <obj_property name="ObjectShortName">CTRLMEMPCTORAM</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLMEMRAMOE">
+         <obj_property name="ElementShortName">CTRLMEMRAMOE</obj_property>
+         <obj_property name="ObjectShortName">CTRLMEMRAMOE</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLMEMRAMWE">
+         <obj_property name="ElementShortName">CTRLMEMRAMWE</obj_property>
+         <obj_property name="ObjectShortName">CTRLMEMRAMWE</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLMEMSPEN">
+         <obj_property name="ElementShortName">CTRLMEMSPEN</obj_property>
+         <obj_property name="ObjectShortName">CTRLMEMSPEN</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLMEMSPUP">
+         <obj_property name="ElementShortName">CTRLMEMSPUP</obj_property>
+         <obj_property name="ObjectShortName">CTRLMEMSPUP</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLREG0BUSOE">
+         <obj_property name="ElementShortName">CTRLREG0BUSOE</obj_property>
+         <obj_property name="ObjectShortName">CTRLREG0BUSOE</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLREG0WE">
+         <obj_property name="ElementShortName">CTRLREG0WE</obj_property>
+         <obj_property name="ObjectShortName">CTRLREG0WE</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLREG1BUSOE">
+         <obj_property name="ElementShortName">CTRLREG1BUSOE</obj_property>
+         <obj_property name="ObjectShortName">CTRLREG1BUSOE</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLREG1WE">
+         <obj_property name="ElementShortName">CTRLREG1WE</obj_property>
+         <obj_property name="ObjectShortName">CTRLREG1WE</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLREGALUSEL">
+         <obj_property name="ElementShortName">CTRLREGALUSEL</obj_property>
+         <obj_property name="ObjectShortName">CTRLREGALUSEL</obj_property>
       </wvobject>
    </wvobject>
    <wvobject type="vbus" fp_name="vbus36">
@@ -184,7 +260,7 @@
    <wvobject type="vbus" fp_name="vbus359">
       <obj_property name="label">r1</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
       <wvobject type="logic" fp_name="/testbench/inst_generated/R17">
          <obj_property name="ElementShortName">R17</obj_property>
          <obj_property name="ObjectShortName">R17</obj_property>
@@ -294,78 +370,6 @@
       <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U56/port22">
          <obj_property name="ElementShortName">port22</obj_property>
          <obj_property name="ObjectShortName">port22</obj_property>
-      </wvobject>
-   </wvobject>
-   <wvobject type="group" fp_name="group218">
-      <obj_property name="label">control</obj_property>
-      <obj_property name="DisplayName">label</obj_property>
-      <wvobject type="array" fp_name="/testbench/inst_generated/inst_microCodeRom/addra">
-         <obj_property name="ElementShortName">addra[14:0]</obj_property>
-         <obj_property name="ObjectShortName">addra[14:0]</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLMEMINSTRWE">
-         <obj_property name="ElementShortName">CTRLMEMINSTRWE</obj_property>
-         <obj_property name="ObjectShortName">CTRLMEMINSTRWE</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLMEMMAR0WE">
-         <obj_property name="ElementShortName">CTRLMEMMAR0WE</obj_property>
-         <obj_property name="ObjectShortName">CTRLMEMMAR0WE</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLMEMMAR1WE">
-         <obj_property name="ElementShortName">CTRLMEMMAR1WE</obj_property>
-         <obj_property name="ObjectShortName">CTRLMEMMAR1WE</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLMEMPCEN">
-         <obj_property name="ElementShortName">CTRLMEMPCEN</obj_property>
-         <obj_property name="ObjectShortName">CTRLMEMPCEN</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLMEMPCFROMIMM">
-         <obj_property name="ElementShortName">CTRLMEMPCFROMIMM</obj_property>
-         <obj_property name="ObjectShortName">CTRLMEMPCFROMIMM</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLMEMPCLOAD">
-         <obj_property name="ElementShortName">CTRLMEMPCLOAD</obj_property>
-         <obj_property name="ObjectShortName">CTRLMEMPCLOAD</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLMEMPCTORAM">
-         <obj_property name="ElementShortName">CTRLMEMPCTORAM</obj_property>
-         <obj_property name="ObjectShortName">CTRLMEMPCTORAM</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLMEMRAMOE">
-         <obj_property name="ElementShortName">CTRLMEMRAMOE</obj_property>
-         <obj_property name="ObjectShortName">CTRLMEMRAMOE</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLMEMRAMWE">
-         <obj_property name="ElementShortName">CTRLMEMRAMWE</obj_property>
-         <obj_property name="ObjectShortName">CTRLMEMRAMWE</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLMEMSPEN">
-         <obj_property name="ElementShortName">CTRLMEMSPEN</obj_property>
-         <obj_property name="ObjectShortName">CTRLMEMSPEN</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLMEMSPUP">
-         <obj_property name="ElementShortName">CTRLMEMSPUP</obj_property>
-         <obj_property name="ObjectShortName">CTRLMEMSPUP</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLREG0BUSOE">
-         <obj_property name="ElementShortName">CTRLREG0BUSOE</obj_property>
-         <obj_property name="ObjectShortName">CTRLREG0BUSOE</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLREG0WE">
-         <obj_property name="ElementShortName">CTRLREG0WE</obj_property>
-         <obj_property name="ObjectShortName">CTRLREG0WE</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLREG1BUSOE">
-         <obj_property name="ElementShortName">CTRLREG1BUSOE</obj_property>
-         <obj_property name="ObjectShortName">CTRLREG1BUSOE</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLREG1WE">
-         <obj_property name="ElementShortName">CTRLREG1WE</obj_property>
-         <obj_property name="ObjectShortName">CTRLREG1WE</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/testbench/inst_generated/CTRLREGALUSEL">
-         <obj_property name="ElementShortName">CTRLREGALUSEL</obj_property>
-         <obj_property name="ObjectShortName">CTRLREGALUSEL</obj_property>
       </wvobject>
    </wvobject>
    <wvobject type="vbus" fp_name="vbus228">

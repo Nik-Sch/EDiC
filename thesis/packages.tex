@@ -77,9 +77,10 @@
 \usepackage[
     acronym,
     style=longheader,
-    indexonlyfirst,
+    % indexonlyfirst,
     nopostdot
     ]{glossaries-extra}
+\renewcommand{\glossaryentrynumbers}[1]{\textcolor{blue}{#1}}
 \setabbreviationstyle[acronym]{long-short} % first occurence long, rest short
 \renewcommand*{\acrshort}[1][]{\glsxtrshort[noindex,#1]} % acrshort -> no index
 
