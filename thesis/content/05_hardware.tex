@@ -102,7 +102,7 @@ However, three other kinds of registers are also sparsely used in the \gls{EDiC}
 The \gls{EDiC} features many \glspl{LED} showing the register contents to aid the understanding of the workings of a \gls{CPU}.
 However, naively connecting the \glspl{LED} to the logic outputs of registers may lead to unwanted behavior because the outputs of all logic \glspl{IC} have a limited current they can provide.
 This leads to the usage of specific buffers for the \glspl{LED}.
-Additionally, the current rating usually is higher for low-level output due to the internal workings of the output buffer as explained in \cref{sec:outputBuffer}.
+Additionally, the current rating usually is higher for low-level output due to the internal workings of the output buffer. % as explained in \cref{sec:outputBuffer}.
 For example, the \emph{74F245} non-inverting buffers B output is rated for maximum \qty{-15}{\milli\ampere} for high-level output and \qty{64}{\milli\ampere} for a low-level output \cite{74f245}.
 Therefore, connecting the anode of a \gls{LED} via a current limiting resistor to the output of a non-inverting buffer and the cathode to GND will not be ideal.
 To be able to draw more current from the buffer and thus having brighter \glspl{LED} inverting buffers are used and the \glspl{LED} are connected ``backwards''.

@@ -31,7 +31,7 @@ For example: For a \texttt{NAND} function, the \gls{SRAM} is loaded with the bit
 In \glspl{FPGA} these \glspl{LUT} usually take 4-6 bit inputs and can, therefore, implement more complex logic functions.
 
 Combining these \glspl{LUT} with registers, complex hardware \glspl{DSP} and a lot more advanced hardware, modern \glspl{FPGA} are very capable and complex devices that are increasingly used in prototyping and low to medium quantity products.
-There are several cheaply available \glspl{FPGA} development boards available that are very well suited for a prototype for the \gls{EDiC}.
+There are several cheaply available \glspl{FPGA} development boards that are very well suited for a \gls{FPGA} prototype of the \gls{EDiC}.
 
 \section{\glsxtrshort{FPGA} choices}
 For the \gls{EDiC} the Nexys A7 development board \cite{nexysA7} with the AMD-Xilinx Artix 7 XC7A100T-1CSG324C \gls{FPGA} has been chosen.
@@ -57,23 +57,23 @@ As Verilog is often cited as being less verbose and, therefore, easier to write 
 \Cref{lst:alu} shows the Adder described in Verilog as an example.
 It iterates over all 8 bits, calculates the XOR and AND results and based on these and the carry input, the bit result and the carry output is calculated.
 
-\subsection{Tri-State Logic in \glsxtrshortpl{FPGA}}
+\subsection{Tri-state Logic in \glsxtrshortpl{FPGA}}
 One major problem with tri-state bus logic for \glspl{FPGA} is that most current era \glspl{FPGA} do not feature tri-state bus drivers in the logic slices.
-Most \glspl{FPGA} do have bidirectional tri-state transceiver for I/O but not for internal logic routing.
+Most \glspl{FPGA} do have bidirectional tri-state transceiver for \gls{IO} but not for internal logic routing.
 However, the \glspl{HDL} (both \gls{VHDL} and Verilog) support tri-state logic and the Xilinx Simulation tool also does.
 Therefore, a simulation with tri-state logic would work but it cannot be synthesized.
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=\textwidth]{tristatenet.png}
-  \caption{The elaborated Tri-State module with two 8 bit inputs.}
+  \caption{The elaborated tri-state module with two 8 bit inputs.}
   \label{fig:tristatenet}
 \end{figure}
-This is solved with a custom module for each Tri-State network ``tristatenet.v''.
+This is solved with a custom module for each tri-state network ``tristatenet.v''.
 Each tri-state driver exposes the current data and output enable signal to the tristate module which then has only one output which represents the value of the net.
 If none of the driver have an active output enable, the output is \texttt{0xff}; if one of the driver has an active output enable, the output represents its value and if more than one driver have an active output enable, an error is raised.
-The modules logic representation for a Tri-State net with two inputs is shown in \cref{fig:tristatenet}.
-The \texttt{o\_noe} is only active (low) if exactly one input \texttt{i\_noe} is active (low) and depending it, the data output is selected.
+The modules logic representation for a tri-state net with two inputs is shown in \cref{fig:tristatenet}.
+The \texttt{o\_noe} is only active (low) if exactly one input \texttt{i\_noe} is active (low) and depending on it, the data output is selected.
 For this \gls{FPGA} it is implemented with one \texttt{LUT4} primitive per output data bit.
 
 \section{Behavioral Implementation}
@@ -118,7 +118,7 @@ Here, a tool was written which converts a given netlist into a Verilog file whic
     frame=leftline,
     xleftmargin=20pt,
   ]{clojure}{src/edifInstance.edn}
-  \caption{An \gls{EDIF} definition of an instance as exported by OrCAD/CAPTURE.}
+  \caption{An \glsxtrshort{EDIF} definition of an instance as exported by OrCAD/CAPTURE.}
   \label{lst:edifInstance}
 \end{listing}
 \begin{listing}
@@ -127,7 +127,7 @@ Here, a tool was written which converts a given netlist into a Verilog file whic
     frame=leftline,
     xleftmargin=20pt,
   ]{clojure}{src/edifNet.edn}
-  \caption{An \gls{EDIF} definition of a net as exported by OrCAD/CAPTURE.}
+  \caption{An \glsxtrshort{EDIF} definition of a net as exported by OrCAD/CAPTURE.}
   \label{lst:edifNet}
 \end{listing}
 The netlist file used is an \texttt{*.edn} which is exported by OrCAD/CAPTURE version 9.2.1.148.
@@ -150,11 +150,11 @@ The implementation for an \texttt{74F08} (quad AND gate) is, for example, shown 
 \Cref{lst:edifInstance} specifies the instance U54 which is an \texttt{74AS867}.
 The format also specifies the port numbers but they are not processed by the parser because they are not required.
 \Cref{lst:edifNet} then specifies a net with the name \texttt{PCIN0} which connects U52 port 18 with U51 port 18 and U54 port 3.
-In this case U52 and U51 are both \texttt{74F245} octal bus transceivers where port 18 is the B0 port and U54 is a \texttt{74AS867} (synchronous up/down counter with load) where port 3 is the D0 input port.
+In this case U52 and U51 are both \texttt{74F245} octal bus transceivers where port 18 is the B0 tri-state output port and U54 is a \texttt{74AS867} (synchronous up/down counter with load) where port 3 is the D0 input port.
 Depending on the control signals of U51 and U52 this net connects the 0th bit of the bus or the instruction immediate with the 0th bit of the load input of the \gls{PC}.
 Internally the list of instances and list of nets is combined into a list of instances where each instance contains a mapping of port numbers to connected nets.
 
-The parser discards all components except logic \glspl{IC} (id starting with `U') save for \qty{0}{\ohm} resistors.
+The parser discards all components except logic \glspl{IC} (id starting with `U') and \qty{0}{\ohm} resistors.
 The schematic includes some \qty{0}{\ohm} resistors between control signals to be able to rewire them more easily on the \gls{PCB} if needed.
 As they essentially behave as direct connections, the nets on either side of one \qty{0}{\ohm} resistor are merged.
 
@@ -175,7 +175,7 @@ However, there are some obstacles that need to be taken with more advanced insta
 The 6 \glspl{EEPROM} (3 for the instructionROM and 3 for the microcode) need to be instantiated with the correct data loaded into them.
 Those six instantiations are identified by the unit id and the wires are then connected to one of the custom Xilinx ROM IP Cores which are configured with the respective initial values.
 The addresses for one ROM instantiations are used and then all 24 data ports from the 3 \glspl{EEPROM} are connected resulting in a verilog instantiation as shown in \cref{lst:rom_inst}.
-\subsubsection{Tri-State Ports}
+\subsubsection{tri-state Ports}
 \begin{listing}[t]
   \inputminted[linenos,
     breaklines,
@@ -184,15 +184,15 @@ The addresses for one ROM instantiations are used and then all 24 data ports fro
     frame=leftline,
     xleftmargin=20pt,
   ]{Verilog}{src/generated.v}
-\caption{Verilog instantiation for the Tri-State Net \texttt{PCIN0}.}
+\caption{Verilog instantiation for the tri-state Net \texttt{PCIN0}.}
   \label{lst:tristate_inst}
 \end{listing}
-Some \glspl{IC} provide Tri-State ports.
+Some \glspl{IC} provide tri-state ports.
 As discussed above, they cannot be implemented on \glspl{FPGA} and, therefore, need to be converted.
 The same tristatenet component as in the behavioral implementation is used.
 However, for this to work, each bidirectional port of the \glspl{IC} needs to be replaced by one input and one output port.
 Also, one output enable port needs to be added.
-Then the output port that replaced the bidirectional port is an input to the tristatenet instance and a new net is created for each tristatenet which is the actual value of the net (the output of the tristatenet module).
+Then the output port that replaced the bidirectional port is connected to an input of the tristatenet instance and a new net is created for each tristatenet which is the actual value of the net (the output of the tristatenet module).
 The tristatenet for the \texttt{PCIN0} signal (\cref{lst:edifNet}) is represented by the instantiation shown in \cref{lst:tristate_inst}.
 
 \subsubsection{\glsxtrshort{RAM} and \glsxtrshort{EEPROM} clock}
@@ -214,13 +214,13 @@ Consequently, the step register and with it the address for the microcode \gls{R
 
 \subsubsection{Assignments}
 There are some connections which are unique to the \gls{FPGA} implementation and, therefore, are not contained in the netlist.
-These are mainly the inputs and outputs of the \gls{CPU} for the I/O extensions, the user buttons (reset, step etc.), clock oscillator, breakpoint addresses and so on.
+These are mainly the inputs and outputs of the \gls{CPU} for the \gls{IO} extensions, the user buttons (reset, step etc.), clock oscillator, breakpoint addresses and so on.
 However, one exception are the \texttt{L1-L4} and \texttt{H1-H4} nets which are static nets connected to ground or 5V through resistors.
 They are used for logic inputs of \glspl{IC} instead of directly using GND or 5V to ease the error fixing on the \gls{PCB}.
 If one would connect the pins directly to the GND or 5V planes, it would be hard to heat up the solder on the pin for removal because the whole plane needs to be heated.
 Additionally, when connected to the plane, there is no trace that can be scratched through if the pin needs to be connected to another net.
 
-In the \gls{FPGA} design they are, therefore, assigned to 0 or 1 respectively.
+In the \gls{FPGA} design the nets \texttt{L1-L4} and \texttt{H1-H4} are, therefore, assigned to 0 or 1 respectively.
 
 \subsubsection{Display Driver}
 \begin{figure}
@@ -229,27 +229,28 @@ In the \gls{FPGA} design they are, therefore, assigned to 0 or 1 respectively.
   \caption{Overview of the 8 7-segment displays of the Nexys A7 development board \cite{7segNexys}.}
   \label{fig:7segNexys}
 \end{figure}
-The hardware build will feature 2 displays for the built-in I/O which can be directly addressed with 4 bits to display hexadecimal digits.
+The hardware build will feature 2 displays for the built-in \gls{IO} which can be directly addressed with 4 bits to display hexadecimal digits.
 The \gls{FPGA} development board on the other hand, features simpler and more common 7-segment displays.
-In total, there are 8 7-segment displays of which two are used as the built-in I/O and the others are used for debugging when the \gls{CPU} is halted.
+In total, there are 8 7-segment displays of which two are used as the built-in \gls{IO} and the others are used for debugging when the \gls{CPU} is halted.
 The wiring of the displays is shown in \cref{fig:7segNexys}.
-For this purpose, a custom displayDriver has been developed which has 32 data inputs plus 8 inputs for the dots between the digits and 8 bits to encode which 7-segment display should be illuminated.
+For this purpose, a custom displayDriver has been developed which has 8 four bit data inputs for the digits plus 8 inputs for the dots between the digits.
+Additionally, 8 bits encode which 7-segment displays should be illuminated.
 It loops through the digits by setting each anode to 0 individually and setting the cathodes according the corresponding input bits.
 This way, each display is illuminated for 2ms which makes it look like all displays are illuminated all the time.
 
-\subsection{RS232 I/O Extension Debugging}
+\subsection{RS232 \gls{IO} Extension Debugging}
 \begin{sidewaysfigure}[p]
   \centering
   \includegraphics[width=\textwidth]{uartTestSch.png}
   \caption{The Schematic for the 3V3 to 5V conversion to use extension cards with the \gls{FPGA} development board.}
   \label{fig:3v3to5vSch}
 \end{sidewaysfigure}
-One goal of creating a logical replication of the \gls{CPU} on a \gls{FPGA} was to verify the I/O extension cards before ordering the large \gls{PCB} for the \gls{CPU}.
+One goal of creating a logical replication of the \gls{CPU} on a \gls{FPGA} was to verify the \gls{IO} extension cards before ordering the large \gls{PCB} for the \gls{CPU}.
 All extension cards will be daughterboards and sit on top of the main \gls{PCB} in a smaller form factor.
 The following logical connections are passed through pin headers:
 \begin{itemize}
   \item Bus (8 bits, bidirectional)
-  \item IO Address (lower 8 bits, to I/O)
+  \item \gls{IO} Address (lower 8 bits, to \gls{IO})
   \item Control Signals:
   \begin{itemize}
     \item \texttt{\textoverline{ioCE}}: active when the upper 8 \gls{RAM} address bits equal \texttt{0xfe}.
