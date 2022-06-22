@@ -1,9 +1,9 @@
 % !TEX root = ../thesis.tex
 \chapter{Initial Hardware Test \& Component Verification}\label{cha:eval}
 Even though the netlist was simulated and tested in the \gls{FPGA} implementation, there is no guarantee that the hardware will work out of the box.
-Therefore, all bits of all components are to be tested individually to make sure there are no wiring problems which would result in bugs which are impossible to pinpoint and debug.
-Testing single \glspl{IC}, especially with Three-State logic, is significantly easier when incrementally adding \glspl{IC}.
-That way one driver of a Three State net can be verified and when adding another driver to the net, problems can be pinpointed to the new \gls{IC} because the first one was known to work correctly.
+Therefore, all bits of all components are to be tested individually to make sure there are no wiring problems which would result in bugs which are hard to pinpoint and debug.
+Testing single \glspl{IC}, especially with tri-state logic, is significantly easier when incrementally adding \glspl{IC} to the \gls{PCB}.
+That way one driver of a tri-state net can be verified and when adding another driver to the net, problems can be pinpointed to the new \gls{IC} because the first one was known to work correctly.
 Therefore, all \glspl{IC} are placed inside sockets.
 This way all resistors, \glspl{LED} and sockets can be soldered to the \gls{PCB} at once and all the \glspl{IC} can be placed in their sockets consecutively.
 Another reason for using sockets is that it is easier to change an \gls{IC} if it is faulty or breaks in the future.
@@ -12,7 +12,7 @@ To facilitate the testing, all control signals including clock and reset, the in
 For the debug signals that are not busses the test adapter has \glspl{LED} to display the state of the \gls{EDiC} and DIP Switches to set each debug signal to a known value.
 Additionally, the main bus and ram2data bus is connected to a test adapter but not interrupted.
 The test adapter has \glspl{LED} for displaying the state and a bus driver with DIP Switches.
-If not testing, the connectors can be bridged with shorting connectors, shorting pins from the left to the right column (except the two Three-State busses).
+If not testing, the connectors can be bridged with shorting connectors which short the pins from the left to the right column (except the two tri-state busses).
 
 Testing the individual components becomes very simple this way.
 For example the instruction registers:
@@ -25,11 +25,11 @@ For example the instruction registers:
 All \glspl{IC}, including the \glspl{EEPROM} and \glspl{SRAM} can be directly tested in a couple simple steps this way.
 
 The advantage of individually testing all the bits of all \glspl{IC} is that in integration testing one can assume that the problem is not with one specific \gls{IC}.
-\TODO{Insert schematic of test adapter}
+\TODO{Insert part of a schematic of one test adapter?}
 \section{Potential Complications}\label{sec:switchGlitch}
 As is normal with large designs, there were some potential problems found in the \gls{EDiC} which needed fixing.
 \subsection{Shifter - Carry Flag}
-The detailed testing with the test adapter did reveal one bug which was not revealed in the netlist simulation because it did not occur.
+The detailed testing with the test adapter did reveal one bug which was not revealed in the netlist simulation because it did not occur in any simulated program.
 The carry flag of a shift operation is determined by the 8 to 1 multiplexer U102 in \cref{fig:schAlu} with the first 3 bits of the bus as select bits.
 The carry should always be the last bit that was shifted out of the 8 bit word.
 This way, the input D1 (a0) is set as the new carry flag when shifting by 1 bit, D2 (a1) when shifting by 2 bits and so on.
@@ -39,7 +39,7 @@ This results in a wrong carry flag when shifting by 7 bits in either direction.
 In the netlist simulation this bug was not found because there was no circumstance where a value with differing bits 7 and 8 was shifted by 7 bits and the carry flag being used in the next instruction.
 These kind of bugs can go undetected for a very long time and are very hard to pinpoint with a fully running \gls{CPU}.
 
-\subsection{Clock jitter}
+\subsection{Clock jitter}\label{sec:eval_clock}
 \begin{sidewaysfigure}[p]
   \centering
   \begin{subfigure}[b]{.45\textwidth}
@@ -70,10 +70,10 @@ These kind of bugs can go undetected for a very long time and are very hard to p
 Especially with larger \glspl{PCB} a good clock distribution is a must-have.
 Long clock lanes with a large load (i.e. many connected components) may induce several unwanted effects:
 \begin{itemize}
-  \item Jitter in the rising edge due to reflection from the ends of clock wires.
+  \item Jitter in the rising edge due to reflection from the ends of clock traces.
   \item A less steep rising edge due to an implicit RC-low pass filter with capacitive loads from the clock inputs and wire resistor.
   \item Over and undershoot after the edges exceeding the maximum rated voltage.
-  \item Clock latency between \glspl{IC}
+  \item Clock latency between \glspl{IC} reducing the time between two registers.
 \end{itemize}
 The effects must all be checked and kept under control.
 The clock lane for the \gls{EDiC} was not routed as one continues trace and rather similar to a clock tree split in two.
@@ -87,12 +87,12 @@ Therefore, an attempt was made to circumvent this by changing R232 (a resistor i
 In \cref{fig:clk33Ohm} a \qty{33.3}{\ohm} resistor was added.
 It becomes obvious that the time constant of the implicit low-pass filter increased and with it the edge becomes less steep but the dip also becomes less of an impact.
 Even though this is a decent improvement, it is not perfect.
-The next attempt was to add a line termination of \qty{100}{\ohm} at the end of both clock lines.
+The next attempt was to add a line termination of \qty{100}{\ohm} at the end of both clock lines instead of the \qty{33.3}{\ohm} resistor in series.
 The result can be seen in \cref{fig:clkTerm}.
 It shows that the dip in the rising edge is no longer there and the edge is also as steep as without any modifications.
 Even though the overshoot changed a bit, it is by no means a problem and, therefore, this solution looked promising.
 
-\Cref{fig:clkLatency} zooms into the rising edge and shown the edge at U204 pin 8 (one end of the clock tree) in green.
+\Cref{fig:clkLatency} zooms into the rising edge and shows the edge at U204 pin 8 (one end of the clock tree) in green.
 It can be seen that the edge looks a bit different which may be explained by the different behavior of different probes in the small time scale.
 Additionally, the latency of the clock signal can be observed which is about \qty{6}{\nano\second}.
 The clock frequency was chosen in \cref{sec:timing} to have a safety margin of about 30\% and, therefore, a latency of \qty{6}{\nano\second} is not a problem with a clock period of \qty{416.7}{\nano\second} (\qty{2.4}{\mega\hertz}).
@@ -143,29 +143,33 @@ The clock frequency was chosen in \cref{sec:timing} to have a safety margin of a
 \end{figure}
 Until now, no program was programmed into the \glspl{EEPROM} and it was time for the first real integration test of the \gls{EDiC}.
 The first program used for the integration test in \cref{lst:test0} was a basic test to see if basic instructions get executed and if the built-in I/O works.
-After it ran successfully without any problems, the second testing program \cref{lst:test1} included the RS232 I/O extension card and its scratch register (at address \texttt{0xfe0f}).
+After it ran successfully and displayed \texttt{0x42} at the displays, the second testing program from \cref{lst:test1} included the RS232 I/O extension card and its scratch register (at address \texttt{0xfe0f}).
 When this also ran successfully, a more complex \gls{UART} echo program (\cref{lst:app_asm_uart}) was programmed into the \glspl{EEPROM}.
 It finally had problems and did not work as expected.
-However, when turning on the cycle by cycle debugger and stepping through all cycles, the program worked perfectly and bytes got read correctly from the RS232 extension card and were also sent correctly back.
-After debugging for a long time the bug was tracked down to the return instruction which sometimes (about 1 in 100 times) would return to a random instruction and not return to after the call instruction.
+It could be observed that the \gls{PC} would randomly be set to a unreasonably high value and after that \glspl{NOP} were executed until the \gls{PC} overflowed to 0 and the program started again.
+However, when turning on the cycle by cycle debugger and stepping through all cycles, the program worked perfectly and bytes got read correctly from the RS232 extension card and were also sent back correctly.
+After debugging for a long time, the bug was tracked down to the return instruction which sometimes (about 1 in 100 times) would return to a random instruction and not return to after the call instruction.
 It was further debugged with the third test program (\cref{lst:test2}).
 With an oscilloscope it was finally possible to detect the problem which is shown in \cref{fig:busPullup}.
-It is actually a bug in both, the call and return, which results in the same misbehavior of return to a wrong location:
+It is actually a bug in both, the call and return instruction, which results in the same misbehavior of return to a wrong location:
 Both instruction load \texttt{0xff} into the \gls{MAR} by not driving the bus with a specific value and relying on the pull-up resistors to pull the lines high.
 In \cref{fig:busPullup} two \gls{MAR} write enable pulses can be seen and, especially, in the first pulse, the problem becomes apparent.
-If the bus was pulled low in the cycle before the \gls{MAR} is written, the pull-up resistors take some time to pull the voltage to \qty{5}{\volt} which leaves the level at about \qty{2}{\volt} which is right at the required minimum voltage to be detected as a high signal by the \emph{74F825}.
+If the bus was pulled low in the cycle before the \gls{MAR} is written, the pull-up resistors take some time to pull the voltage to \qty{5}{\volt} which leaves the level at about \qty{2}{\volt} at the time of the write pulse.
+This is right at the required minimum voltage to be detected as a high signal by the \emph{74F825}.
 Therefore, most of the time, the register detects the bus input as a 1 but sometimes it is detected as a low signal.
 
 The fix is quite easy as soon as the problem is detected:
 A new bus driver (\emph{74F245}) is added in one of the spare slots whose A input is connected to \texttt{H1}, the B input to the bus and the output enable signal is connected to a new control signal.
-For this case it is always important to plan for many possibilities as this fix would have been very difficult if no output of the microcode \glspl{EEPROM} would be free to use or if no place for spare \glspl{IC} was left on the \gls{PCB}.
-The result of the fix can be seen in \cref{fig:busPullupFix} where the bus line is raised to about \qty{3.8}{\volt} as soon as the write enable pulse starts\footnote{The even higher level on the bus line after the write enable pulse is driven by the \gls{SRAM} driver (outputs the return address in the return instruction) which is an \emph{ACT} type for compliance with the \gls{SRAM} specification. It is not seen in \cref{fig:busPullup} because it was a call instruction where the \gls{SRAM} does not drive the bus on the next cycle.}.
+This fix would have been very difficult if no output of the microcode \glspl{EEPROM} would have been free to use or if no place for spare \glspl{IC} was left on the \gls{PCB}.
+Therefore, it is always important to design everything with enough resources left.
+
+The result of the fix can be seen in \cref{fig:busPullupFix} where the bus line is raised to about \qty{3.8}{\volt} as soon as the write enable pulse starts\footnote{The even higher level on the bus line after the write enable pulse is driven by the \gls{SRAM} driver (outputs the return address in the return instruction) which is an \emph{ACT} type for compliance with the \gls{SRAM} specification. In \cref{fig:busPullup} the \gls{SRAM} probably drove a `0' to the bus line.}.
 
 \subsection{\glsxtrshort{UART} Transceiver lost data}
 The final bug was only observed with the test adapter and never while running the \gls{EDiC} on its own.
 One of the integration tests was to manually write a value from the test adapter to the scratch register of the \gls{UART} \gls{IC} (TL16C550AN) on the RS232 extension card and then read it out repeatedly.
-The observed result was that the data was read back successfully for a couple of times but often the data would be read back incorrectly after several reads.
-However, the automated test with the program from \cref{lst:test1} the data was still correctly displayed at the built-in I/O after half an hour which results in about 300 million reads without errors\footnote{\qty{2.4}{\mega\hertz}, 14 cycles per loop iteration and 1800 seconds run time}:
+It could be observed that the data was read back successfully for a couple of times but often the data would be read back incorrectly after several reads.
+However, in the automated test with the program from \cref{lst:test1}, the data was still correctly displayed at the built-in I/O after half an hour which results in about 300 million reads without errors\footnote{\qty{2.4}{\mega\hertz}, 14 cycles per loop iteration and 1800 seconds run time}:
 \begin{equation}
   \frac{\qty{2.4}{\mega\hertz}}{14}\cdot\qty{1800}{\second}\approx 309\cdot 10^6
 \end{equation}
@@ -176,12 +180,12 @@ However, the automated test with the program from \cref{lst:test1} the data was 
   \label{fig:bounce}
 \end{figure}
 The only notable difference between the two tests is that in the manual test, the output enable signal to the \gls{UART} \gls{IC} was set by hand with a DIP Switch and in the automated test, it was controlled by the output of the \gls{EEPROM}.
-When looking at the waveforms of the signal coming from the DIP switch a bouncing of the trigger can sometimes be observed as shown in \cref{fig:bounce}.
+When looking at the waveforms of the signal coming from the DIP switch, a bouncing of the trigger can sometimes be observed as shown in \cref{fig:bounce}.
 In theory this should not have an effect on the content of the scratch register of the \gls{UART} \gls{IC} as the glitch happens on the output enable input of the \gls{IC}.
 However, the datasheet explicitly states a minimum time for a read strobe pulse duration of \qty{80}{\nano\second}.
 For this reason, the test adapter was altered to include a low pass filter and schmitt trigger on the \texttt{memRamNOE} and \texttt{memRamNWE} control signals because those are the only control signals which are used asynchronously.
 All other control signal are only used in components which do not state a minimum pulse duration for it (only setup and hold times in relation to the rising edge of the clock).
-After implementing this fix, the manual test worked perfectly for many read cycles which means that the minimum read pulse durations for the \gls{UART} \gls{IC} need to be respected.
+After implementing this fix, the manual test worked perfectly for many read cycles which means that the minimum read pulse duration for the \gls{UART} \gls{IC} needs to be respected.
 
 \begin{figure}[t]
   \includegraphics[width=\textwidth]{scope_15.png}
@@ -191,4 +195,4 @@ After implementing this fix, the manual test worked perfectly for many read cycl
 Even though, the problem never occurred with the control signals coming from the microcode \gls{EEPROM}, we looked into the specifications for the \gls{EEPROM} and found it also has a period after the address inputs change where the data output is undefined.
 When observing the output with the oscilloscope, it was observed that there sometimes are glitches on the \texttt{memRamNOE} control signal as shown in \cref{fig:EEPROMGlitch}.
 Therefore, it was decided to add a register to the \texttt{memRamNOE} and \texttt{memRamNWE} control signals.
-This results in the microcode needing adjustment to assert these two signals one cycle earlier but was easy to implement and circumvent the problem completely.
+This results in the microcode needing adjustment to assert these two signals one cycle earlier which was easy to implement and prevented the problem completely.

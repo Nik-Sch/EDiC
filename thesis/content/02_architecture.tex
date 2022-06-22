@@ -254,7 +254,7 @@ The user can freely switch between these modes with switches and buttons provide
 The \gls{EDiC} has 24 control signals which define what the current cycle does:
 \begin{itemize}
   \item \texttt{aluYNWE} - \gls{ALU} output register write enable (active low): Connects to the clock enable input of the \gls{ALU} output register.
-  \item \texttt{aluNOE} - \gls{ALU} output enable (active low): Enables the Three State buffer to drive the bus with the value of the \gls{ALU} output register.
+  \item \texttt{aluNOE} - \gls{ALU} output enable (active low): Enables the tri-state buffer to drive the bus with the value of the \gls{ALU} output register.
   \item \texttt{reg0NWE} - Register 0 write enable (active low): Connects to the clock enable input of the register 0.
   \item \texttt{reg1NWE} - Register 1 write enable (active low): Connects to the clock enable input of the register 1.
   \item \texttt{regAluSel} - Register Select for the \gls{ALU} A input: When 0, sets register 0 as A input to the \gls{ALU}, otherwise, register 1.
