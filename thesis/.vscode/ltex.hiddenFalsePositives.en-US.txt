@@ -1,0 +1,2 @@
+{"rule":"UNIT_SPACE","sentence":"^\\QEach package included a set of basic logic circuits like 4 2-input NAND gates in the 5400N.\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QIt is quite possible to create complex designs with the 74F series with a clock frequency of several .\\E$"}
