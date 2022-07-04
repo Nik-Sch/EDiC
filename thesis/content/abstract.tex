@@ -1,13 +1,13 @@
 % !TeX root = ../thesis.tex
 \chapter*{Abstract}
 This thesis covers the implementation of the \gls{EDiC}, a model \gls{CPU} which is to be used for teaching the workings of modern digital general purpose processors.
-For the educational purposes an extensive software development environment accompanies the novel \gls{CPU} \gls{ISA}.
-The thesis justifies the architectural design decisions which lead to the design of this 8 bit \gls{CISC} multi-cycle \gls{CPU} with a 16 bit address space and comprehensive \gls{IO} support.
-The modularization of the \gls{CPU} into 7 independent modules simplifies the process of understanding the details of the \gls{CPU}.
+For educational purposes the novel \gls{CPU} \gls{ISA} is accompanied by an extensive software development environment.
+The thesis justifies the architectural design decisions which lead to the creation of this 8 bit \gls{CISC} multi-cycle \gls{CPU} with a 16 bit address space and comprehensive \gls{IO} support.
+The breakdown of the \gls{CPU} into seven independent modules simplifies the process of understanding the details of the \gls{CPU}.
 Additionally, the choice of \gls{TTL} \glspl{IC} of the 74 family takes the learning focus towards the digital level without complicating the design with analog behavior as \gls{RTL} would.
 
-For functional verification, a behavioral and also a chip-level \gls{FPGA} implementation is performed.
-The component verification is eased with specially developed test adapter which allow for bit by bit testing of all \glspl{IC} and in-depth debugging.
+For the functional verification, a behavioral as well as a chip-level \gls{FPGA} implementation is performed.
+The component verification is eased with specially developed test adapters which allow for bit by bit testing of all \glspl{IC} and in-depth debugging.
 With a detailed timing analysis it is ensured that the \gls{EDiC} does not run into unpredictable timing problems.
 \begingroup
 \renewcommand{\cleardoublepage}{}
@@ -15,14 +15,15 @@ With a detailed timing analysis it is ensured that the \gls{EDiC} does not run i
 \chapter*{Kurzfassung}
 \endgroup
 \glsresetall
-Diese Arbeit beschreibt die Entwicklung und Implementierung vom \gls{EDiC}, einer Model \gls{CPU} welche speziell für die Lehre entwickelt wurde.
-Sie soll dabei helfen die Funktionsweise eines modernen, allgemein benutzbaren Prozessors erklären.
+Diese Arbeit beschreibt die Entwicklung und Implementierung des \gls{EDiC}, einer Model \gls{CPU}, welche speziell für die Lehre entwickelt wurde.
+Sie soll dabei helfen, die Funktionsweise eines modernen, allgemein benutzbaren Prozessors zu vermitteln.
 Dafür wird die neu entwickelte \gls{ISA} durch eine ausführliche Entwicklungsumgebung unterstützt.
-Alle Design Entscheidungen, welche zu dieser 8 bit \gls{CISC} und multi-cycle \gls{CPU} mit einem 16 bit Adressraum geführt haben, werden ausführlich erklärt und abgewogen.
-Die Aufteilung in insgesamt 7 größtenteils unabhängige Module vereinfacht das Verständnis der Details der \gls{CPU} enorm.
-Zusätzlich wird das Verständnis durch die Wahl der \gls{TTL} \glspl{IC} aus der 74er Familie auf die digitale Ebene gelenkt und nicht durch analoge Nebeneffekte wie bei \gls{RTL} abgelenkt.
+Alle Designentscheidungen, welche zu diesem 8 bit \gls{CISC} mit einem 16 bit Adressraum beigetragen haben, werden ausführlich erklärt und abgewogen.
+Die Aufteilung in insgesamt sieben größtenteils unabhängige Module vereinfacht das Verständnis der Details der \gls{CPU} deutlich.
+Das Verständnis der \gls{CPU} wird zusätzlich durch Wahl der \gls{TTL} \glspl{IC} aus der 74er Familie deutlich vereinfacht, weil hier der Fokus auf der digitalen Ebene liegt und der Betrachter sich nicht, wie zum Beispiel bei \gls{RTL}, mut analogen Nebeneffekte beschäftigen muss.
 
-Um die Funktionalität zu verifizieren wurde eine Verhaltensimplementierung und auch eine Implementierung auf \gls{IC}-level auf einem \gls{FPGA} durchgeführt.
-The Verifikation der einzelnen Hardware Komponenten wird durch speziell für den \gls{EDiC} designte Test Adapter deutlich vereinfacht.
-Diese erlauben ein Bit für Bit testen von allen \glspl{IC} und ausführliches debuggen der Schaltung.
+Um die Funktionalität zu verifizieren, wurden zwei \gls{FPGA}-Implementierungen durchgeführt.
+Die erste Implementierung, modeliert nur das Verhalten der Schaltung, während die zweite Implementierung auf \gls{IC}-level den Schaltplan verifiziert.
+Die Verifikation der einzelnen Hardware-Komponenten wird durch speziell für den \gls{EDiC} entwickelte Test Adapter deutlich vereinfacht.
+Diese ermöglichen es, all \glspl{IC} Bit für Bit zu testen und die Schaltung ausführlich zu debuggen.
 Weiterhin wird durch eine detaillierte Timing-Analyse sichergestellt, dass beim \gls{EDiC} keine unvorhergesehenen Timing-Probleme auftreten werden.

@@ -37,7 +37,7 @@ However, the input D7 is connected to a7 and not a6 as it should be.
 This results in a wrong carry flag when shifting by 7 bits in either direction.
 
 In the netlist simulation this bug was not found because there was no circumstance where a value with differing bits 7 and 8 was shifted by 7 bits and the carry flag being used in the next instruction.
-These kind of bugs can go undetected for a very long time and are very hard to pinpoint with a fully running \gls{CPU}.
+This kind of bugs can go undetected for a very long time and are very hard to pinpoint with a fully running \gls{CPU}.
 
 \subsection{Clock jitter}\label{sec:eval_clock}
 \begin{sidewaysfigure}[p]
@@ -85,7 +85,7 @@ It can be seen that there is only a little bit of overshoot but at about the mid
 This could lead to a double trigger where the rising edge is detected as two individual rising edges in a register and, therefore, a counter could increment by two instead of by one.
 Therefore, an attempt was made to circumvent this by changing R232 (a resistor in series after the clock buffer) from \qty{0}{\ohm} to a larger value.
 In \cref{fig:clk33Ohm} a \qty{33.3}{\ohm} resistor was added.
-It becomes obvious that the time constant of the implicit low-pass filter increased and with it the edge becomes less steep but the dip also becomes less of an impact.
+It becomes obvious that the time constant of the implicit low-pass filter increased and with it the edge becomes less steep, but the dip also becomes less of an impact.
 Even though this is a decent improvement, it is not perfect.
 The next attempt was to add a line termination of \qty{100}{\ohm} at the end of both clock lines instead of the \qty{33.3}{\ohm} resistor in series.
 The result can be seen in \cref{fig:clkTerm}.
@@ -141,12 +141,12 @@ The clock frequency was chosen in \cref{sec:timing} to have a safety margin of a
   \caption{Write Enable of \gls{MAR} register (green) and one bus lane with \texttt{0xff} driver (yellow).}
   \label{fig:busPullupFix}
 \end{figure}
-Until now, no program was programmed into the \glspl{EEPROM} and it was time for the first real integration test of the \gls{EDiC}.
+Until now, no program was programmed into the \glspl{EEPROM}, and it was time for the first real integration test of the \gls{EDiC}.
 The first program used for the integration test in \cref{lst:test0} was a basic test to see if basic instructions get executed and if the built-in I/O works.
 After it ran successfully and displayed \texttt{0x42} at the displays, the second testing program from \cref{lst:test1} included the RS232 I/O extension card and its scratch register (at address \texttt{0xfe0f}).
 When this also ran successfully, a more complex \gls{UART} echo program (\cref{lst:app_asm_uart}) was programmed into the \glspl{EEPROM}.
 It finally had problems and did not work as expected.
-It could be observed that the \gls{PC} would randomly be set to a unreasonably high value and after that \glspl{NOP} were executed until the \gls{PC} overflowed to 0 and the program started again.
+It could be observed that the \gls{PC} would randomly be set to an unreasonably high value and after that \glspl{NOP} were executed until the \gls{PC} overflowed to 0 and the program started again.
 However, when turning on the cycle by cycle debugger and stepping through all cycles, the program worked perfectly and bytes got read correctly from the RS232 extension card and were also sent back correctly.
 After debugging for a long time, the bug was tracked down to the return instruction which sometimes (about 1 in 100 times) would return to a random instruction and not return to after the call instruction.
 It was further debugged with the third test program (\cref{lst:test2}).
@@ -156,14 +156,14 @@ Both instruction load \texttt{0xff} into the \gls{MAR} by not driving the bus wi
 In \cref{fig:busPullup} two \gls{MAR} write enable pulses can be seen and, especially, in the first pulse, the problem becomes apparent.
 If the bus was pulled low in the cycle before the \gls{MAR} is written, the pull-up resistors take some time to pull the voltage to \qty{5}{\volt} which leaves the level at about \qty{2}{\volt} at the time of the write pulse.
 This is right at the required minimum voltage to be detected as a high signal by the \emph{74F825}.
-Therefore, most of the time, the register detects the bus input as a 1 but sometimes it is detected as a low signal.
+Therefore, most of the time, the register detects the bus input as a 1, but sometimes it is detected as a low signal.
 
 The fix is quite easy as soon as the problem is detected:
-A new bus driver (\emph{74F245}) is added in one of the spare slots whose A input is connected to \texttt{H1}, the B input to the bus and the output enable signal is connected to a new control signal.
+A new bus driver (\emph{74F245}) is added in one of the spare slots which A input is connected to \texttt{H1}, the B input to the bus and the output enable signal is connected to a new control signal.
 This fix would have been very difficult if no output of the microcode \glspl{EEPROM} would have been free to use or if no place for spare \glspl{IC} was left on the \gls{PCB}.
 Therefore, it is always important to design everything with enough resources left.
 
-The result of the fix can be seen in \cref{fig:busPullupFix} where the bus line is raised to about \qty{3.8}{\volt} as soon as the write enable pulse starts\footnote{The even higher level on the bus line after the write enable pulse is driven by the \gls{SRAM} driver (outputs the return address in the return instruction) which is an \emph{ACT} type for compliance with the \gls{SRAM} specification. In \cref{fig:busPullup} the \gls{SRAM} probably drove a `0' to the bus line.}.
+The result of the fix can be seen in \cref{fig:busPullupFix} where the bus line is raised to about \qty{3.8}{\volt} as soon as the write-enable pulse starts\footnote{The even higher level on the bus line after the write-enable pulse is driven by the \gls{SRAM} driver (outputs the return address in the return instruction) which is an \emph{ACT} type for compliance with the \gls{SRAM} specification. In \cref{fig:busPullup} the \gls{SRAM} probably drove a `0' to the bus line.}.
 
 \subsection{\glsxtrshort{UART} Transceiver lost data}
 The final bug was only observed with the test adapter and never while running the \gls{EDiC} on its own.
@@ -183,7 +183,7 @@ The only notable difference between the two tests is that in the manual test, th
 When looking at the waveforms of the signal coming from the DIP switch, a bouncing of the trigger can sometimes be observed as shown in \cref{fig:bounce}.
 In theory this should not have an effect on the content of the scratch register of the \gls{UART} \gls{IC} as the glitch happens on the output enable input of the \gls{IC}.
 However, the datasheet explicitly states a minimum time for a read strobe pulse duration of \qty{80}{\nano\second}.
-For this reason, the test adapter was altered to include a low pass filter and schmitt trigger on the \texttt{memRamNOE} and \texttt{memRamNWE} control signals because those are the only control signals which are used asynchronously.
+For this reason, the test adapter was altered to include a low pass filter and Schmitt trigger on the \texttt{memRamNOE} and \texttt{memRamNWE} control signals because those are the only control signals which are used asynchronously.
 All other control signal are only used in components which do not state a minimum pulse duration for it (only setup and hold times in relation to the rising edge of the clock).
 After implementing this fix, the manual test worked perfectly for many read cycles which means that the minimum read pulse duration for the \gls{UART} \gls{IC} needs to be respected.
 

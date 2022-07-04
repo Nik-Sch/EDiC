@@ -5,15 +5,15 @@ The goal for the \gls{EDiC} was to build a \gls{CPU} that is capable of interact
 
 \section{Design Decisions}
 First of all, there are several decisions about the general structure of a \gls{CPU} that need to be made.
-These decisions greatly influence how the \gls{EDiC} can be structured into modules and how the final hardware build is setup.
-Another important factor towards architectural structure is the fact that the final hardware build of the \gls{CPU} is be based on the 74-series of \gls{TTL} \glspl{IC}.
+These decisions greatly influence how the \gls{EDiC} can be structured into modules and how the final hardware build is set up.
+Another important factor towards architectural structure is the fact that the final hardware build of the \gls{CPU} is based on the 74-series of \gls{TTL} \glspl{IC}.
 
 \subsection{8 bit bus width}
 Most current era \glspl{CPU} employ a 32 bit or 64 bit bus to handle large numbers and large amounts of data.
-This, however, is not feasible when using 74-series \glspl{IC} and at the same time targeting an easy to understand hardware build.
+This, however, is not feasible when using 74-series \glspl{IC} and at the same time targeting an easy-to-understand hardware build.
 Some early \glspl{CPU} build with similar \glspl{IC} worked with only 4 bits.
-This can work very well for specific applications but for the most arithmetics and data handling 8 bits are more practical.
-The \gls{EDiC} will, therefore, use an 8 bit bus for data with a integer range of -128 to 127 or 0 to 255 for unsigned integers.
+This can work very well for specific applications but for the most arithmetic computations and data handling 8 bits are more practical.
+The \gls{EDiC} will, therefore, use an 8 bit bus for data with an integer range of -128 to 127 or 0 to 255 for unsigned integers.
 
 One of the major limitation of an overall 8 bit bus is the addressable memory space.
 With only 8 bit for the memory address, the maximum amount of memory addressable is 256 bytes.
@@ -26,14 +26,14 @@ However, this raises problems of where the 16 bit addresses come from when all t
 The solution for the \gls{EDiC} is presented in \cref{sec:addrLogic} when explaining the different modules of the \gls{EDiC}.
 
 \subsection{Datapath Architecture - Multicycle CISC}\label{sec:cisc}
-In most \glspl{CPU} an instruction is not done in one clock cycle but it is divided into several steps that are done in sequence.
+In most \glspl{CPU} an instruction is not done in one clock cycle, but it is divided into several steps that are done in sequence.
 There are two general approaches that are called \emph{Multicycle} and \emph{Pipelining} \cite{PattersonDavid2016RuRD}.
-Multicycle means that all the steps of one instruction are performed sequentially and a new instruction is only dispatched after the previous instruction is finished.
+Multicycle means that all the steps of one instruction are performed sequentially, and a new instruction is only dispatched after the previous instruction is finished.
 This is usually used when implementing \glspl{CISC}, where one instruction can be very capable \cite{chen_novick_shimano_2000}.
 For example an add instruction in \gls{CISC} could fetch operands from memory, execute the add and write the result back to memory.
 \glspl{RISC} on the other hand would need three independent instruction to load operands from memory into registers, do the addition and write the result back to memory.
 
-In Pipelining there are fixed steps each instruction goes through in a defined order and the intermediate results are stored in so called pipeline registers.
+In Pipelining there are fixed steps each instruction goes through in a defined order and the intermediate results are stored in so-called pipeline registers.
 Each pipeline step is constructed in such a way that it does not intervene with the others.
 Therefore, it is, in theory, possible to dispatch a new instruction each cycle even though the previous instruction is not yet finished.
 A typically 5-step pipeline would consist of the following steps \cite{PattersonDavid2016RuRD}:
@@ -47,8 +47,8 @@ A typically 5-step pipeline would consist of the following steps \cite{Patterson
 However good the performance of a pipelined \gls{CPU} is, it also comes with challenges.
 Those include a greater resource usage because all intermediate results need to be stored in pipeline registers.
 Additionally, branch instructions\footnote{Branch Instructions change the \gls{PC} and with that the location from which the next instruction is to be fetched. This is required for conditional and looped execution.} pose a greater challenge because at the moment, the \gls{CPU} execute the branch the following instructions have already been dispatched.
-This means that the pipeline needs to be flushed (i.e. cleared), performance is lost and more logic is required.
-It also noteworthy that branch prediction and pipeline flushes can be quite vulnerable as recently shown in CVE-2017-5753 with the Spectre bug \cite{CVE-2017-5753}.
+This means that the pipeline needs to be flushed (i.e. cleared), performance is lost, and more logic is required.
+It is also noteworthy that branch prediction and pipeline flushes can be quite vulnerable as recently shown in CVE-2017-5753 with the Spectre bug \cite{CVE-2017-5753}.
 
 Therefore, the \gls{EDiC} is to built as a Multicycle \gls{CISC}.
 
@@ -84,10 +84,10 @@ An \gls{ALU} is the computational core of any \gls{CPU} as it performs all the c
 The \gls{ALU} of the \gls{EDiC} is by design simple with only 4 different operations plus an option to invert the second input.
 The result of the \gls{ALU} is stored in a result register which can drive the bus to store the result in a register or memory.
 For simplicity, the first input of the \gls{ALU} ($A$ input) is directly connected to the register file (\cref{sec:regs}) and only the second input ($B$ input) is accessible from the bus.
-This limits the possibilities of instructions, however, if both inputs should have been driven by the bus, every \gls{ALU} instruction would have taken three instead of two cycle limited by the bus (first cycle $A$ input, second cycle $B$ input, third cycle result).
+This limits the possibilities of instructions, however, if both inputs should have been driven by the bus, every \gls{ALU} instruction would have taken three instead of two cycles limited by the bus (first cycle $A$ input, second cycle $B$ input, third cycle result).
 
 The \gls{ALU} consists of an 8 bit ripple carry full adder and a barrel shifter.
-The operations are controlled by three control signals: The first two bits select which \gls{ALU} operation to perform and the third bit modifies the operation to perform.
+The operations are controlled by three control signals: The first two bits select which \gls{ALU} operation to perform, and the third bit modifies the operation to perform.
 The possible operations are shown in \cref{tab:aluOp}.
 For the adder, the third bit inverts the $B$ input when active (All input bits are XORed with the control bit) and is used as the carry in of the adder.
 This negates the $B$ input in twos complement and, therefore, subtracts it from the $A$ input.
@@ -121,17 +121,17 @@ A complete 1 bit full-adder of the \gls{EDiC} is shown in \cref{fig:full_adder}.
   \label{fig:barrel_shifter}
 \end{sidewaysfigure}
 It was desirable to include a barrel shifter to have the possibility to improve multiply operation with a shift and add approach instead of repeated addition.
-The barrel shifter works by 3 consecutive multiplexers shifting by 1, 2 or 4 bit to the right that are controlled by the first 3 bit of the (not inverted) $B$ input.
+The barrel shifter works by 3 consecutive multiplexers shifting by 1, 2 or 4 bits to the right that are controlled by the first 3 bits of the (not inverted) $B$ input.
 To also allow shifting to the left there is one multiplexer before the three shift multiplexers to invert the order of bits and another one after the shifting to reorder the bits.
 In \cref{fig:barrel_shifter} a bidirectional barrel shifter implemented with the \texttt{74F157} is visualized. The \texttt{74F157} implements four 2 to 1 multiplexer and, therefore, 2 chips are needed for a full 8 bit 2 to 1 multiplexer.
 
 The \gls{ALU} also provides four flags which are used for condition execution.
 The Zero (all result bits are zero) and Negative (The \gls{MSB} of the result) flag are both very easy to derive and were the only ones included in the prototype.
-However, the experience of programming for the \gls{CPU} showed that it is desireable to be able to work with more advanced \gls{ALU} flags when programming more complex functions.
+However, the experience of programming for the \gls{CPU} showed that it is desirable to be able to work with more advanced \gls{ALU} flags when programming more complex functions.
 Having only Zero and Negative Flags, for example, does not allow unsigned operations of the full width\footnote{An overflow detection is not possible and with that a greater or less than comparison cannot be done.} which is especially important with only 8 data bits.
 It limits unsigned operations to only 0-127 even though the \gls{ALU} would be capable of calculations with 0-255.
 
-A lot of modern \glspl{CPU} feature many different flags with the Intel 64\textsuperscript{\textregistered} and IA-32 \gls{CPU} having about 20 different flags \cite[Section~3.4.3]{intelx86}.
+A lot of modern \glspl{CPU} feature many flags with the Intel 64\textsuperscript{\textregistered} and IA-32 \gls{CPU} having about 20 different flags \cite[Section~3.4.3]{intelx86}.
 However, the popular ARM Architecture has a rather unique but very capable system for conditional execution which relies on only the four most used \gls{ALU} flags.
 The \gls{EDiC} uses the same flags and their functions are as follows:
 \begin{itemize}
@@ -139,7 +139,7 @@ The \gls{EDiC} uses the same flags and their functions are as follows:
   \item \textbf{Z} The \emph{Zero} flag indicates that the result is 0 and is set if all 8 result bits are 0.
   \item \textbf{V} The \emph{Overflow} flag indicates that an overflow occurred and is set if the carry in and carry out of the 8th full-adder are different.
   This detects arithmetic overflows for signed two's-complement calculations.
-  \item \textbf{C} The \emph{Carry} flag is the carry out bit of the adder for adding and subtracting.
+  \item \textbf{C} The \emph{Carry} flag is the carry-out bit of the adder for adding and subtracting.
   For logical operations (\texttt{XOR} and \texttt{AND}) the carry flag has no meaning and for shifting operations it equals the last bit that was ``carried out'' (or is unchanged if shifting by 0 bits).
 \end{itemize}
 \subsection{Register File}\label{sec:regs}
@@ -185,9 +185,9 @@ Both these features and the addressing logic is described below.
 \subsubsection{Memory Mapped \gls{IO}}
 Input and Output is one of the most important factors of any \gls{CPU} besides the computing capabilities which are mostly defined by the \gls{ALU}.
 The first prototype showed that using individual instructions for \gls{IO} which directly read from and write to the bus are limiting the usability quite a lot.
-A common way to extend the \gls{IO} capabilities is to use so called memory mapped \gls{IO}.
+A common way to extend the \gls{IO} capabilities is to use so-called memory mapped \gls{IO}.
 This works by splitting the address space between actual memory and \gls{IO} devices.
-Then every \gls{IO} operation is performed as a usual memory access but the memory chip does not receive the access and the \gls{IO} device addressed performs the operation.
+Then every \gls{IO} operation is performed as a usual memory access, but the memory chip does not receive the access and the \gls{IO} device addressed performs the operation.
 In the \gls{EDiC} the memory address is decoded in such a way, that accesses to addresses \texttt{0xfe00} to \texttt{0xfeff} are performed by any connected \gls{IO} devices.
 For this to work, the lower 8 address bits, the bus and memory control signals - i.e. write enable, read enable and \gls{IO} chip enable (active when the upper 8 address bits are \texttt{0xff}) - are exposed for \gls{IO} devices to connect to.
 
@@ -200,7 +200,7 @@ This allows functions to be called recursively and also simplifies the written p
 However, a typical stack implementation as in modern \gls{CPU} architectures like ARM is rather complex.
 It requires a \gls{SP} register which usually is accessible like any other general purpose register and can be directly used as an address.
 This includes using it as operand for arithmetic operations which is not possible when the bus width is only 8 bits but the \gls{SP} needs to be 16 bits wide to be used as an address.
-Therefore, the \gls{EDiC} uses an unique approach to the stack:
+Therefore, the \gls{EDiC} uses a unique approach to the stack:
 
 Similarly to the memory mapped \gls{IO} it was decided to implement the \gls{SP} as an 8 bit register which can be incremented and decremented at function calls and returns, respectively.
 Every time a memory access is performed where the upper 8 bits of the address equal \texttt{0xff}, a 17th address bit is set and the upper 8 address bits are replaced by the current value of the \gls{SP}.
@@ -210,12 +210,12 @@ Then the actual address at the memory \gls{IC} is \texttt{0x1\_2142}.
 This allows each function (which has a unique \gls{SP} value on the current call stack) to have 256 bytes of function local memory.
 In the \emph{call} instruction, the \gls{EDiC} automatically stores the return address (next \gls{PC} value) at address \texttt{0xffff}, which is \texttt{0x1\_\{sp\}ff} after translation.
 To store the whole 16 bit return address, a second memory \gls{IC} is used in parallel which only needs 256 bytes of storage.
-In the hardware build of the \gls{EDiC} the same \gls{SRAM} \gls{IC} as for the main memory is used because it is cheaply available and the built is simplified by not using more different components.
+In the hardware build of the \gls{EDiC} the same \gls{SRAM} \gls{IC} as for the main memory is used because it is cheaply available, and the build is simplified by not using more different components.
 The call and return instructions are further described in \cref{sec:instructionSet}.
 
 Usually, the stack is also used to store parameters for a function call.
 In the \gls{EDiC}, this can be achieved by providing a special \emph{store} and \emph{load} instruction which access the stack memory with an increment \gls{SP}.
-This way it is possible to store parameter before calling a function and it is also possible to retrieve modified values after the call\footnote{This is important when a function takes memory pointers as parameters and modifies the memory content. For example a string parsing function could take a pointer to the start of the string, parse some characters as a number, return its number representation and modify the parameter such that it points to where the parsing stopped.}.
+This way it is possible to store parameter before calling a function, and it is also possible to retrieve modified values after the call\footnote{This is important when a function takes memory pointers as parameters and modifies the memory content. For example a string parsing function could take a pointer to the start of the string, parse some characters as a number, return its number representation and modify the parameter such that it points to where the parsing stopped.}.
 The calling convention for the \gls{EDiC} is further described in \cref{sec:callingConvention}.
 
 \subsubsection{Addressing Logic}\label{sec:addrLogic}
@@ -243,38 +243,37 @@ Another important debugging feature is the use of breakpoints where the \gls{CPU
 
 In the \gls{EDiC} halting was not realized by stopping the clock completely but rather by inhibiting the instruction step counter increment.
 This has the advantage that the clock is not abruptly pulled to 0 or 1 and, therefore, no spikes on the clock line can occur.
-To implement a cycle by cycle stepping mode, the halt signal is de-asserted for only one clock cycle, which in turn increments the step counter only once.
-To step whole instructions, the halt signal is de-asserted until the instruction is finished (marked by a control signal that is asserted at the end of each instruction from the control logic).
-In breakpoint mode, the halt signal is controlled from a comparator that compares the \gls{PC} and a 16 bit user input, asserting the halt signal when those two equal.
-As soon as the \gls{CPU} halts, the user can then switch to stepping mode and debug the specific instruction of the program.
+To implement a cycle by cycle stepping mode, the halt signal is deasserted for only one clock cycle, which in turn increments the step counter only once.
+To step whole instructions, the halt signal is deasserted until the instruction is finished (marked by a control signal that is asserted at the end of each instruction from the control logic).
+In breakpoint mode, the halt signal is controlled from a comparator that compares the \gls{PC} and a 16 bit user input, asserting the halt signal when this two equal.
 As soon as the \gls{CPU} halts, the user can then switch to stepping mode and debug the specific instruction of the program.
 The user can freely switch between these modes with switches and buttons provided on the lower side of the \gls{PCB} in \cref{fig:EDiCSnake}.
 
 \section{Control Signals}\label{sec:controlSignals}
 The \gls{EDiC} has 24 control signals which define what the current cycle does:
 \begin{itemize}
-  \item \texttt{aluYNWE} - \gls{ALU} output register write enable (active low): Connects to the clock enable input of the \gls{ALU} output register.
-  \item \texttt{aluNOE} - \gls{ALU} output enable (active low): Enables the tri-state buffer to drive the bus with the value of the \gls{ALU} output register.
-  \item \texttt{reg0NWE} - Register 0 write enable (active low): Connects to the clock enable input of the register 0.
-  \item \texttt{reg1NWE} - Register 1 write enable (active low): Connects to the clock enable input of the register 1.
+  \item \texttt{aluYNWE} - \gls{ALU} output register write-enable (active low): Connects to the clock-enable input of the \gls{ALU} output register.
+  \item \texttt{aluNOE} - \gls{ALU} output-enable (active low): Enables the tri-state buffer to drive the bus with the value of the \gls{ALU} output register.
+  \item \texttt{reg0NWE} - Register 0 write-enable (active low): Connects to the clock-enable input of the register 0.
+  \item \texttt{reg1NWE} - Register 1 write-enable (active low): Connects to the clock-enable input of the register 1.
   \item \texttt{regAluSel} - Register Select for the \gls{ALU} A input: When 0, sets register 0 as A input to the \gls{ALU}, otherwise, register 1.
-  \item \texttt{reg0BusNOE} - Register 0 bus output enable (active low): Drives the bus with the value of register 0.
-  \item \texttt{reg1BusNOE} - Register 1 bus output enable (active low): Drives the bus with the value of register 1.
+  \item \texttt{reg0BusNOE} - Register 0 bus output-enable (active low): Drives the bus with the value of register 0.
+  \item \texttt{reg1BusNOE} - Register 1 bus output-enable (active low): Drives the bus with the value of register 1.
   \item \texttt{memPCFromImm} - load data for \gls{PC} from instruction immediate: Selects the load input of the \gls{PC} to be from the instruction immediate instead of from the memory.
   \item \texttt{memPCNEn} - \gls{PC} enable (active low): enables the \gls{PC} to load data or increment by one depending on the next control signal.
   \item \texttt{memPCLoadN} - \gls{PC} load and not increment (active low): When 0 load the \gls{PC} with the data specified by \texttt{memPCFromImm}, otherwise, increment the \gls{PC} by one.
-  \item \texttt{memPCToRamN} - \gls{PC} output enable (active low): Drives the bus and ram2data with the value of the \gls{PC}.
-  \item \texttt{memSPNEn} - \gls{SP} enable (active low): enable the \gls{SP} to be incremented or decremented depending on the next control signal.
+  \item \texttt{memPCToRamN} - \gls{PC} output-enable (active low): Drives the bus and ram2data with the value of the \gls{PC}.
+  \item \texttt{memSPNEn} - \gls{SP}-enable (active low): enable the \gls{SP} to be incremented or decremented depending on the next control signal.
   \item \texttt{memSPUp} - \gls{SP} increment not decrement: When 1, increment the \gls{SP}, otherwise, decrement.
-  \item \texttt{memInstrNWE} - Instruction write enable (active low): Connects to the clock enable input of the instruction register.
-  \item \texttt{memInstrNOE} - Instruction output enable (active low): Drives the bus with the lower 8 bits of the instruction immediate.
-  \item \texttt{memMar0NWE} - \gls{MAR} bits 7..0 write enable (active low): Connects to the clock enable input of the lower 8 bits of the \gls{MAR}.
-  \item \texttt{memMar1NWE} - \gls{MAR} bits 15..8 write enable (active low): Connects to the clock enable input of the upper 8 bits of the \gls{MAR}.
+  \item \texttt{memInstrNWE} - Instruction write-enable (active low): Connects to the clock-enable input of the instruction register.
+  \item \texttt{memInstrNOE} - Instruction output-enable (active low): Drives the bus with the lower 8 bits of the instruction immediate.
+  \item \texttt{memMar0NWE} - \gls{MAR} bits 7..0 write-enable (active low): Connects to the clock-enable input of the lower 8 bits of the \gls{MAR}.
+  \item \texttt{memMar1NWE} - \gls{MAR} bits 15..8 write-enable (active low): Connects to the clock-enable input of the upper 8 bits of the \gls{MAR}.
   \item \texttt{memInstrImmToRamAddr} - \gls{RAM} address from instruction immediate and not \gls{MAR}: When 1, use the instruction immediate as address for the memory, otherwise, use the \gls{MAR} content.
-  \item \texttt{memRamNWE} - Memory write enable (active low): Connects to the write enable input of the \gls{SRAM} and \gls{IO}.
-  \item \texttt{memRamNOE} - Memory output enable (active low): Drives the bus with the value of the \gls{SRAM} or \gls{IO} depending on the memory address (\cref{sec:memory}).
-  \item \texttt{instrFinishedN} - Instruction finished (active low): Is asserted at the last active cycle of the instruction to reset the step counter to 0\footnote{the instruction finished signal is also used for the debugger to detect the end of an instruction and halt when stepping through instructions and not single cycles.}.
-  \item \texttt{busFFNOE}\footnote{Was added in the component verification and is explained in \cref{sec:eval_bus}.} - Drive \texttt{0xff} to the bus (active low): Connects to the output enable input of the constant \texttt{0xff} driver.
+  \item \texttt{memRamNWE} - Memory write-enable (active low): Connects to the write-enable input of the \gls{SRAM} and \gls{IO}.
+  \item \texttt{memRamNOE} - Memory output-enable (active low): Drives the bus with the value of the \gls{SRAM} or \gls{IO} depending on the memory address (\cref{sec:memory}).
+  \item \texttt{instrFinishedN} - Instruction finished (active low): Is asserted at the last active cycle of the instruction to reset the step counter to 0\footnote{The instruction finished signal is also used for the debugger to detect the end of an instruction and halt when stepping through instructions and not single cycles.}.
+  \item \texttt{busFFNOE}\footnote{Was added in the component verification and is explained in \cref{sec:eval_bus}.} - Drive \texttt{0xff} to the bus (active low): Connects to the output-enable input of the constant \texttt{0xff} driver.
 \end{itemize}
 
 \section{Final Instruction Set}\label{sec:instructionSet}
@@ -375,7 +374,7 @@ This means that for each memory access, the address setup and hold must be an in
 
   \item \emph{Load from immediate address with incremented \gls{SP}:} Takes a 16 bit immediate as the memory address and writes the memory content to the register.
   However, before the memory access, the \gls{SP} is incremented and after the access, the \gls{SP} is decremented again.
-  This is used to access parameters for subfunctions.
+  This is used to access parameters for sub-functions.
 
   Cycles:
   \begin{enumerate}
@@ -407,7 +406,7 @@ This means that for each memory access, the address setup and hold must be an in
 
   \item \emph{Store to immediate address with incremented \gls{SP}:} Takes a 16 bit immediate as the memory address and writes the register content to memory.
   However, before the memory access, the \gls{SP} is incremented and after the access, the \gls{SP} is decremented again.
-  This is used to access parameters for subfunctions.
+  This is used to access parameters for sub-functions.
 
   Cycles:
   \begin{enumerate}
@@ -447,7 +446,7 @@ There are some more operations that are neither \gls{ALU} nor memory operations 
 
   Cycles:
   \begin{enumerate}
-    \item Immediate output enable and first register write enable.
+    \item Immediate output enable, and first register write enable.
   \end{enumerate}
 
   \item \emph{Conditionally set \gls{PC} from immediate:} This is the only conditional operation available.
@@ -459,7 +458,7 @@ There are some more operations that are neither \gls{ALU} nor memory operations 
   \end{enumerate}
 
   \item \emph{Function Call:} Takes a 16 bit address which the \gls{PC} is set to.
-  The \gls{SP} is incremented and the return address is stored on the stack.
+  The \gls{SP} is incremented, and the return address is stored on the stack.
 
   Cycles:
   \begin{enumerate}

@@ -9,11 +9,11 @@ The address logic also enabled versatile memory mapped \gls{IO} for arbitrary ex
 With a custom stack implementation the \gls{EDiC} is also able to implement function calls and function local variables.
 
 One major contribution to ease the education use of the \gls{EDiC} is the comprehensive software development environment which supports the custom \gls{EDiC} \gls{ISA}.
-It consists of an assembler which is able to translate advanced human readable assembler code to the 24 bit instructions used by the \gls{EDiC}.
+It consists of an assembler which is able to translate advanced human-readable assembler code to the 24 bit instructions used by the \gls{EDiC}.
 With features such as value and string constants, file imports and label definitions the programmer is supported while creating software for the \gls{EDiC}.
 Additionally, a tool to generate microcode for the \gls{EDiC} is provided.
-Creating the memory contents for the microcode \glspl{EEPROM} for the \gls{EDiC} is a task which is very time consuming and error prone when doing manually.
-Therefore, a tool is provided which reads a human readable file which describes all the instructions and what control signals are to be asserted in which cycle of the instruction and converts the file to the memory contents for the \glspl{EEPROM}.
+Creating the memory contents for the microcode \glspl{EEPROM} for the \gls{EDiC} is a task which is very time-consuming and error-prone when doing manually.
+Therefore, a tool is provided which reads a human-readable file which describes all the instructions and what control signals are to be asserted in which cycle of the instruction and converts the file to the memory contents for the \glspl{EEPROM}.
 
 For quicker design iterations and also for verification of the finalized design, two \gls{FPGA} implementations were created in the process.
 The first implementation is a behavioral implementation which was used to efficiently make alterations to the architecture in the design phase.
@@ -31,8 +31,8 @@ With the test adapters and by using sockets for all logic \glspl{IC} it was poss
 \section{Future Work}
 Even though, the \gls{EDiC} is a complex and yet simple to understand model \gls{CPU} with an extensive development environment, there are some further ideas which would enhance the \gls{EDiC} as a whole.
 
-\paragraph{Power Supply} At the moment, the \gls{EDiC} is supplied by a industry standard 5V power supply.
-However, with a custom built \gls{CPU} out of discrete logic \glspl{IC} it would only be fitting to also power the \gls{EDiC} with its own custom power supply.
+\paragraph{Power Supply} At the moment, the \gls{EDiC} is supplied by an industry standard 5V power supply.
+However, with a custom-built \gls{CPU} out of discrete logic \glspl{IC} it would only be fitting to also power the \gls{EDiC} with its own custom power supply.
 Therefore, it is planned to design and build a power supply before the \gls{EDiC} will be presented at the \gls{VCFB}. \cite{vcfb}
 
 \paragraph{Extension Cards} The \gls{EDiC} currently only has the RS-232 \gls{UART} extension card.

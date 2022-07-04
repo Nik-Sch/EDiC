@@ -18,18 +18,18 @@ However, a lot of decisions need to be made in choosing the correct \glspl{IC}.
   \caption{Clock Enable circuit of the \emph{74F825} \gls{IC} \cite{74f825}.}
   \label{fig:clockEnable}
 \end{figure}
-The 74 series of logic \glspl{IC} feature many different registers.
+The 74 series of logic \glspl{IC} feature many registers.
 The most basic register \gls{IC} has $n$ D-type flip-flops with respective data inputs and outputs plus one common clock input.
 On each rising edge of the clock the flip-flops capture the input values and hold them until the next rising edge of the clock.
 However, often it is required that a register does not capture data on every rising edge of the clock.
 This is done with an additional input, called \emph{clock enable}.
 Implementing the clock enable with a basic AND gate of the clock and a control bit has the major drawback that glitches of the enable control signal can propagate to the clock input of the register and, therefore, falsely trigger the register.
 There are two widely used alternatives to the simple AND gate:
-The enable input can be used as the select input for an multiplexer to the data input of the flip flop, where it multiplexes between the actual input and the current output.
+The enable input can be used as the select input for a multiplexer to the data input of the flip-flop, where it multiplexes between the actual input and the current output.
 This allows the flip-flop to always capture data but when the enable input is inactive, it recaptures the current output.
 The drawbacks are that each bit of the register needs a multiplexer at the input and, furthermore, that the flip-flops draw power on every clock pulse, even though no new data is captured.
 The \emph{74F825} logic \gls{IC} solves this with the circuit shown in \cref{fig:clockEnable}.
-When the $\overline{\text{EN}}$ input is low, NAND gate on the right negates the CP\footnote{The internal flip-flops of the \emph{74F825} are negative edge triggered}.
+When the $\overline{\text{EN}}$ input is low, the NAND gate on the right negates the CP\footnote{The internal flip-flops of the \emph{74F825} are negative edge triggered}.
 When the $\overline{\text{EN}}$ input is high, on the other hand, the output does not change.
 This circuit prevents the $\overline{\text{EN}}$ to trigger a falling edge (which would trigger the flip-flops) on the CP output.
 However, when the $\overline{\text{EN}}$ goes high while the CP input is high, then the output also goes high.
@@ -71,8 +71,8 @@ This leads to the usage of specific buffers for the \glspl{LED}.
 Additionally, the current rating usually is higher for low-level output due to the internal workings of the output buffer. % as explained in \cref{sec:outputBuffer}.
 For example, the B outputs of a \emph{74F245} non-inverting buffer are rated for maximum \qty{-15}{\milli\ampere} for high-level output and \qty{64}{\milli\ampere} for a low-level output \cite{74f245}.
 Therefore, connecting the anode of a \gls{LED} via a current limiting resistor to the output of a non-inverting buffer and the cathode to GND will not be ideal.
-To be able to draw more current from the buffer and thus having brighter \glspl{LED}, inverting buffers are used and the \glspl{LED} are connected ``backwards''.
-The \emph{74ABT540} is the \gls{IC} used as \gls{LED} buffer in the \gls{EDiC} with the a low-level current rating of \qty{64}{\milli\ampere} \cite{74abt540}.
+To be able to draw more current from the buffer and thus having brighter \glspl{LED}, inverting buffers are used, and the \glspl{LED} are connected ``backwards''.
+The \emph{74ABT540} is the \gls{IC} used as \gls{LED} buffer in the \gls{EDiC} with a low-level current rating of \qty{64}{\milli\ampere} \cite{74abt540}.
 The cathodes of the \glspl{LED} are then connected to the \emph{74ABT540} and the anodes are connected through current limiting resistors to $V_{cc}$.
 
 \subsection{Program Counter \& Instruction \glsxtrshortpl{EEPROM}}
@@ -85,7 +85,7 @@ The \gls{PC} is, additionally, used as A inputs to the \emph{74F521} (U53 and U6
 The 8 bit comparators can be cascaded via the enable input to compare 16 bit values.
 The B input is selected by the user with four hexadecimal digit switches.
 
-The function of the ``Test'' block between the output of the instruction \glspl{EEPROM} and the the instruction registers is explained in \cref{sec:testAdapter}.
+The function of the ``Test'' block between the output of the instruction \glspl{EEPROM} and the instruction registers is explained in \cref{sec:testAdapter}.
 For understanding the function of the schematic, it can be assumed that it shorts the connections on the left with the corresponding connections on the right.
 The lowest of the 3 instruction registers (U64) holds the instruction code which is used in the \cref{sec:schControl}.
 The upper two registers (U70 and U71) hold the immediate value which can be used as an address in the \cref{sec:schMemory}, as a branch address for the \gls{PC} and the lower 8 bits can be used as immediate value on the bus (U75).
@@ -93,7 +93,7 @@ The upper two registers (U70 and U71) hold the immediate value which can be used
 All 5 registers have \glspl{LED} connected to them as described in \cref{sec:ledBuffer}.
 \subsection{Memory}\label{sec:schMemory}
 The memory module (\cref{fig:schRAM}) features three registers used for the address logic:
-The \gls{MAR} (U68 and U63) is a 16 bit register where the lower and upper 8 bits can be loaded independently from the bus.
+The \gls{MAR} (U68 and U63) is a 16 bit register where the lower and upper 8 bits can be loaded independently of the bus.
 The \gls{SP} (U56) is a \emph{74AS867} counter register similar to the \gls{PC} but only 8 bits wide and wired differently to only allow incrementing and decrementing.
 The three different kinds of memory accesses are decoded from the upper 8 address bits which either come from the instruction immediate (U74) or the \gls{MAR} (U73):
 \begin{itemize}
@@ -101,7 +101,7 @@ The three different kinds of memory accesses are decoded from the upper 8 addres
   \item \emph{Stack access:} When the upper 8 bits equal \texttt{0xff} (U76), the stack memory is selected.
         Then the upper 8 bits of the address is replaced by the \gls{SP} and a 17th address bit is asserted to access the stack memory.
 \end{itemize}
-The address is then driven by several bus driver according to the decoding logic (U61, U63, U65, U66 and U72).
+The address is then driven by several bus drivers according to the decoding logic (U61, U63, U65, U66 and U72).
 
 The actual \gls{SRAM} \glspl{IC} (U77 and U100) have voltage levels which are not quite compatible with the standard \emph{74F} \glspl{IC} \cite{AS6C4008} which is why all the signals connecting to them are buffered with the \emph{74ACT245} \cite{74act245} (U201, U202, U203, U204 and U205).
 
@@ -109,10 +109,10 @@ The actual \gls{SRAM} \glspl{IC} (U77 and U100) have voltage levels which are no
 \Cref{fig:schMC} contains two registers for the address of the microcode \glspl{EEPROM} (U85, U86 and U87) of which the data pins are the control signals (\cref{sec:controlSignals}).
 The first registers (U83) is used as a synchronous 3 bit step counter which increments each cycle except when the halt signal is asserted.
 The instruction finished control signal will reset the step counter to 0 at the next cycle.
-U83 also registers the four \gls{ALU} flags and U84 registers the instruction to synchronies all address bits for the \glspl{EEPROM}.
+U83 also registers the four \gls{ALU} flags and U84 registers the instruction to synchronize all address bits for the \glspl{EEPROM}.
 
 \subsection{Clock and Reset}\label{sec:schClock}
-\Cref{fig:schClk} contains the oscillator (X1) whose frequency is determined in \cref{sec:timing} and a active low reset controller (U34) which resets on power-on and can be combined with a user reset switch (SW1301).
+\Cref{fig:schClk} contains the oscillator (X1) whose frequency is determined in \cref{sec:timing} and an active low reset controller (U34) which resets on power-on and can be combined with a user reset switch (SW1301).
 The clock and reset is buffered with an \emph{74ABT245} for minimal latency.
 To avoid glitches (see \cref{sec:switchGlitch}) on the four user inputs, a low pass and a Schmitt trigger and two registers are used.
 A multiplexer (U39) generates the halt signal from the debug user inputs and the instruction finished control signal to implement the logic described in \cref{sec:clock}
@@ -126,12 +126,12 @@ To control the register clock pulse and the output enable of the bus driver, the
 The register set in \cref{fig:schReg} consists of two registers (U40 and U41) which can be loaded from the bus.
 The register outputs can drive the bus (U44 and U45) and are multiplexed for the A input of the \gls{ALU} (U42 and U43).
 After the combinatorial \gls{ALU} (\cref{sec:schALU}), the four operation results are multiplexed (U5, U6, U7 and U8) and stored in the \gls{ALU} output register (U9).
-Even though the \gls{ALU} output register features output enable inputs, an indivual bus driver is used (U10) because the content of the \gls{ALU} output register should be displayed to the user (U11).
+Even though the \gls{ALU} output register features output enable inputs, an individual bus driver is used (U10) because the content of the \gls{ALU} output register should be displayed to the user (U11).
 The carry flags are also multiplexed (U101) as the carry flag from the shift operation is generated independently.
 The overflow flag is generated in the combinatorial schematic of the \gls{ALU}, the negative flag is just the \gls{MSB} of the output and the zero flag is deduced from a comparison with zero (U12).
 All four flags are then stored in a register (U97).
 \subsection{Combinatorial \glsxtrshort{ALU}}\label{sec:schALU}
-\Cref{fig:schAlu} shows the ripple carry adder on the left composed out of 8 full adder and with subtracting capabilities.
+\Cref{fig:schAlu} shows the ripple carry adder on the left composed out of 8 full-adder and with subtracting capabilities.
 The barrel shifter on the right side is explained in depth in \cref{sec:alu}.
 The carry flag resulting from a shift operation should always represent the last bit which was shifted out of the 8 bits and should be unchanged when shifting by 0.
 This is accomplished with another multiplexer (U102).
@@ -154,11 +154,8 @@ This is accomplished with another multiplexer (U102).
     74ACT245   & 5        & Octal Bus Transceiver used for \gls{SRAM}                          \\\hline
     74F153     & 4        & Dual 4 to 1 multiplexer                                            \\\hline
     74F32      & 4        & Quad OR                                                            \\\hline
-    BERG40     & 3        & 40 pin Connector for Test-Adapter                                  \\\hline
-    BERG26     & 3        & 26 pin Connector for Test-Adapter                                  \\\hline
     74F151     & 3        & 8 to 1 multiplexer                                                 \\\hline
     74AS867    & 3        & Synchronous 8 bit cascaded counter with loading                    \\\hline
-    BERG10     & 2        & 10 pin Connector for Test-Adapter                                  \\\hline
     74F273     & 2        & Octal register with clear                                          \\\hline
     74F04      & 2        & Hex Inverter                                                       \\\hline
     AS6C4008   & 2        & \gls{SRAM} with 19 address bits                                    \\\hline
@@ -167,7 +164,7 @@ This is accomplished with another multiplexer (U102).
     DS1813-10  & 1        & Reset Generator                                                    \\\hline
     74F374     & 1        & Octal register with output enable                                  \\\hline
     74ABT245   & 1        & Bus driver used for clock and reset                                \\\hline\hline
-    Sum        & 118      & -                                                                  \\\hline
+    Sum        & 110      & -                                                                  \\\hline
   \end{tabularx}
 \end{table}
 
@@ -175,7 +172,7 @@ This is accomplished with another multiplexer (U102).
 After designing the schematic all the components need to be placed on the \gls{PCB}.
 All logic \glspl{IC} are listed in \cref{tab:cpuIcs}.
 For placing and routing several factors are important.
-As the goal of the \gls{EDiC} is to be easy to understand for future students, all components were not only placed to optimize the wiring but a focus was to place components of the same modules close together.
+As the goal of the \gls{EDiC} is to be easy to understand for future students, all components were not only placed to optimize the wiring, but a focus was to place components of the same modules close together.
 Additionally, extra space was left to mark each module and to name all the \glspl{LED} on the silkscreen of the \gls{PCB} for easier reference.
 \Cref{fig:pr} is a rendering showing the traces (red and green), silkscreen (violet) and through-holes/vias (green/yellow).
 
@@ -214,7 +211,7 @@ The delay of the critical path can then be used as a baseline for choosing the c
 Each \gls{IC} has delays which are specified in the datasheet.
 In the example of \cref{fig:timingExample}, a value of register $r_0$ goes through a combinatorial path and is then stored in register $r_1$.
 The registers have a propagation delay $t_p$ which specifies the time from a rising edge of the clock to the output (Q).
-In theory it is also important to hold the input data of a register for the specified hold delay $t_h$, however, in the \gls{EDiC} this is no problem.
+In theory, it is also important to hold the input data of a register for the specified hold delay $t_h$, however, in the \gls{EDiC} this is no problem.
 Then the combinatorial path also has propagation delays from inputs to outputs which need to be added up ($t_c$).
 At the next register, a setup time $t_s$ has to be met which specifies the amount of time the input data needs to be stable before the rising edge.
 
@@ -239,14 +236,14 @@ Additionally, some paths are labeled for clarity.
 All the delays of the critical path (the path that takes the longest from one starting point to one end point) are marked in red.
 
 \Cref{fig:timingControl} shows the basic latency path for control signals and the common bus driver \glspl{IC}.
-The latencies inside the register set and program counter are neglectable and, therefore, only the memory module with the complex address decoding and the \gls{ALU} is further examined.
+The latencies inside the register set and program counter are negligible and, therefore, only the memory module with the complex address decoding and the \gls{ALU} is further examined.
 For the memory module (\cref{fig:timingRam}), there are two critical paths:
 The first comes from the \texttt{memInstrToRamAddr} control signal, through the stack selection logic to the memory address and finally to the buffered output data of the \gls{SRAM} on the bus (\qty{281.3}{\nano\second}).
 The second has the same origin but represents the writing option of the \gls{SRAM} (\qty{272.2}{\nano\second}).
 
 The \gls{ALU} latency path (\cref{fig:timingAlu}) is more complex which is mainly due to the ripple carry adder.
 Consequently, the critical path comes from the bus, through all the carry flags to the final adder result.
-After the result multiplexer the longest path is from the zero flag to the alu flag register U97 (\qty{313.9}{\nano\second}).
+After the result multiplexer the longest path is from the zero flag to the \gls{ALU} flag register U97 (\qty{313.9}{\nano\second}).
 
 Theoretically, it is possible for one instruction to read a value from the \gls{SRAM} and using it in the same instruction as an input to the \gls{ALU}.
 This would replace the baseline delay of the bus input in \cref{fig:timingAlu} (\qty{169.5}{\nano\second}) with \qty{281.3}{\nano\second} and, therefore, enlarge the total worst case latency to

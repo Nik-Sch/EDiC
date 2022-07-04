@@ -3,7 +3,7 @@
 When just providing the hardware, the \gls{CPU} can hardly be used.
 It is possible to write programs by hand by writing single bytes to the \glspl{EEPROM} that hold the program.
 However, it is quite infeasible to write complex programs this way.
-Even more extreme is content of the \glspl{EEPROM} holding the micro code, i.e. that decode the instruction depending on the instruction cycle and \gls{ALU} flags.
+Even more extreme is content of the \glspl{EEPROM} holding the microcode, i.e. that decode the instruction depending on the instruction cycle and \gls{ALU} flags.
 
 Therefore, the \gls{EDiC} comes with two main software utilities that form the Software Development Environment.
 
@@ -19,7 +19,7 @@ Therefore, the \gls{EDiC} comes with two main software utilities that form the S
 \end{listing}
 The goal is to define all the available instructions and what they perform in which instruction step and then have a program automatically generate the bit-files for the \gls{EEPROM}.
 This approach allows easy modifications to the existing microcode if a bug was found or a new instruction should be added.
-The file format which defines the microcode has to be human and machine readable as it should be easily edited by hand and also be read by the tool that generates the bit-files.
+The file format which defines the microcode has to be human and machine-readable as it should be easily edited by hand and also be read by the tool that generates the bit-files.
 A very common file format for tasks like this is \gls{JSON} \cite{JSON} which is widely used in the computer industry.
 Besides basic types as strings and numbers, it allows arrays with square brackets (\texttt{[]}) and objects with curly braces (\texttt{\{\}}).
 Each object contains key value pairs and everything can be nested as desired.
@@ -72,14 +72,14 @@ The signals array consists of objects that define the available control signals 
 \Cref{lst:mc_signals} defines the \emph{not write enable signal for register 0} control signal and defines the default state as high.
 This means, when this control signal is not specified in an instruction it will stay high and, therefore, register 0 will not be written.
 
-\paragraph{InstructionFetch} This array defines the steps that are performed at the beginning of each instruction to fetch the new instruction and decode it.
+\paragraph{Instruction Fetch} This array defines the steps that are performed at the beginning of each instruction to fetch the new instruction and decode it.
 Each object represents one step and consists of key value pairs that define one control signal.
 
 In \cref{lst:mc_instrFetch} the first instruction cycle specifies only the \emph{instruction not write enable} to be low and with this write the instruction into the instruction register.
 Secondly, the \gls{PC} is incremented by setting \emph{PC not enable} to low and \emph{PC not load} to high.
 \paragraph{Instructions} The instructions are an array of all available instructions.
 Each instruction is defined as an \texttt{op} code, which is the 8 bit instruction in binary format.
-However, if it was only possible to define the 8 bit as 0s and 1s, instructions which only differ in the register used would need to be specified separately which is very error prone.
+However, if it was only possible to define the 8 bit as 0s and 1s, instructions which only differ in the register used would need to be specified separately which is very error-prone.
 Therefore, it is allowed to specify the bit that specifies if register 0 or 1 is used to be set to \texttt{'r'} or \texttt{'s'} and then multiple instructions are generated.
 The \texttt{cycles} array defines the steps each instruction does in the same way as the \texttt{instructionFetch} array does.
 However, as the value of individual control signals may depend up on which register is specified in the op code, it is also possible to specify \texttt{'r'}, \texttt{'!r'}, \texttt{'s'} or \texttt{'!s'}.
@@ -171,10 +171,10 @@ To avoid 8 definitions of the same instructions, the op code can contain \texttt
   ]
 }
   \end{minted}
-  \caption{Definition of the alu operation with two register arguments for the microcode generation.}
+  \caption{Definition of the \gls{ALU} operation with two register arguments for the microcode generation.}
   \label{lst:mc_aluRS}
 \end{listing}
-\Cref{lst:mc_aluRS} for example defines the alu operation with two registers and defines all 32 instructions with the op codes \texttt{'00000000'} to \texttt{'00011111'}.
+\Cref{lst:mc_aluRS} for example defines the \gls{ALU} operation with two registers and defines all 32 instructions with the op codes \texttt{'00000000'} to \texttt{'00011111'}.
 
 \begin{listing}[h!]
   \begin{minted}[linenos,
@@ -198,7 +198,7 @@ To avoid 8 definitions of the same instructions, the op code can contain \texttt
 \end{listing}
 There is one final specialty built into the Microcode Generator:
 The \gls{EDiC} has a branch instruction which is either executed or treated as a no-operation depending on the current state of the \gls{ALU} flags.
-For all other instructions, the flags are ignored and the instructions are always executed.
+For all other instructions, the flags are ignored, and the instructions are always executed.
 For this special instruction, the last four bits replaced with \texttt{flag} define at which state of the \gls{ALU} flags, the branch should be executed.
 The possible conditions are heavily inspired by the conditional execution of ARM \glspl{CPU}\cite{armCond} as the \gls{ALU} flag architecture is very similar.
 The possible values for the \texttt{flag} field and their meanings are listed in \cref{tab:mc_flagMeanings}.
@@ -233,10 +233,10 @@ Especially for a \gls{CPU} with only 8 bits it is important to support unsigned 
 
 \section{Assembler}
 The second software that is similarly important is the assembler.
-An assembler translates human readable instructions into the machine code, i.e. the bits that are stored in the instruction \glspl{EEPROM}.
+An assembler translates human-readable instructions into the machine code, i.e. the bits that are stored in the instruction \glspl{EEPROM}.
 For the \gls{EDiC} each instruction is 24 bits wide, with 8 bits instruction op code and 8 or 16 bits immediate value.
 Even though assemblers usually only translate instructions one for one, they can have quite advanced features.
-With an assembler, the programmer is no longer required to know the specific op codes for all instructions and set individual bits of the instructions which is very error prone.
+With an assembler, the programmer is no longer required to know the specific op codes for all instructions and set individual bits of the instructions which is very error-prone.
 The assembler for the \gls{EDiC}, therefore, allows easier programming with a simple text-based assembly syntax similar to the well-known ARM syntax.
 \begin{listing}[t]
   \inputminted[linenos,
@@ -304,7 +304,7 @@ The following \gls{ALU} instructions are available:
     \item lsl
   \end{itemize}
 \end{multicols}
-\gls{ALU} instructions always take two parameters. The first parameter is the left hand side operand and the register where the result is stored in and the second parameter is the right hand side operand.
+\gls{ALU} instructions always take two parameters. The first parameter is the left hand side operand and the register where the result is stored in, and the second parameter is the right hand side operand.
 \begin{itemize}
   \item Two registers
 
@@ -319,8 +319,8 @@ The following \gls{ALU} instructions are available:
 
         \qquad\mintinline{ARM}{add r1, [0x0542]} does: $r_1:=r_1+\text{mem}[1346]$
 \end{itemize}
-All of the \gls{ALU} instructions can have an `s' as suffix which has the effect that the result of the operation is not written to the first operand.
-This is useful when a calculation is only performed to update the \gls{ALU} flags but the register value should be preserved.
+All the \gls{ALU} instructions can have an `s' as suffix which has the effect that the result of the operation is not written to the first operand.
+This is useful when a calculation is only performed to update the \gls{ALU} flags, but the register value should be preserved.
 This results in a special \gls{ALU} instruction: \mintinline{ARM}{cmp} which is an alias to \mintinline{ARM}{subs} which is typically used to compare to values and perform a branch instruction based on the result.
 \begin{minted}{ARM}
 cmp r0, 10 // equal to subs r0, 10
@@ -367,7 +367,7 @@ mov r0, 0xfe
 ldr r0, [r0]
   \end{minted}
                                      & Loads the value from address \texttt{0xcafe} into \texttt{r0}                                                                       \\
-  \mintinline{ARM}{lds r1, [0x42]}   & Loads the value fromm address \texttt{0xff42} which is translated into \texttt{0x\{sp\}42} into \texttt{r1}                         \\
+  \mintinline{ARM}{lds r1, [0x42]}   & Loads the value from address \texttt{0xff42} which is translated into \texttt{0x\{sp\}42} into \texttt{r1}                         \\
   \mintinline{ARM}{stf r0, [0xab]}   & Stores the value in \texttt{r0} to address \texttt{0xffab} with incremented \gls{SP} which is translated into \texttt{0x\{sp+1\}ab} \\
 \end{tabular}
 
@@ -465,7 +465,7 @@ The third constant is rather advanced and uses very \gls{EDiC} specific features
 It allows the definition of character strings with a maximum length of 255 chars which can later be used.
 Differently to the value constants of \cref{sec:vconstants} strings cannot be used as parameters to instructions directly, because a string is a rather complex data structured in the context of assemblers.
 In the \gls{EDiC} assembler a string can be defined as shown in \cref{lst:asm_snake_excerpt} line 4 with the syntax \texttt{<address>.<name> = "<value>"}.
-In the example a string constant with the name ``LOST\_STRING'' is defined to have the content ``You lost!!! Score: '' at the address \texttt{0x20}.
+In the example a string constant with the name ``LOST\_STRING'' is defined to have the content ``You lost!!! Score: `' at the address \texttt{0x20}.
 The \gls{EDiC} assembler treats a string as an NULL-terminated array of characters, meaning that the characters are stored consecutively in memory and after the last character a NULL-byte is stored to mark the end of the string.
 The address of a string constant actually defines the upper 8 bits of the address where the string is stored and is also the value of the constant itself.
 This means that the string in the example is actually stored at addresses \texttt{0x2000} to \texttt{0x2013} (18 characters plus 1 NULL-byte) and \mintinline{ARM}{mov r0, LOST_STRING} in line 9 is equivalent to \mintinline{ARM}{mov r0, 0x20}.
@@ -500,14 +500,14 @@ The character (in \texttt{r0}) is then passed as an argument to the \texttt{uart
 \subsection{File imports}\label{sec:imports}
 An important factor of software development is reusability.
 This also holds for assembler development and is the reason why the \gls{EDiC} assembler supports including other assembler files.
-This can for example be used to write a library utility and then importing its functions for multiple projects.
+Including files can be used to write a utility library and then importing its functions for multiple projects.
 This way, a bug fix in the utility library will be fixed across all projects at the same time.
 
 As can be seen in \cref{lst:asm_snake_excerpt} lines 1 and 2, the \gls{EDiC} assembler supports the \texttt{include} keyword followed by a relative or absolute filename in double quotes.
 Before assembling a file, all the include statements are replaced with the content of the file specified.
 All the constants and labels are used as is with some exceptions:
 \begin{itemize}
-  \item The start label of all included files are discarded and the main file is required to provide a start label.
+  \item The start label of all included files are discarded, and the main file is required to provide a start label.
         Otherwise, the starting point is ambiguous and probably not where the programmer expects it.
   \item Constants from included files can be overwritten in the main file.
         This can be useful when value constants hold memory locations of global variables that need to be repositioned in the main file.
@@ -529,7 +529,7 @@ When applied correctly, code in different languages becomes easier to recognize 
 The syntax parser, however, needs to be selected correctly for each file type and categorize the file content correctly.
 
 Even though the \gls{EDiC} syntax is similar to the ARM syntax, it is not syntactically identical which makes syntax highlighting in editors difficult.
-As can be seen in \cref{lst:asm_snake_excerpt} line 3, the ARM syntax definition used for the highlighting in this document is not perfect (The leading 0 is red and the string is not colored correctly).
+As can be seen in \cref{lst:asm_snake_excerpt} line 3, the ARM syntax definition used for the highlighting in this document is not perfect (The leading 0 is red, and the string is not colored correctly).
 
 As Visual Studio Code \cite{VSCode} is one of the leading extensible code editors, an extension for \gls{EDiC} assembler has been developed and published \cite{VSCodeEDiC}.
 The code of the \cref{lst:asm_snake_excerpt} is shown again in \cref{fig:SyntaxEDiC} as it is highlighting using the developed extension.
