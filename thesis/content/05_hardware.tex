@@ -1,6 +1,6 @@
 % !TeX root = ../thesis.tex
 \chapter{Hardware Design}\label{cha:hardware}
-After the \gls{FPGA} behavioral simulation is successful, the hardware design process is started.
+After the \gls{FPGA} behavioral simulation has been successful, the hardware design process is started.
 The initial step is designing a schematic (\cref{sec:sch}) which is followed by the netlist simulation and the placing and routing of components and wires in \cref{sec:pr}.
 Additionally, a timing analysis is performed to ensure that the clock frequency is as high as it is possible without risking any misbehavior.
 
@@ -10,7 +10,7 @@ The schematic is created in such a way that the logical connections are easy to 
 Each \gls{IC} has its pins arranged for easy understanding and the connections have meaningful names to easier understand the logic.
 
 The 74 series of \glspl{IC} is used for the \gls{EDiC}.
-However, a lot of decisions need to be made in choosing the correct \glspl{IC}.
+However, a lot of decisions need to be made in choosing the correct \glspl{IC} as explained in detail below.
 \subsection{Register Comparison}
 \begin{figure}[t]
   \centering
@@ -24,6 +24,7 @@ On each rising edge of the clock the flip-flops capture the input values and hol
 However, often it is required that a register does not capture data on every rising edge of the clock.
 This is done with an additional input, called \emph{clock enable}.
 Implementing the clock enable with a basic AND gate of the clock and a control bit has the major drawback that glitches of the enable control signal can propagate to the clock input of the register and, therefore, falsely trigger the register.
+Additionally, every logic gate has a propagation latency which would result in a clock signal being delayed at some \glspl{IC} which, in turn, may lead to timing problems.
 There are two widely used alternatives to the simple AND gate:
 The enable input can be used as the select input for a multiplexer to the data input of the flip-flop, where it multiplexes between the actual input and the current output.
 This allows the flip-flop to always capture data but when the enable input is inactive, it recaptures the current output.
@@ -65,19 +66,32 @@ However, three other kinds of registers are also sparsely used in the \gls{EDiC}
 \end{itemize}
 
 \subsection{LED Driver}\label{sec:ledBuffer}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{ledDriver.pdf}
+  \caption{The \gls{LED} connection of the main bus with the \emph{74ABT540} as a driver.}
+  \label{fig:ledDriver}
+\end{figure}
 The \gls{EDiC} features many \glspl{LED} showing the register contents to aid the understanding of the workings of a \gls{CPU}.
 However, naively connecting the \glspl{LED} to the logic outputs of registers may lead to unwanted behavior because the outputs of all logic \glspl{IC} have a limited current they can provide.
 This leads to the usage of specific buffers for the \glspl{LED}.
 Additionally, the current rating usually is higher for low-level output due to the internal workings of the output buffer. % as explained in \cref{sec:outputBuffer}.
 For example, the B outputs of a \emph{74F245} non-inverting buffer are rated for maximum \qty{-15}{\milli\ampere} for high-level output and \qty{64}{\milli\ampere} for a low-level output \cite{74f245}.
 Therefore, connecting the anode of a \gls{LED} via a current limiting resistor to the output of a non-inverting buffer and the cathode to GND will not be ideal.
-To be able to draw more current from the buffer and thus having brighter \glspl{LED}, inverting buffers are used, and the \glspl{LED} are connected ``backwards''.
+To be able to draw more current from the buffer and thus having brighter \glspl{LED}, inverting buffers are used, and the \glspl{LED} are connected ``backwards'' as shown in \cref{fig:ledDriver}.
 The \emph{74ABT540} is the \gls{IC} used as \gls{LED} buffer in the \gls{EDiC} with a low-level current rating of \qty{64}{\milli\ampere} \cite{74abt540}.
 The cathodes of the \glspl{LED} are then connected to the \emph{74ABT540} and the anodes are connected through current limiting resistors to $V_{cc}$.
 
 \subsection{Program Counter \& Instruction \glsxtrshortpl{EEPROM}}
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{schemPC.pdf}
+  \caption{The inputs of the \gls{PC} to enable incrementing, branching and returning from functions.}
+  \label{fig:schemPC}
+\end{figure}
 \Cref{fig:schPC} contains the \gls{PC} (U54 and U55) with the instruction \glspl{EEPROM} (U62, U67, U69) and the registers to store the instruction.
-The \gls{PC} can be incremented or loaded from either an instruction immediate (U50 and U52) for branching or the \gls{SRAM} (U49 and U51) for returning from a function call.
+The \gls{PC} can be incremented or loaded from either an instruction immediate (U50 and U52) for branching or the \gls{SRAM} (U49 and U51) for returning from a function call, visualized in \cref{fig:schemPC}.
 To facilitate these operations, the \emph{74AS867} is used which is an 8 bit synchronous counter with loading and asynchronous clear capabilities that can be cascaded with a ripple carry output.
 The \gls{PC} is then used as the address to the instruction \glspl{EEPROM} and can also be saved to the \glspl{SRAM}.
 As the main memory is only 8 bits wide but the \gls{PC} is 16 bit wide, a second \gls{SRAM} \gls{IC} is used to store the upper bits of the \gls{PC} in the case of a function call (see \cref{sec:schMemory}).
@@ -118,7 +132,13 @@ To avoid glitches (see \cref{sec:switchGlitch}) on the four user inputs, a low p
 A multiplexer (U39) generates the halt signal from the debug user inputs and the instruction finished control signal to implement the logic described in \cref{sec:clock}
 
 \subsection{Built-In I/O}
-The built-in I/O (\cref{fig:schIO}) consists of one register to hold the output value (U92) which is connected to two hexadecimal displays (U93 and U94).
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{schemBasicIO.pdf}
+  \caption{The basic \gls{IO} included in the \gls{EDiC} with one register and one 8 bit display.}
+  \label{fig:schBasicIO}
+\end{figure}
+The built-in I/O (\cref{fig:schBasicIO,fig:schIO}) consists of one register to hold the output value (U92) which is connected to two hexadecimal displays (U93 and U94).
 For input two hexadecimal switches (SW10 and SW11) are used with a bus driver (U91).
 To control the register clock pulse and the output enable of the bus driver, the I/O \gls{CE} is combined with the I/O write enable and I/O output enable and the I/O address is compared with \texttt{0x00} (U88).
 
@@ -221,13 +241,11 @@ At the next register, a setup time $t_s$ has to be met which specifies the amoun
   \caption{Timing analysis for the control signals.}
   \label{fig:timingControl}
 \end{figure}
-\twopagepicture{p}{ram.pdf}{Timing analysis for the memory latency.}{fig:timingRam}
-\twopagepicture{p}{alu.pdf}{Timing analysis for the \gls{ALU} latency.}{fig:timingAlu}
 The \cref{fig:timingControl,fig:timingRam,fig:timingAlu} show three timing analysis for the \gls{EDiC}.
 Each block represents one \gls{IC} with the corresponding delay.
 The first row shows the unit number from the schematic, the second line the type of \gls{IC}, the third shows the kind of delay and the fourth shows the amount of time.
 The kind of delay of a buffer can for example be d$\rightarrow$ q which means input data to output data delay or oe$\rightarrow$ q which is the time from asserting output enable until the data is valid.
-The delay time is always the worst case time as specified in the datasheet\footnote{Propagation typically varies with the temperature and age of the \gls{IC} and by taking the worst case time (maximum) it is assured that no timing bugs occur due to e.g. weather changes.}.
+The delay time is always the worst case time as specified in the datasheet\footnote{Propagation typically varies with the temperature and age of the \gls{IC} and by taking the worst case time (maximum) it is assured that no timing bugs occur due to e.g. temperature changes.}.
 A vertical double line represents a point where multiple delay paths must be met until the execution can continue.
 In \cref{fig:timingControl} for example, the propagation delay of register U83 (flags and step register) and register U84 (instruction) must both be over until the address for the \glspl{EEPROM} U85, U86 and U87 are valid.
 At these points the maximum of the merging delay paths is used as the starting point for the next path.

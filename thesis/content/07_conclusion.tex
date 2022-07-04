@@ -1,45 +1,46 @@
 % !TeX root = ../thesis.tex
 
 \chapter{Conclusion and Future Work}\label{cha:conclusion}
-This thesis presented the challenges and solutions to designing and building a model \gls{CPU} for educational purposes.
-It was shown that a simple and yet powerful \gls{CPU} can be developed using the easy to understand \gls{TTL} \glspl{IC} of the 74 family.
-The best architecture for this purpose has to be modularized and, therefore, a multicycle and single-bus oriented architecture was chosen.
-By adding a more complex address logic for the memory it was possible to extend the address space to 16 bits while maintaining a simpler 8 bit data bus.
-The address logic also enabled versatile memory mapped \gls{IO} for arbitrary extension cards as has been shown with the RS-232 \gls{UART} extension card used in the demonstration in \cref{fig:EDiCSnake}.
-With a custom stack implementation the \gls{EDiC} is also able to implement function calls and function local variables.
+This thesis presented the challenges of and solutions for designing and building a model \gls{CPU} for educational purposes.
+It was shown that a simple and yet powerful \gls{CPU} can be developed using the easy-to-understand \gls{TTL} \glspl{IC} of the 74 family.
+The most suitable architecture for this purpose has to be modularized and, therefore, a multicycle and single-bus oriented architecture was chosen.
+By adding a more complex address logic for the memory, it was possible to extend the address space from 8 to 16 bits while maintaining a simpler 8 bit data bus.
+The address logic also enabled versatile memory mapped \gls{IO} for arbitrary extension cards as shown with the RS-232 \gls{UART} extension card used in the demonstration in \cref{fig:EDiCSnake}.
+Moreover, with a custom stack implementation the \gls{EDiC} is also able to implement function calls and function local variables.
 
-One major contribution to ease the education use of the \gls{EDiC} is the comprehensive software development environment which supports the custom \gls{EDiC} \gls{ISA}.
+One major contribution to ease the educational use of the \gls{EDiC} is the comprehensive software development environment which supports the custom \gls{EDiC} \gls{ISA}.
 It consists of an assembler which is able to translate advanced human-readable assembler code to the 24 bit instructions used by the \gls{EDiC}.
-With features such as value and string constants, file imports and label definitions the programmer is supported while creating software for the \gls{EDiC}.
+Features such as value and string constants, file imports and label definitions support the programmer in creating software for the \gls{EDiC}.
 Additionally, a tool to generate microcode for the \gls{EDiC} is provided.
-Creating the memory contents for the microcode \glspl{EEPROM} for the \gls{EDiC} is a task which is very time-consuming and error-prone when doing manually.
-Therefore, a tool is provided which reads a human-readable file which describes all the instructions and what control signals are to be asserted in which cycle of the instruction and converts the file to the memory contents for the \glspl{EEPROM}.
+Creating the memory contents for the microcode \glspl{EEPROM} of the \gls{EDiC} is a task that is very time-consuming and error-prone if done manually.
+Therefore, a tool is provided which reads a human-readable file which describes all the instructions and what control signals are to be asserted in which cycle of the instruction.
+A second tool converts the file to the memory contents for the \glspl{EEPROM}.
 
 For quicker design iterations and also for verification of the finalized design, two \gls{FPGA} implementations were created in the process.
 The first implementation is a behavioral implementation which was used to efficiently make alterations to the architecture in the design phase.
-With it, it was easy to design the \gls{CPU} on the logical level before diving into the details and mapping the logic onto discrete logic \glspl{IC}.
+With the behavioral implementation, it was easy to design the \gls{CPU} on the logical level before diving into the details and mapping the logic onto discrete logic \glspl{IC}.
 The second \gls{FPGA} implementation was used as a verification of the hardware schematic after it was created.
-A specifically written software converted the netlist which was exported from the schematic tool to a \gls{HDL} description of the exact schematic.
-All the logic \glspl{IC} were implemented as individual modules and a \gls{FPGA} design which is logically equivalent to the final hardware build could be simulated.
-With the help of a small adapter from \gls{IO} of the \gls{FPGA} evaluation board to the extension board connector, it was possible to also test the extension card before ordering the large \gls{PCB} for the hardware built of the \gls{EDiC}.
+A specifically written software converted the netlist that was exported from the schematic tool to a \gls{HDL} description of the exact schematic.
+All the logic \glspl{IC} were implemented as individual modules and an \gls{FPGA} design which is logically equivalent to the final hardware build could be simulated.
+With the help of a small adapter from \gls{IO} of the \gls{FPGA} evaluation board to the extension board connector, it was possible to also test the extension card before ordering the large \gls{PCB} for the hardware build of the \gls{EDiC}.
 
 When designing the final hardware build, the extensive simulation and testing of the \gls{FPGA} design simplified the required verification.
-Additionally, an extensive timing analysis was performed to choose the correct clock frequency for the best performance while still ensuring that no timing bugs occur at any time.
+Additionally, a comprehensive timing analysis was performed to choose the correct clock frequency for the best performance while still ensuring that timing bugs do not occur at any time.
 The hardware build includes custom designed test adapters which ease the initial hardware tests enormously.
 With the test adapters and by using sockets for all logic \glspl{IC} it was possible to incrementally test the \gls{PCB} and discover some possible problems or bugs which slipped through the extensive logical simulation.
 
 \section{Future Work}
-Even though, the \gls{EDiC} is a complex and yet simple to understand model \gls{CPU} with an extensive development environment, there are some further ideas which would enhance the \gls{EDiC} as a whole.
+Even though the \gls{EDiC} is a complex and yet simple to understand model \gls{CPU} with an extensive development environment, there are some more ideas that would enhance the \gls{EDiC} as a whole.
 
 \paragraph{Power Supply} At the moment, the \gls{EDiC} is supplied by an industry standard 5V power supply.
-However, with a custom-built \gls{CPU} out of discrete logic \glspl{IC} it would only be fitting to also power the \gls{EDiC} with its own custom power supply.
+However, with a custom-built \gls{CPU} made of discrete logic \glspl{IC} it would only be appropriate to also power the \gls{EDiC} with its own custom power supply.
 Therefore, it is planned to design and build a power supply before the \gls{EDiC} will be presented at the \gls{VCFB}. \cite{vcfb}
 
 \paragraph{Extension Cards} The \gls{EDiC} currently only has the RS-232 \gls{UART} extension card.
-This is one of the most versatile extensions because it can be connected to a lot of different devices which enables a very versatile communication interface to the outside world via a standardized serial protocol.
-However, a lot more possible extensions could be used like an extension card to provide a persistent storage or the capabilities of the \gls{ALU} could be enhanced by providing a multiply extension or other computational hardware in the form of extension cards.
+This is one of the most versatile extensions as it can be connected to a lot of different devices and thus providing a communication interface to the outside world via a standardized serial protocol.
+However, a lot more possible extensions could be used such as an extension card to provide a persistent storage or the capabilities of the \gls{ALU} could be enhanced by providing a multiply extension or other computational hardware in the form of extension cards.
 
-\paragraph{High Level Language Compiler} The most complex software which currently exist for the \gls{EDiC} is the snake program.
+\paragraph{High Level Language Compiler} The most complex software which currently exists for the \gls{EDiC} is the snake program.
 However, writing more complex software in assembler is of course possible but becomes increasingly hard and takes a lot of programming effort.
-Therefore, a possible addition is to provide a compiler which could translate a high level programming language like C to \gls{EDiC} assembler or machine code.
-With modular compiler infrastructure as is provided by the LLVM it may be possible to create a compiler backend for the \gls{EDiC}.
+Therefore, a possible addition is to implement a compiler which could translate a high level programming language like C to \gls{EDiC} assembler or machine code.
+With modular compiler infrastructure as it is provided by the LLVM it may be possible to create a compiler backend for the \gls{EDiC}.

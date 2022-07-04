@@ -63,12 +63,12 @@ Most \glspl{FPGA} do have bidirectional tri-state transceiver for \gls{IO} but n
 However, the \glspl{HDL} (both \gls{VHDL} and Verilog) support tri-state logic and the AMD-Xilinx Simulation tool also does.
 Therefore, a simulation with tri-state logic would work, but it cannot be synthesized.
 
-\begin{figure}[t]
+\begin{sidewaysfigure}[ph]
   \centering
   \includegraphics[width=\textwidth]{tristatenet.png}
   \caption{The elaborated tri-state module with two 8 bit inputs.}
   \label{fig:tristatenet}
-\end{figure}
+\end{sidewaysfigure}
 This is solved with a custom module for each tri-state network ``tristatenet.v''.
 Each tri-state driver exposes the current data and output enable signal to the tri-state module which then has only one output which represents the value of the net.
 If none of the drivers have an active output enable, the output is \texttt{0xff}; if one of the drivers has an active output enable, the output represents its value.

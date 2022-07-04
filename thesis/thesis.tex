@@ -110,13 +110,15 @@
 \cleardoublepage
 
 \pagenumbering{roman}
-\setcounter{tocdepth}{2} % chapters, sections, subsections and no subsubsections
-\tableofcontents
 
 % preamble
 \cleardoublepage
 % \input{./Vorspann/Danksagung}                  % Danksagung (optional) / acknowledgement
 \include{content/abstract}
+\include{content/acknowledgments}
+
+\setcounter{tocdepth}{2} % chapters, sections, subsections and no subsubsections
+\tableofcontents
 
 \cleardoublepage
 \pagenumbering{arabic}
@@ -151,7 +153,8 @@
 % \bibliographystyle{numeric}
 
 \appendix
-\include{./appendix/a}
-\include{./appendix/b}
+\include{./appendix/a_schematics}
+\include{./appendix/b_timing}
+\include{./appendix/c_assembler}
 \end{document}
 %%%%%%%%%%%%%%% END %%%%%%%%%%%%%%%
