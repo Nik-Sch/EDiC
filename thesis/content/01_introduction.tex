@@ -4,7 +4,7 @@ This thesis covers the development and engineering process of the \gls{EDiC} whi
 It is a completely novel \gls{CPU} architecture built in order to visualize and demonstrate the fundamental workings of any \gls{CPU}.
 The \gls{EDiC} can execute over half a million instructions per second and also features step-by-step debugging as well as breakpoint capabilities to enable a better understanding of how \glspl{CPU} work.
 All components can be tested individually with the help of dedicated test adapters and, thus, \gls{IC} failures can be tracked down and fixed easily.
-Additionally, to the hardware built, the project includes an open source development environment including an assembler, tools to modify the microcode and also \gls{FPGA} simulation and emulation of the hardware \cite{EDiCGitHub}.
+Additionally, to the hardware build, the project includes an open source development environment including an assembler, tools to modify the microcode and also \gls{FPGA} simulation and emulation of the hardware \cite{EDiCGitHub}.
 \begin{figure}[t]
   \centering
   \includegraphics[width=\textwidth]{IMG20220308163628_resize.jpg}
@@ -54,7 +54,7 @@ It was decided to use \gls{TTL} \glspl{IC} of the 74 family in the \gls{EDiC} fo
   However, at the same time, the clock frequency is not too high, so that special care must be taken when designing the \gls{PCB} which would be the case with higher frequency signals.
 
   \item \emph{Simplicity:} Working with the \glspl{IC} is fairly easy: No special tools -- except a soldering iron and oscilloscope -- are required to assemble and test the system.
-  Especially the usage of sockets for the \glspl{DIP} simplifies the built because no \gls{IC} can overheat while soldering and all the \glspl{IC} can be replaced later on or while testing.
+  Especially the usage of sockets for the \glspl{DIP} simplifies the build because no \gls{IC} can overheat while soldering and all the \glspl{IC} can be replaced later on or while testing.
 \end{itemize}
 
 In contrast to previous and also later technology, the \gls{TTL} also stands out as the best suited one.

@@ -1,10 +1,10 @@
 include "prng.s"
 include "uart_16c550.s"
-0x20.LOST_STRING = "You lost!!! Score: "
+0x20.WON_STRING = "You won!!! Score: "
 lost:
   // [...]
   // output the lost string
-  mov r0, LOST_STRING
+  mov r0, WON_STRING
   call outputString
   // output the score
   ldr r0, [SNAKE_LENGTH]
