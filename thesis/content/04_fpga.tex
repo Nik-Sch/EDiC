@@ -39,7 +39,7 @@ Its synthesis tool is the AMD-Xilinx Vivado \cite{vivado} which is available as 
 
 \subsection{Language Choice}
 There are two main \glspl{HDL}: Verilog and \gls{VHDL}.
-Both are widely supported and used and can also be used in the same project with the help of mixed-language compilation.
+Both are widely supported and can also be used in the same project with the help of mixed-language compilation.
 At the \gls{TUB} \gls{VHDL} is taught, however, in general both are used about equally often \cite{vhdlVerilog}.
 As Verilog is often cited as being less verbose and, therefore, easier to write and understand it was chosen as the hardware description language.
 
@@ -71,15 +71,16 @@ Therefore, a simulation with tri-state logic would work, but it cannot be synthe
 \end{figure}
 This is solved with a custom module for each tri-state network ``tristatenet.v''.
 Each tri-state driver exposes the current data and output enable signal to the tri-state module which then has only one output which represents the value of the net.
-If none of the driver have an active output enable, the output is \texttt{0xff}; if one of the driver has an active output enable, the output represents its value and if more than one driver have an active output enable, an error is raised.
+If none of the drivers have an active output enable, the output is \texttt{0xff}; if one of the drivers has an active output enable, the output represents its value.
+Furthermore, if more than one driver has an active output enable, an error is raised.
 The module's logic representation for a tri-state net with two inputs is shown in \cref{fig:tristatenet}.
-The \texttt{o\_noe} is only active (low) if exactly one input \texttt{i\_noe} is active (low) and depending on it, the data output is selected.
-For this \gls{FPGA} it is implemented with one \texttt{LUT4} primitive per output data bit.
+The output \texttt{o\_noe} is only active (low) if exactly one input \texttt{i\_noe} is active (low) and depending on it, the data output is selected.
+For this \gls{FPGA} this tri-state logic module is implemented with one \texttt{LUT4} primitive per output data bit.
 
 \section{Behavioral Implementation}
-Two kinds of \gls{FPGA} designs were developed in the process.
+Two kinds of \gls{FPGA} designs were developed during the development.
 The first is a behavioral description of the whole \gls{CPU} and, therefore, only models the general workings of a module but does not describe the individual chips that are used in the final hardware assembly.
-The description in \cref{lst:alu}, for example, is a behavioral description because it only describes the logical level of what should happen.
+The description in \cref{lst:alu}, for example, is a behavioral description as it only describes the logical level of what should happen.
 This is quite useful for development, because it is quickly changed and bugs are fixed more efficiently as opposed to a chip-level model.
 
 To visualize how a behavioral simulation looks like, a simulation of the code in \cref{lst:add_wave} is shown in \cref{fig:add_wave}.
@@ -107,10 +108,10 @@ The third instruction then just branches to itself, resulting in an infinite loo
 
 \section{Chip-level Implementation}
 With the behavioral simulation working, the hardware schematic can be developed.
-The schematic and then the placing and routing for the \gls{PCB} is described in \cref{cha:hardware}.
+The schematic as well as the placing and routing for the \gls{PCB} is described in \cref{cha:hardware}.
 However, for the \gls{EDiC} it was decided to add another verification step after developing the schematic.
 From the schematic a netlist is generated which is usually used to summarize all the components and connections in a machine-readable format for the software that does placing and routing.
-Here, a tool was written which converts a given netlist into a Verilog file which can be compiled and synthesized by Vivado.
+In this case, a tool was written which converts a given netlist into a Verilog file which can be compiled and synthesized by Vivado.
 \subsection{Conversation Script}
 \begin{listing}
   \inputminted[linenos,
@@ -151,8 +152,8 @@ The implementation for an \texttt{74F08} (quad AND gate) is, for example, shown 
 The format also specifies the port numbers, but they are not processed by the parser because they are not required.
 \Cref{lst:edifNet} then specifies a net with the name \texttt{PCIN0} which connects U52 port 18 with U51 port 18 and U54 port 3.
 In this case U52 and U51 are both \texttt{74F245} octal bus transceivers where port 18 is the B0 tri-state output port and U54 is a \texttt{74AS867} (synchronous up/down counter with load) where port 3 is the D0 input port.
-Depending on the control signals of U51 and U52 this net connects the 0th bit of the bus or the instruction immediate with the 0th bit of the load input of the \gls{PC}.
-Internally the list of instances and list of nets is combined into a list of instances where each instance contains a mapping of port numbers to connected nets.
+Depending on the control signals of U51 and U52 this net connects either the 0th bit of the bus or the instruction immediate with the 0th bit of the load input of the \gls{PC}.
+Internally, the list of instances and list of nets are combined into a list of instances where each instance contains a mapping of port numbers to connected nets.
 
 The parser discards all components except logic \glspl{IC} (ID starting with `U') and \qty{0}{\ohm} resistors.
 The schematic includes some \qty{0}{\ohm} resistors between control signals to be able to rewire them more easily on the \gls{PCB} if needed.
@@ -172,9 +173,9 @@ However, there are some obstacles that need to be taken with more advanced insta
   \caption{Verilog instantiation of the microcode ROM generated out of three \gls{EEPROM} instantiations.}
   \label{lst:rom_inst}
 \end{listing}
-The 6 \glspl{EEPROM} (3 for the instructionROM and 3 for the microcode) need to be instantiated with the correct data loaded into them.
+The six \glspl{EEPROM} (three for the instructionROM and three for the microcode) need to be instantiated with the correct data loaded into them.
 Those six instantiations are identified by the unit ID and the wires are then connected to one of the custom AMD-Xilinx ROM IP Cores which are configured with the respective initial values.
-The addresses for one ROM instantiations are used and then all 24 data ports from the 3 \glspl{EEPROM} are connected resulting in a Verilog instantiation as shown in \cref{lst:rom_inst}.
+The addresses for one ROM instantiation are used and then all 24 data ports from the three \glspl{EEPROM} are connected resulting in a Verilog instantiation as shown in \cref{lst:rom_inst}.
 \subsubsection{Tri-state Ports}
 \begin{listing}[t]
   \inputminted[linenos,
@@ -189,17 +190,17 @@ The addresses for one ROM instantiations are used and then all 24 data ports fro
 \end{listing}
 Some \glspl{IC} provide tri-state ports.
 As discussed above, they cannot be implemented on \glspl{FPGA} and, therefore, need to be converted.
-The same tristatenet component as in the behavioral implementation is used.
+The same tri-state net component as in the behavioral implementation is used.
 However, for this to work, each bidirectional port of the \glspl{IC} needs to be replaced by one input and one output port.
 Also, one output enable port needs to be added.
-Then the output port that replaced the bidirectional port is connected to an input of the tristatenet instance and a new net is created for each tristatenet which is the actual value of the net (the output of the tristatenet module).
-The tristatenet for the \texttt{PCIN0} signal (\cref{lst:edifNet}) is represented by the instantiation shown in \cref{lst:tristate_inst}.
+Then the output port that replaced the bidirectional port is connected to an input of the tri-state net instance and a new net is created for each tri-state net which is the actual value of the net (the output of the tri-state net module).
+The tri-state net for the \texttt{PCIN0} signal (\cref{lst:edifNet}) is represented by the instantiation shown in \cref{lst:tristate_inst}.
 
 \subsubsection{\glsxtrshort{RAM} and \glsxtrshort{EEPROM} clock}
-Another problem with the \gls{FPGA} implementation in general is that both, the \gls{SRAM} and \gls{EEPROM} chips used are asynchronous and the \gls{FPGA} only has synchronous logic elements.
+Another problem with the \gls{FPGA} implementation in general is that both, the \gls{SRAM} and \gls{EEPROM} chips used, are asynchronous and the \gls{FPGA} only has synchronous logic elements.
 In the behavioral implementation, exact timings were no requirement and, therefore, the memory and \glspl{ROM} were clocked with the inverse clock, mimicking an asynchronous behavior.
-However, for the exact netlist \gls{FPGA} implementation this is not a good way to mimic the behavior.
-Therefore, the exact delay of both chips were calculated with the help of the datasheets, and they are both clocked with a custom clock that is out of phase with the global logic clock by the exact amount of the delay.
+However, for the exact netlist \gls{FPGA} implementation this is not a good way to imitate the behavior.
+Therefore, the exact delays of both chips were calculated with the help of the datasheets, and they are both clocked with a custom clock that is out of phase with the global logic clock by the exact amount of the delay.
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{asyncClockWave.png}
@@ -210,7 +211,7 @@ Therefore, the exact delay of both chips were calculated with the help of the da
 This means, that the clock inputs of the memory and \gls{EEPROM} instantiations are replaced with the corresponding custom clock as can be seen in \cref{lst:rom_inst}.
 
 \Cref{fig:asyncClockWave} visualizes how the main clock (\texttt{CLK1} in the waveform) and the clock for the \gls{ROM} (\texttt{asyncEEPROMSpecialClock} in the waveform) differ in phase.
-Consequently, the step register and with it the address for the microcode \gls{ROM} change with a rising edge of the main clock but all the control signals which are outputs of the \gls{ROM} change with the rising edge of the phase shifted clock.
+Consequently, the step register and with it the address for the microcode \gls{ROM} change with a rising edge of the main clock while all the control signals which are outputs of the \gls{ROM} change with the rising edge of the phase shifted clock.
 
 \subsubsection{Assignments}
 There are some connections which are unique to the \gls{FPGA} implementation and, therefore, are not contained in the netlist.
@@ -226,17 +227,17 @@ In the \gls{FPGA} design the nets \texttt{L1-L4} and \texttt{H1-H4} are, therefo
 \begin{figure}
   \centering
   \includegraphics[width=.8\textwidth]{7segmentNexysA7.png}
-  \caption{Overview of the 8 7-segment displays of the Nexys A7 development board \cite{7segNexys}.}
+  \caption{Overview of the eight 7-segment displays of the Nexys A7 development board \cite{7segNexys}.}
   \label{fig:7segNexys}
 \end{figure}
-The hardware build will feature 2 displays for the built-in \gls{IO} which can be directly addressed with 4 bits to display hexadecimal digits.
+The hardware build will feature two displays for the built-in \gls{IO} which can be directly addressed with 4 bits to display hexadecimal digits.
 The \gls{FPGA} development board on the other hand, features simpler and more common 7-segment displays.
-In total, there are 8 7-segment displays of which two are used as the built-in \gls{IO} and the others are used for debugging when the \gls{CPU} is halted.
+In total, there are eight 7-segment displays, two of which are used as the built-in \gls{IO} and the others are used for debugging when the \gls{CPU} is halted.
 The wiring of the displays is shown in \cref{fig:7segNexys}.
-For this purpose, a custom display driver has been developed which has 8 four bit data inputs for the digits plus 8 inputs for the dots between the digits.
+To address these displays, a custom display driver has been developed which has eight 4 bit data inputs for the digits plus eight inputs for the dots between the digits.
 Additionally, 8 bits encode which 7-segment displays should be illuminated.
-It loops through the digits by setting each anode to 0 individually and setting the cathodes according the corresponding input bits.
-This way, each display is illuminated for 2ms which makes it look like all displays are illuminated all the time.
+It loops through the digits by setting each anode to \texttt{'0'} individually and setting the cathodes according to the corresponding input bits.
+This way, each display is illuminated for \qty{2}{\milli\second} which makes it look like all displays are illuminated all the time.
 
 \subsection{RS232 \gls{IO} Extension Debugging}
 \begin{sidewaysfigure}[p]
@@ -265,4 +266,4 @@ However, the Nexys A7 \gls{FPGA} development board only features digital 3V3 con
 Thus, an adapter board is required which converts the 3V3 voltages to 5V and the other way around while providing the correct pin locations for the Nexys A7 board and the daughter board.
 Its schematic is shown in \cref{fig:3v3to5vSch} where the \texttt{74LVC8T245} is used as a voltage converting buffer.
 For the control signals and addresses, its direction is always from the A port (3V3) to the B port.
-On the other hand, the direction pin of the bus buffer is low (from B to A) when both, output enable and chip enable, signals are active.
+The direction pin of the bus buffer, however, is low (from B to A) when both, output enable and chip enable, signals are active.

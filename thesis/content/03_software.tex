@@ -469,12 +469,12 @@ The use of the start label comes especially clear in the \cref{sec:imports}.
 The third constant is rather advanced and uses very \gls{EDiC} specific features.
 It allows the definition of character strings with a maximum length of 255 chars which can later be used.
 Differently to the value constants of \cref{sec:vconstants} strings cannot be used as parameters for instructions directly, because a string is a rather complex data structured in the context of assemblers.
-In the \gls{EDiC} assembler a string can be defined as shown in \cref{lst:asm_snake_excerpt} line 4 with the syntax \texttt{<address>.<name> = "<value>"}.
+In the \gls{EDiC} assembler a string can be defined as shown in \cref{lst:asm_snake_excerpt} line 3 with the syntax \texttt{<address>.<name> = "<value>"}.
 In the example a string constant with the name ``WON\_STRING'' is defined to have the content ``You won!!! Score: `' at the address \texttt{0x20}.
 The \gls{EDiC} assembler treats a string as an NULL-terminated array of characters, meaning that the characters are stored consecutively in memory and after the last character a NULL-byte is stored to mark the end of the string.
 The address of a string constant actually defines the upper 8 bits of the address where the string is stored and is also the value of the constant itself.
-This means that the string in the example is actually stored at addresses \texttt{0x2000} to \texttt{0x2012} (18 characters plus 1 NULL-byte) and \mintinline{ARM}{mov r0, WON_STRING} in line 9 is equivalent to \mintinline{ARM}{mov r0, 0x20}.
-As the assembler has no direct control over the memory contents as for example the ARM assembler, each string declarations results in two instructions per character that are inserted at the start of the program\footnote{Before the \mintinline{ARM}{b start} instruction that is inserted when a start label exists.} as shown in \cref{lst:asm_string_out}.
+This means that the string in the example is actually stored at addresses \texttt{0x2000} to \texttt{0x2012} (18 characters plus 1 NULL-byte) and \mintinline{ARM}{mov r0, WON_STRING} in line 7 is equivalent to \mintinline{ARM}{mov r0, 0x20}.
+As the assembler has no direct control over the memory contents like, for example, the ARM assembler, each string declarations results in two instructions per character that are inserted at the start of the program\footnote{Before the \mintinline{ARM}{b start} instruction that is inserted when a start label exists.} as shown in \cref{lst:asm_string_out}.
 
 \begin{listing}[t]
   \begin{multicols}{2}
@@ -497,7 +497,7 @@ As the assembler has no direct control over the memory contents as for example t
   \caption{The instructions resulting from the string definition of \cref{lst:asm_snake_excerpt} line 4.}
   \label{lst:asm_string_out}
 \end{listing}
-\Cref*{lst:asm_snake_excerpt} lines 15 to 31 show a function that gets the upper 8 bits of the string address as a parameter in \texttt{r0}.
+\Cref{lst:asm_snake_excerpt} lines 15 to 31 show a function that gets the upper 8 bits of the string address as a parameter in \texttt{r0}.
 It outputs the characters one by one in a loop until the NULL-byte is reached.
 To retrieve each character, firstly the \mintinline{ARM}{sma} instruction is called with the \glspl{MSB} of the address and then the \mintinline{ARM}{ldr} instruction with the loop register \texttt{r1} as an address argument is called.
 The character (in \texttt{r0}) is then passed as an argument to the \texttt{uart\_write} function.
@@ -510,9 +510,9 @@ This way, a bug fix in the utility library will be fixed across all projects at 
 
 As can be seen in \cref{lst:asm_snake_excerpt} lines 1 and 2, the \gls{EDiC} assembler supports the \texttt{include} keyword followed by a relative or absolute filename in double quotes.
 Before assembling a file, all the include statements are replaced with the content of the file specified.
-All the constants and labels are used as is with some exceptions:
+All the constants and labels are imported as usual with some exceptions:
 \begin{itemize}
-  \item The start label of all included files are discarded, and the main file is required to provide a start label.
+  \item The start label of all included files is discarded, and the main file is required to provide a start label.
         Otherwise, the starting point is ambiguous and probably not where the programmer expects it.
   \item Constants from included files can be overwritten in the main file.
         This can be useful when value constants hold memory locations of global variables that need to be repositioned in the main file.
@@ -520,23 +520,23 @@ All the constants and labels are used as is with some exceptions:
 \end{itemize}
 
 
-\subsection{Syntax Definition for VS Code}
 \begin{figure}[t]
   \centering
   \includegraphics[width=.7\textwidth]{syntax_snake_excerpt.png}
   \caption{The syntax highlighting with the \gls{EDiC} Visual Studio Code Extension and the Atom One Light Theme \cite{VSCodeLight}.}
   \label{fig:SyntaxEDiC}
 \end{figure}
+\subsection{Syntax Definition for VS Code}
 Syntax Highlighting has become a very important factor for software development as \glspl{IDE} grow more capable.
 The highlighting is usually done by firstly, parsing the syntax and associating parts of the text file with specific categories and, secondly, assigning styles like font color to these categories.
 This way, a programmer can select a global color scheme which will define colors for different categories for all programming languages.
 When applied correctly, code in different languages becomes easier to recognize because variables are always colored the same way, no matter the language.
-The syntax parser, however, needs to be selected correctly for each file type and categorize the file content correctly.
+The syntax parser, however, needs to be selected for each file type and categorize the file content correctly.
 
 Even though the \gls{EDiC} syntax is similar to the ARM syntax, it is not syntactically identical which makes syntax highlighting in editors difficult.
 As can be seen in \cref{lst:asm_snake_excerpt} line 3, the ARM syntax definition used for the highlighting in this document is not perfect (The leading 0 is red, and the string is not colored correctly).
 
-As Visual Studio Code \cite{VSCode} is one of the leading extensible code editors, an extension for \gls{EDiC} assembler has been developed and published \cite{VSCodeEDiC}.
-The code of the \cref{lst:asm_snake_excerpt} is shown again in \cref{fig:SyntaxEDiC} as it is highlighting using the developed extension.
+As Visual Studio Code \cite{VSCode} is one of the leading extensible code editors, an extension for \gls{EDiC} assembler has been developed and published for the \gls{EDiC} \cite{VSCodeEDiC}.
+The \cref{lst:asm_snake_excerpt} is shown again in \cref{fig:SyntaxEDiC} with the syntax highlighting of the developed extension.
 The extension itself mainly consists of a TextMate language definition \cite{TextMate} and configuration files to work correctly with Visual Studio Code.
 TextMate is a tokenization engine which works with a structured collection of regular expressions as language definitions.
