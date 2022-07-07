@@ -219,7 +219,16 @@ This way it is possible to store parameters before calling a function, and it is
 The calling convention for the \gls{EDiC} is further described in \cref{sec:callingConvention}.
 
 \subsubsection{Addressing Logic}\label{sec:addrLogic}
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{address_logic.pdf}
+  \caption{Simplified block diagram of the addressing logic for the \gls{EDiC}.}
+  \label{fig:addressLogic}
+\end{figure}
 With increasing the address width to 16 bit and also adding more functionality to the memory access, the addressing logic has become more complex.
+\Cref{fig:addressLogic} shows a simplified block diagram of how the addressing logic works.
+For easier understanding multiplexers are used, even though the hardware build of the \gls{EDiC} uses tri-state busses as explained in \cref{sec:schMemory}.
+
 There are two main sources for memory addresses: The new 16 bit \gls{MAR} which can be written to from the bus and secondly the 16 bit instruction immediate.
 As the bus is only 8 bits wide, there is a special instruction to write to the upper 8 bits of the \gls{MAR} and the lower bits are written in the memory access instruction.
 This can be used when a memory address is stored in registers and is needed when looping through values in the memory like arrays.

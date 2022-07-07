@@ -197,14 +197,41 @@ Additionally, extra space was left to mark each module and to name all the \glsp
 \Cref{fig:pr} is a rendering showing the traces (red and green), silkscreen (violet) and through-holes/vias (green/yellow).
 
 Especially on larger \glspl{PCB} and designs with quickly switching power consumption it is important to ensure good power delivery to all components.
-In the case of the \gls{EDiC} this is achieved by using a 4-layer \gls{PCB} with the two internals layers being filled with GND and 5V panes.
+In the case of the \gls{EDiC} this is achieved by using a 4-layer \gls{PCB} with the two internals layers being filled with GND and 5V planes.
 The top and bottom layer are then used for logical connections where the most efficient wiring can be done when one layer mostly has vertical wires (red traces in \cref{fig:pr}) and the other layer mostly horizontal wires (green traces).
-This way interference between vertical and horizontal traces is not possible due to the GND and 5V panes separating the logic panes.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{magneticField1.pdf}
+  \caption{The magnetic field resulting from two wires of \qty{1}{\milli\meter} thickness with \qty{50}{\milli\ampere} of current flowing opposite directions.
+  For the blue plot, the centers of the two wires are \qty{20}{\milli\meter} apart and for the orange only \qty{1}{\milli\meter}. \cite[page 187]{Albach2011_1}}
+  \label{fig:HField}
+\end{figure}
+The usual problem when not using solid GND planes is the implicit low pass filter resulting from the inductance.
+When using dedicated GND wires to all the \glspl{IC} the current flows through one trace towards the \gls{IC} and through another trace back to the source.
+This leads to an electric field around both traces which in turn may induce current in neighboring traces and most importantly stores energy and acts as an $RL$-low-pass.
+If one would reduce the space between those traces until those traces are directly beneath each other, the electrical field would be minimal.
+\Cref{fig:HField} demonstrates this by visualizing the H-field around two wires in two scenarios.
+The blue plot assumes the two wires to be \qty{20}{\milli\meter} apart (at 40 and \qty{60}{\milli\meter}) and it can be seen that the opposite current flow leads to an amplified magnetic field between the two wires and also a magnetic field to the left and right of the wires.
+However, when moving the wires closer together, the magnetic field in between the two wires vanishes and the field to the left and right is reduced by a lot because the positive field to the right of the left wire cancels the negative field to the right of the right wire.
+In the extreme case of both wires being perfectly aligned in this dimension (being on top of each other for example), the magnetic field would cancel out completely.
+
+This is exactly what is accomplished by using a GND plane:
+Assuming a trace takes a 90-degree turn to reach the \gls{IC} and then the current flows through the GND plane back to the source.
+The current on the GND plane could flow everywhere on the plane, especially the direct (diagonal) path with the least resistance or the path directly under the trace which has the least inductive reactance because the magnetic field is a lot smaller.
+The overall impedance is defined in \cref{eq:impedance} where the capacitive reactance ($X_C$) can be ignored in our case.
+The inductive impedance, on the other hand, is dependent on the frequency and the inductance. \cite[page 45]{Albach2011_2}
+\begin{eqnarray}
+  Z=R+j(X_L+X_C)\label{eq:impedance}\\
+  Z=R+j(2\pi fL+X_C)
+\end{eqnarray}
+Thus, for higher frequencies, the inductance has a greater impact on the overall impedance and the current in the GND plane will flow closer to the trace to reduce the inductive reactance.
+For lower frequencies, the inductive reactance becomes negligible and the lower resistance of the direct (diagonal) path prevails.
 
 Another important factor to bear in mind is to route the traces in a way that makes it possible to access every trace on the \gls{PCB}.
 It is always possible that some bug was not detected in the schematic design or netlist simulation.
 If a bug has been found it may be required to cut a trace and rewire it (see \cref{cha:eval}).
-Therefore, logical wires are always placed on the top or bottom pane and on the top pane traces will never be completely covered by \glspl{IC}.
+Therefore, logical wires are always placed on the top or bottom plane and on the top plane traces will never be completely covered by \glspl{IC}.
 If, for example, connecting pins 1 and 24 of a 24 pin \gls{IC} (they are directly opposite of each other) they should not be connected directly but a detour should be taken to expose the trace from under the \gls{IC}.
 
 It is also possible that a new \gls{IC} needs to be placed on the \gls{PCB} to fix a bug, like an extra register or bus driver.
@@ -213,9 +240,10 @@ Therefore, through holes are provided to allow spare \glspl{IC} to be placed at 
 \begin{figure}[p]
   \centering
   \includegraphics[width=\textwidth]{PR.png}
-  \caption{Rendering with all components placed and all the traces routed on the two logic layers (green and red).}
+  \caption{Rendering with all components placed and all the traces routed on the two signal layers (green and red).}
   \label{fig:pr}
 \end{figure}
+\TODO{Insert picture of the PCB + Testadapter.}
 \section{Timing Analysis}\label{sec:timing}
 \begin{figure}[t]
   \centering

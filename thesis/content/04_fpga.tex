@@ -218,8 +218,8 @@ There are some connections which are unique to the \gls{FPGA} implementation and
 These are mainly the inputs and outputs of the \gls{CPU} for the \gls{IO} extensions, the user buttons (reset, step etc.), clock oscillator, breakpoint addresses and so on.
 However, one exception are the \texttt{L1-L4} and \texttt{H1-H4} nets which are static nets connected to ground or 5V through resistors.
 They are used for logic inputs of \glspl{IC} instead of directly using GND or 5V to ease the error fixing on the \gls{PCB}.
-If one would connect the pins directly to the GND or 5V planes, it would be hard to heat up the solder on the pin for removal because the whole plane needs to be heated.
-Additionally, when connected to the plane, there is no trace that can be scratched through if the pin needs to be connected to another net.
+When connected to the pane, there is no trace that can be scratched through if the pin needs to be connected to another net.
+Hence, the pin usually needs to be drilled out, and the new pin needs to be insulated through the hole because it should not connect to any exposed inner layers.
 
 In the \gls{FPGA} design the nets \texttt{L1-L4} and \texttt{H1-H4} are, therefore, assigned to 0 or 1 respectively.
 
