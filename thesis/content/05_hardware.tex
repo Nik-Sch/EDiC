@@ -35,24 +35,24 @@ When the $\overline{\text{EN}}$ input is high, on the other hand, the output doe
 This circuit prevents the $\overline{\text{EN}}$ to trigger a falling edge (which would trigger the flip-flops) on the CP output.
 However, when the $\overline{\text{EN}}$ goes high while the CP input is high, then the output also goes high.
 This is not directly a problem because the flip-flops only trigger on falling edges but is the reason for timing requirements on the $\overline{\text{EN}}$ input which are discussed in more detail in \cref{sec:timing}.
-\begin{figure}[t]
-  \centering
-  \begin{subfigure}[b]{.45\textwidth}
-    \includegraphics[height=7.5cm]{DFlipFlop.pdf}
-    \subcaption{Classical D-type flip-flop built out of three $\overline{\text{SR}}$ NAND latches \cite{DFlipFlop}.}
-  \end{subfigure}%
-  \hspace{.05\textwidth}
-  \begin{subfigure}[b]{.45\textwidth}
-    \includegraphics[height=7.5cm]{DFlipFlopClearSet.pdf}
-    \subcaption{D-type flip-flop modified to support $\overline{\text{Clear}}$ and $\overline{\text{Set}}$ \cite{DFlipFlopClearSet}.}
-  \end{subfigure}
-  \caption{Comparison of D-type flip-flops with and without $\overline{\text{Clear}}$ and $\overline{\text{Set}}$.}
-  \label{fig:clearSet}
-\end{figure}
+% \begin{figure}[t]
+%   \centering
+%   \begin{subfigure}[b]{.45\textwidth}
+%     \includegraphics[height=7.5cm]{DFlipFlop.pdf}
+%     \subcaption{Classical D-type flip-flop built out of three $\overline{\text{SR}}$ NAND latches \cite{DFlipFlop}.}
+%   \end{subfigure}%
+%   \hspace{.05\textwidth}
+%   \begin{subfigure}[b]{.45\textwidth}
+%     \includegraphics[height=7.5cm]{DFlipFlopClearSet.pdf}
+%     \subcaption{D-type flip-flop modified to support $\overline{\text{Clear}}$ and $\overline{\text{Set}}$ \cite{DFlipFlopClearSet}.}
+%   \end{subfigure}
+%   \caption{Comparison of D-type flip-flops with and without $\overline{\text{Clear}}$ and $\overline{\text{Set}}$.}
+%   \label{fig:clearSet}
+% \end{figure}
 
 As the registers store the current state of execution, it is required that the registers start up to a known state.
 Therefore, some registers feature an asynchronous clear input (or set input) which forces all flip-flops to 0 (or 1).
-This is usually accomplished by modifying the classical D-type flip-flop to allow for setting and resetting the internal $\overline{\text{SR}}$ NAND latches as shown in \cref{fig:clearSet}.
+% This is usually accomplished by modifying the classical D-type flip-flop to allow for setting and resetting the internal $\overline{\text{SR}}$ NAND latches as shown in \cref{fig:clearSet}.
 
 A third feature that may be important is a tri-state output which allows the register to be directly connected to a bus.
 It is accomplished by adding a tri-state output driver to the outputs of the flip-flops.
