@@ -17,10 +17,10 @@ With a detailed timing analysis it is ensured that the \gls{EDiC} does not run i
 \glsresetall
 Diese Arbeit beschreibt die Entwicklung und Implementierung des \gls{EDiC}, einer Model \gls{CPU}, welche speziell für die Lehre entwickelt wurde.
 Sie soll dabei helfen, die Funktionsweise eines modernen, allgemein benutzbaren Prozessors zu vermitteln.
-Dafür wird die neu entwickelte \gls{ISA} durch eine ausführliche Entwicklungsumgebung unterstützt.
+Dafür wird die neu entwickelte Befehlssatzarchitektur (engl. ISA) durch eine ausführliche Entwicklungsumgebung unterstützt.
 Alle Designentscheidungen, welche zu diesem 8 bit \gls{CISC} mit einem 16 bit Adressraum beigetragen haben, werden ausführlich erklärt und abgewogen.
 Die Aufteilung in insgesamt sieben größtenteils unabhängige Module vereinfacht das Verständnis der Details der \gls{CPU} deutlich.
-Das Verständnis der \gls{CPU} wird zusätzlich durch Wahl der \gls{TTL} \glspl{IC} aus der 74er Familie deutlich vereinfacht, weil hier der Fokus auf der digitalen Ebene liegt und der Betrachter sich nicht, wie zum Beispiel bei \gls{RTL}, mut analogen Nebeneffekte beschäftigen muss.
+Das Verständnis der \gls{CPU} wird zusätzlich durch Wahl der Integrierten Schaltkreise (engl. IC) mit Transistor-Transistor-Logik (TTL) aus der 74er Familie deutlich vereinfacht, weil hier der Fokus auf der digitalen Ebene liegt und der Betrachter sich nicht, wie zum Beispiel bei Widerstands-Transistor-Logik (engl. RTL), mut analogen Nebeneffekte beschäftigen muss.
 
 Um die Funktionalität zu verifizieren, wurden zwei \gls{FPGA}-Implementierungen durchgeführt.
 Die erste Implementierung, modeliert nur das Verhalten der Schaltung, während die zweite Implementierung auf \gls{IC}-level den Schaltplan verifiziert.
