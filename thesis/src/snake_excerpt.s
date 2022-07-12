@@ -1,9 +1,9 @@
 include "prng.s"
 include "uart_16c550.s"
 0x20.WON_STRING = "You won!!! Score: "
-lost:
+won:
   // [...]
-  // output the lost string
+  // output the won string
   mov r0, WON_STRING
   call outputString
   // output the score
