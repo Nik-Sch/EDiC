@@ -201,7 +201,7 @@ Another problem with the \gls{FPGA} implementation in general is that both, the 
 In the behavioral implementation, exact timings were no requirement and, therefore, the memory and \glspl{ROM} were clocked with the inverse clock, mimicking an asynchronous behavior.
 However, for the exact netlist \gls{FPGA} implementation this is not a good way to imitate the behavior.
 Therefore, the exact delays of both chips were calculated with the help of the datasheets, and they are both clocked with a custom clock that is out of phase with the global logic clock by the exact amount of the delay.
-\begin{figure}
+\begin{figure}[t]
   \centering
   \includegraphics[width=\textwidth]{asyncClockWave.png}
   \caption{Waveform showing the clock used for the \gls{FPGA} \gls{ROM} to mimic the asynchronous behavior of the \glspl{EEPROM}.}
@@ -224,7 +224,7 @@ Hence, the pin usually needs to be drilled out, and the new pin needs to be insu
 In the \gls{FPGA} design the nets \texttt{L1-L4} and \texttt{H1-H4} are, therefore, assigned to 0 or 1 respectively.
 
 \subsubsection{Display Driver}
-\begin{figure}
+\begin{figure}[t]
   \centering
   \includegraphics[width=.8\textwidth]{7segmentNexysA7.png}
   \caption{Overview of the eight 7-segment displays of the Nexys A7 development board \cite{7segNexys}.}
@@ -239,7 +239,7 @@ Additionally, 8 bits encode which 7-segment displays should be illuminated.
 It loops through the digits by setting each anode to \texttt{'0'} individually and setting the cathodes according to the corresponding input bits.
 This way, each display is illuminated for \qty{2}{\milli\second} which makes it look like all displays are illuminated all the time.
 
-\subsection{RS232 \gls{IO} Extension Debugging}
+\subsection{RS232 \glsxtrshort{IO} Extension Debugging}
 \begin{sidewaysfigure}[p]
   \centering
   \includegraphics[width=\textwidth]{uartTestSch.png}

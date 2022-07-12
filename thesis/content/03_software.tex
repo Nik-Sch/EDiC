@@ -13,7 +13,7 @@ Therefore, the \gls{EDiC} comes with two main software utilities that form the s
     breaklines,
     frame=leftline,
     xleftmargin=20pt,
-  ]{TypeScript}{src/microcode.ts}
+  ]{CoffeeScript}{src/microcode.ts}
   \caption{Schema of the Microcode Definition CSON-File \cite{CSON} as a TypeScript \cite{TS} Type definition.}
   \label{lst:micrcode_schema}
 \end{listing}
@@ -361,8 +361,7 @@ The \mintinline{ARM}{ldf} and \mintinline{ARM}{stf} instructions work very simil
 However, before the memory access, the \gls{SP} is incremented and after the access, it is restored.
 This way, it is possible to access parameters of a function that is called.
 
-Some examples:
-
+Some examples:\\
 \begin{tabular}{m{.3\textwidth}m{.65\textwidth}}
   \mintinline{ARM}{ldr r0, [0xabba]} & Loads the value from address \texttt{0xabba} into \texttt{r0}                                                                       \\
   \mintinline{ARM}{str r1, [0xc0de]} & Stores the value in \texttt{r1} to address \texttt{0xc0de}                                                                          \\
@@ -400,8 +399,7 @@ In contrast to the branch instruction, the call is not conditional (i.e. it is a
 
 The \mintinline{ARM}{ret} instruction is used at the end of a function without any parameters to restore the \gls{PC} from the stack at address \texttt{0x\{sp\}ff} and decrement the \gls{SP} again.
 
-Some examples:
-
+Some examples:\\
 \begin{tabular}{m{.3\textwidth}m{.65\textwidth}}
   \mintinline{ARM}{mov r0, 0xda} & Sets \texttt{r0} to \texttt{0xda}                                                                       \\
   \mintinline{ARM}{mov r1, r0}   & Copies the value of \texttt{r0} to \texttt{r1}                                                          \\

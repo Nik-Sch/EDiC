@@ -6,7 +6,7 @@ Additionally, a timing analysis is performed to ensure that the clock frequency 
 
 \section{Schematic}\label{sec:sch}
 The full schematics of the hardware design can be found in \cref{cha:schem} in \cref{fig:schPC,fig:schRAM,fig:schMC,fig:schClk,fig:schIO,fig:schReg,fig:schAlu}.
-The schematic is created in such a way that the logical connections are easy to understand.
+The schematic is created in such a way that the signal connections are easy to understand.
 Each \gls{IC} has its pins arranged for easy understanding and the connections have meaningful names to easier understand the logic.
 
 The 74 series of \glspl{IC} is used for the \gls{EDiC}.
@@ -17,6 +17,12 @@ However, a lot of decisions need to be made in choosing the correct \glspl{IC} a
   \includegraphics[width=.6\textwidth]{ce.png}
   \caption{Clock Enable circuit of the \emph{74F825} \gls{IC} \cite{74f825}.}
   \label{fig:clockEnable}
+\end{figure}
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\textwidth]{ce_wave.pdf}
+  \caption{The comparison of an inhibiting and a normal clock pulse with the clock enable circuitry of \cref{fig:clockEnable}.}
+  \label{fig:ce_wave}
 \end{figure}
 The 74 series of logic \glspl{IC} feature many registers.
 The most basic register \gls{IC} has $n$ D-type flip-flops with respective data inputs and outputs plus one common clock input.
@@ -32,28 +38,11 @@ The drawbacks are that each bit of the register needs a multiplexer at the input
 The \emph{74F825} logic \gls{IC} solves this with the circuit shown in \cref{fig:clockEnable}.
 When the $\overline{\text{EN}}$ input is low, the NAND gate on the right negates the CP\footnote{The internal flip-flops of the \emph{74F825} are negative edge triggered}.
 When the $\overline{\text{EN}}$ input is high, on the other hand, the output does not change.
-% With the feedback loop the circuit stores the state
-This circuit prevents the $\overline{\text{EN}}$ to trigger a falling edge (which would trigger the flip-flops) on the CP output.
-However, when the $\overline{\text{EN}}$ goes high while the CP input is high, then the output also goes high.
-This is not directly a problem because the flip-flops only trigger on falling edges but is the reason for timing requirements on the $\overline{\text{EN}}$ input which are discussed in more detail in \cref{sec:timing}.
-% \begin{figure}[t]
-%   \centering
-%   \begin{subfigure}[b]{.45\textwidth}
-%     \includegraphics[height=7.5cm]{DFlipFlop.pdf}
-%     \subcaption{Classical D-type flip-flop built out of three $\overline{\text{SR}}$ NAND latches \cite{DFlipFlop}.}
-%   \end{subfigure}%
-%   \hspace{.05\textwidth}
-%   \begin{subfigure}[b]{.45\textwidth}
-%     \includegraphics[height=7.5cm]{DFlipFlopClearSet.pdf}
-%     \subcaption{D-type flip-flop modified to support $\overline{\text{Clear}}$ and $\overline{\text{Set}}$ \cite{DFlipFlopClearSet}.}
-%   \end{subfigure}
-%   \caption{Comparison of D-type flip-flops with and without $\overline{\text{Clear}}$ and $\overline{\text{Set}}$.}
-%   \label{fig:clearSet}
-% \end{figure}
+With the feedback loop the circuit only allows a falling edge of the internal clock pulse when the $\overline{\text{EN}}$ goes low before the rising edge of the CP.
+If, however, the $\overline{\text{EN}}$ goes low after the rising edge of the CP, the internal falling edge is inhibited as is shown in \cref{fig:ce_wave}.
 
 As the registers store the current state of execution, it is required that the registers start up to a known state.
 Therefore, some registers feature an asynchronous clear input (or set input) which forces all flip-flops to 0 (or 1).
-% This is usually accomplished by modifying the classical D-type flip-flop to allow for setting and resetting the internal $\overline{\text{SR}}$ NAND latches as shown in \cref{fig:clearSet}.
 
 A third feature that may be important is a tri-state output which allows the register to be directly connected to a bus.
 It is accomplished by adding a tri-state output driver to the outputs of the flip-flops.
@@ -132,7 +121,7 @@ The clock and reset is buffered with an \emph{74ABT245} for minimal latency.
 To avoid glitches (see \cref{sec:switchGlitch}) on the four user inputs, a low pass and a Schmitt trigger and two registers are used.
 A multiplexer (U39) generates the halt signal from the debug user inputs and the instruction finished control signal to implement the logic described in \cref{sec:clock}
 
-\subsection{Built-In I/O}
+\subsection{Built-In \glsxtrshort{IO}}
 \begin{figure}[t]
   \centering
   \includegraphics[width=\textwidth]{schemBasicIO.pdf}
@@ -199,7 +188,7 @@ Additionally, extra space was left to mark each module and to name all the \glsp
 
 Especially on larger \glspl{PCB} and designs with quickly switching power consumption it is important to ensure good power delivery to all components.
 In the case of the \gls{EDiC} this is achieved by using a 4-layer \gls{PCB} with the two internals layers being filled with GND and 5V planes.
-The top and bottom layer are then used for logical connections where the most efficient wiring can be done when one layer mostly has vertical wires (red traces in \cref{fig:pr}) and the other layer mostly horizontal wires (green traces).
+The top and bottom layer are then used for signal connections where the most efficient wiring can be done when one layer mostly has vertical wires (red traces in \cref{fig:pr}) and the other layer mostly horizontal wires (green traces).
 
 \begin{figure}[t]
   \centering
@@ -210,29 +199,30 @@ The top and bottom layer are then used for logical connections where the most ef
 \end{figure}
 The usual problem when not using solid GND planes is the implicit low pass filter resulting from the inductance.
 When using dedicated GND wires to all the \glspl{IC} the current flows through one trace towards the \gls{IC} and through another trace back to the source.
-This leads to an electric field around both traces which in turn may induce current in neighboring traces and most importantly stores energy and acts as an $RL$-low-pass.
-If one would reduce the space between those traces until those traces are directly beneath each other, the electrical field would be minimal.
+This leads to a magnetic field around both traces which in turn may induce current in neighboring traces and most importantly stores energy and acts as an $RL$-low-pass.
+If one would reduce the space between those traces until those traces are directly beneath each other, the energy stored in the magnetic field would be minimal.
 \Cref{fig:HField} demonstrates this by visualizing the H-field around two wires in two scenarios.
 The blue plot assumes the two wires to be \qty{20}{\milli\meter} apart (at 40 and \qty{60}{\milli\meter}) and it can be seen that the opposite current flow leads to an amplified magnetic field between the two wires and also a magnetic field to the left and right of the wires.
-However, when moving the wires closer together, the magnetic field in between the two wires vanishes and the field to the left and right is reduced by a lot because the positive field to the right of the left wire cancels the negative field to the right of the right wire.
-In the extreme case of both wires being perfectly aligned in this dimension (being on top of each other for example), the magnetic field would cancel out completely.
+However, when moving the wires closer together, the energy stored in the magnetic field in between the two wires approaches a minimum and the field to the left and right is reduced by a lot because the positive field to the right of the left wire cancels the negative field to the right of the right wire.
+In the extreme case of both wires being perfectly aligned in this dimension (being on top of each other for example), the magnetic field would cancel out in this simplified view.
 
 This is exactly what is accomplished by using a GND plane:
 Assuming a trace takes a 90-degree turn to reach the \gls{IC} and then the current flows through the GND plane back to the source.
 The current on the GND plane could flow everywhere on the plane, especially the direct (diagonal) path with the least resistance or the path directly under the trace which has the least inductive reactance because the magnetic field is a lot smaller.
 The overall impedance is defined in \cref{eq:impedance} where the capacitive reactance ($X_C$) can be ignored in our case.
 The inductive impedance, on the other hand, is dependent on the frequency and the inductance. \cite[page 45]{Albach2011_2}
-\begin{eqnarray}
-  Z=R+j(X_L+X_C)\label{eq:impedance}\\
-  Z=R+j(2\pi fL+X_C)
-\end{eqnarray}
+\begin{align}
+  Z&=R+j(X_L+X_C)\label{eq:impedance}\\
+  Z&=R+j(2\pi fL+\frac{1}{2\pi fC})\\
+  Z&\approx R+j2\pi fL
+\end{align}
 Thus, for higher frequencies, the inductance has a greater impact on the overall impedance and the current in the GND plane will flow closer to the trace to reduce the inductive reactance.
 For lower frequencies, the inductive reactance becomes negligible and the lower resistance of the direct (diagonal) path prevails.
 
 Another important factor to bear in mind is to route the traces in a way that makes it possible to access every trace on the \gls{PCB}.
 It is always possible that some bug was not detected in the schematic design or netlist simulation.
 If a bug has been found it may be required to cut a trace and rewire it (see \cref{cha:eval}).
-Therefore, logical wires are always placed on the top or bottom plane and on the top plane traces will never be completely covered by \glspl{IC}.
+Therefore, signal wires are always placed on the top or bottom plane and on the top plane traces will never be completely covered by \glspl{IC}.
 If, for example, connecting pins 1 and 24 of a 24 pin \gls{IC} (they are directly opposite of each other) they should not be connected directly but a detour should be taken to expose the trace from under the \gls{IC}.
 
 It is also possible that a new \gls{IC} needs to be placed on the \gls{PCB} to fix a bug, like an extra register or bus driver.

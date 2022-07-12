@@ -11,30 +11,34 @@ Another reason for using sockets is that it is easier to change an \gls{IC} if i
 \begin{figure}[t]
   \centering
   \includegraphics[width=\textwidth]{schemTA.pdf}
-  \caption{An excerpt of the test adapters showing the display and driver for the disruption of the \gls{ALU} result.}
+  \caption{An excerpt of the test adapters showing the display and driver for the break of the feedback loop for control signals.}
   \label{fig:schTA}
 \end{figure}
-To facilitate the testing, all signal loop backs can be disrupted to individually test parts of the circuit.
-These are the control signals including clock and reset, the instruction register inputs and the \gls{ALU} results + flags are interrupted by connectors at the side of the \gls{PCB} which can connect to test adapter boards for testing.
-For the debug signals that are not busses the test adapter has \glspl{LED} to display the state of the \gls{EDiC} and DIP Switches to set each debug signal to a known value.
-Additionally, the main bus and ram2data bus is connected to a test adapter but not interrupted.
-The test adapter has \glspl{LED} for displaying the state and a bus driver with DIP Switches.
-An example is shown in \cref{fig:schTA} for the \gls{ALU} result.
-If not testing, the connectors can be bridged with shorting connectors which short the pins from the left to the right column (except the two tri-state busses).
+To facilitate the testing, all signal feedback loops can be interrupted and manually set to individually test parts of the circuit.
+These interruptions were designed in such a way that they can be bridged with a shorting connector which shorts the pins from the left to the right column.
+When testing, the following signals were connected to the test adapters:
+\begin{itemize}
+  \item Control Signals including clock and reset
+  \item Instruction Register Inputs (Instruction \gls{EEPROM} outputs)
+  \item \gls{ALU} $A$ input and \gls{ALU} result + flags
+  \item \gls{SP} input
+  \item Tri-State bus and ram2data (just \glspl{LED} and driver)
+\end{itemize}
+Each of the signals (except bus and ram2data) is displayed with a \gls{LED} and the output of the test adapter can be set with a switch as shown in \cref{fig:schTA} for 8 control signals.
 
 Testing the individual components becomes very simple this way.
-For example the instruction registers:
+For example testing the instruction registers consists of the following steps:
 \begin{enumerate}
   \item Set each bit of the data input individually from the test adapter
   \item Assert the \texttt{memInstrNWE} control signal (set to 0)
   \item Trigger a clock pulse
   \item Verify that the output lines equal the input set on the test adapter
 \end{enumerate}
-All \glspl{IC}, including the \glspl{EEPROM} and \glspl{SRAM} can be directly tested in a couple simple steps this way.
+All \glspl{IC}, including the \glspl{EEPROM} and \glspl{SRAM} can be directly tested with only a few simple steps.
 
-The advantage of individually testing all the bits of all \glspl{IC} is that in integration testing one can assume that the problem is not with one specific \gls{IC}.
-\section{Potential Complications}\label{sec:switchGlitch}
-As is normal with large designs, there were some potential problems found in the \gls{EDiC} which needed fixing.
+The advantage of individually testing all the bits of all \glspl{IC} is that in integration testing it can be assumed that all the \glspl{IC} work as expected.
+\section{Complications found in Testing}\label{sec:switchGlitch}
+As is normal with large designs, there were some problems found in the \gls{EDiC} which needed fixing.
 \subsection{Shifter - Carry Flag}
 The detailed testing with the test adapter did reveal one bug which was not revealed in the netlist simulation because it did not occur in any simulated program.
 The carry flag of a shift operation is determined by the 8 to 1 multiplexer U102 in \cref{fig:schAlu} with the first 3 bits of the bus as select bits.
