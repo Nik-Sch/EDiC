@@ -173,6 +173,7 @@ wire Bus0_U10;
 wire Bus0_U201;
 wire Bus0_U44;
 wire Bus0_U45;
+wire Bus0_U507;
 wire Bus0_U75;
 wire Bus0_U99;
 wire Bus0_noe;
@@ -181,6 +182,7 @@ wire Bus1_U10;
 wire Bus1_U201;
 wire Bus1_U44;
 wire Bus1_U45;
+wire Bus1_U507;
 wire Bus1_U75;
 wire Bus1_U99;
 wire Bus1_noe;
@@ -189,6 +191,7 @@ wire Bus2_U10;
 wire Bus2_U201;
 wire Bus2_U44;
 wire Bus2_U45;
+wire Bus2_U507;
 wire Bus2_U75;
 wire Bus2_U99;
 wire Bus2_noe;
@@ -197,6 +200,7 @@ wire Bus3_U10;
 wire Bus3_U201;
 wire Bus3_U44;
 wire Bus3_U45;
+wire Bus3_U507;
 wire Bus3_U75;
 wire Bus3_U99;
 wire Bus3_noe;
@@ -205,6 +209,7 @@ wire Bus4_U10;
 wire Bus4_U201;
 wire Bus4_U44;
 wire Bus4_U45;
+wire Bus4_U507;
 wire Bus4_U75;
 wire Bus4_U99;
 wire Bus4_noe;
@@ -213,6 +218,7 @@ wire Bus5_U10;
 wire Bus5_U201;
 wire Bus5_U44;
 wire Bus5_U45;
+wire Bus5_U507;
 wire Bus5_U75;
 wire Bus5_U99;
 wire Bus5_noe;
@@ -221,6 +227,7 @@ wire Bus6_U10;
 wire Bus6_U201;
 wire Bus6_U44;
 wire Bus6_U45;
+wire Bus6_U507;
 wire Bus6_U75;
 wire Bus6_U99;
 wire Bus6_noe;
@@ -229,6 +236,7 @@ wire Bus7_U10;
 wire Bus7_U201;
 wire Bus7_U44;
 wire Bus7_U45;
+wire Bus7_U507;
 wire Bus7_U75;
 wire Bus7_U99;
 wire Bus7_noe;
@@ -294,6 +302,8 @@ wire CTRLREG1WE;
 wire CTRLREG1WE_SRC;
 wire CTRLREGALUSEL;
 wire CTRLREGALUSEL_SRC;
+wire CTRL_INIT_FF;
+wire CTRL_INIT_FF_SRC;
 wire DEBUG_INSTR_CYCLEN;
 wire DEBUG_STEP;
 wire DEBUG_STEPRUNN;
@@ -1147,6 +1157,8 @@ wire U45_a_noe;
 wire U45_b_noe;
 wire U49_a_noe;
 wire U49_b_noe;
+wire U507_a_noe;
+wire U507_b_noe;
 wire U50_a_noe;
 wire U50_b_noe;
 wire U51_a_noe;
@@ -1195,7 +1207,6 @@ wire XOR6;
 wire XOR7;
 wire unconnected_JT2_21;
 wire unconnected_JT2_22;
-wire unconnected_JT6_21;
 wire unconnected_JT6_22;
 wire unconnected_JT9_13;
 wire unconnected_JT9_14;
@@ -1210,12 +1221,12 @@ wire unconnected_U104_6;
 wire unconnected_U104_8;
 wire unconnected_U38_6;
 wire unconnected_U39_5;
+wire unconnected_U507_10;
 wire unconnected_U55_13;
 wire unconnected_U56_13;
 wire unconnected_U83_18;
 wire unconnected_U83_18_U83;
 wire unconnected_U83_18_noe;
-wire unconnected_U87_17;
 wire unconnected_U87_18;
 wire unconnected_U87_19;
 wire unconnected_U89_11;
@@ -1364,7 +1375,7 @@ instructionRom inst_instructionRom (
 microCodeRom inst_microCodeRom (
   .clka(i_asyncEEPROMSpecialClock),
   .addra({MC_A14, MC_A13, MC_A12, MC_A11, MC_A10, MC_A9, MC_A8, MC_A7, MC_A6, CTRLALUOP1_SRC, CTRLALUOP0_SRC, CTRLALUSUB_SRC, MC_A2, MC_A1, MC_A0}),
-  .douta({unconnected_U87_19, unconnected_U87_18, unconnected_U87_17, CTRLINSTRFINISHED_SRC, CTRLMEMPCTORAM_SRC, CTRLMEMPCFROMIMM_SRC, CTRLMEMPCEN_SRC, CTRLMEMRAMOE_SRC, CTRLMEMRAMWE_SRC, CTRLMEMINSTRIMMTORAMADDR_SRC, CTRLMEMMAR1WE_SRC, CTRLMEMMAR0WE_SRC, CTRLMEMINSTROE_SRC, CTRLMEMINSTRWE_SRC, CTRLMEMSPEN_SRC, CTRLMEMSPUP_SRC, CTRLMEMPCLOAD_SRC, CTRLREG1BUSOE_SRC, CTRLREG0BUSOE_SRC, CTRLREGALUSEL_SRC, CTRLREG1WE_SRC, CTRLREG0WE_SRC, CTRLALUOE_SRC, CTRLALUYWE_SRC})
+  .douta({unconnected_U87_19, unconnected_U87_18, CTRL_INIT_FF_SRC, CTRLINSTRFINISHED_SRC, CTRLMEMPCTORAM_SRC, CTRLMEMPCFROMIMM_SRC, CTRLMEMPCEN_SRC, CTRLMEMRAMOE_SRC, CTRLMEMRAMWE_SRC, CTRLMEMINSTRIMMTORAMADDR_SRC, CTRLMEMMAR1WE_SRC, CTRLMEMMAR0WE_SRC, CTRLMEMINSTROE_SRC, CTRLMEMINSTRWE_SRC, CTRLMEMSPEN_SRC, CTRLMEMSPUP_SRC, CTRLMEMPCLOAD_SRC, CTRLREG1BUSOE_SRC, CTRLREG0BUSOE_SRC, CTRLREGALUSEL_SRC, CTRLREG1WE_SRC, CTRLREG0WE_SRC, CTRLALUOE_SRC, CTRLALUYWE_SRC})
 );
 
 
@@ -1441,73 +1452,73 @@ tristatenet #(
 );
 
 tristatenet #(
-  .INPUT_COUNT(6)
+  .INPUT_COUNT(7)
 ) inst_triBusBus7 (
-  .i_data({Bus7_U10, Bus7_U44, Bus7_U45, Bus7_U75, Bus7_U99, Bus7_U201}),
-  .i_noe({U10_b_noe, U44_b_noe, U45_b_noe, U75_b_noe, U99_b_noe, U201_a_noe}),
+  .i_data({Bus7_U10, Bus7_U44, Bus7_U45, Bus7_U75, Bus7_U99, Bus7_U201, Bus7_U507}),
+  .i_noe({U10_b_noe, U44_b_noe, U45_b_noe, U75_b_noe, U99_b_noe, U201_a_noe, U507_a_noe}),
   .o_data(Bus7),
   .o_noe(Bus7_noe)
 );
 
 tristatenet #(
-  .INPUT_COUNT(6)
+  .INPUT_COUNT(7)
 ) inst_triBusBus6 (
-  .i_data({Bus6_U10, Bus6_U44, Bus6_U45, Bus6_U75, Bus6_U99, Bus6_U201}),
-  .i_noe({U10_b_noe, U44_b_noe, U45_b_noe, U75_b_noe, U99_b_noe, U201_a_noe}),
+  .i_data({Bus6_U10, Bus6_U44, Bus6_U45, Bus6_U75, Bus6_U99, Bus6_U201, Bus6_U507}),
+  .i_noe({U10_b_noe, U44_b_noe, U45_b_noe, U75_b_noe, U99_b_noe, U201_a_noe, U507_a_noe}),
   .o_data(Bus6),
   .o_noe(Bus6_noe)
 );
 
 tristatenet #(
-  .INPUT_COUNT(6)
+  .INPUT_COUNT(7)
 ) inst_triBusBus5 (
-  .i_data({Bus5_U10, Bus5_U44, Bus5_U45, Bus5_U75, Bus5_U99, Bus5_U201}),
-  .i_noe({U10_b_noe, U44_b_noe, U45_b_noe, U75_b_noe, U99_b_noe, U201_a_noe}),
+  .i_data({Bus5_U10, Bus5_U44, Bus5_U45, Bus5_U75, Bus5_U99, Bus5_U201, Bus5_U507}),
+  .i_noe({U10_b_noe, U44_b_noe, U45_b_noe, U75_b_noe, U99_b_noe, U201_a_noe, U507_a_noe}),
   .o_data(Bus5),
   .o_noe(Bus5_noe)
 );
 
 tristatenet #(
-  .INPUT_COUNT(6)
+  .INPUT_COUNT(7)
 ) inst_triBusBus4 (
-  .i_data({Bus4_U10, Bus4_U44, Bus4_U45, Bus4_U75, Bus4_U99, Bus4_U201}),
-  .i_noe({U10_b_noe, U44_b_noe, U45_b_noe, U75_b_noe, U99_b_noe, U201_a_noe}),
+  .i_data({Bus4_U10, Bus4_U44, Bus4_U45, Bus4_U75, Bus4_U99, Bus4_U201, Bus4_U507}),
+  .i_noe({U10_b_noe, U44_b_noe, U45_b_noe, U75_b_noe, U99_b_noe, U201_a_noe, U507_a_noe}),
   .o_data(Bus4),
   .o_noe(Bus4_noe)
 );
 
 tristatenet #(
-  .INPUT_COUNT(6)
+  .INPUT_COUNT(7)
 ) inst_triBusBus3 (
-  .i_data({Bus3_U10, Bus3_U44, Bus3_U45, Bus3_U75, Bus3_U99, Bus3_U201}),
-  .i_noe({U10_b_noe, U44_b_noe, U45_b_noe, U75_b_noe, U99_b_noe, U201_a_noe}),
+  .i_data({Bus3_U10, Bus3_U44, Bus3_U45, Bus3_U75, Bus3_U99, Bus3_U201, Bus3_U507}),
+  .i_noe({U10_b_noe, U44_b_noe, U45_b_noe, U75_b_noe, U99_b_noe, U201_a_noe, U507_a_noe}),
   .o_data(Bus3),
   .o_noe(Bus3_noe)
 );
 
 tristatenet #(
-  .INPUT_COUNT(6)
+  .INPUT_COUNT(7)
 ) inst_triBusBus2 (
-  .i_data({Bus2_U10, Bus2_U44, Bus2_U45, Bus2_U75, Bus2_U99, Bus2_U201}),
-  .i_noe({U10_b_noe, U44_b_noe, U45_b_noe, U75_b_noe, U99_b_noe, U201_a_noe}),
+  .i_data({Bus2_U10, Bus2_U44, Bus2_U45, Bus2_U75, Bus2_U99, Bus2_U201, Bus2_U507}),
+  .i_noe({U10_b_noe, U44_b_noe, U45_b_noe, U75_b_noe, U99_b_noe, U201_a_noe, U507_a_noe}),
   .o_data(Bus2),
   .o_noe(Bus2_noe)
 );
 
 tristatenet #(
-  .INPUT_COUNT(6)
+  .INPUT_COUNT(7)
 ) inst_triBusBus1 (
-  .i_data({Bus1_U10, Bus1_U44, Bus1_U45, Bus1_U75, Bus1_U99, Bus1_U201}),
-  .i_noe({U10_b_noe, U44_b_noe, U45_b_noe, U75_b_noe, U99_b_noe, U201_a_noe}),
+  .i_data({Bus1_U10, Bus1_U44, Bus1_U45, Bus1_U75, Bus1_U99, Bus1_U201, Bus1_U507}),
+  .i_noe({U10_b_noe, U44_b_noe, U45_b_noe, U75_b_noe, U99_b_noe, U201_a_noe, U507_a_noe}),
   .o_data(Bus1),
   .o_noe(Bus1_noe)
 );
 
 tristatenet #(
-  .INPUT_COUNT(6)
+  .INPUT_COUNT(7)
 ) inst_triBusBus0 (
-  .i_data({Bus0_U10, Bus0_U44, Bus0_U45, Bus0_U75, Bus0_U99, Bus0_U201}),
-  .i_noe({U10_b_noe, U44_b_noe, U45_b_noe, U75_b_noe, U99_b_noe, U201_a_noe}),
+  .i_data({Bus0_U10, Bus0_U44, Bus0_U45, Bus0_U75, Bus0_U99, Bus0_U201, Bus0_U507}),
+  .i_noe({U10_b_noe, U44_b_noe, U45_b_noe, U75_b_noe, U99_b_noe, U201_a_noe, U507_a_noe}),
   .o_data(Bus0),
   .o_noe(Bus0_noe)
 );
@@ -3102,7 +3113,7 @@ icBerg26 inst_JT6 (
   .port18(CTRLALUOP0),
   .port19(CTRLALUOP1_SRC),
   .port20(CTRLALUOP1),
-  .port21(unconnected_JT6_21),
+  .port21(CTRL_INIT_FF_SRC),
   .port22(unconnected_JT6_22),
   .port23(1'b0),
   .port24(1'b0),
@@ -5153,7 +5164,7 @@ ic28C256 inst_U87 (
   .port14(1'b0),
   .port15(CTRLMEMPCTORAM_SRC),
   .port16(CTRLINSTRFINISHED_SRC),
-  .port17(unconnected_U87_17),
+  .port17(CTRL_INIT_FF_SRC),
   .port18(unconnected_U87_18),
   .port19(unconnected_U87_19),
   .port20(L3),
@@ -5512,7 +5523,7 @@ ic74x151 inst_U102 (
   .port9(Bus2),
   .port10(Bus1),
   .port11(Bus0),
-  .port12(N16535534),
+  .port12(N16535546),
   .port13(N16535542),
   .port14(N16535538),
   .port15(N16534785),
@@ -5876,6 +5887,38 @@ ic74x245 inst_U205 (
   .port107(RAM2DATA5),
   .port108(RAM2DATA6),
   .port109(RAM2DATA7)
+);
+
+ic74x245 inst_U507 (
+  .port1(L1),
+  .port2(Bus0_U507),
+  .port3(Bus1_U507),
+  .port4(Bus2_U507),
+  .port5(Bus3_U507),
+  .port6(Bus4_U507),
+  .port7(Bus5_U507),
+  .port8(Bus6_U507),
+  .port9(Bus7_U507),
+  .port10(unconnected_U507_10),
+  .port111(H3),
+  .port112(H3),
+  .port113(H3),
+  .port114(H3),
+  .port115(H3),
+  .port116(H3),
+  .port117(H3),
+  .port118(H3),
+  .port19(CTRL_INIT_FF),
+  .port20(U507_a_noe),
+  .port21(U507_b_noe),
+  .port102(Bus0),
+  .port103(Bus1),
+  .port104(Bus2),
+  .port105(Bus3),
+  .port106(Bus4),
+  .port107(Bus5),
+  .port108(Bus6),
+  .port109(Bus7)
 );
 
 endmodule
