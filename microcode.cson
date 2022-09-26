@@ -476,7 +476,6 @@ instructions: [
         memMar0NWE: 0
         memMar1NWE: 0
         busFFNOE: 0
-        memRamNOE: 0 # register
       }
       { # ram address setup
         memInstrImmToRamAddr: 0
