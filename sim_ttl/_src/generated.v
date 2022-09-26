@@ -1207,7 +1207,6 @@ wire XOR6;
 wire XOR7;
 wire unconnected_JT2_21;
 wire unconnected_JT2_22;
-wire unconnected_JT6_22;
 wire unconnected_JT9_13;
 wire unconnected_JT9_14;
 wire unconnected_JT9_15;
@@ -1221,7 +1220,6 @@ wire unconnected_U104_6;
 wire unconnected_U104_8;
 wire unconnected_U38_6;
 wire unconnected_U39_5;
-wire unconnected_U507_10;
 wire unconnected_U55_13;
 wire unconnected_U56_13;
 wire unconnected_U83_18;
@@ -3114,7 +3112,7 @@ icBerg26 inst_JT6 (
   .port19(CTRLALUOP1_SRC),
   .port20(CTRLALUOP1),
   .port21(CTRL_INIT_FF_SRC),
-  .port22(unconnected_JT6_22),
+  .port22(CTRL_INIT_FF),
   .port23(1'b0),
   .port24(1'b0),
   .port25(1'b0),
@@ -5899,7 +5897,7 @@ ic74x245 inst_U507 (
   .port7(Bus5_U507),
   .port8(Bus6_U507),
   .port9(Bus7_U507),
-  .port10(unconnected_U507_10),
+  .port10(1'b0),
   .port111(H3),
   .port112(H3),
   .port113(H3),
@@ -5909,8 +5907,9 @@ ic74x245 inst_U507 (
   .port117(H3),
   .port118(H3),
   .port19(CTRL_INIT_FF),
-  .port20(U507_a_noe),
-  .port21(U507_b_noe),
+  .port20(VCC),
+  .port21(U507_a_noe),
+  .port22(U507_b_noe),
   .port102(Bus0),
   .port103(Bus1),
   .port104(Bus2),

@@ -9429,6 +9429,7 @@
        (portRef &16 (instanceRef U42))
        (portRef &1 (instanceRef RN5))
        (portRef &20 (instanceRef U45))
+       (portRef &20 (instanceRef U507))
        (portRef &20 (instanceRef U11))
        (portRef &16 (instanceRef U5))
        (portRef &16 (instanceRef U6))
@@ -9766,6 +9767,7 @@
        (portRef &12 (instanceRef U97))
        (portRef &8 (instanceRef U42))
        (portRef &10 (instanceRef U45))
+       (portRef &10 (instanceRef U507))
        (portRef &10 (instanceRef U11))
        (portRef &8 (instanceRef U5))
        (portRef &8 (instanceRef U6))
@@ -11523,7 +11525,7 @@
       (property Name (string "/CTRLINSTRFINISHED")))
      (net /CTRL_INIT_FF
       (joined
-       (portRef &19 (instanceRef U507)))
+       (portRef &19 (instanceRef U507))
        (portRef &22 (instanceRef JT6)))
       (property Name (string "/CTRL_INIT_FF")))
      (net N17649455
