@@ -12,7 +12,8 @@
     "lib": ["ES2021"]
   },
   "files": [
-    "netlist2verilog.ts"
+    "netlist2verilog.ts",
+    "netlist2vhdl.ts",
   ],
   "include": [
     "parser.ts"

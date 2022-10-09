@@ -1,1 +1,0 @@
---incr --debug "all" --relax --mt "8" -L "xil_defaultlib" -L "blk_mem_gen_v8_4_5" -L "xlconstant_v1_1_7" -L "uvm" -L "unisims_ver" -L "unimacro_ver" -L "secureip" -L "xpm" --snapshot "tb_datapath_behav" "xil_defaultlib.tb_datapath" "xil_defaultlib.glbl" -log "elaborate.log" 
