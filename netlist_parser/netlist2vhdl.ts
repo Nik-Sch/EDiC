@@ -630,6 +630,7 @@ end ${entityName};
 architecture rtl of ${entityName} is
 
 signal enableDigits, dots: std_ulogic_vector(7 downto 0);
+$eepromSignals
 $signals
 
 begin
@@ -645,6 +646,9 @@ $tristates
 $instances
 
 end rtl;`
+  .replace(/\$eepromSignals/g,
+    eeproms.map(eeprom => `  signal s_dout${eeprom.id}: std_ulogic_vector(23 downto 0);`).join('\n')
+  )
   .replace(/\$signals/g,
     signals.sort().map(w => `  signal ${w}: std_ulogic;`).join('\n')
   )
@@ -734,11 +738,12 @@ $ports
   }).join('\n'))
   .replace(/\$eeproms/g, eeproms.map(eeprom => {
     return `
+    ${eeprom.data.map((d, i) => `${d} <= s_dout${eeprom.id}(${i});`).join('\n')}
     inst_${eeprom.id}: entity work.${eeprom.id}
       port map (
         clka  => i_asyncEEPROMSpecialClock,
-        addra => (${eeprom.address.reverse().join(', ')}),
-        douta => (${eeprom.data.reverse().join(', ')})
+        ${eeprom.address.map((a, i) => `addra(${i}) => ${a}`).join(', ')},
+        douta => s_dout${eeprom.id}
         );`
   }).join('\n'))
   .replace(/\$displayDriver/g, getDisplayDriver());

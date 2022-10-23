@@ -53,14 +53,14 @@ begin
     end if;
 
     if not port11 then
-      port22 <= 0;
-      port21 <= 0;
-      port20 <= 0;
-      port19 <= 0;
-      port18 <= 0;
-      port17 <= 0;
-      port16 <= 0;
-      port15 <= 0;
+      port22 <= '0';
+      port21 <= '0';
+      port20 <= '0';
+      port19 <= '0';
+      port18 <= '0';
+      port17 <= '0';
+      port16 <= '0';
+      port15 <= '0';
     end if;
   end process;
 end architecture;

@@ -47,6 +47,8 @@ end generated;
 architecture rtl of generated is
 
 signal enableDigits, dots: std_ulogic_vector(7 downto 0);
+  signal s_doutinstructionRom: std_ulogic_vector(23 downto 0);
+  signal s_doutmicroCodeRom: std_ulogic_vector(23 downto 0);
   signal A0: std_ulogic;
   signal A0_SRC: std_ulogic;
   signal A1: std_ulogic;
@@ -1378,18 +1380,66 @@ o_ioNWE <= CTRLMEMRAMWE;
 );
 
 
+    INSTRIMM_UNREG0_SRC <= s_doutinstructionRom(0);
+INSTRIMM_UNREG1_SRC <= s_doutinstructionRom(1);
+INSTRIMM_UNREG2_SRC <= s_doutinstructionRom(2);
+INSTRIMM_UNREG3_SRC <= s_doutinstructionRom(3);
+INSTRIMM_UNREG4_SRC <= s_doutinstructionRom(4);
+INSTRIMM_UNREG5_SRC <= s_doutinstructionRom(5);
+INSTRIMM_UNREG6_SRC <= s_doutinstructionRom(6);
+INSTRIMM_UNREG7_SRC <= s_doutinstructionRom(7);
+INSTRIMM_UNREG8_SRC <= s_doutinstructionRom(8);
+INSTRIMM_UNREG9_SRC <= s_doutinstructionRom(9);
+INSTRIMM_UNREG10_SRC <= s_doutinstructionRom(10);
+INSTRIMM_UNREG11_SRC <= s_doutinstructionRom(11);
+INSTRIMM_UNREG12_SRC <= s_doutinstructionRom(12);
+INSTRIMM_UNREG13_SRC <= s_doutinstructionRom(13);
+INSTRIMM_UNREG14_SRC <= s_doutinstructionRom(14);
+INSTRIMM_UNREG15_SRC <= s_doutinstructionRom(15);
+INSTR_UNREG0_SRC <= s_doutinstructionRom(16);
+INSTR_UNREG1_SRC <= s_doutinstructionRom(17);
+INSTR_UNREG2_SRC <= s_doutinstructionRom(18);
+INSTR_UNREG3_SRC <= s_doutinstructionRom(19);
+INSTR_UNREG4_SRC <= s_doutinstructionRom(20);
+INSTR_UNREG5_SRC <= s_doutinstructionRom(21);
+INSTR_UNREG6_SRC <= s_doutinstructionRom(22);
+INSTR_UNREG7_SRC <= s_doutinstructionRom(23);
     inst_instructionRom: entity work.instructionRom
       port map (
         clka  => i_asyncEEPROMSpecialClock,
-        addra => (PC14, PC13, PC12, PC11, PC10, PC9, PC8, PC7, PC6, PC5, PC4, PC3, PC2, PC1, PC0),
-        douta => (INSTR_UNREG7_SRC, INSTR_UNREG6_SRC, INSTR_UNREG5_SRC, INSTR_UNREG4_SRC, INSTR_UNREG3_SRC, INSTR_UNREG2_SRC, INSTR_UNREG1_SRC, INSTR_UNREG0_SRC, INSTRIMM_UNREG15_SRC, INSTRIMM_UNREG14_SRC, INSTRIMM_UNREG13_SRC, INSTRIMM_UNREG12_SRC, INSTRIMM_UNREG11_SRC, INSTRIMM_UNREG10_SRC, INSTRIMM_UNREG9_SRC, INSTRIMM_UNREG8_SRC, INSTRIMM_UNREG7_SRC, INSTRIMM_UNREG6_SRC, INSTRIMM_UNREG5_SRC, INSTRIMM_UNREG4_SRC, INSTRIMM_UNREG3_SRC, INSTRIMM_UNREG2_SRC, INSTRIMM_UNREG1_SRC, INSTRIMM_UNREG0_SRC)
+        addra(0) => PC0, addra(1) => PC1, addra(2) => PC2, addra(3) => PC3, addra(4) => PC4, addra(5) => PC5, addra(6) => PC6, addra(7) => PC7, addra(8) => PC8, addra(9) => PC9, addra(10) => PC10, addra(11) => PC11, addra(12) => PC12, addra(13) => PC13, addra(14) => PC14,
+        douta => s_doutinstructionRom
         );
 
+    CTRLALUYWE_SRC <= s_doutmicroCodeRom(0);
+CTRLALUOE_SRC <= s_doutmicroCodeRom(1);
+CTRLREG0WE_SRC <= s_doutmicroCodeRom(2);
+CTRLREG1WE_SRC <= s_doutmicroCodeRom(3);
+CTRLREGALUSEL_SRC <= s_doutmicroCodeRom(4);
+CTRLREG0BUSOE_SRC <= s_doutmicroCodeRom(5);
+CTRLREG1BUSOE_SRC <= s_doutmicroCodeRom(6);
+CTRLMEMPCLOAD_SRC <= s_doutmicroCodeRom(7);
+CTRLMEMSPUP_SRC <= s_doutmicroCodeRom(8);
+CTRLMEMSPEN_SRC <= s_doutmicroCodeRom(9);
+CTRLMEMINSTRWE_SRC <= s_doutmicroCodeRom(10);
+CTRLMEMINSTROE_SRC <= s_doutmicroCodeRom(11);
+CTRLMEMMAR0WE_SRC <= s_doutmicroCodeRom(12);
+CTRLMEMMAR1WE_SRC <= s_doutmicroCodeRom(13);
+CTRLMEMINSTRIMMTORAMADDR_SRC <= s_doutmicroCodeRom(14);
+CTRLMEMRAMWE_SRC <= s_doutmicroCodeRom(15);
+CTRLMEMRAMOE_SRC <= s_doutmicroCodeRom(16);
+CTRLMEMPCEN_SRC <= s_doutmicroCodeRom(17);
+CTRLMEMPCFROMIMM_SRC <= s_doutmicroCodeRom(18);
+CTRLMEMPCTORAM_SRC <= s_doutmicroCodeRom(19);
+CTRLINSTRFINISHED_SRC <= s_doutmicroCodeRom(20);
+CTRL_INIT_FF_SRC <= s_doutmicroCodeRom(21);
+unconnected_U87_18 <= s_doutmicroCodeRom(22);
+unconnected_U87_19 <= s_doutmicroCodeRom(23);
     inst_microCodeRom: entity work.microCodeRom
       port map (
         clka  => i_asyncEEPROMSpecialClock,
-        addra => (MC_A14, MC_A13, MC_A12, MC_A11, MC_A10, MC_A9, MC_A8, MC_A7, MC_A6, CTRLALUOP1_SRC, CTRLALUOP0_SRC, CTRLALUSUB_SRC, MC_A2, MC_A1, MC_A0),
-        douta => (unconnected_U87_19, unconnected_U87_18, CTRL_INIT_FF_SRC, CTRLINSTRFINISHED_SRC, CTRLMEMPCTORAM_SRC, CTRLMEMPCFROMIMM_SRC, CTRLMEMPCEN_SRC, CTRLMEMRAMOE_SRC, CTRLMEMRAMWE_SRC, CTRLMEMINSTRIMMTORAMADDR_SRC, CTRLMEMMAR1WE_SRC, CTRLMEMMAR0WE_SRC, CTRLMEMINSTROE_SRC, CTRLMEMINSTRWE_SRC, CTRLMEMSPEN_SRC, CTRLMEMSPUP_SRC, CTRLMEMPCLOAD_SRC, CTRLREG1BUSOE_SRC, CTRLREG0BUSOE_SRC, CTRLREGALUSEL_SRC, CTRLREG1WE_SRC, CTRLREG0WE_SRC, CTRLALUOE_SRC, CTRLALUYWE_SRC)
+        addra(0) => MC_A0, addra(1) => MC_A1, addra(2) => MC_A2, addra(3) => CTRLALUSUB_SRC, addra(4) => CTRLALUOP0_SRC, addra(5) => CTRLALUOP1_SRC, addra(6) => MC_A6, addra(7) => MC_A7, addra(8) => MC_A8, addra(9) => MC_A9, addra(10) => MC_A10, addra(11) => MC_A11, addra(12) => MC_A12, addra(13) => MC_A13, addra(14) => MC_A14,
+        douta => s_doutmicroCodeRom
         );
 
 

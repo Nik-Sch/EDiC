@@ -24,7 +24,7 @@ end entity;
 -- e c
 --  d  dot
 architecture rtl of displayDriver is
-  signal r_currentDigit : integer range 0 to 7           := 0;
+  signal r_currentDigit : unsigned(2 downto 0)           := (others => '0');
   signal r_counter      : integer range 0 to COUNTER_MAX := 0;
   signal cathodesAH     : std_ulogic_vector(7 downto 0);
   signal anodesAH       : std_ulogic_vector(7 downto 0);
@@ -33,7 +33,7 @@ architecture rtl of displayDriver is
 begin
 
 
-  s_bits   <= data(4*(r_currentDigit+1)-1 downto 4*r_currentDigit-1);
+  s_bits   <= data(4*(to_integer(r_currentDigit)+1)-1 downto 4*to_integer(r_currentDigit));
   anodes   <= not anodesAH;
   cathodes <= not cathodesAH;
 
@@ -44,15 +44,12 @@ begin
       if r_counter = COUNTER_MAX then
         r_counter      <= 0;
         r_currentDigit <= r_currentDigit + 1;
-        if r_currentDigit = 7 then
-          r_currentDigit <= 0;
-        end if;
       end if;
 
-      anodesAH                 <= 0;
-      anodesAH(r_currentDigit) <= 1;
+      anodesAH                             <= (others => '0');
+      anodesAH(to_integer(r_currentDigit)) <= '1';
 
-      cathodesAH(7) <= dots(r_currentDigit);
+      cathodesAH(7) <= dots(to_integer(r_currentDigit));
       cathodesAH(6) <= '1' when s_bits = 4x"2"  -- g
                        or s_bits = 4x"3"
                        or s_bits = 4x"4"
@@ -132,13 +129,13 @@ begin
                        or s_bits = 4x"e"
                        or s_bits = 4x"f" else '0';
 
-      if not enableDigit(r_currentDigit) then
-        cathodesAH(6 downto 0) <= 0;
+      if not enableDigit(to_integer(r_currentDigit)) then
+        cathodesAH(6 downto 0) <= (others => '0');
       end if;
     end if;
 
     if not i_resetn then
-      r_currentDigit <= 0;
+      r_currentDigit <= (others => '0');
       r_counter      <= 0;
     end if;
   end process;

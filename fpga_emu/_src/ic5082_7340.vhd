@@ -1,4 +1,8 @@
 -- 7segment display
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
 entity ic5082_7340 is
   port (
     port1 : in std_ulogic;

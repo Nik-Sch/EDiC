@@ -34,7 +34,6 @@ begin
   data1   <= (port3, port4, port5, port6);
   data2   <= (port13, port12, port11, port10);
 
-  port6 <= not port5;
   p_comb : process(all)
   begin
     port7 <= data1(to_integer(address));

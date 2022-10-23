@@ -47,14 +47,14 @@ begin
     end if;
 
     if not port1 then
-      port2  <= 0;
-      port5  <= 0;
-      port6  <= 0;
-      port9  <= 0;
-      port12 <= 0;
-      port15 <= 0;
-      port16 <= 0;
-      port19 <= 0;
+      port2  <= '0';
+      port5  <= '0';
+      port6  <= '0';
+      port9  <= '0';
+      port12 <= '0';
+      port15 <= '0';
+      port16 <= '0';
+      port19 <= '0';
     end if;
   end process;
 
