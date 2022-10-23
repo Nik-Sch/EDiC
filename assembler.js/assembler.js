@@ -54,17 +54,11 @@ const checkImmediate = (match, options = {}) => {
     if (typeof options.stack === 'undefined') {
         options.stack = false;
     }
-    if (typeof options.memory === 'undefined') {
-        options.memory = true;
-    }
     if (typeof options.regValue === 'undefined') {
         options.regValue = false;
     }
-    if (options.regValue) {
-        options.memory = false;
-    }
     // [0xffff] is used for return address and register can only hold 8bit
-    const maxImm = options.memory ? 0xfffe : options.regValue ? 255 : 0xffff;
+    const maxImm = options.regValue ? 255 : 0xfffe;
     const minImm = options.regValue ? -128 : 0;
     let imm = parseInt(match);
     if (isNaN(imm)) {
@@ -178,7 +172,7 @@ const instructions = [
     {
         regex: new RegExp(`^\\s*(${aluOpRegEx})(s?)\\s+r([01])\\s*,\\s*\\[\\s*(${valueRegEx})\\s*\\]`),
         result: match => {
-            const imm = checkImmediate(match[4], { regValue: true });
+            const imm = checkImmediate(match[4]);
             return { instr: `110${match[2] == 's' ? '1' : '0'}${match[3]}${aluOps[match[1]]}`, imm };
         }
     },
@@ -257,9 +251,7 @@ const readFile = (filename) => {
         };
     });
 };
-const coeFile = process_1.argv[3].endsWith('.coe');
 const code = readFile(process_1.argv[2]);
-let fileContent = 'MEMORY_INITIALIZATION_RADIX=16;\nMEMORY_INITIALIZATION_VECTOR=\n';
 let instrCount = 0;
 const data = [];
 const insertInstruction = (line) => {
@@ -460,12 +452,13 @@ for (const origLine of code) {
 for (const constant of constants) {
     console.log(constant.line.text.trim());
 }
-// third pass: find instructions
+// insert branch to start instruction
 instrCount = startOfProgramInstr;
 if (labels.find(l => l.name === 'start')) {
     labels.forEach(l => l.instruction++);
     insertInstruction({ text: 'b start', filename: process_1.argv[2], lineNumber: -1 });
 }
+// third pass: find instructions
 for (const origLine of code) {
     const line = origLine.text.replace(lineCommentRegex, '');
     if (line.match(/^\s*$/) || line.match(constantDefRegEx)) {
@@ -491,7 +484,9 @@ for (const origLine of code) {
         process_1.exit(1);
     }
 }
+const coeFile = process_1.argv[3].endsWith('.coe');
 if (coeFile) {
+    let fileContent = 'MEMORY_INITIALIZATION_RADIX=16;\nMEMORY_INITIALIZATION_VECTOR=\n';
     for (const word of data) {
         fileContent += `${word.toString(16).padStart(6, '0')}\n`;
     }
@@ -503,8 +498,4 @@ else {
         const uintArray = Uint8Array.from(data.map(d => (d >> (8 * i)) & 0xff));
         fs_1.writeFileSync(`${process_1.argv[3]}.${i}`, uintArray);
     }
-    // for (let i = 0; i < 512; i++) {
-    //   fileContent += data[i] ? `0x${data[i].toString(16).padStart(2, '0')},\n` : '0xff,\n';
-    // }
-    // fileContent += '};\n#endif';
 }

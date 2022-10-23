@@ -15,60 +15,6 @@
 #   run results please launch the synthesis/implementation runs as needed.
 #
 #*****************************************************************************************
-# NOTE: In order to use this script for source control purposes, please make sure that the
-#       following files are added to the source control system:-
-#
-# 1. This project restoration tcl script (EDiC-TTL.tcl) that was generated.
-#
-# 2. The following source(s) files that were local or imported into the original project.
-#    (Please see the '$orig_proj_dir' and '$origin_dir' variable setting below at the start of the script)
-#
-#    "/home/niklas/dev/EDiC/sim_ttl/xilinx_ips/as6c4008_55pcn_mem/as6c4008_55pcn_mem.xci"
-#    "/home/niklas/dev/EDiC/sim_ttl/xilinx_ips/uart_fifo_rx/uart_fifo_rx.xci"
-#    "/home/niklas/dev/EDiC/sim_ttl/xilinx_ips/uart_fifo_tx/uart_fifo_tx.xci"
-#    "/home/niklas/dev/EDiC/sim_ttl/xilinx_ips/clk_wiz_5Mhz/clk_wiz_5Mhz.xci"
-#    "/home/niklas/dev/EDiC/sim_ttl/xilinx_ips/microCodeRom/microCodeRom.xci"
-#    "/home/niklas/dev/EDiC/sim_ttl/xilinx_ips/instructionRom/instructionRom.xci"
-#
-# 3. The following remote source files that were added to the original project:-
-#
-#    "/home/niklas/dev/EDiC/sim_ttl/_src/displayDriver.v"
-#    "/home/niklas/dev/EDiC/sim_ttl/_src/generated.v"
-#    "/home/niklas/dev/EDiC/sim_ttl/_src/ic28C256.v"
-#    "/home/niklas/dev/EDiC/sim_ttl/_src/ic5082_7340.v"
-#    "/home/niklas/dev/EDiC/sim_ttl/_src/ic74x04.v"
-#    "/home/niklas/dev/EDiC/sim_ttl/_src/ic74x08.v"
-#    "/home/niklas/dev/EDiC/sim_ttl/_src/ic74x14.v"
-#    "/home/niklas/dev/EDiC/sim_ttl/_src/ic74x151.v"
-#    "/home/niklas/dev/EDiC/sim_ttl/_src/ic74x153.v"
-#    "/home/niklas/dev/EDiC/sim_ttl/_src/ic74x157.v"
-#    "/home/niklas/dev/EDiC/sim_ttl/_src/ic74x245.v"
-#    "/home/niklas/dev/EDiC/sim_ttl/_src/ic74x273.v"
-#    "/home/niklas/dev/EDiC/sim_ttl/_src/ic74x32.v"
-#    "/home/niklas/dev/EDiC/sim_ttl/_src/ic74x374.v"
-#    "/home/niklas/dev/EDiC/sim_ttl/_src/ic74x521.v"
-#    "/home/niklas/dev/EDiC/sim_ttl/_src/ic74x540.v"
-#    "/home/niklas/dev/EDiC/sim_ttl/_src/ic74x825.v"
-#    "/home/niklas/dev/EDiC/sim_ttl/_src/ic74x86.v"
-#    "/home/niklas/dev/EDiC/sim_ttl/_src/ic74x867.v"
-#    "/home/niklas/dev/EDiC/sim_ttl/_src/icAS6C4008.v"
-#    "/home/niklas/dev/EDiC/sim_ttl/_src/icBerg10.v"
-#    "/home/niklas/dev/EDiC/sim_ttl/_src/icBerg26.v"
-#    "/home/niklas/dev/EDiC/sim_ttl/_src/icBerg40.v"
-#    "/home/niklas/dev/EDiC/sim_ttl/_src/icds1813.v"
-#    "/home/niklas/dev/EDiC/sim_ttl/_src/tristatenet.v"
-#    "/home/niklas/dev/EDiC/sim_ttl/_src/board_top.v"
-#    "/home/niklas/dev/EDiC/sim_ttl/_src/expansionCards/UART/expansion_uart.v"
-#    "/home/niklas/dev/EDiC/sim_ttl/_src/expansionCards/UART/uart_rx.v"
-#    "/home/niklas/dev/EDiC/sim_ttl/_src/expansionCards/UART/uart_tx.v"
-#    "/home/niklas/dev/EDiC/sim_ttl/_src/board_top_signal_test.v"
-#    "/home/niklas/dev/EDiC/sim_ttl/_src/generated_kicad.v"
-#    "/home/niklas/dev/EDiC/memory_files/instructionRom.coe"
-#    "/home/niklas/dev/EDiC/memory_files/microCodeRom.coe"
-#    "/home/niklas/dev/EDiC/sim_ttl/_src/io_constraints.xdc"
-#    "/home/niklas/dev/EDiC/sim_ttl/_sim/testbench.sv"
-#
-#*****************************************************************************************
 
 # Check file required for this script exists
 proc checkRequiredFiles { origin_dir} {
@@ -89,41 +35,40 @@ proc checkRequiredFiles { origin_dir} {
   }
 
   set files [list \
- "[file normalize "$origin_dir/_src/displayDriver.v"]"\
- "[file normalize "$origin_dir/_src/generated.v"]"\
- "[file normalize "$origin_dir/_src/ic28C256.v"]"\
- "[file normalize "$origin_dir/_src/ic5082_7340.v"]"\
- "[file normalize "$origin_dir/_src/ic74x04.v"]"\
- "[file normalize "$origin_dir/_src/ic74x08.v"]"\
- "[file normalize "$origin_dir/_src/ic74x14.v"]"\
- "[file normalize "$origin_dir/_src/ic74x151.v"]"\
- "[file normalize "$origin_dir/_src/ic74x153.v"]"\
- "[file normalize "$origin_dir/_src/ic74x157.v"]"\
- "[file normalize "$origin_dir/_src/ic74x245.v"]"\
- "[file normalize "$origin_dir/_src/ic74x273.v"]"\
- "[file normalize "$origin_dir/_src/ic74x32.v"]"\
- "[file normalize "$origin_dir/_src/ic74x374.v"]"\
- "[file normalize "$origin_dir/_src/ic74x521.v"]"\
- "[file normalize "$origin_dir/_src/ic74x540.v"]"\
- "[file normalize "$origin_dir/_src/ic74x825.v"]"\
- "[file normalize "$origin_dir/_src/ic74x86.v"]"\
- "[file normalize "$origin_dir/_src/ic74x867.v"]"\
- "[file normalize "$origin_dir/_src/icAS6C4008.v"]"\
- "[file normalize "$origin_dir/_src/icBerg10.v"]"\
- "[file normalize "$origin_dir/_src/icBerg26.v"]"\
- "[file normalize "$origin_dir/_src/icBerg40.v"]"\
- "[file normalize "$origin_dir/_src/icds1813.v"]"\
- "[file normalize "$origin_dir/_src/tristatenet.v"]"\
- "[file normalize "$origin_dir/_src/board_top.v"]"\
+ "[file normalize "$origin_dir/_src/displayDriver.vhd"]"\
+ "[file normalize "$origin_dir/_src/generated.vhd"]"\
+ "[file normalize "$origin_dir/_src/ic28C256.vhd"]"\
+ "[file normalize "$origin_dir/_src/ic5082_7340.vhd"]"\
+ "[file normalize "$origin_dir/_src/ic74x04.vhd"]"\
+ "[file normalize "$origin_dir/_src/ic74x08.vhd"]"\
+ "[file normalize "$origin_dir/_src/ic74x14.vhd"]"\
+ "[file normalize "$origin_dir/_src/ic74x151.vhd"]"\
+ "[file normalize "$origin_dir/_src/ic74x153.vhd"]"\
+ "[file normalize "$origin_dir/_src/ic74x157.vhd"]"\
+ "[file normalize "$origin_dir/_src/ic74x245.vhd"]"\
+ "[file normalize "$origin_dir/_src/ic74x273.vhd"]"\
+ "[file normalize "$origin_dir/_src/ic74x32.vhd"]"\
+ "[file normalize "$origin_dir/_src/ic74x374.vhd"]"\
+ "[file normalize "$origin_dir/_src/ic74x521.vhd"]"\
+ "[file normalize "$origin_dir/_src/ic74x540.vhd"]"\
+ "[file normalize "$origin_dir/_src/ic74x825.vhd"]"\
+ "[file normalize "$origin_dir/_src/ic74x86.vhd"]"\
+ "[file normalize "$origin_dir/_src/ic74x867.vhd"]"\
+ "[file normalize "$origin_dir/_src/icAS6C4008.vhd"]"\
+ "[file normalize "$origin_dir/_src/icBerg10.vhd"]"\
+ "[file normalize "$origin_dir/_src/icBerg26.vhd"]"\
+ "[file normalize "$origin_dir/_src/icBerg40.vhd"]"\
+ "[file normalize "$origin_dir/_src/icds1813.vhd"]"\
+ "[file normalize "$origin_dir/_src/tristatenet.vhd"]"\
+ "[file normalize "$origin_dir/_src/board_top.vhd"]"\
  "[file normalize "$origin_dir/_src/expansionCards/UART/expansion_uart.v"]"\
  "[file normalize "$origin_dir/_src/expansionCards/UART/uart_rx.v"]"\
  "[file normalize "$origin_dir/_src/expansionCards/UART/uart_tx.v"]"\
- "[file normalize "$origin_dir/_src/board_top_signal_test.v"]"\
  "[file normalize "$origin_dir/_src/generated_kicad.v"]"\
  "[file normalize "$origin_dir/../memory_files/instructionRom.coe"]"\
  "[file normalize "$origin_dir/../memory_files/microCodeRom.coe"]"\
  "[file normalize "$origin_dir/_src/io_constraints.xdc"]"\
- "[file normalize "$origin_dir/_sim/testbench.sv"]"\
+ "[file normalize "$origin_dir/_sim/testbench.vhdl"]"\
   ]
   foreach ifile $files {
     if { ![file isfile $ifile] } {
@@ -291,36 +236,35 @@ if {[string equal [get_filesets -quiet sources_1] ""]} {
 # Set 'sources_1' fileset object
 set obj [get_filesets sources_1]
 set files [list \
- [file normalize "${origin_dir}/_src/displayDriver.v"] \
- [file normalize "${origin_dir}/_src/generated.v"] \
- [file normalize "${origin_dir}/_src/ic28C256.v"] \
- [file normalize "${origin_dir}/_src/ic5082_7340.v"] \
- [file normalize "${origin_dir}/_src/ic74x04.v"] \
- [file normalize "${origin_dir}/_src/ic74x08.v"] \
- [file normalize "${origin_dir}/_src/ic74x14.v"] \
- [file normalize "${origin_dir}/_src/ic74x151.v"] \
- [file normalize "${origin_dir}/_src/ic74x153.v"] \
- [file normalize "${origin_dir}/_src/ic74x157.v"] \
- [file normalize "${origin_dir}/_src/ic74x245.v"] \
- [file normalize "${origin_dir}/_src/ic74x273.v"] \
- [file normalize "${origin_dir}/_src/ic74x32.v"] \
- [file normalize "${origin_dir}/_src/ic74x374.v"] \
- [file normalize "${origin_dir}/_src/ic74x521.v"] \
- [file normalize "${origin_dir}/_src/ic74x540.v"] \
- [file normalize "${origin_dir}/_src/ic74x825.v"] \
- [file normalize "${origin_dir}/_src/ic74x86.v"] \
- [file normalize "${origin_dir}/_src/ic74x867.v"] \
- [file normalize "${origin_dir}/_src/icAS6C4008.v"] \
- [file normalize "${origin_dir}/_src/icBerg10.v"] \
- [file normalize "${origin_dir}/_src/icBerg26.v"] \
- [file normalize "${origin_dir}/_src/icBerg40.v"] \
- [file normalize "${origin_dir}/_src/icds1813.v"] \
- [file normalize "${origin_dir}/_src/tristatenet.v"] \
- [file normalize "${origin_dir}/_src/board_top.v"] \
+ [file normalize "${origin_dir}/_src/displayDriver.vhd"] \
+ [file normalize "${origin_dir}/_src/generated.vhd"] \
+ [file normalize "${origin_dir}/_src/ic28C256.vhd"] \
+ [file normalize "${origin_dir}/_src/ic5082_7340.vhd"] \
+ [file normalize "${origin_dir}/_src/ic74x04.vhd"] \
+ [file normalize "${origin_dir}/_src/ic74x08.vhd"] \
+ [file normalize "${origin_dir}/_src/ic74x14.vhd"] \
+ [file normalize "${origin_dir}/_src/ic74x151.vhd"] \
+ [file normalize "${origin_dir}/_src/ic74x153.vhd"] \
+ [file normalize "${origin_dir}/_src/ic74x157.vhd"] \
+ [file normalize "${origin_dir}/_src/ic74x245.vhd"] \
+ [file normalize "${origin_dir}/_src/ic74x273.vhd"] \
+ [file normalize "${origin_dir}/_src/ic74x32.vhd"] \
+ [file normalize "${origin_dir}/_src/ic74x374.vhd"] \
+ [file normalize "${origin_dir}/_src/ic74x521.vhd"] \
+ [file normalize "${origin_dir}/_src/ic74x540.vhd"] \
+ [file normalize "${origin_dir}/_src/ic74x825.vhd"] \
+ [file normalize "${origin_dir}/_src/ic74x86.vhd"] \
+ [file normalize "${origin_dir}/_src/ic74x867.vhd"] \
+ [file normalize "${origin_dir}/_src/icAS6C4008.vhd"] \
+ [file normalize "${origin_dir}/_src/icBerg10.vhd"] \
+ [file normalize "${origin_dir}/_src/icBerg26.vhd"] \
+ [file normalize "${origin_dir}/_src/icBerg40.vhd"] \
+ [file normalize "${origin_dir}/_src/icds1813.vhd"] \
+ [file normalize "${origin_dir}/_src/tristatenet.vhd"] \
+ [file normalize "${origin_dir}/_src/board_top.vhd"] \
  [file normalize "${origin_dir}/_src/expansionCards/UART/expansion_uart.v"] \
  [file normalize "${origin_dir}/_src/expansionCards/UART/uart_rx.v"] \
  [file normalize "${origin_dir}/_src/expansionCards/UART/uart_tx.v"] \
- [file normalize "${origin_dir}/_src/board_top_signal_test.v"] \
  [file normalize "${origin_dir}/_src/generated_kicad.v"] \
  [file normalize "${origin_dir}/../memory_files/instructionRom.coe"] \
  [file normalize "${origin_dir}/../memory_files/microCodeRom.coe"] \
@@ -328,343 +272,290 @@ set files [list \
 add_files -norecurse -fileset $obj $files
 
 # Set 'sources_1' fileset file properties for remote files
-set file "$origin_dir/_src/displayDriver.v"
+set file "$origin_dir/_src/displayDriver.vhd"
 set file [file normalize $file]
 set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
+set_property -name "file_type" -value "VHDL 2008" -objects $file_obj
 set_property -name "is_enabled" -value "1" -objects $file_obj
 set_property -name "is_global_include" -value "0" -objects $file_obj
 set_property -name "library" -value "xil_defaultlib" -objects $file_obj
 set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
 set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
-set file "$origin_dir/_src/generated.v"
+set file "$origin_dir/_src/generated.vhd"
 set file [file normalize $file]
 set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
+set_property -name "file_type" -value "VHDL 2008" -objects $file_obj
 set_property -name "is_enabled" -value "1" -objects $file_obj
 set_property -name "is_global_include" -value "0" -objects $file_obj
 set_property -name "library" -value "xil_defaultlib" -objects $file_obj
 set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
 set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
-set file "$origin_dir/_src/ic28C256.v"
-set file [file normalize $file]
-set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
-set_property -name "is_enabled" -value "1" -objects $file_obj
-set_property -name "is_global_include" -value "0" -objects $file_obj
-set_property -name "library" -value "xil_defaultlib" -objects $file_obj
-set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
-set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
-set file "$origin_dir/_src/ic5082_7340.v"
+set file "$origin_dir/_src/ic28C256.vhd"
 set file [file normalize $file]
 set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
+set_property -name "file_type" -value "VHDL 2008" -objects $file_obj
 set_property -name "is_enabled" -value "1" -objects $file_obj
 set_property -name "is_global_include" -value "0" -objects $file_obj
 set_property -name "library" -value "xil_defaultlib" -objects $file_obj
 set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
 set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
-set file "$origin_dir/_src/ic74x04.v"
-set file [file normalize $file]
-set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
-set_property -name "is_enabled" -value "1" -objects $file_obj
-set_property -name "is_global_include" -value "0" -objects $file_obj
-set_property -name "library" -value "xil_defaultlib" -objects $file_obj
-set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
-set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
-set file "$origin_dir/_src/ic74x08.v"
+set file "$origin_dir/_src/ic5082_7340.vhd"
 set file [file normalize $file]
 set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
+set_property -name "file_type" -value "VHDL 2008" -objects $file_obj
 set_property -name "is_enabled" -value "1" -objects $file_obj
 set_property -name "is_global_include" -value "0" -objects $file_obj
 set_property -name "library" -value "xil_defaultlib" -objects $file_obj
 set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
 set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
-set file "$origin_dir/_src/ic74x14.v"
-set file [file normalize $file]
-set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
-set_property -name "is_enabled" -value "1" -objects $file_obj
-set_property -name "is_global_include" -value "0" -objects $file_obj
-set_property -name "library" -value "xil_defaultlib" -objects $file_obj
-set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
-set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
-set file "$origin_dir/_src/ic74x151.v"
+set file "$origin_dir/_src/ic74x04.vhd"
 set file [file normalize $file]
 set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
+set_property -name "file_type" -value "VHDL 2008" -objects $file_obj
 set_property -name "is_enabled" -value "1" -objects $file_obj
 set_property -name "is_global_include" -value "0" -objects $file_obj
 set_property -name "library" -value "xil_defaultlib" -objects $file_obj
 set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
 set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
-set file "$origin_dir/_src/ic74x153.v"
-set file [file normalize $file]
-set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
-set_property -name "is_enabled" -value "1" -objects $file_obj
-set_property -name "is_global_include" -value "0" -objects $file_obj
-set_property -name "library" -value "xil_defaultlib" -objects $file_obj
-set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
-set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
-set file "$origin_dir/_src/ic74x157.v"
+set file "$origin_dir/_src/ic74x08.vhd"
 set file [file normalize $file]
 set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
+set_property -name "file_type" -value "VHDL 2008" -objects $file_obj
 set_property -name "is_enabled" -value "1" -objects $file_obj
 set_property -name "is_global_include" -value "0" -objects $file_obj
 set_property -name "library" -value "xil_defaultlib" -objects $file_obj
 set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
 set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
-set file "$origin_dir/_src/ic74x245.v"
-set file [file normalize $file]
-set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
-set_property -name "is_enabled" -value "1" -objects $file_obj
-set_property -name "is_global_include" -value "0" -objects $file_obj
-set_property -name "library" -value "xil_defaultlib" -objects $file_obj
-set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
-set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
-set file "$origin_dir/_src/ic74x273.v"
+set file "$origin_dir/_src/ic74x14.vhd"
 set file [file normalize $file]
 set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
+set_property -name "file_type" -value "VHDL 2008" -objects $file_obj
 set_property -name "is_enabled" -value "1" -objects $file_obj
 set_property -name "is_global_include" -value "0" -objects $file_obj
 set_property -name "library" -value "xil_defaultlib" -objects $file_obj
 set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
 set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
-set file "$origin_dir/_src/ic74x32.v"
-set file [file normalize $file]
-set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
-set_property -name "is_enabled" -value "1" -objects $file_obj
-set_property -name "is_global_include" -value "0" -objects $file_obj
-set_property -name "library" -value "xil_defaultlib" -objects $file_obj
-set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
-set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
-set file "$origin_dir/_src/ic74x374.v"
+set file "$origin_dir/_src/ic74x151.vhd"
 set file [file normalize $file]
 set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
+set_property -name "file_type" -value "VHDL 2008" -objects $file_obj
 set_property -name "is_enabled" -value "1" -objects $file_obj
 set_property -name "is_global_include" -value "0" -objects $file_obj
 set_property -name "library" -value "xil_defaultlib" -objects $file_obj
 set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
 set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
-set file "$origin_dir/_src/ic74x521.v"
-set file [file normalize $file]
-set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
-set_property -name "is_enabled" -value "1" -objects $file_obj
-set_property -name "is_global_include" -value "0" -objects $file_obj
-set_property -name "library" -value "xil_defaultlib" -objects $file_obj
-set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
-set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
-set file "$origin_dir/_src/ic74x540.v"
+set file "$origin_dir/_src/ic74x153.vhd"
 set file [file normalize $file]
 set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
+set_property -name "file_type" -value "VHDL 2008" -objects $file_obj
 set_property -name "is_enabled" -value "1" -objects $file_obj
 set_property -name "is_global_include" -value "0" -objects $file_obj
 set_property -name "library" -value "xil_defaultlib" -objects $file_obj
 set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
 set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
-set file "$origin_dir/_src/ic74x825.v"
-set file [file normalize $file]
-set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
-set_property -name "is_enabled" -value "1" -objects $file_obj
-set_property -name "is_global_include" -value "0" -objects $file_obj
-set_property -name "library" -value "xil_defaultlib" -objects $file_obj
-set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
-set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
-set file "$origin_dir/_src/ic74x86.v"
+set file "$origin_dir/_src/ic74x157.vhd"
 set file [file normalize $file]
 set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
+set_property -name "file_type" -value "VHDL 2008" -objects $file_obj
 set_property -name "is_enabled" -value "1" -objects $file_obj
 set_property -name "is_global_include" -value "0" -objects $file_obj
 set_property -name "library" -value "xil_defaultlib" -objects $file_obj
 set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
 set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
-set file "$origin_dir/_src/ic74x867.v"
-set file [file normalize $file]
-set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
-set_property -name "is_enabled" -value "1" -objects $file_obj
-set_property -name "is_global_include" -value "0" -objects $file_obj
-set_property -name "library" -value "xil_defaultlib" -objects $file_obj
-set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
-set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
-set file "$origin_dir/_src/icAS6C4008.v"
+set file "$origin_dir/_src/ic74x245.vhd"
 set file [file normalize $file]
 set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
+set_property -name "file_type" -value "VHDL 2008" -objects $file_obj
 set_property -name "is_enabled" -value "1" -objects $file_obj
 set_property -name "is_global_include" -value "0" -objects $file_obj
 set_property -name "library" -value "xil_defaultlib" -objects $file_obj
 set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
 set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
-set file "$origin_dir/_src/icBerg10.v"
-set file [file normalize $file]
-set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
-set_property -name "is_enabled" -value "1" -objects $file_obj
-set_property -name "is_global_include" -value "0" -objects $file_obj
-set_property -name "library" -value "xil_defaultlib" -objects $file_obj
-set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
-set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
-set file "$origin_dir/_src/icBerg26.v"
+set file "$origin_dir/_src/ic74x273.vhd"
 set file [file normalize $file]
 set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
+set_property -name "file_type" -value "VHDL 2008" -objects $file_obj
 set_property -name "is_enabled" -value "1" -objects $file_obj
 set_property -name "is_global_include" -value "0" -objects $file_obj
 set_property -name "library" -value "xil_defaultlib" -objects $file_obj
 set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
 set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
-set file "$origin_dir/_src/icBerg40.v"
-set file [file normalize $file]
-set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
-set_property -name "is_enabled" -value "1" -objects $file_obj
-set_property -name "is_global_include" -value "0" -objects $file_obj
-set_property -name "library" -value "xil_defaultlib" -objects $file_obj
-set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
-set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
-set file "$origin_dir/_src/icds1813.v"
+set file "$origin_dir/_src/ic74x32.vhd"
 set file [file normalize $file]
 set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
+set_property -name "file_type" -value "VHDL 2008" -objects $file_obj
 set_property -name "is_enabled" -value "1" -objects $file_obj
 set_property -name "is_global_include" -value "0" -objects $file_obj
 set_property -name "library" -value "xil_defaultlib" -objects $file_obj
 set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
 set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
-set file "$origin_dir/_src/tristatenet.v"
-set file [file normalize $file]
-set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
-set_property -name "is_enabled" -value "1" -objects $file_obj
-set_property -name "is_global_include" -value "0" -objects $file_obj
-set_property -name "library" -value "xil_defaultlib" -objects $file_obj
-set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
-set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
-set file "$origin_dir/_src/board_top.v"
+set file "$origin_dir/_src/ic74x374.vhd"
 set file [file normalize $file]
 set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
+set_property -name "file_type" -value "VHDL 2008" -objects $file_obj
 set_property -name "is_enabled" -value "1" -objects $file_obj
 set_property -name "is_global_include" -value "0" -objects $file_obj
 set_property -name "library" -value "xil_defaultlib" -objects $file_obj
 set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
 set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
+
+
+set file "$origin_dir/_src/ic74x521.vhd"
+set file [file normalize $file]
+set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
+set_property -name "file_type" -value "VHDL 2008" -objects $file_obj
+set_property -name "is_enabled" -value "1" -objects $file_obj
+set_property -name "is_global_include" -value "0" -objects $file_obj
+set_property -name "library" -value "xil_defaultlib" -objects $file_obj
+set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
+set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
+
+
+set file "$origin_dir/_src/ic74x540.vhd"
+set file [file normalize $file]
+set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
+set_property -name "file_type" -value "VHDL 2008" -objects $file_obj
+set_property -name "is_enabled" -value "1" -objects $file_obj
+set_property -name "is_global_include" -value "0" -objects $file_obj
+set_property -name "library" -value "xil_defaultlib" -objects $file_obj
+set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
+set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
+
+
+set file "$origin_dir/_src/ic74x825.vhd"
+set file [file normalize $file]
+set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
+set_property -name "file_type" -value "VHDL 2008" -objects $file_obj
+set_property -name "is_enabled" -value "1" -objects $file_obj
+set_property -name "is_global_include" -value "0" -objects $file_obj
+set_property -name "library" -value "xil_defaultlib" -objects $file_obj
+set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
+set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
+
+
+set file "$origin_dir/_src/ic74x86.vhd"
+set file [file normalize $file]
+set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
+set_property -name "file_type" -value "VHDL 2008" -objects $file_obj
+set_property -name "is_enabled" -value "1" -objects $file_obj
+set_property -name "is_global_include" -value "0" -objects $file_obj
+set_property -name "library" -value "xil_defaultlib" -objects $file_obj
+set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
+set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
+
+
+set file "$origin_dir/_src/ic74x867.vhd"
+set file [file normalize $file]
+set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
+set_property -name "file_type" -value "VHDL 2008" -objects $file_obj
+set_property -name "is_enabled" -value "1" -objects $file_obj
+set_property -name "is_global_include" -value "0" -objects $file_obj
+set_property -name "library" -value "xil_defaultlib" -objects $file_obj
+set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
+set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
+
+
+set file "$origin_dir/_src/icAS6C4008.vhd"
+set file [file normalize $file]
+set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
+set_property -name "file_type" -value "VHDL 2008" -objects $file_obj
+set_property -name "is_enabled" -value "1" -objects $file_obj
+set_property -name "is_global_include" -value "0" -objects $file_obj
+set_property -name "library" -value "xil_defaultlib" -objects $file_obj
+set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
+set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
+
+
+set file "$origin_dir/_src/icBerg10.vhd"
+set file [file normalize $file]
+set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
+set_property -name "file_type" -value "VHDL 2008" -objects $file_obj
+set_property -name "is_enabled" -value "1" -objects $file_obj
+set_property -name "is_global_include" -value "0" -objects $file_obj
+set_property -name "library" -value "xil_defaultlib" -objects $file_obj
+set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
+set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
+
+
+set file "$origin_dir/_src/icBerg26.vhd"
+set file [file normalize $file]
+set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
+set_property -name "file_type" -value "VHDL 2008" -objects $file_obj
+set_property -name "is_enabled" -value "1" -objects $file_obj
+set_property -name "is_global_include" -value "0" -objects $file_obj
+set_property -name "library" -value "xil_defaultlib" -objects $file_obj
+set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
+set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
+
+
+set file "$origin_dir/_src/icBerg40.vhd"
+set file [file normalize $file]
+set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
+set_property -name "file_type" -value "VHDL 2008" -objects $file_obj
+set_property -name "is_enabled" -value "1" -objects $file_obj
+set_property -name "is_global_include" -value "0" -objects $file_obj
+set_property -name "library" -value "xil_defaultlib" -objects $file_obj
+set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
+set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
+
+
+set file "$origin_dir/_src/icds1813.vhd"
+set file [file normalize $file]
+set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
+set_property -name "file_type" -value "VHDL 2008" -objects $file_obj
+set_property -name "is_enabled" -value "1" -objects $file_obj
+set_property -name "is_global_include" -value "0" -objects $file_obj
+set_property -name "library" -value "xil_defaultlib" -objects $file_obj
+set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
+set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
+
+
+set file "$origin_dir/_src/tristatenet.vhd"
+set file [file normalize $file]
+set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
+set_property -name "file_type" -value "VHDL 2008" -objects $file_obj
+set_property -name "is_enabled" -value "1" -objects $file_obj
+set_property -name "is_global_include" -value "0" -objects $file_obj
+set_property -name "library" -value "xil_defaultlib" -objects $file_obj
+set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
+set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
+
+
+set file "$origin_dir/_src/board_top.vhd"
+set file [file normalize $file]
+set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
+set_property -name "file_type" -value "VHDL 2008" -objects $file_obj
+set_property -name "is_enabled" -value "1" -objects $file_obj
+set_property -name "is_global_include" -value "0" -objects $file_obj
+set_property -name "library" -value "xil_defaultlib" -objects $file_obj
+set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
+set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
+
 
 set file "$origin_dir/_src/expansionCards/UART/expansion_uart.v"
 set file [file normalize $file]
@@ -693,19 +584,6 @@ set_property -name "used_in_simulation" -value "1" -objects $file_obj
 set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
 set file "$origin_dir/_src/expansionCards/UART/uart_tx.v"
-set file [file normalize $file]
-set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
-set_property -name "is_enabled" -value "1" -objects $file_obj
-set_property -name "is_global_include" -value "0" -objects $file_obj
-set_property -name "library" -value "xil_defaultlib" -objects $file_obj
-set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
-set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
-
-set file "$origin_dir/_src/board_top_signal_test.v"
 set file [file normalize $file]
 set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
 set_property -name "file_type" -value "Verilog" -objects $file_obj
@@ -951,15 +829,15 @@ if {[string equal [get_filesets -quiet sim_1] ""]} {
 # Set 'sim_1' fileset object
 set obj [get_filesets sim_1]
 set files [list \
- [file normalize "${origin_dir}/_sim/testbench.sv"] \
+ [file normalize "${origin_dir}/_sim/testbench.vhd"] \
 ]
 add_files -norecurse -fileset $obj $files
 
 # Set 'sim_1' fileset file properties for remote files
-set file "$origin_dir/_sim/testbench.sv"
+set file "$origin_dir/_sim/testbench.vhd"
 set file [file normalize $file]
 set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
-set_property -name "file_type" -value "SystemVerilog" -objects $file_obj
+set_property -name "file_type" -value "VHDL 2008" -objects $file_obj
 set_property -name "is_enabled" -value "1" -objects $file_obj
 set_property -name "is_global_include" -value "0" -objects $file_obj
 set_property -name "library" -value "xil_defaultlib" -objects $file_obj

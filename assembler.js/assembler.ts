@@ -194,7 +194,7 @@ const instructions: IInstruction[] = [
   { // r/y := r x [imm]
     regex: new RegExp(`^\\s*(${aluOpRegEx})(s?)\\s+r([01])\\s*,\\s*\\[\\s*(${valueRegEx})\\s*\\]`),
     result: match => {
-      const imm = checkImmediate(match[4], { regValue: true });
+      const imm = checkImmediate(match[4]);
       return { instr: `110${match[2] == 's' ? '1' : '0'}${match[3]}${aluOps[match[1]]}`, imm }
     }
   },
