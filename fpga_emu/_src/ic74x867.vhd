@@ -72,13 +72,13 @@ begin
       end if;  -- enable
 
       -- loading is independent of enable
-      if (S = "00") then
+      if (S = "10") then
         r_data <= s_data;
       end if;
     end if;  -- edge
 
     -- only for AS867
-    if asyncResetN then
+    if not asyncResetN then
       r_data <= (others => '0');
     end if;
   end process;
@@ -87,7 +87,7 @@ begin
   begin
     port13 <= '1';
     if not entN then                    -- enable rco
-      if (S = "00") then                -- counting down
+      if (S = "01") then                -- counting down
         port13 <= '0' when r_data = x"00" else '1';      -- low level pulse when data is 0
       end if;
       if (S = "11") then               -- counting up

@@ -68,7 +68,7 @@ proc checkRequiredFiles { origin_dir} {
  "[file normalize "$origin_dir/../memory_files/instructionRom.coe"]"\
  "[file normalize "$origin_dir/../memory_files/microCodeRom.coe"]"\
  "[file normalize "$origin_dir/_src/io_constraints.xdc"]"\
- "[file normalize "$origin_dir/_sim/testbench.sv"]"\
+ "[file normalize "$origin_dir/_sim/testbench.vhdl"]"\
   ]
   foreach ifile $files {
     if { ![file isfile $ifile] } {
@@ -829,15 +829,15 @@ if {[string equal [get_filesets -quiet sim_1] ""]} {
 # Set 'sim_1' fileset object
 set obj [get_filesets sim_1]
 set files [list \
- [file normalize "${origin_dir}/_sim/testbench.sv"] \
+ [file normalize "${origin_dir}/_sim/testbench.vhd"] \
 ]
 add_files -norecurse -fileset $obj $files
 
 # Set 'sim_1' fileset file properties for remote files
-set file "$origin_dir/_sim/testbench.sv"
+set file "$origin_dir/_sim/testbench.vhd"
 set file [file normalize $file]
 set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
-set_property -name "file_type" -value "SystemVerilog" -objects $file_obj
+set_property -name "file_type" -value "VHDL 2008" -objects $file_obj
 set_property -name "is_enabled" -value "1" -objects $file_obj
 set_property -name "is_global_include" -value "0" -objects $file_obj
 set_property -name "library" -value "xil_defaultlib" -objects $file_obj
