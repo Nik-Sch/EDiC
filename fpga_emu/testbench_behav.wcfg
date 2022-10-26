@@ -12,9 +12,9 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="16.666666 us"></ZoomStartTime>
-      <ZoomEndTime time="116.666667 us"></ZoomEndTime>
-      <Cursor1Time time="74.855491 us"></Cursor1Time>
+      <ZoomStartTime time="0.000000000 ms"></ZoomStartTime>
+      <ZoomEndTime time="11.100000001 ms"></ZoomEndTime>
+      <Cursor1Time time="11.100000000 ms"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="309"></NameColumnWidth>
@@ -689,6 +689,10 @@
       <obj_property name="ElementShortName">S[1:0]</obj_property>
       <obj_property name="ObjectShortName">S[1:0]</obj_property>
    </wvobject>
+   <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U54/port14">
+      <obj_property name="ElementShortName">port14</obj_property>
+      <obj_property name="ObjectShortName">port14</obj_property>
+   </wvobject>
    <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U54/enpN">
       <obj_property name="ElementShortName">enpN</obj_property>
       <obj_property name="ObjectShortName">enpN</obj_property>
@@ -704,9 +708,5 @@
    <wvobject type="array" fp_name="/testbench/inst_generated/inst_U54/s_data">
       <obj_property name="ElementShortName">s_data[7:0]</obj_property>
       <obj_property name="ObjectShortName">s_data[7:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/testbench/inst_generated/inst_U54/asyncResetN">
-      <obj_property name="ElementShortName">asyncResetN</obj_property>
-      <obj_property name="ObjectShortName">asyncResetN</obj_property>
    </wvobject>
 </wave_config>

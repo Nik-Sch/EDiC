@@ -43,6 +43,8 @@ entity board_top is
 end entity;
 
 architecture rtl of board_top is
+  -- 100MHz / 2Mbaud
+  constant c_CLK_DIVIDE : integer := integer(100_000_000 / 2_000_000);
 
   signal s_expansionBusIn     : std_ulogic_vector(7 downto 0);
   signal s_expansionBusOut    : std_ulogic_vector(7 downto 0);
@@ -68,6 +70,12 @@ architecture rtl of board_top is
 
   signal io_bus_reg_out : std_ulogic_vector(7 downto 0);
   signal io_bus_reg_in  : std_ulogic_vector(7 downto 0);
+
+
+  -- wires for uart debugging
+  signal s_instrData : std_ulogic_vector(23 downto 0);
+  signal s_instrAddr : std_ulogic_vector(14 downto 0);
+  signal s_instrWrEn : std_ulogic;
 begin
 
   s_resetn <= i_btnReset;
@@ -150,31 +158,17 @@ begin
       o_anodes   => o_anodes,
       i_switches => i_switches(7 downto 0),
       o_r0       => o_r0,
-      o_r1       => o_r1
+      o_r1       => o_r1,
+
+      i_instrData => s_instrData,
+      i_instrAddr => s_instrAddr,
+      i_instrWrEn => s_instrWrEn
       );
 
-  -- expansion_uart uart(
-  -- .i_clk100(i_clk100),
-  -- .i_clkDesign(r_clkRamDiv[1]),
-  -- .i_resetn(s_resetn),
-
-  -- .i_bus(s_expansionBusIn),
-  -- .o_bus(s_expansionBusOut),
-  -- .o_busNOE(s_expansionBusNOE),
-
-  -- .i_ioNCE(s_expansionIoNCE),
-  -- .i_ioAddress(s_expansionIoAddress),
-  -- .i_ioNOE(s_expansionIoNOE),
-  -- .i_ioNWE(s_expansionIoNWE),
-
-  -- .i_serialIn(i_serialIn),
-  -- .o_serialOut(o_serialOut)
-  --);
 
   io_bus <= io_bus_reg_out when (s_expansionIoNCE or s_expansionIoNOE) else 8x"ZZ";
-  -- assign s_expansionBusOut = (s_expansionIoNCE | s_expansionIoNOE) ? 8'hff : io_bus_reg_in;
 
-  -- wire external expansion :
+  -- wire up external expansion:
   p_reg : process(i_clk100)
   begin
     if rising_edge(i_clk100) then
@@ -189,5 +183,21 @@ begin
       o_clk             <= not r_oszClkDiv(1);
     end if;
   end process;
+
+  -- debug uart communication
+  inst_uart_controller : entity work.uart_controller
+    generic map (
+      g_CLK_DIVIDE => c_CLK_DIVIDE
+      )
+    port map (
+      i_clk       => i_clk100,
+      i_resetn    => s_resetn,
+      o_serialOut => o_serialOut,
+      i_serialIn  => i_serialIn,
+
+      o_instrData => s_instrData,
+      o_instrAddr => s_instrAddr,
+      o_instrWrEn => s_instrWrEn
+      );
 
 end architecture;

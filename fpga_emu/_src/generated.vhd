@@ -39,7 +39,12 @@ entity generated is
   o_anodes: out std_ulogic_vector(7 downto 0);
   i_switches: in std_ulogic_vector(7 downto 0);
   o_r0: out std_ulogic_vector(7 downto 0);
-  o_r1: out std_ulogic_vector(7 downto 0)
+  o_r1: out std_ulogic_vector(7 downto 0);
+
+  -- uart debug
+  i_instrData : in std_ulogic_vector(23 downto 0);
+  i_instrAddr : in std_ulogic_vector(14 downto 0);
+  i_instrWrEn : in std_ulogic
 
   );
 end generated;
@@ -1406,9 +1411,15 @@ INSTR_UNREG6_SRC <= s_doutinstructionRom(22);
 INSTR_UNREG7_SRC <= s_doutinstructionRom(23);
     inst_instructionRom: entity work.instructionRom
       port map (
-        clka  => i_asyncEEPROMSpecialClock,
-        addra(0) => PC0, addra(1) => PC1, addra(2) => PC2, addra(3) => PC3, addra(4) => PC4, addra(5) => PC5, addra(6) => PC6, addra(7) => PC7, addra(8) => PC8, addra(9) => PC9, addra(10) => PC10, addra(11) => PC11, addra(12) => PC12, addra(13) => PC13, addra(14) => PC14,
-        douta => s_doutinstructionRom
+        
+  clka   => i_clk100,
+  addra  => i_instrAddr,
+  dina   => i_instrData,
+  wea(0) => i_instrWrEn,
+  
+        clkb  => i_asyncEEPROMSpecialClock,
+        addrb(0) => PC0, addrb(1) => PC1, addrb(2) => PC2, addrb(3) => PC3, addrb(4) => PC4, addrb(5) => PC5, addrb(6) => PC6, addrb(7) => PC7, addrb(8) => PC8, addrb(9) => PC9, addrb(10) => PC10, addrb(11) => PC11, addrb(12) => PC12, addrb(13) => PC13, addrb(14) => PC14,
+        doutb => s_doutinstructionRom
         );
 
     CTRLALUYWE_SRC <= s_doutmicroCodeRom(0);
@@ -1437,6 +1448,7 @@ unconnected_U87_18 <= s_doutmicroCodeRom(22);
 unconnected_U87_19 <= s_doutmicroCodeRom(23);
     inst_microCodeRom: entity work.microCodeRom
       port map (
+        
         clka  => i_asyncEEPROMSpecialClock,
         addra(0) => MC_A0, addra(1) => MC_A1, addra(2) => MC_A2, addra(3) => CTRLALUSUB_SRC, addra(4) => CTRLALUOP0_SRC, addra(5) => CTRLALUOP1_SRC, addra(6) => MC_A6, addra(7) => MC_A7, addra(8) => MC_A8, addra(9) => MC_A9, addra(10) => MC_A10, addra(11) => MC_A11, addra(12) => MC_A12, addra(13) => MC_A13, addra(14) => MC_A14,
         douta => s_doutmicroCodeRom

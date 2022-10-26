@@ -133,6 +133,25 @@ const addEeprom = (unit: IUnit, eepromId: string, dataOffset: number) => {
   });
 }
 
+const eepromToString = (eeprom: IEEPROM) => {
+  const port = (eeprom.id === 'instructionRom') ? 'b' : 'a';
+  const portA = (eeprom.id === 'instructionRom') ? `
+  clka   => i_clk100,
+  addra  => i_instrAddr,
+  dina   => i_instrData,
+  wea(0) => i_instrWrEn,
+  ` : '';
+  return `
+    ${eeprom.data.map((d, i) => `${d} <= s_dout${eeprom.id}(${i});`).join('\n')}
+    inst_${eeprom.id}: entity work.${eeprom.id}
+      port map (
+        ${portA}
+        clk${port}  => i_asyncEEPROMSpecialClock,
+        ${eeprom.address.map((a, i) => `addr${port}(${i}) => ${a}`).join(', ')},
+        dout${port} => s_dout${eeprom.id}
+        );`
+}
+
 for (const unit of unitsForVhdl) {
   if (unit.type.match(/74\w+245/)) { // tristate transceiver
     const noeAPortnumber = Math.max(...unit.ports.map(p => p.portNumber)) + 1;
@@ -709,7 +728,12 @@ $ports
   o_anodes: out std_ulogic_vector(7 downto 0);
   i_switches: in std_ulogic_vector(7 downto 0);
   o_r0: out std_ulogic_vector(7 downto 0);
-  o_r1: out std_ulogic_vector(7 downto 0)
+  o_r1: out std_ulogic_vector(7 downto 0);
+
+  -- uart debug
+  i_instrData : in std_ulogic_vector(23 downto 0);
+  i_instrAddr : in std_ulogic_vector(14 downto 0);
+  i_instrWrEn : in std_ulogic
 `)
   .replace(/\$assigns/g, assignments.map(a => {
     return `${a.target} <= ${a.origin};`
@@ -736,16 +760,7 @@ $ports
       o_noe  => ${net.noe}
       );`
   }).join('\n'))
-  .replace(/\$eeproms/g, eeproms.map(eeprom => {
-    return `
-    ${eeprom.data.map((d, i) => `${d} <= s_dout${eeprom.id}(${i});`).join('\n')}
-    inst_${eeprom.id}: entity work.${eeprom.id}
-      port map (
-        clka  => i_asyncEEPROMSpecialClock,
-        ${eeprom.address.map((a, i) => `addra(${i}) => ${a}`).join(', ')},
-        douta => s_dout${eeprom.id}
-        );`
-  }).join('\n'))
+  .replace(/\$eeproms/g, eeproms.map(eepromToString).join('\n'))
   .replace(/\$displayDriver/g, getDisplayDriver());
 ;
 
