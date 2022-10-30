@@ -43,6 +43,13 @@ architecture rtl of uart_controller is
   signal r_instructionCountMax : unsigned(15 downto 0);
   signal r_instructionCount    : unsigned(15 downto 0);
 begin
+  inst_ila: entity work.ila_0
+  port map (
+    clk => i_clk,
+    probe0(0) => o_instrWrEn,
+    probe1 => o_instrData,
+    probe2 => o_instrAddr
+  );
 
   p_reg : process(i_clk, i_resetn)
   begin

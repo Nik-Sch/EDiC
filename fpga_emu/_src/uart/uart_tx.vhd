@@ -66,6 +66,7 @@ begin
         when s_UART_TX_STOP =>
           if r_clkCount = g_CLK_DIVIDE then
             r_stopCount <= r_stopCount + 1;
+            r_clkCount <= 0;
             if r_stopCount = c_STOP_BIT_COUNT - 1 then  -- 2 stop bit
               r_state <= s_UART_TX_IDLE;
             end if;

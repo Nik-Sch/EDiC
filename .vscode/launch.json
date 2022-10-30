@@ -25,6 +25,7 @@
       "type": "python",
       "request": "launch",
       "program": "${file}",
+      "args": ["${workspaceFolder}/memory_files/prng.coe"],
       "console": "integratedTerminal"
     },
     {
