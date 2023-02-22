@@ -7,6 +7,8 @@ SystemVerilog simulation of an 8 bit discrete TTL CPU I am building for fun. The
 - 256 byte program SRAM
 - 8bit input and output registers
 
+Full documentation is available as my [masters thesis](thesis/thesis.pdf).
+
 ## Update 08.03.2022 - EDiC is finished
 The EDiC is finished and plays snake ;)
 
